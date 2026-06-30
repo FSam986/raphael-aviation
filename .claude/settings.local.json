@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth *)",
+      "Bash(brew install *)",
+      "Bash(git push *)",
+      "Bash(gh pr create --title 'Replace boilerplate README with project-specific docs' --body ' *)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(kill 28861)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/login)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(pdftotext \"/Users/fathimasamreen/Downloads/CPL - Appendix 2.0A \\(CAA website July 2016\\) 2.pdf\" -)",
+      "Bash(mkdir -p /Users/fathimasamreen/AI-CoPilot/frontend/src/app/study/\\\\[subject\\\\] /Users/fathimasamreen/AI-CoPilot/frontend/src/app/study/\\\\[subject\\\\]/\\\\[section\\\\])",
+      "Bash(npm run *)",
+      "Bash(git branch *)",
+      "Bash(git add *)"
+    ]
+  }
+}

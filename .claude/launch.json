@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "raphael-aviation",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "/Users/fathimasamreen/AI-CoPilot/frontend",
+      "port": 3000
+    }
+  ]
+}
