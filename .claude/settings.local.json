@@ -15,7 +15,15 @@
       "Bash(mkdir -p /Users/fathimasamreen/AI-CoPilot/frontend/src/app/study/\\\\[subject\\\\] /Users/fathimasamreen/AI-CoPilot/frontend/src/app/study/\\\\[subject\\\\]/\\\\[section\\\\])",
       "Bash(npm run *)",
       "Bash(git branch *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(rm -rf /Users/fathimasamreen/AI-CoPilot/frontend/.git)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(git remote *)",
+      "Bash(git fetch *)",
+      "Bash(git rebase *)",
+      "Bash(git stash *)"
     ]
   }
 }
