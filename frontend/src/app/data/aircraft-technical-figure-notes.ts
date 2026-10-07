@@ -5,6 +5,30 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Piston Engines — Fuel / Combustion (A.1.4) ───
+  "ppfig-fig_06_01": [
+    "This shows normal combustion in the cylinder. The spark plug fires (1. Normal Ignition) and a flame front starts at the plug.",
+    "The flame then spreads smoothly and progressively across the combustion chamber (2. Flame Spreads), burning the fuel/air mixture in a controlled way, until the whole charge is burned (3. Combustion Complete).",
+    "The key point is that normal combustion is a smooth, progressive burn — not an explosion. This gives a steady, rising push on the piston, which is what delivers power efficiently and without damaging the engine.",
+  ],
+  "ppfig-fig_06_02": [
+    "The spark must be timed to fire BEFORE Top Dead Centre so that the mixture is burning strongly just as the piston passes TDC and starts down. This diagram shows why the amount of this 'advance' has to change with engine speed.",
+    "At HIGH rpm there is very little time for the flame to spread, so the spark must be advanced further (fired earlier) for combustion to be complete at the right moment. At LOW rpm there is more time, so less advance is needed.",
+    "On a simple magneto the timing is fixed, but many ignition systems automatically vary the advance with rpm to keep the combustion correctly phased across the speed range.",
+  ],
+  "ppfig-fig_06_03": [
+    "This shows detonation — an abnormal and damaging form of combustion. After the spark fires normally (1), the rising pressure and temperature can make the last of the unburnt charge ahead of the flame front (the 'end gas') suddenly self-ignite and explode all at once (2. End Gas Explodes) instead of burning smoothly.",
+    "That produces a violent pressure spike and shock wave (3. Detonation) which hammers the piston and overheats the engine — heard as 'knocking' or 'pinking'. It is caused by too high a charge temperature or pressure: high manifold pressure with low rpm, too lean a mixture, too high a cylinder-head temperature, or fuel of too low an octane rating.",
+    "The cure is to reduce power, enrich the mixture, open the cowl flaps, and never use a fuel below the specified grade. (Pre-ignition is different — it is the charge being lit by a hot spot BEFORE the spark fires.)",
+  ],
+
+  // ─── Piston Engines — Ignition (A.1.4) ───
+  "ppfig-fig_05_01": [
+    "This shows how a magneto makes the sparks that fire the engine — entirely on its own, with no battery needed. A permanent magnet is spun by the engine past a coil, inducing a current in the primary winding.",
+    "The contact breaker (a cam-operated switch) suddenly opens the primary circuit, and the rapid collapse of the magnetic field induces a very high voltage in the secondary winding. The condenser (capacitor) across the points prevents arcing and sharpens the collapse, giving a hotter spark. That high-voltage pulse goes to the distributor, a rotating arm that routes it to each spark plug in the correct firing order (1-2-3-4 here).",
+    "The ignition switch works by GROUNDING the primary circuit: in the 'off' position it shorts the magneto so no spark is produced. This is why a broken earth lead (P-lead) leaves the magneto 'live' — the engine then cannot be switched off and the propeller must be treated as dangerous. Mechanical linkage keeps the distributor timed to the engine.",
+  ],
+
   // ─── Piston Engines — Cooling (A.1.4) ───
   "ppfig-fig_04_01": [
     "This shows a liquid (water/glycol) cooling system, of the kind used on some engines and on older high-power types. A pump circulates the coolant through passages in the cylinder block, where it absorbs heat from the cylinders.",
