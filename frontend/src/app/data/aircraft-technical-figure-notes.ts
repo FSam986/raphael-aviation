@@ -5,6 +5,25 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Piston Engines — Fuel Injection (A.1.4) ───
+  "ppfig-fig_10_01": [
+    "This shows a continuous-flow fuel injection system. Instead of a carburettor, fuel from the engine-driven (M) and electric (E) pumps is delivered under pressure to a fuel/air control unit, which meters it according to throttle position and the pilot's mixture setting.",
+    "The metered fuel is then piped to a small spray nozzle at each cylinder's inlet port, so the fuel is injected right at the inlet valve rather than being mixed far upstream. A fuel-pressure gauge reads the metered pressure, which indicates the fuel flow/mixture.",
+    "Because the fuel is injected downstream there is no venturi to freeze, so injection largely avoids the carburettor-icing problem and also gives more even fuel distribution between cylinders. An alternate air source is provided in case the normal intake becomes blocked by impact ice.",
+  ],
+  "ppfig-fig_10_03": [
+    "This shows a modern electronically-controlled common-rail injection system, of the kind used on newer aircraft piston engines that run on jet fuel/diesel.",
+    "A high-pressure pump raises the fuel to very high pressure and feeds a common rail — a shared pressurised pipe — connected to an electronic injector at each cylinder. An Electronic Control Unit, reading inputs from engine sensors, decides exactly how much fuel each injector delivers and precisely when, and an electronic driver unit fires the injectors.",
+    "This gives very accurate fuel metering and timing for low fuel consumption and clean combustion, and it needs no separate mixture control — the ECU manages everything automatically, allowing single-lever power control.",
+  ],
+
+  // ─── Piston Engines — Induction Icing (A.1.4) ───
+  "ppfig-fig_09_02": [
+    "This shows where ice forms in a carburettor. The main problem is carburettor ice (yellow): as the fuel is sprayed in and evaporates it takes heat from the air (a refrigeration effect), and the air also cools as it speeds up and its pressure drops through the venturi and past the throttle.",
+    "The temperature can fall by 20–30°C, so ice can build up on the throttle butterfly and the venturi walls even when the outside air is well above freezing — gradually choking the airflow. Fuel icing (red, less common) is water carried in the fuel freezing out.",
+    "Carb ice is most likely at low power (throttle nearly closed, where the cooling and restriction are worst) in moist air roughly between 0 and +20°C. The first sign is a drop in RPM (fixed-pitch prop) or manifold pressure (constant-speed prop); the cure is full carburettor heat, which feeds warm air to melt the ice — RPM drops first, then rises again as the ice clears.",
+  ],
+
   // ─── Piston Engines — Carburettors (A.1.4) ───
   "ppfig-fig_08_03": [
     "This shows a simple float-chamber carburettor. Fuel from the pump enters the float chamber, where a float and needle valve keep the fuel at a constant level — exactly like the ball-cock in a water cistern.",
