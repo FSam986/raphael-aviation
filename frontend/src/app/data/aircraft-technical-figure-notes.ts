@@ -5,6 +5,28 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Piston Engines — Carburettors (A.1.4) ───
+  "ppfig-fig_08_03": [
+    "This shows a simple float-chamber carburettor. Fuel from the pump enters the float chamber, where a float and needle valve keep the fuel at a constant level — exactly like the ball-cock in a water cistern.",
+    "From there the fuel is drawn up the main jet into the venturi, where the fast-moving air (and its low pressure) pulls the fuel out as a spray and mixes it with the air going to the engine. The throttle valve downstream controls how much mixture reaches the engine.",
+    "The pressure-balance duct connects the top of the float chamber to the carburettor air intake, so the air pressure pressing on the fuel always matches the pressure at the jet. This keeps the fuel metering correct even if the air filter becomes partly blocked.",
+  ],
+  "ppfig-fig_08_04": [
+    "This shows the diffuser well with the engine stopped, so the fuel is at rest. With no air flowing, the fuel level in the well and in the float chamber are the same.",
+    "The main jet feeds fuel from the float chamber into the diffuser well, ready to be drawn up into the venturi once the engine runs.",
+    "Seeing this static (engine-stopped) condition first makes it easier to understand what the air bleed does when the engine is running: the well starts full, primed to supply fuel.",
+  ],
+  "ppfig-fig_08_05": [
+    "This shows the air bleed (or diffuser), which cures a basic fault of the simple carburettor. A plain main jet would make the mixture progressively RICHER as airflow increases, because the venturi suction grows faster than the jet can meter the fuel.",
+    "To prevent this, air is drawn in through an air-bleed jet and mixed with the fuel in the diffuser well before it reaches the venturi. This breaks the fuel into a frothy air/fuel emulsion.",
+    "The result is that the mixture strength stays roughly constant as power changes, and the fuel is better atomised for cleaner, more complete combustion.",
+  ],
+  "ppfig-fig_08_06": [
+    "At idle the throttle is almost closed, so there is barely any airflow through the venturi and the main jet delivers little or no fuel. A separate idle (slow-running) system is therefore needed.",
+    "An idle jet takes fuel from the float chamber and delivers it just downstream of the nearly-closed throttle valve, where the suction is high — drawing the fuel out to keep the engine running at idle. Air bleeds mix air with this idle fuel.",
+    "The idle cut-off, linked to the cockpit mixture control, shuts the fuel off completely to stop the engine. This is why a piston engine is shut down with the mixture control (idle cut-off): it leaves no fuel in the cylinders and the engine stops cleanly, and the magnetos can then be checked dead.",
+  ],
+
   // ─── Piston Engines — Mixture (A.1.4) ───
   "ppfig-fig_07_01": [
     "This chart shows how the air/fuel ratio is chosen for different engine conditions. The chemically-correct (stoichiometric) ratio is about 15:1, where in theory all the fuel and all the oxygen are used up.",

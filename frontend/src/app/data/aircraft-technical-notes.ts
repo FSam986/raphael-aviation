@@ -229,8 +229,10 @@ const NOTES: Record<string, SectionNote> = {
         "Chemically correct (stoichiometric) air:fuel ratio ≈ 15:1 by mass. Rich < 15:1, weak/lean > 15:1.",
         "Maximum POWER at a slightly rich mixture (~12:1); maximum ECONOMY at a slightly weak mixture; peak EGT at the chemically-correct mixture.",
         "AVGAS grades: 100LL = blue, 100 = green (SG ≈ 0.72). Octane = anti-knock rating. Never use a lower grade than specified; a higher grade is acceptable.",
-        "Float carburettor meters fuel using the pressure drop at the venturi throat; a diffuser/compensating jet keeps the ratio constant as airflow changes; an accelerator pump enriches on rapid throttle opening.",
-        "Fuel injection meters fuel directly, avoiding carburettor icing and giving more even distribution.",
+        "Float carburettor: a float + needle valve hold a constant fuel level; the venturi's low pressure draws fuel up the main jet; a pressure-balance duct keeps metering correct if the air filter clogs.",
+        "Corrections fitted to the simple carburettor: an air bleed / diffuser emulsifies the fuel and stops the mixture going rich as airflow rises; a separate idle (slow-running) jet feeds fuel just downstream of the closed throttle; the idle cut-off (mixture control) stops the engine by cutting fuel.",
+        "Mixture/power enrichment: a needle-and-orifice mixture control (or a back-suction economizer worked by manifold pressure) enriches at high power; an accelerator pump squirts extra fuel on rapid throttle opening to prevent a lean 'flat spot' / weak cut.",
+        "Fuel injection meters fuel directly to each cylinder, avoiding carburettor icing and giving more even distribution.",
         "Applying carburettor heat gives warmer, less-dense air → the mixture becomes RICHER (and power drops slightly).",
       ]},
       { heading: "Carburettor & induction icing", figureTopics: ["Piston Engines - Icing"], points: [
