@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
+import { getUserFromRequest, rateLimited, clientIp } from "@/lib/apiAuth";
 
 export async function POST(req: Request) {
+  const userId = await getUserFromRequest(req);
+  if (!userId) return NextResponse.json({ error: "Sign in first." }, { status: 401 });
+  if (rateLimited(userId === "dev" ? clientIp(req) : userId, 20, 60_000)) {
+    return NextResponse.json({ error: "Too many requests." }, { status: 429 });
+  }
   const { message } = await req.json();
 
   try {
@@ -21,7 +27,7 @@ export async function POST(req: Request) {
     return NextResponse.json({
       reply: data.response,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       reply: "Unable to connect to Ollama.",
     });

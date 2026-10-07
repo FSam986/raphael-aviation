@@ -18,6 +18,7 @@ export interface SyllabusSubject {
   title: string;
   examQuestions: number; // typical SACAA exam length
   passPercent: number;   // SACAA pass mark
+  examMinutes?: number;  // SACAA exam duration; set per subject from the appendix
   sections: SyllabusSection[];
 }
 
@@ -212,6 +213,20 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
         ],
       },
       {
+        id: "A.3.8",
+        title: "Corporate Operations (CAR Part 93)",
+        items: [
+          { id: "A.3.8.a", topic: "Applicability, corporate aviation certificate, operating requirements (CAR 93)" },
+        ],
+      },
+      {
+        id: "A.3.10",
+        title: "Air Transport — large aeroplanes (CAR Part 121)",
+        items: [
+          { id: "A.3.10.a", topic: "Applicability, AOC and operational scope for large-aeroplane air transport (CAR 121)" },
+        ],
+      },
+      {
         id: "A.3.12",
         title: "Air Transport Operations — less than 20 pax (CAR Part 135)",
         items: [
@@ -219,10 +234,24 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
         ],
       },
       {
-        id: "A.3.15",
-        title: "Airspace & ATS (SA-CATS 172)",
+        id: "A.3.13",
+        title: "Aerodromes & Heliports (CAR Part 139)",
         items: [
-          { id: "A.3.15.a", topic: "Classification of airspace and level of service provision" },
+          { id: "A.3.13.a", topic: "Licensing/approval of aerodromes, operator responsibilities, safety management (CAR 139)" },
+        ],
+      },
+      {
+        id: "A.3.14",
+        title: "Airspace & Air Traffic Services (SA-CATS 172)",
+        items: [
+          { id: "A.3.14.a", topic: "Classification of airspace (A–G) and level of ATS provision" },
+        ],
+      },
+      {
+        id: "A.3.15",
+        title: "Enforcement (CAR Part 185)",
+        items: [
+          { id: "A.3.15.a", topic: "Contraventions, penalties, powers of authorised officers, administrative fines (CAR 185)" },
         ],
       },
       {
@@ -231,6 +260,13 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
         items: [
           { id: "A.3.16.a", topic: "Airspace classification (ENR 1.4.1), ATC procedures, radar, altimeter setting" },
           { id: "A.3.16.b", topic: "Aerodrome information and chart interpretation" },
+        ],
+      },
+      {
+        id: "A.3.17",
+        title: "Jeppesen Enroute Charts",
+        items: [
+          { id: "A.3.17.a", topic: "High/low altitude enroute chart symbols, airways, reporting points, MEA/MOCA" },
         ],
       },
       {
@@ -512,20 +548,21 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Meteorology",
     examQuestions: 40,
     passPercent: 75,
+    examMinutes: 120, // ponytail: confirm against SACAA appendix; update if different
     sections: [
       {
         id: "A.8.1",
-        title: "The Atmosphere",
+        title: "Climatology and Meteorology",
         items: [
-          { id: "A.8.1.a", topic: "Properties, composition and structure of the atmosphere" },
-          { id: "A.8.1.b", topic: "ICAO International Standard Atmosphere (ISA) — values, ISA deviation" },
+          { id: "A.8.1.a", topic: "Difference between climatology and meteorology, definitions" },
         ],
       },
       {
         id: "A.8.2",
-        title: "Climatology and Meteorology",
+        title: "The Atmosphere",
         items: [
-          { id: "A.8.2.a", topic: "Difference between climatology and meteorology, definitions" },
+          { id: "A.8.2.a", topic: "Properties, composition and structure of the atmosphere" },
+          { id: "A.8.2.b", topic: "ICAO International Standard Atmosphere (ISA) — values, ISA deviation" },
         ],
       },
       {
@@ -833,14 +870,28 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
         id: "A.10.5",
         title: "Basic Radar Principles",
         items: [
-          { id: "A.10.5.a", topic: "Pulse techniques, ground radar, SSR — modes and codes, mode S" },
+          { id: "A.10.5.a", topic: "Pulse techniques and associated terms" },
         ],
       },
       {
         id: "A.10.6",
+        title: "Ground Radar",
+        items: [
+          { id: "A.10.6.a", topic: "Principles, presentation and interpretation, coverage, range, errors/accuracy, application for navigation" },
+        ],
+      },
+      {
+        id: "C.10.7",
+        title: "Secondary Surveillance Radar (SSR)",
+        items: [
+          { id: "C.10.7.a", topic: "Principles, presentation and interpretation, modes and codes including Mode S" },
+        ],
+      },
+      {
+        id: "A.10.8",
         title: "Airborne Weather Radar",
         items: [
-          { id: "A.10.6.a", topic: "Principles, frequency band, presentation, errors and accuracy" },
+          { id: "A.10.8.a", topic: "Principles, presentation and interpretation, coverage, range" },
         ],
       },
       {
@@ -875,140 +926,13 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────────────────────
-  // 9. MASS & BALANCE (separate subject in some exam sittings)
-  // ─────────────────────────────────────────────────────────────
-  {
-    id: "mass-and-balance",
-    code: "M&B",
-    title: "Mass & Balance",
-    examQuestions: 30,
-    passPercent: 75,
-    sections: [
-      {
-        id: "MB.1",
-        title: "Terminology & Definitions",
-        items: [
-          { id: "MB.1.a", topic: "CG, datum, arm, moment, conditions of equilibrium" },
-          { id: "MB.1.b", topic: "MAC, LEMAC, MZFM, MTOM, MLM, EOM, maximum ramp mass" },
-          { id: "MB.1.c", topic: "Fuel terms — taxi, take-off, trip, reserve (contingency, alternate, final reserve, extra)" },
-          { id: "MB.1.d", topic: "Cargo pallets, maximum floor load, payload" },
-        ],
-      },
-      {
-        id: "MB.2",
-        title: "Mass Limitations",
-        items: [
-          { id: "MB.2.a", topic: "Relationship between mass and structural stress" },
-          { id: "MB.2.b", topic: "CG limits — forward and aft, effect on stability and controllability" },
-          { id: "MB.2.c", topic: "CG position and aircraft performance" },
-        ],
-      },
-      {
-        id: "MB.3",
-        title: "CG Calculations",
-        items: [
-          { id: "MB.3.a", topic: "Principle of CG calculation, calculating CG for SEP (CAP 696)" },
-          { id: "MB.3.b", topic: "Calculating CG for MEP (CAP 696), % MAC" },
-          { id: "MB.3.c", topic: "Loading not exceeding CG limits, max load at station" },
-          { id: "MB.3.d", topic: "Movement of CG in flight — weight shift, weight loss (fuel burn)" },
-        ],
-      },
-    ],
-  },
+  // Note: Mass & Balance is NOT a separate CPL paper — it is examined within
+  // Flight Planning & Performance (aspect A.4.12). Its topics live under that
+  // subject; there is deliberately no standalone "mass-and-balance" subject.
+  // Note: Principles of Flight is a PPL exam subject, NOT a CPL exam — the CPL
+  // has no POF paper, so there is deliberately no CPL "principles-of-flight"
+  // subject here (PPL keeps its own ppl-principles-of-flight).
 
-  // ─────────────────────────────────────────────────────────────
-  // 10. PRINCIPLES OF FLIGHT (subset of ATG aerodynamics + POF subject)
-  // ─────────────────────────────────────────────────────────────
-  {
-    id: "principles-of-flight",
-    code: "POF",
-    title: "Principles of Flight",
-    examQuestions: 40,
-    passPercent: 75,
-    sections: [
-      {
-        id: "POF.1",
-        title: "Laws & Definitions",
-        items: [
-          { id: "POF.1.a", topic: "Newton's Laws of Motion, mass, weight, inertia, velocity" },
-          { id: "POF.1.b", topic: "Static and dynamic pressure, momentum, acceleration, equilibrium" },
-          { id: "POF.1.c", topic: "Airspeeds — IAS, CAS, EAS, TAS, Mach number" },
-        ],
-      },
-      {
-        id: "POF.2",
-        title: "Lift",
-        items: [
-          { id: "POF.2.a", topic: "Equation of continuity, Bernoulli's theorem, venturi effect" },
-          { id: "POF.2.b", topic: "Aerofoil definitions — camber, chord, AOA, CP, pressure distribution" },
-          { id: "POF.2.c", topic: "Lift formula, lift curve, L/D ratio, aerofoil shape, aspect ratio" },
-        ],
-      },
-      {
-        id: "POF.3",
-        title: "Drag",
-        items: [
-          { id: "POF.3.a", topic: "Profile drag — form drag, skin friction, methods of reducing" },
-          { id: "POF.3.b", topic: "Induced drag — vortices, variation with speed/AOA, winglets" },
-          { id: "POF.3.c", topic: "Total drag curve, factors affecting, thrust/THP" },
-        ],
-      },
-      {
-        id: "POF.4",
-        title: "Flying Controls",
-        items: [
-          { id: "POF.4.a", topic: "Elevator, ailerons, rudder — primary and secondary effects" },
-          { id: "POF.4.b", topic: "Control balancing — aerodynamic balance, tabs, mass balancing" },
-          { id: "POF.4.c", topic: "Trimming systems — fixed tabs, balance, anti-balance, servo, spring tabs" },
-          { id: "POF.4.d", topic: "Adverse aileron yaw — differential and frise ailerons" },
-        ],
-      },
-      {
-        id: "POF.5",
-        title: "High Lift Devices",
-        items: [
-          { id: "POF.5.a", topic: "Trailing edge flaps — types, stalling angle, stalling speed, use in T/O and landing" },
-          { id: "POF.5.b", topic: "Leading edge flaps, slats and slots" },
-        ],
-      },
-      {
-        id: "POF.6",
-        title: "Stalling",
-        items: [
-          { id: "POF.6.a", topic: "Boundary layer — laminar/turbulent flow, transition/separation points" },
-          { id: "POF.6.b", topic: "Stall symptoms — power off/on, with/without flaps, warning indications" },
-          { id: "POF.6.c", topic: "Stall recovery, stall speed and influencing factors (CG, power, wing loading)" },
-          { id: "POF.6.d", topic: "Wing tip stalling, washout, boundary layer fences, vortex generators" },
-        ],
-      },
-      {
-        id: "POF.7",
-        title: "Spinning",
-        items: [
-          { id: "POF.7.a", topic: "Incipient spin — autorotation, development, recognition, recovery" },
-          { id: "POF.7.b", topic: "Fully developed spin — forces, development, recognition, recovery" },
-        ],
-      },
-      {
-        id: "POF.8",
-        title: "Forces in Flight",
-        items: [
-          { id: "POF.8.a", topic: "Straight and level — power available vs required, range and endurance" },
-          { id: "POF.8.b", topic: "Climbing — steady climb, max rate, best angle, factors affecting" },
-          { id: "POF.8.c", topic: "Descending — glide for range and endurance, effect of power" },
-          { id: "POF.8.d", topic: "Turning — centripetal/centrifugal, load factor, rate/radius, steep turns" },
-        ],
-      },
-      {
-        id: "POF.9",
-        title: "Stability",
-        items: [
-          { id: "POF.9.a", topic: "Axes and planes of rotation, static stability, dynamic stability" },
-        ],
-      },
-    ],
-  },
 ];
 
 // Helper: get a subject by ID

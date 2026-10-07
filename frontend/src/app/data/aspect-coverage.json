@@ -1,0 +1,1503 @@
+{
+ "A.4.13": {
+  "total": 45,
+  "aspects": {
+   "A.4.13.a": 25,
+   "A.4.13.b": 13,
+   "A.4.13.c": 5
+  },
+  "unmatched": 2,
+  "exact": 0,
+  "estimated": 43,
+  "zero": [],
+  "descriptions": {
+   "A.4.13.a": "PET (point of equal time), CP (critical point)",
+   "A.4.13.b": "PNR/PSR (point of no/safe return)",
+   "A.4.13.c": "Fuel \u2014 specific weight, gravity, consumption, ANM/GNM per fuel ratio"
+  }
+ },
+ "A.8.9": {
+  "total": 63,
+  "aspects": {
+   "A.8.9.a": 22,
+   "A.8.9.b": 33,
+   "A.8.9.c": 7
+  },
+  "unmatched": 1,
+  "exact": 0,
+  "estimated": 62,
+  "zero": [],
+  "descriptions": {
+   "A.8.9.a": "Adiabatic processes \u2014 DALR, SALR, ELR",
+   "A.8.9.b": "Stability \u2014 absolute stability/instability, conditional instability, neutral stability",
+   "A.8.9.c": "Inversions and isothermal layers"
+  }
+ },
+ "A.8.6": {
+  "total": 64,
+  "aspects": {
+   "A.8.6.a": 6,
+   "A.8.6.b": 45,
+   "A.8.6.c": 12
+  },
+  "unmatched": 1,
+  "exact": 6,
+  "estimated": 57,
+  "zero": [],
+  "descriptions": {
+   "A.8.6.a": "Gas laws \u2014 Boyle's law, Charles's law, ideal gas equation",
+   "A.8.6.b": "Factors affecting density \u2014 temperature, pressure, altitude, latitude, humidity",
+   "A.8.6.c": "Density altitude \u2014 definition, calculation, effect on performance, hot/high/humid dangers"
+  }
+ },
+ "A.1.8": {
+  "total": 284,
+  "aspects": {
+   "A.1.8.a": 28,
+   "A.1.8.b": 27,
+   "A.1.8.c": 65,
+   "A.1.8.d": 25,
+   "A.1.8.e": 2,
+   "A.1.8.f": 17,
+   "A.1.8.g": 13,
+   "A.1.8.h": 26,
+   "A.1.8.i": 56,
+   "A.1.8.j": 0,
+   "A.1.8.k": 10
+  },
+  "unmatched": 15,
+  "exact": 0,
+  "estimated": 269,
+  "zero": [
+   "A.1.8.j"
+  ],
+  "descriptions": {
+   "A.1.8.a": "Laws and definitions \u2014 Newton's laws, mass, pressure, momentum, energy",
+   "A.1.8.b": "Airspeeds \u2014 IAS, CAS, EAS, TAS, Mach number",
+   "A.1.8.c": "Lift \u2014 Bernoulli, aerofoil definitions, lift formula, lift/drag ratio, aerofoil shape",
+   "A.1.8.d": "Drag \u2014 profile drag, induced drag, drag formula, total drag curve",
+   "A.1.8.e": "Thrust \u2014 thrust curve, THP",
+   "A.1.8.f": "Ground effect \u2014 definition, effect during take-off and landing",
+   "A.1.8.g": "Flying controls \u2014 elevator, ailerons, rudder, tabs, trimming, adverse yaw",
+   "A.1.8.h": "Lift augmentation \u2014 trailing/leading edge flaps, slats, slots",
+   "A.1.8.i": "Stalling \u2014 boundary layer, AOA influence, symptoms, recovery, stall speed factors",
+   "A.1.8.j": "Spinning \u2014 incipient spin, full developed spin, recovery",
+   "A.1.8.k": "Forces in flight \u2014 S&L, climbing, descending, turning, stability"
+  }
+ },
+ "A.8.3": {
+  "total": 119,
+  "aspects": {
+   "A.8.3.a": 6,
+   "A.8.3.b": 14,
+   "A.8.3.c": 50,
+   "A.8.3.d": 14,
+   "A.8.3.e": 18,
+   "A.8.3.f": 7,
+   "A.8.3.g": 5
+  },
+  "unmatched": 5,
+  "exact": 5,
+  "estimated": 109,
+  "zero": [],
+  "descriptions": {
+   "A.8.3.a": "Definition, measurement units (Pa, hPa, mb, inHg, mmHg), conversion",
+   "A.8.3.b": "Mercury and aneroid barometers, pressure altitude",
+   "A.8.3.c": "QNH, QFE, QFF, QNE/1013.25 hPa",
+   "A.8.3.d": "Pressure variation with height, diurnal variation, isobars, pressure gradient",
+   "A.8.3.e": "Low pressure systems \u2014 thermal lows, troughs, cut-off lows, cyclonic weather",
+   "A.8.3.f": "High pressure systems \u2014 thermal highs, ridges, anticyclonic weather, cols",
+   "A.8.3.g": "Synoptic charts"
+  }
+ },
+ "A.7.9": {
+  "total": 72,
+  "aspects": {
+   "A.7.9.a": 53,
+   "A.7.9.b": 3
+  },
+  "unmatched": 16,
+  "exact": 0,
+  "estimated": 56,
+  "zero": [],
+  "descriptions": {
+   "A.7.9.a": "Pressure/temperature sensors and indicators, RPM indicators, fuel gauges",
+   "A.7.9.b": "Torque meter, vibration monitors, chip detection"
+  }
+ },
+ "A.4.8": {
+  "total": 22,
+  "aspects": {
+   "A.4.8.a": 7,
+   "A.4.8.b": 7
+  },
+  "unmatched": 8,
+  "exact": 0,
+  "estimated": 14,
+  "zero": [],
+  "descriptions": {
+   "A.4.8.a": "Temperature, air density, aeroplane mass, configuration, CG, runway surface/slope",
+   "A.4.8.b": "Flap settings, power settings, wind, altitude effects on range and endurance"
+  }
+ },
+ "A.4.9": {
+  "total": 98,
+  "aspects": {
+   "A.4.9.a": 18,
+   "A.4.9.b": 53,
+   "A.4.9.c": 8,
+   "A.4.9.d": 12,
+   "A.4.9.e": 7
+  },
+  "unmatched": 0,
+  "exact": 0,
+  "estimated": 98,
+  "zero": [],
+  "descriptions": {
+   "A.4.9.a": "Variables on SEP performance \u2014 wind, temperature, altitude effects",
+   "A.4.9.b": "Take-off \u2014 wind components, take-off distance, maximum mass, take-off speed",
+   "A.4.9.c": "Climb \u2014 max rate of climb speed, time/distance/fuel to climb",
+   "A.4.9.d": "Cruise \u2014 power settings, TAS, fuel consumption, range, endurance",
+   "A.4.9.e": "Landing \u2014 wind components, landing distance and ground roll"
+  }
+ },
+ "A.8.13": {
+  "total": 85,
+  "aspects": {
+   "A.8.13.a": 24,
+   "A.8.13.b": 46,
+   "A.8.13.c": 2,
+   "A.8.13.d": 13
+  },
+  "unmatched": 0,
+  "exact": 0,
+  "estimated": 85,
+  "zero": [],
+  "descriptions": {
+   "A.8.13.a": "Airframe icing \u2014 conditions, kinetic heating formula",
+   "A.8.13.b": "Types \u2014 clear/glaze ice, rime ice, mixed ice, freezing rain, hoar frost",
+   "A.8.13.c": "Engine icing \u2014 piston (impact, fuel, carburettor) and gas turbine",
+   "A.8.13.d": "Severity levels, ice protection \u2014 anti-icing and de-icing"
+  }
+ },
+ "A.8.2": {
+  "total": 77,
+  "aspects": {
+   "A.8.2.a": 2,
+   "A.8.2.b": 62
+  },
+  "unmatched": 13,
+  "exact": 0,
+  "estimated": 64,
+  "zero": [],
+  "descriptions": {
+   "A.8.2.a": "Properties, composition and structure of the atmosphere",
+   "A.8.2.b": "ICAO International Standard Atmosphere (ISA) \u2014 values, ISA deviation"
+  }
+ },
+ "A.8.4": {
+  "total": 57,
+  "aspects": {
+   "A.8.4.a": 14,
+   "A.8.4.b": 19,
+   "A.8.4.c": 15
+  },
+  "unmatched": 9,
+  "exact": 0,
+  "estimated": 48,
+  "zero": [],
+  "descriptions": {
+   "A.8.4.a": "Measurement \u2014 Celsius, Fahrenheit, Kelvin, conversion",
+   "A.8.4.b": "Heating \u2014 insolation, radiation, conduction, convection, advection",
+   "A.8.4.c": "Diurnal variation, specific heat, land/sea heating, greenhouse effect"
+  }
+ },
+ "A.7.8": {
+  "total": 42,
+  "aspects": {
+   "A.7.8.a": 7,
+   "A.7.8.b": 27
+  },
+  "unmatched": 8,
+  "exact": 0,
+  "estimated": 34,
+  "zero": [],
+  "descriptions": {
+   "A.7.8.a": "Basic stall warning devices \u2014 pneumatic, electric",
+   "A.7.8.b": "Advanced stall warning and stall protection systems"
+  }
+ },
+ "A.10.8": {
+  "total": 34,
+  "aspects": {
+   "A.10.8.a": 34
+  },
+  "unmatched": 0,
+  "exact": 34,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.10.8.a": "Principles, presentation and interpretation, coverage, range"
+  }
+ },
+ "A.8.20": {
+  "total": 69,
+  "aspects": {
+   "A.8.20.a": 14,
+   "A.8.20.b": 35
+  },
+  "unmatched": 20,
+  "exact": 0,
+  "estimated": 49,
+  "zero": [],
+  "descriptions": {
+   "A.8.20.a": "SA climatic regions, summer/winter patterns",
+   "A.8.20.b": "SA phenomena \u2014 frontal systems, tropical cyclones, coastal lows, Berg wind, Guti, Cape Doctor, cut-off lows"
+  }
+ },
+ "A.9.1": {
+  "total": 29,
+  "aspects": {
+   "A.9.1.a": 16,
+   "A.9.1.b": 4,
+   "A.9.1.c": 1
+  },
+  "unmatched": 8,
+  "exact": 0,
+  "estimated": 21,
+  "zero": [],
+  "descriptions": {
+   "A.9.1.a": "Form of earth \u2014 polar axis, rotation, great circles, rhumb lines",
+   "A.9.1.b": "Meridians of longitude, prime meridian, difference of longitude, convergency",
+   "A.9.1.c": "Latitude, equator, difference of latitude, co-ordinates"
+  }
+ },
+ "A.8.15": {
+  "total": 89,
+  "aspects": {
+   "A.8.15.a": 39,
+   "A.8.15.b": 5,
+   "A.8.15.c": 43
+  },
+  "unmatched": 2,
+  "exact": 5,
+  "estimated": 82,
+  "zero": [],
+  "descriptions": {
+   "A.8.15.a": "Visibility \u2014 definition, types of restriction (mist, fog, haze, dust), slant visibility",
+   "A.8.15.b": "Runway visual range (RVR)",
+   "A.8.15.c": "Fog types \u2014 radiation, advection, frontal, orographic, steam fog"
+  }
+ },
+ "A.4.12": {
+  "total": 151,
+  "aspects": {
+   "A.4.12.a": 56,
+   "A.4.12.b": 43,
+   "A.4.12.c": 7,
+   "A.4.12.d": 19
+  },
+  "unmatched": 26,
+  "exact": 0,
+  "estimated": 125,
+  "zero": [],
+  "descriptions": {
+   "A.4.12.a": "Terminology \u2014 CG, datum, arm, moment, MAC, LEMAC, MZFM, MTOM, MLM, EOM",
+   "A.4.12.b": "CG limits, structural stress vs mass, stability vs CG position",
+   "A.4.12.c": "Calculations \u2014 CG for SEP and MEP, % MAC, weight shift, weight loss",
+   "A.4.12.d": "Fuel terms \u2014 taxi fuel, trip fuel, reserve fuel, extra fuel, payload"
+  }
+ },
+ "A.10.9": {
+  "total": 17,
+  "aspects": {
+   "A.10.9.a": 17
+  },
+  "unmatched": 0,
+  "exact": 17,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.10.9.a": "Principles, coverage, range, accuracy"
+  }
+ },
+ "A.7.7": {
+  "total": 53,
+  "aspects": {
+   "A.7.7.a": 9,
+   "A.7.7.b": 18,
+   "A.7.7.c": 26
+  },
+  "unmatched": 0,
+  "exact": 0,
+  "estimated": 53,
+  "zero": [],
+  "descriptions": {
+   "A.7.7.a": "Terrestrial magnetism \u2014 vertical/horizontal components, dip, variation, secular change",
+   "A.7.7.b": "Aircraft magnetism \u2014 hard iron, compass swing, coefficients A/B/C, deviation",
+   "A.7.7.c": "Magnetic compass \u2014 components, serviceability tests, turning/acceleration errors"
+  }
+ },
+ "A.4.7": {
+  "total": 49,
+  "aspects": {
+   "A.4.7.a": 16,
+   "A.4.7.b": 8,
+   "A.4.7.c": 15
+  },
+  "unmatched": 10,
+  "exact": 0,
+  "estimated": 39,
+  "zero": [],
+  "descriptions": {
+   "A.4.7.a": "Steady flight, forces in climb/descent, power required vs available",
+   "A.4.7.b": "Climb angle, gradient, flight path angle, service and absolute ceiling",
+   "A.4.7.c": "Range, endurance, SFC, specific range"
+  }
+ },
+ "A.1.2": {
+  "total": 397,
+  "aspects": {
+   "A.1.2.a1": 17,
+   "A.1.2.b": 10,
+   "A.1.2.c": 16,
+   "A.1.2.d": 49,
+   "A.1.2.e": 59,
+   "A.1.2.f1": 7,
+   "A.1.2.f2": 28,
+   "A.1.2.f3": 92,
+   "A.1.2.f4": 11,
+   "A.1.2.f5": 1,
+   "A.1.2.g": 6,
+   "A.1.2.h": 54
+  },
+  "unmatched": 47,
+  "exact": 0,
+  "estimated": 350,
+  "zero": [],
+  "descriptions": {
+   "A.1.2.a1": "Fuselage \u2014 types of construction, structural components, stress",
+   "A.1.2.b": "Cockpit and cabin windows \u2014 construction, structural limitations",
+   "A.1.2.c": "Wings and stabilising surfaces \u2014 construction, materials, stress, V-tail",
+   "A.1.2.d": "Landing gear \u2014 types, construction, locking, anti-retraction, steering, brakes, anti-skid",
+   "A.1.2.e": "Hydraulics \u2014 hydromechanics, fluids, main/standby/emergency systems",
+   "A.1.2.f1": "Pneumatic systems \u2014 power sources, components, failures",
+   "A.1.2.f2": "Air conditioning \u2014 heating, cooling, construction, warning devices",
+   "A.1.2.f3": "Pressurisation \u2014 cabin altitude, differential pressure, decompression, emergency procedures",
+   "A.1.2.f4": "De-ice systems \u2014 pneumatic leading edge, components, operation",
+   "A.1.2.f5": "Anti-ice systems \u2014 aerofoil, powerplant, windshield, ice warning",
+   "A.1.2.g": "Non-pneumatic de-ice/anti-ice \u2014 air intake, propeller, pitot, windshield",
+   "A.1.2.h": "Fuel system \u2014 tanks, gravity/pressure feed, crossfeed, monitoring, jettison"
+  }
+ },
+ "A.8.1": {
+  "total": 50,
+  "aspects": {
+   "A.8.1.a": 50
+  },
+  "unmatched": 0,
+  "exact": 50,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.8.1.a": "Difference between climatology and meteorology, definitions"
+  }
+ },
+ "A.6.3": {
+  "total": 146,
+  "aspects": {
+   "A.6.3.a": 20,
+   "A.6.3.b": 25,
+   "A.6.3.c": 19,
+   "A.6.3.d": 15,
+   "A.6.3.e": 30,
+   "A.6.3.f": 7,
+   "A.6.3.g": 6,
+   "A.6.3.h": 12
+  },
+  "unmatched": 12,
+  "exact": 0,
+  "estimated": 134,
+  "zero": [],
+  "descriptions": {
+   "A.6.3.a": "Nervous system \u2014 sensory threshold, adaptation, reflexes, information processing",
+   "A.6.3.b": "Memory \u2014 sensory, working, long-term, chunking, mnemonics, action slips",
+   "A.6.3.c": "Human behaviour \u2014 personality, attitudes, hazardous attitudes, situational awareness",
+   "A.6.3.d": "Human error \u2014 SHELL model, error types, error chains, prevention",
+   "A.6.3.e": "Decision making \u2014 process, group vs individual, pilot judgement, influences",
+   "A.6.3.f": "Cockpit management \u2014 CRM, automation, complacency, ergonomics, checklists, CRM",
+   "A.6.3.g": "Leadership \u2014 styles, democratic vs autocratic, cockpit gradient",
+   "A.6.3.h": "Communication \u2014 verbal, non-verbal, conflict management"
+  }
+ },
+ "A.7.5": {
+  "total": 28,
+  "aspects": {
+   "A.7.5.a": 28
+  },
+  "unmatched": 0,
+  "exact": 28,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.7.5.a": "Sensors, ram rise, recovery factor, SAT, RAT, TAT"
+  }
+ },
+ "A.3.8": {
+  "total": 18,
+  "aspects": {
+   "A.3.8.a": 18
+  },
+  "unmatched": 0,
+  "exact": 18,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.3.8.a": "Applicability, corporate aviation certificate, operating requirements (CAR 93)"
+  }
+ },
+ "A.8.16": {
+  "total": 61,
+  "aspects": {
+   "A.8.16.a": 61
+  },
+  "unmatched": 0,
+  "exact": 61,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.8.16.a": "Definition, classification, modification, air masses affecting South Africa"
+  }
+ },
+ "A.4.11": {
+  "total": 90,
+  "aspects": {
+   "A.4.11.a": 28,
+   "A.4.11.b": 20,
+   "A.4.11.c": 31,
+   "A.4.11.d": 5
+  },
+  "unmatched": 6,
+  "exact": 0,
+  "estimated": 84,
+  "zero": [],
+  "descriptions": {
+   "A.4.11.a": "Take-off field length, accelerate-go/stop, ground roll, obstacle clearance",
+   "A.4.11.b": "Rate of climb, single engine ceiling, climb gradient",
+   "A.4.11.c": "Cruise TAS, fuel flow, range/endurance, OEI cruise",
+   "A.4.11.d": "Landing field length, balked landing climb, short field data"
+  }
+ },
+ "A.1.4": {
+  "total": 242,
+  "aspects": {
+   "A.1.4.a": 67,
+   "A.1.4.b": 14,
+   "A.1.4.c": 8,
+   "A.1.4.d": 10,
+   "A.1.4.e": 13,
+   "A.1.4.f": 9,
+   "A.1.4.g": 18,
+   "A.1.4.h": 48,
+   "A.1.4.i": 32
+  },
+  "unmatched": 23,
+  "exact": 0,
+  "estimated": 219,
+  "zero": [],
+  "descriptions": {
+   "A.1.4.a": "4-stroke engine \u2014 principle, components, cylinder numbering, definitions",
+   "A.1.4.b": "Cylinder construction \u2014 bore, stroke, valves, pistons, crankshaft, supercharging",
+   "A.1.4.c": "Detonation and pre-ignition \u2014 factors, effects, recognition, prevention",
+   "A.1.4.d": "Engine power \u2014 IHP, FHP, BHP",
+   "A.1.4.e": "Lubrication \u2014 wet/dry sump, oil pumps, cooling, grades",
+   "A.1.4.f": "Air cooling \u2014 fins, baffles, CHT",
+   "A.1.4.g": "Ignition \u2014 magnetos, impulse coupling, spark plugs, serviceability checks",
+   "A.1.4.h": "Fuel supply \u2014 types, grades, octane, carburettor, fuel injection, mixture, icing",
+   "A.1.4.i": "Engine handling \u2014 limitations, MAP/RPM/mixture, faults, rough running, power loss"
+  }
+ },
+ "A.7.2": {
+  "total": 109,
+  "aspects": {
+   "A.7.2.a": 18,
+   "A.7.2.b": 29,
+   "A.7.2.c": 6,
+   "A.7.2.d": 20,
+   "A.7.2.e": 26,
+   "A.7.2.f": 7
+  },
+  "unmatched": 3,
+  "exact": 7,
+  "estimated": 99,
+  "zero": [],
+  "descriptions": {
+   "A.7.2.a": "Gyroscopic fundamentals \u2014 stability, precession, apparent/real wander, mountings, drives",
+   "A.7.2.b": "Directional Gyro \u2014 construction, operation, limitations, drift calculation",
+   "A.7.2.c": "Remote indicating compass \u2014 construction, components, modes",
+   "A.7.2.d": "Artificial Horizon \u2014 construction, turn/acceleration errors",
+   "A.7.2.e": "Turn & slip indicator \u2014 construction, errors, turn coordinator, rate of turn",
+   "A.7.2.f": "HSI / EFIS \u2014 PFD, ND, MCP, FMS, display types and colours"
+  }
+ },
+ "A.9.6": {
+  "total": 16,
+  "aspects": {
+   "A.9.6.a": 16
+  },
+  "unmatched": 0,
+  "exact": 16,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.9.6.a": "Speed of opening/closing, aircraft separation, controlled time of arrival"
+  }
+ },
+ "A.3.2": {
+  "total": 32,
+  "aspects": {
+   "A.3.2.a": 21,
+   "A.3.2.b": 11
+  },
+  "unmatched": 0,
+  "exact": 0,
+  "estimated": 32,
+  "zero": [],
+  "descriptions": {
+   "A.3.2.a": "Notification of accidents and incidents (CAR 12.02.1\u201312.02.5)",
+   "A.3.2.b": "Scene of accident \u2014 guarding, access, evidence, removal (CAR 12.04.1\u201312.04.5)"
+  }
+ },
+ "A.4.10": {
+  "total": 51,
+  "aspects": {
+   "A.4.10.a": 7,
+   "A.4.10.b": 10,
+   "A.4.10.c": 18,
+   "A.4.10.d": 5
+  },
+  "unmatched": 11,
+  "exact": 0,
+  "estimated": 40,
+  "zero": [],
+  "descriptions": {
+   "A.4.10.a": "Critical engine, effect of engine inoperative on drag, controllability",
+   "A.4.10.b": "Take-off \u2014 flap effect, thrust, pressure altitude, wind, obstacle clearance",
+   "A.4.10.c": "Climb, cruise, descent with engine inoperative",
+   "A.4.10.d": "Landing distance in various runway conditions"
+  }
+ },
+ "C.10.7": {
+  "total": 25,
+  "aspects": {
+   "C.10.7.a": 25
+  },
+  "unmatched": 0,
+  "exact": 25,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "C.10.7.a": "Principles, presentation and interpretation, modes and codes including Mode S"
+  }
+ },
+ "A.8.14": {
+  "total": 76,
+  "aspects": {
+   "A.8.14.a": 19,
+   "A.8.14.b": 41,
+   "A.8.14.c": 7
+  },
+  "unmatched": 9,
+  "exact": 0,
+  "estimated": 67,
+  "zero": [],
+  "descriptions": {
+   "A.8.14.a": "Windshear \u2014 definition, causes, low-level windshear, effect on aircraft",
+   "A.8.14.b": "Turbulence \u2014 types, causes, mountain waves, visual detection",
+   "A.8.14.c": "Wake turbulence \u2014 cause, dangers, weight categories, avoidance"
+  }
+ },
+ "A.3.16": {
+  "total": 16,
+  "aspects": {
+   "A.3.16.a": 11,
+   "A.3.16.b": 3
+  },
+  "unmatched": 2,
+  "exact": 6,
+  "estimated": 8,
+  "zero": [],
+  "descriptions": {
+   "A.3.16.a": "Airspace classification (ENR 1.4.1), ATC procedures, radar, altimeter setting",
+   "A.3.16.b": "Aerodrome information and chart interpretation"
+  }
+ },
+ "A.1.6": {
+  "total": 77,
+  "aspects": {
+   "A.1.6.a": 4,
+   "A.1.6.b": 12,
+   "A.1.6.c": 53
+  },
+  "unmatched": 8,
+  "exact": 0,
+  "estimated": 69,
+  "zero": [],
+  "descriptions": {
+   "A.1.6.a": "Smoke detection \u2014 location, indicators, function test",
+   "A.1.6.b": "Fire detection and fighting \u2014 location, warning, test",
+   "A.1.6.c": "Oxygen systems \u2014 types, operation, use, safety"
+  }
+ },
+ "A.9.4": {
+  "total": 25,
+  "aspects": {
+   "A.9.4.a": 8,
+   "A.9.4.b": 6,
+   "A.9.4.c": 6,
+   "A.9.4.d": 3
+  },
+  "unmatched": 2,
+  "exact": 6,
+  "estimated": 17,
+  "zero": [],
+  "descriptions": {
+   "A.9.4.a": "Sun movements \u2014 apparent solar day, mean solar day, sidereal day",
+   "A.9.4.b": "Equinox, solstice, Tropics of Cancer and Capricorn",
+   "A.9.4.c": "LMT, zone time, UTC, arc-to-time conversions, international date line",
+   "A.9.4.d": "Sunrise, sunset, civil twilight determination"
+  }
+ },
+ "A.8.18": {
+  "total": 63,
+  "aspects": {
+   "A.8.18.a": 63
+  },
+  "unmatched": 0,
+  "exact": 63,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.8.18.a": "Development, characteristics, associated weather, common regions"
+  }
+ },
+ "A.8.5": {
+  "total": 73,
+  "aspects": {
+   "A.8.5.a": 20,
+   "A.8.5.b": 36,
+   "A.8.5.c": 14
+  },
+  "unmatched": 3,
+  "exact": 0,
+  "estimated": 70,
+  "zero": [],
+  "descriptions": {
+   "A.8.5.a": "Atmospheric water \u2014 latent heat, evaporation, condensation, sublimation",
+   "A.8.5.b": "Saturation, vapour pressure, dew point, wet/dry bulb, psychrometer",
+   "A.8.5.c": "Absolute and relative humidity"
+  }
+ },
+ "A.1.5": {
+  "total": 420,
+  "aspects": {
+   "A.1.5.a": 35,
+   "A.1.5.b": 205,
+   "A.1.5.c": 11,
+   "A.1.5.d": 47,
+   "A.1.5.e": 16,
+   "A.1.5.f": 46
+  },
+  "unmatched": 60,
+  "exact": 7,
+  "estimated": 353,
+  "zero": [],
+  "descriptions": {
+   "A.1.5.a": "Principle of operation and types \u2014 centrifugal, axial flow",
+   "A.1.5.b": "Engine construction \u2014 air inlet, compressor, combustion chamber, turbine, jet pipe",
+   "A.1.5.c": "Compressor stall and surge \u2014 cause, recognition, avoidance",
+   "A.1.5.d": "Pressure, temperature and airflow in turbine",
+   "A.1.5.e": "Reverse thrust \u2014 function, types, use, failure",
+   "A.1.5.f": "Turbine systems \u2014 ignition, starter, malfunctions, fuel, lubrication"
+  }
+ },
+ "A.4.2": {
+  "total": 15,
+  "aspects": {
+   "A.4.2.a": 0,
+   "A.4.2.b": 9
+  },
+  "unmatched": 6,
+  "exact": 0,
+  "estimated": 9,
+  "zero": [
+   "A.4.2.a"
+  ],
+  "descriptions": {
+   "A.4.2.a": "Type certificate, airworthiness design standards (CAR Part 21)",
+   "A.4.2.b": "SA-CATS 21 \u2014 Normal, utility, acrobatic, commuter, transport category"
+  }
+ },
+ "A.4.4": {
+  "total": 113,
+  "aspects": {
+   "A.4.4.a": 40,
+   "A.4.4.b": 25,
+   "A.4.4.c": 44
+  },
+  "unmatched": 4,
+  "exact": 0,
+  "estimated": 109,
+  "zero": [],
+  "descriptions": {
+   "A.4.4.a": "Stages \u2014 take-off, climb, level flight, descent, approach, landing",
+   "A.4.4.b": "IAS, CAS, TAS \u2014 and VA, VNO, VNE, VX, VY, VS, VSO, VFE, VLO, VLE, VMO",
+   "A.4.4.c": "VMCG, VMCA, V1, VR, V2, VREF, VLOF"
+  }
+ },
+ "A.3.3": {
+  "total": 27,
+  "aspects": {
+   "A.3.3.a": 7,
+   "A.3.3.b": 14
+  },
+  "unmatched": 6,
+  "exact": 0,
+  "estimated": 21,
+  "zero": [],
+  "descriptions": {
+   "A.3.3.a": "Logbooks, entries, falsification (CAR 43.01.1\u201343.01.5)",
+   "A.3.3.b": "Persons to carry out maintenance, release to service, compass requirements"
+  }
+ },
+ "A.3.7": {
+  "total": 16,
+  "aspects": {
+   "A.3.7.a": 16
+  },
+  "unmatched": 0,
+  "exact": 16,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.3.7.a": "Applicability, training, loading restrictions, cabin carriage (CAR 92)"
+  }
+ },
+ "A.6.1": {
+  "total": 217,
+  "aspects": {
+   "A.6.1.a": 38,
+   "A.6.1.b": 22,
+   "A.6.1.c": 27,
+   "A.6.1.d": 24,
+   "A.6.1.e": 44,
+   "A.6.1.f": 14,
+   "A.6.1.g": 11,
+   "A.6.1.h": 3,
+   "A.6.1.i": 12
+  },
+  "unmatched": 22,
+  "exact": 0,
+  "estimated": 195,
+  "zero": [],
+  "descriptions": {
+   "A.6.1.a": "The atmosphere \u2014 composition, gas laws, oxygen requirements",
+   "A.6.1.b": "Circulatory system \u2014 blood, heart, blood pressure, pulse, ailments",
+   "A.6.1.c": "Lungs \u2014 anatomy, gas transfer, hypoxia, time of useful consciousness, hyperventilation",
+   "A.6.1.d": "High altitude \u2014 ozone, radiation, humidity, pressurisation, oxygen masks",
+   "A.6.1.e": "Vision \u2014 eye physiology, foveal/peripheral, night vision, optical illusions",
+   "A.6.1.f": "Hearing \u2014 physiology, noise and hearing loss",
+   "A.6.1.g": "Equilibrium \u2014 vestibular system, spatial disorientation, motion sickness",
+   "A.6.1.h": "Sensory integration \u2014 spatial disorientation types, illusions, prevention",
+   "A.6.1.i": "Acceleration \u2014 effects on cardiovascular, vision, limbs"
+  }
+ },
+ "A.3.12": {
+  "total": 18,
+  "aspects": {
+   "A.3.12.a": 18
+  },
+  "unmatched": 0,
+  "exact": 18,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.3.12.a": "PIC minimum requirements, IMC/night operations, IFR without SIC (CAR 135)"
+  }
+ },
+ "A.10.2": {
+  "total": 49,
+  "aspects": {
+   "A.10.2.a": 10,
+   "A.10.2.b": 19
+  },
+  "unmatched": 20,
+  "exact": 0,
+  "estimated": 29,
+  "zero": [],
+  "descriptions": {
+   "A.10.2.a": "Loop theory, rotating/fixed loop antennas, RBI and RMI",
+   "A.10.2.b": "Principles, coverage, range, errors, factors affecting accuracy"
+  }
+ },
+ "A.8.11": {
+  "total": 70,
+  "aspects": {
+   "A.8.11.a": 4,
+   "A.8.11.b": 63
+  },
+  "unmatched": 3,
+  "exact": 0,
+  "estimated": 67,
+  "zero": [],
+  "descriptions": {
+   "A.8.11.a": "Condensation nuclei, Bergeron theory, collision and coalescence theory",
+   "A.8.11.b": "Types, intensity and continuity of precipitation"
+  }
+ },
+ "A.4.1": {
+  "total": 16,
+  "aspects": {
+   "A.4.1.a": 8,
+   "A.4.1.b": 8
+  },
+  "unmatched": 0,
+  "exact": 0,
+  "estimated": 16,
+  "zero": [],
+  "descriptions": {
+   "A.4.1.a": "Performance classification \u2014 CAR Part 91.08, Class A/C limitations",
+   "A.4.1.b": "CAR Part 135 take-off mass, net take-off flight path, dispatch limitations"
+  }
+ },
+ "A.3.4": {
+  "total": 122,
+  "aspects": {
+   "A.3.4.a": 49,
+   "A.3.4.b": 32,
+   "A.3.4.c": 14,
+   "A.3.4.d": 11
+  },
+  "unmatched": 16,
+  "exact": 0,
+  "estimated": 106,
+  "zero": [],
+  "descriptions": {
+   "A.3.4.a": "Pilot licences and ratings (CAR 61.01.1\u201361.01.3)",
+   "A.3.4.b": "Medical requirements, language, flight time logging (CAR 61.01.6\u201361.01.8)",
+   "A.3.4.c": "CPL(A) requirements, examination, skills test, privileges, validity (CAR 61.05.1\u201361.05.8)",
+   "A.3.4.d": "Type and class ratings (CAR 61.09.1\u201361.09.8)"
+  }
+ },
+ "A.3.15": {
+  "total": 17,
+  "aspects": {
+   "A.3.15.a": 17
+  },
+  "unmatched": 0,
+  "exact": 17,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.3.15.a": "Contraventions, penalties, powers of authorised officers, administrative fines (CAR 185)"
+  }
+ },
+ "A.3.17": {
+  "total": 23,
+  "aspects": {
+   "A.3.17.a": 23
+  },
+  "unmatched": 0,
+  "exact": 23,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.3.17.a": "High/low altitude enroute chart symbols, airways, reporting points, MEA/MOCA"
+  }
+ },
+ "A.8.10": {
+  "total": 73,
+  "aspects": {
+   "A.8.10.a": 46,
+   "A.8.10.b": 13,
+   "A.8.10.c": 3
+  },
+  "unmatched": 11,
+  "exact": 0,
+  "estimated": 62,
+  "zero": [],
+  "descriptions": {
+   "A.8.10.a": "Cloud observations \u2014 amount, ceiling, base, measurement methods",
+   "A.8.10.b": "Cloud formation \u2014 convective, orographic, frontal, convergent, turbulent",
+   "A.8.10.c": "Cloud classification and types"
+  }
+ },
+ "A.1.3": {
+  "total": 220,
+  "aspects": {
+   "A.1.3.a1": 128,
+   "A.1.3.a2": 7,
+   "A.1.3.a3": 5,
+   "A.1.3.a4": 18,
+   "A.1.3.a5": 10,
+   "A.1.3.b": 29
+  },
+  "unmatched": 23,
+  "exact": 0,
+  "estimated": 197,
+  "zero": [],
+  "descriptions": {
+   "A.1.3.a1": "DC \u2014 circuits, voltage, current, resistance, Ohm's law, power",
+   "A.1.3.a2": "Batteries \u2014 theory, types, capacity, hazards",
+   "A.1.3.a3": "Magnetism \u2014 permanent, electromagnetism, relays, solenoids, induction",
+   "A.1.3.a4": "Generators \u2014 principle, monitoring, starter-generator",
+   "A.1.3.a5": "Current distribution \u2014 buses, ammeter, voltmeter, inverter",
+   "A.1.3.b": "AC \u2014 single/multi-phase, frequency, phase shift, alternators, transformers"
+  }
+ },
+ "A.10.5": {
+  "total": 48,
+  "aspects": {
+   "A.10.5.a": 48
+  },
+  "unmatched": 0,
+  "exact": 48,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.10.5.a": "Pulse techniques and associated terms"
+  }
+ },
+ "A.8.21": {
+  "total": 154,
+  "aspects": {
+   "A.8.21.a": 8,
+   "A.8.21.b": 31,
+   "A.8.21.c": 53,
+   "A.8.21.d": 36,
+   "A.8.21.e": 8
+  },
+  "unmatched": 18,
+  "exact": 0,
+  "estimated": 136,
+  "zero": [],
+  "descriptions": {
+   "A.8.21.a": "SAWS aviation website \u2014 layout and information",
+   "A.8.21.b": "Synoptic charts, SIGWX charts, upper wind charts",
+   "A.8.21.c": "METAR interpretation \u2014 all elements",
+   "A.8.21.d": "TAF interpretation \u2014 all elements",
+   "A.8.21.e": "SPECI, SIGMET, AIRMET, Special Air Report, ATIS"
+  }
+ },
+ "A.10.3": {
+  "total": 80,
+  "aspects": {
+   "A.10.3.a": 59,
+   "A.10.3.b": 5
+  },
+  "unmatched": 16,
+  "exact": 0,
+  "estimated": 64,
+  "zero": [],
+  "descriptions": {
+   "A.10.3.a": "Principles, CDI and RMI, Doppler VOR",
+   "A.10.3.b": "Coverage, range, errors and accuracy, factors affecting"
+  }
+ },
+ "A.9.5": {
+  "total": 36,
+  "aspects": {
+   "A.9.5.a": 1,
+   "A.9.5.b": 27,
+   "A.9.5.c": 8
+  },
+  "unmatched": 0,
+  "exact": 0,
+  "estimated": 36,
+  "zero": [],
+  "descriptions": {
+   "A.9.5.a": "Projection theory \u2014 azimuthal, cylindrical, conical, orthomorphic, scale",
+   "A.9.5.b": "Mercator chart \u2014 properties, great circles, rhumb lines, scale variation, plotting",
+   "A.9.5.c": "Lambert's Conformal Conic \u2014 properties, radio bearings, scale, track/distance"
+  }
+ },
+ "A.3.10": {
+  "total": 18,
+  "aspects": {
+   "A.3.10.a": 18
+  },
+  "unmatched": 0,
+  "exact": 18,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.3.10.a": "Applicability, AOC and operational scope for large-aeroplane air transport (CAR 121)"
+  }
+ },
+ "A.3.13": {
+  "total": 16,
+  "aspects": {
+   "A.3.13.a": 16
+  },
+  "unmatched": 0,
+  "exact": 16,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.3.13.a": "Licensing/approval of aerodromes, operator responsibilities, safety management (CAR 139)"
+  }
+ },
+ "A.8.17": {
+  "total": 101,
+  "aspects": {
+   "A.8.17.a": 6,
+   "A.8.17.b": 66,
+   "A.8.17.c": 26
+  },
+  "unmatched": 3,
+  "exact": 6,
+  "estimated": 92,
+  "zero": [],
+  "descriptions": {
+   "A.8.17.a": "Mid-latitude cyclones",
+   "A.8.17.b": "Cold fronts \u2014 formation, characteristics, weather, passage changes, flying conditions",
+   "A.8.17.c": "Warm fronts \u2014 formation, characteristics, weather, flying conditions"
+  }
+ },
+ "A.10.1": {
+  "total": 44,
+  "aspects": {
+   "A.10.1.a": 23,
+   "A.10.1.b": 1,
+   "A.10.1.c": 12
+  },
+  "unmatched": 8,
+  "exact": 0,
+  "estimated": 36,
+  "zero": [],
+  "descriptions": {
+   "A.10.1.a": "Electromagnetic waves \u2014 frequency, wavelength, sidebands, modulation types",
+   "A.10.1.b": "Antennas \u2014 characteristics, polarisation, polar diagram, types",
+   "A.10.1.c": "Wave propagation \u2014 ground waves, direct waves, sky waves, ionosphere, fading"
+  }
+ },
+ "A.3.14": {
+  "total": 40,
+  "aspects": {
+   "A.3.14.a": 40
+  },
+  "unmatched": 0,
+  "exact": 40,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.3.14.a": "Classification of airspace (A\u2013G) and level of ATS provision"
+  }
+ },
+ "A.3.5": {
+  "total": 32,
+  "aspects": {
+   "A.3.5.a": 21,
+   "A.3.5.b": 8
+  },
+  "unmatched": 3,
+  "exact": 0,
+  "estimated": 29,
+  "zero": [],
+  "descriptions": {
+   "A.3.5.a": "Classes of medical certificates, period of validity (CAR 67.00.2\u201367.00.6)",
+   "A.3.5.b": "Duties of holder, substance abuse, suspension/cancellation (CAR 67.00.9\u201367.00.14)"
+  }
+ },
+ "A.9.3": {
+  "total": 35,
+  "aspects": {
+   "A.9.3.a": 2,
+   "A.9.3.b": 7
+  },
+  "unmatched": 26,
+  "exact": 0,
+  "estimated": 9,
+  "zero": [],
+  "descriptions": {
+   "A.9.3.a": "Units \u2014 NM, statute miles, km, feet, conversions",
+   "A.9.3.b": "Relationship between NM and minutes of latitude"
+  }
+ },
+ "A.3.1": {
+  "total": 54,
+  "aspects": {},
+  "unmatched": 54,
+  "note": "no sub-topics defined"
+ },
+ "A.10.4": {
+  "total": 37,
+  "aspects": {
+   "A.10.4.a": 37
+  },
+  "unmatched": 0,
+  "exact": 37,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.10.4.a": "Principles, presentation and interpretation, coverage, range, accuracy"
+  }
+ },
+ "A.8.8": {
+  "total": 145,
+  "aspects": {
+   "A.8.8.a": 7,
+   "A.8.8.b": 27,
+   "A.8.8.c": 42,
+   "A.8.8.d": 18,
+   "A.8.8.e": 9,
+   "A.8.8.f": 31
+  },
+  "unmatched": 11,
+  "exact": 0,
+  "estimated": 134,
+  "zero": [],
+  "descriptions": {
+   "A.8.8.a": "Definitions \u2014 veering, backing, gust, squall, gust factor",
+   "A.8.8.b": "Measurement \u2014 wind direction/speed, wind vane, anemometer",
+   "A.8.8.c": "Formation \u2014 pressure gradient, Coriolis effect, geostrophic wind, Buys Ballot's law",
+   "A.8.8.d": "Gradient wind, surface wind, diurnal variation",
+   "A.8.8.e": "Global circulation \u2014 trade winds, westerlies, polar easterlies, ITCZ",
+   "A.8.8.f": "Local winds \u2014 land/sea breeze, katabatic, anabatic, F\u00f6hn, Berg wind, Sirocco, Haboob"
+  }
+ },
+ "A.10.11": {
+  "total": 39,
+  "aspects": {
+   "A.10.11.a": 39
+  },
+  "unmatched": 0,
+  "exact": 39,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.10.11.a": "VOR/DME RNAV \u2014 principle, advantages, accuracy, reliability, flight deck equipment"
+  }
+ },
+ "A.3.18": {
+  "total": 30,
+  "aspects": {
+   "A.3.18.a": 17,
+   "A.3.18.b": 4,
+   "A.3.18.c": 9
+  },
+  "unmatched": 0,
+  "exact": 0,
+  "estimated": 30,
+  "zero": [],
+  "descriptions": {
+   "A.3.18.a": "Definitions \u2014 runway, clearway, stopway, taxiway, threshold, markings",
+   "A.3.18.b": "Declared distances \u2014 TORA, TODA, ASDA, LDA",
+   "A.3.18.c": "Visual aids \u2014 runway markings, lights, signs (Chapter 5)"
+  }
+ },
+ "A.7.3": {
+  "total": 40,
+  "aspects": {
+   "A.7.3.a": 40
+  },
+  "unmatched": 0,
+  "exact": 40,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.7.3.a": "Flight director \u2014 principle, input sources, ADI, HSI operation"
+  }
+ },
+ "A.1.1": {
+  "total": 12,
+  "aspects": {
+   "A.1.1.a": 4,
+   "A.1.1.b": 3,
+   "A.1.1.c": 3,
+   "A.1.1.d": 2
+  },
+  "unmatched": 0,
+  "exact": 12,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.1.1.a": "Valves \u2014 check, pressure release, selector, restrictors, thermal relief",
+   "A.1.1.b": "Bearings \u2014 plain, split, bushes, ball, roller",
+   "A.1.1.c": "Pumps \u2014 gear, diaphragm, vane, piston, centrifugal types and drives",
+   "A.1.1.d": "Filters \u2014 strainers and sediment traps"
+  }
+ },
+ "A.10.10": {
+  "total": 18,
+  "aspects": {
+   "A.10.10.a": 18
+  },
+  "unmatched": 0,
+  "exact": 18,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.10.10.a": "Principles, frequencies, testing procedures"
+  }
+ },
+ "A.8.19": {
+  "total": 74,
+  "aspects": {
+   "A.8.19.a": 74
+  },
+  "unmatched": 0,
+  "exact": 74,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.8.19.a": "World climatic zones, ITCZ, African climate"
+  }
+ },
+ "A.8.7": {
+  "total": 82,
+  "aspects": {
+   "A.8.7.a": 25,
+   "A.8.7.b": 46
+  },
+  "unmatched": 11,
+  "exact": 0,
+  "estimated": 71,
+  "zero": [],
+  "descriptions": {
+   "A.8.7.a": "Variation of pressure levels with changing temperature and pressure",
+   "A.8.7.b": "Pressure and temperature corrections, calculating true altitude"
+  }
+ },
+ "A.10.6": {
+  "total": 15,
+  "aspects": {
+   "A.10.6.a": 15
+  },
+  "unmatched": 0,
+  "exact": 15,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.10.6.a": "Principles, presentation and interpretation, coverage, range, errors/accuracy, application for navigation"
+  }
+ },
+ "A.6.4": {
+  "total": 27,
+  "aspects": {
+   "A.6.4.a": 14,
+   "A.6.4.b": 9
+  },
+  "unmatched": 4,
+  "exact": 13,
+  "estimated": 10,
+  "zero": [],
+  "descriptions": {
+   "A.6.4.a": "First aid \u2014 fainting, nose bleeds, food poisoning, dehydration, bleeding, fractures, burns, shock",
+   "A.6.4.b": "Survival \u2014 body temperature, equipment, at sea, cold climate, hot/arid, jungle"
+  }
+ },
+ "A.4.5": {
+  "total": 48,
+  "aspects": {
+   "A.4.5.a": 7,
+   "A.4.5.b": 15,
+   "A.4.5.c": 23
+  },
+  "unmatched": 3,
+  "exact": 0,
+  "estimated": 45,
+  "zero": [],
+  "descriptions": {
+   "A.4.5.a": "ISA \u2014 standard values, OAT, TAT, SAT, ISA deviation",
+   "A.4.5.b": "Pressure altitude, density altitude, QNH, QFE, QNE",
+   "A.4.5.c": "TORA, TODA, TORR, TODR, LDA, LDR, clearway, stopway, runway slope, PCN/ACN"
+  }
+ },
+ "A.9.8": {
+  "total": 46,
+  "aspects": {
+   "A.9.8.a": 2,
+   "A.9.8.b": 3,
+   "A.9.8.c": 31,
+   "A.9.8.d": 10
+  },
+  "unmatched": 0,
+  "exact": 0,
+  "estimated": 46,
+  "zero": [],
+  "descriptions": {
+   "A.9.8.a": "SA plotting chart 1:5 000 000 \u2014 use and interpretation",
+   "A.9.8.b": "Navigation during climb/descent \u2014 constant RAS, climb wind, groundspeed",
+   "A.9.8.c": "In-cruise navigation \u2014 position lines, QTE, radial/DME, NDB/VOR combinations",
+   "A.9.8.d": "Track corrections \u2014 1 in 60 rule"
+  }
+ },
+ "A.6.2": {
+  "total": 105,
+  "aspects": {
+   "A.6.2.a": 6,
+   "A.6.2.b": 11,
+   "A.6.2.c": 12,
+   "A.6.2.d": 17,
+   "A.6.2.e": 23,
+   "A.6.2.f": 2,
+   "A.6.2.g": 19
+  },
+  "unmatched": 15,
+  "exact": 0,
+  "estimated": 90,
+  "zero": [],
+  "descriptions": {
+   "A.6.2.a": "Personal hygiene \u2014 colds, influenza, gastro-intestinal, dehydration",
+   "A.6.2.b": "Problem areas \u2014 hearing loss, vision, hypertension, obesity, nutrition, diabetes",
+   "A.6.2.c": "Intoxication \u2014 tobacco, alcohol, drugs, self-medication",
+   "A.6.2.d": "Incapacitation \u2014 causes, symptoms, cardio-vascular, epilepsy, CO poisoning",
+   "A.6.2.e": "Stress \u2014 categories, stages, causes, anxiety, management, defence mechanisms",
+   "A.6.2.f": "Fatigue \u2014 definition, types, causes, symptoms, prevention",
+   "A.6.2.g": "Body rhythm and sleep \u2014 circadian rhythms, disturbances, treatment"
+  }
+ },
+ "A.8.12": {
+  "total": 87,
+  "aspects": {
+   "A.8.12.a": 28,
+   "A.8.12.b": 6,
+   "A.8.12.c": 29,
+   "A.8.12.d": 14,
+   "A.8.12.e": 4
+  },
+  "unmatched": 6,
+  "exact": 0,
+  "estimated": 81,
+  "zero": [],
+  "descriptions": {
+   "A.8.12.a": "Formation \u2014 conditions for development",
+   "A.8.12.b": "Classification \u2014 convective, orographic, frontal, nocturnal, squall lines",
+   "A.8.12.c": "Three stages of development, gust front",
+   "A.8.12.d": "Hazards \u2014 windshear, microbursts, hail, icing, lightning, tornadoes",
+   "A.8.12.e": "Avoidance and penetration procedures"
+  }
+ },
+ "A.1.7": {
+  "total": 36,
+  "aspects": {
+   "A.1.7.a": 3,
+   "A.1.7.b": 7,
+   "A.1.7.c": 6,
+   "A.1.7.d": 13,
+   "A.1.7.e": 7
+  },
+  "unmatched": 0,
+  "exact": 7,
+  "estimated": 29,
+  "zero": [],
+  "descriptions": {
+   "A.1.7.a": "Bird strike \u2014 risk and avoidance",
+   "A.1.7.b": "Fire/Smoke \u2014 carburettor, engine, cabin, extinguishing agents, brake fires",
+   "A.1.7.c": "Windshear and microburst \u2014 effects, recognition, avoidance",
+   "A.1.7.d": "Wake turbulence \u2014 cause, influence of speed/mass/wind, avoidance",
+   "A.1.7.e": "Contaminated runways \u2014 definitions, types, aquaplaning, critical speed formula"
+  }
+ },
+ "A.7.6": {
+  "total": 64,
+  "aspects": {
+   "A.7.6.a": 64
+  },
+  "unmatched": 0,
+  "exact": 64,
+  "estimated": 0,
+  "zero": [],
+  "descriptions": {
+   "A.7.6.a": "General principles, types (single/two/three axis), lateral and longitudinal modes"
+  }
+ },
+ "A.9.2": {
+  "total": 36,
+  "aspects": {
+   "A.9.2.a": 21,
+   "A.9.2.b": 10
+  },
+  "unmatched": 5,
+  "exact": 0,
+  "estimated": 31,
+  "zero": [],
+  "descriptions": {
+   "A.9.2.a": "True north, magnetic north, compass north",
+   "A.9.2.b": "Variation, isogonals, compass deviation, radio bearings (QTE, QDR, QDM, QUJ)"
+  }
+ },
+ "A.9.7": {
+  "total": 114,
+  "aspects": {
+   "A.9.7.a": 28,
+   "A.9.7.b": 59
+  },
+  "unmatched": 27,
+  "exact": 0,
+  "estimated": 87,
+  "zero": [],
+  "descriptions": {
+   "A.9.7.a": "Navigation computer \u2014 speed/distance/time, EET, ETA, fuel, RAS/TAS",
+   "A.9.7.b": "Triangle of velocities \u2014 heading, track, TAS, groundspeed, wind, drift"
+  }
+ },
+ "A.7.1": {
+  "total": 152,
+  "aspects": {
+   "A.7.1.a": 35,
+   "A.7.1.b": 61,
+   "A.7.1.c": 28,
+   "A.7.1.d": 22
+  },
+  "unmatched": 6,
+  "exact": 0,
+  "estimated": 146,
+  "zero": [],
+  "descriptions": {
+   "A.7.1.a": "Pitot & static system \u2014 construction, malfunction, heating, alternate static",
+   "A.7.1.b": "Altimeter \u2014 construction, types, errors, QNH/QFE/QNE, altitude alert",
+   "A.7.1.c": "Airspeed Indicator \u2014 construction, colour sectors, errors, blockages",
+   "A.7.1.d": "Vertical Speed Indicator \u2014 construction, aneroid vs IVSI, errors"
+  }
+ },
+ "A.10.12": {
+  "total": 76,
+  "aspects": {
+   "A.10.12.a": 16,
+   "A.10.12.b": 19
+  },
+  "unmatched": 41,
+  "exact": 0,
+  "estimated": 35,
+  "zero": [],
+  "descriptions": {
+   "A.10.12.a": "System components, principle of operation, advantages/disadvantages",
+   "A.10.12.b": "Performance requirements, reliability/integrity, authorisation, errors, human factors"
+  }
+ },
+ "A.3.6": {
+  "total": 442,
+  "aspects": {
+   "A.3.6.a": 52,
+   "A.3.6.b": 157,
+   "A.3.6.c": 34,
+   "A.3.6.d": 73,
+   "A.3.6.e": 28,
+   "A.3.6.f": 23
+  },
+  "unmatched": 75,
+  "exact": 0,
+  "estimated": 367,
+  "zero": [],
+  "descriptions": {
+   "A.3.6.a": "Authority of PIC, crew responsibilities, recency (CAR 91.01\u201391.02)",
+   "A.3.6.b": "Documents to be carried, flight plans, fuel record (CAR 91.03)",
+   "A.3.6.c": "Instruments and equipment for VFR \u2014 lights, oxygen, ELT, ACAS, TAWS (CAR 91.04)",
+   "A.3.6.d": "Right of way, minimum heights, semi-circular rule, VFR minima (CAR 91.06)",
+   "A.3.6.e": "Radio communication \u2014 mandatory radio, RCF procedures (CAR 91.06.16\u201391.06.17)",
+   "A.3.6.f": "VFR operating minima, fuel supply, passenger briefing (CAR 91.07)"
+  }
+ }
+}

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 export default function AITutor() {
     const [message, setMessage] = useState("");
 const [messages, setMessages] = useState<
@@ -19,10 +20,12 @@ const sendMessage = async () => {
   setMessage("");
 
   try {
+    const { data: { session } } = await supabase.auth.getSession();
     const res = await fetch("/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ...(session ? { Authorization: `Bearer ${session.access_token}` } : {}),
       },
       body: JSON.stringify({
         message: currentMessage,
@@ -38,7 +41,7 @@ const sendMessage = async () => {
         text: data.reply,
       },
     ]);
-  } catch (error) {
+  } catch {
     setMessages((prev) => [
       ...prev,
       {

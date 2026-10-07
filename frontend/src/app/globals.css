@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Anti-piracy: blank all printed / PDF output so cram sheets can't be exported. */
+@media print {
+  html, body { display: none !important; }
+}
+/* Discourage copy/drag of the cram content (deterrent only — not a hard control). */
+.no-copy { user-select: none; -webkit-user-select: none; }

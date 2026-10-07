@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
+import { getUserFromRequest, rateLimited, clientIp } from "@/lib/apiAuth";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
@@ -21,6 +22,12 @@ Always stay focused on SACAA CPL examination content. Do not make up regulations
 
 export async function POST(req: NextRequest) {
   try {
+    const userId = await getUserFromRequest(req);
+    if (!userId) return NextResponse.json({ error: "Sign in to use the AI instructor." }, { status: 401 });
+    if (rateLimited(userId === "dev" ? clientIp(req) : userId, 20, 60_000)) {
+      return NextResponse.json({ error: "Too many requests — slow down a moment." }, { status: 429 });
+    }
+
     const { question, subject, section, sectionId, history } = await req.json();
 
     if (!question?.trim()) {

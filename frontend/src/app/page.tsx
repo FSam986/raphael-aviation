@@ -41,8 +41,8 @@ export default function LandingPage() {
         </h1>
 
         <p className="mt-6 text-zinc-400 text-xl max-w-2xl leading-relaxed">
-          Don't just study. Get exam-ready. Raphael adapts to your weak points,
-          tracks your mastery, and tells you exactly when you're ready to pass
+          Don&apos;t just study. Get exam-ready. Raphael adapts to your weak points,
+          tracks your mastery, and tells you exactly when you&apos;re ready to pass
           SACAA.
         </p>
 

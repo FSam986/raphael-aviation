@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase";
-import { SACAA_SYLLABUS } from "@/app/data/sacaa-syllabus";
+import { useCourse } from "@/app/hooks/useCourse";
+import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectReadiness } from "@/app/lib/readiness";
+import { Sidebar } from "@/app/components/Sidebar";
+import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 
 const SUBJECT_META: Record<string, { icon: string; color: string }> = {
   "aircraft-technical":   { icon: "⚙️",  color: "text-orange-400" },
@@ -19,30 +21,36 @@ const SUBJECT_META: Record<string, { icon: string; color: string }> = {
   "principles-of-flight": { icon: "✈️",  color: "text-yellow-400" },
 };
 
-const NAV_ITEMS = [
-  { href: "/dashboard",    icon: "🏠", label: "Dashboard" },
-  { href: "/study",        icon: "📚", label: "Study" },
-  { href: "/ai-tutor",     icon: "🤖", label: "AI Instructor" },
-  { href: "/exams",        icon: "📝", label: "Mock Exams" },
-  { href: "/flashcards",   icon: "🃏", label: "Flashcards" },
-  { href: "/progress",     icon: "📊", label: "Progress" },
-  { href: "/achievements", icon: "🏆", label: "Achievements" },
-  { href: "/settings",     icon: "⚙️", label: "Settings" },
-];
-
 export default function StudyPage() {
-  const router = useRouter();
-  const [userName, setUserName] = useState("Student");
-  const [loading, setLoading] = useState(true);
+  const { userName, loading } = useAuthGuard();
+  const { course, syllabus } = useCourse();
+  const [query, setQuery] = useState("");
 
+  // Per-subject syllabus progress (client-only; reads mastery localStorage).
+  const [pctBySubject, setPctBySubject] = useState<Record<string, number>>({});
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      if (!data.user) { router.push("/login"); return; }
-      const name = data.user.user_metadata?.full_name?.split(" ")[0] || "Student";
-      setUserName(name);
-      setLoading(false);
-    });
-  }, [router]);
+    const m: Record<string, number> = {};
+    syllabus.forEach((s) => { m[s.id] = subjectReadiness(s.id)?.pct ?? 0; });
+    setPctBySubject(m);
+  }, [syllabus]);
+
+  // Quick search across the whole syllabus — subject, section and aspect wording.
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (q.length < 2) return [];
+    const out: { subjectId: string; subjectTitle: string; sectionId: string; sectionTitle: string; topic: string; href: string }[] = [];
+    for (const subject of syllabus) {
+      for (const section of subject.sections) {
+        const sectionHit = section.title.toLowerCase().includes(q) || section.id.toLowerCase().includes(q) || subject.title.toLowerCase().includes(q);
+        for (const item of section.items) {
+          if (sectionHit || item.topic.toLowerCase().includes(q) || item.id.toLowerCase().includes(q)) {
+            out.push({ subjectId: subject.id, subjectTitle: subject.title, sectionId: section.id, sectionTitle: section.title, topic: item.topic, href: `/study/${subject.id}/${section.id}?item=${item.id}` });
+          }
+        }
+      }
+    }
+    return out.slice(0, 40);
+  }, [query, syllabus]);
 
   if (loading) {
     return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
@@ -50,37 +58,60 @@ export default function StudyPage() {
 
   return (
     <div className="min-h-screen bg-black flex">
-      <aside className="w-64 bg-zinc-950 border-r border-zinc-900 flex flex-col fixed h-full">
-        <div className="p-6 border-b border-zinc-900">
-          <div className="text-yellow-400 font-black text-lg tracking-wider">RAPHAEL</div>
-          <div className="text-zinc-600 text-xs font-medium tracking-widest uppercase">Aviation Academy</div>
-        </div>
-        <nav className="flex-1 p-4 space-y-1 overflow-auto">
-          {NAV_ITEMS.map((item) => (
-            <Link key={item.href} href={item.href} className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors ${item.href === "/study" ? "bg-yellow-400/10 text-yellow-400 font-medium" : "text-zinc-500 hover:text-white hover:bg-zinc-900"}`}>
-              <span>{item.icon}</span>{item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="p-4 border-t border-zinc-900">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center text-yellow-400 text-sm font-bold">{userName[0]}</div>
-            <div><div className="text-white text-sm font-medium">{userName}</div><div className="text-zinc-600 text-xs">CPL Student</div></div>
-          </div>
-        </div>
-      </aside>
+      <Sidebar active="/study" userName={userName} />
 
       <main className="flex-1 ml-64 overflow-auto">
         <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
           <h1 className="text-3xl font-black text-white">Study</h1>
-          <p className="text-zinc-500 text-sm mt-1">SACAA CPL syllabus — pick a subject to begin</p>
+          <p className="text-zinc-500 text-sm mt-1">SACAA {course.toUpperCase()} syllabus — pick a subject to begin</p>
+          <div className="mt-5 relative max-w-xl">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-600 pointer-events-none">🔍</span>
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search the syllabus — topics, sections, aspects…"
+              className="w-full bg-zinc-950 border border-zinc-800 focus:border-yellow-400/60 outline-none rounded-xl pl-11 pr-10 py-2.5 text-sm text-zinc-200 placeholder:text-zinc-600 transition-colors"
+            />
+            {query && (
+              <button onClick={() => setQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-600 hover:text-zinc-300 text-sm">✕</button>
+            )}
+          </div>
         </div>
 
+        {/* Search results replace the subject grid while searching */}
+        {query.trim().length >= 2 ? (
+          <div className="px-10 py-8">
+            <div className="text-xs text-zinc-600 mb-3">{results.length} result{results.length === 1 ? "" : "s"} for “{query.trim()}”</div>
+            <div className="flex flex-col gap-1.5">
+              {results.map((r, i) => (
+                <Link key={i} href={r.href} className="bg-zinc-950 border border-zinc-900 hover:border-zinc-700 rounded-xl px-4 py-3 flex items-center gap-3 group hover:bg-zinc-900/50 transition-all">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm text-zinc-300 group-hover:text-white transition-colors truncate">{r.topic}</div>
+                    <div className="text-xs text-zinc-600 mt-0.5">
+                      <span className="text-yellow-400/60">{r.subjectTitle}</span>
+                      <span className="mx-1.5">·</span>
+                      <span className="font-mono text-zinc-500">{r.sectionId}</span> {r.sectionTitle}
+                    </div>
+                  </div>
+                  <span className="text-zinc-700 group-hover:text-yellow-400 transition-colors shrink-0">→</span>
+                </Link>
+              ))}
+              {results.length === 0 && <div className="text-zinc-600 text-sm py-8 text-center">No syllabus topics match that search.</div>}
+            </div>
+          </div>
+        ) : (
         <div className="px-10 py-8">
           <div className="grid grid-cols-1 gap-3">
-            {SACAA_SYLLABUS.map((subject) => {
+            {syllabus.map((subject) => {
               const meta = SUBJECT_META[subject.id] ?? { icon: "📚", color: "text-zinc-400" };
               const totalItems = subject.sections.reduce((n, s) => n + s.items.length, 0);
+              const content = subjectContent(subject.id);
+              // Count DISTINCT questions: IR subjects re-map several syllabus
+              // codes to the same underlying CPL section, so a plain per-section
+              // sum would count shared questions two or three times.
+              const qIds = new Set<string>();
+              subject.sections.forEach((s) => (content?.questions(s.id) ?? []).forEach((q) => qIds.add(q.id)));
+              const totalQuestions = qIds.size;
               return (
                 <Link
                   key={subject.id}
@@ -96,22 +127,27 @@ export default function StudyPage() {
                     <div className="flex items-center gap-4 text-xs text-zinc-600">
                       <span>{subject.sections.length} sections</span>
                       <span>{totalItems} exam topics</span>
-                      <span>{subject.examQuestions} questions</span>
+                      <span className={totalQuestions > 0 ? "text-yellow-400/80" : ""}>
+                        {totalQuestions > 0 ? `${totalQuestions} questions` : "questions coming soon"}
+                      </span>
                       <span>{subject.passPercent}% pass mark</span>
                     </div>
                   </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-xs text-zinc-700 mb-2">0% mastered</div>
-                    <div className="w-32 h-1 bg-zinc-900 rounded-full overflow-hidden">
-                      <div className="h-full w-0 bg-yellow-400 rounded-full" />
+                  {totalQuestions > 0 && (
+                    <div className="text-right shrink-0">
+                      <div className="text-xs text-zinc-700 mb-2">{pctBySubject[subject.id] ?? 0}% ready</div>
+                      <div className="w-32 h-1 bg-zinc-900 rounded-full overflow-hidden">
+                        <div className="h-full bg-yellow-400 rounded-full transition-all" style={{ width: `${pctBySubject[subject.id] ?? 0}%` }} />
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <span className="text-zinc-700 group-hover:text-yellow-400 transition-colors ml-4">→</span>
                 </Link>
               );
             })}
           </div>
         </div>
+        )}
       </main>
     </div>
   );

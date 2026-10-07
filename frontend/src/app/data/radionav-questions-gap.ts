@@ -1,0 +1,51 @@
+// Radio Navigation — gap-fill questions for thin sub-topics (aspect-tagged).
+
+import type { AirLawQuestion } from "@/app/data/airlaw-questions";
+
+const q = (
+  id: string, sectionId: string, aspect: string, question: string,
+  a: string, b: string, c: string, d: string,
+  correct: "a" | "b" | "c" | "d", explanation: string,
+  difficulty: "easy" | "medium" | "hard", tag: "recall" | "apply" | "calc" | "trap",
+): AirLawQuestion => ({ id, sectionId, aspect, question, optionA: a, optionB: b, optionC: c, optionD: d, correctAnswer: correct, explanation, difficulty, tag });
+
+export const RADIONAV_GAP_QUESTIONS: AirLawQuestion[] = [
+  // ───── A.10.9 Radio Altimeter ─────
+  q("RADG-001", "A.10.9", "A.10.9.a", "A radio altimeter measures:", "height above mean sea level", "pressure altitude", "height above the terrain directly below (AGL)", "density altitude", "c", "The radio altimeter measures absolute height above the ground immediately below the aircraft.", "easy", "recall"),
+  q("RADG-002", "A.10.9", "A.10.9.a", "The radio altimeter normally operates over a height range of:", "0 to 2 500 ft", "0 to 10 000 ft", "0 to 50 000 ft", "500 to 5 000 ft only", "a", "Radio altimeters are calibrated 0–2 500 ft, the band relevant to approach and landing.", "medium", "recall"),
+  q("RADG-003", "A.10.9", "A.10.9.a", "The radio altimeter transmits in which frequency band?", "LF", "VHF", "UHF", "SHF (~4 200–4 400 MHz)", "d", "It uses SHF (~4.3 GHz) frequency-modulated continuous wave (FM-CW).", "medium", "recall"),
+  q("RADG-004", "A.10.9", "A.10.9.a", "Height is derived in a radio altimeter from:", "the time/frequency difference of an FM-CW signal reflected from the ground", "the Doppler shift of a VOR signal", "barometric pressure", "the phase of a 90/150 Hz tone", "a", "FM-CW: the frequency difference between transmitted and ground-reflected signal is proportional to height.", "hard", "recall"),
+  q("RADG-005", "A.10.9", "A.10.9.a", "A key use of the radio altimeter is to provide the Decision Height reference for:", "a VOR approach", "a CAT II/III ILS (precision) approach", "an NDB hold", "a visual circuit", "b", "Radio-altimeter height feeds the DH/alert for precision (CAT II/III) approaches and GPWS.", "medium", "apply"),
+  q("RADG-006", "A.10.9", "A.10.9.a", "Radio-altimeter accuracy is typically best:", "at high cruising levels", "close to the ground (low height)", "only over water", "independent of height", "b", "Accuracy is greatest near the ground — exactly where it matters for landing (a few feet / small %).", "medium", "recall"),
+  q("RADG-007", "A.10.9", "A.10.9.a", "The radio altimeter aerials are usually mounted:", "on the fin", "on the lower fuselage (one transmit, one receive) facing down", "in the nose radome", "on the wing tips", "b", "A downward-facing transmit and receive aerial pair on the belly give the ground return.", "medium", "recall"),
+
+  // ───── A.10.10 ELT (Emergency Locator Transmitter) ─────
+  q("RADG-011", "A.10.10", "A.10.10.a", "A modern ELT transmits a digital distress signal detected by the Cospas-Sarsat satellite system on:", "121.5 MHz only", "243.0 MHz only", "406 MHz", "500 kHz", "c", "406 MHz is the satellite-detected digital distress frequency; 121.5 MHz is retained for local homing.", "medium", "recall"),
+  q("RADG-012", "A.10.10", "A.10.10.a", "The 121.5 MHz output of an ELT is used mainly for:", "satellite detection", "short-range homing by SAR aircraft", "data download", "ATC surveillance", "b", "121.5 MHz is the analogue homing frequency SAR units track once in the area.", "medium", "recall"),
+  q("RADG-013", "A.10.10", "A.10.10.a", "An automatic ELT is normally triggered by:", "a manual switch only", "a g-switch sensing the deceleration of a crash", "loss of electrical power", "cabin depressurisation", "b", "An inertia (g) switch fires the ELT automatically on crash-level deceleration (plus a manual option).", "medium", "recall"),
+  q("RADG-014", "A.10.10", "A.10.10.a", "Routine ELT testing should be carried out:", "at any time for any duration", "only during the first 5 minutes of any hour, for a few seconds", "only in flight", "monthly for 10 minutes", "b", "To avoid false alerts, tests are limited to the first 5 minutes of the hour and kept to a few seconds.", "hard", "recall"),
+  q("RADG-015", "A.10.10", "A.10.10.a", "The 406 MHz ELT signal provides, in addition to position:", "weather data", "a coded identity (registration) of the aircraft", "the fuel remaining", "the number of occupants in real time", "b", "The 406 MHz digital burst carries a coded ID, so SAR can identify the registered aircraft/owner.", "medium", "recall"),
+  q("RADG-016", "A.10.10", "A.10.10.a", "Position accuracy of a distress beacon is greatly improved when the ELT includes:", "a louder siren", "a built-in GPS/GNSS position in the 406 MHz message", "a larger battery", "a 121.5 MHz-only transmitter", "b", "A GNSS-equipped 406 MHz ELT encodes its own position, cutting the search area to a few hundred metres.", "medium", "recall"),
+  q("RADG-017", "A.10.10", "A.10.10.a", "ELT batteries must be replaced/serviced:", "never", "by the replacement date, or after cumulative use / an inadvertent activation", "only when the aircraft is sold", "every flight", "b", "Batteries carry an expiry/replace-by date and must be changed after prolonged use or an accidental activation.", "medium", "recall"),
+
+  // ───── A.10.6 Ground Radar ─────
+  q("RADG-021", "A.10.6", "A.10.6.a", "A primary ground radar determines a target's range from:", "the Doppler shift of the return", "the time taken for the pulse to travel to the target and back", "the amplitude of the echo", "the target's transponder reply", "b", "Primary radar measures range from the round-trip travel time of the reflected pulse (range = c·t/2).", "medium", "recall"),
+  q("RADG-022", "A.10.6", "A.10.6.a", "A primary surveillance radar relies on:", "a reply from aircraft equipment", "energy reflected (echoed) back from the target itself", "GPS position reports", "the aircraft's ADS-B out", "b", "Primary radar needs no airborne equipment — it detects the passive echo reflected from the aircraft skin.", "medium", "recall"),
+  q("RADG-023", "A.10.6", "A.10.6.a", "The bearing of a target on a ground radar is given by:", "the aircraft heading", "the direction the rotating antenna is pointing when the echo returns", "the transponder code", "the signal strength", "b", "Azimuth comes from the direction the narrow rotating beam is pointing at the instant the echo is received.", "medium", "recall"),
+  q("RADG-024", "A.10.6", "A.10.6.a", "Compared with a longer wavelength, a shorter-wavelength ground radar generally gives:", "poorer bearing resolution", "better target/bearing resolution but more attenuation", "greater range in rain", "no change in resolution", "b", "Shorter wavelength → narrower beam → better resolution, but it attenuates more (e.g. in precipitation).", "hard", "apply"),
+  q("RADG-025", "A.10.6", "A.10.6.a", "The maximum unambiguous range of a pulse radar is set by its:", "transmitter power only", "pulse recurrence (repetition) frequency / interval", "antenna height", "receiver gain", "b", "A longer interval between pulses (lower PRF) allows a greater unambiguous range before the next pulse is sent.", "hard", "recall"),
+  q("RADG-026", "A.10.6", "A.10.6.a", "Approach/surveillance ground radar is primarily used to:", "measure wind", "provide controllers with the position of aircraft for separation and vectoring", "transmit weather to aircraft", "replace the ILS glide path", "b", "Ground radar gives ATC the range/bearing picture used to separate and vector traffic.", "easy", "recall"),
+
+  // ───── C.10.7 Secondary Surveillance Radar (SSR) ─────
+  q("RADG-031", "C.10.7", "C.10.7.a", "Secondary Surveillance Radar (SSR) works by:", "detecting the reflected echo from the aircraft", "the ground interrogator triggering a coded reply from the aircraft transponder", "measuring Doppler shift", "listening to the aircraft's VHF", "b", "SSR interrogates on 1030 MHz and the airborne transponder replies on 1090 MHz — an active, not reflective, system.", "medium", "recall"),
+  q("RADG-032", "C.10.7", "C.10.7.a", "SSR interrogation and reply frequencies are:", "1030 MHz up, 1090 MHz down", "1090 MHz up, 1030 MHz down", "118–137 MHz both ways", "4 300 MHz both ways", "a", "Interrogations are transmitted on 1030 MHz; transponder replies are on 1090 MHz.", "medium", "recall"),
+  q("RADG-033", "C.10.7", "C.10.7.a", "In SSR, Mode A provides ___ and Mode C provides ___:", "identity (squawk code) / pressure-altitude", "altitude / identity", "position / speed", "weather / terrain", "a", "Mode A returns the 4-digit identity (squawk) code; Mode C adds pressure altitude.", "medium", "recall"),
+  q("RADG-034", "C.10.7", "C.10.7.a", "An SSR transponder code (squawk) consists of:", "two decimal digits", "four octal digits (0–7)", "a six-character alphanumeric", "the aircraft registration", "b", "A squawk is four octal digits (each 0–7), giving 4096 possible codes.", "medium", "recall"),
+  q("RADG-035", "C.10.7", "C.10.7.a", "The advantage of Mode S over Mode A/C is:", "it needs no transponder", "selective (discrete) addressing of individual aircraft and a data link", "it works without ground stations", "it measures weather", "b", "Mode S uses a unique 24-bit address to interrogate one aircraft selectively and supports data link (e.g. ADS-B).", "hard", "recall"),
+  q("RADG-036", "C.10.7", "C.10.7.a", "The emergency squawk code for general emergency is:", "7500", "7600", "7700", "7000", "c", "7700 = general emergency (7500 hijack, 7600 radio failure, 7000 VFR conspicuity).", "medium", "recall"),
+  q("RADG-037", "C.10.7", "C.10.7.a", "A key advantage of SSR over primary radar is:", "it detects aircraft with no equipment fitted", "a strong coded reply (so less power needed) plus identity and altitude", "it is unaffected by transponder failure", "it needs no ground antenna", "b", "The active coded reply is strong (less power/weather loss) and carries identity + altitude — unlike a passive echo.", "medium", "recall"),
+];
+
+export function getRadioNavGapQuestionsBySection(sectionId: string): AirLawQuestion[] {
+  return RADIONAV_GAP_QUESTIONS.filter((x) => x.sectionId === sectionId);
+}

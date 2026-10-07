@@ -64,7 +64,7 @@ export default function LoginPage() {
           is waiting.
         </h2>
         <p className="text-zinc-500 text-center text-sm max-w-xs leading-relaxed">
-          Study smarter. Track your mastery. Know exactly when you're ready to
+          Study smarter. Track your mastery. Know exactly when you&apos;re ready to
           pass SACAA.
         </p>
 
@@ -176,7 +176,7 @@ export default function LoginPage() {
           <p className="text-center text-zinc-600 text-sm mt-6">
             {mode === "signin" ? (
               <>
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <button
                   onClick={() => { setMode("signup"); setError(""); setMessage(""); }}
                   className="text-yellow-400 hover:text-yellow-300 font-medium"

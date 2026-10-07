@@ -1,40 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase";
-import { getSubject } from "@/app/data/sacaa-syllabus";
-
-const NAV_ITEMS = [
-  { href: "/dashboard",    icon: "🏠", label: "Dashboard" },
-  { href: "/study",        icon: "📚", label: "Study" },
-  { href: "/ai-tutor",     icon: "🤖", label: "AI Instructor" },
-  { href: "/exams",        icon: "📝", label: "Mock Exams" },
-  { href: "/flashcards",   icon: "🃏", label: "Flashcards" },
-  { href: "/progress",     icon: "📊", label: "Progress" },
-  { href: "/achievements", icon: "🏆", label: "Achievements" },
-  { href: "/settings",     icon: "⚙️", label: "Settings" },
-];
+import { useParams } from "next/navigation";
+import { findSubject } from "@/app/lib/course";
+import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectReadiness, type SubjectReadiness } from "@/app/lib/readiness";
+import { Sidebar } from "@/app/components/Sidebar";
+import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 
 export default function SubjectPage() {
-  const router = useRouter();
   const params = useParams();
   const subjectId = params.subject as string;
-  const [userName, setUserName] = useState("Student");
-  const [loading, setLoading] = useState(true);
+  const { userName, loading } = useAuthGuard();
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
-  const subject = getSubject(subjectId);
-
+  // Real syllabus progress from the adaptive-mastery localStorage (client only).
+  const [readiness, setReadiness] = useState<SubjectReadiness | null>(null);
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      if (!data.user) { router.push("/login"); return; }
-      const name = data.user.user_metadata?.full_name?.split(" ")[0] || "Student";
-      setUserName(name);
-      setLoading(false);
-    });
-  }, [router]);
+    setReadiness(subjectReadiness(subjectId));
+  }, [subjectId]);
+  const sectionPct = (sectionId: string) => readiness?.topics.find((t) => t.sectionId === sectionId)?.pct ?? 0;
+  const sectionSeen = (sectionId: string) => readiness?.topics.find((t) => t.sectionId === sectionId);
+
+  const subject = findSubject(subjectId);
 
   if (loading) return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
 
@@ -48,28 +37,17 @@ export default function SubjectPage() {
   }
 
   const totalItems = subject.sections.reduce((n, s) => n + s.items.length, 0);
+  const content = subjectContent(subjectId);
+  const qCount = (sectionId: string) => content?.questions(sectionId).length ?? 0;
+  // Distinct count — IR subjects re-map several syllabus codes onto the same
+  // CPL section, so summing per-section would double-count shared questions.
+  const qIds = new Set<string>();
+  subject.sections.forEach((s) => (content?.questions(s.id) ?? []).forEach((q) => qIds.add(q.id)));
+  const totalQuestions = qIds.size;
 
   return (
     <div className="min-h-screen bg-black flex">
-      <aside className="w-64 bg-zinc-950 border-r border-zinc-900 flex flex-col fixed h-full">
-        <div className="p-6 border-b border-zinc-900">
-          <div className="text-yellow-400 font-black text-lg tracking-wider">RAPHAEL</div>
-          <div className="text-zinc-600 text-xs font-medium tracking-widest uppercase">Aviation Academy</div>
-        </div>
-        <nav className="flex-1 p-4 space-y-1 overflow-auto">
-          {NAV_ITEMS.map((item) => (
-            <Link key={item.href} href={item.href} className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors ${item.href === "/study" ? "bg-yellow-400/10 text-yellow-400 font-medium" : "text-zinc-500 hover:text-white hover:bg-zinc-900"}`}>
-              <span>{item.icon}</span>{item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="p-4 border-t border-zinc-900">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center text-yellow-400 text-sm font-bold">{userName[0]}</div>
-            <div><div className="text-white text-sm font-medium">{userName}</div><div className="text-zinc-600 text-xs">CPL Student</div></div>
-          </div>
-        </div>
-      </aside>
+      <Sidebar active="/study" userName={userName} />
 
       <main className="flex-1 ml-64 overflow-auto">
         {/* Header */}
@@ -86,30 +64,35 @@ export default function SubjectPage() {
                 <span className="text-yellow-400 font-mono font-bold">{subject.code}</span>
                 <span>{subject.sections.length} sections</span>
                 <span>{totalItems} exam topics</span>
-                <span>Exam: {subject.examQuestions} questions</span>
+                {totalQuestions > 0 && <span className="text-yellow-400/80">{totalQuestions} questions</span>}
                 <span>Pass: {subject.passPercent}%</span>
               </div>
             </div>
             <div className="flex gap-3">
-              <button className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm rounded-xl transition-colors border border-zinc-800">
+              <Link href={`/flashcards/${subjectId}`} className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm rounded-xl transition-colors border border-zinc-800">
                 🃏 Flashcards
-              </button>
-              <button className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors">
+              </Link>
+              <Link href={`/exams/${subjectId}`} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors">
                 📝 Mock Exam
-              </button>
+              </Link>
             </div>
           </div>
 
-          {/* Overall progress bar */}
-          <div className="mt-6">
-            <div className="flex items-center justify-between text-xs text-zinc-600 mb-2">
-              <span>AI Readiness Score</span>
-              <span>0% — Not started</span>
+          {/* Overall syllabus progress */}
+          {totalQuestions > 0 && (
+            <div className="mt-6">
+              <div className="flex items-center justify-between text-xs text-zinc-600 mb-2">
+                <span>Syllabus progress</span>
+                <span>
+                  {readiness ? `${readiness.pct}% ready` : "…"}
+                  {readiness && <span className="text-zinc-700"> · {readiness.seen}/{readiness.total} questions practised</span>}
+                </span>
+              </div>
+              <div className="h-2 bg-zinc-900 rounded-full overflow-hidden">
+                <div className="h-full bg-yellow-400 rounded-full transition-all" style={{ width: `${readiness?.pct ?? 0}%` }} />
+              </div>
             </div>
-            <div className="h-2 bg-zinc-900 rounded-full overflow-hidden">
-              <div className="h-full w-0 bg-yellow-400 rounded-full" />
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Sections */}
@@ -130,15 +113,20 @@ export default function SubjectPage() {
                     <div className="text-xs text-zinc-600 mt-0.5">
                       <span className="font-mono text-yellow-400/60">{section.id}</span>
                       <span className="ml-2">{section.items.length} exam topics</span>
+                      {qCount(section.id) > 0 && <span className="ml-2 text-yellow-400/70">· {qCount(section.id)} questions</span>}
                     </div>
                   </div>
                   <div className="shrink-0 flex items-center gap-4">
-                    <div className="text-right">
-                      <div className="text-xs text-zinc-600 mb-1">0 / {section.items.length} mastered</div>
-                      <div className="w-24 h-1 bg-zinc-900 rounded-full overflow-hidden">
-                        <div className="h-full w-0 bg-yellow-400 rounded-full" />
+                    {qCount(section.id) > 0 && (
+                      <div className="text-right">
+                        <div className="text-xs text-zinc-600 mb-1">
+                          {sectionSeen(section.id)?.seen ?? 0} / {qCount(section.id)} practised · {sectionPct(section.id)}%
+                        </div>
+                        <div className="w-24 h-1 bg-zinc-900 rounded-full overflow-hidden">
+                          <div className="h-full bg-yellow-400 rounded-full transition-all" style={{ width: `${sectionPct(section.id)}%` }} />
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <span className={`text-zinc-600 transition-transform duration-200 ${isOpen ? "rotate-90" : ""}`}>›</span>
                   </div>
                 </button>
@@ -163,12 +151,12 @@ export default function SubjectPage() {
                       </Link>
                     ))}
                     <div className="px-5 py-3 flex gap-3">
-                      <button className="text-xs text-yellow-400 hover:text-yellow-300 transition-colors">
+                      <Link href={`/study/${subjectId}/${section.id}?tab=flashcards`} className="text-xs text-yellow-400 hover:text-yellow-300 transition-colors">
                         🃏 Flashcards for this section →
-                      </button>
-                      <button className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors ml-4">
+                      </Link>
+                      <Link href={`/study/${subjectId}/${section.id}?tab=quiz`} className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors ml-4">
                         📝 Section quiz →
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}

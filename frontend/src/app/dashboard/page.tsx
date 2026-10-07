@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { SACAA_SYLLABUS } from "@/app/data/sacaa-syllabus";
+import { useCourse } from "@/app/hooks/useCourse";
+import { Sidebar } from "@/app/components/Sidebar";
 
 const SUBJECT_META: Record<string, { icon: string; color: string; border: string }> = {
   "aircraft-technical":   { icon: "⚙️",  color: "from-orange-600/20 to-orange-900/10", border: "border-orange-500/20 hover:border-orange-400/50" },
@@ -19,21 +20,11 @@ const SUBJECT_META: Record<string, { icon: string; color: string; border: string
   "principles-of-flight": { icon: "✈️",  color: "from-yellow-600/20 to-yellow-900/10", border: "border-yellow-500/20 hover:border-yellow-400/50" },
 };
 
-const NAV_ITEMS = [
-  { href: "/dashboard",    icon: "🏠", label: "Dashboard" },
-  { href: "/study",        icon: "📚", label: "Study" },
-  { href: "/ai-tutor",     icon: "🤖", label: "AI Instructor" },
-  { href: "/exams",        icon: "📝", label: "Mock Exams" },
-  { href: "/flashcards",   icon: "🃏", label: "Flashcards" },
-  { href: "/progress",     icon: "📊", label: "Progress" },
-  { href: "/achievements", icon: "🏆", label: "Achievements" },
-  { href: "/settings",     icon: "⚙️", label: "Settings" },
-];
-
 export default function Dashboard() {
   const router = useRouter();
   const [userName, setUserName] = useState("Student");
   const [loading, setLoading] = useState(true);
+  const { course, syllabus } = useCourse();
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -59,45 +50,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-black flex">
-      {/* Sidebar */}
-      <aside className="w-64 bg-zinc-950 border-r border-zinc-900 flex flex-col fixed h-full">
-        <div className="p-6 border-b border-zinc-900">
-          <div className="text-yellow-400 font-black text-lg tracking-wider">RAPHAEL</div>
-          <div className="text-zinc-600 text-xs font-medium tracking-widest uppercase">Aviation Academy</div>
-        </div>
-
-        <nav className="flex-1 p-4 space-y-1 overflow-auto">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors ${
-                item.href === "/dashboard"
-                  ? "bg-yellow-400/10 text-yellow-400 font-medium"
-                  : "text-zinc-500 hover:text-white hover:bg-zinc-900"
-              }`}
-            >
-              <span>{item.icon}</span>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="p-4 border-t border-zinc-900">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center text-yellow-400 text-sm font-bold">
-              {userName[0]}
-            </div>
-            <div>
-              <div className="text-white text-sm font-medium">{userName}</div>
-              <div className="text-zinc-600 text-xs">CPL Student</div>
-            </div>
-          </div>
-          <button onClick={handleSignOut} className="text-zinc-600 hover:text-zinc-400 text-xs transition-colors">
-            Sign out
-          </button>
-        </div>
-      </aside>
+      <Sidebar active="/dashboard" userName={userName} onSignOut={handleSignOut} />
 
       {/* Main */}
       <main className="flex-1 ml-64 overflow-auto">
@@ -111,7 +64,7 @@ export default function Dashboard() {
           {[
             { label: "Exam Readiness", value: "—", sub: "AI confidence score" },
             { label: "Predicted Pass %", value: "—", sub: "Complete topics to unlock" },
-            { label: "Subjects Started", value: `0 / ${SACAA_SYLLABUS.length}`, sub: "Choose a subject below" },
+            { label: "Subjects Started", value: `0 / ${syllabus.length}`, sub: "Choose a subject below" },
             { label: "Study Streak", value: "0 days", sub: "Study daily to build a streak" },
           ].map((card) => (
             <div key={card.label} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-5">
@@ -126,14 +79,14 @@ export default function Dashboard() {
         <div className="px-10 pb-16">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-xl font-bold text-white">SACAA CPL Subjects</h2>
-              <p className="text-zinc-600 text-xs mt-1">Official syllabus — Appendix 2.0A</p>
+              <h2 className="text-xl font-bold text-white">SACAA {course.toUpperCase()} Subjects</h2>
+              <p className="text-zinc-600 text-xs mt-1">Official syllabus</p>
             </div>
-            <span className="text-zinc-600 text-sm">{SACAA_SYLLABUS.length} subjects</span>
+            <span className="text-zinc-600 text-sm">{syllabus.length} subjects</span>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
-            {SACAA_SYLLABUS.map((subject) => {
+            {syllabus.map((subject) => {
               const meta = SUBJECT_META[subject.id] ?? {
                 icon: "📚",
                 color: "from-zinc-600/20 to-zinc-900/10",
