@@ -5,6 +5,75 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Piston Engines — General (A.1.4) ───
+  "ppfig-fig_02_01": [
+    "Aircraft piston engines come in several cylinder arrangements. In-line engines place the cylinders in a single row; V engines use two rows set at an angle (here 60°) sharing one crankshaft, giving more power in a shorter length.",
+    "Radial engines arrange the cylinders in a circle (in a single or double 'bank') around the crankshaft — they cool well and give high power for their length, which is why they were common on older large aircraft.",
+    "The flat (horizontally-opposed) engine lays the cylinders in two opposing rows. It is low, compact and smooth-running, so almost all modern light aircraft use the 4- or 6-cylinder flat layout.",
+  ],
+  "ppfig-fig_02_02": [
+    "This defines the basic engine dimensions. The bore is the diameter of the cylinder. The stroke is the distance the piston travels between its highest point (Top Dead Centre, TDC) and its lowest point (Bottom Dead Centre, BDC).",
+    "The crank throw is how far the crankpin is offset from the centre of the crankshaft. Because the piston goes from TDC to BDC as the crank turns half a revolution, the stroke is exactly twice the crank throw.",
+    "The swept volume (the working capacity of one cylinder) is the bore area multiplied by the stroke.",
+  ],
+  "ppfig-fig_02_04": [
+    "This circular diagram shows when the valves open and close relative to crank angle through the two revolutions (720°) of the four-stroke cycle.",
+    "The valves do not open and close exactly at TDC and BDC. The inlet valve opens before TDC and closes after BDC; the exhaust valve opens before BDC and closes after TDC. This 'lead' and 'lag' uses the momentum of the gases to fill and scavenge the cylinder more completely.",
+    "The period near TDC when both valves are open together is the valve overlap, which improves cylinder filling (volumetric efficiency). Ignition is timed to occur before TDC so the charge is burning strongly as the piston starts down.",
+  ],
+  "ppfig-fig_02_05": [
+    "This is a practical valve and ignition timing diagram with the actual angles marked, drawn against the piston positions rather than as a circle.",
+    "It shows the same idea as the circular diagram — the inlet valve opening before TDC and closing after BDC, the exhaust valve opening before BDC and closing after TDC, and ignition advanced before TDC.",
+    "The exact angles are chosen by the designer to get the best cylinder filling and scavenging across the engine's normal speed range.",
+  ],
+  "ppfig-fig_02_06": [
+    "This explains why the valves are timed the way they are. Near TDC (left) the piston barely moves for a given amount of crankshaft rotation — 45° of crank movement shifts the piston only a tiny distance.",
+    "Around the middle of the stroke (right) that same 45° of crank rotation moves the piston a large distance and does most of the useful work.",
+    "The region near TDC and BDC, where crank rotation produces little piston movement, is the 'ineffective crank angle'. Because so little happens there, the valves can be opened early and closed late without losing much — while gaining much better gas flow.",
+  ],
+  "ppfig-fig_02_08": [
+    "This shows a manifold absolute pressure (MAP) gauge connected to the inlet manifold. MAP is the pressure of the air/fuel charge being delivered to the cylinders.",
+    "It is the pilot's measure of how much power the engine is making — set by the throttle (and, on a supercharged/turbocharged engine, by the boost).",
+    "Because engine power depends on the mass of charge burned, MAP together with RPM is the key indication of power on an aircraft with a constant-speed propeller.",
+  ],
+  "ppfig-fig_02_10": [
+    "This defines the compression ratio. The total volume is the cylinder volume with the piston at BDC; the clearance volume is the small space left above the piston at TDC; and the swept volume is the difference between them — what the piston actually sweeps through.",
+    "The compression ratio is the total volume divided by the clearance volume.",
+    "A higher compression ratio squeezes the charge more, raising the engine's thermal efficiency and power — but it also makes the engine more prone to detonation, so the compression ratio is limited by the fuel's anti-knock (octane) rating.",
+  ],
+  "ppfig-fig_02_12": [
+    "This shows the crankshaft, which converts the pistons' up-and-down motion into rotation. Each connecting rod's big end runs on a crankpin that is offset from the main axis, so as a piston is pushed down it turns the crank.",
+    "The main journals run in the main bearings, and the web extensions act as balance weights to smooth out the rotation. The rear end carries the drive for the camshaft, and the front flange is where the propeller bolts on.",
+    "Oil is fed through passages drilled inside the crankshaft, from the main-bearing journals out to the big-end crankpins, to lubricate the bearings.",
+  ],
+  "ppfig-fig_02_15": [
+    "This shows the valve-operating gear. The rotating camshaft has lobes that, once per cycle, push a cam follower (tappet) and push-rod upward; this rocks the rocker arm about its shaft, and the rocker pad presses on the valve tip to open the valve against its springs.",
+    "The valve slides in the valve guide and seats on its face in the cylinder head. A small valve (tappet) clearance is left between the rocker pad and the valve tip so the valve can still close fully when the parts expand with heat.",
+    "Too little clearance holds the valve open (giving a burnt valve and a weak cylinder); too much makes the gear noisy and opens the valve late. A hydraulic tappet takes up this clearance automatically.",
+  ],
+  "ppfig-fig_02_16": [
+    "This shows the rear of a flat engine, where the engine-driven accessories are mounted on the accessory housing.",
+    "Visible are the two magnetos (the self-contained ignition units), the starter motor, the generator for electrical power, the carburettor and induction manifold feeding the cylinders, and the oil sump at the bottom.",
+    "Grouping these drives at the back keeps them accessible for servicing and lets them be driven directly from the crankshaft gear train.",
+  ],
+
+  // ─── Piston Engines — Introduction (A.1.4) ───
+  "ppfig-fig_01_01": [
+    "This cutaway names the main parts of a piston (reciprocating) engine. The piston slides up and down inside the cylinder; above it, the cylinder head carries the inlet and exhaust valves — which let the mixture in and the burnt gas out — and the spark plug that ignites the charge.",
+    "The piston is joined by a connecting rod to the crankshaft, which turns the piston's up-and-down (reciprocating) motion into rotation to drive the propeller.",
+    "The crankcase is the main body that houses the crankshaft and ties everything together. This basic layout is common to all aircraft piston engines.",
+  ],
+  "ppfig-fig_01_02": [
+    "This shows how airflow behaves in a venturi — a tube that narrows and then widens — which is the principle a carburettor is built on.",
+    "In the convergent (narrowing) part the air speeds up, and as it speeds up its pressure and temperature fall. At the narrowest point (the throat) the velocity is greatest and the pressure and temperature are lowest.",
+    "In the divergent (widening) part the air slows down again, so its pressure and temperature rise back up. It is the low pressure at the throat that a carburettor uses to draw fuel into the airstream.",
+  ],
+  "ppfig-fig_01_03": [
+    "This shows the four strokes of the piston engine's cycle, in order. INDUCTION: the piston moves down, the volume increases and the pressure falls, drawing the fuel/air mixture in through the open inlet valve.",
+    "COMPRESSION: the piston rises with both valves closed, so the volume is reduced and the pressure (and temperature) rise. POWER: the compressed mixture is ignited and the rapid rise in temperature and pressure drives the piston down — this is the only stroke that actually produces power.",
+    "EXHAUST: momentum carries the piston back up with the exhaust valve open, pushing the burnt gases out. The whole cycle takes two crankshaft revolutions (720°), and the combustion happens at roughly constant volume.",
+  ],
+
   // ─── Gas Turbines — Introduction (A.1.5) ───
   "ppfig-fig_13_01": [
     "This is the aeolipile (Hero's engine), the oldest demonstration of the reaction principle that every jet engine uses. A fire boils water in the sphere; steam escapes through two bent nozzles and the jets push the sphere round in the opposite direction.",

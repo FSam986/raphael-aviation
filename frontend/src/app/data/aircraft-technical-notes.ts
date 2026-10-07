@@ -219,6 +219,7 @@ const NOTES: Record<string, SectionNote> = {
       ]},
       { heading: "Engine power & efficiency", figureTopics: ["Piston Engines - General"], points: [
         "IHP (indicated) = power developed in the cylinders; BHP (brake) = useful power at the output shaft; FHP (friction) = power lost to friction. IHP = BHP + FHP.",
+        "An indicator diagram plots cylinder pressure against piston position over the cycle; its average height is the indicated mean effective pressure (IMEP), from which indicated power is found. The enclosed loop's area represents the work done each cycle.",
         "Mechanical efficiency = BHP ÷ IHP. Thermal efficiency improved by a higher compression ratio.",
         "Power output is proportional to the MASS of mixture (charge) burned — hence the benefits of cold, dense air and supercharging.",
         "Volumetric efficiency = actual charge inducted ÷ theoretical cylinder volume; improved by valve overlap, ram effect and supercharging.",
