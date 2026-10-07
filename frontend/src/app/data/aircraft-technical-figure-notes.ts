@@ -5,6 +5,13 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Piston Engines — Cooling (A.1.4) ───
+  "ppfig-fig_04_01": [
+    "This shows a liquid (water/glycol) cooling system, of the kind used on some engines and on older high-power types. A pump circulates the coolant through passages in the cylinder block, where it absorbs heat from the cylinders.",
+    "The hot coolant then flows to the radiator, where the airflow carries the heat away, before returning to the engine. A header tank allows the coolant to expand and keeps the system topped up.",
+    "Liquid cooling gives very even cylinder temperatures, but it adds weight and complexity (pump, radiator, coolant and plumbing) — which is why most light aircraft use the simpler air-cooling method instead.",
+  ],
+
   // ─── Piston Engines — General (A.1.4) ───
   "ppfig-fig_02_01": [
     "Aircraft piston engines come in several cylinder arrangements. In-line engines place the cylinders in a single row; V engines use two rows set at an angle (here 60°) sharing one crankshaft, giving more power in a shorter length.",
