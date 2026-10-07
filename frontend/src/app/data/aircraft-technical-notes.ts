@@ -261,8 +261,10 @@ const NOTES: Record<string, SectionNote> = {
         "Liquid (water/glycol) cooling, by contrast, pumps coolant through the block to a radiator with a header tank; it cools very evenly but is heavier and more complex, so it is rare on light aircraft.",
       ]},
       { heading: "Supercharging & turbocharging", figureTopics: ["Piston Engines - Performance and Power Augmentation"], points: [
-        "A supercharger (engine-driven) or turbocharger (exhaust-driven) raises induction manifold pressure to MAINTAIN POWER as altitude increases.",
-        "Turbocharger = compressor + turbine on a common shaft driven by exhaust gas. Critical altitude = highest altitude at which rated MAP can still be maintained.",
+        "A supercharger (engine-driven, via an impeller/diffuser) or turbocharger (exhaust-driven) raises induction manifold pressure to MAINTAIN POWER as altitude increases.",
+        "Turbocharger = compressor + turbine on a common shaft driven by exhaust gas; boost is set by a WASTEGATE (lets exhaust bypass the turbine), closed progressively with altitude to hold boost. Control types: fixed orifice, differential-pressure, density, and absolute-pressure controllers (aneroid capsule + oil-operated servo).",
+        "Boost pressure = induction pressure relative to sea-level standard (±psi on a boost gauge); an automatic boost controller holds the selected boost so the engine can't be over-boosted.",
+        "Critical altitude / full-throttle height (FTH) = the highest altitude at which rated boost/MAP can still be maintained with the throttle fully open; above it, power falls like a normally-aspirated engine.",
         "Detonation = spontaneous, explosive burning of the end-gas (high MAP + low RPM + lean + hot). Pre-ignition = charge ignites before the spark (hot spot). Both cause knocking, high CHT and engine damage — cure: reduce power, enrich, open cowl flaps.",
       ]},
       { heading: "Propellers", figureTopics: ["Piston Engines - Propellers"], points: [

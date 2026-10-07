@@ -5,6 +5,53 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Piston Engines — Performance & Power Augmentation (A.1.4) ───
+  "ppfig-fig_11_03": [
+    "A turbocharger uses the engine's own exhaust gas to drive a turbine, which spins a compressor on the same shaft to force extra air into the engine. The exhaust leaves the cylinders, drives the turbine and then exits; the compressor draws in air and delivers it, pressurised, to the inlet manifold.",
+    "The amount of boost is set by a wastegate — a valve in the exhaust that can let some gas bypass the turbine. A wastegate controller, worked by engine oil pressure, closes the wastegate for more boost (more exhaust through the turbine) or opens it for less.",
+    "By holding the target manifold pressure this way, the engine can keep making sea-level power well up into thinner air.",
+  ],
+  "ppfig-fig_11_04": [
+    "This is a fuller turbocharger installation controlled by an absolute pressure controller (APC). The compressor and turbine share one shaft; the exhaust drives the turbine, and the wastegate in the by-pass duct decides how much exhaust is used.",
+    "An aneroid capsule in the APC senses the compressor delivery (boost) pressure and, through a bleed valve and the oil-operated wastegate actuator, positions the wastegate to hold the set boost. A 'suck-in' flap lets the engine draw air directly if the turbo is not yet providing enough.",
+    "The resulting boost is shown to the pilot on the boost pressure gauge.",
+  ],
+  "ppfig-fig_11_05": [
+    "This traces the turbocharger from engine start up to critical altitude. At start and idle the wastegate is almost fully open, so there is little boost. As power is increased for take-off, the wastegate closes and the turbo RPM and compressor delivery pressure rise to give full boost.",
+    "As the aircraft then climbs and the air thins, the controller progressively closes the wastegate further to keep the compressor delivery pressure constant — so boost and engine BHP are maintained even though the outside air is thinner.",
+    "At the critical altitude the wastegate is fully closed; above that the turbo can no longer hold the boost, so delivery pressure and power finally begin to fall.",
+  ],
+  "ppfig-fig_11_06": [
+    "This compares engine BHP against altitude for a normally-aspirated engine and two turbocharged setups. The normally-aspirated engine loses power steadily as it climbs, simply because the air gets thinner.",
+    "A turbocharged engine holds its power up to its critical altitude — the highest altitude at which the turbo can still maintain its rated boost — after which its power also falls away.",
+    "A 'ground-boosted' turbo gives extra power right from sea level; an 'altitude-boosted' turbo is arranged to restore sea-level power higher up. Above the critical altitude, every engine is limited by air density.",
+  ],
+  "ppfig-fig_11_09": [
+    "This shows a supercharged engine with automatic boost control feeding a constant-speed propeller. The throttle lever sets the demanded power, and an Automatic Boost Controller adjusts the throttle to hold the chosen manifold (boost) pressure as conditions change — so the same lever position always gives the same boost.",
+    "The engine-driven supercharger (turned through a spring drive unit) compresses the charge before it reaches the cylinders. The propeller constant-speed unit (CSU), set by the propeller/RPM lever, varies the blade angle to hold the selected RPM.",
+    "So the pilot effectively flies the engine on two levers: the throttle sets the boost (manifold pressure), and the RPM lever sets the propeller speed.",
+  ],
+  "ppfig-fig_11_10": [
+    "This explains 'rated altitude', or full-throttle height. An engine's rated power is the maximum continuous power it is cleared to give at its rated RPM and rated boost.",
+    "As the aircraft climbs at full throttle, the supercharger or turbo keeps the boost up to a certain altitude — the full-throttle height — above which the throttle is already fully open and the power starts to fall.",
+    "Using less than rated RPM, or less than rated boost, changes that full-throttle height, as the three lines show. Full-throttle height is simply the altitude at which the engine can only just hold its rated power with the throttle fully open.",
+  ],
+  "ppfig-fig_11_11": [
+    "This cutaway shows how an automatic boost controller works. An aneroid capsule senses the boost (inlet-manifold) pressure.",
+    "If the boost gets too high, the capsule is compressed and moves a landed (servo) valve that ports engine oil pressure to a servo piston, which eases the throttle valve closed; if the boost is too low, it opens the throttle slightly. A cam, moved by the boost selector lever, sets the datum the capsule works to.",
+    "In this way the controller automatically holds the selected boost pressure whatever the altitude or throttle position, so the engine cannot be over-boosted.",
+  ],
+  "ppfig-fig_11_12": [
+    "This compares a supercharged engine with a normally-aspirated one as altitude increases. The normally-aspirated engine loses power steadily from sea level because the air gets thinner.",
+    "The supercharged engine is deliberately set to give slightly less than its full sea-level potential low down (so it is not over-boosted), but because the supercharger keeps packing the cylinders, its power holds up — even rising a little — until the full-throttle height, beyond which it too falls away.",
+    "So supercharging trades a little sea-level power for much better power at altitude.",
+  ],
+  "ppfig-fig_11_13": [
+    "This summary graph compares four engines against altitude: normally-aspirated, internally-supercharged, altitude-boosted turbo and ground-boosted turbo.",
+    "The normally-aspirated engine loses power steadily. The internal supercharger starts lower but holds power up to its full-throttle height. The turbochargers maintain high power up to their critical altitudes (lower or higher, depending on the setup) before falling.",
+    "The take-away points: boosting (supercharging or turbocharging) maintains power at altitude; every boosted engine has a critical altitude / full-throttle height beyond which power still falls; and whether it is ground-boosted or altitude-boosted decides whether the extra power is available low down or restored higher up.",
+  ],
+
   // ─── Piston Engines — Fuel Injection (A.1.4) ───
   "ppfig-fig_10_01": [
     "This shows a continuous-flow fuel injection system. Instead of a carburettor, fuel from the engine-driven (M) and electric (E) pumps is delivered under pressure to a fuel/air control unit, which meters it according to throttle position and the pilot's mixture setting.",
