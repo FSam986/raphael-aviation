@@ -5,6 +5,18 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Piston Engines — Mixture (A.1.4) ───
+  "ppfig-fig_07_01": [
+    "This chart shows how the air/fuel ratio is chosen for different engine conditions. The chemically-correct (stoichiometric) ratio is about 15:1, where in theory all the fuel and all the oxygen are used up.",
+    "To each side of it are two useful mixtures. A slightly RICH mixture (around 12.5:1) gives BEST POWER — used for take-off and maximum cruise, where the extra fuel also cools the charge and guards against detonation. A slightly WEAK/lean mixture (around 16–17:1) gives BEST ECONOMY — the lowest specific fuel consumption, used for economy cruise.",
+    "At idle, a richer mixture is needed again just to ensure enough fuel vapour to keep the engine running smoothly. So the rule is: rich for power and cooling, lean for economy, with the chemically-correct ratio in between.",
+  ],
+  "ppfig-fig_07_02": [
+    "This shows how the pilot leans the mixture using the exhaust gas temperature (EGT) gauge. Starting from full rich (lever in), as the mixture is leaned the EGT rises — because the burn becomes more complete — until it reaches a maximum, called PEAK EGT, at roughly the chemically-correct mixture.",
+    "If leaning continues past the peak, the EGT falls again because there is now too little fuel. The two sides of the peak are named for what cools the charge: on the rich side the excess fuel does the cooling ('fuel cooling'), and on the lean side the excess air does it ('air cooling').",
+    "Pilots lean to a set number of degrees rich of peak for best power, or to peak / lean of peak for best economy, always following the engine manufacturer's figures — and never leaning so far that the engine runs rough or starts to detonate.",
+  ],
+
   // ─── Piston Engines — Fuel / Combustion (A.1.4) ───
   "ppfig-fig_06_01": [
     "This shows normal combustion in the cylinder. The spark plug fires (1. Normal Ignition) and a flame front starts at the plug.",
