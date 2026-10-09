@@ -5,6 +5,144 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Hydraulics (A.1.2) ───
+  "atgfig-ch02_fig_01": [
+    "These four columns of liquid have very different shapes and volumes, yet every gauge at the bottom reads the same pressure.",
+    "This shows a key fact of hydrostatics: the pressure at the bottom of a liquid depends only on the height (head) of liquid above it — not on the shape of the vessel or the total volume of fluid.",
+    "It is why hydraulic pressure is transmitted equally through the system regardless of how the pipes are routed.",
+  ],
+  "atgfig-ch02_fig_02": [
+    "This illustrates Pascal's law. A force pushing on the small piston creates a pressure in the enclosed fluid, and that pressure acts equally in all directions throughout the fluid — which is why all the arrows are the same length.",
+    "Because pressure = force ÷ area, a hydraulic system can transmit that force through pipes of any shape, and by changing the piston areas it can multiply it.",
+  ],
+  "atgfig-ch02_fig_03": [
+    "This puts Pascal's law to work. The same fluid pressure (500 kPa) acts on both pistons, but piston B has twice the area of piston A, so it produces twice the force — 2000 N against 1000 N — and the system balances.",
+    "This is how a hydraulic system turns a small input force into a large output force: force = pressure × area, so a bigger piston gives a bigger force — at the cost of moving through a shorter distance.",
+  ],
+  "atgfig-ch02_fig_04": [
+    "This is the simplest possible hydraulic system, drawn as a brake. Pressing the foot pedal pushes piston A in the master cylinder, which raises the pressure of the fluid in the pipe.",
+    "That pressure is carried to piston B in the slave cylinder, which clamps the brake onto the disc. A fluid reservoir keeps the master cylinder topped up.",
+    "This master-and-slave arrangement is the basis of every hydraulic system — an input piston raising the pressure, and an output piston doing the work.",
+  ],
+  "atgfig-ch02_fig_05": [
+    "This shows the basic parts of a hydraulic system. The pump draws fluid from the reservoir and pushes it through a pressure filter to a selector valve, which routes it to the actuator (jack).",
+    "A relief valve protects the system by venting fluid back to the reservoir if the pressure gets too high.",
+    "When nothing is selected, the fluid simply flows round and straight back to the reservoir — this is an 'open-centre' system.",
+  ],
+  "atgfig-ch02_fig_06": [
+    "This extends the basic system to several services. The engine-driven pump feeds a line that passes through each selector valve in turn ('to another service'); each selector routes pressure to its own actuator when operated, and the flow then continues to the next.",
+    "A relief valve caps the pressure.",
+    "In this series (open-centre) arrangement only one service can be fully powered at a time, which is its main limitation.",
+  ],
+  "atgfig-ch02_fig_07": [
+    "This is a closed-centre system. A non-return valve downstream of the pump traps the pressure in the system, and an accumulator stores fluid under pressure ready for use.",
+    "The selector valves are now arranged in parallel, so several services can be operated at the same time, with the accumulator supplying the initial surge of fluid.",
+    "When nothing is being used, the pump builds the pressure and it is held, so a service responds instantly when selected.",
+  ],
+  "atgfig-ch02_fig_08": [
+    "This cutaway shows a hydraulic reservoir. It stores the fluid, provides a head of fluid to the pump, and makes up for small leaks and for the fluid that moves in and out of the jacks and accumulator.",
+    "Baffles stop the fluid surging and let any air separate out; a fin helps cool it; a sight glass shows the contents; and a temperature sensor monitors it.",
+    "The reservoir is pressurised (the 'pressurised level') to give the pump a positive supply and prevent it cavitating at high altitude.",
+  ],
+  "atgfig-ch02_fig_09": [
+    "This is a hydraulic filter. Fluid passes in, flows through the filter element — which traps the contamination — and leaves clean.",
+    "If the element becomes clogged, a bypass valve (shown here closed) opens so the service is not lost, although the fluid passing it is then unfiltered.",
+    "The seal and housing contain the fluid, and the element is a replaceable item checked at servicing.",
+  ],
+  "atgfig-ch02_fig_10": [
+    "This is a double-acting hand pump, used for ground servicing or emergencies. Moving the handle drives a piston in and out.",
+    "Non-return valves (NRVs) let fluid be drawn from the inlet on one stroke and pushed to the outlet on the other, so fluid is delivered on both strokes of the handle.",
+    "A transfer valve directs the flow, and a relief valve protects the pump against over-pressure.",
+  ],
+  "atgfig-ch02_fig_11": [
+    "This is the type of pump used for aircraft main hydraulic systems — a variable-displacement axial piston pump. A ring of pistons sits in a rotating cylinder block.",
+    "As the block is driven round, each piston is pushed in and out by an angled plate, drawing fluid in and then delivering it at high pressure.",
+    "By changing the angle of that plate the pump can vary how much fluid it delivers, which lets it hold a constant system pressure.",
+  ],
+  "atgfig-ch02_fig_13": [
+    "This shows the inside of a constant-pressure (variable-displacement) axial piston pump. The drive shaft spins the cylinder block, and each piston's shoe rides on the angled swash plate (yoke), so the pistons stroke in and out — drawing fluid from the inlet and delivering it to the outlet.",
+    "Here the swash plate is at a large angle, so the pistons have a long stroke and the pump delivers its maximum flow — the condition when the system is calling for fluid.",
+    "A case drain returns the small internal leakage back to the reservoir.",
+  ],
+  "atgfig-ch02_fig_14": [
+    "This is the same pump once the system has reached its set pressure. A control piston, sensing that pressure, has moved the swash plate towards the vertical.",
+    "Now the pistons barely stroke, so the pump delivers almost no flow — just enough to make up leaks. This 'de-stroking' holds the pressure constant without a relief valve having to dump fluid.",
+    "Because the pump is doing almost no work in this state, it wears less and the fluid stays cool.",
+  ],
+  "atgfig-ch02_fig_15": [
+    "On a system with a fixed-delivery pump, an automatic cut-out valve (ACOV) off-loads the pump once the system is fully charged.",
+    "When the accumulator/system reaches pressure, the ACOV opens an idling circuit so the pump's output flows freely back to the reservoir at low pressure, while a non-return valve holds the pressure trapped in the system.",
+    "This reduces pump wear and stops the fluid overheating. When a service is used and the pressure drops, the ACOV cuts the pump back in.",
+  ],
+  "atgfig-ch02_fig_16": [
+    "An accumulator stores fluid under pressure using a gas charge, usually nitrogen. The gas and the fluid must be kept apart — either by a separator/floating piston or by a flexible diaphragm (or bladder).",
+    "A charging point lets the gas pre-charge be set.",
+    "The accumulator stores energy, damps out pressure fluctuations (hammering), allows for thermal expansion, and provides an emergency and initial supply of fluid when a service is first selected.",
+  ],
+  "atgfig-ch02_fig_17": [
+    "These are the three kinds of actuator (jack). A single-acting actuator is driven by fluid one way and returned by a spring.",
+    "A double-acting actuator is driven by fluid both ways — fluid can be sent to either side of the piston.",
+    "A balanced actuator has a piston rod of equal area on both sides, so it produces the same force and the same speed in each direction.",
+  ],
+  "atgfig-ch02_fig_18": [
+    "A priority valve makes sure the most important ('primary') services always get pressure first.",
+    "Fluid from the pressure inlet reaches the primary services directly, but the passage to the secondary services is held closed by a spring until the pressure is high enough to overcome it.",
+    "So if the system pressure falls, the secondary services are cut off first and the primary (essential) services keep working.",
+  ],
+  "atgfig-ch02_fig_19": [
+    "A pressure-reducing valve supplies a sub-system that needs a lower pressure than the main system — for example a lower-pressure brake or door system.",
+    "It takes high-pressure fluid at the inlet and meters it to the low-pressure sub-system, closing off once the reduced pressure is reached. A spring sets the reduced value and a return port bleeds off any excess.",
+  ],
+  "atgfig-ch02_fig_20": [
+    "A non-return (check) valve lets fluid flow one way only. Fluid entering the inlet pushes the ball off its seat, against a light spring, and flows on to the outlet.",
+    "If the flow tries to reverse, the ball is pushed back onto its seat and blocks it.",
+    "It is used to trap pressure in the system and to stop fluid flowing back towards the pump.",
+  ],
+  "atgfig-ch02_fig_21": [
+    "This restrictor valve gives full flow in one direction and restricted (metered) flow in the other.",
+    "In the free direction the fluid pushes the valve open and flows freely around it; in the other direction the valve closes and the fluid can only pass through a small orifice.",
+    "It is used to control the speed of an actuator in one direction only — for example to slow part of the landing-gear travel.",
+  ],
+  "atgfig-ch02_fig_22": [
+    "A selector valve directs the pump pressure and the return line to the two sides of an actuator.",
+    "In one position it sends pressure to one side of the jack and connects the other side to return, moving the jack one way.",
+    "Move the selector and the connections swap over, so the jack is driven the other way.",
+  ],
+  "atgfig-ch02_fig_23": [
+    "This is a spool (linear slide) selector valve, moved by a pilot input. Its lands can connect pressure and return to the service — or, in the centre position shown here, block both ports.",
+    "With both ports blocked, the fluid in the actuator is trapped. Because the fluid is incompressible this is a hydraulic lock, which holds the actuator firmly in place.",
+  ],
+  "atgfig-ch02_fig_24": [
+    "A shuttle valve automatically connects a service to whichever of two supplies has the higher pressure.",
+    "Normally the normal supply holds the shuttle over and feeds the service. If the normal supply fails and an alternate (emergency) supply is applied, its higher pressure slides the shuttle across so the alternate supply now feeds the service.",
+    "It lets one service be fed from either of two independent systems without the two systems being connected.",
+  ],
+  "atgfig-ch02_fig_26": [
+    "This is a flight-deck hydraulic system panel, with its indications and controls labelled.",
+    "It shows the reservoir contents, the low-quantity/high-temperature warnings, the firewall shut-off valves, the engine-driven-pump shut-offs, the air-turbine (and electric/RAT) pumps and power transfer unit, the engine-pump case-drain warnings, the brake-accumulator low-pressure warning, and the system pressure gauges.",
+    "Together these let the crew monitor each hydraulic system and select which pumps are driving it.",
+  ],
+  "atgfig-ch02_fig_27": [
+    "This is an electronic (ECAM-type) hydraulic system display. The three independent systems — here Green, Blue and Yellow — are shown side by side, each at its normal 3000 psi (green meaning normal).",
+    "The display shows which pumps are driving each system — engine-driven, electric ('ELEC') or ram-air turbine ('RAT') — and the power transfer unit (PTU) that lets one system help another without transferring fluid between them.",
+    "A loss of pressure is shown in red, so the crew can see at a glance which system has a problem.",
+  ],
+  "atgfig-ch02_fig_28": [
+    "This is a pressure relay/transmitter that drives the cockpit pressure gauge.",
+    "System pressure acts on a piston/diaphragm inside it, and that movement is converted into the reading shown on the gauge, so the crew can monitor the hydraulic pressure.",
+    "The red arc on the gauge marks the normal/maximum pressure range.",
+  ],
+  "atgfig-ch02_fig_30": [
+    "This system schematic shows how all the components work together to power the aircraft's services. The pump supply, through a priority (pressure-maintaining) valve, feeds the essential services first — the power flying controls, the brakes (with their modulator and fuse) and the landing gear — before the secondary services.",
+    "Sequence valves make the gear doors and legs operate in the correct order, and a restrictor valve in the gear-up line limits the free-fall speed. Shuttle valves let the brakes and flying controls be fed from the alternate or standby system if the normal one fails.",
+    "A ram-air turbine (HYRAT) provides emergency hydraulic power, and on this layout it supplies the flying controls only — the minimum needed to keep flying.",
+  ],
+  "atgfig-ch02_fig_31": [
+    "This is a high-pressure pneumatic (compressed-air) system, used on some aircraft as an alternative to hydraulics for the brakes, gear and doors.",
+    "Engine-driven compressors charge a high-pressure storage bottle through moisture separators, a desiccant to dry the air, non-return valves and a filter. Relief valves cap the pressure, and an isolation valve and a pressure reducer feed the services (normal/emergency brakes, propeller brakes, nosewheel steering, gear and the passenger door). A ground charging port lets it be charged on the ground.",
+    "Because air is compressible it gives a spongy feel and cannot provide the precise, powerful actuation that incompressible hydraulic fluid can — which is why most aircraft use hydraulics for the heavy work.",
+  ],
+
   // ─── Airframes — Fuselage, Wings & Structure (A.1.2) ───
   "atgfig-ch01_fig_04": [
     "This shows the fail-safe principle. A main structural member — here a fuselage frame near the wing attachment — is built so that if one part fractures, the load it was carrying is redistributed to the surrounding structure along alternative load paths, instead of the whole thing failing.",
