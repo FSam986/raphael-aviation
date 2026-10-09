@@ -5,6 +5,93 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Piston Engines — Propellers (A.1.4) ───
+  "ppfig-fig_12_01": [
+    "This names the parts of a propeller blade. The tip is the outer end (it moves fastest); the leading edge cuts into the air and the trailing edge is the rear.",
+    "The shank is the thick part near the centre, and the root and butt are where the blade is held in the hub. The peg for the pitch-change mechanism lets the blade be rotated about its own axis to change its pitch (blade angle).",
+    "A propeller blade is really a rotating aerofoil — a twisted wing — that produces thrust the way a wing produces lift.",
+  ],
+  "ppfig-fig_12_02": [
+    "These diagrams define the propeller's angles and the idea of slip. The blade is set at a blade angle (pitch) to its plane of rotation. Because the blade both rotates and moves forward, the air actually meets it along the resultant path at the angle of advance (helix angle), and the angle of attack is the small angle between that path and the blade's chord line.",
+    "The resultant aerodynamic force is mostly thrust (forward), with some propeller torque resisting the rotation. Geometric pitch is how far the blade would advance in one turn if it didn't slip — like a screw in solid material; the effective pitch is how far it really advances; and the difference between them is the slip.",
+    "The lower diagram shows the helix the blade tip actually traces through the air in one revolution.",
+  ],
+  "ppfig-fig_12_03": [
+    "Pitch (blade angle) is how coarsely the blade is 'screwed' into the air. Fine pitch is a small blade angle and small geometric pitch: the blade takes a small bite of air, which lets the engine spin up to high RPM — good for take-off and climb, like a low gear.",
+    "Coarse pitch is a large blade angle and large geometric pitch: the blade takes a big bite, moving the aircraft further per turn at lower RPM — efficient for the cruise, like a high gear.",
+    "A variable-pitch propeller changes between these to suit each phase of flight, instead of being stuck with the single compromise angle of a fixed-pitch prop.",
+  ],
+  "ppfig-fig_12_04": [
+    "Just like a wing, a propeller blade's angle of attack is the angle between its chord line and the actual airflow reaching it (its actual path through the air).",
+    "This is NOT the same as the blade angle (pitch), which is measured to the plane of rotation — the angle of attack is usually much smaller.",
+    "Thrust depends on this angle of attack, so anything that changes the direction of the airflow onto the blade changes the thrust. That is the key to understanding how a propeller behaves as RPM and speed change.",
+  ],
+  "ppfig-fig_12_06": [
+    "On a fixed-pitch blade the angle of attack is set by two things together: the blade's rotational speed (RPM) and the aircraft's forward speed (TAS). The airflow onto the blade is the resultant of these two velocities.",
+    "If the RPM increases or the forward speed decreases, the resultant airflow comes more from straight ahead, so the angle of attack increases and the blade makes more thrust (right-hand diagram).",
+    "If the forward speed increases, the angle of attack decreases. This is why a fixed-pitch propeller is only efficient at one combination of speed and RPM — and why a constant-speed propeller, which can change its blade angle, performs so much better.",
+  ],
+  "ppfig-fig_12_07": [
+    "This plots propeller efficiency against aircraft speed. A fine-pitch propeller is efficient at low speeds but its efficiency falls away as speed rises; a coarse-pitch propeller is the opposite — poor at low speed, good at high speed.",
+    "A fixed-pitch propeller is a compromise between the two, only near its best at one speed.",
+    "A variable-pitch (constant-speed) propeller can continuously change its blade angle, so it stays near peak efficiency right across the speed range — which is why it gives much better all-round performance.",
+  ],
+  "ppfig-fig_12_09": [
+    "This cutaway shows how the blade angle is changed. Oil under pressure is fed down the hollow engine shaft (the oil tube) to a piston in a cylinder in the hub; as the piston moves, an operating link rotates the blade to change its pitch.",
+    "Opposing the oil are a feathering spring and the blade counterweights, which try to drive the blade the other way.",
+    "The balance between oil pressure (acting one way) and the spring and counterweights (acting the other) sets the blade angle. If oil pressure is lost, the spring and counterweights drive the blade toward the feathered (or coarse) position.",
+  ],
+  "ppfig-fig_12_10": [
+    "This is a double-acting pitch-change mechanism, where oil pressure is used on BOTH sides of the piston rather than oil against a spring.",
+    "Fine-pitch oil is fed to one side of the piston and coarse-pitch oil to the other; porting oil to one side while draining the other drives the blade toward fine or toward coarse.",
+    "Because oil actively pushes the blade both ways, the pitch change is quick and powerful in both directions, and the blade angle is held firmly wherever it is set.",
+  ],
+  "ppfig-fig_12_11": [
+    "This simply shows the same propeller blade set to two different pitch angles — a finer angle on the left and a coarser angle on the right.",
+    "Rotating the whole blade about its long axis is what 'changing pitch' means.",
+    "On a constant-speed propeller the blade is rotated continuously between fine and coarse to hold the selected RPM as the flight conditions change.",
+  ],
+  "ppfig-fig_12_12": [
+    "This is the governor, or constant-speed unit (CSU), that automatically holds the selected RPM. Engine-driven flyweights try to fly outward, while a speeder spring — set by the pilot's RPM lever — pushes them back in.",
+    "When the two are balanced the propeller is 'on speed' and the pilot valve sits in the neutral position shown here, blocking both oil passages so the blade angle stays exactly where it is.",
+    "Moving the RPM lever changes the speeder-spring tension to select a different RPM. An engine-driven oil pump, with a relief valve, supplies the boosted oil the system works on.",
+  ],
+  "ppfig-fig_12_13": [
+    "This shows the governor when the engine over-speeds — for example the nose drops and the propeller speeds up. The flyweights now spin too fast for the speeder-spring setting and fly outward, lifting the pilot valve.",
+    "That ports pressure oil to the COARSE side, which increases the blade angle. A coarser blade takes a bigger bite of air, which loads the engine and brings the RPM back down.",
+    "As the RPM returns to the selected value the flyweights move back in and the valve returns to neutral — so the governor has corrected the over-speed automatically.",
+  ],
+  "ppfig-fig_12_14": [
+    "This shows the opposite case — the engine under-speeds, for example the nose rises and the propeller slows. The flyweights slow down and fall inward under the speeder spring, lowering the pilot valve.",
+    "That ports pressure oil to the FINE side, which reduces the blade angle. A finer blade takes a smaller bite of air, unloading the engine so the RPM rises again.",
+    "As the RPM climbs back to the selected value the valve returns to neutral. Together with the over-speed case, this is how the CSU keeps the RPM constant whatever the aircraft is doing.",
+  ],
+  "ppfig-fig_12_15": [
+    "This is a fuller governor that adds feathering and a pitch lock. The centrifugal weights and governor spring work as before to position the governor valve for fine or coarse pitch within the normal range.",
+    "Moving the control beyond minimum RPM selects FEATHER, and a valve-lift solenoid and valve-lift piston drive the blade all the way to the feathered angle. A pitch-lock solenoid and non-return valve can lock the blade angle so it cannot drift if oil pressure is lost.",
+    "A separate feather/unfeather oil supply and the normal engine oil inlet feed the unit; the drive shaft turns the flyweights.",
+  ],
+  "ppfig-fig_12_17": [
+    "This shows how a feathered propeller is unfeathered (restarted) in flight. A feathered, stopped engine makes no oil pressure of its own, so a pre-charged unfeathering accumulator stores oil under pressure ready for the job.",
+    "Pressing the unfeathering button energises a solenoid valve that releases the accumulator oil into the propeller oil line. This drives the blades out of feather so they begin to windmill, which spins the engine over for a relight.",
+    "Non-return valves stop the oil flowing the wrong way, and once the engine is running again its own CSU oil pump takes over control.",
+  ],
+  "ppfig-fig_12_18": [
+    "This shows an electrically-operated feathering system. Pressing the feathering button energises a solenoid relay — held in by a hold-on coil — which runs an electric oil pump from the aircraft battery and main power line.",
+    "The pump sends high-pressure oil from the oil tank to the propeller to drive the blades to the feathered position.",
+    "A pressure cut-out switch stops the pump once full feather (maximum oil pressure) is reached, breaking the hold-on circuit. Because it runs on electrical power, this system can feather the propeller even after the engine and its own pump have failed.",
+  ],
+  "ppfig-fig_12_19": [
+    "This shows a propeller synchronising system, which keeps all the propellers turning at exactly the same RPM — removing the annoying 'beat' noise you hear when they drift slightly apart.",
+    "One engine's governor is the MASTER; a magnetic pickup senses its speed and sends it to a control box. The control box compares the SLAVE engine's speed against the master.",
+    "If they differ, the control box drives an actuator — through a flex shaft — to trim the slave governor until its RPM exactly matches the master. (A synchrophaser does the same but also matches the blade positions for the smoothest result.)",
+  ],
+  "ppfig-fig_12_22": [
+    "A propeller has to turn much more slowly than the engine's crankshaft, otherwise its tips would reach supersonic speed and become noisy and inefficient. A reduction gear between the engine and the propeller does this.",
+    "Layout A is a simple spur-gear reduction — a small gear on the engine shaft driving a larger gear on the propeller shaft, so the propeller shaft is offset from the engine shaft.",
+    "Layout B is a more compact epicyclic (planetary) arrangement, in which the propeller shaft is concentric with — in line with — the engine shaft. Either way, reduction gearing lets the engine run at its efficient high RPM while the propeller turns at its efficient lower RPM.",
+  ],
+
   // ─── Piston Engines — Performance & Power Augmentation (A.1.4) ───
   "ppfig-fig_11_03": [
     "A turbocharger uses the engine's own exhaust gas to drive a turbine, which spins a compressor on the same shaft to force extra air into the engine. The exhaust leaves the cylinders, drives the turbine and then exits; the compressor draws in air and delivers it, pressurised, to the inlet manifold.",

@@ -271,7 +271,10 @@ const NOTES: Record<string, SectionNote> = {
         "Blade twist keeps the angle of attack roughly constant along the span (the tip moves faster than the root).",
         "Fixed-pitch is efficient only at one speed; a constant-speed unit (CSU) varies blade angle to hold the selected RPM, giving best efficiency across the range.",
         "Fine pitch = low blade angle (take-off/climb, high RPM); coarse pitch = high angle (cruise, low RPM). Feathering (~90°) stops a dead engine windmilling and minimises drag.",
-        "A pilot selects feather by pulling the propeller (RPM) lever fully back. Asymmetric blade effect (P-factor) increases with power and with prop-disc angle of attack.",
+        "A pilot selects feather by pulling the propeller (RPM) lever fully back past a gate/dog-leg. Asymmetric blade effect (P-factor) increases with power and with prop-disc angle of attack.",
+        "Blade-angle ranges: REVERSE (negative pitch, for braking) · GROUND FINE (flat, low-drag for taxi) · the FLIGHT (constant-speed) range between flight-fine and flight-coarse · FULL FEATHER (~90°). The CSU governs within the flight (alpha) range; the beta range (ground fine to reverse) is set directly by the lever.",
+        "Pitch change: oil pressure against a feathering spring + counterweights (single-acting), or oil on both sides (double-acting). Loss of oil pressure drives the blade toward feather (spring/counterweights). Unfeathering in flight uses a pre-charged accumulator or an electric feathering pump.",
+        "Multi-engine extras: a synchroniser (master/slave governors + magnetic pickup) matches RPM to remove the beat; a reduction gear (spur or epicyclic) lets the prop turn slower than the crank to keep tip speed subsonic; a torquemeter senses gear end-thrust to indicate power.",
       ]},
       { heading: "Engine handling", points: [
         "Avoid high MAP with low RPM (detonation risk): when increasing power, increase RPM (prop lever) first, then MAP (throttle); when reducing, reduce MAP first, then RPM.",
