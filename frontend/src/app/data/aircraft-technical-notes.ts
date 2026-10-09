@@ -104,7 +104,9 @@ const NOTES: Record<string, SectionNote> = {
         "Accumulator: gas pre-charge; low pre-charge → pressure fluctuation (hammering).",
       ]},
       { heading: "Landing gear, wheels, tyres, brakes", figureTopics: ["Landing Gear", "Aircraft Wheels", "Aircraft Tyres", "Aircraft Brakes"], points: [
-        "Oleo strut: GAS = springing, OIL = damping of compression and extension.",
+        "Oleo strut: GAS = springing, OIL = damping of compression and extension; a separator piston keeps gas and oil apart; the flutter valve damps the rebound.",
+        "Retraction uses hydraulic jacks (or an electric motor/screwjack on light types) with uplocks/downlocks; sequence valves time the doors and legs; a restrictor in the up-line limits free-fall speed; emergency extension lets the gear free-fall (gravity + lock-assist springs).",
+        "Gear indication: a RED light = gear unlocked/in-transit (or not down with a thrust lever at idle); GREEN = down-and-locked. The gear lever has a lever-lock to stop UP selection on the ground, with an override trigger to bypass it.",
         "Air/ground (weight-on-wheels) logic inhibits retraction on the ground; ground-lock pins removed before flight and stowed in view.",
         "Nose wheel centred before retraction; steering castors within preset limits; worn torque links → shimmy.",
         "Tyres: inflated with NITROGEN; ply rating = index of STRENGTH; creep monitored by paint marks, resisted by knurled flange/tapered bead seat; fusible plugs melt red 155 / green 177 / amber 199 °C.",

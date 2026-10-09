@@ -5,6 +5,42 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Landing Gear (A.1.2) ───
+  "atgfig-ch03_fig_01": [
+    "This cutaway shows an oleo-pneumatic shock absorber, the standard aircraft leg. The upper and lower cylinders telescope together on landing.",
+    "The strut is charged with gas (nitrogen) through the inflation valve and with hydraulic fluid through the filler plugs, with a separator piston keeping the two apart. On landing, the leg compresses and forces oil through a small orifice past the flutter valve — the oil does the damping, turning the shock into heat, while the gas acts as the spring.",
+    "As the leg extends again, the flutter valve rises to restrict the flow and damp the rebound, so the aircraft does not bounce. The upper and lower torque links stop the lower cylinder and wheel rotating while still letting the leg telescope.",
+  ],
+  "atgfig-ch03_fig_02": [
+    "This shows a complete main landing gear with a multi-wheel bogie. The main oleo leg absorbs the landing shock, while the side stay and lock stay brace the leg and lock it down.",
+    "A retraction actuator pulls the gear up, and a downlock actuator — backed up by downlock springs — secures it in the down position. The torque links stop the leg rotating.",
+    "The bogie beam carries the wheels and lets them pitch; a pitch trimmer keeps the bogie at the right angle; and a shortening mechanism makes the leg shorter as it retracts so it fits neatly into the wheel bay.",
+  ],
+  "atgfig-ch03_fig_03": [
+    "This shows a nose landing gear. A drag stay braces the leg fore-and-aft and, with the lock stay, locks it down; a retraction actuator raises and lowers it, and a downlock actuator secures it.",
+    "Because the nose gear also has to steer the aircraft on the ground, it carries a nosewheel-steering (N/WS) actuator and steering mechanism that turn the lower leg and wheels for taxiing.",
+  ],
+  "atgfig-ch03_fig_04": [
+    "This shows the hydraulic circuit for nosewheel steering. Pressure is fed through a control valve to a steering jack (cylinder) that turns the nose-wheel strut left or right as the pilot commands.",
+    "A centring cylinder and centring spring return the wheel to straight-ahead when steering is not selected, and before the gear retracts. An accumulator (with its air charging valve) provides an emergency supply, and a shuttle/change-over valve selects normal or emergency pressure.",
+    "Restrictors smooth the movement, and a bypass valve lets the wheels castor freely — for example when the aircraft is being towed.",
+  ],
+  "atgfig-ch03_fig_06": [
+    "This schematic shows how the whole landing gear is raised and lowered in the correct order. Selecting UP or DOWN moves the selector valve, which sends pressure along the up-line (red) or the down-line (yellow) to the various jacks.",
+    "Sequence valves (SV1, SV2) make things happen in the right order — for example the doors open before the gear moves and close again after — by only passing pressure on once the previous step is complete.",
+    "Uplocks and downlocks hold the gear in each position and are released by pressure before the gear moves. A one-way restrictor in the up-line limits the gear's speed if it free-falls under gravity.",
+  ],
+  "atgfig-ch03_fig_10": [
+    "This shows an electrically-operated landing gear, an alternative to hydraulics used on some light aircraft. A selector switch runs a reversible electric motor, which drives through a gearbox and clutch to a screwjack (the 'screw').",
+    "As the screw turns it raises or lowers the gear, operating each leg through a torque tube, side stays and drag struts.",
+    "Flexible cables and lock-assist springs (or rubber cords) help pull the gear over-centre into the locked position, and a manual operating lever lets the gear be wound down by hand if the motor fails.",
+  ],
+  "atgfig-ch03_fig_12": [
+    "This is an electronic (ECAM-type) WHEEL page. It shows the door and gear position indicators — whether each gear is up-locked or down — along with the nosewheel-steering and landing-gear control status.",
+    "It also shows the anti-skid and autobrake selections and the temperature of each brake, so the crew can watch for an overheating brake.",
+    "The hydraulic-system colours (blue/yellow) show which system is feeding the gear, and the aircraft weight and CG are given at the bottom — a single picture of the gear and braking system.",
+  ],
+
   // ─── Airframes — Hydraulics (A.1.2) ───
   "atgfig-ch02_fig_01": [
     "These four columns of liquid have very different shapes and volumes, yet every gauge at the bottom reads the same pressure.",
