@@ -5,6 +5,62 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Brakes (A.1.2) ───
+  "atgfig-ch06_fig_01": [
+    "This cutaway shows a multi-disc brake, used on heavy aircraft. A stack of discs — the 'disc pack' — alternates rotors, which are keyed to the wheel and turn with it, and stators, which are keyed to the axle and cannot turn.",
+    "When the brakes are applied, hydraulic pistons in the operating cylinders push the pressure/thrust plate so the whole stack is squeezed together; the friction between the rotors and stators slows the wheel. The torque plate carries the braking torque into the axle.",
+    "Using many discs gives a large friction area and spreads the huge amount of heat, all in a compact, strong unit.",
+  ],
+  "atgfig-ch06_fig_02": [
+    "This shows the brake's automatic adjuster and return mechanism. When the brakes are applied, a retraction pin is gripped by a friction bush and moves with the piston.",
+    "When the brakes are released, an adjuster spring pulls the piston back by a fixed small amount, retracting the pads just clear of the discs so they do not drag.",
+    "As the pads wear, the pin slips through the friction bush, so the piston always starts from the correct position — this automatically takes up the wear and keeps the pedal travel constant.",
+  ],
+  "atgfig-ch06_fig_03": [
+    "This shows how brake wear is checked. A wear-indicator pin (the retraction pin) stands proud of the brake; with the brakes applied, the length of pin showing is measured.",
+    "As the discs wear, the stack gets thinner, so the pin sits further in and less of it shows.",
+    "When the exposed length — measured with the brakes on — falls to the minimum limit, the brake pack is worn out and must be replaced.",
+  ],
+  "atgfig-ch06_fig_04": [
+    "This schematic shows a powered brake system with anti-skid and autobrake. The hydraulic supply (normal and reserve) passes through metering valves — worked by the pilot's pedals — and an autobrake valve on its way to the brakes.",
+    "Between these and each wheel is an anti-skid (modulating) valve, one per wheel. Wheel-speed sensors feed an anti-skid controller; if a wheel starts to skid (decelerating too fast), the controller tells that wheel's valve to release some brake pressure until the wheel spins up again, then re-applies it.",
+    "A parking-brake valve and an accumulator isolation valve are also fitted. Anti-skid gets the maximum braking without ever locking the wheels.",
+  ],
+  "atgfig-ch06_fig_10": [
+    "This plan view shows the danger zones around the wheels if a tyre bursts or a wheel fails. The most dangerous area is directly abeam the wheel (the red zone, in line with the axle), where fragments and the tyre's energy are thrown sideways.",
+    "The hazard reaches out in arcs (R1 to R4) to a considerable distance from the aircraft.",
+    "The safe rule is to approach a hot or suspect wheel/brake from the front or the rear — never from the side — and to let the brakes cool before going near them.",
+  ],
+
+  // ─── Airframes — Tyres (A.1.2) ───
+  "atgfig-ch05_fig_01": [
+    "This compares the two ways an aircraft tyre's carcass is built. In bias (cross-ply) construction the casing plies run diagonally across the tyre, each layer crossing the one beneath it. In radial construction the casing plies run straight across (radially) from bead to bead, with separate belt plies — a breaker/belt — laid under the tread.",
+    "Both types share the same outer features: the tread with its grooves runs on the ground, the sidewall flexes, and the beads (stiffened by the apex strip and wrapped by the casing-ply turn-ups) grip the wheel rim. An inner liner seals the air in a tubeless tyre.",
+    "Radial tyres run cooler and last longer, while bias tyres are simpler and very strong — both are used on aircraft.",
+  ],
+  "atgfig-ch05_fig_02": [
+    "This names the main regions of an aircraft tyre. The crown is the centre of the tread that takes the load on the ground; the shoulder is where the tread meets the sidewall.",
+    "The sidewall is the flexible side that carries the tyre markings, and the bead is the stiff inner edge that seats against the wheel flange and holds the tyre on the rim.",
+    "These regions help in judging wear — for example, over-inflation wears the crown in the middle, while under-inflation wears the two shoulders.",
+  ],
+  "atgfig-ch05_fig_03": [
+    "This shows how an aircraft tyre tells you when it is worn out. Marker tie bars — small bridges across the bottom of the tread grooves — and wear-indicating grooves gradually become flush with the surface as the tread wears down.",
+    "When the tread has worn down to their level, the tyre has reached its wear limit and must be removed.",
+    "Checking these indicators is part of the daily and pre-flight inspection; a tyre worn past the indicators, or with the carcass/plies showing, must not be used.",
+  ],
+
+  // ─── Airframes — Wheels (A.1.2) ───
+  "atgfig-ch04_fig_01": [
+    "This cutaway shows a wheel with a detachable (loose) flange — one way of fitting a tubeless tyre onto a one-piece wheel. The tyre is slid over the body, then the loose flange is fitted and held on by a lock ring seated in a groove.",
+    "A location ring positions the flange and an 'O' ring seals the join, so the wheel can hold the tyre's air without needing an inner tube. The inflation valve charges the tyre.",
+    "The wheel runs on bearings in the body (with oil seals and an excluder to keep dirt out), and drive blocks transmit the braking torque from the brake unit to the wheel.",
+  ],
+  "atgfig-ch04_fig_02": [
+    "This shows a split wheel, made in two halves bolted together (bolts with Nyloc nuts) with a seal between them to make it airtight for a tubeless tyre.",
+    "Splitting the wheel lets the tyre be fitted easily, and the halves are then bolted up around it. Inner and outer drive blocks carry the braking torque.",
+    "Fusible (thermal) plugs are fitted: if the brakes overheat, the plug's core melts and lets the tyre deflate in a controlled way rather than bursting. The inflation valve charges the tyre.",
+  ],
+
   // ─── Airframes — Landing Gear (A.1.2) ───
   "atgfig-ch03_fig_01": [
     "This cutaway shows an oleo-pneumatic shock absorber, the standard aircraft leg. The upper and lower cylinders telescope together on landing.",

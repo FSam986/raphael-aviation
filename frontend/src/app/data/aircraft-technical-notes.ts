@@ -112,7 +112,10 @@ const NOTES: Record<string, SectionNote> = {
         "Tyres: inflated with NITROGEN; ply rating = index of STRENGTH; creep monitored by paint marks, resisted by knurled flange/tapered bead seat; fusible plugs melt red 155 / green 177 / amber 199 °C.",
         "Over-inflation → crown wear; under-inflation → shoulder wear. Cold gauge reads ~4% low vs loaded rated; taxi heat raises pressure ~10%.",
         "Aquaplaning (dynamic) speed Vp = 9√P (P in psi, Vp in knots).",
-        "Brakes: powered from the main hydraulic system; fade = overheating; dry powder is the extinguishant for wheel/brake fires; anti-skid works on take-off and landing, cuts out ~10 mph.",
+        "Brakes: usually multi-disc (rotors keyed to wheel, stators to axle) powered from the main hydraulic system; an automatic adjuster takes up wear and retracts the pads; wear is checked by the wear-pin length with brakes applied; fade = overheating.",
+        "Anti-skid (one modulating valve per wheel, fed by wheel-speed sensors) releases pressure on an incipient skid for maximum braking without locking; it provides touchdown, locked-wheel and normal protection, dropping out at low speed (~10 mph / 15 kt).",
+        "Brake energy after a stop is judged in energy 'zones': above the danger level clear the runway, use minimum braking, don't set the park brake, and let brakes cool (tyres may deflate via the fusible plugs). High-temp/overheat warning lights and brake-temperature indication are provided.",
+        "Wheel/brake fires: use DRY POWDER (not water/CO₂ on magnesium wheels); approach fore-and-aft, never from the side; allow a long cooling period (hours, unless forced-air cooled).",
       ]},
       { heading: "Flight controls", figureTopics: ["Flight Control Systems", "Flight Controls", "Powered Flying Controls"], points: [
         "Manual controls are reversible and move in the instinctive sense; cables tensioned (turnbuckle, measured by tensiometer) to remove backlash and give positive two-way action; temperature compensator holds tension.",
