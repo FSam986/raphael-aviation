@@ -5,6 +5,53 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
+  "atgfig-ch08_fig_04": [
+    "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",
+    "When the surface deflects, the airflow pushing on the part ahead of the hinge creates a force F acting at a small distance d in front of the hinge. This force helps to move the surface in the direction the pilot wants, reducing the effort needed on the controls.",
+    "The designer picks how far to set the hinge back carefully: too little and the controls stay heavy, too much and the balance 'over-balances', making the surface want to deflect on its own.",
+  ],
+  "atgfig-ch08_fig_05": [
+    "This profile shows a horn balance. A portion of the control surface — the 'horn' — is extended forward of the hinge line, usually at the tip of the surface.",
+    "When the surface moves, airflow acting on this forward area produces a force that assists the movement, lightening the stick or pedal force in the same way as a set-back hinge.",
+    "Horn balances are simple and effective and are often seen on rudders and elevators of light and older aircraft.",
+  ],
+  "atgfig-ch08_fig_06": [
+    "This shows internal (shrouded) balance using a balance seal. Part of the control surface extends forward of the hinge into a sealed bay inside the fixed surface, divided by a flexible balance seal.",
+    "When the control deflects, a pressure difference builds up across the seal in the balance bay. This pressure acts on the forward extension to help move the surface, giving aerodynamic balance without any part sticking out into the airflow — so there is no extra drag.",
+    "Because it is hidden inside the wing or tail, internal balance is common on fast jet transport aircraft where a horn would cause drag.",
+  ],
+  "atgfig-ch08_fig_09": [
+    "This graph compares stick force against airspeed with and without a spring tab. Without the spring tab, the force the pilot must hold rises steeply with speed, because control-surface loads grow with the square of speed.",
+    "With a spring tab fitted, the tab deflects more as the loads rise, adding more aerodynamic assistance exactly when it is needed. The result is the flatter dashed line — the stick force still increases, but much more gently at high speed.",
+    "A spring tab therefore gives light, manageable controls across the speed range, while still letting the pilot feel a sensible increase in force as speed builds.",
+  ],
+  "atgfig-ch08_fig_12": [
+    "These 3D views show the main ways a control surface is balanced. Top left is a horn balance — area carried forward of the hinge at the tip. Top right is an inset/shrouded hinge, with the balance area built into the fixed surface.",
+    "The lower two views show a set-back hinge with the surface area ahead of the hinge line, and a mass balance weight carried on an arm below and ahead of the hinge.",
+    "Aerodynamic balances (horn, inset, set-back) reduce the pilot's effort; the mass balance weight is different — it is there to move the surface's centre of gravity onto or ahead of the hinge to prevent flutter, not to lighten the controls.",
+  ],
+  "atgfig-ch08_fig_14": [
+    "This shows the two common positions for air brakes (speed brakes). A fuselage-mounted air brake is a panel in the side or belly of the fuselage that hinges out into the airflow.",
+    "A wing-mounted air brake is a panel on the wing (often the same panels used as spoilers) that is raised into the airflow.",
+    "Both add drag to slow the aircraft or increase the rate of descent without changing attitude. Fuselage air brakes keep the disturbed air away from the wing and tail; wing air brakes also spoil some lift, which can be useful on the approach.",
+  ],
+  "atgfig-ch08_fig_17": [
+    "This shows a variable-incidence (trimmable) tailplane, drawn before and after trimming. Instead of using a small trim tab, the whole horizontal stabiliser is pivoted and its angle of incidence is changed.",
+    "Input from the trim control drives a screwjack — the trim jack — that raises or lowers the leading edge of the tailplane, setting a new angle. This changes the download or upload from the tail to balance the aircraft for the chosen speed.",
+    "A moving tailplane gives a very powerful and drag-free trim, which is why it is used on most jet transports. Because it is so powerful, a runaway is serious, so the trim system has safeguards and a clear cut-out for the crew.",
+  ],
+  "atgfig-ch08_fig_18": [
+    "This shows trimming (and Mach trim) by transferring fuel between a front trim tank and a rear trim tank. The centre of gravity (CG) and the centre of pressure (CoP) must stay in a sensible relationship for the aircraft to be balanced.",
+    "At high Mach numbers the centre of pressure moves aft, which would pitch the nose down. By pumping fuel rearward into the rear trim tank, the CG is moved aft to follow the CoP, keeping the aircraft in trim with no drag penalty.",
+    "Moving fuel fore and aft is a very efficient way to trim a large aircraft because it needs no control-surface deflection, so it saves drag and fuel on long cruises.",
+  ],
+  "atgfig-ch08_fig_19": [
+    "This shows trim controls grouped on the cockpit centre console. A small wheel or switch sets aileron trim (to hold the wings level) and a rotary knob sets rudder trim (to keep the aircraft in balance, for example with an engine out or in a crosswind).",
+    "Putting these trims together on the centre console, within reach of both pilots, lets the crew fine-tune the aircraft's balance about all three axes from one place.",
+    "Trimming removes the steady stick and pedal forces, so the pilot does not have to hold pressure continuously and can fly accurately with light control inputs.",
+  ],
+
   // ─── Airframes — Flight Control Systems (A.1.2) ───
   "atgfig-ch07_fig_04": [
     "This shows a cable tensiometer clamped onto a control cable. Control runs that use steel cables must be kept at the right tension: too slack and the controls feel sloppy and lag, too tight and they are stiff and wear quickly.",
