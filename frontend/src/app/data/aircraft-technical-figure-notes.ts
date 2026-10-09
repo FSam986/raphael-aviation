@@ -5,6 +5,53 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Pneumatics, air-con & pressurisation (A.1.2) ───
+  "atgfig-ch10_fig_01": [
+    "This shows a simple light-aircraft heating system. Ram air is taken in and ducted around a muff (jacket) fitted over the engine exhaust; the hot exhaust warms the air without the exhaust gases mixing with it.",
+    "A cold-air control lets the pilot blend unheated ram air with the hot air to set the cabin and windscreen-demister temperature. Spent exhaust is dumped overboard.",
+    "The key safety point is the exhaust muff: if it cracks, carbon monoxide can leak into the cabin air — which is why these systems are inspected carefully and a CO detector is a wise fit.",
+  ],
+  "atgfig-ch10_fig_02": [
+    "This shows a combustion heater, used where exhaust-muff heat is not enough. A combustion blower feeds air into a sealed burner can where fuel is sprayed and lit by an igniter, giving a contained flame.",
+    "Separate ram air is blown around the outside of the hot can and picks up the heat, then goes to the cabin — again the burnt gases never mix with the cabin air; they go out of the exhaust. A hot-air control sets the output temperature.",
+    "Because it burns fuel, a combustion heater has its own safety controls (overheat switches, fuel shut-off) to prevent fire or fumes.",
+  ],
+  "atgfig-ch10_fig_04": [
+    "This schematic shows the bleed-air (pneumatic) manifold of a jet. Hot high-pressure air is bled from the engine compressor through an engine bleed-air control valve and an HP shut-off valve, and passed through a pre-cooler (cooled by fan air) before joining the main duct.",
+    "An isolation valve in the middle lets the left and right engine supplies be joined or split. The APU and a ground service connection can also feed the manifold on the ground.",
+    "From the duct the air is tapped off for all the big users: air-conditioning packs, wing and tail anti-icing, engine starting (starter valve), and pressurising the hydraulic reservoir and water tank.",
+  ],
+  "atgfig-ch10_fig_05": [
+    "This pictorial view puts the same pneumatic system onto the aircraft. Each engine bleeds HP/IP air, which is pre-cooled with fan air and fed into a common duct running through the aircraft.",
+    "A crossfeed valve lets either engine (or the APU in the tail) supply the whole system, and a ground service connector allows a ground cart to supply air with the engines off.",
+    "The duct feeds the air-conditioning packs, wing and tail anti-ice, and wing leading-edge ventilation — showing how one bleed system serves many jobs around the airframe.",
+  ],
+  "atgfig-ch10_fig_06": [
+    "This is a bootstrap air-cycle machine (ACM) — the heart of a jet's air conditioning. Hot bleed air passes a non-return valve, a shut-off valve, a pressure-reducing valve and a flow controller, then a primary heat exchanger cooled by ram air.",
+    "The cooled-but-still-warm air is compressed further by the ACM compressor (which heats it again), cooled once more in the secondary heat exchanger, then expanded through the ACM turbine. Expanding through the turbine does work and drops the temperature sharply, so very cold air leaves the 'cold air unit'.",
+    "The turbine drives the compressor on a common shaft — that is the 'bootstrap'. A water separator removes condensation, a temperature-control valve adds a little hot air to set the final temperature, and the conditioned air goes to the cabin.",
+  ],
+  "atgfig-ch10_fig_07": [
+    "This graph tracks the air's temperature (red) and pressure (blue) as it passes through the bootstrap system. It enters the primary heat exchanger hot (about 168°C) and is cooled (to about 82°C).",
+    "The ACM compressor then raises both temperature and pressure (back up to about 140°C); the secondary heat exchanger cools it again. Finally the turbine expands the air, and here is the key point — the temperature falls steeply (to just a few degrees) while the pressure also drops, because the air gives up energy to drive the compressor.",
+    "The diagram makes clear that the big cooling effect comes from expansion through the turbine, not just from the heat exchangers.",
+  ],
+  "atgfig-ch10_fig_09": [
+    "This shows a venturi humidifier used to add moisture to very dry conditioned air. The charge air is passed through a venturi — a throat that speeds the air up and drops its pressure.",
+    "At the low-pressure throat a diffuser injects a fine spray of water drawn from a water tank, fed by HP air; a control valve metered by a humidistat sets how much water is added.",
+    "The result is comfortable cabin humidity. Cabin air from engine bleed is naturally bone-dry at altitude, so a humidifier improves passenger comfort on long flights.",
+  ],
+  "atgfig-ch10_fig_10": [
+    "This shows how final cabin temperature is trimmed. Cold air from the ACM and heat exchangers is mixed with hot bleed air let in through a hot-air (trim-air) valve.",
+    "A temperature sensor in the mixed-air duct feeds a controller that opens or closes the hot-air valve until the mix matches the selected temperature.",
+    "Mixing a controlled amount of hot air with the cold pack output is the normal way to give each zone of the cabin its own steady, selectable temperature.",
+  ],
+  "atgfig-ch10_fig_11": [
+    "This shows how conditioned air is distributed through the cabin. Air travels along distribution ducting, usually under the floor and up riser ducts in the sidewalls, to reach outlets at several levels.",
+    "Upper air outlets (and passenger 'gaspers') feed from above, lower air outlets feed at floor level, and an outlet to the underfloor keeps air moving down and out. The arrows show the circulation: air enters high, sweeps across the cabin and is drawn out low.",
+    "Spreading the inlets and outlets like this avoids draughts and stagnant pockets, and keeps fresh air flowing evenly past every seat before it is extracted and partly recirculated.",
+  ],
+
   // ─── Airframes — Powered Flying Controls (A.1.2) ───
   "atgfig-ch09_fig_01": [
     "This block diagram shows what a powered flying control system needs. The pilot's input from the control column goes to a servo-valve, which ports hydraulic power to the actuator; the actuator moves the control surface.",
