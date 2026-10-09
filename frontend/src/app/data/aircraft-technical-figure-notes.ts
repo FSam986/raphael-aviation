@@ -5,6 +5,33 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Pressurisation (A.1.2) ───
+  "atgfig-ch11_fig_01": [
+    "This shows which parts of the fuselage are pressurised (yellow) and which are not (pink). The pressurised 'pressure hull' holds the cockpit, the forward and aft passenger cabins, and the forward and aft cargo holds — everywhere people or sensitive cargo need a breathable, comfortable atmosphere.",
+    "The unpressurised areas are the radome in the nose, the nose and main undercarriage bays, the centre-section wing torque box, and the tail cone. These are sealed off from the cabin by pressure bulkheads.",
+    "Keeping the pressurised volume as a simple, strong barrel shape (closed by a front and a rear pressure bulkhead) is what lets the structure carry the pressure loads safely for thousands of flights.",
+  ],
+  "atgfig-ch11_fig_02": [
+    "These are the three safety valves that protect the pressure hull. The inwards relief valve opens if the cabin pressure ever falls below the outside pressure (for example in a fast descent), letting air back in so the structure is not crushed inwards (negative differential).",
+    "The outflow valve is the main working valve: the pressurisation controller constantly adjusts how far it opens to let air escape, setting the cabin pressure. The pressure relief valve is a back-up that blows off automatically if the cabin-to-outside difference (ΔP) ever exceeds the maximum the structure is designed for.",
+    "Together they stop the cabin from over-pressurising, from going into negative differential, and keep the day-to-day pressure under control.",
+  ],
+  "atgfig-ch11_fig_03": [
+    "This shows a modern electronic pressurisation system. The crew set a landing elevation and a mode on the CABIN PRESS panel; a pressure controller (usually with two automatic channels plus a manual back-up) then drives the outflow valve.",
+    "The controller schedules the outflow valve throughout the flight to follow a planned cabin-altitude profile, with the display (here an ECAM-style page) showing differential pressure ΔP, cabin vertical speed and cabin altitude.",
+    "The inwards relief, outflow and pressure relief valves are all shown — the controller works the outflow valve normally, while the relief valves stand by to protect the hull if anything goes wrong.",
+  ],
+  "atgfig-ch11_fig_04": [
+    "This is a typical pressurisation profile for one flight. On the ground with doors open the cabin is at airfield pressure (zero differential). After take-off the cabin 'climbs' gently — note the cabin vertical speed is limited (about 500 ft/min up) so ears have time to adjust, far slower than the aircraft itself climbs.",
+    "In the cruise the cabin is held at a maximum cabin altitude (about 8,000 ft) and the structure carries the resulting maximum differential pressure (about 8 psi on this type). During the descent the cabin 'descends' gently (about 300 ft/min) to arrive at the landing field elevation.",
+    "The whole point is a gentle, controlled cabin-altitude schedule that keeps passengers comfortable while never exceeding the airframe's differential-pressure limit.",
+  ],
+  "atgfig-ch11_fig_05": [
+    "This is the cabin-pressure display page in more detail. ΔP shows the pressure difference between cabin and outside (here 4.1 psi), V/S shows how fast the cabin altitude is changing, and CAB ALT shows the present cabin altitude.",
+    "The lower picture is a mimic of the system: the two air-conditioning packs feed in, the inlet and extract vents and the outflow valve set the cabin pressure, and a safety valve stands by. Green shows a normal/open path.",
+    "Having all this on one page lets the crew see at a glance that the cabin is being controlled correctly and spot a pressurisation problem early.",
+  ],
+
   // ─── Airframes — Pneumatics, air-con & pressurisation (A.1.2) ───
   "atgfig-ch10_fig_01": [
     "This shows a simple light-aircraft heating system. Ram air is taken in and ducted around a muff (jacket) fitted over the engine exhaust; the hot exhaust warms the air without the exhaust gases mixing with it.",
