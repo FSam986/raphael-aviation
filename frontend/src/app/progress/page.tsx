@@ -6,6 +6,7 @@ import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourse } from "@/app/hooks/useCourse";
 import { SUBJECT_BANKS, subjectReadiness, READY_GATE, type SubjectReadiness } from "@/app/lib/readiness";
+import { getProgress, type ProgressSummary } from "@/app/lib/progress";
 
 function Dial({ pct }: { pct: number }) {
   const r = 34;
@@ -26,8 +27,16 @@ export default function Progress() {
   const { syllabus } = useCourse();
   const [data, setData] = useState<Record<string, SubjectReadiness | null>>({});
   const [open, setOpen] = useState<string | null>(null);
+  const [prog, setProg] = useState<ProgressSummary | null>(null);
 
   const subjects = useMemo(() => syllabus.filter((s) => SUBJECT_BANKS[s.id]), [syllabus]);
+
+  useEffect(() => {
+    const read = () => setProg(getProgress());
+    read();
+    window.addEventListener("progress-change", read);
+    return () => window.removeEventListener("progress-change", read);
+  }, []);
 
   // readiness reads localStorage → compute after mount
   useEffect(() => {
@@ -60,6 +69,29 @@ export default function Progress() {
             Built from every question you answer. Aim for <span className="text-green-400 font-semibold">{READY_GATE}%</span> in a subject before you sit the real exam.
           </p>
         </div>
+
+        {prog && (
+          <div className="px-10 pt-8 max-w-4xl">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { label: "Questions Worked", value: prog.attempted.toLocaleString() },
+                { label: "Overall Accuracy", value: `${prog.accuracy}%` },
+                { label: "Topics Studied", value: String(prog.topicsStudied) },
+                { label: "Day Streak", value: `${prog.streak}` },
+              ].map((c) => (
+                <div key={c.label} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-5">
+                  <div className="text-2xl font-black text-yellow-400">{c.value}</div>
+                  <div className="text-zinc-500 text-xs uppercase tracking-wider mt-1">{c.label}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-zinc-600 text-xs mt-3">
+              {prog.firstSeen ? `Studying since ${new Date(prog.firstSeen).toLocaleDateString()} · ` : ""}
+              {prog.activeDays} active day{prog.activeDays === 1 ? "" : "s"}
+              {prog.lastSeen ? ` · last active ${new Date(prog.lastSeen).toLocaleDateString()}` : ""}
+            </p>
+          </div>
+        )}
 
         <div className="px-10 py-8 space-y-4 max-w-4xl">
           {subjects.map((s) => {

@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { useCourse } from "@/app/hooks/useCourse";
 import { Sidebar } from "@/app/components/Sidebar";
+import { getProgress, getResume, type ProgressSummary } from "@/app/lib/progress";
+import { findSubject } from "@/app/lib/course";
 
 const SUBJECT_META: Record<string, { icon: string; color: string; border: string }> = {
   "aircraft-technical":   { icon: "⚙️",  color: "from-orange-600/20 to-orange-900/10", border: "border-orange-500/20 hover:border-orange-400/50" },
@@ -25,6 +27,8 @@ export default function Dashboard() {
   const [userName, setUserName] = useState("Student");
   const [loading, setLoading] = useState(true);
   const { course, syllabus } = useCourse();
+  const [prog, setProg] = useState<ProgressSummary | null>(null);
+  const [resume, setResume] = useState<ReturnType<typeof getResume>>(null);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -34,6 +38,15 @@ export default function Dashboard() {
       setLoading(false);
     });
   }, [router]);
+
+  useEffect(() => {
+    const read = () => { setProg(getProgress()); setResume(getResume()); };
+    read();
+    window.addEventListener("progress-change", read);
+    return () => window.removeEventListener("progress-change", read);
+  }, []);
+
+  const subjectsStarted = prog ? new Set(Object.keys(prog.bySubject)).size : 0;
 
   async function handleSignOut() {
     await supabase.auth.signOut();
@@ -59,13 +72,31 @@ export default function Dashboard() {
           <h1 className="text-3xl font-black text-white">Welcome back, {userName} ✈️</h1>
         </div>
 
+        {/* Resume where you left off */}
+        {resume && (() => {
+          const sub = findSubject(resume.subjectId);
+          const sec = sub?.sections.find((s) => s.id === resume.sectionId);
+          return (
+            <div className="px-10 pt-6">
+              <Link href={resume.href} className="flex items-center gap-4 bg-yellow-400/10 border border-yellow-400/30 rounded-2xl p-4 hover:bg-yellow-400/15 transition-colors group">
+                <span className="text-2xl">↩️</span>
+                <div className="flex-1 min-w-0">
+                  <div className="text-yellow-400 text-xs font-bold uppercase tracking-wider">Resume where you left off</div>
+                  <div className="text-white font-semibold truncate">{sub?.title ?? resume.subjectId}{sec ? ` — ${sec.title}` : ""}</div>
+                </div>
+                <span className="text-yellow-400 group-hover:translate-x-1 transition-transform">Continue →</span>
+              </Link>
+            </div>
+          );
+        })()}
+
         {/* Stats */}
         <div className="px-10 py-8 grid grid-cols-4 gap-4">
           {[
-            { label: "Exam Readiness", value: "—", sub: "AI confidence score" },
-            { label: "Predicted Pass %", value: "—", sub: "Complete topics to unlock" },
-            { label: "Subjects Started", value: `0 / ${syllabus.length}`, sub: "Choose a subject below" },
-            { label: "Study Streak", value: "0 days", sub: "Study daily to build a streak" },
+            { label: "Questions Worked", value: prog ? prog.attempted.toLocaleString() : "0", sub: prog && prog.attempted ? `${prog.accuracy}% correct` : "Answer quizzes to begin" },
+            { label: "Topics Studied", value: prog ? String(prog.topicsStudied) : "0", sub: "Study topics opened" },
+            { label: "Subjects Started", value: `${subjectsStarted} / ${syllabus.length}`, sub: subjectsStarted ? "Keep going" : "Choose a subject below" },
+            { label: "Study Streak", value: `${prog?.streak ?? 0} day${(prog?.streak ?? 0) === 1 ? "" : "s"}`, sub: prog && prog.activeDays ? `${prog.activeDays} active day${prog.activeDays === 1 ? "" : "s"} total` : "Study daily to build a streak" },
           ].map((card) => (
             <div key={card.label} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-5">
               <div className="text-zinc-500 text-xs uppercase tracking-wider mb-2">{card.label}</div>

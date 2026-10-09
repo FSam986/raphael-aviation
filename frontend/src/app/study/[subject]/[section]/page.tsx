@@ -11,6 +11,9 @@ import { getFPPPlottingBySection } from "@/app/data/fpp-plotting";
 import { PlottingCard } from "@/app/components/PlottingCard";
 import { figuresForSection, atgFiguresByTopic } from "@/app/lib/figures";
 import { FIGURE_NOTES } from "@/app/data/aircraft-technical-figure-notes";
+import { recordQuiz, recordStudyOpen } from "@/app/lib/progress";
+import { SUBJECT_BANKS, loadMastery } from "@/app/lib/readiness";
+import { recordResults } from "@/app/lib/examSelect";
 import { countByAspect, filterByAspect } from "@/app/lib/aspects";
 import { supabase } from "@/lib/supabase";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
@@ -81,6 +84,12 @@ export default function SectionPage() {
   const [slideIdx, setSlideIdx] = useState(0);
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setSlideIdx(0); }, [focusItemId, pickedTopic]);
+  // Record each study-topic open for the progress record + resume pointer.
+  useEffect(() => {
+    if (!subjectId || !sectionId) return;
+    const href = `/study/${subjectId}/${sectionId}${focusItemId ? `?item=${focusItemId}` : ""}`;
+    recordStudyOpen(subjectId, sectionId, focusItemId ?? "", href);
+  }, [subjectId, sectionId, focusItemId]);
   const sectionPlotting = useMemo(() => getFPPPlottingBySection(sectionId), [sectionId]);
   const sectionFigures = useMemo(() => figuresForSection(sectionId), [sectionId]);
   const sectionExamples = useMemo(() => getWorkedExamplesBySection(sectionId), [sectionId]);
@@ -688,7 +697,19 @@ export default function SectionPage() {
                   <div className="mt-5">
                     {!quizSubmitted ? (
                       <button
-                        onClick={() => setQuizSubmitted(true)}
+                        onClick={() => {
+                          const answered = sectionQuestions.filter((q) => quizAnswers[q.id]);
+                          const correct = answered.filter((q) => quizAnswers[q.id] === q.correctAnswer).length;
+                          recordQuiz(subjectId, answered.length, correct);
+                          try {
+                            const bank = SUBJECT_BANKS[subjectId];
+                            if (bank) {
+                              const results = answered.map((q) => ({ id: q.id, correct: quizAnswers[q.id] === q.correctAnswer }));
+                              localStorage.setItem(bank.storeKey, JSON.stringify(recordResults(loadMastery(bank.storeKey), results)));
+                            }
+                          } catch { /* ignore */ }
+                          setQuizSubmitted(true);
+                        }}
                         className="px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors"
                       >
                         Submit answers ✓
