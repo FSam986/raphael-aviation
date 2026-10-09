@@ -9,8 +9,6 @@ export const ATG_AIRFRAME_FIGURES: AtgFigureMeta[] = [
   { section: "A.1.2", topic: "Fuselage, Wings & Stabilising Surfaces", title: "Figure 1.4", caption: "Fuselage, Wings & Stabilising Surfaces", file: "ch01_fig_04.png", id: "atgfig-ch01_fig_04" },
   { section: "A.1.2", topic: "Fuselage, Wings & Stabilising Surfaces", title: "Figure 1.5 Damage tolerant structure", caption: "Fuselage, Wings & Stabilising Surfaces", file: "ch01_fig_05.png", id: "atgfig-ch01_fig_05" },
   { section: "A.1.2", topic: "Fuselage, Wings & Stabilising Surfaces", title: "Figure 1.6 Fatigue", caption: "Fuselage, Wings & Stabilising Surfaces", file: "ch01_fig_06.png", id: "atgfig-ch01_fig_06" },
-  { section: "A.1.2", topic: "Fuselage, Wings & Stabilising Surfaces", title: "Figure 1.7 Various stations on a corporate jet aircraft", caption: "Fuselage, Wings & Stabilising Surfaces", file: "ch01_fig_07.png", id: "atgfig-ch01_fig_07" },
-  { section: "A.1.2", topic: "Fuselage, Wings & Stabilising Surfaces", title: "Figure 1.8 Various stations on a corporate jet aircraft", caption: "Fuselage, Wings & Stabilising Surfaces", file: "ch01_fig_08.png", id: "atgfig-ch01_fig_08" },
   { section: "A.1.2", topic: "Fuselage, Wings & Stabilising Surfaces", title: "Figure 1.9", caption: "Fuselage, Wings & Stabilising Surfaces", file: "ch01_fig_09.png", id: "atgfig-ch01_fig_09" },
   { section: "A.1.2", topic: "Fuselage, Wings & Stabilising Surfaces", title: "Figure 1.10 The Auster", caption: "Fuselage, Wings & Stabilising Surfaces", file: "ch01_fig_10.png", id: "atgfig-ch01_fig_10" },
   { section: "A.1.2", topic: "Fuselage, Wings & Stabilising Surfaces", title: "Figure 1.11", caption: "Fuselage, Wings & Stabilising Surfaces", file: "ch01_fig_11.png", id: "atgfig-ch01_fig_11" },

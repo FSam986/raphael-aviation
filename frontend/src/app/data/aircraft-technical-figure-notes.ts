@@ -5,6 +5,120 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Fuselage, Wings & Structure (A.1.2) ───
+  "atgfig-ch01_fig_04": [
+    "This shows the fail-safe principle. A main structural member — here a fuselage frame near the wing attachment — is built so that if one part fractures, the load it was carrying is redistributed to the surrounding structure along alternative load paths, instead of the whole thing failing.",
+    "The crack would normally be found at a scheduled inspection before it could spread far. This 'redundant load path' design is what lets a structure safely tolerate a certain amount of damage — the basis of fail-safe and damage-tolerant construction.",
+  ],
+  "atgfig-ch01_fig_05": [
+    "This cutaway names the parts of a stressed-skin (semi-monocoque) fuselage. The skin is stiffened lengthwise by stringers and around its circumference by frames; a bulkhead is a heavier, often solid, frame that carries large or concentrated loads.",
+    "Tear-stopper flanges and skin reinforcing plates are built in so that a crack in the skin is arrested before it can run. Window-support frames and intercostals (short members between frames) reinforce the openings.",
+    "In this construction the skin itself is primary load-bearing structure, not just a cover.",
+  ],
+  "atgfig-ch01_fig_06": [
+    "This is a fatigue (S-N) curve. It plots the alternating stress applied to a component (as a percentage of its ultimate strength) against the number of load cycles it survives before failing — the cycles axis is a log scale.",
+    "The higher the stress, the fewer cycles the part lasts. For many materials the curve flattens to a 'fatigue limit' — a stress below which the part can take an effectively unlimited number of cycles.",
+    "This is why a pressurised fuselage, which is stressed once per flight, has its fatigue life counted in pressurisation cycles.",
+  ],
+  "atgfig-ch01_fig_09": [
+    "This shows the stresses in a pressurised fuselage, which behaves like an inflated cylinder. The internal pressure tries to burst it outward: hoop stress acts around the circumference and axial (longitudinal) stress acts along the length.",
+    "The hoop stress is the larger of the two — about twice the axial stress — which is why fuselage cracks tend to run lengthwise. The front and rear pressure bulkheads cap the pressurised 'tube' at each end.",
+    "Because this stress is applied and released on every flight, it is the main driver of the fuselage's fatigue life.",
+  ],
+  "atgfig-ch01_fig_10": [
+    "This is a welded steel-tube space-frame (truss) fuselage, used on many light and vintage aircraft. A lattice of tubes carries all the loads in tension and compression.",
+    "The fabric or light skin stretched over it is non-structural — it only gives the shape and keeps the weather out.",
+    "This type is simple, strong and easy to repair, but heavier and bulkier than a stressed-skin design, so it is not used on modern transport aircraft.",
+  ],
+  "atgfig-ch01_fig_11": [
+    "This shows monocoque ('single shell') construction. The outside skin carries essentially all of the loads, kept in shape by a few rings (formers) but with no stringers.",
+    "Because the skin must resist buckling entirely on its own, a pure monocoque has to be fairly thick and heavy.",
+    "For that reason true monocoque is used mainly for smaller or lightly-loaded structures, such as an engine cowling, rather than a whole airliner fuselage.",
+  ],
+  "atgfig-ch01_fig_12": [
+    "This shows semi-monocoque construction, which almost all modern aircraft use. The skin is still load-bearing, but it is now stiffened by lengthwise stringers and by frames or formers.",
+    "The stringers stop the thin skin from buckling and share the bending loads, so the skin can be made much lighter than in a pure monocoque.",
+    "The result combines light weight with the strength and smoothness of a stressed-skin shell.",
+  ],
+  "atgfig-ch01_fig_13": [
+    "These are the cross-sections of common structural members — spars, longerons and booms. Each has flanges (the 'caps' or 'booms') joined by a 'web'.",
+    "The caps/booms carry the bending loads (one in tension, the other in compression) while the web carries the shear.",
+    "Built-up sections, made from several riveted pieces (like the built-up T-beam or double-web longeron), are fail-safe because a crack is stopped at a joint. A single extruded section (the non-fail-safe I-beam) lets a crack run straight through, so its fatigue life must be carefully managed.",
+  ],
+  "atgfig-ch01_fig_14": [
+    "This cross-section shows how the pieces fit together. The frame is an open ring that gives the fuselage its shape; the stringers run lengthwise and pass through small cut-outs in the frame; and the stressed skin panels are riveted to both.",
+    "The stringers support the skin against buckling, and the whole assembly shares the loads — the essence of semi-monocoque construction.",
+  ],
+  "atgfig-ch01_fig_15": [
+    "This looks like the previous cross-section, but the centre is now closed — this is a bulkhead rather than an open frame.",
+    "A bulkhead is a solid or heavily-built partition that carries concentrated loads or seals part of the fuselage — for example a pressure bulkhead sealing the cabin, or a bulkhead carrying the wing or landing-gear loads.",
+    "The stringers and stressed skin attach to it just as they do to an ordinary frame.",
+  ],
+  "atgfig-ch01_fig_16": [
+    "This shows a floor crossbeam, which spans across the fuselage to carry the cabin floor and its loads down into the frames and lower structure.",
+    "Like a spar, it is built with an upper cap and a lower cap joined by a web — the caps take the bending and the web takes the shear.",
+    "The stringers run lengthwise in the surrounding skin, tying the floor structure into the fuselage shell.",
+  ],
+  "atgfig-ch01_fig_17": [
+    "Any opening in a stressed skin — a door or window — interrupts the load paths and concentrates stress at its corners.",
+    "To cope with this, doublers (extra layers of material) are built in around the opening to reinforce it and feed the load back into the surrounding skin and frames.",
+    "This is why the structure around doors and windows is noticeably heavier and more complex than the plain skin.",
+  ],
+  "atgfig-ch01_fig_18": [
+    "This shows a complete fuselage barrel section. The frames set the shape, the stringers run lengthwise, and the skin is wrapped over both.",
+    "Around the cut-outs for doors and windows the frames are reinforced to carry the loads around the openings, and floor beams on a support truss carry the cabin floor.",
+    "Together these make the light, strong, stressed-skin tube of a modern transport aircraft.",
+  ],
+  "atgfig-ch01_fig_19": [
+    "This cockpit photo highlights a clear-vision (direct-vision, or 'DV') window — a side cockpit window that can be slid or opened.",
+    "It gives the crew a way to see out if the main windscreen is obscured — for example by very heavy rain or a failure of the windscreen heating or wipers — and on the ground it can be opened for ventilation or to pass paperwork.",
+    "The cockpit windows themselves are laminated, electrically heated, and much thicker and stronger than the cabin windows.",
+  ],
+  "atgfig-ch01_fig_20": [
+    "This front view shows a braced (biplane) wing. The upper and lower mainplanes are held apart by interplane struts and tied together with wires.",
+    "The flying wires carry the flight loads (lift pulling the wings up) and the landing wires carry the loads when the aircraft is on the ground or under negative g.",
+    "Bracing lets the wing be very light, but the struts and wires add a lot of drag — which is why modern aircraft use cantilever wings instead.",
+  ],
+  "atgfig-ch01_fig_21": [
+    "This high-wing light aircraft uses a single lift strut on each side to help support the wing — a semi-cantilever design.",
+    "The strut carries much of the wing's bending load down to the lower fuselage, so the wing spar can be lighter than on a fully cantilever wing.",
+    "The trade-off is a little extra drag from the strut, which is acceptable on the trainers and utility aircraft that commonly use this layout.",
+  ],
+  "atgfig-ch01_fig_22": [
+    "This shows the two motions that combine to cause flutter: bending (the wing flexing up and down) and twisting (the wing rotating about its span).",
+    "If these two motions coincide at the right frequency, energy is fed from the airflow into the structure and the oscillation grows rapidly — which can destroy the wing in seconds.",
+    "Flutter must be prevented throughout the whole flight envelope, chiefly by mass-balancing the control surfaces and by keeping the structure stiff.",
+  ],
+  "atgfig-ch01_fig_23": [
+    "These are three ways of building a wing spar — the main spanwise member that carries the wing's bending loads.",
+    "The two on the left are built up from several riveted plates (the caps and web made of separate pieces). This is fail-safe, because a crack is arrested at a joint.",
+    "The one on the right is a single extruded I-section — lighter and simpler, but a crack can run straight through it, so its fatigue life must be carefully controlled (a safe-life approach).",
+  ],
+  "atgfig-ch01_fig_24": [
+    "This shows the wing torsion box — the structural heart of the wing. The front and rear spars (each with top and bottom caps and a shear web), the ribs (which give the aerofoil shape and carry lightening holes to save weight), and the top and bottom skin panels together form a closed box.",
+    "Here the skin panels are integrally stiffened — the stiffeners are machined from the same piece of metal as the skin.",
+    "This closed box is what resists the wing's bending and twisting (torsion) loads, and the sealed space inside it is normally used to carry fuel.",
+  ],
+  "atgfig-ch01_fig_25": [
+    "These are the common tail (empennage) layouts. The conventional tail has the tailplane on the fuselage. The T-tail puts the tailplane on top of the fin, clear of the wing's downwash — but at risk of a deep (super) stall.",
+    "The V-tail (butterfly) combines the jobs of fin and tailplane into two angled surfaces, and the H-tail uses twin fins on the ends of the tailplane.",
+    "Each layout is a trade-off between control effectiveness, weight, drag and interference with the rest of the aircraft.",
+  ],
+  "atgfig-ch01_fig_26": [
+    "This exploded view shows the structure of the empennage (tail). The fixed fin and tailplane, and the moving rudder and elevators, are each built like small wings — with spars, ribs and a stressed skin forming torsion boxes.",
+    "The fin and tailplane attach to heavy frames or bulkheads at the rear of the fuselage, which carry the large tail loads into the main structure.",
+  ],
+  "atgfig-ch01_fig_27": [
+    "This shows honeycomb sandwich construction, widely used for control surfaces, floors and panels. Two thin, strong facings (skins) are bonded along the bond line to a lightweight honeycomb core.",
+    "The result is extremely stiff and strong in bending for its weight — the facings act like the caps of a beam and the core like the web — while being very light.",
+    "Its weaknesses are damage and water getting into the core, so it is inspected by tap-testing to find any de-bonds.",
+  ],
+  "atgfig-ch01_fig_28": [
+    "This graph shows how a protective oxide layer grows on a metal such as aluminium: quickly at first, then the rate slows and the thickness levels off.",
+    "Because the oxide seals the surface, it protects the metal underneath from further corrosion.",
+    "This is the basis of anodising, in which the natural oxide layer is deliberately thickened to give aluminium alloy parts better corrosion protection.",
+  ],
+
   // ─── Piston Engines — Propellers (A.1.4) ───
   "ppfig-fig_12_01": [
     "This names the parts of a propeller blade. The tip is the outer end (it moves fastest); the leading edge cuts into the air and the trailing edge is the rear.",
