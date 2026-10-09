@@ -122,6 +122,8 @@ const NOTES: Record<string, SectionNote> = {
         "Powered/irreversible controls need an artificial feel unit (spring and/or Q-pot proportional to dynamic pressure); power-assisted controls remain reversible.",
         "Redundancy via split surfaces + multiple hydraulic systems; FBW adds flight-envelope protection and reduces weight.",
         "High-lift: TE flaps (plain ~50%, split ~60%, slotted ~65%, Fowler ~90% + area); LE slats/Kruger; spoilers/speed-brakes dump lift (ground spoilers armed by weight-on switch).",
+        "TE flap types compared: plain hinges down (camber only); split lowers the lower surface (more drag than lift); slotted ducts fast air over the flap to delay the stall; Fowler slides aft then down to add area and camber (most lift). Slots between Fowler segments re-energise the airflow at large angles.",
+        "Speed-brake lever detents (airliner): DOWN = all spoilers retracted; ARMED = on touchdown the lever drives UP and all flight + ground spoilers extend automatically; FLIGHT DETENT = flight spoilers to their max in-flight position; UP = all spoilers fully up for ground lift-dumping. A 'SPEED BRAKE DO NOT ARM' light shows an abnormal/test condition; 'SPEED BRAKE ARMED' confirms valid auto-deploy inputs.",
       ]},
       { heading: "Pneumatics, air-con & pressurization", figureTopics: ["Pneumatic Systems", "Pressurisation Systems"], points: [
         "Bleed air feeds air-conditioning, pressurisation, anti-ice and air-turbine motors; cooling by air-cycle (bootstrap: turbine drives compressor) with heat exchanger + water separator.",

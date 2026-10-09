@@ -5,6 +5,38 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Flight Control Systems (A.1.2) ───
+  "atgfig-ch07_fig_04": [
+    "This shows a cable tensiometer clamped onto a control cable. Control runs that use steel cables must be kept at the right tension: too slack and the controls feel sloppy and lag, too tight and they are stiff and wear quickly.",
+    "The tool works by pushing a central anvil against the cable while two outer anvils support it, bending the cable slightly. The force needed to do this depends on the cable tension, and is read off the dial. A conversion table turns the reading into cable tension for that cable size.",
+    "Because cables expand and contract with temperature, the correct tension is set against the airframe temperature at the time, which is why rigging is always done with a tensiometer and a chart rather than by feel.",
+  ],
+  "atgfig-ch07_fig_05": [
+    "This traces a typical cable control run from the cockpit to the control surface. The pilot's input moves a cable, which runs over pulleys and through fairleads to a quadrant — a grooved wheel that converts the pull of the cable into rotation.",
+    "From the quadrant the movement passes through a bell crank, which changes the direction of the drive, and then along a push-pull rod to the control surface. A spring unit (bungee) can be fitted to give artificial feel, and a damper to smooth out any flutter or snatching.",
+    "Mixing cables, quadrants and push-pull rods lets the designer route the controls around the structure, change direction, and get the right amount and sense of surface movement for a given stick or pedal input.",
+  ],
+  "atgfig-ch07_fig_08": [
+    "This shows a wing fitted with Fowler flaps and spoilers, drawn in the take-off and the landing settings. A Fowler flap first slides rearwards, increasing the wing area, and then also deflects down, increasing the camber — so it adds a lot of lift for take-off with little drag, and a lot of lift and drag for landing.",
+    "The gaps that open up between the flap segments are slots: they let fast air from under the wing flow over the top of the flap, re-energising the airflow so it stays attached at the steeper flap angles.",
+    "The spoilers on the upper surface can be raised to dump lift and add drag. Used a little in flight they help control; raised fully on touchdown they spoil the lift so the wheels take the weight and the brakes bite.",
+  ],
+  "atgfig-ch07_fig_09": [
+    "This shows the flap and slat position indicators the crew watch. One style is an electronic strip or dial reading flap angle; the other is an analogue pointer. Both tell the crew exactly where the surfaces are, because selecting a lever is not proof the surfaces have actually run.",
+    "Separate indications, or disagreement lights, show if the left and right sides are not matched — an asymmetric (split) flap or slat condition, which is dangerous because it rolls the aircraft.",
+    "Leading-edge slat position is shown too, often as simple transit/extended lights, so the crew can confirm the high-lift devices are set correctly for take-off and landing.",
+  ],
+  "atgfig-ch07_fig_10": [
+    "This shows how leading-edge slats are driven. A single power drive unit (PDU) — a hydraulic or pneumatic motor — turns a long torque shaft (driveshaft) that runs out along the wing to both sides.",
+    "At each slat, a rotary actuator geared to the shaft converts the shaft's rotation into the movement that extends or retracts that slat panel. Because every slat is driven off the same shaft, they all move together and in step, which keeps the two wings symmetrical.",
+    "Gearboxes (tee and bevel) split and turn the drive to reach the inboard and outboard slats and to carry it across to the opposite wing, so one motor drives the whole leading edge.",
+  ],
+  "atgfig-ch07_fig_11": [
+    "This schematic shows a combined speed-brake and lift-dumper (spoiler) system. The panels on each wing are split into flight spoilers, used in the air, and ground spoilers, which are only allowed to deploy on the ground.",
+    "A spoiler mixer blends two inputs: the speed-brake lever (both wings together, to add drag or dump lift) and the roll control (raising the spoiler on one wing to help bank). Hydraulic power reaches the actuators through a ground-spoiler control valve and a ground-spoiler shutoff valve.",
+    "The shutoff valve is interlocked with the landing gear (weight-on-wheels) so the ground spoilers can only work once the aircraft is actually on the ground. An armed state means that, on touchdown, the spoilers deploy automatically to kill the lift and make the brakes effective.",
+  ],
+
   // ─── Airframes — Brakes (A.1.2) ───
   "atgfig-ch06_fig_01": [
     "This cutaway shows a multi-disc brake, used on heavy aircraft. A stack of discs — the 'disc pack' — alternates rotors, which are keyed to the wheel and turn with it, and stators, which are keyed to the axle and cannot turn.",
