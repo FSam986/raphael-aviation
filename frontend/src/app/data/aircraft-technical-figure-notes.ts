@@ -5,6 +5,58 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Powered Flying Controls (A.1.2) ───
+  "atgfig-ch09_fig_01": [
+    "This block diagram shows what a powered flying control system needs. The pilot's input from the control column goes to a servo-valve, which ports hydraulic power to the actuator; the actuator moves the control surface.",
+    "A follow-up (feedback) link runs from the surface back to the servo-valve. As the surface reaches the position the pilot asked for, this feedback re-centres the valve and 'cuts out the operation', so the surface stops exactly where commanded rather than running to the stop.",
+    "Because the surface loads are carried entirely by the hydraulic jack, the pilot feels nothing natural through the controls — so artificial feel units are added to give the pilot a sense of how hard the aircraft is being flown.",
+  ],
+  "atgfig-ch09_fig_03": [
+    "This shows a power-assisted flying control unit. Here the pilot's input and the hydraulic jack work together: the jack ram is bolted to the control column, so some of the load is carried by the pilot and some by the hydraulics.",
+    "Moving the column shifts the servo valve, which admits pressure to one side of the jack (the other side going to return), driving the output to the elevator. Because the pilot is still mechanically linked to the surface, the system is reversible and the pilot feels a proportion of the real aerodynamic load — so little or no artificial feel is needed.",
+    "Power assistance is used where the loads are too high for muscle alone but full power operation (with artificial feel) is not justified.",
+  ],
+  "atgfig-ch09_fig_04": [
+    "This shows a simple spring feel unit. The control run passes through a unit containing springs on each side of a piston; moving the controls compresses one spring, which pushes back.",
+    "This gives the pilot an artificial 'feel' in a fully powered (irreversible) system, where the real surface loads can no longer be felt. The harder the pilot pulls, the more the spring resists, so there is a sensible relationship between stick force and surface deflection.",
+    "A plain spring feel has one drawback: the force depends only on how far the controls are moved, not on airspeed — so at high speed it can feel too light. That is why many aircraft use airspeed-sensitive (Q) feel instead.",
+  ],
+  "atgfig-ch09_fig_05": [
+    "This shows an airspeed-sensitive artificial feel, often called 'Q feel'. Pitot pressure and static pressure are fed to the unit; the difference between them is dynamic pressure (½ρV²), which represents how fast the aircraft is flying.",
+    "This dynamic pressure acts on a diaphragm that loads the PFCU control rod, so the resistance the pilot feels increases with airspeed. At low speed the controls feel light; at high speed they feel firm, which stops the pilot from over-stressing the aircraft.",
+    "Combining Q feel with the control geometry gives a feel force that matches the real aerodynamic loads far better than a plain spring, improving both safety and handling.",
+  ],
+  "atgfig-ch09_fig_06": [
+    "This cutaway shows the inside of a Q-feel unit. Pitot and static pressures act across a capsule in the 'Q pot'; the resulting dynamic pressure moves a spool valve.",
+    "The spool valve meters hydraulic pressure to a piston connected into the feel system, with excess fluid bled back to return. The higher the airspeed, the more the capsule deflects, the more hydraulic feel pressure is let through, and the firmer the controls become.",
+    "So the unit turns an air-data signal (dynamic pressure) into a hydraulic feel force that rises with speed — giving the pilot realistic, speed-related resistance in a fully powered control system.",
+  ],
+  "atgfig-ch09_fig_07": [
+    "This ties the whole fully-powered control together. The control column moves a control valve (servo valve); hydraulic pressure and return are ported through it to a jack that drives the control surface, with the valve mechanically followed up so the surface stops where commanded.",
+    "At the same time a Q-feel unit, fed by pitot and static pressure, loads the control run to give the pilot airspeed-related artificial feel.",
+    "Together these give the three things a powered system must provide: the muscle to move the surface against high loads, accurate positioning through feedback, and realistic feel so the pilot does not over-control.",
+  ],
+  "atgfig-ch09_fig_08": [
+    "This shows a feel computer, which produces artificial feel from more than one source. A bellows fed by pitot and static pressure provides the airspeed (Q) component, while a spring provides a basic spring-feel component.",
+    "These are combined through a metering valve that sets the hydraulic feel pressure, with a relief valve to limit it and return for excess fluid. The feel force is fed back into the control run between the quadrants and the power control unit (PCU).",
+    "By blending spring feel and air-data feel, and often adjusting for the trimmable stabiliser position, the feel computer gives the right stick force across the whole speed and configuration range.",
+  ],
+  "atgfig-ch09_fig_10": [
+    "This shows a redundant powered elevator with two independent hydraulic systems, 'A' and 'B', each with its own power control unit driving the same surface. If one system fails, the other still moves the elevator.",
+    "The pilot's control system and an autopilot actuator both feed the input, via quadrants, to the power units. A feel computer (fed by the pitot 'Q' system and spring feel) and a neutral-shift input from the stabiliser position trim set the artificial feel.",
+    "Duplicating the hydraulic supply and the actuators is how large aircraft meet the safety requirement that no single failure may jam or disable a primary flight control.",
+  ],
+  "atgfig-ch09_fig_11": [
+    "This is a fly-by-wire (FBW) block diagram. The pilot's sidestick and the autopilot send electrical 'orders' to a set of digital flight-control computers (for example ELACs, SECs and FACs on an Airbus), which decide how to move each surface.",
+    "The computers drive hydraulic actuators on the elevator, stabiliser, ailerons, spoilers and rudder. There are no heavy cable runs for the primary surfaces — just electrical signalling, which saves weight and allows the computers to shape the controls.",
+    "A mechanical backup (rudder pedals and manual stabiliser trim) is kept so the aircraft can still be flown if all the electrical control is lost, giving a safe reversion path.",
+  ],
+  "atgfig-ch09_fig_12": [
+    "This shows flight-envelope protection, a key benefit of fly-by-wire. While the computers are in the normal (flight) mode, they stop the pilot from taking the aircraft outside safe limits no matter how hard the controls are moved.",
+    "The protections cover pitch attitude, load factor (g), bank angle, angle of attack (stall) and high speed. For example, the aircraft will not let itself be stalled or over-stressed, and will not roll past a set bank angle without extra effort.",
+    "These protections make the aircraft easier and safer to fly, especially in an upset or an avoidance manoeuvre, because the pilot can pull or roll firmly and let the system hold the limit.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

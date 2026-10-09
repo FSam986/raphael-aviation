@@ -99,7 +99,6 @@ export const ATG_AIRFRAME_FIGURES: AtgFigureMeta[] = [
   { section: "A.1.2", topic: "Powered Flying Controls", title: "Figure 9.10", caption: "Powered Flying Controls", file: "ch09_fig_10.png", id: "atgfig-ch09_fig_10" },
   { section: "A.1.2", topic: "Powered Flying Controls", title: "Figure 9.11 Fly by wire block diagram", caption: "Powered Flying Controls", file: "ch09_fig_11.png", id: "atgfig-ch09_fig_11" },
   { section: "A.1.2", topic: "Powered Flying Controls", title: "Figure 9.12 Flight protection", caption: "Powered Flying Controls", file: "ch09_fig_12.png", id: "atgfig-ch09_fig_12" },
-  { section: "A.1.2", topic: "Powered Flying Controls", title: "Figure 9.13.", caption: "Powered Flying Controls", file: "ch09_fig_13.png", id: "atgfig-ch09_fig_13" },
   { section: "A.1.2", topic: "Pneumatic Systems", title: "Figure 10.1 Light aircraft hot and cold air system", caption: "Pneumatic Systems", file: "ch10_fig_01.png", id: "atgfig-ch10_fig_01" },
   { section: "A.1.2", topic: "Pneumatic Systems", title: "Figure 10.2 A combustion heater", caption: "Pneumatic Systems", file: "ch10_fig_02.png", id: "atgfig-ch10_fig_02" },
   { section: "A.1.2", topic: "Pneumatic Systems", title: "Figure 10.4 Air sources and uses (schematic)", caption: "Pneumatic Systems", file: "ch10_fig_04.png", id: "atgfig-ch10_fig_04" },
