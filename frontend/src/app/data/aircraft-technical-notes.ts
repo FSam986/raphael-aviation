@@ -172,11 +172,13 @@ const NOTES: Record<string, SectionNote> = {
     title: "Electrics",
     intro: "Aircraft DC and AC electrical systems: generation, batteries, distribution, protection and bonding — enough to read the cockpit panel and troubleshoot a failure.",
     blocks: [
-      { heading: "Basic DC principles", points: [
+      { heading: "Basic DC principles", figureTopics: ["DC principles & circuits"], points: [
         "Ohm's law: V = I × R. Power: P = V·I = I²·R = V²/R.",
         "Series adds resistance and voltage; parallel adds current paths (resistance falls, capacity in batteries adds).",
+        "Series resistors: R = R₁+R₂+R₃. Parallel resistors: 1/R = 1/R₁+1/R₂+1/R₃ (total is less than the smallest).",
+        "Kirchhoff: current into a junction = current out (I₃ = I₁+I₂); the voltage drops around a loop add up to the supply EMF.",
         "A megohm = 1 000 000 Ω; insulation resistance is measured with a megohmmeter.",
-        "Conventional current flows + to −; an earth-return system uses the airframe as the negative return.",
+        "Conventional current flows + to − (electron flow is − to +); an earth-return system uses the airframe as the negative return.",
       ]},
       { heading: "Batteries", points: [
         "Lead-acid and NiCad; capacity in ampere-hours (A·h) quoted at a stated discharge rate (e.g. 60 A·h at the 10-hour rate = 6 A for 10 h).",

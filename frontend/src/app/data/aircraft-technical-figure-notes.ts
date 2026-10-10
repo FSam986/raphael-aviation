@@ -356,6 +356,53 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "These protections make the aircraft easier and safer to fly, especially in an upset or an avoidance manoeuvre, because the pilot can pull or roll firmly and let the system hold the limit.",
   ],
 
+  // ─── Electrics — DC principles & circuits (A.1.3) ───
+  "elecfig-ch01_01": [
+    "This shows the structure of an atom, the basis of all electricity. At the centre is the nucleus, made of protons (positively charged) and neutrons (no charge). Electrons (negatively charged) orbit around it.",
+    "Electricity is the movement of the outer 'free' electrons from atom to atom. In a conductor (like copper) these outer electrons are loosely held and move easily; in an insulator they are tightly held and hardly move.",
+    "Because the electron carries a negative charge, a flow of electrons is a flow of negative charge — which is why 'electron flow' and 'conventional current' are drawn in opposite directions.",
+  ],
+  "elecfig-ch01_02": [
+    "This contrasts the two ways we describe current. Electron flow is the real movement of electrons, which go from the negative terminal, through the circuit, to the positive terminal.",
+    "Conventional current flow is the older convention still used in all circuit diagrams: it is drawn from positive to negative, i.e. the opposite direction to the electrons.",
+    "For exams, unless told otherwise, 'current' means conventional current (positive to negative). The two are just opposite labels for the same flow.",
+  ],
+  "elecfig-ch01_03": [
+    "This uses a water analogy to explain voltage and current. The height of water (pressure, in psi) is like voltage (EMF) — the 'push'. The amount of water flowing out is like current.",
+    "With a high pressure (12 psi / 12 volts) you get a high flow; with a low pressure (2 psi / 2 volts) you get a low flow. More voltage drives more current through the same resistance.",
+    "This is Ohm's law in picture form: current depends on the voltage (push) driving it against the resistance (how narrow the pipe is).",
+  ],
+  "elecfig-ch01_04": [
+    "These are the circuit symbols for resistors. A fixed resistor (a set value) is drawn either as a zig-zag line or as a plain rectangle.",
+    "A variable resistor (one whose value can be changed) is the same symbol with an arrow through it; it is used as a rheostat or potentiometer to adjust current or voltage.",
+    "Knowing these symbols lets you read a circuit diagram and tell a fixed component from an adjustable one at a glance.",
+  ],
+  "elecfig-ch01_05": [
+    "This is a series circuit: the resistors R₁ (4Ω), R₂ (6Ω) and R₃ (10Ω) are connected one after another in a single loop with the 12 V supply.",
+    "In series the total resistance is simply the sum: 4 + 6 + 10 = 20Ω. The same current flows through every component (there is only one path), here 12 V ÷ 20Ω = 0.6 A.",
+    "The key feature of series: one break anywhere stops all current — like old Christmas-tree lights where one failed bulb kills the whole string.",
+  ],
+  "elecfig-ch01_06": [
+    "This is a parallel circuit: R₁ (4Ω), R₂ (6Ω) and R₃ (10Ω) are each connected straight across the 12 V supply, giving three separate paths.",
+    "In parallel the total resistance is found from 1/R = 1/4 + 1/6 + 1/10, which works out LESS than the smallest single resistor. Each branch gets the full 12 V, and the branch currents add up to the total from the supply.",
+    "The key feature of parallel: each path is independent, so if one branch fails the others keep working — which is why aircraft loads are wired in parallel across the bus-bar.",
+  ],
+  "elecfig-ch01_07": [
+    "This is a series-parallel circuit. R₁ (4Ω) is in series with a parallel pair, R₂ (6Ω) and R₃ (10Ω), across the 12 V supply.",
+    "You solve it in steps: first combine the parallel pair (6Ω ‖ 10Ω = 3.75Ω), then add the series resistor (4 + 3.75 = 7.75Ω total). The supply current then splits between R₂ and R₃.",
+    "Most real circuits are mixtures like this; the trick is always to reduce the parallel groups first, then add the series parts.",
+  ],
+  "elecfig-ch01_08": [
+    "This illustrates Kirchhoff's current law at a junction. Two currents, I₁ and I₂, flow in, and the current flowing out, I₃, equals their sum: I₃ = I₁ + I₂.",
+    "The law simply says charge cannot pile up or vanish at a point — whatever flows into a junction must flow out of it.",
+    "This is exactly why the branch currents in a parallel circuit add up to the total current drawn from the supply.",
+  ],
+  "elecfig-ch01_09": [
+    "This shows Kirchhoff's voltage law in a series circuit. The supply is 12 V, and the voltage 'dropped' across each resistor (2 V across 2Ω, 4 V across 4Ω, 6 V across 6Ω) adds up to the supply: 2 + 4 + 6 = 12 V.",
+    "Each drop is found from Ohm's law on the common current (here 1 A): V = I × R. The bigger the resistor, the bigger its share of the voltage.",
+    "The law says the voltage rises and falls around any closed loop must balance — the energy given by the supply is all used up in the resistors.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

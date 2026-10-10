@@ -39,6 +39,7 @@ import {
 } from "@/app/components/figures/humanPerfInfographics";
 import { ATG_AIRFRAME_FIGURES } from "@/app/data/aircraft-technical-figures";
 import { ATG_POWERPLANT_FIGURES } from "@/app/data/aircraft-technical-powerplant-figures";
+import { ATG_ELECTRICS_FIGURES } from "@/app/data/aircraft-technical-electrics-figures";
 import { PPL_MET_FIGURE_KEY } from "@/app/data/ppl-met-content";
 import { PPL_NAV_FIGURE_KEY } from "@/app/data/ppl-nav-content";
 import { PPL_FPP_FIGURE_KEY } from "@/app/data/ppl-fpp-content";
@@ -290,6 +291,7 @@ const FIGURES: Record<string, FigureDef[]> = {
 const ATG_IMAGE_FIGURES: { section: string; topic: string; title: string; caption: string; file: string; id: string; folder: string }[] = [
   ...ATG_AIRFRAME_FIGURES.map((f) => ({ ...f, folder: "airframes" })),
   ...ATG_POWERPLANT_FIGURES,
+  ...ATG_ELECTRICS_FIGURES,
 ];
 
 export function atgFiguresByTopic(topics: string[]): FigureDef[] {
