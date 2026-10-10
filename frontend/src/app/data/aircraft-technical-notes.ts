@@ -238,6 +238,12 @@ const NOTES: Record<string, SectionNote> = {
         "Power: TRUE (real) power = Vrms × Irms × cos φ, in watts (only the in-phase part does work). REACTIVE power = VAR/kVAR (90° out of phase, does no work). Power factor = cos φ = true/apparent power.",
         "Mutual induction: a changing current in one coil induces an EMF in a nearby coil — the basis of the transformer. Steady DC induces nothing once settled; only CHANGING current (AC, or switching) does.",
       ]},
+      { heading: "Semiconductors & electronics", figureTopics: ["Semiconductors & electronics"], points: [
+        "Semiconductors (silicon) are neither good conductors nor good insulators. Pure silicon atoms share outer electrons in covalent bonds. 'Doping' adds impurities to control conduction.",
+        "N-type: a pentavalent impurity (+5) leaves a spare FREE ELECTRON (negative carriers). P-type: a trivalent impurity (+3) leaves a HOLE (a missing electron, acting as a positive carrier).",
+        "A PN junction (diode): where P and N meet, a thin depletion layer with a barrier potential forms. FORWARD bias (P to +) overcomes the barrier and conducts; REVERSE bias (P to −) widens the depletion layer and blocks — so a diode is a one-way valve.",
+        "Transistor (NPN or PNP): three layers with emitter, base and collector. A small base current controls a much larger collector–emitter current, so it works as an amplifier or an electronic switch (conducting / not conducting).",
+      ]},
       { heading: "AC motors", figureTopics: ["AC motors"], points: [
         "Three-phase AC fed to three stator windings 120° apart produces a ROTATING magnetic field, which spins at 'synchronous speed' (set by frequency and number of poles).",
         "Induction (squirrel-cage) motor: the rotor is copper bars shorted by end rings (no windings, no brushes). The rotating field induces currents in the bars, which react with the field and drag the rotor round.",

@@ -922,6 +922,53 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "The rotor always lags the field a little (this 'slip' is what keeps inducing current). With no brushes or slip rings to wear out, the squirrel-cage motor is simple, rugged and reliable — ideal for aircraft pumps and fans.",
   ],
 
+  // ─── Electrics — Semiconductors & electronics (A.1.3) ───
+  "elecfig-ch16_01": [
+    "This revisits the atom as the basis of electronics. The nucleus holds protons (positive) and neutrons (no charge); electrons (negative) orbit in shells around it.",
+    "It is the electrons in the outer shell that matter for electricity — whether they are free to move (a conductor) or tightly held (an insulator).",
+    "Semiconductors sit in between, and electronics is all about controlling how easily these outer electrons can move.",
+  ],
+  "elecfig-ch16_02": [
+    "This shows a pure semiconductor crystal, such as silicon. Each atom has four outer electrons and shares them with its neighbours in covalent bonds, so every atom ends up with a stable set of eight shared electrons.",
+    "Because all the electrons are locked into bonds, pure silicon hardly conducts at all — it is neither a good conductor nor a good insulator.",
+    "To make it useful we deliberately add tiny amounts of other elements ('doping'), which is what the next figures show.",
+  ],
+  "elecfig-ch16_03": [
+    "This shows N-type doping. An impurity atom with FIVE outer electrons (+5, pentavalent) replaces a silicon atom. Four of its electrons form bonds with neighbours, but the fifth has no bond to join.",
+    "That spare electron is free to move through the crystal, so it can carry current. Because the free carriers are negative electrons, this is called N-type ('negative') material.",
+    "Adding these donor atoms turns the near-insulator into a useful conductor whose current is carried by free electrons.",
+  ],
+  "elecfig-ch16_04": [
+    "This shows P-type doping — the opposite of N-type. An impurity with only THREE outer electrons (+3, trivalent) replaces a silicon atom. It can form only three of the four bonds, leaving a gap.",
+    "That gap is a 'hole' — a missing electron. A nearby electron can jump into it, which moves the hole along, so the hole behaves like a positive carrier of current.",
+    "Because the carriers act positive, this is P-type ('positive') material. P-type and N-type together make the diodes and transistors of electronics.",
+  ],
+  "elecfig-ch16_05": [
+    "This shows what happens when P-type and N-type are joined — a PN junction. At the boundary, free electrons from the N side fill holes on the P side, leaving a thin region with no free carriers: the DEPLETION LAYER.",
+    "This leaves a small built-in voltage across the junction, the BARRIER POTENTIAL, which opposes further flow (about 0.6 V for silicon).",
+    "This junction is the basis of the diode: whether current can cross depends on which way an external voltage pushes against this barrier.",
+  ],
+  "elecfig-ch16_06": [
+    "This shows the two ways to connect a battery across a PN junction. In REVERSE bias (battery + to the N side), the voltage pulls the carriers away from the junction, so the depletion layer gets WIDER and almost no current flows — the diode blocks.",
+    "In FORWARD bias (battery + to the P side), the voltage pushes carriers towards the junction; once it overcomes the barrier potential, the depletion layer collapses and current flows freely — the diode conducts.",
+    "So the same junction either blocks or conducts depending on the direction of the applied voltage.",
+  ],
+  "elecfig-ch16_07": [
+    "This shows a diode: a single PN junction with two leads, and its circuit symbol — a triangle (arrow) pointing to a bar.",
+    "The diode only lets conventional current flow in the direction the arrow points (from P, the anode, to N, the cathode). Push current the other way and it blocks.",
+    "This one-way behaviour is why diodes are used to rectify AC into DC, protect circuits against reverse polarity, and steer current where it is wanted.",
+  ],
+  "elecfig-ch16_08": [
+    "This shows the transistor, made of three doped layers. An NPN transistor is a thin P layer between two N layers; a PNP is a thin N layer between two P layers. The three connections are the emitter, the base (the thin middle) and the collector.",
+    "The circuit symbols differ only by the arrow direction on the emitter (pointing out for NPN, in for PNP), which shows the direction of conventional current.",
+    "A transistor is essentially two PN junctions back-to-back, and the thin base in the middle is what lets a small signal control a large current.",
+  ],
+  "elecfig-ch16_09": [
+    "This shows how a transistor works as a switch. With no (or reverse) bias on the base, the collector–base junction is reverse-biased and blocks, so no current flows through the transistor — it is OFF ('not conducting').",
+    "Apply a small forward bias voltage to the base and the transistor turns ON: a large current now flows from collector to emitter, shown by the meter reading. A small base current has switched a big main current.",
+    "This control of a large current by a small one is the basis of both amplifiers (smooth control) and digital electronics (fully on/off switching).",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

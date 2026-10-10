@@ -153,4 +153,15 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   // ── Ch15: AC motors ──
   E("AC motors", "15_01", "Rotating magnetic field (3-phase stator)"),
   E("AC motors", "15_02", "Squirrel-cage induction motor"),
+
+  // ── Ch16: Semiconductors & electronics ──
+  E("Semiconductors & electronics", "16_01", "Atom — protons, neutrons, electrons"),
+  E("Semiconductors & electronics", "16_02", "Covalent bonds in a crystal"),
+  E("Semiconductors & electronics", "16_03", "N-type doping (free electron)"),
+  E("Semiconductors & electronics", "16_04", "P-type doping (hole)"),
+  E("Semiconductors & electronics", "16_05", "PN junction & depletion layer"),
+  E("Semiconductors & electronics", "16_06", "Reverse vs forward bias"),
+  E("Semiconductors & electronics", "16_07", "Diode & circuit symbol"),
+  E("Semiconductors & electronics", "16_08", "Transistor — NPN & PNP"),
+  E("Semiconductors & electronics", "16_09", "Transistor operation (switching)"),
 ];
