@@ -618,6 +618,63 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "Variable resistors and the voltage-control coils trim each generator's field; the line contactors connect or isolate a generator from the bus. This keeps the two 14 V generators sharing the load evenly.",
   ],
 
+  // ─── Electrics — DC motors & actuators (A.1.3) ───
+  "elecfig-ch07_01": [
+    "This is Fleming's left-hand rule, used to find which way a MOTOR turns. Hold the thumb and first two fingers of the left hand at right angles.",
+    "The First finger points along the Field (N to S), the seCond finger points the way the Current flows, and the thuMb then shows the direction of the resulting Motion (force on the conductor).",
+    "Left hand for motors (motion out), right hand for generators (current out) — a handy way to keep the two rules apart.",
+  ],
+  "elecfig-ch07_02": [
+    "This shows the heart of a DC motor. A current-carrying loop sits in the magnetic field between the poles; the force on its two sides (one up, one down) makes it rotate — just the motor principle applied to a loop.",
+    "The right-hand view shows a real armature with several coils and a commutator split into segments (1, 2, 3, 4). Current is fed in through brushes to whichever coils are best placed to give turning force.",
+    "As the armature turns, the commutator keeps switching the current to the next coils, so the push is continuous and the motor spins smoothly.",
+  ],
+  "elecfig-ch07_03": [
+    "This cutaway shows how a DC motor is built. The armature (the rotating winding) is carried on bearings — a roller bearing at one end, a ball bearing at the other.",
+    "The field coils are wound on pole pieces fixed inside the case to provide the magnetic field. Current reaches the spinning armature through carbon brushes, held against the commutator by springs in brush boxes.",
+    "A fan on the shaft cools the motor, and a pulley (or shaft) takes the drive out to the load. These are the parts to be able to name for the exam.",
+  ],
+  "elecfig-ch07_04": [
+    "This shows why a starter motor needs a slow-start resistor. At the instant of starting the motor is not yet turning, so it generates no back-EMF, and a very large inrush current would flow.",
+    "A resistor is put in series to limit this starting current. Once the motor is up to speed, a centrifugal switch (or a time switch) closes and shorts the resistor out, so the motor then gets the full voltage.",
+    "This protects the battery and the motor from the heavy surge that would otherwise occur at switch-on.",
+  ],
+  "elecfig-ch07_05": [
+    "This is a series-wound DC motor: the field coil is in series with the armature, so all the motor current flows through the field.",
+    "That gives it a very high starting torque (lots of current at start means a strong field), which is why series motors are used for starter motors. The downside is that its speed varies a lot with load, and off-load it can over-speed dangerously.",
+    "So a series motor is ideal for a job needing a big initial pull against a heavy load, like turning an engine over.",
+  ],
+  "elecfig-ch07_06": [
+    "This is a shunt-wound DC motor: the field coil is connected in PARALLEL (across) the armature rather than in series.",
+    "Because the field current is almost constant, the motor runs at a fairly steady speed whatever the load — it does not run away off-load like a series motor.",
+    "That steady speed makes the shunt motor the choice where a constant running speed matters more than a huge starting torque.",
+  ],
+  "elecfig-ch07_07": [
+    "This shows a starter-generator — one machine that does two jobs. In MOTOR mode it is fed from the aircraft supply and turns the engine to start it (using its series field for high torque).",
+    "Once the engine is running, the machine is switched to GENERATOR mode: now driven by the engine, it generates electrical power, with a voltage regulator controlling its shunt field to hold the output steady.",
+    "Combining the starter and the generator in one unit saves weight and space, which is why it is common on turbine aircraft.",
+  ],
+  "elecfig-ch07_08": [
+    "This is the control circuit of a reversible actuator motor, run from the 28 V DC bus. A control switch selects OPEN or SHUT, feeding current into the motor so it drives one way or the other.",
+    "Limit switches cut the power when the actuator reaches the fully-open or fully-shut position, so it cannot over-run and damage itself. A brake coil holds it in place once stopped.",
+    "Indicator lights (OPEN / SHUT) tell the crew which end the actuator has reached, confirming the item has actually moved.",
+  ],
+  "elecfig-ch07_09": [
+    "This shows a complete rotary electric actuator. The motor drives through a reduction gear (to turn fast rotation into slow, powerful rotation) and a clutch to the output drive.",
+    "Separate OPEN and CLOSE brake coils stop and hold the actuator at each end. Open and close limit switches, operated as the output reaches its travel limits, cut the motor; a selector switch chooses the direction.",
+    "A magnetic 'doll's eye' position indicator shows OPEN, SHUT or (striped) in-transit, so the crew always know where the actuator is. This is the standard way a valve or flap is driven electrically.",
+  ],
+  "elecfig-ch07_10": [
+    "This is a linear electric actuator — it produces a straight push/pull instead of rotation. The motor drives through a reduction gear and clutch to a screw jack: a rotating screw turns a drive nut, which moves the output drive in or out.",
+    "A selector switch chooses IN or OUT, energising the matching motor winding. A limit-switch operating arm trips the IN or OUT limit switch at the end of travel to stop the motor.",
+    "Screw-jack actuators are used to move things that need a strong straight-line force, such as a trimmable stabiliser or a flap screw.",
+  ],
+  "elecfig-ch07_11": [
+    "This shows magnetic position indicators, the little displays that confirm a valve or actuator's position. In the 'doll's eye' type, a magnet assembly on a spindle is turned by a coil; it shows a striped face for NO POWER, then OPEN or SHUT as it is driven.",
+    "The prism type works the same way but flips small prisms to spell OPEN or SHUT (or show a striped 'no power' flag) in a window.",
+    "Both are magnetically operated, so they fall to the striped 'no-power' indication if the supply is lost — telling the crew the indication can no longer be trusted rather than giving a false reading.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

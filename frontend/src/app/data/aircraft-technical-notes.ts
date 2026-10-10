@@ -222,6 +222,14 @@ const NOTES: Record<string, SectionNote> = {
         "Generator failure: red warning light on, ammeter reads zero/discharge. A generator failure is electrical only — engines run normally.",
         "Paralleled generators must share voltage equally, or a circulating current flows between them; load shedding drops non-essential loads.",
       ]},
+      { heading: "DC motors & actuators", figureTopics: ["DC motors & actuators"], points: [
+        "Motor principle: current in the armature conductors sits in the field and is pushed round. Fleming's LEFT-hand rule gives the direction (thuMb motion, First finger field, seCond finger current). A commutator reverses the armature current every half-turn to keep it spinning one way.",
+        "Construction: armature on bearings, field coils on pole pieces, commutator fed by carbon brushes (spring-loaded), often with a cooling fan and an output pulley/shaft.",
+        "Field types: series motor = high starting torque but speed runs away off-load (used for starters); shunt motor = fairly constant speed (used where steady speed matters); compound = a mix.",
+        "Back-EMF: as a motor speeds up it generates a voltage opposing the supply, which limits the running current. At the instant of starting there is no back-EMF, so a big inrush current flows — a slow-start (series) resistor, shorted out by a centrifugal/time switch, limits it.",
+        "Starter-generator: one machine acts as a motor to start the engine, then is switched to act as a generator once running — saves weight on turbine aircraft.",
+        "Actuators: a motor drives a reduction gear and clutch to a rotary or linear (screw-jack) output, with OPEN/CLOSE (or IN/OUT) windings, limit switches to stop at the ends, a brake coil to hold position, and a magnetic 'doll's eye' or prism indicator showing open/shut/in-transit.",
+      ]},
       { heading: "Distribution, protection & bonding", figureTopics: ["Distribution & bus-bars", "Circuit protection"], points: [
         "Bus-bars distribute power; essential/non-essential/battery buses allow load shedding and isolation.",
         "Fuses/circuit breakers protect by current rating; replace a fuse once with the correct rating (never higher). A trip-free CB won't reset until the fault clears.",

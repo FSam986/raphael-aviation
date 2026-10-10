@@ -81,4 +81,17 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("Generation & regulation", "06_16", "Vibrating-contact voltage & current regulator"),
   E("Generation & regulation", "06_17", "Generator, bus-bar & battery"),
   E("Generation & regulation", "06_18", "Paralleled generators with equalizing circuit"),
+
+  // ── Ch7: DC motors & actuators ──
+  E("DC motors & actuators", "07_01", "Fleming's left-hand (motor) rule"),
+  E("DC motors & actuators", "07_02", "Motor loop & multi-coil armature"),
+  E("DC motors & actuators", "07_03", "DC motor construction"),
+  E("DC motors & actuators", "07_04", "Starter motor with slow-start resistor"),
+  E("DC motors & actuators", "07_05", "Series-wound DC motor"),
+  E("DC motors & actuators", "07_06", "Shunt-wound DC motor"),
+  E("DC motors & actuators", "07_07", "Starter-generator"),
+  E("DC motors & actuators", "07_08", "Reversible actuator motor circuit"),
+  E("DC motors & actuators", "07_09", "Rotary electric actuator"),
+  E("DC motors & actuators", "07_10", "Linear (screw-jack) actuator"),
+  E("DC motors & actuators", "07_11", "Magnetic position indicators (doll's eye / prism)"),
 ];
