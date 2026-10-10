@@ -203,6 +203,14 @@ const NOTES: Record<string, SectionNote> = {
         "Alkaline (NiCad): + plate nickel oxide/hydroxide, − plate cadmium, electrolyte potassium hydroxide; SG ≈1.240–1.300 and barely changes with charge, so SG is NOT a state-of-charge guide for NiCad.",
         "Spillage neutraliser: sodium bicarbonate for lead-acid (acid), boric acid for alkaline (NiCad). A discharged lead-acid battery (low SG) can freeze in cold — keep it charged in winter.",
       ]},
+      { heading: "Magnetism & electromagnetism", figureTopics: ["Magnetism & electromagnetism"], points: [
+        "Like poles repel, unlike poles attract; magnetic field lines run N→S outside the magnet and never cross. Iron is easily magnetised; a soft-iron piece concentrates/screens flux.",
+        "Domain theory: in an unmagnetised bar the tiny magnetic domains point randomly; magnetising lines them up; when all are aligned the magnet is SATURATED (no stronger).",
+        "A current in a wire makes a circular magnetic field around it (right-hand rule). Current INTO the page = ⊗ (cross), OUT of the page = ⊙ (dot).",
+        "A coil (solenoid) carrying current behaves like a bar magnet with N and S poles; wind it on a soft-iron core and it becomes a strong electromagnet.",
+        "Solenoid (moving core) and relay (fixed core, moving armature) both let a small current switch a large one. Parallel wires attract if currents are the same way, repel if opposite.",
+        "Motor principle: a current-carrying conductor in a magnetic field feels a force — its own field strengthens the main field on one side and weakens it on the other, pushing it toward the weak side (Fleming's left-hand rule).",
+      ]},
       { heading: "Generation & regulation", points: [
         "Generators (DC) and alternators (AC); a voltage regulator holds voltage by varying field current regardless of RPM/load.",
         "Reverse-current cut-out opens to stop the battery feeding back into the generator when generator volts fall below battery volts; closes when generator volts exceed battery volts.",

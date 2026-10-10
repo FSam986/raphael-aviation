@@ -499,6 +499,53 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "The crucial difference: a lead-acid cell's SG drops as it discharges (so SG shows its charge), but a NiCad's SG hardly changes — so you cannot judge a NiCad's charge from its SG.",
   ],
 
+  // ─── Electrics — Magnetism & electromagnetism (A.1.3) ───
+  "elecfig-ch05_01": [
+    "These show magnetic field patterns. Field lines always run out of the north pole, round the outside, and into the south pole; they never cross. The spacing shows field strength — close lines mean a strong field.",
+    "When two magnets face each other the patterns tell the story: unlike poles (N facing S) have lines joining them and pull together (attract); like poles (N facing N) have lines pushing apart (repel).",
+    "A horseshoe magnet brings the two poles close together to give a strong, concentrated field in the gap between them.",
+  ],
+  "elecfig-ch05_02": [
+    "This shows how a piece of soft iron affects a magnetic field. Placed between two poles, the iron offers an easy path for the field lines, so they crowd into it.",
+    "This does two useful jobs: it concentrates the flux where you want it (as in an instrument or motor), and it screens the space behind it — components inside an iron box are shielded from the outside field.",
+    "This is why sensitive instruments are housed in soft-iron ('mu-metal') cans: the iron soaks up the stray magnetism before it can reach the instrument.",
+  ],
+  "elecfig-ch05_03": [
+    "This illustrates domain theory. A magnetic material is full of tiny regions called domains, each a little magnet. In an UNMAGNETISED bar they point in all directions, so their effects cancel and there is no overall magnetism.",
+    "As the bar is MAGNETISED, more and more domains swing round to point the same way, so the bar develops north and south poles.",
+    "When every domain is aligned the bar is SATURATED — it cannot be made any stronger however hard you try, because there are no more domains left to line up.",
+  ],
+  "elecfig-ch05_04": [
+    "This shows that an electric current always creates a magnetic field. A current flowing through a straight conductor is surrounded by circular field lines, centred on the wire.",
+    "The direction of these circles is given by the right-hand grip rule: point your right thumb along the (conventional) current and your fingers curl the way the field goes. More current gives a stronger field.",
+    "This simple fact — current makes magnetism — is the basis of every electromagnet, relay, solenoid, motor and generator.",
+  ],
+  "elecfig-ch05_05": [
+    "This explains the dot-and-cross convention used to draw current direction on a flat page, using the picture of an arrow. Looking at the tail of an arrow flying away from you, you see a cross (⊗) — this means current flowing INTO the paper.",
+    "Looking at the point of an arrow coming towards you, you see a dot (⊙) — this means current flowing OUT of the paper.",
+    "The circular field lines around each then let you work out, with the right-hand rule, which way the magnetic field turns — essential for reading motor and generator diagrams.",
+  ],
+  "elecfig-ch05_06": [
+    "This shows the magnetic fields around two parallel conductors. When the currents flow the SAME way (left), the fields between the wires cancel and the outer fields join, so the wires are pulled together (attract).",
+    "When the currents flow in OPPOSITE directions (right), the fields between the wires reinforce and push the wires apart (repel).",
+    "This force between current-carrying conductors is the direct cause of the turning force in an electric motor.",
+  ],
+  "elecfig-ch05_07": [
+    "This shows the field of a solenoid — a coil of wire carrying current. Each turn adds its circular field, and together they combine into a field just like a bar magnet, with a north pole at one end and a south at the other.",
+    "The more turns and the more current, the stronger the field; winding the coil on a soft-iron core concentrates it further to make a powerful electromagnet.",
+    "Because the field appears only while current flows, a solenoid can be switched on and off — which is how electromagnets, contactors and actuators work.",
+  ],
+  "elecfig-ch05_08": [
+    "This compares a solenoid and a relay — both use a coil's magnetism to let a small switching current control a large load current. The small current energises the coil; the magnetism then closes (or opens) heavy-duty contacts.",
+    "The difference is mechanical: a solenoid has a MOVING core (plunger) that is pulled in to do work or move the contacts, while a relay has a STATIONARY core and a separate hinged armature that carries the contacts.",
+    "Both keep the heavy current away from the cockpit switch — the pilot's small switch just energises the coil, and the relay/solenoid does the heavy switching out at the load.",
+  ],
+  "elecfig-ch05_09": [
+    "This shows the motor principle. On its own, a current-carrying conductor has a circular field around it; placed in the field between a north and a south pole, the two fields interact.",
+    "On one side of the conductor the two fields point the same way and ADD (field strengthened); on the other they oppose and CANCEL (field weakened). The conductor is pushed from the strong side towards the weak side.",
+    "This force is what turns an electric motor; its direction is given by Fleming's left-hand rule (field, current, motion). Reverse the current or the field and the force reverses.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

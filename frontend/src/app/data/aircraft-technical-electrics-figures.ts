@@ -54,4 +54,15 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("Batteries", "04_04", "Lead-acid cell construction"),
   E("Batteries", "04_05", "Lead-acid cell chemistry"),
   E("Batteries", "04_09", "Secondary batteries — lead-acid vs alkaline (summary)"),
+
+  // ── Ch5: Magnetism & electromagnetism ──
+  E("Magnetism & electromagnetism", "05_01", "Magnetic field patterns & poles"),
+  E("Magnetism & electromagnetism", "05_02", "Flux concentration / magnetic screening"),
+  E("Magnetism & electromagnetism", "05_03", "Domain theory — un/magnetised/saturated"),
+  E("Magnetism & electromagnetism", "05_04", "Field around a current-carrying conductor"),
+  E("Magnetism & electromagnetism", "05_05", "Into/out-of-paper current convention"),
+  E("Magnetism & electromagnetism", "05_06", "Force between parallel conductors"),
+  E("Magnetism & electromagnetism", "05_07", "Solenoid (coil) field"),
+  E("Magnetism & electromagnetism", "05_08", "Solenoid vs relay"),
+  E("Magnetism & electromagnetism", "05_09", "Motor principle — catapult field"),
 ];
