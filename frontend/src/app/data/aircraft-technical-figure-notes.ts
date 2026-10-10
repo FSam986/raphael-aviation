@@ -403,6 +403,38 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "The law says the voltage rises and falls around any closed loop must balance — the energy given by the supply is all used up in the resistors.",
   ],
 
+  // ─── Electrics — Switches & sensors (A.1.3) ───
+  "elecfig-ch02_01": [
+    "This shows two common cockpit switch types. A two-position switch simply makes or breaks one circuit — OFF and ON. A three-position switch has a centre OFF with a selection either side, for example IN / OFF / OUT to drive something both ways.",
+    "The moving blade inside bridges the supply (here 28 V) to the chosen output terminal. In the three-position switch the centre position connects to neither output, giving a safe neutral.",
+    "Choosing the right number of positions lets one switch control a simple load or a two-direction actuator such as a trim or a valve.",
+  ],
+  "elecfig-ch02_02": [
+    "These are switch-lights — pushbuttons that also show the system's state in the button face. A guarded momentary switch-light must be pressed deliberately (and may sit under a guard) and lights to show it is selected.",
+    "An 'alternate' switch-light with a flowbar indicator shows not just that it was pressed but that something actually happened — the flowbar changes when the valve or contactor really moves, confirming the action.",
+    "Combining the control and its indication in one button saves panel space and gives the crew immediate feedback (e.g. OVHT/PRESS, OPEN/TRIP shown right in the switch).",
+  ],
+  "elecfig-ch02_03": [
+    "This is the inside of a microswitch. An operating plunger, pushed by some moving part, snaps a moving contact from one position to another.",
+    "The contact connects a common terminal to one of the fixed terminals, so the switch can both make one circuit and break another at the same instant. The snap-action gives a clean, fast change-over.",
+    "Microswitches are used all over the aircraft as limit and position sensors — to tell the system when flaps, gear, doors or levers have reached a set position.",
+  ],
+  "elecfig-ch02_04": [
+    "This is a proximity switch (sensor). The top pictures show the sensor itself; the diagram shows it is basically a coil that detects a nearby metal 'target' without ever touching it.",
+    "When the target comes close, it changes the sensor's magnetic field, which the electronics turn into an ON/OFF signal sent to the proximity-switch electronics unit.",
+    "Because there is no physical contact, there is nothing to wear out or stick — which is why proximity sensors have largely replaced microswitches for important jobs like landing-gear position.",
+  ],
+  "elecfig-ch02_05": [
+    "This is a magnetic (variable-reluctance) speed pickup. A coil is wound on a pole piece attached to a permanent magnet, with its magnetic field reaching out to a toothed gear or phonic wheel.",
+    "As each gear tooth passes the pole piece, it changes the magnetic field through the coil, and this changing field induces a voltage pulse in the coil. The faster the gear turns, the more pulses per second.",
+    "Counting the pulses gives rotational speed, so this type of sensor is used for engine/rotor RPM, wheel speed (anti-skid) and similar speed indications — and it needs no power supply of its own.",
+  ],
+  "elecfig-ch02_06": [
+    "This shows proximity sensors doing a real job on a landing gear. An uplock sensor and a downlock sensor each face a metal 'target' on the moving gear structure.",
+    "When the gear reaches the fully up (locked) or fully down (locked) position, its target comes close to the matching sensor, which signals the system that the gear is locked in that position.",
+    "Using non-contact proximity sensors here is safer than microswitches because there are no exposed contacts to be damaged by the harsh wheel-well environment, and nothing mechanical to wear out.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

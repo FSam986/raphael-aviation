@@ -180,7 +180,14 @@ const NOTES: Record<string, SectionNote> = {
         "A megohm = 1 000 000 Ω; insulation resistance is measured with a megohmmeter.",
         "Conventional current flows + to − (electron flow is − to +); an earth-return system uses the airframe as the negative return.",
       ]},
-      { heading: "Batteries", points: [
+      { heading: "Switches & sensors", figureTopics: ["Switches & sensors"], points: [
+        "Switches: two-position (ON/OFF) and three-position (e.g. IN/OFF/OUT); guarded switches need the guard lifted to prevent accidental selection.",
+        "Switch-lights show state in the button (e.g. guarded momentary light, or a flowbar indicator showing a valve/contactor has actually moved).",
+        "Microswitch: a plunger moves a contact between a common terminal and fixed terminals — used for limit sensing (flaps, gear, doors).",
+        "Proximity sensors (inductive) sense a metal target without contact — no wearing parts; widely used for landing-gear up/down-lock and door sensing.",
+        "Magnetic (variable-reluctance) pickup: a coil on a magnet senses passing gear teeth and generates a pulse — used for RPM/speed sensing.",
+      ]},
+      { heading: "Batteries", figureTopics: ["Batteries"], points: [
         "Lead-acid and NiCad; capacity in ampere-hours (A·h) quoted at a stated discharge rate (e.g. 60 A·h at the 10-hour rate = 6 A for 10 h).",
         "Check battery voltage ON LOAD — off-load it can read full volts yet be flat.",
         "Series connection adds voltage, capacity unchanged; parallel adds capacity, voltage unchanged.",

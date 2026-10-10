@@ -30,4 +30,12 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("DC principles & circuits", "01_07", "Series-parallel circuit"),
   E("DC principles & circuits", "01_08", "Kirchhoff's current law"),
   E("DC principles & circuits", "01_09", "Kirchhoff's voltage law"),
+
+  // ── Ch2: Switches & sensors ──
+  E("Switches & sensors", "02_01", "Two- and three-position switches"),
+  E("Switches & sensors", "02_02", "Guarded & flowbar switch-lights"),
+  E("Switches & sensors", "02_03", "Microswitch internals"),
+  E("Switches & sensors", "02_04", "Proximity switch / sensor"),
+  E("Switches & sensors", "02_05", "Magnetic (variable-reluctance) speed pickup"),
+  E("Switches & sensors", "02_06", "Proximity sensors on the landing gear"),
 ];
