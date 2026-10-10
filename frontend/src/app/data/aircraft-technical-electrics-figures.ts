@@ -104,4 +104,20 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("Batteries", "08_07", "Aircraft battery container & connections"),
   E("Distribution & bus-bars", "08_08", "Complete light-aircraft DC system"),
   E("Distribution & bus-bars", "08_09", "Typical single-alternator light-aircraft system"),
+
+  // ── Ch11: AC — generation & properties ──
+  E("AC — generation & properties", "11_01", "Simple AC generator (slip rings)"),
+  E("AC — generation & properties", "11_04", "Frequency — cycles per second"),
+  E("AC — generation & properties", "11_05", "AC waveform — peak, RMS & cycle"),
+  E("AC — generation & properties", "11_06", "Resistive circuit — V and I in phase"),
+  E("AC — generation & properties", "11_07", "Mutual induction (transformer principle)"),
+  E("AC — generation & properties", "11_08", "Self-inductance & back-EMF"),
+  E("AC — generation & properties", "11_09", "Inductive circuit — current lags 90°"),
+  E("Capacitors", "11_10", "Capacitor charge & discharge curves"),
+  E("Capacitors", "11_11", "Capacitor in an AC circuit"),
+  E("AC — generation & properties", "11_12", "Capacitive circuit — current leads 90°"),
+  E("AC — generation & properties", "11_13", "Impedance triangle"),
+  E("AC — generation & properties", "11_14", "Reactance vs frequency & resonance"),
+  E("AC — generation & properties", "11_15", "True (real) power"),
+  E("AC — generation & properties", "11_17", "Reactive power (VAR)"),
 ];

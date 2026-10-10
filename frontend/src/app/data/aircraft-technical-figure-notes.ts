@@ -461,6 +461,16 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "A variable capacitor (arrow through it) can be adjusted by the user; a preset is set once on installation and then left.",
     "Recognising these lets you read a circuit and, importantly, spot a polarised capacitor that must go in the right way round.",
   ],
+  "elecfig-ch11_10": [
+    "This shows a capacitor charging and discharging over time. When first connected, a big current flows to charge the plates, but the voltage across the capacitor starts at zero and climbs; as it charges, the current falls away and the voltage levels off at the supply value.",
+    "When the capacitor is then discharged into a resistor, the current flows the other way and both current and voltage decay back towards zero.",
+    "The curves are exponential: charge/discharge is fast at first then slows. How fast depends on the resistance and capacitance (the 'time constant' R × C).",
+  ],
+  "elecfig-ch11_11": [
+    "This shows why a capacitor appears to 'pass' AC. On the first half-cycle the supply charges the plates one way; on the second half-cycle the supply reverses and charges them the other way.",
+    "So the plates are charged and discharged every half-cycle, and current keeps flowing in the wires to and from the capacitor — even though no charge ever actually crosses the dielectric.",
+    "The result: a capacitor blocks steady DC but readily passes AC, and the higher the frequency the more easily it passes (lower capacitive reactance).",
+  ],
   "elecfig-ch03_09": [
     "This shows two capacitors, C₁ and C₂, connected in series (one after the other).",
     "In series, capacitors combine like resistors in parallel: 1/C = 1/C₁ + 1/C₂, so the total capacitance is LESS than either one on its own. This is the opposite of resistors.",
@@ -715,6 +725,68 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This is a fuller single-alternator light-aircraft system. From the bus-bar, fused feeders supply the alternator field, the starter circuit, lights and accessories (cabin light, cigar lighter), each protected by a circuit breaker of the stated rating.",
     "Key items: a master solenoid and starter solenoid switch the heavy currents; a voltage regulator and overvoltage protector control the alternator; a radio-interference capacitor suppresses noise; and an external-power solenoid/receptacle lets a ground cart power the aircraft.",
     "A master interlock battery-and-alternator switch, an ammeter and an ALT warning light complete the system — the realistic wiring behind the simpler block diagram.",
+  ],
+
+  // ─── Electrics — AC generation & properties (A.1.3) ───
+  "elecfig-ch11_01": [
+    "This shows a simple AC generator (alternator). A loop (armature) is spun in the magnetic field between the poles, and its ends connect to two continuous SLIP RINGS, each touched by a carbon brush.",
+    "Unlike the split commutator of a DC generator, the slip rings never swap the connections — so as the loop turns, the output rises, falls, reverses and rises again, giving alternating current in the load.",
+    "This is the basic machine behind all AC generation: slip rings (not a commutator) are the key to getting AC out.",
+  ],
+  "elecfig-ch11_04": [
+    "This illustrates frequency — how many complete cycles the AC goes through each second, measured in hertz (Hz). The top trace shows two cycles in one second (2 Hz); the bottom shows eight cycles in the same second (8 Hz).",
+    "A higher frequency simply means the waveform repeats more often. Aircraft AC systems commonly run at 400 Hz (far higher than the 50/60 Hz mains) because it lets transformers and motors be smaller and lighter.",
+    "Frequency is set by how fast the generator spins and how many pole-pairs it has — which is why constant-frequency AC needs a constant-speed drive.",
+  ],
+  "elecfig-ch11_05": [
+    "This labels the parts of an AC sine wave over one complete cycle (0° to 360°). The PEAK value (amplitude) is the maximum it reaches, positive and negative.",
+    "The RMS (root-mean-square) value is 0.707 × the peak; it is the 'effective' value — the DC voltage that would give the same heating. This is why AC meters read RMS, and why '115 V AC' means 115 V RMS, not peak.",
+    "One cycle is split into a positive half-cycle and a negative half-cycle; the time for one full cycle is the period, and the number of cycles per second is the frequency.",
+  ],
+  "elecfig-ch11_06": [
+    "This shows a purely RESISTIVE AC circuit. The voltage and current rise and fall exactly together — they are 'in phase', reaching their peaks and zeros at the same instants.",
+    "The phasor diagram (left) draws V and I as arrows pointing the same way (0° between them), confirming they are in step.",
+    "In a resistor, all the power delivered does useful work (heat/light) — there is no phase shift to waste any, so a resistive load has a power factor of 1.",
+  ],
+  "elecfig-ch11_07": [
+    "This shows mutual induction, the principle behind the transformer. With DC (top row), a current induces a magnetic field, but the second coil only sees a changing field — and so gets an induced current — at the instant the switch is turned ON or OFF; while the DC is steady, nothing is induced.",
+    "With AC (bottom row), the current (and its field) is changing all the time, so it continuously induces a current in the second coil, half-cycle by half-cycle.",
+    "This is why transformers work on AC but not on steady DC: they need a constantly changing field to keep inducing voltage in the second winding.",
+  ],
+  "elecfig-ch11_08": [
+    "This shows self-inductance and back-EMF. When the current in a coil changes, the coil's own changing field induces a voltage in itself that OPPOSES the change (Lenz's law) — the 'back-EMF'.",
+    "So a coil resists any change in the current through it: it is slow to let the current rise and slow to let it fall. The faster the current tries to change, the bigger the opposing back-EMF.",
+    "This opposition to changing current is inductance, and it is why an inductor passes DC easily but chokes back rapidly changing or high-frequency AC.",
+  ],
+  "elecfig-ch11_09": [
+    "This shows a purely INDUCTIVE AC circuit. Because the inductor's back-EMF opposes the change in current, the current cannot keep up with the voltage.",
+    "The result, shown in both the phasor diagram and the waveforms, is that the current LAGS the voltage by 90° (a quarter of a cycle) — the voltage peaks first, then the current.",
+    "The memory aid is 'CIVIL': in an inductor (L), V leads I — equivalently, I lags V by 90°.",
+  ],
+  "elecfig-ch11_12": [
+    "This shows a purely CAPACITIVE AC circuit. A capacitor opposes a change in voltage, so the current flows first to charge it and the voltage builds up afterwards.",
+    "The phasor diagram and waveforms show the current LEADS the voltage by 90° — the current peaks a quarter-cycle before the voltage.",
+    "The memory aid 'CIVIL' again: in a Capacitor (C), I leads V — the opposite of an inductor. This is why L and C have opposite effects and can cancel.",
+  ],
+  "elecfig-ch11_13": [
+    "This is the impedance triangle, which combines resistance and reactance. Resistance R is drawn along the base; the net reactance X (XL − XC) is drawn up the side at right angles.",
+    "The hypotenuse is the impedance Z — the total opposition to AC — found by Pythagoras: Z = √(R² + (XL − XC)²). The angle of Z is the circuit's phase angle.",
+    "Impedance (not just resistance) is what limits the current in an AC circuit: I = V ÷ Z.",
+  ],
+  "elecfig-ch11_14": [
+    "This graph shows how reactance changes with frequency. Inductive reactance XL (red) increases as frequency rises (an inductor chokes high frequencies more). Capacitive reactance XC (blue) decreases as frequency rises (a capacitor passes high frequencies more easily).",
+    "Where the two lines cross, XL = XC: this is the resonant frequency. At resonance the inductive and capacitive effects cancel, leaving only resistance, so the circuit's impedance is at a minimum (series) and current is maximum.",
+    "Resonance is used in tuning circuits — selecting one frequency (a radio station, a filter) while rejecting others.",
+  ],
+  "elecfig-ch11_15": [
+    "This shows TRUE (real) power. When voltage and current are in phase (a resistive load), multiplying them instant by instant gives a power curve (black) that is always positive.",
+    "The average of that curve is the true power, found from RMS volts × RMS amps, measured in watts (or kW). This is the power that actually does useful work.",
+    "Because both halves of the power curve are positive, energy flows steadily to the load — none is handed back to the supply.",
+  ],
+  "elecfig-ch11_17": [
+    "This shows REACTIVE power. When current is 90° out of phase with voltage (a pure inductor or capacitor), the instantaneous power curve has equal positive and negative humps.",
+    "Over a full cycle these cancel, so the average (true) power is ZERO — energy is just borrowed from the supply and handed straight back. This borrowed power is called reactive power, measured in VAR or kVAR.",
+    "Reactive power does no useful work but it still flows in the wires, so it must be managed; the ratio of true power to total (apparent) power is the power factor.",
   ],
 
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
