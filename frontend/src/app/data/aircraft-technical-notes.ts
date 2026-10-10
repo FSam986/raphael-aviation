@@ -429,6 +429,8 @@ const NOTES: Record<string, SectionNote> = {
         "HP gaseous cylinders charged ~1800 psi; overpressure vented by a bursting disc (external discharge indicator).",
         "Chemical generators: sodium chlorate + iron, fired electrically; once started cannot be stopped; surface ~232 °C; ~15 min (dev. 22 min); shelf life ~10 years.",
         "Cylinders: US/European green, British black with white neck. NO oil/grease; lube only with graphite; leak-test with acid-free soap + distilled water.",
+        "Chemical generator flow profile: reaches full flow in about 10 seconds, then tapers — output is highest early (when the cabin is highest after a decompression) and falls as the descent brings the cabin down, always staying above the minimum O₂ the passengers need.",
+        "Smoke hoods (Dräger type): don by pulling the hood over the head from behind, widening the neck seal with the backs of the hands, seating the mask over mouth and nose, pulling the quick-start toggle to start the oxygen, then checking the neck seal and tying the tapes around the waist. Give about 15 minutes of protection.",
       ]},
       { heading: "Smoke & fire detection", figureTopics: ["Smoke Detection"], points: [
         "Smoke detectors: optical/light-refraction (photoelectric cell), ionization, change-of-resistance; fitted where no constant surveillance (cargo/avionics/toilets).",

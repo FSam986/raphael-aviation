@@ -5,6 +5,43 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Oxygen Equipment (A.1.6) ───
+  "atgfig-ch13_fig_01": [
+    "This is a continuous-flow oxygen system, the simple type used mainly for passengers and for light aircraft. Gas is stored at high pressure in cylinders; a pressure-reducing valve drops it to a low working pressure fed to the mask connection points.",
+    "The high-pressure (contents) gauge shows how much oxygen is left; the low-pressure gauge shows the delivery pressure. A line valve turns the supply on, filters keep it clean, and a non-return valve and charging valve allow the cylinder to be refilled without losing the stored gas.",
+    "In continuous flow, oxygen simply flows to the mask the whole time it is selected on — it is wasteful but simple, which is fine for the relatively short time passengers need it.",
+  ],
+  "atgfig-ch13_fig_02": [
+    "This is a demand oxygen system, used for the crew. It stores oxygen at high pressure, reduces it through a pressure regulator, and delivers it to individual demand regulators at each crew station rather than flowing continuously.",
+    "A cylinder shut-off valve and a system shut-off valve isolate the supply; a safety disc with an external discharge indicator vents and shows if the cylinder has over-pressured. Filters and a non-return valve protect the line, and a charging valve allows refilling.",
+    "Because a demand system only delivers oxygen when the user breathes in, it uses the stored gas far more economically than continuous flow — important for the flight crew, who may need it for long periods.",
+  ],
+  "atgfig-ch13_fig_03": [
+    "This cutaway shows how a diluter-demand regulator works. When the user breathes in, a demand diaphragm is pulled over, opening the demand valve so oxygen flows only on demand (during inhalation).",
+    "With the oxygen-selection lever at NORMAL, an air-metering valve lets cabin air in through the air-inlet valve and mixes ('dilutes') it with the oxygen; as cabin altitude rises the mixture is automatically richened until it is 100% oxygen. Selecting 100% closes off the air so only oxygen is delivered.",
+    "The EMERGENCY lever adds a positive pressure to the mask (pressure-demand) to force oxygen in at very high altitude and keep smoke out, while a relief valve limits the pressure and a flow indicator shows that oxygen is actually flowing.",
+  ],
+  "atgfig-ch13_fig_04": [
+    "This is the cockpit face of the same diluter-demand regulator. Three levers are used: the supply lever (ON/OFF) turns the whole regulator on, the oxygen lever selects NORMAL (air diluted) or 100% oxygen, and the emergency lever adds positive pressure.",
+    "A flow indicator (often a 'blinker') shows a change each time oxygen flows, confirming the mask and regulator are working.",
+    "Having these as simple, clearly marked levers lets a crew member set the regulator quickly and correctly, even in a hurry during a decompression.",
+  ],
+  "atgfig-ch13_fig_05": [
+    "This shows the stowage box of an EROS quick-donning crew mask. The mask inflates its harness when the red grips are squeezed, so a pilot can pull it on one-handed in a few seconds.",
+    "The box face carries the controls: a selector (here marked N / 100% PUSH) for normal/100% oxygen, a 'press to test' button to check flow, and an emergency position for positive pressure.",
+    "Quick-donning masks are a certification requirement for the flight crew so that oxygen can be on the face within seconds of a cabin decompression.",
+  ],
+  "atgfig-ch13_fig_06": [
+    "This is a chemical oxygen generator, the type that feeds the drop-down passenger masks on many airliners. Instead of storing gas, it holds a solid charge of sodium chlorate; a firing mechanism (set off when a passenger pulls a mask) starts the reaction.",
+    "The burning charge releases oxygen, which passes through filters and a manifold to the mask outlets, with a relief valve for safety. Thermal insulation surrounds the core because the reaction runs hot (the casing can reach over 200°C).",
+    "Key exam points: once started it cannot be switched off and runs for a fixed time (about 15 minutes), and it generates oxygen chemically rather than storing it — so no heavy high-pressure bottle is needed near the cabin.",
+  ],
+  "atgfig-ch13_fig_09": [
+    "This is a crew portable oxygen set, carried for first-aid use and for moving about the cabin during smoke or a decompression. It has its own small oxygen cylinder (marked OXYGEN ONLY) with a yellow on-off valve and a contents pressure gauge.",
+    "A pressure regulator drops the cylinder pressure, and a demand regulator feeds a full-face mask, giving the wearer both breathing oxygen and eye protection from smoke.",
+    "Being portable, it lets a crew member leave a fixed oxygen point to fight a fire, help a passenger, or reach the flight deck while still protected.",
+  ],
+
   // ─── Airframes — Ice & Rain Protection (A.1.2) ───
   "atgfig-ch12_fig_01": [
     "This shows the parts of an aircraft most likely to pick up ice. The leading edges of the wings and tail, the engine intakes, the windscreens, the pitot and static probes, and the propellers are all exposed to the oncoming air and so catch ice first.",

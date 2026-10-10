@@ -135,8 +135,6 @@ export const ATG_AIRFRAME_FIGURES: AtgFigureMeta[] = [
   { section: "A.1.6", topic: "Oxygen Equipment", title: "Figure 13.4", caption: "Oxygen Equipment", file: "ch13_fig_04.png", id: "atgfig-ch13_fig_04" },
   { section: "A.1.6", topic: "Oxygen Equipment", title: "Figure 13.5 EROS oxygen mask", caption: "Oxygen Equipment", file: "ch13_fig_05.png", id: "atgfig-ch13_fig_05" },
   { section: "A.1.6", topic: "Oxygen Equipment", title: "Figure 13.6", caption: "Oxygen Equipment", file: "ch13_fig_06.png", id: "atgfig-ch13_fig_06" },
-  { section: "A.1.6", topic: "Oxygen Equipment", title: "Figure 13.7 Oxygen flow profile for a chemical oxygen generator", caption: "Oxygen Equipment", file: "ch13_fig_07.png", id: "atgfig-ch13_fig_07" },
-  { section: "A.1.6", topic: "Oxygen Equipment", title: "Figure 13.8 Smoke hoods (Drager)", caption: "Oxygen Equipment", file: "ch13_fig_08.png", id: "atgfig-ch13_fig_08" },
   { section: "A.1.6", topic: "Oxygen Equipment", title: "Figure 13.9 Crew portable oxygen", caption: "Oxygen Equipment", file: "ch13_fig_09.png", id: "atgfig-ch13_fig_09" },
   { section: "A.1.6", topic: "Smoke Detection", title: "Figure 14.1 Location of smoke detectors", caption: "Smoke Detection", file: "ch14_fig_01.png", id: "atgfig-ch14_fig_01" },
   { section: "A.1.6", topic: "Smoke Detection", title: "Figure 14.2 Light refraction smoke detector", caption: "Smoke Detection", file: "ch14_fig_02.png", id: "atgfig-ch14_fig_02" },
