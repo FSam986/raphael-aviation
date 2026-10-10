@@ -443,6 +443,9 @@ const NOTES: Record<string, SectionNote> = {
         "Fire drill: cancel aural warning → shut off fuel/bleed air/electrics/hydraulics to the engine → discharge the bottle(s).",
         "SQUIB illuminates armed; AGENT fires the cartridge; DISCH confirms discharge. CS-25 requires two discharges (bottles) per engine.",
         "Thermal (overheat) discharge overboard ejects an external green disc showing a red disc; smoke hoods give ~15 min (Cabox chemical / Dräger self-generating).",
+        "External APU fire panel (in the nose/main gear bay for ground crew): APU FIRE light + APU SHUT OFF, plus AVAIL/cockpit-call/light-test — lets ground staff shut down the APU and fight an APU fire without entering the flight deck.",
+        "Toilet (lavatory) waste bin has an automatic fire extinguisher: a small sealed bottle with a heat-sensitive (fusible) outlet aimed into the bin, so a fire in the waste bin is smothered automatically even with no one present.",
+        "Portable extinguishers: BCF (halon) colour GREEN = general purpose (electrical + flammable liquid, non-conductive); WATER colour RED = solid combustibles only, never on electrical/liquid fires. Stored-pressure; ~15 s discharge; red 'FULL' disc drops off once fired.",
       ]},
     ],
     mustKnow: [

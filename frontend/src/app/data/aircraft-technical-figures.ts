@@ -151,8 +151,6 @@ export const ATG_AIRFRAME_FIGURES: AtgFigureMeta[] = [
   { section: "A.1.6", topic: "Fire Detection & Protection", title: "Figure 15.8 Pedestal engine and fire control panel", caption: "Fire Detection & Protection", file: "ch15_fig_08.png", id: "atgfig-ch15_fig_08" },
   { section: "A.1.6", topic: "Fire Detection & Protection", title: "Figure 15.9 Engine fire protection", caption: "Fire Detection & Protection", file: "ch15_fig_09.png", id: "atgfig-ch15_fig_09" },
   { section: "A.1.6", topic: "Fire Detection & Protection", title: "Figure 15.10 Typical fire protection system layout", caption: "Fire Detection & Protection", file: "ch15_fig_10.png", id: "atgfig-ch15_fig_10" },
-  { section: "A.1.6", topic: "Fire Detection & Protection", title: "Figure 15.11 External APU fire control panel (Airbus)", caption: "Fire Detection & Protection", file: "ch15_fig_11.png", id: "atgfig-ch15_fig_11" },
-  { section: "A.1.6", topic: "Fire Detection & Protection", title: "Figure 15.12 Automatic toilet fire extinguishers", caption: "Fire Detection & Protection", file: "ch15_fig_12.png", id: "atgfig-ch15_fig_12" },
   { section: "A.1.6", topic: "Fire Detection & Protection", title: "Figure 15.13 Extinguishers", caption: "Fire Detection & Protection", file: "ch15_fig_13.png", id: "atgfig-ch15_fig_13" },
   { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.1 Single-engine light aircraft gravity feed fuel system", caption: "Fuel Systems", file: "ch16_fig_01.png", id: "atgfig-ch16_fig_01" },
   { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.2 Single-engine light aircraft fuel system", caption: "Fuel Systems", file: "ch16_fig_02.png", id: "atgfig-ch16_fig_02" },

@@ -5,6 +5,58 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Fire Detection & Protection (A.1.6) ───
+  "atgfig-ch15_fig_01": [
+    "This is the fire (combustion) triangle. A fire needs three things at once: heat (a source of ignition), fuel (something to burn) and oxygen (to support the burning).",
+    "The practical point for firefighting is that removing any one side puts the fire out. An aircraft fire drill does exactly this: shutting off the fuel removes the fuel side, and discharging an extinguishing agent smothers or removes the oxygen side.",
+    "Understanding the triangle explains why the drill shuts off fuel, air and ignition sources to the engine before (and as well as) firing the bottle.",
+  ],
+  "atgfig-ch15_fig_03": [
+    "This is a continuous-wire ('fire-wire') detector, the most common engine/APU fire detector. A thin central electrode runs down the middle of a steel tube, separated from it by a special filling material, with a dual clamp, support tube and quick-release connectors.",
+    "The filling material changes its electrical properties sharply with temperature — its resistance falls and its capacitance rises as it gets hot. A control unit watches these changes along the whole length of the wire.",
+    "Because the whole length senses heat, it catches a fire anywhere along the run, and (depending on type) it can distinguish a small local hot-spot from a large overheat by how much of the wire is affected.",
+  ],
+  "atgfig-ch15_fig_04": [
+    "This is a gas-filled (pneumatic) detector. The sensing tube holds an inert 'averaging' gas plus a core of hydride material that holds a reserve of active gas.",
+    "A general overheat along the whole tube warms the inert gas so it expands and raises the pressure, closing the responder alarm switch — this gives an average-temperature (overheat) warning. A fierce local fire heats the hydride core, which releases its active gas, giving a big pressure rise and a discrete (local fire) warning.",
+    "So one tube senses both a broad overheat and a localised fire, and the pressure switch (normally open) closes to raise the alarm in either case.",
+  ],
+  "atgfig-ch15_fig_05": [
+    "This shows a dual-loop fire detection system on an engine. Two independent loops of sensing element (Loop A and Loop B) run around the hot zones and feed a fire detection unit (FDU).",
+    "Normally the FDU needs BOTH loops to signal fire before it declares a warning (AND logic) — this guards against a false alarm from a single damaged wire. But if one loop is found faulty, the system reverts to acting on either loop (OR logic) so protection is not lost.",
+    "A confirmed fire drives the warnings: the continuous repetitive chime (CRC), the engine page on ECAM/EICAS, and the master warning lights.",
+  ],
+  "atgfig-ch15_fig_06": [
+    "This shows the flight-deck fire-warning controls. On the overhead panel each engine and the APU has a fire push-handle that lights red FIRE when a fire is detected; beside each are the AGENT 1 / AGENT 2 SQUIB and DISCH legends and a TEST button.",
+    "On the engine master panel, FIRE/FAULT lights repeat the warning near the engine master switches. Pulling (or pushing) the fire handle shuts off fuel, hydraulics, bleed air and electrics to that engine and arms the extinguisher bottles.",
+    "Grouping the warnings and the drill controls together lets the crew carry out the fire drill quickly and in the right order.",
+  ],
+  "atgfig-ch15_fig_07": [
+    "This is a close-up of one engine's fire panel. The central red FIRE push-handle illuminates when fire is detected; pulling it isolates the engine (fuel, bleed, hydraulics, electrics) and arms the bottles.",
+    "AGENT 1 and AGENT 2 each have a SQUIB light (shows the bottle circuit is armed) and a DISCH light (confirms that bottle has fired). A TEST button checks the detection and warning circuits.",
+    "Having two agents means the crew can fire a first bottle and, if the fire warning persists after about 30 seconds, fire the second — two shots per engine as required by certification.",
+  ],
+  "atgfig-ch15_fig_08": [
+    "This is the pedestal engine-start and fire panel. The MASTER 1 and MASTER 2 switches turn each engine's fuel on/off, and the mode selector (CRANK / NORM / IGN-START) controls starting and ignition.",
+    "Below each master switch a FIRE/FAULT light repeats the fire warning right next to the control the crew use to shut the engine down.",
+    "Putting the fire indication beside the master switch means that, in the fire drill, the pilot shutting the engine down sees the warning exactly where their hand is working.",
+  ],
+  "atgfig-ch15_fig_09": [
+    "This shows how the two extinguisher bottles are plumbed to the engines. The fire handles on the flight deck fire the bottles electrically, each bottle being set off by a cartridge (squib) that bursts a disc and releases the agent.",
+    "Crucially, the two bottles are cross-plumbed: either bottle can be directed to either engine. So if an engine has a persistent fire, both bottles can be discharged into that one engine in turn.",
+    "This gives two shots of agent per engine from a shared pair of bottles, saving weight while still meeting the two-discharge requirement.",
+  ],
+  "atgfig-ch15_fig_10": [
+    "This is a typical two-engine fire-protection layout. Each engine has a discharge handle (1 and 2) that is pulled and twisted LEFT or RIGHT to select which bottle to fire into which engine.",
+    "The left and right fire extinguisher bottles are fired by a squib (cartridge) and are cross-connected so that twisting the handle the other way sends the second bottle to the same engine.",
+    "The 'pull and twist left or right' action is the heart of the two-shot cross-feed system: pull to fire the first bottle, and if the fire persists, twist the other way to fire the second.",
+  ],
+  "atgfig-ch15_fig_13": [
+    "This shows the two portable fire extinguishers carried in the cabin. BCF (a halon-type agent) is colour-coded GREEN and is the general-purpose extinguisher — safe on electrical and flammable-liquid fires because it does not conduct and smothers the flame.",
+    "The WATER extinguisher is colour-coded RED and is for solid 'ordinary combustible' fires (paper, furnishings); it must NOT be used on live-electrical or burning-liquid fires, where it would spread the fire or cause a shock.",
+    "Both are stored-pressure types: lift the safety catch, hold upright, squeeze the lever and sweep the base of the flame. A red disc marked FULL drops off once the extinguisher has been fired, and the discharge lasts only about 15 seconds — so aim before firing.",
+  ],
+
   // ─── Airframes — Smoke Detection (A.1.6) ───
   "atgfig-ch14_fig_01": [
     "This shows where smoke and fire detection, and the extinguisher bottles, are fitted on a typical airliner. Smoke detectors watch the places no one can see continuously: the forward, aft and bulk cargo holds and the avionics bay.",
