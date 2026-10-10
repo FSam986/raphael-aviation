@@ -245,7 +245,9 @@ const NOTES: Record<string, SectionNote> = {
         "Constant-frequency AC needs a constant-speed drive (CSD): a hydro-mechanical gearbox between the variable-speed engine and the alternator. A CSD + alternator in one unit is an IDG; a 'drive disconnect' switch mechanically separates it if it fails (cannot be reconnected in flight).",
         "To PARALLEL AC generators they must be SYNCHRONISED: same FREQUENCY, same VOLTAGE and same PHASE SEQUENCE/angle before the breaker (GCB) closes. Real (kW) load is shared by trimming each engine's SPEED (governors); reactive (kVAR) load is shared by trimming each alternator's FIELD (excitation).",
       ]},
-      { heading: "Distribution, protection & bonding", figureTopics: ["Distribution & bus-bars", "Circuit protection"], points: [
+      { heading: "Distribution, protection & bonding", figureTopics: ["Distribution & bus-bars", "Circuit protection", "AC distribution system"], points: [
+        "Split-bus AC system: each engine's IDG feeds its own AC bus (No 1 / No 2) through a generator breaker (GCB); a bus-tie breaker (BTB) can link them. The APU generator and external power are alternative sources. TRUs make 28 V DC from AC; a static inverter makes AC from the battery for the AC essential bus.",
+        "Bus hierarchy: AC bus → AC essential bus; DC bus → DC essential bus → battery bus → vital bus. Essential/vital services keep power through isolation relays when a source fails; non-essential AC buses are shed first.",
         "Bus-bars distribute power; essential/non-essential/battery buses allow load shedding and isolation.",
         "Fuses/circuit breakers protect by current rating; replace a fuse once with the correct rating (never higher). A trip-free CB won't reset until the fault clears.",
         "Fuse construction: a thin element/resistance wire in a ceramic barrel (sand-filled to quench the arc) melts when current exceeds the rating. Heavy feeders use bolt-in current limiters.",

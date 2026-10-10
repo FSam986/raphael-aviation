@@ -846,6 +846,38 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So real load is balanced through the engine governors (speed) and reactive load through the field (excitation) — two separate loops keeping the generators sharing fairly.",
   ],
 
+  // ─── Electrics — AC distribution system (A.1.3) ───
+  "elecfig-ch13_01": [
+    "This shows how the AC power is routed around a twin-engine aircraft. Each engine drives a constant-speed-drive (CSD) generator, and the APU generator can supply too; three-phase cables (three colours) run from each through an engine/wing disconnect.",
+    "The cables reach the generator breakers and line current transformers near the nose, then the flight-deck circuit-breaker panel, and on to the load bus-bars that feed the aircraft.",
+    "The line current transformers around the cables sense the current in each phase — used by the protection system to detect faults and unbalanced loads.",
+  ],
+  "elecfig-ch13_02": [
+    "This is the heart of a split-bus electrical system. Generator No 1 feeds the No 1 AC bus (through GCB 1) and Generator No 2 feeds the No 2 AC bus (through GCB 2); a bus-tie breaker can join the two, and the APU or external power can feed either side.",
+    "Transformer-rectifier units (TRUs) convert AC to 28 V DC for the DC buses; a static inverter (INV) can make AC from the battery to keep the AC essential bus alive. A change-over relay selects the AC essential bus's source.",
+    "The DC side splits into DC essential and DC non-essential buses, a battery bus and a vital bus, linked by relays — so the most important services keep power even when a generator or TRU fails.",
+  ],
+  "elecfig-ch13_03": [
+    "This is the overhead electrical control panel for a twin-generator system. Each switch-light lets the crew control and monitor a source: IDG disconnect, generator control (GCB), APU generator, bus tie and external power.",
+    "FAULT/OFF legends in the buttons warn of a problem and show what has been switched off; battery voltages and the AC essential bus alternate-supply selector are also here.",
+    "From this one panel the crew can reconfigure the whole electrical system — isolating a faulty generator, tying the buses, or bringing in the APU or external power.",
+  ],
+  "elecfig-ch13_04": [
+    "This is the electrical system display (ECAM/EICAS) page. It shows, at a glance, the battery volts and amps, the DC bus bars, the TRU outputs (volts and amps), the AC bus bars, and each generator's output (percent load, voltage and frequency).",
+    "It also shows IDG oil temperature and overall data like TAT/SAT and gross weight. Green normally means a healthy, connected item.",
+    "Having the whole electrical state on one page lets the crew confirm the system is configured and working correctly, and quickly spot a failed generator, TRU or bus.",
+  ],
+  "elecfig-ch13_06": [
+    "This is the electrical control panel for a large four-generator aircraft. Each of the four engine generators has its own column: a bus-tie (AUTO/ISLN) control, a generator-control breaker (GCB ON/OFF) and a drive-disconnect switch.",
+    "Across the top are the shared controls: standby power (AUTO/OFF/BATT), the utility and galley power switches, the battery, the two APU generators and the two external-power inputs.",
+    "It lets the crew manage four generators and the APU/external sources together — isolating any faulty generator and keeping the essential buses supplied.",
+  ],
+  "elecfig-ch13_07": [
+    "This is the synoptic (schematic) display for the four-generator system. It mirrors the hardware: the four load bus-bars, each fed via its generator-control breaker, the bus-tie breakers (BTB) and the synchronising bus (SSB) that can link them.",
+    "It shows the APU and external-power inputs, GCB indications (open/closed), the utility and galley loads on each bus, and generator drive-fault warnings (high temperature / low pressure).",
+    "The crew read it to see how the system is currently connected and to confirm that breakers have opened or closed as commanded.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

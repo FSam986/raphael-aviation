@@ -133,4 +133,12 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("AC generators & paralleling", "12_10", "Synchronising conditions"),
   E("AC generators & paralleling", "12_12", "Real-load sharing (speed governors)"),
   E("AC generators & paralleling", "12_13", "Reactive-load sharing (field control)"),
+
+  // ── Ch13: AC distribution system ──
+  E("AC distribution system", "13_01", "AC generation & distribution layout"),
+  E("AC distribution system", "13_02", "Split AC/DC bus architecture"),
+  E("AC distribution system", "13_03", "Electrical control panel (twin-gen)"),
+  E("AC distribution system", "13_04", "Electrical system display page"),
+  E("AC distribution system", "13_06", "Four-generator electrical control panel"),
+  E("AC distribution system", "13_07", "Four-generator electrical synoptic"),
 ];
