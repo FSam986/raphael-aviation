@@ -38,4 +38,12 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("Switches & sensors", "02_04", "Proximity switch / sensor"),
   E("Switches & sensors", "02_05", "Magnetic (variable-reluctance) speed pickup"),
   E("Switches & sensors", "02_06", "Proximity sensors on the landing gear"),
+
+  // ── Ch3: Circuit protection + Capacitors ──
+  E("Circuit protection", "03_01", "Fuse construction"),
+  E("Circuit protection", "03_02", "High-current fuse (current limiter)"),
+  E("Circuit protection", "03_03", "Circuit breaker construction"),
+  E("Capacitors", "03_04", "Capacitor construction"),
+  E("Capacitors", "03_05", "Capacitor symbols"),
+  E("Capacitors", "03_09", "Capacitors in series"),
 ];

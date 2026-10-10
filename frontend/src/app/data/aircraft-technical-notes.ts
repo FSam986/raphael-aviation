@@ -187,6 +187,13 @@ const NOTES: Record<string, SectionNote> = {
         "Proximity sensors (inductive) sense a metal target without contact — no wearing parts; widely used for landing-gear up/down-lock and door sensing.",
         "Magnetic (variable-reluctance) pickup: a coil on a magnet senses passing gear teeth and generates a pulse — used for RPM/speed sensing.",
       ]},
+      { heading: "Capacitors", figureTopics: ["Capacitors"], points: [
+        "A capacitor is two metal plates separated by an insulator (the dielectric); it stores energy in the electric field between the plates.",
+        "It BLOCKS DC (once charged, no current flows through the dielectric) but PASSES AC (it charges and discharges each cycle). Charge stops when the plate voltage equals the supply.",
+        "Capacitance rises with larger plate area, smaller gap and a better dielectric. Types: fixed non-polarised, fixed polarised (must be the right way round), variable and preset.",
+        "Capacitors in PARALLEL add: C = C₁ + C₂ (more plate area). Capacitors in SERIES combine like parallel resistors: 1/C = 1/C₁ + 1/C₂ (less than the smallest).",
+        "Uses: smoothing/filtering, suppressing interference and arcing across contacts, and storing charge.",
+      ]},
       { heading: "Batteries", figureTopics: ["Batteries"], points: [
         "Lead-acid and NiCad; capacity in ampere-hours (A·h) quoted at a stated discharge rate (e.g. 60 A·h at the 10-hour rate = 6 A for 10 h).",
         "Check battery voltage ON LOAD — off-load it can read full volts yet be flat.",
@@ -199,9 +206,11 @@ const NOTES: Record<string, SectionNote> = {
         "Generator failure: red warning light on, ammeter reads zero/discharge. A generator failure is electrical only — engines run normally.",
         "Paralleled generators must share voltage equally, or a circulating current flows between them; load shedding drops non-essential loads.",
       ]},
-      { heading: "Distribution, protection & bonding", points: [
+      { heading: "Distribution, protection & bonding", figureTopics: ["Distribution & bus-bars", "Circuit protection"], points: [
         "Bus-bars distribute power; essential/non-essential/battery buses allow load shedding and isolation.",
         "Fuses/circuit breakers protect by current rating; replace a fuse once with the correct rating (never higher). A trip-free CB won't reset until the fault clears.",
+        "Fuse construction: a thin element/resistance wire in a ceramic barrel (sand-filled to quench the arc) melts when current exceeds the rating. Heavy feeders use bolt-in current limiters.",
+        "Circuit breaker: a push-pull button that trips on overload and shows a white marker band; press to reset once the fault is gone. 'Trip-free' means it cannot be held closed onto a fault.",
         "An inertia (crash) switch isolates power on heavy deceleration.",
         "Bonding gives a low-resistance path for earth-return and safe static/lightning dissipation; screening suppresses radio interference.",
         "Motors: back-EMF rises with speed (limiting current); shunt-generator output voltage droops as load is applied.",

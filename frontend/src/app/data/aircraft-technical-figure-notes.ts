@@ -435,6 +435,38 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "Using non-contact proximity sensors here is safer than microswitches because there are no exposed contacts to be damaged by the harsh wheel-well environment, and nothing mechanical to wear out.",
   ],
 
+  // ─── Electrics — Circuit protection & capacitors (A.1.3) ───
+  "elecfig-ch03_01": [
+    "This shows how a fuse is built. The replaceable fuse cartridge contains a thin fuse element (resistance wire) running between the two end terminals, held in a ceramic barrel.",
+    "The barrel is packed with sand and sealed with cement; if the current gets too high the element heats up and melts, breaking the circuit, while the sand quenches the arc so it cannot keep conducting. The cartridge sits in a holder with a screw cap and clamp nut.",
+    "A fuse is a one-shot protector: once it has 'blown' it must be replaced with one of the same current rating — never a higher one, which would defeat the protection.",
+  ],
+  "elecfig-ch03_02": [
+    "This is a heavy-duty bolt-in fuse, often called a current limiter. Its tags are bolted directly into the circuit rather than plugged into a holder.",
+    "It does the same job as a small fuse but at much higher currents — protecting the big feeder cables between the generators, the battery and the main bus-bars.",
+    "Because it carries a large current, it is made as a solid metal link that melts only on a serious overload or short-circuit.",
+  ],
+  "elecfig-ch03_03": [
+    "This shows a circuit breaker, the re-settable alternative to a fuse. Inside the housing a mechanism holds the contacts closed; an overload heats a bimetal strip (or energises a coil) that trips the mechanism open.",
+    "When it trips, the push-pull button pops out and a white marker band shows it has operated. The crew can reset it by pushing the button back in — but only once the fault has cleared.",
+    "A good circuit breaker is 'trip-free': it will still trip even if you hold the button in, so you cannot force power onto a faulty circuit.",
+  ],
+  "elecfig-ch03_04": [
+    "This shows what a capacitor actually is: two metal plates placed close together but separated by an insulating layer called the dielectric, with an electrical connection to each plate.",
+    "When a voltage is applied, charge builds up on the plates — negative on one, positive on the other — and energy is stored in the electric field across the dielectric. No charge crosses the dielectric itself.",
+    "The bigger the plates, the thinner the gap and the better the dielectric, the more charge it can store — that is its capacitance.",
+  ],
+  "elecfig-ch03_05": [
+    "These are the circuit symbols for capacitors. A fixed non-polarised capacitor (two parallel lines) can be connected either way round. A fixed polarised capacitor (one straight plate, one curved or a '+' mark) must be connected the correct way or it can be damaged.",
+    "A variable capacitor (arrow through it) can be adjusted by the user; a preset is set once on installation and then left.",
+    "Recognising these lets you read a circuit and, importantly, spot a polarised capacitor that must go in the right way round.",
+  ],
+  "elecfig-ch03_09": [
+    "This shows two capacitors, C₁ and C₂, connected in series (one after the other).",
+    "In series, capacitors combine like resistors in parallel: 1/C = 1/C₁ + 1/C₂, so the total capacitance is LESS than either one on its own. This is the opposite of resistors.",
+    "Series connection is used when you need to share a high voltage across two capacitors, each then seeing only part of the total voltage.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",
