@@ -238,6 +238,12 @@ const NOTES: Record<string, SectionNote> = {
         "Power: TRUE (real) power = Vrms × Irms × cos φ, in watts (only the in-phase part does work). REACTIVE power = VAR/kVAR (90° out of phase, does no work). Power factor = cos φ = true/apparent power.",
         "Mutual induction: a changing current in one coil induces an EMF in a nearby coil — the basis of the transformer. Steady DC induces nothing once settled; only CHANGING current (AC, or switching) does.",
       ]},
+      { heading: "Logic gates", figureTopics: ["Logic gates"], points: [
+        "Digital logic works with two states: 1 (true/on) and 0 (false/off). A gate gives an output that depends on its inputs, defined by a truth table.",
+        "AND = output 1 only if ALL inputs are 1 (like switches in SERIES). OR = output 1 if ANY input is 1 (switches in PARALLEL). NOT (inverter) = output is the opposite of the input (1→0, 0→1).",
+        "NAND = AND then NOT (output 0 only when all inputs are 1). NOR = OR then NOT (output 1 only when all inputs are 0). A small circle on a gate's output means 'NOT' (inverted).",
+        "XOR (exclusive-OR) = output 1 only when the inputs DIFFER (one 1 and one 0); 0 when they are the same. Gates are combined to build the aircraft's computers and control logic.",
+      ]},
       { heading: "Semiconductors & electronics", figureTopics: ["Semiconductors & electronics"], points: [
         "Semiconductors (silicon) are neither good conductors nor good insulators. Pure silicon atoms share outer electrons in covalent bonds. 'Doping' adds impurities to control conduction.",
         "N-type: a pentavalent impurity (+5) leaves a spare FREE ELECTRON (negative carriers). P-type: a trivalent impurity (+3) leaves a HOLE (a missing electron, acting as a positive carrier).",

@@ -164,4 +164,12 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("Semiconductors & electronics", "16_07", "Diode & circuit symbol"),
   E("Semiconductors & electronics", "16_08", "Transistor — NPN & PNP"),
   E("Semiconductors & electronics", "16_09", "Transistor operation (switching)"),
+
+  // ── Ch17: Logic gates ──
+  E("Logic gates", "17_01", "AND gate (series)"),
+  E("Logic gates", "17_02", "OR gate (parallel)"),
+  E("Logic gates", "17_03", "NOT gate (inverter)"),
+  E("Logic gates", "17_04", "NAND gate"),
+  E("Logic gates", "17_05", "NOR gate"),
+  E("Logic gates", "17_06", "XOR (exclusive-OR) gate"),
 ];

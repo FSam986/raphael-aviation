@@ -969,6 +969,38 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This control of a large current by a small one is the basis of both amplifiers (smooth control) and digital electronics (fully on/off switching).",
   ],
 
+  // ─── Electrics — Logic gates (A.1.3) ───
+  "elecfig-ch17_01": [
+    "This shows an AND gate. Its output C is 1 (on) ONLY when both inputs A AND B are 1 — the truth table shows 1 in the last row only.",
+    "The switch analogy is two switches in SERIES: the lamp lights only if the first switch AND the second switch are both closed. One open switch breaks the circuit.",
+    "So AND means 'all conditions must be met' — useful where something may only happen when several things are true at once.",
+  ],
+  "elecfig-ch17_02": [
+    "This shows an OR gate. Its output C is 1 whenever A OR B (or both) is 1 — the truth table is 0 only when both inputs are 0.",
+    "The switch analogy is two switches in PARALLEL: the lamp lights if either switch is closed, because either path completes the circuit.",
+    "So OR means 'any one condition is enough' — for example a warning that comes on if any of several sensors trips.",
+  ],
+  "elecfig-ch17_03": [
+    "This shows a NOT gate (inverter). It has one input and one output, and the output is always the OPPOSITE of the input: 0 becomes 1, and 1 becomes 0.",
+    "The relay analogy uses normally-closed contacts: energising the relay (input 1) OPENS the circuit and turns the lamp off (output 0), and vice-versa.",
+    "The small circle on the symbol means 'invert'. The NOT gate is the building block that turns AND into NAND and OR into NOR.",
+  ],
+  "elecfig-ch17_04": [
+    "This shows a NAND gate — an AND gate followed by a NOT (note the small circle on the output). Its output is the inverse of AND: 0 only when BOTH inputs are 1, and 1 in every other case.",
+    "So where AND gives 0,0,0,1 for the four input combinations, NAND gives 1,1,1,0.",
+    "NAND is special because any logic function at all can be built from NAND gates alone, which makes it a very common building block in digital circuits.",
+  ],
+  "elecfig-ch17_05": [
+    "This shows a NOR gate — an OR gate followed by a NOT. Its output is the inverse of OR: 1 ONLY when both inputs are 0, and 0 otherwise.",
+    "So where OR gives 0,1,1,1, NOR gives 1,0,0,0.",
+    "Like NAND, NOR is a 'universal' gate — any logic circuit can be made entirely from NOR gates.",
+  ],
+  "elecfig-ch17_06": [
+    "This shows an exclusive-OR (XOR) gate. Its output is 1 ONLY when the two inputs are DIFFERENT (one 1 and one 0), and 0 when they are the same (both 0 or both 1).",
+    "The truth table is 0,1,1,0 — unlike a plain OR, it does NOT give 1 when both inputs are 1.",
+    "XOR is used wherever 'these two should differ/agree' matters — for example comparing bits, adding binary numbers, or detecting a disagreement between two sources.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",
