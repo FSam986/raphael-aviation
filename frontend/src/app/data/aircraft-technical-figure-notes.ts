@@ -546,6 +546,78 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This force is what turns an electric motor; its direction is given by Fleming's left-hand rule (field, current, motion). Reverse the current or the field and the force reverses.",
   ],
 
+  // ─── Electrics — Generation & regulation (A.1.3) ───
+  "elecfig-ch06_01": [
+    "This shows the basic law of electromagnetic induction. When the magnet is MOVED near the coil, the changing magnetic field through the coil induces a voltage (EMF), and the meter needle swings.",
+    "When the magnet is held STILL (right-hand picture), the field is no longer changing, so no EMF is induced and the meter reads zero — even though the magnet is right there.",
+    "The key point: it is the relative MOTION (the changing flux) that generates electricity, not the mere presence of the magnet. This is the principle behind every generator.",
+  ],
+  "elecfig-ch06_03": [
+    "This shows that the DIRECTION of the induced EMF depends on the direction of the motion. Moving the coil one way over the magnet deflects the meter one way; moving it the opposite way deflects it the other way.",
+    "So reversing the motion reverses the induced voltage — which is exactly why a loop spinning in a field produces alternating current (AC), swinging positive then negative each half-turn.",
+    "Faster motion also gives a bigger deflection, showing the EMF grows with the speed of the movement.",
+  ],
+  "elecfig-ch06_04": [
+    "This is Fleming's right-hand rule, used to find the direction of the induced current in a GENERATOR. Hold the thumb and first two fingers of the right hand at right angles.",
+    "The thuMb points the way the conductor Moves, the First finger points along the Field (N to S), and the seCond finger then gives the direction of the induced Current.",
+    "It is the generator counterpart of the left-hand (motor) rule — right hand for generating electricity, left hand for producing motion.",
+  ],
+  "elecfig-ch06_05": [
+    "This shows the three ways to get a bigger induced EMF from a generator. First, move the conductor through the field FASTER (spin it quicker).",
+    "Second, make the magnetic FIELD stronger. Third, use MORE turns of wire on the coil, so more conductors cut the flux.",
+    "In a real generator these become: higher RPM, a stronger field current, and more armature windings — all of which raise the output voltage.",
+  ],
+  "elecfig-ch06_08": [
+    "This shows how a DC generator gets direct current out of a rotating loop. The ends of the loop connect to a split-ring commutator — a single ring split into two halves (A and B).",
+    "As the loop spins, each brush stays in contact with whichever half is on its side. At the instant the loop's current would reverse, the split ring swaps the connections too, so the current in the external LOAD always flows the same way.",
+    "The commutator is therefore a mechanical rectifier: AC is generated in the loop, but DC comes out to the load.",
+  ],
+  "elecfig-ch06_09": [
+    "This shows the output of a single-loop DC generator over one revolution. Because the commutator flips the connection every half-turn, the output never goes negative — the would-be negative half is turned positive.",
+    "The result is a series of positive humps (peaking at 90° and 270°, zero at 0°, 180°, 360°): direct current, but very 'lumpy' or pulsating.",
+    "This pulsating DC is not smooth enough for most uses, which is why real generators use many coils (see the next figure).",
+  ],
+  "elecfig-ch06_10": [
+    "This shows a series-wound DC generator, where the field coil is in series with the armature and the load, so all the current flows through the field.",
+    "Its characteristic load curve rises steeply as load current increases (more current = stronger field = more volts) until the iron reaches its field saturation point and the voltage levels off.",
+    "Because its output voltage changes a lot with load, a pure series generator is rarely used for aircraft supplies on its own.",
+  ],
+  "elecfig-ch06_11": [
+    "This compares the output of a single-coil and a multi-coil armature. The single coil gives the lumpy pulsating DC seen earlier, dropping to zero between each hump.",
+    "With MULTIPLE coils set at angles around the armature, each produces its own hump at a slightly different time. The commutator always connects to whichever coil is giving the highest voltage, so the humps overlap.",
+    "The overlapping outputs add up to an almost flat, smooth DC (the dotted top line) with only a small ripple — which is what a real generator delivers.",
+  ],
+  "elecfig-ch06_13": [
+    "This shows a compound-wound DC generator, which has BOTH a shunt field (across the armature) and a series field (in line with the load), plus a voltage control.",
+    "Combining the two field windings cancels out their opposite tendencies: the shunt keeps the voltage up at light load and the series props it up as load increases, giving the nearly FLAT characteristic load curve shown.",
+    "A steady output voltage from no-load to full-load is exactly what an aircraft bus needs, so the compound generator (with regulation) is a common choice.",
+  ],
+  "elecfig-ch06_14": [
+    "This contrasts a DC generator with an alternator. In the DC generator the armature (where the power is made) ROTATES in a stationary field, and a commutator with brushes takes the power off and rectifies it to DC.",
+    "In the alternator the arrangement is turned inside-out: the FIELD rotates (fed through small slip rings) while the armature is STATIONARY, so the heavy power winding has no sliding contacts. A separate rectifier turns its AC into DC.",
+    "The alternator is lighter, more reliable and copes with high speed far better — because the big current is taken from fixed windings, not through brushes and a commutator.",
+  ],
+  "elecfig-ch06_15": [
+    "This shows a carbon-pile voltage regulator. A stack of carbon washers (the carbon pile) sits in series with the generator's field coil; squeezing the stack lowers its resistance, loosening it raises it.",
+    "A control coil senses the generator's output voltage (the 14 V sample). If the voltage rises, the coil pulls harder and, against a spring, eases the squeeze on the pile — raising its resistance, cutting the field current and bringing the voltage back down.",
+    "By constantly adjusting the field current this way, the regulator holds the output voltage steady regardless of engine speed or electrical load.",
+  ],
+  "elecfig-ch06_16": [
+    "This shows a vibrating-contact regulator with two units: a voltage regulator and a current regulator, each with a shunt and a series winding and a spring-loaded contact.",
+    "The voltage regulator senses the 14 V output and rapidly opens and closes its contacts to switch a resistor in and out of the field circuit, holding the voltage constant. The current regulator does the same to stop the generator exceeding its maximum current.",
+    "Spring adjusters set the exact voltage and current points; together the two units protect the generator and keep the bus voltage steady.",
+  ],
+  "elecfig-ch06_17": [
+    "This simple circuit shows a generator, the battery and the loads all connected to a common bus-bar. The generator (marked +) supplies the bus; the battery sits across the bus in parallel.",
+    "When the generator output is higher than the battery voltage, it powers the loads AND charges the battery. If the generator fails or output drops, the battery takes over and feeds the loads from the same bus.",
+    "The bus-bar is just the common distribution point where the sources (generator, battery) and the loads all meet.",
+  ],
+  "elecfig-ch06_18": [
+    "This shows two DC generators running in PARALLEL to share the aircraft's electrical load, each feeding the main bus through its own line contactor.",
+    "For them to share fairly, their voltages must be matched. An equalizing circuit — equalizing contacts and an equalizing coil linking the two voltage-control coils — senses any imbalance and nudges one generator's field so neither hogs the load or drives current into the other.",
+    "Variable resistors and the voltage-control coils trim each generator's field; the line contactors connect or isolate a generator from the bus. This keeps the two 14 V generators sharing the load evenly.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

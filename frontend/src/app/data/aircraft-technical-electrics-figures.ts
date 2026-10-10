@@ -65,4 +65,20 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("Magnetism & electromagnetism", "05_07", "Solenoid (coil) field"),
   E("Magnetism & electromagnetism", "05_08", "Solenoid vs relay"),
   E("Magnetism & electromagnetism", "05_09", "Motor principle — catapult field"),
+
+  // ── Ch6: Generation & regulation ──
+  E("Generation & regulation", "06_01", "Induced EMF needs relative motion"),
+  E("Generation & regulation", "06_03", "Direction of induced EMF follows motion"),
+  E("Generation & regulation", "06_04", "Fleming's right-hand (generator) rule"),
+  E("Generation & regulation", "06_05", "Three ways to increase induced EMF"),
+  E("Generation & regulation", "06_08", "Split-ring commutator (DC output)"),
+  E("Generation & regulation", "06_09", "Single-loop DC output waveform"),
+  E("Generation & regulation", "06_10", "Series-wound DC generator"),
+  E("Generation & regulation", "06_11", "Single vs multiple coil — smoothing DC"),
+  E("Generation & regulation", "06_13", "Compound-wound DC generator"),
+  E("Generation & regulation", "06_14", "DC generator vs alternator"),
+  E("Generation & regulation", "06_15", "Carbon-pile voltage regulator"),
+  E("Generation & regulation", "06_16", "Vibrating-contact voltage & current regulator"),
+  E("Generation & regulation", "06_17", "Generator, bus-bar & battery"),
+  E("Generation & regulation", "06_18", "Paralleled generators with equalizing circuit"),
 ];

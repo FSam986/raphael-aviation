@@ -211,7 +211,12 @@ const NOTES: Record<string, SectionNote> = {
         "Solenoid (moving core) and relay (fixed core, moving armature) both let a small current switch a large one. Parallel wires attract if currents are the same way, repel if opposite.",
         "Motor principle: a current-carrying conductor in a magnetic field feels a force — its own field strengthens the main field on one side and weakens it on the other, pushing it toward the weak side (Fleming's left-hand rule).",
       ]},
-      { heading: "Generation & regulation", points: [
+      { heading: "Generation & regulation", figureTopics: ["Generation & regulation"], points: [
+        "Electromagnetic induction: an EMF is induced only when there is RELATIVE MOTION between a conductor and a magnetic field (Faraday). Its direction depends on the direction of motion; Fleming's RIGHT-hand rule gives it for a generator (thuMb motion, First finger field, seCond finger current).",
+        "Induced EMF is bigger with faster motion, a stronger field, or more turns on the coil. Max EMF when cutting flux at right angles; zero at the 'neutral plane' where the conductor moves parallel to the flux.",
+        "A simple generator's loop (armature) in a field makes AC. A split-ring COMMUTATOR turns it into pulsating DC; many coils/segments smooth the DC almost ripple-free. Slip rings (not split) keep the output as AC (alternator).",
+        "DC generator = rotating armature + stationary field + commutator & brushes. Alternator = rotating field + stationary armature + rectifier (no commutator) — lighter, less brush wear, better at high RPM.",
+        "Field types: series-wound (output rises with load then saturates), shunt-wound (nearly constant voltage no-load→full-load), compound (combines both for a flat characteristic).",
         "Generators (DC) and alternators (AC); a voltage regulator holds voltage by varying field current regardless of RPM/load.",
         "Reverse-current cut-out opens to stop the battery feeding back into the generator when generator volts fall below battery volts; closes when generator volts exceed battery volts.",
         "Generator failure: red warning light on, ammeter reads zero/discharge. A generator failure is electrical only — engines run normally.",
