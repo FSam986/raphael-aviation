@@ -5,6 +5,88 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Ice & Rain Protection (A.1.2) ───
+  "atgfig-ch12_fig_01": [
+    "This shows the parts of an aircraft most likely to pick up ice. The leading edges of the wings and tail, the engine intakes, the windscreens, the pitot and static probes, and the propellers are all exposed to the oncoming air and so catch ice first.",
+    "Ice on these surfaces is dangerous for different reasons: on wings and intakes it spoils the airflow and cuts lift and engine air, on probes it corrupts the airspeed and altitude readings, and on windscreens it blocks the view.",
+    "On propellers, ice causes vibration (because the blades ice up unequally) and can cause structural damage when chunks shed off — which is why all these areas are given some form of ice protection.",
+  ],
+  "atgfig-ch12_fig_02": [
+    "This links icing severity to altitude, temperature and cloud type. The worst icing is usually found in the band from around freezing (0°C) up to about −15°C, in the big water-laden clouds (cumulus, cumulonimbus, nimbostratus) — here supercooled water droplets freeze on contact and build ice fast.",
+    "Higher up and colder (the altocumulus/altostratus levels) the icing is moderate. Very high and very cold, in the cirrus-type clouds above about 40,000 ft, the water is already frozen into ice crystals, which mostly bounce off and do not stick — so little airframe icing forms.",
+    "Right down near the surface, above freezing, there is no icing at all. The key point: the most dangerous icing is in the mid-levels, just below the freezing level, in thick cloud.",
+  ],
+  "atgfig-ch12_fig_04": [
+    "This is a pressure-type ice detector (a Smiths pattern). A small heated probe sticks into the airflow; it has four holes facing forward (the leading edge) and two holes facing aft (the trailing edge).",
+    "In clear air the pressures at the two sets of holes stay in a fixed relationship. When ice begins to form, it blocks the forward-facing holes first, changing the pressure balance; this change operates a relay that sends an ice warning to the cockpit.",
+    "A heating element then clears the probe so it can keep sensing. This type detects the actual onset of ice forming on a surface, not just the presence of moisture.",
+  ],
+  "atgfig-ch12_fig_05": [
+    "This is a rotary (Napier) ice detector. A splined shaft with a knife edge rotates continuously against a fixed scraper; in clear air it turns freely.",
+    "When ice forms on the exposed part, it builds up between the knife edge and the scraper and jams or loads the rotation. This resistance operates a microswitch, which sets off the ice warning in the cockpit.",
+    "It is a simple mechanical way of sensing that ice is actually accreting, rather than just detecting damp air.",
+  ],
+  "atgfig-ch12_fig_06": [
+    "This is a Rosemount vibrating-probe ice detector, the type most widely used on modern aircraft. A small rod is driven to vibrate at a fixed natural frequency (around 35 kHz).",
+    "When ice forms on the rod it adds mass, which lowers the vibration frequency. A frequency-sensitive circuit watches for this drop and, when it reaches a set amount, declares an ice warning and usually triggers the anti-ice automatically.",
+    "The probe then heats to shed the ice and resets, ready to detect the next build-up. Because it senses the ice itself and responds quickly, it is both accurate and reliable.",
+  ],
+  "atgfig-ch12_fig_07": [
+    "This is a moisture/thermal (Sangamo Weston) ice detector. Air flows past two moisture-sensing heads feeding a moisture-detector controller, combined with a thermal switch that senses temperature.",
+    "The system only warns of icing when BOTH conditions are met together: there is moisture in the air AND the temperature is low enough for it to freeze. That avoids false warnings in cold-but-dry or warm-but-wet air.",
+    "It is an example of detecting the icing conditions (cold plus moisture) rather than waiting for ice to actually form on a probe.",
+  ],
+  "atgfig-ch12_fig_08": [
+    "This is a beta-particle (radioactive) ice-detection probe. A small source emits beta particles across a gap to a detector built into the skin of the aircraft.",
+    "When ice forms over the probe, the layer of ice absorbs some of the beta particles, so the detector receives fewer. That drop in count is read as ice forming and raises the warning.",
+    "Because the measurement depends on the thickness of ice absorbing the radiation, it gives a direct indication that ice is building up on the surface.",
+  ],
+  "atgfig-ch12_fig_09": [
+    "These are pneumatic de-icer boots — rubber sheets bonded to the leading edge containing inflatable tubes. The tubes can run span-wise (along the leading edge) or chord-wise (across it).",
+    "In use, ice is first allowed to build up a little; then the tubes are inflated with air, which swells the rubber and cracks the ice off, after which the air-flow blows the broken ice away. The boots are then deflated flush again.",
+    "This is a de-icing system (it removes ice that has already formed), not an anti-icing system (which would stop ice forming at all). It is common on turboprop and piston aircraft that do not have lots of spare hot bleed air.",
+  ],
+  "atgfig-ch12_fig_10": [
+    "This schematic shows how a pneumatic boot system is plumbed. Air pressure and vacuum lines run to each boot through solenoid distributor valves, controlled electrically and sequenced by an electronic cyclic timer.",
+    "The boots are split into groups (1, 2, 3) that are inflated in turn rather than all at once, so the aircraft's trim is not disturbed and the air supply is not overloaded. A vacuum line holds the boots flat against the skin between cycles so they do not spoil the airflow.",
+    "The cyclic timer sets the delay between inflations to suit the conditions: a long delay for light icing (let more ice build before cracking it) and a short delay for heavy icing.",
+  ],
+  "atgfig-ch12_fig_11": [
+    "This shows an exhaust heat-exchanger anti-ice/heating system used on some piston aircraft. Outside air is ducted around the hot engine exhaust so it picks up heat, then is fed to where it is needed (cabin, windscreen, or leading edges).",
+    "A thermostatically controlled flap or valve, fitted between the exhaust unit and the heat exchanger, regulates how much exhaust heat is used, holding the delivered air at the right temperature.",
+    "As always with exhaust heat, the burnt gases are kept separate from the heating air — a leak in the heat exchanger would be a carbon-monoxide hazard, so these units are inspected carefully.",
+  ],
+  "atgfig-ch12_fig_12": [
+    "This shows the areas warmed by hot anti-icing air tapped from the engine/bleed system. The red areas are the aerofoil leading edges — the wings, the slats, the fin and the tailplane — plus the engine intakes and wing-fence areas.",
+    "Because the hot air flows continuously along the inside of the leading-edge skin, it stops ice forming in the first place — this is anti-icing, not de-icing.",
+    "Using bleed air this way is the normal method on jets, which have plenty of hot high-pressure air available from the engine compressors.",
+  ],
+  "atgfig-ch12_fig_13": [
+    "This shows electrically heated 'heater mats' built into a component, here an engine intake lip. Thin electrical heating elements are sandwiched between layers of glass cloth for insulation and strength, then bonded under the skin.",
+    "The elements are arranged in two kinds of zone: continuously heated areas (kept ice-free all the time, for example a parting strip) and intermittently heated areas (switched on and off in sequence to crack ice off cyclically).",
+    "Electrical heating is used where only a modest area needs protection and electrical power is easier to route than hot air — for example probes, intake lips and some propeller and windscreen applications.",
+  ],
+  "atgfig-ch12_fig_14": [
+    "This shows a fluid ('weeping wing' / TKS) ice-protection system. A fluid tank feeds, through a filter and pump, a network of main feed pipes and gallery pipes that run along the leading edges.",
+    "The fluid seeps out through microporous panels — leading-edge skins drilled with thousands of tiny holes, backed by a distribution plate — so a thin film of anti-icing fluid weeps over the surface and stops ice bonding.",
+    "The same fluid lowers the freezing point of any water on the surface, so it both prevents ice forming and helps clear any that has started. It is simple and effective but limited by the amount of fluid carried.",
+  ],
+  "atgfig-ch12_fig_15": [
+    "This shows typical windscreen rain-clearance controls, one panel for the captain and one for the first officer. Each has a wiper switch (OFF/LOW/HIGH) and a rain-repellent button, and the picture shows the wipers on the screen.",
+    "Giving each pilot an independent, separately powered wiper means a single failure cannot leave both forward windows without a working wiper.",
+    "The controls also release rain-repellent fluid, which makes water bead up and blow away, improving the view in heavy rain when wipers alone struggle.",
+  ],
+  "atgfig-ch12_fig_16": [
+    "This shows a windscreen fluid de-icing/anti-icing system. A fluid tank feeds through a filter to twin pumps (so there is a spare), then through a twin non-return valve and a check valve to spray tubes along the base of the windscreen.",
+    "The spray tubes lay a film of methyl-alcohol-based fluid over the glass, which melts frost and stops ice forming while the wipers clear the liquid.",
+    "Duplicated pumps and non-return valves give redundancy and stop the fluid draining back, so the system is ready the moment it is switched on.",
+  ],
+  "atgfig-ch12_fig_17": [
+    "This shows an electrically heated windscreen circuit. A thin transparent conductive film inside the laminated screen is fed from the AC busbar through a power relay, with an auto-transformer giving NORMAL and HIGH heat settings selected by a control switch.",
+    "A temperature-control unit, powered from the DC busbar, senses the screen temperature with embedded sensors and switches the heating to hold the glass at the right temperature.",
+    "Heating the windscreen does two jobs: it keeps it clear of ice and mist, and it warms the laminate so it stays flexible and much more resistant to bird-strike impact.",
+  ],
+
   // ─── Airframes — Pressurisation (A.1.2) ───
   "atgfig-ch11_fig_01": [
     "This shows which parts of the fuselage are pressurised (yellow) and which are not (pink). The pressurised 'pressure hull' holds the cockpit, the forward and aft passenger cabins, and the forward and aft cargo holds — everywhere people or sensitive cargo need a breathable, comfortable atmosphere.",

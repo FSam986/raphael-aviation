@@ -138,6 +138,9 @@ const NOTES: Record<string, SectionNote> = {
       ]},
       { heading: "Ice/rain protection & fuel", figureTopics: ["Ice & Rain Protection", "Fuel Systems"], points: [
         "Thermal (hot bleed air) and electrical anti-ice on leading edges/intakes; pneumatic de-icing boots; fluid (TKS) systems; windscreen heating.",
+        "Anti-icing (prevents ice forming — continuous) vs de-icing (removes ice already formed — cyclic). Boots de-ice; hot-air/electrically-heated leading edges anti-ice.",
+        "Ice detectors: pressure-type (holes in a probe blocked by ice — e.g. Smiths, Teddington aerofoil-mast type), rotary/Napier (ice jams a rotating knife-edge → microswitch), Rosemount vibrating probe (ice lowers the ~35 kHz frequency — modern standard), moisture+thermal (warns only when damp AND cold), beta-particle (ice absorbs beta particles). Many auto-arm the anti-ice.",
+        "Propeller de-icing: ice distorts the blade aerofoil, causes imbalance/vibration and loss of efficiency, and shed chunks can damage the fuselage. Protection by anti-icing fluid (pumped to a slinger ring and flung out along the blades by centrifugal action, sometimes with rubber overshoes) or by electrical cyclic heating (power relay → brushes → slip rings → heating elements, sequenced by a cyclic timer). Inner third of the blade is always de-iced; the middle third is done only if the prop needs it.",
         "Fuel grades: AVGAS 100LL blue / 100 green (SG ~0.72); Jet A1 kerosene SG ~0.8, flash 38 °C, wax −47 °C; Jet B wide-cut SG ~0.77, more volatile.",
         "Additives: FSII (anti-icing + anti-fungal against Cladosporium resinae), HITEC (lubricity), static dissipater.",
         "Tanks integral/rigid/flexible with baffles; booster pumps = low-pressure centrifugal (AC); collector/feeder box keeps pumps submerged; cross-feed any tank→any engine.",
