@@ -5,6 +5,38 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Smoke Detection (A.1.6) ───
+  "atgfig-ch14_fig_01": [
+    "This shows where smoke and fire detection, and the extinguisher bottles, are fitted on a typical airliner. Smoke detectors watch the places no one can see continuously: the forward, aft and bulk cargo holds and the avionics bay.",
+    "Fire/overheat detectors and extinguisher bottles protect the engines and the APU — areas that run hot and carry fuel. The cargo holds have their own smoke detectors and fire-extinguisher bottles plumbed to spray into the affected hold.",
+    "The idea is layered protection: continuous automatic detection in unmanned spaces, with the means to fight the fire (bottles) built in right where it could start.",
+  ],
+  "atgfig-ch14_fig_03": [
+    "This shows an ionization smoke detector. A small radioactive source ionises the air in a chamber, letting a tiny steady current flow between two charged plates as air passes through.",
+    "When smoke particles enter, they attach to the ions and slow them down, so the current drops. The detector senses this fall in current and raises a smoke warning.",
+    "Ionization detectors are good at catching the invisible particles of fast, flaming fires, and respond very quickly to the early products of combustion.",
+  ],
+  "atgfig-ch14_fig_04": [
+    "This shows a smoke detector unit (left) and its cockpit indicator panel (right). The detector samples air from the protected bay; the panel shows which zone has smoke.",
+    "The indicator lights are split by zone — for example FWD and AFT freight bays — and there are discharge-valve indications plus a TEST/NORM/RESET switch so the crew can test the system and reset it after a warning.",
+    "Clear per-zone indication matters because the crew need to know exactly which hold to fire the extinguisher into and to confirm the system is serviceable before flight.",
+  ],
+  "atgfig-ch14_fig_05": [
+    "This is a cargo-smoke control panel of the Airbus pattern. SMOKE lights for the FWD and AFT holds light (red) when smoke is detected; a TEST button checks the system.",
+    "To fight the fire the crew arm an AGENT (fire bottle) with the guarded switches and press DISCH; DISCH 1 and DISCH 2 lights confirm each bottle has fired. Two agents allow an initial knock-down shot and a later metered shot to keep the hold inert for the rest of the flight.",
+    "Everything is grouped and clearly guarded so the drill can be done quickly but not triggered by accident.",
+  ],
+  "atgfig-ch14_fig_06": [
+    "This shows how a toilet (lavatory) smoke detector works — toilets are a classic hidden fire risk from illicit smoking. When smoke is sensed, several warnings happen together: a red light flashes outside the toilet, a bleeper sounds at the attendant panel, and the cabin-call chime sounds.",
+    "At the attendant's panel a light shows which toilet (e.g. REAR 1 / REAR 2) is affected. The crew can silence the audible warning with HORN OFF, but the red lights keep flashing until the smoke clears and RESET is pressed.",
+    "Making the alert loud, visible and latching ensures a toilet fire cannot be missed or silently ignored.",
+  ],
+  "atgfig-ch14_fig_07": [
+    "This shows a protective breathing equipment (PBE) smoke hood worn by a crew member. The hood covers the whole head, protecting it from heat and flames and keeping smoke out via a neck seal — long hair must be pushed clear so the seal works.",
+    "Breathing air is supplied by a chemical reaction inside the hood (it makes its own oxygen), and a speech diaphragm lets the wearer still talk to passengers and the flight deck. Glasses can be worn underneath.",
+    "It gives a minimum of about 15 minutes' protection; the end of its life is felt as increasing resistance to breathing and the bag starting to deflate — the signal to get clear.",
+  ],
+
   // ─── Airframes — Oxygen Equipment (A.1.6) ───
   "atgfig-ch13_fig_01": [
     "This is a continuous-flow oxygen system, the simple type used mainly for passengers and for light aircraft. Gas is stored at high pressure in cylinders; a pressure-reducing valve drops it to a low working pressure fed to the mask connection points.",
