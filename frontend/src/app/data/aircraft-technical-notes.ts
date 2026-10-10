@@ -238,6 +238,12 @@ const NOTES: Record<string, SectionNote> = {
         "Power: TRUE (real) power = Vrms × Irms × cos φ, in watts (only the in-phase part does work). REACTIVE power = VAR/kVAR (90° out of phase, does no work). Power factor = cos φ = true/apparent power.",
         "Mutual induction: a changing current in one coil induces an EMF in a nearby coil — the basis of the transformer. Steady DC induces nothing once settled; only CHANGING current (AC, or switching) does.",
       ]},
+      { heading: "Transformers & rectifiers", figureTopics: ["Transformers & rectifiers"], points: [
+        "A transformer has a primary and a secondary winding on a laminated soft-iron core; AC in the primary makes a changing flux that induces AC in the secondary (mutual induction). It works on AC ONLY, not steady DC. Laminations cut eddy-current losses.",
+        "Turns ratio sets the voltage: Vs/Vp = Ns/Np. More secondary turns = STEP-UP (higher V, lower I); fewer = STEP-DOWN. Power is (nearly) unchanged, so volts up means amps down. An AUTOTRANSFORMER uses one tapped winding instead of two.",
+        "Rectifier = turns AC into DC using diodes (one-way valves). Half-wave (1 diode) passes only one half-cycle — lumpy. Full-wave bridge (4 diodes) uses both half-cycles — smoother.",
+        "A TRU (transformer-rectifier unit) steps the 115 V AC down and rectifies it (three-phase, 6-diode bridge) to give smooth 28 V DC — the normal way large aircraft make their DC from the AC system.",
+      ]},
       { heading: "AC generators & paralleling", figureTopics: ["AC generators & paralleling"], points: [
         "Aircraft alternators have a ROTATING FIELD and a STATIONARY armature (the opposite of a DC generator): the heavy power is taken from fixed windings, and only the small field current goes through slip rings — or none at all in a brushless type.",
         "Three-phase: three stator windings 120° apart give three overlapping sine waves. STAR (Y): has a neutral; line voltage = √3 × phase voltage, line current = phase current. DELTA: no neutral; line voltage = phase voltage, line current = √3 × phase current.",

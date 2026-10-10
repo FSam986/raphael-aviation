@@ -878,6 +878,38 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "The crew read it to see how the system is currently connected and to confirm that breakers have opened or closed as commanded.",
   ],
 
+  // ─── Electrics — Transformers & rectifiers (A.1.3) ───
+  "elecfig-ch14_01": [
+    "This shows how a transformer is built. Two separate coils — a primary and a secondary winding — are wound on a shared core made of thin, laminated soft-iron sheets.",
+    "AC fed into the primary creates a constantly changing magnetic flux in the core; the core guides that flux through the secondary, where it induces an AC output (mutual induction). The two windings are not electrically joined — energy passes across magnetically.",
+    "The core is laminated (thin insulated layers) to cut down wasteful eddy currents, and it must be AC: steady DC would make a constant flux that induces nothing in the secondary.",
+  ],
+  "elecfig-ch14_02": [
+    "This shows the two ways a transformer changes voltage, set by the turns ratio. In a STEP-UP transformer the secondary has MORE turns than the primary, so the output voltage is higher than the input.",
+    "In a STEP-DOWN transformer the secondary has FEWER turns, so the output voltage is lower. The rule is Vs/Vp = Ns/Np.",
+    "Because the power is (almost) unchanged, stepping the voltage UP steps the current DOWN, and vice-versa — you cannot get more power out than you put in.",
+  ],
+  "elecfig-ch14_03": [
+    "This shows an autotransformer, which uses a SINGLE tapped winding instead of two separate ones. Part of the winding is shared between the input and the output.",
+    "Tapping off fewer or more turns gives a step-down or step-up output, just like an ordinary transformer, following the same turns-ratio rule.",
+    "An autotransformer is lighter and cheaper because it has only one winding, but primary and secondary are electrically connected — so it gives no electrical isolation between input and output.",
+  ],
+  "elecfig-ch14_04": [
+    "This shows a half-wave rectifier — the simplest way to turn AC into DC. A single diode acts as a one-way valve: it lets current through on the positive half-cycle but blocks it on the negative half-cycle.",
+    "So the output is a series of positive humps with gaps where the negative halves have been removed — direct current (always positive), but very lumpy and only present half the time.",
+    "It is simple but wasteful (half the input is thrown away), so it is used only for small, undemanding loads.",
+  ],
+  "elecfig-ch14_05": [
+    "This shows a full-wave bridge rectifier, which uses FOUR diodes arranged in a diamond. On each half-cycle, two of the diodes conduct and route the current to the output the same way round.",
+    "So BOTH halves of the AC are used — the negative half is flipped up to positive — giving twice as many humps as a half-wave rectifier and a smoother, more continuous DC output.",
+    "Using the whole input makes it far more efficient, which is why bridge rectifiers are the standard choice.",
+  ],
+  "elecfig-ch14_06": [
+    "This shows a three-phase full-wave rectifier, the heart of a transformer-rectifier unit (TRU). Six diodes rectify all three phases (A, B, C), each pair handling the line voltage between two phases.",
+    "Because the three phases peak at different times, their rectified humps overlap and fill in each other's gaps — so the DC output at the top is very smooth, with only a small ripple and no need for heavy smoothing.",
+    "This is how an aircraft's 115 V AC is turned into smooth 28 V DC: a transformer steps the voltage down and this six-diode bridge rectifies it in the TRU.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

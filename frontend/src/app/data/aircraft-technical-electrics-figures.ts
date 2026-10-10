@@ -141,4 +141,12 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("AC distribution system", "13_04", "Electrical system display page"),
   E("AC distribution system", "13_06", "Four-generator electrical control panel"),
   E("AC distribution system", "13_07", "Four-generator electrical synoptic"),
+
+  // ── Ch14: Transformers & rectifiers ──
+  E("Transformers & rectifiers", "14_01", "Transformer construction"),
+  E("Transformers & rectifiers", "14_02", "Step-up vs step-down transformer"),
+  E("Transformers & rectifiers", "14_03", "Autotransformer"),
+  E("Transformers & rectifiers", "14_04", "Half-wave rectifier"),
+  E("Transformers & rectifiers", "14_05", "Full-wave bridge rectifier"),
+  E("Transformers & rectifiers", "14_06", "Three-phase rectifier (TRU)"),
 ];
