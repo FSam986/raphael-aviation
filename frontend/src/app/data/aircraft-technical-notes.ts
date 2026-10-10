@@ -238,6 +238,10 @@ const NOTES: Record<string, SectionNote> = {
         "An inertia (crash) switch isolates power on heavy deceleration.",
         "Bonding gives a low-resistance path for earth-return and safe static/lightning dissipation; screening suppresses radio interference.",
         "Motors: back-EMF rises with speed (limiting current); shunt-generator output voltage droops as load is applied.",
+        "Earth-return (single-pole) system: loads return through the airframe instead of a second wire — saves weight, so one 'live' wire per load with the structure as the common negative.",
+        "Reverse-current cut-out: a relay with a series (current) coil and a shunt (voltage) coil; it opens the generator-to-bus contacts if current tries to flow BACKWARDS from the battery into the generator (e.g. generator volts below battery volts).",
+        "Meters: a moving-coil movement (coil in a permanent-magnet field, restrained by a hairspring) reads current. An AMMETER goes in SERIES (low resistance); a VOLTMETER goes in PARALLEL (high resistance). Load meter = left-zero; charge/discharge = centre-zero.",
+        "Service categories & load shedding: VITAL services (e.g. emergency lights, crash fire switch) wire DIRECT to the battery; ESSENTIAL services can be fed from generator OR battery; NON-ESSENTIAL services come off the generator only and are shed first in an emergency.",
       ]},
     ],
     mustKnow: [

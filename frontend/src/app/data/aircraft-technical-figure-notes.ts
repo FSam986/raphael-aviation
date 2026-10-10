@@ -675,6 +675,48 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "Both are magnetically operated, so they fall to the striped 'no-power' indication if the supply is lost — telling the crew the indication can no longer be trusted rather than giving a false reading.",
   ],
 
+  // ─── Electrics — Distribution, bus-bars & meters (A.1.3) ───
+  "elecfig-ch08_01": [
+    "This shows the basic idea of power distribution. The generator feeds a single heavy conductor called the bus-bar, and every load taps off the bus-bar in parallel.",
+    "Because the loads are in parallel, each gets the full bus voltage and can be switched on or off without affecting the others. The bus-bar is simply the common meeting point for the supply and all the loads.",
+    "This is a two-wire system: current flows out to each load and returns on a separate wire.",
+  ],
+  "elecfig-ch08_02": [
+    "This shows an earth-return (single-pole) distribution system. Instead of running a second return wire from every load back to the generator, each load returns its current through the metal airframe, which is used as the common negative.",
+    "The generator's negative is also connected to the airframe, so the structure completes every circuit. Only one 'live' wire is needed per load.",
+    "This saves a large amount of wire and weight, which is why almost all aircraft use earth-return — but it makes good bonding of the structure essential.",
+  ],
+  "elecfig-ch08_03": [
+    "This shows a reverse-current cut-out, which protects the generator. It has a series (current) coil carrying the main current and a shunt (voltage) coil sensing the generator voltage; together they work sprung contacts.",
+    "Normally the generator volts are higher than the battery's, so current flows the normal way (generator → bus) and the contacts are held closed. If the generator output falls below the battery voltage, current tries to flow BACKWARDS (battery → generator).",
+    "That reverse current reverses the magnetic pull and snaps the contacts open, disconnecting the generator so the battery cannot drive it like a motor and drain itself.",
+  ],
+  "elecfig-ch08_04": [
+    "This shows how a moving-coil meter works — the movement behind most ammeters and voltmeters. A coil is pivoted in the field of a permanent magnet, with a pointer attached and a hairspring holding it at zero.",
+    "When current flows through the coil it becomes an electromagnet; its field adds to the permanent field on one side and opposes it on the other, so the coil is turned (just the motor principle). The pointer swings across the scale.",
+    "The more current, the stronger the turning force and the further the pointer moves, until the hairspring balances it — giving a reading proportional to current.",
+  ],
+  "elecfig-ch08_05": [
+    "This compares two ammeter scales. A left-zero ammeter (a 'load meter') starts at zero on the left and reads upwards; it shows how much current a generator or circuit is supplying.",
+    "A centre-zero ammeter has zero in the middle, with CHARGE (+) to one side and DISCHARGE (−) to the other. It is wired in the battery line to show whether the battery is being charged by the generator or is discharging into the loads.",
+    "So the scale tells you the meter's job: left-zero for how much load is being drawn, centre-zero for the direction of battery current.",
+  ],
+  "elecfig-ch08_07": [
+    "This shows an aircraft battery assembly in its container. Heavy terminal connectors and a connector bar link the cells; a single Cannon plug/receptacle makes the whole battery connect or disconnect quickly with one plug.",
+    "The vented, gasketed cover (with a locking ring) contains any spillage and lets gas escape through a vent stopper, while a carrying handle allows the battery to be removed easily for servicing.",
+    "Packaging the battery this way makes it quick to swap, keeps corrosive electrolyte contained, and gives a reliable high-current connection to the aircraft.",
+  ],
+  "elecfig-ch08_08": [
+    "This is a complete light-aircraft DC system on one page. The 14 V generator feeds through a load meter and a generator cut-out to the bus-bar, which supplies the loads; a voltage regulator and an overvoltage protection unit control and protect the output.",
+    "The 12 V battery connects to the bus through the battery switch and a centre-zero ammeter, which shows whether it is charging or discharging. A voltmeter monitors bus voltage, and a red generator-failure warning light alerts the crew if the generator stops supplying.",
+    "It shows how all the pieces studied separately — generator, regulator, cut-out, battery, meters and warning light — fit together around the bus-bar.",
+  ],
+  "elecfig-ch08_09": [
+    "This is a fuller single-alternator light-aircraft system. From the bus-bar, fused feeders supply the alternator field, the starter circuit, lights and accessories (cabin light, cigar lighter), each protected by a circuit breaker of the stated rating.",
+    "Key items: a master solenoid and starter solenoid switch the heavy currents; a voltage regulator and overvoltage protector control the alternator; a radio-interference capacitor suppresses noise; and an external-power solenoid/receptacle lets a ground cart power the aircraft.",
+    "A master interlock battery-and-alternator switch, an ammeter and an ALT warning light complete the system — the realistic wiring behind the simpler block diagram.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

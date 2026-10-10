@@ -94,4 +94,14 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("DC motors & actuators", "07_09", "Rotary electric actuator"),
   E("DC motors & actuators", "07_10", "Linear (screw-jack) actuator"),
   E("DC motors & actuators", "07_11", "Magnetic position indicators (doll's eye / prism)"),
+
+  // ── Ch8: Distribution, bus-bars & meters ──
+  E("Distribution & bus-bars", "08_01", "Generator → bus-bar → parallel loads"),
+  E("Distribution & bus-bars", "08_02", "Earth-return (single-pole) distribution"),
+  E("Distribution & bus-bars", "08_03", "Reverse-current cut-out"),
+  E("Distribution & bus-bars", "08_04", "Moving-coil meter movement"),
+  E("Distribution & bus-bars", "08_05", "Left-zero vs centre-zero ammeter"),
+  E("Batteries", "08_07", "Aircraft battery container & connections"),
+  E("Distribution & bus-bars", "08_08", "Complete light-aircraft DC system"),
+  E("Distribution & bus-bars", "08_09", "Typical single-alternator light-aircraft system"),
 ];
