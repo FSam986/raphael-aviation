@@ -789,6 +789,63 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "Reactive power does no useful work but it still flows in the wires, so it must be managed; the ratio of true power to total (apparent) power is the power factor.",
   ],
 
+  // ─── Electrics — AC generators & paralleling (A.1.3) ───
+  "elecfig-ch12_01": [
+    "This shows the standard aircraft alternator layout: a rotating FIELD inside a stationary ARMATURE. The magnet (field) is spun by the engine while the output windings stay still around the outside.",
+    "The cross-section and side views show the field fed with current (through small slip rings) and the output taken from the fixed armature winding.",
+    "The big advantage of this 'inside-out' arrangement is that the heavy power current comes from fixed windings — only the small field current needs slip rings, so there is far less brush wear than a DC generator.",
+  ],
+  "elecfig-ch12_02": [
+    "This is a single-phase alternator. One stator winding surrounds the rotating field; as the rotor's north and south poles sweep past the winding, they induce a single alternating voltage.",
+    "That output feeds the bus-bar and the load. With just one winding there is only one phase — one sine wave.",
+    "Single-phase is simple but gives a pulsating power delivery, which is why larger aircraft systems use three phases instead.",
+  ],
+  "elecfig-ch12_03": [
+    "This is a three-phase alternator. Three separate stator windings are spaced 120° apart around the rotating field, so each produces its own sine wave but one-third of a cycle (120°) after the previous one.",
+    "The result is the three overlapping waveforms (Phase A, B, C) shown below. Together they deliver power far more smoothly and evenly than a single phase.",
+    "Three-phase also lets the same generator deliver more power for its size, which is why it is the standard for large-aircraft AC systems.",
+  ],
+  "elecfig-ch12_04": [
+    "This shows the two ways to connect a three-phase winding. In STAR (Y) the three windings join at a common point (the neutral), and the three line wires come off the free ends — giving a neutral/earth point.",
+    "In DELTA the three windings are joined end-to-end in a triangle, with a line taken from each junction — there is no neutral.",
+    "The choice matters because star and delta give different relationships between the line and phase voltages and currents (shown in the next two figures).",
+  ],
+  "elecfig-ch12_05": [
+    "This shows the star (Y) connection's values. Because each line wire connects straight to one winding, the LINE current equals the PHASE current.",
+    "But the voltage between any two lines is made of two windings in series (at 120°), so the LINE voltage = √3 × the PHASE voltage. The neutral point gives a reference for the phase voltages.",
+    "So in star you get a higher line voltage (e.g. 200 V line from 115 V phase) while the current stays equal to the phase current.",
+  ],
+  "elecfig-ch12_06": [
+    "This shows the delta connection's values — the mirror image of star. Because each pair of lines is connected straight across one winding, the LINE voltage equals the PHASE voltage.",
+    "But each line wire draws current from two windings, so the LINE current = √3 × the PHASE current. There is no neutral.",
+    "So delta gives a higher line current for the same phase current, while the line voltage equals the phase voltage — the opposite trade-off to star.",
+  ],
+  "elecfig-ch12_07": [
+    "This shows how an alternator's output voltage is controlled. The rotating field is fed with excitation current through slip rings and brushes; the more field current, the higher the output voltage.",
+    "A voltage regulator senses the output (voltage sample input) and adjusts a variable resistance in the field circuit to hold the voltage steady as speed and load change. A rectifier and TRU (transformer-rectifier unit) also provide the 28 V DC bus.",
+    "So the regulator controls AC output voltage by controlling field current — just as it does on a DC generator, but feeding the rotating field.",
+  ],
+  "elecfig-ch12_08": [
+    "This is a brushless alternator, which removes the slip rings and brushes entirely. A small exciter generator is built on the same shaft; its output is rectified by a ROTATING RECTIFIER (diodes spinning with the shaft) and fed straight into the main generator's field.",
+    "The voltage regulator now controls only the small, stationary exciter field; everything that needs to reach the rotating main field goes through the shaft-mounted rectifier, so no sliding contacts carry the field current.",
+    "With no brushes to wear or spark, the brushless alternator is more reliable and needs less maintenance — the standard for modern aircraft.",
+  ],
+  "elecfig-ch12_10": [
+    "This shows the conditions that must be met before two AC generators can be connected in parallel (synchronised). Each pair of traces compares Gen 1 and Gen 2.",
+    "The first three cases are rejected (red X): the frequencies differ, OR the phase sequence differs, OR the voltages differ — connecting in any of these states would cause huge circulating currents and damage.",
+    "Only the last case is accepted (green tick): frequency, voltage AND phase sequence all match. All three must be correct before the generator breaker is allowed to close.",
+  ],
+  "elecfig-ch12_12": [
+    "This shows how the REAL (working, kW) load is shared between paralleled AC generators. An error detector on each generator compares its share of the load current and feeds a magnetic amplifier.",
+    "The output drives each engine's speed governor: real load depends on how hard each engine is driving, so to make a generator take more (or less) load, its governor trims the engine speed/torque slightly.",
+    "This keeps all three generators carrying an equal share of the real load, rather than one doing all the work.",
+  ],
+  "elecfig-ch12_13": [
+    "This shows how the REACTIVE (kVAR) load is shared between paralleled AC generators. Here a mutual reactor and error detector on each generator sense its share of the reactive current.",
+    "The correction is fed to each generator's FIELD circuit: reactive load depends on excitation, so trimming a generator's field current changes how much reactive load it takes.",
+    "So real load is balanced through the engine governors (speed) and reactive load through the field (excitation) — two separate loops keeping the generators sharing fairly.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

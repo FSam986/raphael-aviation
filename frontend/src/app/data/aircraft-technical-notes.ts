@@ -238,6 +238,13 @@ const NOTES: Record<string, SectionNote> = {
         "Power: TRUE (real) power = Vrms × Irms × cos φ, in watts (only the in-phase part does work). REACTIVE power = VAR/kVAR (90° out of phase, does no work). Power factor = cos φ = true/apparent power.",
         "Mutual induction: a changing current in one coil induces an EMF in a nearby coil — the basis of the transformer. Steady DC induces nothing once settled; only CHANGING current (AC, or switching) does.",
       ]},
+      { heading: "AC generators & paralleling", figureTopics: ["AC generators & paralleling"], points: [
+        "Aircraft alternators have a ROTATING FIELD and a STATIONARY armature (the opposite of a DC generator): the heavy power is taken from fixed windings, and only the small field current goes through slip rings — or none at all in a brushless type.",
+        "Three-phase: three stator windings 120° apart give three overlapping sine waves. STAR (Y): has a neutral; line voltage = √3 × phase voltage, line current = phase current. DELTA: no neutral; line voltage = phase voltage, line current = √3 × phase current.",
+        "Brushless alternator: a small exciter generator on the same shaft feeds a ROTATING RECTIFIER that supplies the main field directly — no slip rings or brushes, so less wear and sparking. A voltage regulator controls the exciter field.",
+        "Constant-frequency AC needs a constant-speed drive (CSD): a hydro-mechanical gearbox between the variable-speed engine and the alternator. A CSD + alternator in one unit is an IDG; a 'drive disconnect' switch mechanically separates it if it fails (cannot be reconnected in flight).",
+        "To PARALLEL AC generators they must be SYNCHRONISED: same FREQUENCY, same VOLTAGE and same PHASE SEQUENCE/angle before the breaker (GCB) closes. Real (kW) load is shared by trimming each engine's SPEED (governors); reactive (kVAR) load is shared by trimming each alternator's FIELD (excitation).",
+      ]},
       { heading: "Distribution, protection & bonding", figureTopics: ["Distribution & bus-bars", "Circuit protection"], points: [
         "Bus-bars distribute power; essential/non-essential/battery buses allow load shedding and isolation.",
         "Fuses/circuit breakers protect by current rating; replace a fuse once with the correct rating (never higher). A trip-free CB won't reset until the fault clears.",

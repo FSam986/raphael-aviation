@@ -120,4 +120,17 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("AC — generation & properties", "11_14", "Reactance vs frequency & resonance"),
   E("AC — generation & properties", "11_15", "True (real) power"),
   E("AC — generation & properties", "11_17", "Reactive power (VAR)"),
+
+  // ── Ch12: AC generators & paralleling ──
+  E("AC generators & paralleling", "12_01", "Rotating-field alternator"),
+  E("AC generators & paralleling", "12_02", "Single-phase alternator"),
+  E("AC generators & paralleling", "12_03", "Three-phase alternator (120° apart)"),
+  E("AC generators & paralleling", "12_04", "Star vs delta connection"),
+  E("AC generators & paralleling", "12_05", "Star — line vs phase values"),
+  E("AC generators & paralleling", "12_06", "Delta — line vs phase values"),
+  E("AC generators & paralleling", "12_07", "Alternator excitation & regulation"),
+  E("AC generators & paralleling", "12_08", "Brushless alternator (exciter + rotating rectifier)"),
+  E("AC generators & paralleling", "12_10", "Synchronising conditions"),
+  E("AC generators & paralleling", "12_12", "Real-load sharing (speed governors)"),
+  E("AC generators & paralleling", "12_13", "Reactive-load sharing (field control)"),
 ];
