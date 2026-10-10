@@ -467,6 +467,38 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "Series connection is used when you need to share a high voltage across two capacitors, each then seeing only part of the total voltage.",
   ],
 
+  // ─── Electrics — Batteries (A.1.3) ───
+  "elecfig-ch04_01": [
+    "This shows a basic cell — the building block of every battery. Two different electrodes are dipped into an electrolyte (a conducting liquid or paste).",
+    "A chemical reaction between the electrodes and the electrolyte pushes electrons onto the negative electrode and pulls them from the positive one, creating a voltage (EMF) between the two terminals.",
+    "Connect a circuit across the terminals and this voltage drives a current — the cell is turning chemical energy into electrical energy.",
+  ],
+  "elecfig-ch04_02": [
+    "This is a dry cell, the 'primary' (non-rechargeable) type like a torch battery. The positive electrode is a central carbon rod; the negative electrode is the outer zinc case; between them is a moist paste electrolyte.",
+    "As it supplies current the chemicals are used up, and once they are exhausted the cell is finished — a primary cell cannot be recharged, only replaced.",
+    "It shows the same three essentials as any cell: a positive electrode, a negative electrode and an electrolyte.",
+  ],
+  "elecfig-ch04_03": [
+    "This shows the two ways to connect cells. In series (left), the cells are joined + to −, so their voltages add: three 2 V cells give 6 V, but the capacity stays 10 Ah.",
+    "In parallel (right), all the + terminals join and all the − terminals join, so the voltage stays 2 V but the capacities add: three 10 Ah cells give 30 Ah.",
+    "The rule to remember: series adds VOLTAGE, parallel adds CAPACITY (ampere-hours). Aircraft batteries stack cells in series to reach 12 V or 24 V.",
+  ],
+  "elecfig-ch04_04": [
+    "This shows how a lead-acid cell is built. Interleaved groups of positive and negative plates hang from the terminal posts, packed close together to give a large plate area (and so more current).",
+    "The positive and negative plate groups are interlocked but kept apart by separators (not shown) so they cannot touch and short out. A vent cap lets the gas produced on charge escape and allows topping-up.",
+    "More plate area means more current can be drawn — which is why a starting battery has many thin, closely-spaced plates.",
+  ],
+  "elecfig-ch04_05": [
+    "This shows the chemistry of a charged lead-acid cell. The positive plate is lead peroxide, the negative plate is spongy lead, and the electrolyte is dilute sulphuric acid and water. A fully charged cell gives about 2.2 V.",
+    "On discharge both plates slowly turn to lead sulphate and the acid gets weaker, so the electrolyte's specific gravity (SG) falls — which is how a hydrometer reading tells you the state of charge.",
+    "Charging reverses the reaction, restoring the plates and the acid strength. The electrolyte is corrosive, so spills are neutralised with sodium bicarbonate.",
+  ],
+  "elecfig-ch04_09": [
+    "This table sums up the two secondary (rechargeable) battery types for the exam. For lead-acid: positive plate lead peroxide, negative spongy lead, electrolyte sulphuric acid; spills neutralised with sodium bicarbonate; SG about 1.270 charged, 1.170 discharged.",
+    "For alkaline (NiCad): positive plate nickel oxide/hydroxide, negative cadmium, electrolyte potassium hydroxide; spills neutralised with boric acid; SG about 1.240–1.300.",
+    "The crucial difference: a lead-acid cell's SG drops as it discharges (so SG shows its charge), but a NiCad's SG hardly changes — so you cannot judge a NiCad's charge from its SG.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",

@@ -198,7 +198,10 @@ const NOTES: Record<string, SectionNote> = {
         "Lead-acid and NiCad; capacity in ampere-hours (A·h) quoted at a stated discharge rate (e.g. 60 A·h at the 10-hour rate = 6 A for 10 h).",
         "Check battery voltage ON LOAD — off-load it can read full volts yet be flat.",
         "Series connection adds voltage, capacity unchanged; parallel adds capacity, voltage unchanged.",
-        "NiCad rising temperature/charge current warns of THERMAL RUNAWAY — a fire risk.",
+        "NiCad rising temperature/charge current warns of THERMAL RUNAWAY — a fire risk; a thermal switch isolates it from the charger and lights a flight-deck warning. NiCad holds a steadier voltage on discharge, so it is preferred on large aircraft.",
+        "Lead-acid: + plate lead peroxide, − plate spongy lead, electrolyte dilute sulphuric acid; per-cell ~2 V on load, 2.2 V off load. SG (checked with a hydrometer) falls as it discharges (≈1.270 charged → 1.170 flat). Top up with distilled water only.",
+        "Alkaline (NiCad): + plate nickel oxide/hydroxide, − plate cadmium, electrolyte potassium hydroxide; SG ≈1.240–1.300 and barely changes with charge, so SG is NOT a state-of-charge guide for NiCad.",
+        "Spillage neutraliser: sodium bicarbonate for lead-acid (acid), boric acid for alkaline (NiCad). A discharged lead-acid battery (low SG) can freeze in cold — keep it charged in winter.",
       ]},
       { heading: "Generation & regulation", points: [
         "Generators (DC) and alternators (AC); a voltage regulator holds voltage by varying field current regardless of RPM/load.",

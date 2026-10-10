@@ -46,4 +46,12 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("Capacitors", "03_04", "Capacitor construction"),
   E("Capacitors", "03_05", "Capacitor symbols"),
   E("Capacitors", "03_09", "Capacitors in series"),
+
+  // ── Ch4: Batteries ──
+  E("Batteries", "04_01", "Basic cell — electrodes & electrolyte"),
+  E("Batteries", "04_02", "Dry (primary) cell"),
+  E("Batteries", "04_03", "Cells in series vs parallel"),
+  E("Batteries", "04_04", "Lead-acid cell construction"),
+  E("Batteries", "04_05", "Lead-acid cell chemistry"),
+  E("Batteries", "04_09", "Secondary batteries — lead-acid vs alkaline (summary)"),
 ];
