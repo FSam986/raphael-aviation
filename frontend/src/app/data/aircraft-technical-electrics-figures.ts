@@ -149,4 +149,8 @@ export const ATG_ELECTRICS_FIGURES: AtgElecFigureMeta[] = [
   E("Transformers & rectifiers", "14_04", "Half-wave rectifier"),
   E("Transformers & rectifiers", "14_05", "Full-wave bridge rectifier"),
   E("Transformers & rectifiers", "14_06", "Three-phase rectifier (TRU)"),
+
+  // ── Ch15: AC motors ──
+  E("AC motors", "15_01", "Rotating magnetic field (3-phase stator)"),
+  E("AC motors", "15_02", "Squirrel-cage induction motor"),
 ];

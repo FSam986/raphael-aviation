@@ -238,6 +238,12 @@ const NOTES: Record<string, SectionNote> = {
         "Power: TRUE (real) power = Vrms × Irms × cos φ, in watts (only the in-phase part does work). REACTIVE power = VAR/kVAR (90° out of phase, does no work). Power factor = cos φ = true/apparent power.",
         "Mutual induction: a changing current in one coil induces an EMF in a nearby coil — the basis of the transformer. Steady DC induces nothing once settled; only CHANGING current (AC, or switching) does.",
       ]},
+      { heading: "AC motors", figureTopics: ["AC motors"], points: [
+        "Three-phase AC fed to three stator windings 120° apart produces a ROTATING magnetic field, which spins at 'synchronous speed' (set by frequency and number of poles).",
+        "Induction (squirrel-cage) motor: the rotor is copper bars shorted by end rings (no windings, no brushes). The rotating field induces currents in the bars, which react with the field and drag the rotor round.",
+        "The rotor always turns slightly SLOWER than the field — the difference is 'slip'. Without slip there would be no changing flux and no induced current, so an induction motor can never quite reach synchronous speed.",
+        "Rugged, cheap and brushless, induction motors are widely used for aircraft pumps and fans. A synchronous motor instead locks to synchronous speed and is used where exact speed matters.",
+      ]},
       { heading: "Transformers & rectifiers", figureTopics: ["Transformers & rectifiers"], points: [
         "A transformer has a primary and a secondary winding on a laminated soft-iron core; AC in the primary makes a changing flux that induces AC in the secondary (mutual induction). It works on AC ONLY, not steady DC. Laminations cut eddy-current losses.",
         "Turns ratio sets the voltage: Vs/Vp = Ns/Np. More secondary turns = STEP-UP (higher V, lower I); fewer = STEP-DOWN. Power is (nearly) unchanged, so volts up means amps down. An AUTOTRANSFORMER uses one tapped winding instead of two.",

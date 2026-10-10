@@ -910,6 +910,18 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This is how an aircraft's 115 V AC is turned into smooth 28 V DC: a transformer steps the voltage down and this six-diode bridge rectifies it in the TRU.",
   ],
 
+  // ─── Electrics — AC motors (A.1.3) ───
+  "elecfig-ch15_01": [
+    "This shows how three-phase AC creates a ROTATING magnetic field — the key to the AC motor. Three stator windings (A, B, C) are spaced 120° apart; the waveforms at the top show their currents peaking one after another.",
+    "The five snapshots (positions 1–5) show that as each phase rises and falls in turn, the combined north–south field of the stator steadily sweeps round the inside of the motor.",
+    "So with no moving part in the stator, the magnetic field itself rotates — and that rotating field is what will drag the rotor round.",
+  ],
+  "elecfig-ch15_02": [
+    "This shows a three-phase induction motor. The stator (left) carries the three windings that make the rotating field. The rotor (right) is a 'squirrel cage': heavy copper bars joined at each end by end rings, with no windings and no brushes.",
+    "The rotating stator field sweeps across the rotor bars and induces currents in them; those currents create their own field, which is dragged round by the stator field — so the rotor turns and follows it.",
+    "The rotor always lags the field a little (this 'slip' is what keeps inducing current). With no brushes or slip rings to wear out, the squirrel-cage motor is simple, rugged and reliable — ideal for aircraft pumps and fans.",
+  ],
+
   // ─── Airframes — Flight Controls: balance, tabs & trim (A.1.2) ───
   "atgfig-ch08_fig_04": [
     "This shows set-back hinge (inset hinge) aerodynamic balance. The hinge line is moved back from the control's leading edge, so part of the surface sits ahead of the hinge.",
