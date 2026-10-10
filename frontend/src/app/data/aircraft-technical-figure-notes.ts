@@ -5,6 +5,28 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ─── Airframes — Fuel Systems (A.1.2) ───
+  "atgfig-ch16_fig_01": [
+    "This is a gravity-feed fuel system, used on high-wing light aircraft. Fuel sits in a tank in each wing, high above the engine, so it simply flows down to the engine under its own weight — no pump is needed.",
+    "Each tank has a filler cap and a vent (so air can replace the fuel used), and the two tanks are joined by an interconnect vent to keep them balanced. Fuel passes a finger screen, then a fuel shut-off valve, then a main line strainer with a quick-drain valve before reaching the carburettor.",
+    "Water and sediment collect at the lowest points, so there are sump drain plugs and a quick-drain at the strainer for the pre-flight water check. An engine primer squirts fuel straight to the intake manifold to help starting.",
+  ],
+  "atgfig-ch16_fig_02": [
+    "This is a pumped fuel system for a low-wing light aircraft, where the tanks are below the engine so gravity cannot do the job. An engine-driven fuel pump supplies the engine in flight, backed up by an electric fuel pump (used for start, take-off, landing and as a standby).",
+    "A fuel tank selector valve lets the pilot draw from the left or right main tank (or off). The fuel passes a strainer on its way to the carburettor; a priming pump, throttle and mixture control complete the engine side.",
+    "The instruments show left and right fuel quantity (from tank level sensors) plus fuel pressure, oil temperature and oil pressure, so the pilot can confirm the system is delivering fuel correctly.",
+  ],
+  "atgfig-ch16_fig_04": [
+    "This is a modern twin-engine (ETOPS) jet fuel system. Each wing holds a main tank with two AC boost pumps (a forward and an aft pump) that push fuel through the engine fuel manifold, past a spar valve and the engine fuel shut-off valve, to its engine.",
+    "A cross-feed valve in the middle lets either tank feed either engine — essential for ETOPS, where an engine must keep running on the good tank's fuel. A centre tank with its own AC pumps feeds first (it is used up before the wing tanks), and a DC fuel pump gives a back-up and feeds the APU through the APU isolation and shut-off valves.",
+    "Non-return (check) valves stop fuel flowing backwards, and the spar valves (at the wing root) give a fireproof shut-off right where the fuel leaves the tank for the engine.",
+  ],
+  "atgfig-ch16_fig_05": [
+    "This shows a representative large-jet fuel system with several tanks. Each tank has boost pumps (P) and the centre/stabiliser tanks also have transfer arrangements. A refuel & jettison gallery runs across the aircraft.",
+    "Cross-feed valves and a fuel-transfer cross-feed valve let fuel be moved side to side and fed to any engine, while inter-engine and fuel shut-off valves control the supply to each engine. A stabiliser (tail trim) tank is used to shift the centre of gravity for trim and can be transferred forward.",
+    "The same gallery is used for pressure refuelling on the ground and for jettison (fuel dumping) in flight, so the aircraft can quickly reduce weight to a safe landing weight in an emergency.",
+  ],
+
   // ─── Airframes — Fire Detection & Protection (A.1.6) ───
   "atgfig-ch15_fig_01": [
     "This is the fire (combustion) triangle. A fire needs three things at once: heat (a source of ignition), fuel (something to burn) and oxygen (to support the burning).",

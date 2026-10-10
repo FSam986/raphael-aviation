@@ -154,10 +154,6 @@ export const ATG_AIRFRAME_FIGURES: AtgFigureMeta[] = [
   { section: "A.1.6", topic: "Fire Detection & Protection", title: "Figure 15.13 Extinguishers", caption: "Fire Detection & Protection", file: "ch15_fig_13.png", id: "atgfig-ch15_fig_13" },
   { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.1 Single-engine light aircraft gravity feed fuel system", caption: "Fuel Systems", file: "ch16_fig_01.png", id: "atgfig-ch16_fig_01" },
   { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.2 Single-engine light aircraft fuel system", caption: "Fuel Systems", file: "ch16_fig_02.png", id: "atgfig-ch16_fig_02" },
-  { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.3 Fuel schematic", caption: "Fuel Systems", file: "ch16_fig_03.png", id: "atgfig-ch16_fig_03" },
   { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.4 A modern twin-engine ETOPS aircraft fuel system", caption: "Fuel Systems", file: "ch16_fig_04.png", id: "atgfig-ch16_fig_04" },
   { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.5 A representative jet aircraft engine fuel system", caption: "Fuel Systems", file: "ch16_fig_05.png", id: "atgfig-ch16_fig_05" },
-  { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.6 Attitude compensation", caption: "Fuel Systems", file: "ch16_fig_06.png", id: "atgfig-ch16_fig_06" },
-  { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.7 Electronic fuel system display (Airbus)", caption: "Fuel Systems", file: "ch16_fig_07.png", id: "atgfig-ch16_fig_07" },
-  { section: "A.1.2", topic: "Fuel Systems", title: "Figure 16.8 An external refuelling control panel", caption: "Fuel Systems", file: "ch16_fig_08.png", id: "atgfig-ch16_fig_08" },
 ];
