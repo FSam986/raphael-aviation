@@ -94,5 +94,11 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.7", "Terrestrial magnetism", "09_07", "Variation (true vs magnetic meridian)"),
   I("A.7.7", "Terrestrial magnetism", "09_08", "Magnetic dip — H, Z & T components"),
   I("A.7.7", "Terrestrial magnetism", "09_09", "Dip varies with magnetic latitude"),
+
+  // Ch10 — Direct indicating compass (A.7.2)
+  I("A.7.2", "Direct-indicating compass", "10_01", "Direct-reading compass cutaway"),
+  I("A.7.2", "Direct-indicating compass", "10_02", "Forces on the pendulous magnet (R, W, Z)"),
+  I("A.7.2", "Direct-indicating compass", "10_03", "Pendulous suspension (side view)"),
+  I("A.7.2", "Direct-indicating compass", "10_06", "Magnet pivot & card movement"),
 ];
 void I;

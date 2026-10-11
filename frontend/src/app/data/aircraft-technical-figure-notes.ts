@@ -5,6 +5,28 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.2 — direct-indicating compass) ═══
+  "insfig-10_01": [
+    "This cutaway shows a direct-reading (magnetic) compass. A set of small bar magnets is fixed to a compass card; the whole assembly is pivoted on a jewelled bearing so it can swing freely to line up with the Earth's field.",
+    "The assembly floats in a bowl of liquid, which supports the weight on the pivot, damps out swinging, and lubricates the bearing. The pilot reads heading against a fixed lubber line through the window.",
+    "Being self-contained and needing no power, this compass is the required standby direction reference in every aircraft.",
+  ],
+  "insfig-10_02": [
+    "This shows the forces on the compass magnet in the Earth's field. The field's vertical component (Z) tries to pull one end of the magnet down, tilting it. To keep the card roughly level, the magnet is hung so its centre of gravity is BELOW the pivot (pendulous mounting).",
+    "The weight (W) acting below the pivot and the support reaction (R) together produce a righting effect that opposes the magnetic tilt, so the card settles at a small angle rather than standing on end.",
+    "This balance of magnetic dip against the pendulous weight is exactly what gives rise to the compass's turning and acceleration errors.",
+  ],
+  "insfig-10_03": [
+    "This side view shows the pendulous suspension: the magnet and card hang below the pivot point. Because the pivot is above the centre of gravity, the assembly behaves like a pendulum.",
+    "In steady level flight gravity acts straight down through the pivot and the card sits level. But any tilt caused by the Earth's vertical field (dip) is partly resisted by this pendulous hang.",
+    "The downside is that during acceleration or a turn the whole assembly swings like a pendulum, which deflects the card and causes the classic acceleration and turning errors.",
+  ],
+  "insfig-10_06": [
+    "This shows the magnet assembly pivoting about its bearing, with the card free to rotate clockwise or anticlockwise. The east/west arrows show how a sideways force on the low-hung magnet swings the whole card.",
+    "During an acceleration or a turn, the inertia of the pendulous magnet acts at its centre of gravity (below the pivot), producing a turning force that rotates the card away from the true heading.",
+    "This is the mechanism behind acceleration errors (felt most on east/west headings) and northerly turning error — the card is physically swung off its correct reading.",
+  ],
+
   // ═══ Flight Instruments (A.7.7 — terrestrial magnetism) ═══
   "insfig-09_02": [
     "This shows the magnetic field of a bar magnet. Invisible field lines leave the north (red/blue) pole, curve round through the surrounding space, and return to the south pole; inside the magnet they run the other way to make a closed loop.",

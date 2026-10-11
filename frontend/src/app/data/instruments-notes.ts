@@ -157,6 +157,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "5. Magnetic & remote-indicating compasses",
+        figureTopics: ["Direct-indicating compass", "Remote-indicating compass"],
         points: [
           "Direct compass needs horizontality (CG below the pivot → residual dip ~2°), sensitivity (2–4 short magnets in damping fluid) and aperiodicity (settles without oscillation).",
           "Acceleration error (E/W headings only): 'ANDS' — Accelerate North, Decelerate South (N hemisphere; reversed in the S). Turning error (through N/S): N hemisphere UNOS — Undershoot North, Overshoot South (S hemisphere ONUS).",
