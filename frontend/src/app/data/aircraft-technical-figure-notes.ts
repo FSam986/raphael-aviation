@@ -212,6 +212,68 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.8 — GPWS / TAWS) ═══
+  "insfig-34_01": [
+    "This shows the inputs and outputs of a ground proximity warning system (GPWS). Into the central processing unit go radio altitude, Mach/airspeed, air data, ILS glidepath deviation, and the undercarriage, flap and navigation inputs.",
+    "From these it decides whether the aircraft is dangerously close to the ground for its configuration and flight path, and drives a master indicator, visual warning and audio (voice) warning.",
+    "GPWS exists because 'controlled flight into terrain' — flying a serviceable aircraft into the ground — was a major killer; it watches the ground for the crew.",
+  ],
+  "insfig-34_02": [
+    "This is a GPWS control panel. An INOP light shows if the system has failed, a SYS TEST button checks it, and a FLAP/GEAR INHIBIT (versus NORMAL) switch lets the crew inhibit certain alerts for a deliberate non-standard approach (e.g. a flapless landing).",
+    "Inhibiting is used sparingly and knowingly — it stops nuisance warnings when the crew have a good reason to be in a configuration GPWS would otherwise flag.",
+    "The simple panel reflects that GPWS is normally fully automatic; the crew only test it and, rarely, inhibit a mode.",
+  ],
+  "insfig-34_03": [
+    "This is GPWS Mode 1 — excessive rate of descent for the height above the ground. The chart plots descent rate against radio height: inside the amber area the aircraft calls 'SINK RATE', and inside the red area 'PULL UP'.",
+    "The closer to the ground, the lower the descent rate that triggers the warning — a high sink rate is fine at altitude but dangerous near the surface.",
+    "Mode 1 protects against simply descending into the ground too fast, regardless of configuration.",
+  ],
+  "insfig-34_04": [
+    "This is GPWS Mode 2 — excessive closure rate with rising terrain. Even at a modest descent rate, flying towards rising ground closes the gap quickly; the chart triggers 'TERRAIN TERRAIN' and then 'PULL UP' as the closure becomes dangerous.",
+    "It uses the rate of change of radio altitude, so it catches terrain coming up to meet the aircraft (e.g. flying towards a hill) that Mode 1 would miss.",
+    "Mode 2 is the classic protection against flying into rising ground in poor visibility.",
+  ],
+  "insfig-34_05": [
+    "This is GPWS Mode 3 — altitude loss after take-off or go-around. If the aircraft sinks back towards the ground just after getting airborne, the 'DON'T SINK' alert warns the crew.",
+    "The envelope allows a little settling but calls out any significant height loss when the aircraft should be climbing away.",
+    "Mode 3 guards the critical few seconds after take-off, where an inadvertent descent is especially dangerous.",
+  ],
+  "insfig-34_06": [
+    "This is GPWS Mode 4 — unsafe terrain clearance when not in the landing configuration. If the aircraft is low with the gear up it calls 'TOO LOW GEAR'; low and fast without enough terrain clearance it calls 'TOO LOW TERRAIN' (a related sub-mode calls 'TOO LOW FLAP' if the flaps are not set for landing).",
+    "The speed boundary (shown with a Mach–IAS conversion) makes the warning come earlier at higher speed, where less time is available to react.",
+    "Mode 4 ensures the aircraft is properly configured (gear and flap down) before it gets close to the ground on an approach.",
+  ],
+  "insfig-34_08": [
+    "This is GPWS Mode 5 — descent below the ILS glideslope. The chart shows a 'soft' alerting area (quiet 'glideslope' callout) above a 'hard' alerting area (louder, more insistent) as the aircraft sinks further below the beam (beyond about 1.3 dots).",
+    "A below-glideslope deviation close to the ground is a strong sign of an unsafe approach, so the warning gets more urgent the lower and further below the aircraft gets.",
+    "Mode 5 backs up the crew's monitoring of the glideslope during an ILS approach.",
+  ],
+  "insfig-34_10": [
+    "This is GPWS Mode 6 — excessive bank angle near the ground. The envelope allows a generous bank at height, but as radio altitude decreases the permitted bank shrinks (e.g. 10° near the ground, 40° higher up); exceeding it triggers a 'BANK ANGLE' callout.",
+    "A steep bank close to the ground risks a wingtip strike or an accelerated stall, so it is only allowed higher up.",
+    "Mode 6 also handles the altitude callouts ('minimums', height callouts) — the gentle voice cues as the aircraft nears decision height.",
+  ],
+  "insfig-34_11": [
+    "This is GPWS Mode 7 — windshear detection. Flying into a microburst, the aircraft first meets a performance-increasing headwind, then a strong downdraught and a performance-decreasing tailwind that can push it into the ground.",
+    "When the system detects the windshear signature it gives a caution (light/voice) and, for a severe shear, a red warning and a 'WINDSHEAR, WINDSHEAR, WINDSHEAR' aural alert, prompting the escape manoeuvre.",
+    "Windshear near the ground on take-off or approach has caused fatal accidents, which is why its detection was added to GPWS.",
+  ],
+  "insfig-34_12": [
+    "This shows an enhanced GPWS (EGPWS/TAWS) terrain display. Using a worldwide terrain database and GPS position, it paints the terrain on the navigation display in green, and colours it yellow then red as it becomes a threat.",
+    "About 40–60 seconds from a projected impact it gives a 'CAUTION TERRAIN' (solid yellow); about 20–30 seconds out it escalates to solid red and 'TERRAIN, TERRAIN — PULL UP'.",
+    "Because it 'looks ahead' using the database rather than just straight down with the radio altimeter, EGPWS gives far earlier warning of terrain ahead, even terrain the aircraft is not yet over.",
+  ],
+  "insfig-34_13": [
+    "This shows the EGPWS 'look-ahead' warning envelope. Ahead of the aircraft the system projects a protected volume — a look-ahead distance plus a small altitude offset below the flight path — and checks it against the terrain database.",
+    "If terrain intrudes into that volume, a warning is given with time to react (the example shows a warning at 1.1 NM, about 22 seconds at 180 kt).",
+    "Projecting the protection ahead of, and slightly below, the aircraft is what lets EGPWS warn of terrain before the aircraft reaches it.",
+  ],
+  "insfig-34_14": [
+    "This shows the EGPWS terrain clearance floor (TCF) around a runway. The system builds an envelope that steps up with distance from the runway (e.g. 400 ft AGL by 5 NM, 700 ft AGL by 15 NM), creating a protective 'floor' on the approach.",
+    "If the aircraft descends below this floor when it is not yet close enough to the runway to be landing, the system warns — catching an approach to the wrong place or a premature descent.",
+    "The TCF guards against landing-short and approaches to terrain even where the basic modes, tied to configuration, might not alert.",
+  ],
+
   // ═══ Flight Instruments (A.7.8 — flight & stall warnings) ═══
   "insfig-32_01": [
     "This shows a glass flight deck's warning displays. Each pilot has a PFD and ND; in the centre are the engine/warning display (E/WD) and the system display (SD), where the warning system writes its messages and checklists.",

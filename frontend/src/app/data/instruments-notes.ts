@@ -351,6 +351,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. GPWS / TAWS",
+        figureTopics: ["GPWS / TAWS"],
         points: [
           "Active on RADIO height between about 50 ft and 2500 ft. Inputs: radio altimeter, ADC (vertical speed/Mach), glide-slope deviation, gear/flap position.",
           "Modes & calls: 1 excessive descent rate ('SINK RATE' → 'PULL UP'); 2 excessive terrain closure ('TERRAIN'); 3 altitude loss after take-off/GA ('DON'T SINK'); 4 unsafe terrain clearance/not landing configured ('TOO LOW'); 5 glide-slope deviation ('GLIDESLOPE').",

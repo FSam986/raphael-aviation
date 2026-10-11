@@ -218,5 +218,19 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.8", "Stall & flight warnings", "33_05", "Stall warning system architecture"),
   I("A.7.8", "Stall & flight warnings", "33_07", "Angle-of-attack vane sensor"),
   I("A.7.8", "Stall & flight warnings", "33_08", "AoA indicator & indexer"),
+
+  // Ch34 — GPWS / TAWS (A.7.8)
+  I("A.7.8", "GPWS / TAWS", "34_01", "GPWS inputs & outputs"),
+  I("A.7.8", "GPWS / TAWS", "34_02", "GPWS control panel"),
+  I("A.7.8", "GPWS / TAWS", "34_03", "Mode 1 — excessive sink rate"),
+  I("A.7.8", "GPWS / TAWS", "34_04", "Mode 2 — excessive terrain closure"),
+  I("A.7.8", "GPWS / TAWS", "34_05", "Mode 3 — altitude loss after take-off"),
+  I("A.7.8", "GPWS / TAWS", "34_06", "Mode 4 — unsafe terrain clearance"),
+  I("A.7.8", "GPWS / TAWS", "34_08", "Mode 5 — below glideslope"),
+  I("A.7.8", "GPWS / TAWS", "34_10", "Mode 6 — excessive bank angle"),
+  I("A.7.8", "GPWS / TAWS", "34_11", "Mode 7 — windshear"),
+  I("A.7.8", "GPWS / TAWS", "34_12", "EGPWS/TAWS terrain display & alerts"),
+  I("A.7.8", "GPWS / TAWS", "34_13", "EGPWS look-ahead warning envelope"),
+  I("A.7.8", "GPWS / TAWS", "34_14", "EGPWS terrain clearance floor"),
 ];
 void I;
