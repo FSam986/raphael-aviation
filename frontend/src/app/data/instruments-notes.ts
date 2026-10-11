@@ -206,6 +206,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. EFIS — PFD / ND / EADI, symbol generators & comparator",
+        figureTopics: ["EFIS & FMS"],
         points: [
           "PFD (Primary Flight Display) = the main flying instrument: attitude, speed tape, altitude tape, QNH, vertical speed, heading, FD bars and the FMA mode strip along the top.",
           "ND (Navigation Display): map/route, weather radar (MAP and expanded VOR/ILS modes), traffic.",

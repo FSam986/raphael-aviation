@@ -164,5 +164,9 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.3", "Radio altimeter", "20_04", "Radio-altitude arc on EFIS"),
   I("A.7.3", "Radio altimeter", "20_06", "Radio altitude on the PFD"),
   I("A.7.3", "Radio altimeter", "20_07", "Radio altimeter residual height"),
+
+  // Ch21 — Flight management system (A.7.3)
+  I("A.7.3", "EFIS & FMS", "21_01", "FMS / FMC architecture"),
+  I("A.7.3", "EFIS & FMS", "21_02", "FMS control display unit (CDU)"),
 ];
 void I;

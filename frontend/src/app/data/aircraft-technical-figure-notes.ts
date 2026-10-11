@@ -180,6 +180,18 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This is the gyro used in the turn-and-slip indicator and turn coordinator, where what matters is how fast the aircraft is turning, not which way it points.",
   ],
 
+  // ═══ Flight Instruments (A.7.3 — FMS) ═══
+  "insfig-21_01": [
+    "This shows the architecture of a flight management system (FMS). At its heart are two flight management computers (FMCs), one per side, cross-linked so either can take over if the other fails.",
+    "Each FMC gathers position and air data from many sources — VOR, DME, GPS, the inertial reference systems (IRS), the air data computers (ADC) and engine/fuel data — and holds a navigation database. The crew interact through the control display unit (CDU), and the FMC drives the flight guidance system (FGS/autopilot).",
+    "By combining all these inputs, the FMS works out the aircraft's best position, flies the planned route, and manages speed and fuel automatically.",
+  ],
+  "insfig-21_02": [
+    "This is the control display unit (CDU/MCDU) — the keypad-and-screen the crew use to talk to the FMS. The screen shows pages of data (here the identification page with the navigation-database validity dates), and line-select keys down each side pick items on the screen.",
+    "Function keys (RTE, CLB, CRZ, DES, LEGS, HOLD, PROG, FIX, INIT REF) call up the pages for building and monitoring the flight plan, and a full alphanumeric keypad lets the crew type entries into the scratchpad.",
+    "A message light and a fail light warn of FMS messages or faults. The CDU is how the route, performance data and settings are loaded and reviewed before and during flight.",
+  ],
+
   // ═══ Flight Instruments (A.7.3 — radio altimeter) ═══
   "insfig-20_01": [
     "This shows how a radio altimeter measures height using FM-CW (frequency-modulated continuous wave). The aircraft transmits a radio signal (around 4300 MHz) whose frequency is continuously swept up and down.",
