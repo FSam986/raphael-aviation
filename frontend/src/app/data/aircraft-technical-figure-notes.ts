@@ -5,6 +5,48 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.2 — turn & slip) ═══
+  "insfig-14_01": [
+    "This shows the rate gyro inside a turn indicator. The rotor has only ONE gimbal, and that gimbal is held by a calibrated spring, so the gyro cannot hold a direction — it can only be deflected.",
+    "When the aircraft turns (a torque about the vertical), precession tips the gimbal against the spring; the faster the turn, the more it precesses and the further the pointer moves.",
+    "Because the spring opposes the precession, the deflection is proportional to the RATE of turn — which is exactly what a turn indicator is meant to show.",
+  ],
+  "insfig-14_02": [
+    "This shows the same rate gyro in action. The turning of the aircraft applies a torque; precession acts 90° round and swings the gimbal, moving the pointer across the scale.",
+    "The calibrated spring balances the precession at a deflection that matches the rate of turn, so a 'rate one' turn (3° per second) gives a standard pointer deflection.",
+    "This is why a turn indicator shows how FAST you are turning, not how far you have turned or which way you are heading.",
+  ],
+  "insfig-14_03": [
+    "This front view shows an aircraft in straight-and-level flight. Lift (L) acts straight up and weight (W) straight down, equal and opposite, so the aircraft is in balance with no sideways force.",
+    "With no turn, there is nothing to throw the balance ball off centre and nothing to precess the turn gyro.",
+    "This is the baseline the turn-and-slip instrument shows as 'wings level, ball centred' — the next figures show what a turn does to it.",
+  ],
+  "insfig-14_04": [
+    "This shows the slip indicator — a ball in a curved, liquid-filled tube. In balanced flight the only forces on the ball are its weight (down) and the tube's reaction, so it settles at the bottom, in the centre.",
+    "The ball is really a simple pendulum/accelerometer: it hangs where the combined force on it points.",
+    "A centred ball means the aircraft is 'in balance' (no slip or skid) — the pilot's goal in every turn.",
+  ],
+  "insfig-14_05": [
+    "This shows the forces in a correctly banked turn. The aircraft banks so its lift (L) tilts inward; the horizontal part of that lift provides the centripetal force (C) that pulls the aircraft round the turn, while the vertical part still balances the weight (W).",
+    "The combination of weight and the centripetal reaction gives a RESULTANT force that acts straight 'down' through the aircraft's floor.",
+    "Because the resultant is square to the floor, a correctly banked turn feels like normal 'down' to the crew — and keeps the balance ball centred.",
+  ],
+  "insfig-14_06": [
+    "This shows the balance ball in a correctly banked turn. Even though the aircraft is turning, the resultant of weight and centripetal reaction acts straight down through the tube.",
+    "So the ball still sits in the centre — the turn is 'balanced' (coordinated), with no sideways force sliding the ball either way.",
+    "A centred ball in a turn tells the pilot the bank angle matches the rate of turn: not too little (slip) and not too much (skid).",
+  ],
+  "insfig-14_07": [
+    "This shows the ball off-centre, which happens when the turn is NOT balanced. If the bank is too shallow for the rate of turn the aircraft slips inwards and the ball rolls to the inside; if over-banked it skids outwards and the ball rolls to the outside.",
+    "The ball always rolls towards the side where the net sideways force points, acting as a simple accelerometer.",
+    "The pilot corrects with rudder — 'step on the ball' — to bring it back to centre and balance the turn.",
+  ],
+  "insfig-14_09": [
+    "This is the face of a turn-and-slip indicator. The needle (TURN, L–R) shows the rate and direction of turn from the rate gyro, and the ball (SLIP) below shows whether the turn is balanced.",
+    "Read together they give the full turn picture: needle deflection for how fast you are turning, ball position for whether you are in balance.",
+    "A standard-rate turn with the ball centred — needle on the mark, ball in the middle — is the aim for accurate instrument flying.",
+  ],
+
   // ═══ Flight Instruments (A.7.2 — artificial horizon) ═══
   "insfig-13_01": [
     "This is the face of an artificial horizon (attitude indicator). A fixed miniature-aircraft symbol (the little wings) represents the aeroplane, and a moving horizon bar represents the real horizon.",

@@ -152,6 +152,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "4. Turn & Slip / Turn Coordinator — a rate gyro (1 gimbal)",
+        figureTopics: ["Turn & slip / coordinator"],
         points: [
           "A horizontal-axis RATE gyro with one plane of freedom, deliberately run at LOWER RPM (low rigidity) so it precesses with the turn; a spring balances the precession, so the tilt indicates rate of turn.",
           "The needle shows RATE and DIRECTION of turn; the BALL is a separate gravity/inertia device showing slip/skid (step on the ball). A low rotor speed makes the turn needle UNDER-read; the ball is unaffected.",

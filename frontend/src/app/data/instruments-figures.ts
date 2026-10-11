@@ -130,5 +130,15 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.2", "Artificial horizon", "13_09", "AH acceleration error"),
   I("A.7.2", "Artificial horizon", "13_10", "Electric AH (pitch torque motor)"),
   I("A.7.2", "Artificial horizon", "13_11", "Remote servo-driven horizon"),
+
+  // Ch14 — Turn & slip indicator (A.7.2)
+  I("A.7.2", "Turn & slip / coordinator", "14_01", "Turn-indicator rate gyro"),
+  I("A.7.2", "Turn & slip / coordinator", "14_02", "Rate gyro — 90° precession vs scale"),
+  I("A.7.2", "Turn & slip / coordinator", "14_03", "Level flight — lift balances weight"),
+  I("A.7.2", "Turn & slip / coordinator", "14_04", "Balance ball (slip indicator)"),
+  I("A.7.2", "Turn & slip / coordinator", "14_05", "Forces in a banked turn"),
+  I("A.7.2", "Turn & slip / coordinator", "14_06", "Ball centred in a balanced turn"),
+  I("A.7.2", "Turn & slip / coordinator", "14_07", "Ball off-centre — slip/skid"),
+  I("A.7.2", "Turn & slip / coordinator", "14_09", "Turn & slip indicator face"),
 ];
 void I;
