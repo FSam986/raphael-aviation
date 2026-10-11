@@ -201,5 +201,11 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.6", "Autoland & autothrottle", "27_01", "Autoland approach sequence"),
   I("A.7.6", "Autoland & autothrottle", "27_02", "ILS/autoland categories & minima"),
   I("A.7.6", "Autoland & autothrottle", "28_01", "Autothrottle system architecture"),
+
+  // Ch29 — Yaw dampers (A.7.6)
+  I("A.7.6", "Autopilot", "29_01", "Dutch roll — stable/neutral/unstable"),
+  I("A.7.6", "Autopilot", "29_02", "Dutch roll yaw-roll coupling"),
+  I("A.7.6", "Autopilot", "29_04", "Yaw damper washout filter"),
+  I("A.7.6", "Autopilot", "29_05", "Yaw damper signal chain"),
 ];
 void I;

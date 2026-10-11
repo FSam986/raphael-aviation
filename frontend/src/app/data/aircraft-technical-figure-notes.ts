@@ -212,6 +212,28 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.6 — yaw damper) ═══
+  "insfig-29_01": [
+    "This shows 'Dutch roll' — a combined rolling-and-yawing oscillation that swept-wing jets are prone to. The traces show bank angle over time: a STABLE aircraft damps the oscillation out on its own, a NEUTRAL one keeps oscillating at a steady amplitude, and an UNSTABLE one builds up.",
+    "Dutch roll is uncomfortable and, if poorly damped, hard to fly manually.",
+    "Because many jets have weak natural Dutch-roll damping, a yaw damper is fitted to damp it automatically — this is the oscillation the yaw damper exists to kill.",
+  ],
+  "insfig-29_02": [
+    "This explains why Dutch roll couples yaw and roll. When the aircraft yaws, the wing that moves forward has a greater projected span and speed, so it makes more lift and rises, while the retreating wing drops — so a yaw produces a roll.",
+    "That roll then feeds back into more yaw, and the two keep swapping energy, giving the rolling-plus-yawing wallow of Dutch roll.",
+    "Understanding this coupling shows why damping the YAW (with the rudder) is the effective way to stop the whole Dutch-roll motion.",
+  ],
+  "insfig-29_04": [
+    "This shows how the yaw damper tells a wanted turn from an unwanted Dutch roll. A rate gyro senses yaw rate; in a steady, CONSTANT-rate turn the signal, after filtering (a 'washout'), fades to nothing — so the yaw damper does NOT fight the pilot's turn.",
+    "But a Dutch-roll OSCILLATION is a changing, back-and-forth yaw rate; that passes through the filter and produces an output.",
+    "So the washout filter lets the yaw damper ignore deliberate turns but respond to oscillations — damping Dutch roll without opposing normal flying.",
+  ],
+  "insfig-29_05": [
+    "This shows the yaw-damper signal chain. The rate gyro's signal is given a phase advance, demodulated, passed through a narrow band-pass filter (tuned to the Dutch-roll frequency), re-modulated, amplified and sent to the rudder servo motor.",
+    "The band-pass filter is the key: it passes only the Dutch-roll frequency and rejects both steady turns and high-frequency noise, so the damper acts on exactly the motion it should.",
+    "The output drives a series actuator on the rudder, applying small, rapid rudder movements to damp the oscillation — without moving the pilot's pedals.",
+  ],
+
   // ═══ Flight Instruments (A.7.6 — autoland & autothrottle) ═══
   "insfig-27_01": [
     "This shows the sequence of an automatic landing. As the aircraft intercepts the ILS, the autopilot captures the localiser (LOC CAP) and then the glideslope (GS CAP), and the mode annunciations change at each stage.",
