@@ -143,5 +143,11 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
 
   // Ch15 — Turn coordinator (A.7.2)
   I("A.7.2", "Turn & slip / coordinator", "15_01", "Turn coordinator face"),
+
+  // Ch16 — Aircraft magnetism (A.7.7)
+  I("A.7.7", "Aircraft magnetism", "16_01", "Deviation — magnetic vs compass heading"),
+  I("A.7.7", "Aircraft magnetism", "16_02", "Hard-iron magnetism components (plan)"),
+  I("A.7.7", "Aircraft magnetism", "16_03", "Vertical hard-iron component & compass bowl"),
+  I("A.7.7", "Aircraft magnetism", "16_04", "Deviation varies with heading (coefficients)"),
 ];
 void I;

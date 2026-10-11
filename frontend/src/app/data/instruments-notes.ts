@@ -292,6 +292,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Variation & deviation",
+        figureTopics: ["Aircraft magnetism"],
         points: [
           "VARIATION = angle between true and magnetic north (converts True↔Magnetic). 'Variation West, magnetic Best (add); Variation East, magnetic least (subtract)'.",
           "DEVIATION = the aircraft's own magnetism deflecting the compass (converts Magnetic↔Compass). 'Deviation West, compass Best'.",

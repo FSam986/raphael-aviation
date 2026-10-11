@@ -202,6 +202,28 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This is the mechanism behind acceleration errors (felt most on east/west headings) and northerly turning error — the card is physically swung off its correct reading.",
   ],
 
+  // ═══ Flight Instruments (A.7.7 — aircraft magnetism) ═══
+  "insfig-16_01": [
+    "This shows deviation — the error the aircraft's own magnetism causes in the compass. The aircraft's magnetic field pulls the compass needle away from magnetic north, so the compass reads a slightly different heading from the true magnetic one.",
+    "Here the magnetic heading is 090 but the compass reads 095, so there is 5° of westerly deviation (the compass reads MORE than magnetic, so the correction is 5°W).",
+    "Deviation is listed on a compass-correction card and must be applied, along with variation, to convert between compass, magnetic and true headings.",
+  ],
+  "insfig-16_02": [
+    "This plan view shows the aircraft's 'hard-iron' magnetism — permanent magnetism in the steel parts, represented as little magnets lying along the fore-and-aft and the lateral axes of the aircraft.",
+    "The fore-and-aft component mainly causes deviation that changes like a sine of heading (coefficient B); the lateral component causes deviation that changes like a cosine of heading (coefficient C).",
+    "Because these magnets are fixed in the airframe, their effect on the compass changes as the aircraft turns, which is why deviation varies with heading.",
+  ],
+  "insfig-16_03": [
+    "This side view shows the vertical hard-iron magnetism (the Z component) and where the compass bowl sits. Vertical magnetism in the airframe, and the change of the Earth's vertical field with the aircraft's attitude, affect the compass.",
+    "This vertical component is the source of the deviation that only shows up when the aircraft is banked or pitched, and it contributes to the turning and acceleration errors.",
+    "Siting the compass well away from large steel masses and electrical wiring keeps these effects as small as possible.",
+  ],
+  "insfig-16_04": [
+    "This graph shows how deviation changes as the aircraft turns through all headings. The curve is roughly a sine wave: deviation grows to a maximum, falls to zero, reverses and repeats over 360°.",
+    "A deviation that follows a sine of heading comes from fore-and-aft magnetism (coefficient B); one that follows a cosine comes from lateral magnetism (coefficient C); a constant offset at all headings is coefficient A.",
+    "A compass swing measures the deviation on a series of headings and the coefficients are worked out, so small correction magnets can be adjusted to minimise the error.",
+  ],
+
   // ═══ Flight Instruments (A.7.7 — terrestrial magnetism) ═══
   "insfig-09_02": [
     "This shows the magnetic field of a bar magnet. Invisible field lines leave the north (red/blue) pole, curve round through the surrounding space, and return to the south pole; inside the magnet they run the other way to make a closed loop.",
