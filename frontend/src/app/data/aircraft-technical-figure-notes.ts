@@ -5,6 +5,23 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.1 — machmeter) ═══
+  "insfig-07_03": [
+    "This graph shows how three speeds behave as true speed increases. Calibrated airspeed (CAS) grows the slowest, true airspeed (TAS) faster, and the Mach number (speed as a fraction of the local speed of sound) is a separate scale again.",
+    "They differ because CAS depends on dynamic pressure (which falls off with thinner air), TAS is the real speed through the air, and Mach compares that speed to the speed of sound — which itself changes with temperature.",
+    "This is why a fast aircraft needs a MACHMETER as well as an airspeed indicator: near the speed of sound it is the Mach number, not the airspeed, that governs the compressibility limits.",
+  ],
+  "insfig-07_06": [
+    "This is a combined airspeed/Mach indicator. The main pointer reads knots on the outer scale, while a small window shows the Mach number, worked out from the same pitot and static pressures plus an altitude (height) capsule.",
+    "A VMO 'barber-pole' pointer, set by the VMO SET knob, shows the maximum operating speed; the pilot keeps the airspeed needle below it.",
+    "Putting airspeed, Mach and the speed limit on one face lets the crew respect both the airspeed limit low down and the Mach limit high up from a single instrument.",
+  ],
+  "insfig-07_07": [
+    "This Mach/airspeed indicator uses counters as well as a pointer. One window shows the Mach number (here around 0.7) and another the airspeed in knots (285), while the main pointer sweeps the knots scale.",
+    "A striped VMO/MMO cursor marks the never-exceed speed, and a cursor-control knob lets the crew set a reference bug; the pointer must stay below the cursor.",
+    "Combining a quick-to-read pointer with exact digital counters, plus the moving limit cursor, gives the crew a clear picture of how close they are to both the airspeed and the Mach limits.",
+  ],
+
   // ═══ Flight Instruments (A.7.1 — VSI) ═══
   "insfig-06_01": [
     "This shows how a vertical speed indicator works, here in level flight. Static pressure feeds the capsule DIRECTLY, but the same static reaches the surrounding case only slowly, through a fine metering choke and capillary.",

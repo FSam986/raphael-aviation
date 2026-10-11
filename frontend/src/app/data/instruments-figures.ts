@@ -75,5 +75,10 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.1", "Vertical speed indicator", "06_03", "VSI in a climb"),
   I("A.7.1", "Vertical speed indicator", "06_04", "VSI instrument face"),
   I("A.7.1", "Vertical speed indicator", "06_05", "IVSI — accelerometer dashpots"),
+
+  // Ch7 — The machmeter (A.7.1)
+  I("A.7.1", "Machmeter", "07_03", "CAS, TAS & Mach vs speed"),
+  I("A.7.1", "Machmeter", "07_06", "Combined airspeed/Mach indicator (VMO)"),
+  I("A.7.1", "Machmeter", "07_07", "Machmeter with Mach & knots counters"),
 ];
 void I;
