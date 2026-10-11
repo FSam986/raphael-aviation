@@ -214,6 +214,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "4. Standard EFIS colours & the radio-altitude display",
+        figureTopics: ["Radio altimeter"],
         points: [
           "MAGENTA (pink) = command/'fly-to' information and pointers; GREEN = engaged/normal; CYAN/white = reference & scales; AMBER = caution; RED = warning.",
           "Radio altitude on the EADI: blank above 2500 ft, digital 2500→1000 ft, then a white ring below 1000 ft; at DH the marker changes magenta→amber. The DH is set in the ADI section of the MCP.",

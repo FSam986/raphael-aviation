@@ -156,5 +156,13 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.2", "Remote-indicating compass", "17_07", "Flux-valve output waveforms"),
   I("A.7.2", "Remote-indicating compass", "17_10", "Flux valve wired to the receiver synchro"),
   I("A.7.2", "Remote-indicating compass", "17_11", "Remote compass / HSI display"),
+
+  // Ch20 — Radio altimeter (A.7.3)
+  I("A.7.3", "Radio altimeter", "20_01", "Radio altimeter FM-CW principle"),
+  I("A.7.3", "Radio altimeter", "20_02", "Radio altimeter dial"),
+  I("A.7.3", "Radio altimeter", "20_03", "Radio altitude on the EADI (autoland)"),
+  I("A.7.3", "Radio altimeter", "20_04", "Radio-altitude arc on EFIS"),
+  I("A.7.3", "Radio altimeter", "20_06", "Radio altitude on the PFD"),
+  I("A.7.3", "Radio altimeter", "20_07", "Radio altimeter residual height"),
 ];
 void I;

@@ -180,6 +180,38 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This is the gyro used in the turn-and-slip indicator and turn coordinator, where what matters is how fast the aircraft is turning, not which way it points.",
   ],
 
+  // ═══ Flight Instruments (A.7.3 — radio altimeter) ═══
+  "insfig-20_01": [
+    "This shows how a radio altimeter measures height using FM-CW (frequency-modulated continuous wave). The aircraft transmits a radio signal (around 4300 MHz) whose frequency is continuously swept up and down.",
+    "By the time the reflection returns from the ground, the transmitter has moved on to a different frequency, so there is a FREQUENCY DIFFERENCE between the transmitted and received signals at any instant. That difference is directly proportional to the time of flight — and so to the height.",
+    "Measuring the beat frequency gives an accurate height above the ground, used in the last few thousand feet of the approach and for autoland.",
+  ],
+  "insfig-20_02": [
+    "This is a dedicated radio-altimeter dial, reading FEET × 100. Below a few thousand feet the pointer shows the actual height above the terrain directly beneath the aircraft.",
+    "A movable 'bug' with a yellow sector sets a decision height; a low-altitude warning light and a failure flag (a striped mask over the pointer) warn the crew, and a 'press to test' button checks the system.",
+    "Unlike the pressure altimeter (height above a pressure datum), the radio altimeter shows true height above the ground — vital for the flare and for low-visibility approaches.",
+  ],
+  "insfig-20_03": [
+    "This shows the radio altitude displayed on an electronic attitude director indicator (EADI) during an autoland. The radio altitude (here 1500) appears near the top, with the decision height (DH 100) set alongside.",
+    "As the aircraft descends, autoland annunciations (FLARE, ROLL OUT) and the LAND 3 / G/S / LOC status show the automatic landing is armed and progressing.",
+    "The radio altimeter is what triggers the flare and the autothrottle retard at the right height above the runway, so its reading is central to the autoland.",
+  ],
+  "insfig-20_04": [
+    "This shows radio altitude on a glass display as a small arc (dial) with a moving pointer and a digital read-out (here 950 ft). The arc fills in as the aircraft descends, giving a quick sense of height above the ground.",
+    "Showing it as an arc near the attitude display keeps the height-above-terrain in the pilot's scan during the approach.",
+    "The colour and a bug change as the aircraft nears the decision height, drawing the eye at the critical moment.",
+  ],
+  "insfig-20_06": [
+    "This shows the radio altitude integrated into a full primary flight display. The large figure (1390) in the lower part of the attitude sphere is the height above the ground from the radio altimeter.",
+    "Around it are the speed and altitude tapes, the ILS deviation, and the autoland/autopilot status (CAT3 DUAL, AP1+2, A/THR) — everything the crew need for a low-visibility approach in one picture.",
+    "Combining the radio altitude with the attitude and guidance lets the crew monitor an automatic approach down to the runway from a single display.",
+  ],
+  "insfig-20_07": [
+    "This explains 'residual height'. The radio altimeter measures from its ANTENNA (under the fuselage) to the ground, not from the wheels. So at the moment the wheels touch, the antenna is still some height above the runway — the residual height — and the radio altimeter does not read exactly zero.",
+    "A nose-up attitude at touchdown increases this residual height; a flatter attitude reduces it, as the second aircraft shows.",
+    "The system is calibrated to allow for this, but it explains why the radio altimeter indication at touchdown is a small positive value rather than zero.",
+  ],
+
   // ═══ Flight Instruments (A.7.2 — remote-indicating compass) ═══
   "insfig-17_04": [
     "This shows how the output of a flux detector (flux valve) varies with heading. As the aircraft turns, the signal picked up by the valve changes smoothly, following the horizontal component of the Earth's field in a sine-like way over 360°.",
