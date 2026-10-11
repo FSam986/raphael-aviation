@@ -212,6 +212,23 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.6 — autoland & autothrottle) ═══
+  "insfig-27_01": [
+    "This shows the sequence of an automatic landing. As the aircraft intercepts the ILS, the autopilot captures the localiser (LOC CAP) and then the glideslope (GS CAP), and the mode annunciations change at each stage.",
+    "Using radio altitude, the system arms and engages the later modes: at about 330 ft the flare is armed, at around 45 ft it begins the FLARE that rounds out the descent, the autothrottle retards the thrust, and at a few feet it de-crabs and touches down, then rolls out on the runway centreline.",
+    "The small A/P status boxes show how the engaged (R) and armed (P) modes step through the approach — the crew monitor these to confirm the autoland is progressing correctly.",
+  ],
+  "insfig-27_02": [
+    "This shows the ILS/autoland categories, set by how low the decision height (DH) and runway visual range (RVR) are allowed to be. CAT I: DH not below 200 ft, RVR not less than 550 m. CAT II: DH down to 100 ft, RVR not less than 300 m.",
+    "CAT III goes lower still: IIIA (DH below 100 ft or none, RVR not less than 200 m), IIIB (DH below 50 ft or none, RVR 50–200 m), and IIIC (no DH, no RVR limit — nil visibility).",
+    "Flying to the lower categories needs more capable, redundant automatics (fail-passive or fail-operational autoland) and suitable ground equipment — which is why the aircraft annunciates its current CAT capability.",
+  ],
+  "insfig-28_01": [
+    "This shows the autothrottle system. An autothrottle computer takes in the mode selection (from the AFCS mode control panel) and data from the air-data computer, the inertial reference, the N1 (engine) and angle-of-attack sensors, radio altitude and the air/ground (gear) logic.",
+    "From these it drives the A/T servo actuator on the thrust levers to set and hold the demanded thrust or speed, shows the target as an N1 index on the engine gauge, and annunciates its mode on the PFD. It coordinates with the flight-control and flight-management computers.",
+    "So the autothrottle is the 'autopilot for the engines' — it moves the thrust levers to hold a speed or a thrust setting, including the retard during an autoland flare.",
+  ],
+
   // ═══ Flight Instruments (A.7.6 — autopilot) ═══
   "insfig-26_01": [
     "This is the closed-loop control principle behind every autopilot. An INPUT (the demanded attitude, heading or altitude) is compared by a DETECTOR; the difference drives an OUTPUT that moves the aircraft, and the CONTROL stage drives the surface.",

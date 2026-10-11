@@ -261,6 +261,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Autoland categories & auto-throttle",
+        figureTopics: ["Autoland & autothrottle"],
         points: [
           "Fail-passive (fail-soft): a failure disconnects without a significant out-of-trim — the pilot then lands manually. Fail-operational (fail-survival): a single failure leaves the autoland function intact (needs dual/triple redundancy).",
           "Full autoland keeps the AP + autothrottle engaged through the flare (thrust retard ~30–50 ft), touchdown and roll-out; CAT II/III decision heights use the radio altimeter.",

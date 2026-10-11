@@ -196,5 +196,10 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.6", "Autopilot", "26_10", "PFD autopilot/FMA annunciations"),
   I("A.7.6", "Autopilot", "26_11", "Flight mode annunciator (FMA) explained"),
   I("A.7.6", "Autopilot", "26_12", "Dual-channel autopilot architecture"),
+
+  // Ch27–28 — Autoland & autothrottle (A.7.6)
+  I("A.7.6", "Autoland & autothrottle", "27_01", "Autoland approach sequence"),
+  I("A.7.6", "Autoland & autothrottle", "27_02", "ILS/autoland categories & minima"),
+  I("A.7.6", "Autoland & autothrottle", "28_01", "Autothrottle system architecture"),
 ];
 void I;
