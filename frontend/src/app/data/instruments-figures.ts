@@ -35,5 +35,12 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.1", "Instrument displays & scales", "01_13", "Modern glass flight deck (B787)"),
   I("A.7.1", "Instrument displays & scales", "01_14", "Electronic panel — light aircraft"),
   I("A.7.1", "Instrument displays & scales", "01_15", "Colour operating ranges on gauges"),
+
+  // Ch2 — Pitot & static sources (A.7.1)
+  I("A.7.1", "Pitot-static system", "02_01", "Pressure heads — pitot vs static"),
+  I("A.7.1", "Pitot-static system", "02_02", "Combined pitot/static head (cutaway)"),
+  I("A.7.1", "Pitot-static system", "02_04", "Flush static vent"),
+  I("A.7.1", "Pitot-static system", "02_05", "Pitot/static probe installation"),
+  I("A.7.1", "Pitot-static system", "02_06", "Static source selector valves (normal/alternate)"),
 ];
 void I;

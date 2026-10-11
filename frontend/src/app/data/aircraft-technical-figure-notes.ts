@@ -5,6 +5,33 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.1 — pitot-static) ═══
+  "insfig-02_01": [
+    "This shows what the pressure heads sense. Facing straight into the airflow (along the aircraft's longitudinal axis), a forward-facing hole catches TOTAL (pitot) pressure — the still-air pressure plus the 'ram' from the aircraft's speed.",
+    "Separate holes set at right angles to the flow sense only the STATIC (atmospheric) pressure — the ambient pressure with no ram effect.",
+    "These two pressures are the raw material for the whole air-data system: the altimeter and VSI use static alone, while the airspeed indicator uses the difference between pitot and static.",
+  ],
+  "insfig-02_02": [
+    "This cutaway shows a combined pitot/static head. The forward-facing opening collects pitot (total) pressure down the centre tube, while static slots around the side collect static pressure into a separate passage.",
+    "An electric heating element and cable prevent ice from blocking the holes, and small drain holes let any water escape so it cannot collect and give false readings.",
+    "Combining both sensors in one probe is neat, but it means a single strike or blockage can affect both pressures — which is why the heater and drains matter and why alternate sources are provided.",
+  ],
+  "insfig-02_04": [
+    "This shows a flush static vent — a small plate with a hole set flush in the fuselage skin, away from the airflow disturbance. It senses static (ambient) pressure without any ram effect.",
+    "Mounting it flush and smooth keeps the local airflow undisturbed, so the pressure at the hole is as close as possible to the true free-stream static pressure.",
+    "Static vents are usually fitted as a pair, one on each side of the fuselage, so that sideslip or a manoeuvre raising pressure on one side is cancelled by the other.",
+  ],
+  "insfig-02_05": [
+    "This shows pitot and static probes installed under the nose of an aircraft. Several separate heads are mounted clear of the skin so they sit in clean, undisturbed air.",
+    "Spacing them apart and positioning them carefully reduces the 'position error' caused by the airframe disturbing the local pressure.",
+    "Large aircraft carry multiple independent probes feeding separate systems (captain, first officer, standby) so that one blockage or failure does not deprive everyone of air data.",
+  ],
+  "insfig-02_06": [
+    "This shows a pitot-static system with selector valves. Left and right pitot and static sources feed up to the instruments, and selector valves can choose the NORMAL source or an ALTERNATE one.",
+    "If a normal static vent blocks or ices up, the pilot selects the alternate static source (often cabin static) so the altimeter, ASI and VSI keep working.",
+    "Providing left/right sources and normal/alternate selection builds in redundancy, so a single blockage does not leave the crew without airspeed or altitude.",
+  ],
+
   // ═══ Flight Instruments (A.7.1 — displays & scales) ═══
   "insfig-01_01": [
     "This is a LINEAR circular scale: the numbers (here Kts × 10) are spaced evenly all the way round, so each degree of pointer movement represents the same change in value.",
