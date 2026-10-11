@@ -68,5 +68,12 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.1", "Altimeter", "05_07", "Servo altimeter (E/I bar, servo motor)"),
   I("A.7.1", "Altimeter", "05_08", "High-to-low pressure error"),
   I("A.7.1", "Altimeter", "05_09", "Blocked static freezes the altimeter"),
+
+  // Ch6 — Vertical speed indicator (A.7.1)
+  I("A.7.1", "Vertical speed indicator", "06_01", "VSI mechanism (level flight)"),
+  I("A.7.1", "Vertical speed indicator", "06_02", "VSI in a descent"),
+  I("A.7.1", "Vertical speed indicator", "06_03", "VSI in a climb"),
+  I("A.7.1", "Vertical speed indicator", "06_04", "VSI instrument face"),
+  I("A.7.1", "Vertical speed indicator", "06_05", "IVSI — accelerometer dashpots"),
 ];
 void I;

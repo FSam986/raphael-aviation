@@ -5,6 +5,33 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.1 — VSI) ═══
+  "insfig-06_01": [
+    "This shows how a vertical speed indicator works, here in level flight. Static pressure feeds the capsule DIRECTLY, but the same static reaches the surrounding case only slowly, through a fine metering choke and capillary.",
+    "In level flight the pressure inside and outside the capsule are equal, so there is no difference across it and the pointer sits on zero.",
+    "The clever part is the deliberate delay: only when the altitude is changing does a pressure difference build up, and that difference is what will deflect the pointer.",
+  ],
+  "insfig-06_02": [
+    "This shows the VSI in a DESCENT. As the aircraft goes down, the static pressure rises; this new higher pressure reaches the capsule immediately but the case only slowly through the choke.",
+    "So the capsule pressure is momentarily higher than the case, the capsule expands, and the linkage drives the pointer to show a rate of descent.",
+    "The faster the descent, the bigger the steady pressure difference, so the pointer shows a bigger rate — until the descent stops and the pressures equalise again.",
+  ],
+  "insfig-06_03": [
+    "This shows the VSI in a CLIMB. Now the static pressure is falling; the lower pressure reaches the capsule at once but the case lags behind through the metering choke.",
+    "So the case is momentarily at higher pressure than the capsule, the capsule is squeezed, and the pointer swings the other way to show a rate of climb.",
+    "Together with the previous two figures this shows the whole principle: the pointer reads the pressure difference set up by the lag, which exists only while altitude is changing.",
+  ],
+  "insfig-06_04": [
+    "This is the face of a vertical speed indicator, calibrated in hundreds of feet per minute, with CLIMB (up) above the zero and DOWN (descent) below it.",
+    "The pointer rests at zero in level flight and swings up or down to show the rate of climb or descent.",
+    "Note the scale is cramped near zero and more open further out — the VSI is a non-linear instrument, read most accurately away from the centre.",
+  ],
+  "insfig-06_05": [
+    "This is an instantaneous VSI (IVSI). It works like an ordinary VSI (capsule, main metering restriction) but adds small accelerometer 'dashpot' pumps that respond to vertical acceleration.",
+    "When the aircraft first pitches into a climb or descent, those pumps instantly create the small pressure change the capsule needs, so the pointer responds AT ONCE instead of after the usual few-second lag.",
+    "The IVSI therefore gives an immediate, lag-free indication — but the accelerometers also make it misread briefly during a steep turn (a g-induced error).",
+  ],
+
   // ═══ Flight Instruments (A.7.1 — altimeter) ═══
   "insfig-05_01": [
     "This shows the three altimeter datums and the measurements they give. With the subscale set to QNE/standard 1013 hPa the altimeter reads PRESSURE ALTITUDE / a flight level; set to QNH (sea-level pressure) it reads ALTITUDE above mean sea level; set to QFE (airfield pressure) it reads HEIGHT above the airfield.",
