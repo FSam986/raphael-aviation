@@ -140,5 +140,8 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.2", "Turn & slip / coordinator", "14_06", "Ball centred in a balanced turn"),
   I("A.7.2", "Turn & slip / coordinator", "14_07", "Ball off-centre — slip/skid"),
   I("A.7.2", "Turn & slip / coordinator", "14_09", "Turn & slip indicator face"),
+
+  // Ch15 — Turn coordinator (A.7.2)
+  I("A.7.2", "Turn & slip / coordinator", "15_01", "Turn coordinator face"),
 ];
 void I;

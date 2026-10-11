@@ -5,6 +5,13 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.2 — turn coordinator) ═══
+  "insfig-15_01": [
+    "This is a turn coordinator, a development of the turn indicator. Its rate gyro is tilted (canted about 30°), so it senses ROLL as well as yaw; the miniature aircraft symbol banks to show the turn, with wing-tip marks for a standard-rate turn.",
+    "Because it also senses the roll into the turn, it responds a little sooner than a plain turn needle and is better suited to driving a wing-leveller autopilot.",
+    "It still carries a balance ball below and is marked 'NO PITCH INFORMATION' — the banking aircraft symbol shows rate of turn and roll only, never pitch.",
+  ],
+
   // ═══ Flight Instruments (A.7.2 — turn & slip) ═══
   "insfig-14_01": [
     "This shows the rate gyro inside a turn indicator. The rotor has only ONE gimbal, and that gimbal is held by a calibrated spring, so the gyro cannot hold a direction — it can only be deflected.",
