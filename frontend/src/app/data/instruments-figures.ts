@@ -149,5 +149,12 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.7", "Aircraft magnetism", "16_02", "Hard-iron magnetism components (plan)"),
   I("A.7.7", "Aircraft magnetism", "16_03", "Vertical hard-iron component & compass bowl"),
   I("A.7.7", "Aircraft magnetism", "16_04", "Deviation varies with heading (coefficients)"),
+
+  // Ch17 — Remote indicating magnetic compass (A.7.2)
+  I("A.7.2", "Remote-indicating compass", "17_04", "Flux-valve signal vs heading"),
+  I("A.7.2", "Remote-indicating compass", "17_05", "Flux valve — exciter & secondary windings"),
+  I("A.7.2", "Remote-indicating compass", "17_07", "Flux-valve output waveforms"),
+  I("A.7.2", "Remote-indicating compass", "17_10", "Flux valve wired to the receiver synchro"),
+  I("A.7.2", "Remote-indicating compass", "17_11", "Remote compass / HSI display"),
 ];
 void I;

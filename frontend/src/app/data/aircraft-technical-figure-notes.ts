@@ -180,6 +180,33 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This is the gyro used in the turn-and-slip indicator and turn coordinator, where what matters is how fast the aircraft is turning, not which way it points.",
   ],
 
+  // ═══ Flight Instruments (A.7.2 — remote-indicating compass) ═══
+  "insfig-17_04": [
+    "This shows how the output of a flux detector (flux valve) varies with heading. As the aircraft turns, the signal picked up by the valve changes smoothly, following the horizontal component of the Earth's field in a sine-like way over 360°.",
+    "Because the output is a known function of heading, the system can work out exactly which way the aircraft is pointing from the strength of the signal in each of the valve's legs.",
+    "This continuous electrical signal is what makes a remote-indicating compass possible — unlike the mechanical card of a direct-reading compass.",
+  ],
+  "insfig-17_05": [
+    "This shows the heart of the flux valve. A central exciter coil is fed with AC (commonly 400 Hz; the drawing shows 800 Hz as the doubled frequency it produces), which magnetises soft 'Permalloy' legs A and B.",
+    "The Earth's horizontal field adds to the excitation in one leg and subtracts in the other, so the secondary winding picks up a signal whose size depends on how the valve lies relative to magnetic north.",
+    "The flux valve has no moving parts — it senses direction purely electrically, which is why it can be mounted in a quiet spot (like a wingtip) away from the aircraft's own magnetism.",
+  ],
+  "insfig-17_07": [
+    "This shows the signals in the two legs of the flux valve (A and B). The excitation drives each leg into magnetic saturation twice per cycle, and the Earth's field makes one leg saturate a little earlier and the other a little later.",
+    "The difference shifts the combined signal off its 'zero' baseline by an amount set by the Earth's field, producing a second-harmonic output that the electronics measure.",
+    "Reading how far the baseline has shifted (and in which sense) in each leg lets the system calculate the heading.",
+  ],
+  "insfig-17_10": [
+    "This shows the flux valve (the three-spoked star) wired to a receiver. The three pick-off coils are 120° apart, so the valve's signal is carried on three wires — exactly like a synchro (selsyn) system.",
+    "Those three wires feed a receiver synchro, which reproduces the flux valve's 'magnetic north' direction as a shaft position that can drive the compass card or feed other systems.",
+    "This three-wire synchro link is how the heading sensed out at the flux valve is transmitted to the cockpit display and to the autopilot, radio compass and recorders.",
+  ],
+  "insfig-17_11": [
+    "This is the cockpit display of a remote-indicating (slaved) compass, often combined with navigation as an HSI. The compass card is driven from the flux valve via the synchro link, and read against a fixed lubber line at the top.",
+    "A heading bug, set by the heading selector, marks a chosen heading for the autopilot to fly, and a heading warning flag appears if the slaving system fails.",
+    "Because the card is driven electrically from the remote flux valve and continuously 'slaved' to magnetic north, it is steady and free of the swings and turning errors of a direct-reading compass.",
+  ],
+
   // ═══ Flight Instruments (A.7.2 — direct-indicating compass) ═══
   "insfig-10_01": [
     "This cutaway shows a direct-reading (magnetic) compass. A set of small bar magnets is fixed to a compass card; the whole assembly is pivoted on a jewelled bearing so it can swing freely to line up with the Earth's field.",
