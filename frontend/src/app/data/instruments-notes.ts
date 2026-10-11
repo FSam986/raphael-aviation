@@ -14,6 +14,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The pitot-static system",
+        figureTopics: ["Instrument displays & scales", "Pitot-static system"],
         points: [
           "Pitot (total) pressure = dynamic + static, sensed by the forward-facing pitot hole; static (still air) pressure is sensed at the static vent(s).",
           "Dynamic pressure = pitot − static (Pt − Ps) — this is what drives the ASI capsule.",
@@ -24,6 +25,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Altimeter",
+        figureTopics: ["Altimeter"],
         points: [
           "Static pressure is fed to the sealed CASE; the evacuated (partial-vacuum) capsules expand as the aircraft climbs and case pressure falls.",
           "Simple altimeter = one capsule, no subscale (set on the ground only). Sensitive altimeter = 2–3 capsules + barometric subscale. Servo altimeter = E/I inductive pick-off + servo motor, which virtually eliminates time-lag error.",
@@ -35,6 +37,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Airspeed Indicator (ASI)",
+        figureTopics: ["Airspeed indicator", "Machmeter", "Air data computer"],
         points: [
           "Total pressure to the capsule, static to the case; the capsule measures dynamic pressure → IAS.",
           "IAS → (instrument + position error) → CAS/RAS → (compressibility) → EAS → (density) → TAS.",
@@ -45,6 +48,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "4. Vertical Speed Indicator (VSI)",
+        figureTopics: ["Vertical speed indicator"],
         points: [
           "Direct static feeds the capsule; static delayed by a metering choke fills the case, so a pressure differential appears only while altitude is changing — this differential drives the pointer.",
           "In level flight the pressures equalise and the VSI reads zero. Time-lag of 4–12 s before a steady reading; a metering unit (orifice + capillary) compensates temperature.",

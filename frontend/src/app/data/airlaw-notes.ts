@@ -11,6 +11,7 @@
 export interface AirLawNoteBlock {
   heading: string;
   points: string[];
+  figureTopics?: string[];
 }
 
 export interface AirLawSectionNote {

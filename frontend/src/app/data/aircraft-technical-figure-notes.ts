@@ -5,6 +5,79 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.1 — displays & scales) ═══
+  "insfig-01_01": [
+    "This is a LINEAR circular scale: the numbers (here Kts × 10) are spaced evenly all the way round, so each degree of pointer movement represents the same change in value.",
+    "A linear scale is easy to read accurately because the spacing never changes — equal gaps mean equal amounts.",
+    "Most instruments aim for a linear scale where they can, because it makes the needle position directly proportional to the quantity being measured.",
+  ],
+  "insfig-01_02": [
+    "This is a NON-LINEAR circular scale (a rate-of-climb dial). Notice the numbers are bunched together near the top and bottom and spread out in the middle — equal pointer movements do NOT represent equal changes everywhere.",
+    "This happens when the instrument's mechanism responds unevenly, so the scale has to be cramped at the ends and open in the middle.",
+    "A non-linear scale is read most accurately in its open, spread-out portion, and least accurately where the markings crowd together.",
+  ],
+  "insfig-01_03": [
+    "This airspeed indicator combines a pointer on a circular scale with a small digital drum (counter) in a window. The pointer gives the quick visual trend; the drum gives a precise number.",
+    "Pairing a pointer with a counter plays to the strengths of both: the eye reads rate and trend from the needle's position, while the exact value is read off the drum.",
+    "This 'pointer plus counter' idea reappears on altimeters and other instruments where both a quick glance and an exact figure are useful.",
+  ],
+  "insfig-01_04": [
+    "This ASI uses a pointer on the main dial together with a small counter window near the top. The pointer sweeps the 0–90 scale while the counter shows the higher-order digits.",
+    "Splitting the display this way lets one instrument cover a wide range without a cluttered scale: the pointer handles the fine detail, the counter the coarse value.",
+    "It is another example of combining analogue (pointer) and digital (counter) presentation on a single face.",
+  ],
+  "insfig-01_05": [
+    "This is a revolution counter (RPM gauge), shown reading in per-cent RPM. It uses two pointers, like a clock — a long one for the fine value and a short one for the coarse value.",
+    "Two concentric pointers let a single small dial show a large range precisely: the small pointer counts the big steps, the large pointer the fine ones.",
+    "Reading it means checking the small (coarse) pointer first, then the large (fine) pointer — exactly as you read hours then minutes on a clock.",
+  ],
+  "insfig-01_07": [
+    "This is the classic 'basic six' instrument grouping found in older cockpits: airspeed indicator, attitude (gyro horizon) and altimeter across the top, with turn-and-slip, heading (course) indicator and vertical speed below.",
+    "The six are arranged so the most important flying instruments sit together in front of the pilot, making a quick, repeatable scan possible.",
+    "This standard grouping means a pilot can move between aircraft types and still find each instrument roughly where they expect it.",
+  ],
+  "insfig-01_08": [
+    "This shows the 'basic T' arrangement, the modern standardised layout. The attitude indicator sits top-centre, with airspeed to its left and altimeter to its right, and the heading indicator directly below — the four forming a 'T'.",
+    "These four are the primary instruments, so putting them in a fixed T lets the pilot scan them efficiently, always returning to attitude in the centre.",
+    "The other instruments (here machmeter, HSI and rate-of-climb) fill in around the T. This layout is now required on certificated panels so it transfers between aircraft.",
+  ],
+  "insfig-01_09": [
+    "This is a real light-twin instrument panel (a Piper Seneca), showing the basic-six/basic-T instruments fitted in a working cockpit: airspeed, attitude and altimeter on top, turn coordinator, HSI and direction indicator below.",
+    "Seeing them installed shows how the standard grouping translates from the textbook diagram to a real aircraft.",
+    "The surrounding placards (crosswind component, calibration notes) and extra gauges are typical of a real panel built around the standard instrument core.",
+  ],
+  "insfig-01_10": [
+    "This is a traditional analogue altimeter. Its pointers move over a circular scale to show altitude, and a small window carries the barometric subscale where the pilot sets the pressure datum (e.g. QNH).",
+    "Everything is mechanical: the needle position is driven directly by the aneroid capsules inside, giving a continuous, familiar 'clock-face' read-out.",
+    "Analogue presentation like this is quick to read for trend, but the exact figure takes more care — which is why counter-pointer and digital altimeters were later developed.",
+  ],
+  "insfig-01_11": [
+    "This display combines a digital counter with an analogue pointer on the same face — a 'counter-pointer' instrument. The digits give the precise value while the moving element shows rate and trend.",
+    "Combining the two formats gives the best of both: an exact number to read and a moving indication to catch a trend or a rapid change at a glance.",
+    "This hybrid presentation was a step on the way from pure analogue dials to today's fully electronic displays.",
+  ],
+  "insfig-01_12": [
+    "This is a traditional analogue flight deck (a classic jet), where every parameter has its own round mechanical instrument. The panel is a dense array of individual dials.",
+    "Each instrument does one job, so the crew must scan many separate gauges and mentally combine them to build the overall picture.",
+    "This is the arrangement that electronic (glass) displays later replaced, gathering the same information onto a few screens.",
+  ],
+  "insfig-01_13": [
+    "This is a modern 'glass' flight deck (a Boeing 787), where large electronic screens replace the rows of individual dials. The same air-data, attitude and navigation information is drawn on the displays.",
+    "Presenting everything on a few reconfigurable screens cuts clutter, lets information be shown only when relevant, and allows colour coding and alerts.",
+    "The flying information (attitude, speed, altitude) is still arranged in the familiar basic-T pattern on the screen, so the scan carries over from analogue panels.",
+  ],
+  "insfig-01_14": [
+    "This is an electronic (glass) panel in a light aircraft, showing that glass-cockpit technology is no longer just for airliners. A primary flight display and a multi-function display replace the traditional dials.",
+    "Even in a small aircraft, the screen gathers airspeed, attitude, altitude and navigation into one tidy, colour-coded picture.",
+    "The layout keeps the basic-T arrangement of speed, attitude and altitude so a pilot trained on steam gauges can adapt quickly.",
+  ],
+  "insfig-01_15": [
+    "This strip of engine gauges shows the use of coloured operating ranges. A GREEN band marks the normal operating range, a YELLOW (amber) band a caution range, and a RED line or band a limit that must not be exceeded.",
+    "The colours let the crew judge a value at a glance without reading the number: a needle in the green is fine, in the yellow needs attention, and at the red is a limit.",
+    "This colour convention (green normal, amber caution, red limit/danger) is used on instruments throughout the aircraft, not just the engine gauges.",
+  ],
+
+
   // ═══ Human Performance (A.6.1 — physiology) ═══
   "hpfig-05": [
     "This cutaway shows the heart, the pump that drives the blood. It has four chambers: two upper atria that receive blood, and two lower ventricles that pump it out. The right side handles oxygen-poor blood, the left side oxygen-rich blood.",
