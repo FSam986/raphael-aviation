@@ -110,5 +110,14 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.2", "Gyroscope fundamentals", "11_12", "Earth-rate wander near the pole"),
   I("A.7.2", "Gyroscope fundamentals", "11_13", "Transport wander"),
   I("A.7.2", "Gyroscope fundamentals", "11_14", "Single-gimbal (rate) gyro"),
+
+  // Ch12 — Directional gyro indicator (A.7.2)
+  I("A.7.2", "Directional gyro", "12_01", "DGI construction"),
+  I("A.7.2", "Directional gyro", "12_03", "Air-driven gyro rotor"),
+  I("A.7.2", "Directional gyro", "12_06", "Gyro erection (force → 90° precession)"),
+  I("A.7.2", "Directional gyro", "12_07", "DGI heading card"),
+  I("A.7.2", "Directional gyro", "12_08", "DGI apparent wander (Earth rotation)"),
+  I("A.7.2", "Directional gyro", "12_10", "DGI apparent wander at high latitude"),
+  I("A.7.2", "Directional gyro", "12_13", "Gyro wander vs latitude"),
 ];
 void I;

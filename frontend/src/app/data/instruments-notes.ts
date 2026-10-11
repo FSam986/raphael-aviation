@@ -134,6 +134,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Directional Gyro (DG) — a tied horizontal-axis gyro (2 gimbals)",
+        figureTopics: ["Directional gyro"],
         points: [
           "Rotor ~10 000 RPM, ±55° of gimbal freedom; holds a heading by rigidity — it cannot find north, so it is set and re-synchronised from the compass.",
           "Apparent drift (earth rate) = 15°/hr × sin(latitude): 0 at the equator, 15°/hr at the pole, clockwise (increasing) in the N hemisphere. The latitude rider/nut applies a torque to cancel it at a chosen latitude.",

@@ -5,6 +5,43 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.2 — directional gyro) ═══
+  "insfig-12_01": [
+    "This shows the inside of a directional gyro indicator (DGI). The rotor is spun by an air jet from the nozzle pillar, and the whole assembly is carried in gimbals so the spin axis can hold a horizontal direction.",
+    "A caging arm lets the pilot cage (lock) and re-set the gyro to a known heading, and a synchroniser gear links the gyro to the heading card. A latitude adjustment nut sets a small built-in precession to cancel Earth-rate wander for the local latitude.",
+    "The DGI itself has no north-seeking ability — it simply holds the heading it is set to, so the pilot must align it with the magnetic compass periodically.",
+  ],
+  "insfig-12_03": [
+    "This shows how an air (vacuum) driven gyro is spun. A fine jet of air is blown onto buckets (small scoops) cut around the rim of the rotor, like a water wheel, spinning it up to high speed.",
+    "The spin axis (X) is held in the chosen plane by the gimbals, giving the rigidity the instrument relies on.",
+    "Air drive is simple and needs no electrics — a engine-driven vacuum pump sucks cabin air through a filter and out through the nozzle, which is why gyro failure often follows a vacuum-pump failure.",
+  ],
+  "insfig-12_06": [
+    "This shows how a gyro is 'erected' (kept aligned) using precession. An air jet (R1) pushing on the rotor applies a force F; because of precession the gyro responds 90° round, producing a controlled tilt P that corrects the gyro back to its proper position.",
+    "By arranging the correcting jets or vanes to apply force where a drift has occurred, the system continuously nudges the spin axis back to where it should be.",
+    "This same precession principle is used to erect the artificial horizon to vertical and to keep the DGI's axis horizontal.",
+  ],
+  "insfig-12_07": [
+    "This shows the heading card (compass card) of a DGI, wrapped around the gyro drum and marked 000–360°. The card turns with the gyro's fixed direction while the aircraft (and the instrument case) turn around it.",
+    "The pilot reads the current heading where the card lines up with the fixed lubber line in the window, and a setting knob lets the card be synchronised to the magnetic compass.",
+    "Because the DGI is steady and free of the compass's turning and acceleration errors, it gives a smooth heading reference for accurate flying and turns.",
+  ],
+  "insfig-12_08": [
+    "This shows the DGI's apparent wander caused by the Earth's rotation. The gyro holds its axis fixed in space, but the Earth turns beneath it, so the heading card slowly appears to drift from the correct reading.",
+    "The two positions show the same space-fixed gyro reading differently as the Earth carries it round; the drift rate depends on latitude.",
+    "This is why the DGI must be re-synchronised with the magnetic compass about every 10–15 minutes — its reading slowly wanders off on its own.",
+  ],
+  "insfig-12_10": [
+    "This shows DGI apparent wander at high latitude (near the South Pole). Here the Earth's spin is almost entirely 'under' the gyro, so the apparent drift of the heading card is at its greatest.",
+    "A person looking north reads a heading on the DGI, but as the Earth rotates that reading changes even though the aircraft has not turned — the gyro has a large Earth-rate wander.",
+    "Near the poles this wander becomes so large that a simple DGI is of little use without frequent correction — one reason polar navigation needs other references.",
+  ],
+  "insfig-12_13": [
+    "This graph shows how much a gyro's apparent wander (in degrees per hour) depends on latitude, for both hemispheres. At the equator the Earth-rate drift of a horizontal-axis gyro is small; towards either pole it grows rapidly, reaching the full Earth rate (about 15°/hour) at 90°.",
+    "The curve lets the latitude-adjustment mechanism be set to apply an equal and opposite precession, cancelling the drift for the latitude being flown.",
+    "It explains why the DGI needs a latitude setting and why its drift is worst at high latitudes and least near the equator.",
+  ],
+
   // ═══ Flight Instruments (A.7.2 — gyroscopes) ═══
   "insfig-11_01": [
     "This shows the heart of every gyro instrument: a heavy rotor (wheel) spun at high speed about its own axis. The faster it spins and the more its mass is concentrated at the rim, the more 'angular momentum' it has.",
