@@ -5,6 +5,58 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.5 — temperature) ═══
+  "insfig-03_01": [
+    "This shows a bimetallic strip — two different metals (here Invar and brass) bonded together. The two metals expand by different amounts when heated: brass expands a lot, Invar hardly at all.",
+    "Because one side grows more than the other, the strip bends when the temperature changes — and the amount it bends is a direct measure of the temperature.",
+    "This simple, robust effect is the basis of the direct-reading thermometers used for outside air temperature in light aircraft.",
+  ],
+  "insfig-03_02": [
+    "This is a bimetallic thermometer built as a HELIX (coiled bimetallic strip). One end is fixed at the anchor point inside a metal case; the other end carries the pointer.",
+    "As the temperature changes the helix winds or unwinds, rotating the pointer over the scale — coiling the strip into a helix magnifies the small bending into a usable amount of pointer movement.",
+    "It needs no electrical power, which is why this type is used as a simple, reliable outside-air-temperature gauge.",
+  ],
+  "insfig-03_03": [
+    "This is a direct-reading bimetallic thermometer installed in the cockpit: the dial pokes through the windscreen or a window pillar so its sensing helix sits in the outside air, and the pilot reads the temperature off the face in °C and °F.",
+    "Because the sensor is exposed to the airflow, at speed it reads a little high (ram rise), but for a slow light aircraft it is close enough to the true outside air temperature.",
+    "Its simplicity (no power, no wiring to the sensor) makes it ideal for small aircraft.",
+  ],
+  "insfig-03_04": [
+    "This shows a total-air-temperature (TAT) probe for fast aircraft. Air enters the probe, and a right-angle bend makes heavier water droplets and ice particles carry straight on and separate out, so only clean air reaches the sensing element.",
+    "Boundary-layer control holes bleed off the slow, skin-affected air so the probe samples the true airflow, and a heating element stops the probe icing — carefully designed so the heat does not corrupt the reading.",
+    "The probe measures TAT (the temperature the moving air reaches when brought to rest on the sensor), from which the air-data system works out the static air temperature.",
+  ],
+  "insfig-03_05": [
+    "This is a real TAT probe mounted on the skin of a jet — the small L-shaped (often gold-coloured) sensor you see near the nose of airliners.",
+    "It is positioned in clean airflow, standing proud of the boundary layer, so it samples the true oncoming air.",
+    "Seeing it installed shows how the construction diagram translates into the small probe that feeds the air-data computers.",
+  ],
+  "insfig-03_06": [
+    "This is an ASPIRATED TAT probe. In flight the aircraft's motion drives air through the probe, but on the ground (or at low speed) there is little airflow, so an ejector uses engine BLEED AIR to suck air past the sensing element.",
+    "The bleed air entering the ejector fitting draws a flow out of the probe cavity, keeping air moving over the sensor so it reads correctly even when the aircraft is stationary.",
+    "Heating elements prevent icing, and side ports vent the used air. Aspiration ensures an accurate temperature at all speeds, which matters because air-data computations depend on it.",
+  ],
+  "insfig-03_07": [
+    "This graph explains 'ram rise'. Static air temperature (SAT) is the true temperature of the still air. As an aircraft speeds up, bringing the air to rest on a probe heats it, so the temperature the probe would read climbs above SAT.",
+    "Total air temperature (TAT) is the full temperature of air brought completely to rest — the maximum. Ram air temperature (RAT) is what is actually measured, a little below TAT because real probes recover only part of the rise (the 'recovery factor').",
+    "The gap grows with speed, so at high Mach the ram rise is large (tens of degrees). The crew's SAT is worked back from the measured RAT/TAT and the aircraft's speed.",
+  ],
+  "insfig-03_08": [
+    "This shows the back of a navigation (flight) computer being used to correct airspeed for temperature. In the small window the pilot sets the outside air temperature (here 17°C) against the pressure altitude.",
+    "Lining these up applies the density correction so that rectified airspeed (RAS) can be read off as true airspeed (TAS) on the outer scales.",
+    "It is the manual way of doing what an air-data computer does electronically — turning indicated/rectified airspeed into true airspeed using temperature and altitude.",
+  ],
+  "insfig-03_09": [
+    "This compares temperatures on the Kelvin (absolute) scale. Absolute zero is 0 K, water freezes at 273 K and boils at 373 K. Aviation calculations use Kelvin because it has no negative numbers.",
+    "The example shows a static air temperature (SAT) of 229 K and, after the ram rise from the aircraft's speed, a total air temperature (TAT) of 253 K — the air brought to rest on the probe is 24 K warmer.",
+    "Using Kelvin makes the ram-rise and air-density formulas straightforward, since they multiply and divide temperatures directly.",
+  ],
+  "insfig-03_10": [
+    "This shows how temperature changes with altitude in the standard atmosphere (ISA). At mean sea level ISA is +15°C, 1013.25 hPa. Temperature falls steadily with height up to the tropopause.",
+    "At about 36,090 ft (11 km) it reaches −56.5°C and then stays constant through the lower stratosphere (shown the same at 20 km), before slowly rising again much higher up (about −44.7°C at 32 km).",
+    "These standard figures are the reference every air-data instrument and performance calculation is built on — real conditions are then compared against this ISA model.",
+  ],
+
   // ═══ Flight Instruments (A.7.1 — pitot-static) ═══
   "insfig-02_01": [
     "This shows what the pressure heads sense. Facing straight into the airflow (along the aircraft's longitudinal axis), a forward-facing hole catches TOTAL (pitot) pressure — the still-air pressure plus the 'ram' from the aircraft's speed.",

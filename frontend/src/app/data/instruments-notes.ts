@@ -96,6 +96,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Thermometer types",
+        figureTopics: ["Temperature measurement"],
         points: [
           "Bi-metallic (direct-reading): two bonded metals of different expansion coefficients form a helix that coils/uncoils with temperature, driving a pointer — simple, cockpit-window mounted, shielded from solar radiation.",
           "Bourdon tube: a curved liquid/gas-filled tube that straightens as the sensed fluid expands with temperature (also used for pressure).",

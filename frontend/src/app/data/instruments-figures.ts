@@ -42,5 +42,17 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.1", "Pitot-static system", "02_04", "Flush static vent"),
   I("A.7.1", "Pitot-static system", "02_05", "Pitot/static probe installation"),
   I("A.7.1", "Pitot-static system", "02_06", "Static source selector valves (normal/alternate)"),
+
+  // Ch3 — Air temperature measurement (A.7.5)
+  I("A.7.5", "Temperature measurement", "03_01", "Bimetallic strip (Invar/brass)"),
+  I("A.7.5", "Temperature measurement", "03_02", "Bimetallic-helix thermometer"),
+  I("A.7.5", "Temperature measurement", "03_03", "Windscreen direct-reading OAT gauge"),
+  I("A.7.5", "Temperature measurement", "03_04", "TAT probe construction"),
+  I("A.7.5", "Temperature measurement", "03_05", "TAT probe installed"),
+  I("A.7.5", "Temperature measurement", "03_06", "Aspirated TAT probe"),
+  I("A.7.5", "Temperature measurement", "03_07", "Ram rise — SAT, RAT & TAT vs speed"),
+  I("A.7.5", "Temperature measurement", "03_08", "Temp-rise correction on the flight computer"),
+  I("A.7.5", "Temperature measurement", "03_09", "Kelvin scale with SAT/TAT example"),
+  I("A.7.5", "Temperature measurement", "03_10", "ISA temperature vs altitude"),
 ];
 void I;
