@@ -54,5 +54,9 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.5", "Temperature measurement", "03_08", "Temp-rise correction on the flight computer"),
   I("A.7.5", "Temperature measurement", "03_09", "Kelvin scale with SAT/TAT example"),
   I("A.7.5", "Temperature measurement", "03_10", "ISA temperature vs altitude"),
+
+  // Ch4 — Airspeed indicator (A.7.1)
+  I("A.7.1", "Airspeed indicator", "04_01", "ASI mechanism (dynamic pressure)"),
+  I("A.7.1", "Airspeed indicator", "04_02", "ASI colour code & V-speeds"),
 ];
 void I;

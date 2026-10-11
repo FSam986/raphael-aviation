@@ -5,6 +5,18 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.1 — ASI) ═══
+  "insfig-04_01": [
+    "This shows how an airspeed indicator works. Pitot (total) pressure — dynamic plus static (Dy + S) — is fed INSIDE the capsule, while static pressure (S) alone fills the surrounding case.",
+    "The static part cancels out, so the capsule is left responding only to the DYNAMIC pressure (Dy = Pt − Ps). As dynamic pressure rises with speed, the capsule expands, and a system of levers and gears turns that movement into pointer movement on the knots scale.",
+    "So the ASI is really a pressure gauge measuring dynamic pressure, which it displays as indicated airspeed.",
+  ],
+  "insfig-04_02": [
+    "This shows the standard ASI colour code. The WHITE arc is the flap operating range, from VS0 (stall, flaps/gear down) to VFE (max flaps-extended speed). The GREEN arc is the normal operating range, from VS1 (clean stall) to VNO (max structural cruising speed).",
+    "The YELLOW arc is the caution range (VNO to VNE), to be used only in smooth air, and the RED line is VNE, the never-exceed speed. On a twin, a BLUE line marks VYSE, the best single-engine rate-of-climb speed.",
+    "Reading these colours lets a pilot fly within limits at a glance — stay in the green, treat the yellow with care, and never pass the red line.",
+  ],
+
   // ═══ Flight Instruments (A.7.5 — temperature) ═══
   "insfig-03_01": [
     "This shows a bimetallic strip — two different metals (here Invar and brass) bonded together. The two metals expand by different amounts when heated: brass expands a lot, Invar hardly at all.",
