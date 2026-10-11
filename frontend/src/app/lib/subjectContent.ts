@@ -20,7 +20,9 @@ import { getHumanPerformanceQuestionsBySection } from "@/app/data/human-performa
 import { getHumanPerformanceNote } from "@/app/data/human-performance-notes";
 import { getHumanPerformanceFlashcardsBySection } from "@/app/data/human-performance-flashcards";
 import { getPPLPofQuestionsBySection } from "@/app/data/ppl-principles-of-flight-questions";
+import { getPPLPofNoteBySection } from "@/app/data/ppl-principles-of-flight-content";
 import { getPPLHplQuestionsBySection } from "@/app/data/ppl-human-performance-questions";
+import { getPPLHplNoteBySection, getPPLHplFlashcardsBySection } from "@/app/data/ppl-human-performance-content";
 import { getNavNoteBySection } from "@/app/data/nav-notes";
 import { getNavFlashcardsBySection } from "@/app/data/nav-flashcards";
 import { getRadioNavQuestionsBySection } from "@/app/data/radionav-questions";
@@ -94,7 +96,7 @@ const REGISTRY: Record<string, SubjectGetters> = {
   },
   "ppl-principles-of-flight": {
     questions: getPPLPofQuestionsBySection,
-    note: () => undefined,
+    note: getPPLPofNoteBySection,
     flashcards: () => [],
   },
   navigation: {
@@ -159,8 +161,8 @@ const REGISTRY: Record<string, SubjectGetters> = {
   },
   "ppl-human-performance": {
     questions: getPPLHplQuestionsBySection,
-    note: () => undefined,
-    flashcards: () => [],
+    note: getPPLHplNoteBySection,
+    flashcards: getPPLHplFlashcardsBySection,
   },
   "ir-meteorology": {
     questions: getIRMetQuestionsBySection,
