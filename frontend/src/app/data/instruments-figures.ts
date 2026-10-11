@@ -168,5 +168,13 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   // Ch21 — Flight management system (A.7.3)
   I("A.7.3", "EFIS & FMS", "21_01", "FMS / FMC architecture"),
   I("A.7.3", "EFIS & FMS", "21_02", "FMS control display unit (CDU)"),
+
+  // Ch22 — Electronic flight information systems (A.7.3)
+  I("A.7.3", "EFIS & FMS", "22_01", "EFIS architecture (symbol generators)"),
+  I("A.7.3", "EFIS & FMS", "22_02", "EFIS control panel"),
+  I("A.7.3", "EFIS & FMS", "22_05", "Complete EFIS — PFD, ND & control panel"),
+  I("A.7.3", "EFIS & FMS", "22_06", "Electronic HSI — full rose"),
+  I("A.7.3", "EFIS & FMS", "22_07", "Electronic HSI — arc mode with weather"),
+  I("A.7.3", "EFIS & FMS", "22_10", "Navigation display — map mode"),
 ];
 void I;

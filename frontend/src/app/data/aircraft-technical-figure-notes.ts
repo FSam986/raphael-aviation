@@ -180,6 +180,38 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This is the gyro used in the turn-and-slip indicator and turn coordinator, where what matters is how fast the aircraft is turning, not which way it points.",
   ],
 
+  // ═══ Flight Instruments (A.7.3 — EFIS) ═══
+  "insfig-22_01": [
+    "This shows how an EFIS (electronic flight instrument system) is built. Three symbol generators (left, centre, right) take in raw data — from the VOR, DME, ILS, radio altimeter, weather radar, inertial reference, flight-control and flight-management computers — and draw the pictures on the screens.",
+    "Each pilot's attitude director indicator (ADI/PFD) and horizontal situation indicator (HSI/ND) are driven by a symbol generator; the centre generator is a spare that can take over either side. Control panels set the modes and brightness, and remote light sensors dim the screens automatically.",
+    "Gathering everything through symbol generators lets the same data be drawn in different ways on either side and sent on to the flight-data recorder.",
+  ],
+  "insfig-22_02": [
+    "This is an EFIS control panel. The left knob sets the barometric reference and minimums (BARO/STD, RADIO/BARO minimums), and the right knob the altimeter setting (IN/HPA).",
+    "The CTR (mode) selector chooses how the navigation display is drawn — APP, VOR, MAP or PLN — and the TFC (range) knob sets the map range (5 to 640 NM). VOR/ADF selectors pick the needle sources.",
+    "The row of buttons (WXR, STA, WPT, ARPT, DATA, POS, TERR) overlay extra information — weather, navaids, waypoints, airports, terrain — on the navigation display as the crew need it.",
+  ],
+  "insfig-22_05": [
+    "This shows a complete EFIS installation: the control panel at the top, the primary flight display (PFD) on the left and the navigation display (ND) on the right.",
+    "The PFD gathers attitude, airspeed, altitude, vertical speed, heading and the ILS deviations — plus radio altitude and the autopilot/flight-director modes — into one picture. The ND shows the compass, track, the flight-planned route and navaids.",
+    "Side by side they give the crew the full flying and navigation picture that used to be spread across a dozen separate round instruments.",
+  ],
+  "insfig-22_06": [
+    "This is an electronic HSI (the navigation display in full-compass-rose mode). A 360° compass card turns under a fixed heading pointer, with the aircraft symbol in the centre.",
+    "A course deviation indicator (the magenta bar) shows displacement from the selected VOR/ILS track, and the data blocks give heading, DME distance, the tuned frequency and TO/FROM.",
+    "The full rose is useful for tracking a radial or localiser, giving the same information as the old mechanical HSI but drawn electronically and in colour.",
+  ],
+  "insfig-22_07": [
+    "This is the electronic HSI in EXPANDED (arc) mode with the weather radar overlaid. Only the forward portion of the compass is shown, enlarged, so detail ahead is clearer.",
+    "The coloured returns are weather radar echoes painted onto the display, so the crew can see storms relative to their track and planned turns, with the CDI still showing navigation guidance.",
+    "Overlaying weather on the navigation picture, in the arc mode, is one of the big advantages of EFIS over separate instruments.",
+  ],
+  "insfig-22_10": [
+    "This is the navigation display in MAP mode — the 'moving map' driven by the flight management system. The aircraft symbol sits at the bottom, with the flight-planned route drawn ahead through its waypoints (ZAPPO, BANTU, EDNOR…), each tagged with its altitude and time.",
+    "Navaids and airfields are shown as symbols, weather radar is overlaid, and a green range arc marks a selected distance; track and time are shown at the top.",
+    "This map-mode display, oriented to track and continuously updated by the FMS, gives the crew an at-a-glance picture of where they are, what is ahead and how the flight plan is progressing.",
+  ],
+
   // ═══ Flight Instruments (A.7.3 — FMS) ═══
   "insfig-21_01": [
     "This shows the architecture of a flight management system (FMS). At its heart are two flight management computers (FMCs), one per side, cross-linked so either can take over if the other fails.",
