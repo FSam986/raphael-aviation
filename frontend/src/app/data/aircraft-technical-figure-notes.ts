@@ -212,6 +212,53 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.6 — autopilot) ═══
+  "insfig-26_01": [
+    "This is the closed-loop control principle behind every autopilot. An INPUT (the demanded attitude, heading or altitude) is compared by a DETECTOR; the difference drives an OUTPUT that moves the aircraft, and the CONTROL stage drives the surface.",
+    "A FEEDBACK path measures the actual result and feeds it back to the detector, so the loop keeps correcting until the output matches the input and the error is zero.",
+    "This constant 'compare, correct, re-measure' is why an autopilot can hold a value steadily without the pilot — it is always nulling its own error.",
+  ],
+  "insfig-26_03": [
+    "This shows the autopilot's control loop driving a flight control. The autopilot computer turns the demanded change into an electrical signal that drives a SERVOMOTOR (actuator); through a mechanical coupling this moves the control surface (or its power unit, the PFCU).",
+    "Two feedback paths close the loop: rate-and-position feedback tells the computer exactly where the servo is, and aerodynamic feedback is the aircraft's actual response.",
+    "Because the computer always knows the surface position and the aircraft's response, it can apply just the right amount of control and stop cleanly on target.",
+  ],
+  "insfig-26_04": [
+    "This shows the autopilot's two nested loops. The INNER loop (autopilot computer → servomotor → control surface → error detector) is fast; it stabilises the aircraft's attitude and damps out disturbances.",
+    "The OUTER loop is slower and does the navigating — for example MCP heading hold compares the gyro-magnetic compass heading with the selected heading and feeds a demand into the inner loop.",
+    "So the outer loop decides WHAT to do (hold this heading/altitude) and the inner loop decides HOW to move the controls to achieve it smoothly.",
+  ],
+  "insfig-26_05": [
+    "This shows an autopilot actuator connected in PARALLEL with the manual control run. The A/P actuator moves the whole control linkage, so when the autopilot flies, the pilot's control wheel moves too (you can see it follow the inputs).",
+    "An artificial-feel unit still provides control feel, and the PFCU powers the surface. Because the linkage is shared, a parallel actuator has enough authority to fly the aircraft fully.",
+    "The moving control wheel gives the crew a clear cue of what the autopilot is doing, and the pilot can override it by force on the wheel.",
+  ],
+  "insfig-26_06": [
+    "This shows an autopilot actuator connected in SERIES within the control run. Here the actuator inserts small movements into the linkage WITHOUT moving the pilot's control wheel.",
+    "Series actuators have limited authority and are used for jobs like yaw damping or stability augmentation, where only small, fast corrections are needed and the controls should not be seen to move.",
+    "Parallel for full flight-path control (wheel moves), series for small automatic corrections (wheel still) — the two arrangements suit different autopilot functions.",
+  ],
+  "insfig-26_07": [
+    "This shows the engage-interlock chain of an autopilot. Pressing the MCP engage switch only energises the engage relay — and so the servomotor clutch — if EVERY protective condition in the chain is satisfied.",
+    "Those conditions include power-monitor OK, the rate gyro valid, the computer and servomotor self-tests passed, and hydraulic pressure present. A disengage button (and loss of any condition) breaks the chain and drops the autopilot out.",
+    "This series of interlocks ensures the autopilot can only engage when it is healthy, and disconnects instantly if a fault appears.",
+  ],
+  "insfig-26_10": [
+    "This PFD shows the autopilot/flight-director status along the top — the flight mode annunciator (FMA). It reads the auto-throttle mode (SPEED), the pitch mode (ALT / GS), the roll mode (HDG / LOC), the approach capability (CAT 2 DUAL, DH 100) and what is engaged (AP1, FD1, A/THR).",
+    "The crew's primary check of the automatics is this FMA band: it says exactly what the aircraft is doing and what it is armed to do next.",
+    "Colour and position are standardised (green active, etc.) so a glance confirms the automatics are in the expected modes.",
+  ],
+  "insfig-26_11": [
+    "This explains the flight mode annunciator (FMA) in full. It is split into columns: the auto-throttle engaged mode, the pitch engaged mode, the roll engaged mode and the A/P status, with the armed modes shown below the active ones.",
+    "The lists show the many possible annunciations (N1, RETARD, FMC SPD; TO/GA, ALT HOLD, VNAV PTH, G/S, FLARE; HDG SEL, VOR/LOC, LNAV; CMD, FD, CWS). A highlight box flags a mode that has just changed so the crew notice it.",
+    "Reading the FMA correctly is the single most important monitoring task when the automatics are flying — it is how the crew keep 'ahead' of what the aircraft will do.",
+  ],
+  "insfig-26_12": [
+    "This shows a dual-channel (A and B) autopilot. Each channel has its own roll, pitch and yaw inner loops, fed from the air-data, attitude (VG/INS/IRS), magnetic-heading, VOR/ILS and flight-management sources; the MCP selects the modes and engages the channels.",
+    "Running two independent channels allows 'fail-operational' automatic landings: if one channel fails, the other keeps flying the approach, which is what CAT III autoland requires.",
+    "Duplicating (or triplicating) the channels and their sensors is how the automatics are made safe enough to land the aircraft in very low visibility.",
+  ],
+
   // ═══ Flight Instruments (A.7.6 — autopilot MCP) ═══
   "insfig-25_06": [
     "This is the mode control panel (MCP) — the autopilot and flight-director 'master switch' panel. The crew select the target COURSE, IAS/MACH, HEADING, ALTITUDE and VERTICAL SPEED here, and arm the modes to fly them.",

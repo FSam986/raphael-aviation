@@ -185,5 +185,16 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.3", "Flight director", "25_07", "FD command bars — climb"),
   I("A.7.3", "Flight director", "25_08", "FD command bars — altitude hold"),
   I("A.7.3", "Flight director", "25_09", "ILS glideslope geometry"),
+
+  // Ch26 — Autopilot (A.7.6)
+  I("A.7.6", "Autopilot", "26_01", "Closed-loop control principle"),
+  I("A.7.6", "Autopilot", "26_03", "Autopilot servo loop → control surface"),
+  I("A.7.6", "Autopilot", "26_04", "Autopilot inner & outer loops"),
+  I("A.7.6", "Autopilot", "26_05", "A/P actuator in parallel"),
+  I("A.7.6", "Autopilot", "26_06", "A/P actuator in series"),
+  I("A.7.6", "Autopilot", "26_07", "Autopilot engage-interlock chain"),
+  I("A.7.6", "Autopilot", "26_10", "PFD autopilot/FMA annunciations"),
+  I("A.7.6", "Autopilot", "26_11", "Flight mode annunciator (FMA) explained"),
+  I("A.7.6", "Autopilot", "26_12", "Dual-channel autopilot architecture"),
 ];
 void I;
