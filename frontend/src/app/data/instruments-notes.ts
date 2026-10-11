@@ -124,6 +124,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The two gyro properties",
+        figureTopics: ["Gyroscope fundamentals"],
         points: [
           "Rigidity (gyroscopic inertia): a spinning gyro resists any change to its spin-axis direction. Rigidity ∝ rotor mass (at the rim) × rotor RPM.",
           "Precession: a force applied to a spinning gyro takes effect 90° round the rotor in the direction of spin. Precession rate ∝ applied force, and inversely ∝ rotor speed & inertia.",

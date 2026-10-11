@@ -100,5 +100,15 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.2", "Direct-indicating compass", "10_02", "Forces on the pendulous magnet (R, W, Z)"),
   I("A.7.2", "Direct-indicating compass", "10_03", "Pendulous suspension (side view)"),
   I("A.7.2", "Direct-indicating compass", "10_06", "Magnet pivot & card movement"),
+
+  // Ch11 — Gyroscopes (A.7.2)
+  I("A.7.2", "Gyroscope fundamentals", "11_01", "The spinning gyro rotor"),
+  I("A.7.2", "Gyroscope fundamentals", "11_04", "Rotor in gimbals (frame, inner, outer)"),
+  I("A.7.2", "Gyroscope fundamentals", "11_05", "Precession — torque acts 90° on"),
+  I("A.7.2", "Gyroscope fundamentals", "11_06", "Gyroscopic precession demonstration"),
+  I("A.7.2", "Gyroscope fundamentals", "11_10", "Apparent wander on the rotating Earth"),
+  I("A.7.2", "Gyroscope fundamentals", "11_12", "Earth-rate wander near the pole"),
+  I("A.7.2", "Gyroscope fundamentals", "11_13", "Transport wander"),
+  I("A.7.2", "Gyroscope fundamentals", "11_14", "Single-gimbal (rate) gyro"),
 ];
 void I;

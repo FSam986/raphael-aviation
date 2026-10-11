@@ -5,6 +5,48 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.2 — gyroscopes) ═══
+  "insfig-11_01": [
+    "This shows the heart of every gyro instrument: a heavy rotor (wheel) spun at high speed about its own axis. The faster it spins and the more its mass is concentrated at the rim, the more 'angular momentum' it has.",
+    "A fast-spinning rotor has a strong tendency to keep its spin axis pointing the same way in space — the property called RIGIDITY (gyroscopic inertia).",
+    "This rigidity is what lets a gyro provide a steady reference for attitude or heading while the aircraft moves around it.",
+  ],
+  "insfig-11_04": [
+    "This shows the rotor mounted in two gimbal rings inside a frame: an inner gimbal and an outer gimbal. Each gimbal pivot adds a direction in which the rotor can tilt freely.",
+    "With two gimbals the spin axis has freedom in all three planes — this is a 'free' gyro, which can hold its direction in space while the frame (and the aircraft) move around it.",
+    "Different instruments restrain one or more of these freedoms to make the gyro measure what they need (heading, attitude or rate of turn).",
+  ],
+  "insfig-11_05": [
+    "This shows precession, the gyro's second property. When a force (torque) is applied to try to tilt the spinning rotor, the rotor does NOT move where pushed — instead it moves as if the force had been applied 90° further round in the direction of spin.",
+    "So a torque applied here produces a tilt (precession) a quarter-turn away. The rate of precession depends on how big the force is and how much angular momentum the rotor has.",
+    "Precession is used deliberately to control and correct gyros, and it is also the cause of some of their errors.",
+  ],
+  "insfig-11_06": [
+    "This is the classic gyroscope demonstration. A spinning rotor is hung from a gimbal with a weight (M) pulling down on one side. Instead of simply toppling, the whole gyro slowly rotates (precesses) about the vertical axis.",
+    "The downward force of the weight is a torque; because of precession the gyro responds 90° round, swinging horizontally rather than falling.",
+    "It shows the two properties together — rigidity keeps the rotor spinning upright, and precession turns an applied torque into a steady circling motion.",
+  ],
+  "insfig-11_10": [
+    "This illustrates APPARENT wander caused by the Earth's rotation. A perfect free gyro holds its axis fixed in SPACE, but the Earth turns underneath it, so to an observer on the ground the gyro's axis appears to drift.",
+    "Two gyros at different places (1 and 2) see this apparent drift differently; the effect depends on latitude, being greatest at the poles and zero at the equator for the horizontal 'drift' component.",
+    "This 'Earth rate' apparent wander is why a directional gyro must be corrected (or realigned) regularly to keep showing the right heading.",
+  ],
+  "insfig-11_12": [
+    "This shows apparent wander near a pole (here looking down on the South Pole). Because the Earth's rotation axis comes straight up out of the pole, a gyro here sees the ground spinning fastest beneath it.",
+    "So the apparent drift of the gyro's axis is at its maximum near the poles — one full turn per day of Earth rotation shows up directly as drift.",
+    "This is why gyro-based direction references become hard to use at very high latitudes and need special handling or alternative references.",
+  ],
+  "insfig-11_13": [
+    "This shows TRANSPORT wander. As the aircraft carries the gyro from one place to another over the curved Earth, the local 'vertical' and 'north' directions change, so the gyro's fixed-in-space axis appears to wander relative to them.",
+    "The two aircraft positions show how the same space-fixed axis lines up differently with the local meridian at each place.",
+    "Transport wander adds to Earth-rate wander, and both must be allowed for (by a latitude-set correction) to keep a directional gyro reading true.",
+  ],
+  "insfig-11_14": [
+    "This shows a gyro with only ONE gimbal, giving the rotor a single degree of freedom. A spring (red) restrains that one freedom.",
+    "Because it can only move in one plane and is held by a spring, this 'rate gyro' does not hold a direction — instead, when the aircraft rotates, precession deflects the rotor against the spring by an amount proportional to the RATE of turn.",
+    "This is the gyro used in the turn-and-slip indicator and turn coordinator, where what matters is how fast the aircraft is turning, not which way it points.",
+  ],
+
   // ═══ Flight Instruments (A.7.2 — direct-indicating compass) ═══
   "insfig-10_01": [
     "This cutaway shows a direct-reading (magnetic) compass. A set of small bar magnets is fixed to a compass card; the whole assembly is pivoted on a jewelled bearing so it can swing freely to line up with the Earth's field.",
