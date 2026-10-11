@@ -85,5 +85,14 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.1", "Air data computer", "08_01", "Air data system — inputs & outputs"),
   I("A.7.1", "Air data computer", "08_02", "Air data computer servo mechanism"),
   I("A.7.1", "Air data computer", "08_03", "Dual ADC architecture with standby instruments"),
+
+  // Ch9 — Terrestrial magnetism (A.7.7)
+  I("A.7.7", "Terrestrial magnetism", "09_02", "Bar magnet field"),
+  I("A.7.7", "Terrestrial magnetism", "09_03", "Magnetising a bar by stroking"),
+  I("A.7.7", "Terrestrial magnetism", "09_05", "A magnet as aligned molecular magnets"),
+  I("A.7.7", "Terrestrial magnetism", "09_06", "Earth as a tilted bar magnet"),
+  I("A.7.7", "Terrestrial magnetism", "09_07", "Variation (true vs magnetic meridian)"),
+  I("A.7.7", "Terrestrial magnetism", "09_08", "Magnetic dip — H, Z & T components"),
+  I("A.7.7", "Terrestrial magnetism", "09_09", "Dip varies with magnetic latitude"),
 ];
 void I;

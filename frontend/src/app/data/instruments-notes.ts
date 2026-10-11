@@ -278,6 +278,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The earth's field",
+        figureTopics: ["Terrestrial magnetism"],
         points: [
           "Total field T splits into a horizontal component H (the DIRECTIVE force that aligns the compass) and a vertical component Z. Dip is the angle T makes with the horizontal.",
           "H is greatest at the magnetic EQUATOR (dip 0°, aclinic line) and zero at the poles; Z is greatest at the poles. So a compass is least reliable near the poles.",

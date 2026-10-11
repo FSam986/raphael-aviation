@@ -5,6 +5,43 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.7 — terrestrial magnetism) ═══
+  "insfig-09_02": [
+    "This shows the magnetic field of a bar magnet. Invisible field lines leave the north (red/blue) pole, curve round through the surrounding space, and return to the south pole; inside the magnet they run the other way to make a closed loop.",
+    "The lines are closest together at the poles, which is where the field is strongest, and spread out in between.",
+    "This simple picture matters because the Earth itself behaves like one huge bar magnet, and a compass needle lines up with these field lines.",
+  ],
+  "insfig-09_03": [
+    "This shows how an iron bar is magnetised by 'stroking' it with a permanent magnet, always in the same direction. Each stroke nudges the bar's internal magnetism to line up.",
+    "After enough strokes the bar becomes a magnet itself, with its own north and south poles.",
+    "This is how soft iron in the airframe can pick up unwanted magnetism — which later shows up as compass deviation that has to be corrected.",
+  ],
+  "insfig-09_05": [
+    "This pictures a magnet as made up of countless tiny 'molecular magnets'. In an unmagnetised piece they point every which way and cancel out; when the piece is magnetised they line up end to end.",
+    "With all the little magnets pointing the same way, their north poles add up at one end and their south poles at the other, giving the bar its overall field.",
+    "It also explains saturation (no more alignment is possible) and why heat or hammering, which jumble the alignment, can weaken or destroy a magnet.",
+  ],
+  "insfig-09_06": [
+    "This shows the Earth behaving like a giant bar magnet, tilted inside the planet. Its magnetic poles do NOT sit at the geographic (true) poles where the axis of spin comes out.",
+    "So the magnetic north pole is offset from true north, and the field lines run between the magnetic poles, crossing the geographical equator at an angle.",
+    "Because the magnetic and true poles differ, a compass points to magnetic north, not true north — the gap between them is 'variation'.",
+  ],
+  "insfig-09_07": [
+    "This defines variation. At a point X on the Earth, the direction to the true (geographic) north pole and the direction to the magnetic north pole are different; the angle between the true meridian and the magnetic meridian is the VARIATION at that point.",
+    "Variation is named east or west depending on which side of true north the magnetic north lies, and it is different at every place and slowly changes over the years.",
+    "A pilot must apply variation to convert between true directions (from the chart) and magnetic directions (from the compass).",
+  ],
+  "insfig-09_08": [
+    "This shows the Earth's magnetic field acting on a freely suspended magnet. The total field T is not horizontal — it dips into the ground. The DIP (angle of dip) is the angle it makes with the horizontal.",
+    "The field splits into a horizontal component H (which a compass uses to point north) and a vertical component Z (which tries to tip the needle). The relationships are Z/H = tan(dip), Z = T·sin(dip), H = T·cos(dip).",
+    "Only the horizontal component H is useful for direction — so where dip is large, H is small and the compass becomes weak and sluggish.",
+  ],
+  "insfig-09_09": [
+    "This shows how the angle of dip changes with magnetic latitude. Near the magnetic poles the field points almost straight down, so the dip is very steep and the horizontal component is tiny.",
+    "At mid-latitudes the dip is moderate, and near the magnetic equator the field is almost horizontal, so the dip is near zero and the horizontal component is at its strongest.",
+    "This is why a direct-reading compass works well near the equator but becomes unreliable at high magnetic latitudes, where there is almost no horizontal field to align with.",
+  ],
+
   // ═══ Flight Instruments (A.7.1 — air data computer) ═══
   "insfig-08_01": [
     "This shows the air-data system built around an air data computer (ADC). Into the ADC go the raw inputs: pitot pressure, static pressure, the total-temperature sensor and a weight-on-wheels signal.",
