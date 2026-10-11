@@ -207,5 +207,16 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.6", "Autopilot", "29_02", "Dutch roll yaw-roll coupling"),
   I("A.7.6", "Autopilot", "29_04", "Yaw damper washout filter"),
   I("A.7.6", "Autopilot", "29_05", "Yaw damper signal chain"),
+
+  // Ch32 — Flight warning systems (A.7.8)
+  I("A.7.8", "Stall & flight warnings", "32_01", "Flight warning display layout (ECAM)"),
+  I("A.7.8", "Stall & flight warnings", "32_02", "Central warning system architecture"),
+  // Ch33 — Aerodynamic warnings (A.7.8)
+  I("A.7.8", "Stall & flight warnings", "33_01", "Altitude alerting"),
+  I("A.7.8", "Stall & flight warnings", "33_02", "Altitude alert module"),
+  I("A.7.8", "Stall & flight warnings", "33_04", "VMO & high-speed buffet on the speed tape"),
+  I("A.7.8", "Stall & flight warnings", "33_05", "Stall warning system architecture"),
+  I("A.7.8", "Stall & flight warnings", "33_07", "Angle-of-attack vane sensor"),
+  I("A.7.8", "Stall & flight warnings", "33_08", "AoA indicator & indexer"),
 ];
 void I;

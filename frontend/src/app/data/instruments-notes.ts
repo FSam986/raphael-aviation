@@ -343,6 +343,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Stall warning & protection",
+        figureTopics: ["Stall & flight warnings"],
         points: [
           "Stall warning is based on ANGLE OF ATTACK (not airspeed), plus configuration (flap/slat). Simple aircraft: a leading-edge vane/reed. Transport: a stick shaker (and stick pusher for protection).",
           "The warning is set to give ~7% margin above the stall speed; alpha (AoA) probes are vane-type or differential-pressure conical probes, heated, on the forward fuselage.",

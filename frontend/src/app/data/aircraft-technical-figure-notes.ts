@@ -212,6 +212,48 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.8 — flight & stall warnings) ═══
+  "insfig-32_01": [
+    "This shows a glass flight deck's warning displays. Each pilot has a PFD and ND; in the centre are the engine/warning display (E/WD) and the system display (SD), where the warning system writes its messages and checklists.",
+    "Red master WARNING and amber master CAUTION lights sit in front of each pilot, backed by a loudspeaker for the aural alerts, and an ECAM control panel lets the crew call up system pages.",
+    "This layout (Airbus ECAM / Boeing EICAS) replaces dozens of separate warning lights with a central, prioritised display of what is wrong and what to do about it.",
+  ],
+  "insfig-32_02": [
+    "This shows the warning electronic unit that drives the central warning system. Inputs from the fire warnings, GPWS, communications, and flap/gear/speedbrake positions are gathered and prioritised into warning 'levels'.",
+    "Level-A (red WARNING) items demand immediate action and drive the master warning, a bell/chime and the siren/owl aural modules to the warning speakers; level-B (amber CAUTION) items drive the master caution. Take-off and landing configuration modules check the aircraft is correctly set up.",
+    "So one unit collects every alert, decides its urgency, and presents it as the right light, sound and EICAS/ECAM message — the heart of the central warning system.",
+  ],
+  "insfig-33_01": [
+    "This shows altitude alerting. As the aircraft approaches the selected altitude (set on the autopilot), an aural alert and light warn the crew at about 900 ft to go, so the level-off is anticipated.",
+    "If the aircraft then DEPARTS the selected altitude (drifts off the level it should be holding), another alert sounds at about 300 ft away to catch the deviation.",
+    "This 'approaching' and 'departing' alerting guards against both busting an assigned level and drifting off it — a common source of altitude errors.",
+  ],
+  "insfig-33_02": [
+    "This shows the altitude-alert module. It compares the barometric altitude with the selected altitude set on the autoflight mode control panel, and when they are within the alerting band it triggers the warnings.",
+    "The outputs are an aural 'beep-beep-beep' through the warning speakers, an amber ALT ALERT caution light, the master caution lights and an altitude-alert annunciation.",
+    "A simple comparison of 'where I am' against 'where I should be' is all it takes to give the crew timely warning of an approaching or departing level.",
+  ],
+  "insfig-33_04": [
+    "This shows the overspeed warning on an EFIS speed tape. The maximum operating speed (VMO/MMO) is marked by a red-and-black 'barber pole'; the airspeed pointer must stay below it.",
+    "A yellow band below it marks the high-speed buffet limit — the speed at which the aircraft would start to buffet from shock-induced separation at high Mach.",
+    "Painting these limits right on the speed tape lets the crew see instantly how much margin they have, and an aural overspeed warning sounds if VMO/MMO is exceeded.",
+  ],
+  "insfig-33_05": [
+    "This shows the stall warning system. A stall warning module takes in the angle of attack, the flap and slat positions, airspeed (from the ADC), thrust and the landing-gear position, because the stalling angle and speed depend on configuration.",
+    "When a stall is approaching it drives a stick-shaker motor, the master warning light, a synthetic 'STALL STALL' voice and an aural warning, and feeds the AoA indicator and EFIS. A test input checks the system.",
+    "Taking configuration into account means the warning fires at the right margin before the stall whether the aircraft is clean or with flaps and gear down.",
+  ],
+  "insfig-33_07": [
+    "This shows an angle-of-attack (AoA) vane sensor mounted on the fuselage skin. A small vane sticks into the airflow and weathercocks to line up with the relative wind; its angle relative to the aircraft is the angle of attack.",
+    "The vane is heated to prevent icing and is mounted forward on the fuselage where the airflow is clean. Aircraft carry more than one, on each side, for redundancy.",
+    "Because the stall happens at a fixed angle of attack (not a fixed speed), measuring AoA directly is the most reliable way to drive the stall warning and protection.",
+  ],
+  "insfig-33_08": [
+    "This shows how the AoA signal is used. The AoA probe feeds a flight-control/management computer (together with flap position), which drives an AoA indicator, an approach indexer and the flight-director interface.",
+    "The AoA indicator shows the margin to the stall, with marks for STALL, STALL WARNING and the correct LANDING AoA; the indexer (red chevron / green doughnut / amber chevron) gives the pilot a simple fast/on-speed/slow cue on the approach.",
+    "Flying the indexer 'doughnut' keeps the aircraft exactly on the right approach angle of attack regardless of weight, which is why carrier and precise approaches use it.",
+  ],
+
   // ═══ Flight Instruments (A.7.6 — yaw damper) ═══
   "insfig-29_01": [
     "This shows 'Dutch roll' — a combined rolling-and-yawing oscillation that swept-wing jets are prone to. The traces show bank angle over time: a STABLE aircraft damps the oscillation out on its own, a NEUTRAL one keeps oscillating at a steady amplitude, and an UNSTABLE one builds up.",
