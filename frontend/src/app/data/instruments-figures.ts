@@ -58,5 +58,15 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   // Ch4 — Airspeed indicator (A.7.1)
   I("A.7.1", "Airspeed indicator", "04_01", "ASI mechanism (dynamic pressure)"),
   I("A.7.1", "Airspeed indicator", "04_02", "ASI colour code & V-speeds"),
+
+  // Ch5 — The pressure altimeter (A.7.1)
+  I("A.7.1", "Altimeter", "05_01", "Altimeter datums — QNE/QNH/QFE"),
+  I("A.7.1", "Altimeter", "05_02", "Simple altimeter mechanism"),
+  I("A.7.1", "Altimeter", "05_03", "Sensitive altimeter mechanism"),
+  I("A.7.1", "Altimeter", "05_04", "Three-pointer altimeter face & subscale"),
+  I("A.7.1", "Altimeter", "05_06", "Altitude tape on an EFIS display"),
+  I("A.7.1", "Altimeter", "05_07", "Servo altimeter (E/I bar, servo motor)"),
+  I("A.7.1", "Altimeter", "05_08", "High-to-low pressure error"),
+  I("A.7.1", "Altimeter", "05_09", "Blocked static freezes the altimeter"),
 ];
 void I;

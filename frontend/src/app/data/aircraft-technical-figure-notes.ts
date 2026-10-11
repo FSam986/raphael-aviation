@@ -5,6 +5,48 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.1 — altimeter) ═══
+  "insfig-05_01": [
+    "This shows the three altimeter datums and the measurements they give. With the subscale set to QNE/standard 1013 hPa the altimeter reads PRESSURE ALTITUDE / a flight level; set to QNH (sea-level pressure) it reads ALTITUDE above mean sea level; set to QFE (airfield pressure) it reads HEIGHT above the airfield.",
+    "The worked example shows how QFE and QNH relate: an elevation of 270 ft is about 10 hPa (270 ÷ 27), so if QFE is 990 hPa then QNH is 990 + 10 = 1000 hPa.",
+    "Choosing the right setting is what makes the altimeter read the quantity the pilot wants — height for circuits, altitude for terrain clearance, flight levels for cruising.",
+  ],
+  "insfig-05_02": [
+    "This shows the mechanism of a simple altimeter. Static pressure (A) is fed into the sealed case; an evacuated (partial-vacuum) capsule (B) expands as the aircraft climbs and the surrounding pressure falls.",
+    "That expansion is picked up by a linkage (C) and magnified through a quadrant and gear (D), which rotates the pointer (E) around the scale.",
+    "A simple altimeter has just one capsule and no barometric subscale, so it can only be set on the ground — fine for basic use but not accurate enough for flight-level flying.",
+  ],
+  "insfig-05_03": [
+    "This is a sensitive altimeter. It uses two or three capsules stacked together so a small pressure change gives a larger movement, and a temperature-compensated bimetal spring to cancel the effect of temperature on the mechanism.",
+    "A suitable linkage of gears and levers drives several pointers, and a subscale (set by the setting knob) lets the pilot dial in QNH, QFE or 1013 hPa.",
+    "The extra capsules and compensation make it far more accurate and readable than the simple type — this is the altimeter used for serious navigation and level flying.",
+  ],
+  "insfig-05_04": [
+    "This is the face of a sensitive (three-pointer) altimeter. Like a clock, a long pointer reads hundreds of feet, a shorter one thousands, and a small one tens of thousands — all over a 0–9 (×100 ft) scale.",
+    "A small window shows the barometric subscale (here around 1010–1020 hPa) that the pilot sets to the required pressure datum.",
+    "Its weakness is that the three pointers can be misread by 10,000 ft at a glance — the very trap that led to counter-pointer and electronic altimeters.",
+  ],
+  "insfig-05_06": [
+    "This shows the altimeter on a modern electronic flight display (PFD). Instead of a round dial, altitude is shown as a moving vertical TAPE on the right, with the current altitude in a counter box in the middle of the tape.",
+    "The number is read directly (no pointers to confuse), the tape shows trend as it scrolls, and the barometric setting (STD / hPa) is shown at the bottom.",
+    "Presenting altitude this way removes the three-pointer misreading problem and sits it right beside the attitude and speed for an easy scan.",
+  ],
+  "insfig-05_07": [
+    "This is a servo (electric) altimeter. The capsules still sense static pressure, but instead of driving the pointer directly, their movement is detected electrically by an E-and-I bar inductive pick-off.",
+    "The tiny signal is amplified and drives a servo motor and gearbox, which turns the pointers and counters through a worm drive — and also feeds back to re-centre the E/I bar.",
+    "Because a powered motor does the work, the servo altimeter has almost no lag and can drive very accurate counters and send altitude data to other systems — the type used on large aircraft.",
+  ],
+  "insfig-05_08": [
+    "This shows the classic pressure error: flying from high pressure to low pressure without resetting the subscale. The altimeter keeps indicating against the old high setting (QNH 1025), but the real 1025 hPa pressure level has sloped down beneath the aircraft.",
+    "So the aircraft is lower than the altimeter shows — here a 30 hPa fall (1025 to 995) means about 900 ft of over-read.",
+    "This is the origin of the saying 'High to Low (or Hot to Cold), look out below': the altimeter OVER-reads, so true height is less than indicated — a terrain-clearance danger if the setting is not updated.",
+  ],
+  "insfig-05_09": [
+    "This shows what a blocked static line does to the altimeter. With the static source blocked, the pressure trapped in the case stays constant, so the capsule cannot sense the real change.",
+    "The result is that the indicated height WILL NOT CHANGE — the altimeter simply freezes at whatever it was reading when the blockage occurred, even as the aircraft climbs or descends.",
+    "A frozen altimeter is dangerous because it looks normal; this is why the alternate static source and cross-checks against the other altimeter and the VSI matter.",
+  ],
+
   // ═══ Flight Instruments (A.7.1 — ASI) ═══
   "insfig-04_01": [
     "This shows how an airspeed indicator works. Pitot (total) pressure — dynamic plus static (Dy + S) — is fed INSIDE the capsule, while static pressure (S) alone fills the surrounding case.",
