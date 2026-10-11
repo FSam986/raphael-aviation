@@ -180,6 +180,45 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "This is the gyro used in the turn-and-slip indicator and turn coordinator, where what matters is how fast the aircraft is turning, not which way it points.",
   ],
 
+  // ═══ Flight Instruments (A.7.3 — flight director) ═══
+  "insfig-25_01": [
+    "This shows the flight-director system. A computer gathers attitude (from the vertical gyro), air data (ADC), navigation (VOR/ILS), radio altitude and heading (gyro compass), then works out how the aircraft should be flown to follow the selected mode.",
+    "The result is drawn as command bars on the attitude director indicator (ADI) and guidance on the HSI, via an amplifier. A mode selector panel chooses what the FD should do, and an annunciator panel shows which modes are active.",
+    "The flight director does not move the controls — it shows the pilot (or autopilot) how to fly; the pilot keeps the command bars centred to follow the commanded path.",
+  ],
+  "insfig-25_03": [
+    "This shows the flight director on a modern PFD. The magenta command bars sit over the attitude display; the pilot (or autopilot) flies the aircraft symbol into the bars to follow the guidance.",
+    "The mode annunciations along the top (e.g. HDG SEL, VNAV PTH, and the armed modes) tell the crew exactly what the flight director is commanding and what it will do next.",
+    "Because the guidance is drawn right on the attitude, the pilot can follow a complex departure, approach or level-off just by keeping the bars centred.",
+  ],
+  "insfig-25_04": [
+    "This is the horizontal situation indicator (HSI), which combines the compass and the navigation picture. The compass card shows heading under the lubber line; a course-deviation bar shows displacement from the selected VOR/ILS course.",
+    "Flags show when the NAV or glideslope signals are valid, a glideslope scale down one side shows vertical deviation on an ILS, and a heading-selector 'bug' marks a chosen heading. DME distance and the selected course are shown in windows.",
+    "Bringing heading, course, deviation and glideslope onto one instrument gives the pilot the whole lateral-and-vertical navigation picture at a glance.",
+  ],
+  "insfig-25_07": [
+    "This shows the flight director command bars guiding a climb after take-off. With the FD in heading mode and a climb attitude set, the command bar moves UP, telling the pilot to pitch up.",
+    "The pilot pitches the aircraft until the aircraft symbol sits in the command bars; as the target altitude and heading are reached and captured, the bars re-centre to command level flight.",
+    "It shows the basic technique: fly the aircraft symbol into the command bars and keep them centred, and the aircraft follows the commanded path.",
+  ],
+  "insfig-25_08": [
+    "This shows the flight director holding an altitude. If the aircraft drifts above the selected level, the command bar deflects DOWN to command a descent back; if it drops below, the bar deflects UP.",
+    "Keeping the aircraft symbol centred in the bars (middle picture) holds the aircraft exactly on the chosen altitude.",
+    "This is the same follow-the-bars principle applied to level flight — the FD continuously commands the small corrections needed to stay on altitude.",
+  ],
+  "insfig-25_09": [
+    "This shows the geometry of an ILS glideslope on the approach. The glide path is a narrow beam at about 3°; the aircraft follows it down to the runway, and the flight director commands pitch to stay on it.",
+    "Because the beam is angular, the same fraction-of-a-degree deviation is a large height error far out (about 600 ft well up the approach) but only a few tens of feet close in (54 ft at 0.5 NM).",
+    "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
+  ],
+
+  // ═══ Flight Instruments (A.7.6 — autopilot MCP) ═══
+  "insfig-25_06": [
+    "This is the mode control panel (MCP) — the autopilot and flight-director 'master switch' panel. The crew select the target COURSE, IAS/MACH, HEADING, ALTITUDE and VERTICAL SPEED here, and arm the modes to fly them.",
+    "Mode buttons (LNAV/VNAV, VOR LOC, APP, LVL CHG, HDG SEL, ALT HOLD, VS, SPEED, N1) tell the autopilot/FD what to do; A/P ENGAGE (CMD A/B) turns the autopilot on, CWS gives control-wheel steering, and F/D switches the flight director on.",
+    "The MCP is how the crew tell the automatics what to fly; the flight director then shows it and the autopilot flies it.",
+  ],
+
   // ═══ Flight Instruments (A.7.3 — EFIS) ═══
   "insfig-22_01": [
     "This shows how an EFIS (electronic flight instrument system) is built. Three symbol generators (left, centre, right) take in raw data — from the VOR, DME, ILS, radio altimeter, weather radar, inertial reference, flight-control and flight-management computers — and draw the pictures on the screens.",

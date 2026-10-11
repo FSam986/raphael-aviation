@@ -191,6 +191,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Flight Director (FD)",
+        figureTopics: ["Flight director"],
         points: [
           "The FD computer drives command bars on the ADI (Attitude Director Indicator). Fly the aircraft symbol INTO the bars: bars up → pitch up, bars right → bank right.",
           "It is independent of the autopilot (computer + command bars only). Modes: heading hold, VOR/LOC (roll), ALT/GS (pitch), GA. 'LOC ARM' = armed, couples on centre-line capture.",
@@ -199,6 +200,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. HSI (Horizontal Situation Indicator)",
+        figureTopics: ["HSI"],
         points: [
           "A slaved compass card (from a remote gyro/flux valve) with a course pointer/CDI and a glide-slope pointer — combines heading, VOR/ILS deviation and TO/FROM in one picture.",
           "Each CDI dot ≈ 2° on VOR (full scale ~10°/5 dots); the localiser is more sensitive. Beyond 90° from the selected course the LOC sense reverses (for back-course).",
@@ -242,6 +244,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Loops, axes & basic modes",
+        figureTopics: ["Autopilot"],
         points: [
           "Single-axis = wing leveller (roll); two-axis adds pitch; three-axis adds yaw (yaw damper). Inner (stabilisation) loop is CLOSED (feedback); outer loop provides guidance.",
           "Stabilisation (inner) modes: pitch-attitude hold, wings-level, yaw damping. Guidance (outer) modes: heading/track hold, altitude hold, VS, IAS/Mach hold, VOR/LOC/GS capture.",

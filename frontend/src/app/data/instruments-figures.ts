@@ -176,5 +176,14 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.3", "EFIS & FMS", "22_06", "Electronic HSI — full rose"),
   I("A.7.3", "EFIS & FMS", "22_07", "Electronic HSI — arc mode with weather"),
   I("A.7.3", "EFIS & FMS", "22_10", "Navigation display — map mode"),
+
+  // Ch25 — Flight director systems (A.7.3 / A.7.6)
+  I("A.7.3", "Flight director", "25_01", "Flight director system architecture"),
+  I("A.7.3", "Flight director", "25_03", "Flight director on the PFD"),
+  I("A.7.3", "HSI", "25_04", "HSI face explained"),
+  I("A.7.6", "Autopilot", "25_06", "Autopilot/FD mode control panel (MCP)"),
+  I("A.7.3", "Flight director", "25_07", "FD command bars — climb"),
+  I("A.7.3", "Flight director", "25_08", "FD command bars — altitude hold"),
+  I("A.7.3", "Flight director", "25_09", "ILS glideslope geometry"),
 ];
 void I;
