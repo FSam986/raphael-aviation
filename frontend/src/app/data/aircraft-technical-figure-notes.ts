@@ -5,6 +5,253 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Human Performance (A.6.1 — physiology) ═══
+  "hpfig-05": [
+    "This cutaway shows the heart, the pump that drives the blood. It has four chambers: two upper atria that receive blood, and two lower ventricles that pump it out. The right side handles oxygen-poor blood, the left side oxygen-rich blood.",
+    "Blood returning from the body enters the right atrium, is pumped by the right ventricle to the lungs, comes back to the left atrium, and is driven by the powerful left ventricle out through the aorta to the whole body.",
+    "The heart's own muscle is fed by the coronary arteries. Because every tissue depends on this circulation for its oxygen, anything that weakens the heart or the blood directly limits what a pilot's body can tolerate.",
+  ],
+  "hpfig-06": [
+    "This shows the two circulations working as one loop. The right heart drives the PULMONARY circulation (blue) — blood out to the lungs to collect oxygen and dump carbon dioxide — which returns, now oxygen-rich (red), to the left heart.",
+    "The left heart then drives the SYSTEMIC circulation (red) out to the head, organs, muscles and legs, where the oxygen is used; the now oxygen-poor blood (blue) returns to the right heart to start again.",
+    "So the lungs and the body sit on two halves of the same circuit. This is why good lungs and good circulation together determine how much oxygen reaches the brain — the organ least tolerant of being starved of it.",
+  ],
+  "hpfig-07": [
+    "This shows what blood pressure means. As the heart contracts (beats), it pushes a surge of pressure through the arteries — the peak is the SYSTOLIC pressure (about 120 mmHg in a healthy adult).",
+    "Between beats, when the heart relaxes and refills, the pressure falls to its lowest value — the DIASTOLIC pressure (about 80 mmHg), the 'permanent' background pressure the arteries always hold.",
+    "Blood pressure is written as systolic over diastolic (120/80). It must stay high enough to push blood up to the brain — which is why rapid G-forces or standing suddenly can briefly drop brain blood flow and cause grey-out.",
+  ],
+  "hpfig-08": [
+    "This shows how we smell. Air drawn in through the nose carries scent molecules up past the nasal sinuses to a small patch high in the nose containing the olfactory (smell) sensors.",
+    "There, tiny sensory cells sit in a film of moisture; scent molecules dissolve and trigger them, and their nerve fibres pass the signal through the olfactory bulb straight to the brain.",
+    "For a pilot, smell is an early warning — of smoke, fuel or electrical burning — but it tires quickly (you stop noticing a constant smell), so a faint smell should never be ignored just because it fades.",
+  ],
+  "hpfig-09": [
+    "This shows the respiratory system. Air passes the voice box and down the windpipe (trachea), which branches into the two bronchi, then into ever-smaller bronchioles, ending in millions of tiny air sacs called alveoli.",
+    "Each alveolus is wrapped in capillaries; across their thin shared wall, oxygen passes into the blood and carbon dioxide passes out. The diaphragm and the rib muscles do the breathing by expanding and squeezing the chest.",
+    "The huge combined area of the alveoli is what lets enough oxygen cross into the blood. At altitude the outside air is thinner, so less oxygen crosses here — the root cause of hypoxia.",
+  ],
+  "hpfig-14": [
+    "This is the structure of the eye. Light enters through the clear cornea (which does most of the focusing), passes the pupil and the lens (which fine-tunes focus), and is projected onto the retina at the back.",
+    "The fovea is the tiny central spot of sharpest, colour vision; the rest of the retina gives peripheral and low-light vision. The blind spot is where the optic nerve and blood vessels leave the eye — there are no light sensors there.",
+    "Knowing this explains a pilot's vision limits: fine detail only in the centre, a natural blind spot, and a lens that must keep accommodating — all of which affect how (and how reliably) traffic and the runway are seen.",
+  ],
+  "hpfig-15": [
+    "This graph shows that sharp vision exists only in a tiny central area. At the fovea (0°) visual acuity is at its best (6/6, or 20/20); just a few degrees to either side it falls off very steeply.",
+    "By the edges of vision (50–60° off-centre) acuity is down to about 6/60 — good only for detecting movement, not detail.",
+    "The practical lesson: you can only read detail in the small central cone, so to search the sky you must move your eyes in small steps and look DIRECTLY at each sector — a glance 'out of the corner of the eye' will miss distant traffic.",
+  ],
+  "hpfig-16": [
+    "This cockpit view shows the see-and-avoid problem. Distant traffic (the aircraft on the right) is a tiny image that can easily fall on the eye's natural blind spot or simply be too small to notice against a plain background.",
+    "With nothing to focus on — an empty sky or haze — the relaxed eye focuses only a metre or two ahead (empty-field myopia), so far-off traffic is not even in focus. The crosshair marks where the eye should be deliberately aimed.",
+    "The defence is an active, systematic scan: move the eyes in small steps, pause to focus on each block of sky, and occasionally focus on a distant object (a cloud, a wingtip) to reset the eyes for distance.",
+  ],
+  "hpfig-17": [
+    "This explains the two common focusing faults. In LONG sight (hypermetropia) the eyeball is too short, so the image of a near object would form behind the retina — near objects are blurred; it is corrected with a converging (convex) lens.",
+    "In SHORT sight (myopia) the eyeball is too long, so the image of a distant object forms in front of the retina — distant objects are blurred; it is corrected with a diverging (concave) lens.",
+    "A pilot's vision standard matters because reading instruments (near) and spotting traffic (far) both have to be sharp; this is why corrective lenses, when required, must be worn and a spare pair carried.",
+  ],
+  "hpfig-38": [
+    "This shows why an aircraft on a collision course is so hard to see. Because it stays on a constant bearing, its image hardly grows at first: 1° across 1.5 seconds before impact, only 2° at 0.75 s.",
+    "Then in the final fraction of a second it 'blossoms' — 4° at 0.38 s, then 'very big indeed' at 0.1 s — far too late to react. A constant-bearing target also appears stationary in the windscreen, so the eye is not drawn to it.",
+    "The lesson for see-and-avoid: traffic that is NOT moving across your windscreen is the dangerous one, and you cannot rely on it 'growing' in time — a disciplined scan and a lookout for stationary dots are essential.",
+  ],
+  "hpfig-31": [
+    "This shows a false-horizon illusion. A long sloping cloud bank can be mistaken for the real horizon; the pilot lines the aircraft up with it and ends up flying with a wing low or the nose mis-set relative to the TRUE horizon near the ground.",
+    "The eye naturally takes the biggest, strongest line in view as 'level', and a tilted cloud, coastline or line of lights can easily win over the faint true horizon.",
+    "The cure is to cross-check the attitude indicator: when the outside references are unreliable (sloping cloud, night, haze) the instruments, not the eyes, define which way is level.",
+  ],
+  "hpfig-32": [
+    "This shows how a pilot judges the approach using the angle between the horizon and the aiming point. The eye measures the angle θ down from the horizon to the spot on the ground that is not moving in the windscreen — the aiming point.",
+    "If the approach angle is correct, that aiming point stays fixed in the window; if the aircraft goes high, the aiming point appears to move down, and if it goes low, it moves up.",
+    "This angular judgement is how a visual approach is flown, but it can be fooled by unusual runway slope, width or terrain — which is why the following illusions matter.",
+  ],
+  "hpfig-33": [
+    "This shows runway-slope illusions. A DOWN-sloping runway makes the aircraft look lower than it really is, so the pilot tends to fly a HIGHER-than-normal approach (and may land long or fast).",
+    "An UP-sloping runway does the opposite: it makes the aircraft look higher than it is, tempting the pilot to fly a LOWER approach — dangerously close to obstacles and the ground.",
+    "Knowing a runway's slope in advance, and backing up the visual picture with the glidepath (PAPI/VASI) and the instruments, protects against being fooled.",
+  ],
+  "hpfig-36": [
+    "This distinguishes two points on the approach. The visual AIMING point is the spot that stays still in the windscreen — where the aircraft would touch if the descent continued unflared. The TOUCHDOWN point is further on, where the wheels actually meet the runway after the flare.",
+    "A pilot aims at the fixed aiming point to hold a steady approach path, then rounds out (flares) so the aircraft floats on to the touchdown point beyond it.",
+    "Confusing the two, or misjudging them on an unusually sloped or sized runway, leads to undershooting or overshooting — a common cause of approach-and-landing errors.",
+  ],
+  "hpfig-39": [
+    "This shows how rain on the windscreen deceives the eye. A film or layer of water acts like a prism, bending the light coming from the runway as it passes through the screen to the pilot's eye.",
+    "The brain assumes light travels in a straight line, so it imagines the runway to be where the straight dashed line points — LOWER and FURTHER away than it really is.",
+    "Believing the runway is low and far, the pilot may push down and approach too low. The defence is to expect this in heavy rain and trust the glidepath and instruments rather than the wet-windscreen picture.",
+  ],
+  "hpfig-10": [
+    "This shows the structure of the ear in three parts. The OUTER ear (pinna and ear canal) funnels sound to the eardrum. The MIDDLE ear's three tiny bones (ossicles — malleus, incus, stapes) pass the eardrum's vibration on to the oval window.",
+    "The INNER ear contains the cochlea, which turns vibration into nerve signals for hearing, and the semicircular canals, which sense movement. The Eustachian tube links the middle ear to the throat to equalise pressure.",
+    "The Eustachian tube is why the ears 'pop' on climb and descent; if it is blocked (a cold), pressure cannot equalise and painful ear barotrauma results — worst on the descent.",
+  ],
+  "hpfig-11": [
+    "This shows the vestibular apparatus — the inner-ear balance organs. The three semicircular canals, set at right angles, each end in a swelling (the ampulla) containing a jelly flap (the cupula) that senses rotation.",
+    "The utricle and saccule contain maculae — patches of sensory hairs topped with tiny chalk granules (otoliths) that sense linear acceleration and the pull of gravity (which way is down).",
+    "Together these tell the brain how the head is moving and tilting. They work well on the ground but are easily fooled in flight, where sustained accelerations and turns produce false sensations.",
+  ],
+  "hpfig-12": [
+    "This shows how the two kinds of balance sensor work. In a MACULA, the heavy otoliths rest on sensory hairs; when the head tilts or the body speeds up or slows down, the otoliths drag on the hairs, which signal the movement to the brain.",
+    "In a SEMICIRCULAR CANAL, a turn makes the fluid (endolymph) lag behind, apparently flowing the opposite way and bending the cupula, which stimulates the hair cells.",
+    "The weakness is that both respond to CHANGE: in a steady turn the fluid catches up and the sensation fades, so the brain can wrongly feel 'straight and level' while still turning — the basis of spatial disorientation.",
+  ],
+  "hpfig-13": [
+    "This shows how the semicircular canals cause disorientation (the 'leans'). (A) Straight and level, the fluid is still and the sensation is correct. (B) As a roll begins, the fluid lags and bends the sense hairs — correctly signalling rotation.",
+    "(C) In a prolonged, constant-rate turn the fluid catches up and the hairs return upright, giving a FALSE sensation of no rotation — the pilot feels wings-level while still turning. (D) When the turn is stopped, the fluid over-runs, bending the hairs the other way, giving a false sensation of turning the OPPOSITE way.",
+    "This is why a pilot can roll level yet still feel they are banked (and be tempted to re-bank). The only cure is to believe the attitude indicator, not the seat-of-the-pants feeling.",
+  ],
+  "hpfig-37": [
+    "This shows the somatogravic illusion. The inner-ear otoliths cannot tell gravity apart from acceleration — they only feel the combined (resultant) force. In steady flight that force is simply the aircraft's weight, straight down.",
+    "During a strong forward acceleration (e.g. a go-around or take-off into the dark), an inertial force acts backwards; combined with weight, the resultant tilts back, and the brain reads this as the whole aircraft being pitched NOSE-UP.",
+    "The danger is the instinct to push the nose DOWN to 'correct' a climb that isn't happening — flying into the ground. The defence is to ignore the sensation and fly the attitude and performance instruments.",
+  ],
+
+  // ═══ Human Performance (A.6.2 — health) ═══
+  "hpfig-40": [
+    "This shows the body's natural daily sleep pattern over several days. Left to itself, the body clock drives one long block of sleep at roughly the same time each night (here about 2400 to 08).",
+    "This daily rhythm is set by light, routine and the internal clock, and it strongly 'wants' to sleep at night and be awake by day.",
+    "Shift work and time-zone changes fight this rhythm, which is why a pilot cannot simply sleep on demand at any hour — the body resists sleeping when the clock says 'day'.",
+  ],
+  "hpfig-41": [
+    "This shows that body temperature follows a daily (circadian) rhythm, swinging only about one degree but on a reliable cycle. It is LOWEST in the very early morning (around 0500) and HIGHEST in the late afternoon/early evening.",
+    "Mental and physical performance track this curve closely — we are at our worst around the 0400–0600 temperature trough and sharpest in the late afternoon.",
+    "This is why errors and microsleeps are most likely in the early hours, and why a long night flight or an early report time puts a crew at their natural low point.",
+  ],
+  "hpfig-42": [
+    "This shows the structure of a night's sleep. Sleep is not uniform — it cycles about every 90 minutes through light sleep (stages 1–2), deep 'slow-wave' sleep (stages 3–4) and periods of REM (dreaming) sleep.",
+    "Deep slow-wave sleep dominates the early cycles and restores the BODY; REM periods lengthen towards morning and consolidate MEMORY and learning.",
+    "Because the restorative and the memory stages come at different times of the night, broken or shortened sleep (common with shift work) robs a pilot of one or both — and only real sleep, not caffeine, can replace it.",
+  ],
+  "hpfig-43": [
+    "This shows why jet lag depends on direction. Flying WESTWARD lengthens the day — you chase the sun — so the body clock only has to delay, which it does fairly easily (here New York gives about 4 hours of jet lag).",
+    "Flying EASTWARD shortens the day and forces the clock to jump FORWARD, which the body finds much harder, giving more severe and longer-lasting jet lag (about 6 hours here).",
+    "The rule of thumb: the body re-synchronises only about one hour per day, and eastward is worse than westward — so crews need planned rest to recover before performance returns to normal.",
+  ],
+  "hpfig-19": [
+    "This models how stress arises. The brain compares the PERCEIVED demand of a task with the PERCEIVED ability to cope; the evaluation of that gap is what produces stress — not the raw situation itself.",
+    "Stress then drives both a psychological response (worry, narrowed attention) and a physiological response (adrenaline, heart rate), which together affect performance; the result feeds back and changes the next appraisal.",
+    "The key exam point: because it is about PERCEPTION, two pilots in the same situation feel different stress, and training (raising perceived ability) is one of the best ways to reduce it.",
+  ],
+  "hpfig-20": [
+    "This is the arousal–performance curve, an inverted U. With too LITTLE arousal (bored, under-loaded) performance is poor — attention wanders and things are missed.",
+    "Performance peaks at an OPTIMAL, moderate level of arousal, where the pilot is alert and engaged. Push arousal too HIGH (overload, panic) and performance collapses again as attention narrows and the pilot fixates.",
+    "The practical message: some stress is good and necessary, but both extremes are dangerous — the aim is to manage workload to stay near the top of the curve, not to remove all pressure.",
+  ],
+  "hpfig-21": [
+    "This shows that stress comes from many sources at once. Pressures from work (workload, lack of training, rostering, noise, vibration) pile in from one side, and life pressures (money, domestic and health problems, bereavement, moving house) from the other.",
+    "These stressors ADD UP: several small ones together can overwhelm a person just as much as one big crisis, and stress carried from home follows the pilot into the cockpit.",
+    "Recognising the full list matters because managing stress means spotting and reducing the load wherever it comes from — and knowing when the total has grown too high to fly safely.",
+  ],
+  "hpfig-18": [
+    "This shows the digestive system — the tract that turns food into usable energy. Food passes down the oesophagus to the stomach, then through the small intestine (duodenum and ileum) where most absorption happens, and finally the large intestine.",
+    "The liver, gall bladder and pancreas add digestive juices along the way. Gas is produced as food is broken down, and this gas expands as cabin pressure falls with altitude.",
+    "For a pilot this matters two ways: an upset gut (gastro-enteritis) is a leading cause of in-flight incapacitation, and trapped gas expanding on the climb causes abdominal discomfort — made worse by fizzy drinks and gas-forming foods before flight.",
+  ],
+
+  // ═══ Human Performance (A.6.3 — psychology) ═══
+  "hpfig-24": [
+    "This is the information-processing model of how the mind handles flying. Stimuli arrive at the senses and are held briefly in sensory stores; an attention mechanism selects what to deal with, and perception makes sense of it.",
+    "A central decision-maker then decides what to do, drawing on short-term (working) memory and long-term memory, and sends commands to motor programmes that produce the actions. Feedback from the result loops back to the start.",
+    "The model explains human limits: attention and working memory are the bottlenecks, so overloading them (too much at once) is where errors creep in — and why good cockpit design and workload management matter.",
+  ],
+  "hpfig-28": [
+    "These are geometric optical illusions, which show that perception is an interpretation, not a direct readout. In each pair the brain is tricked into seeing lengths or sizes wrongly — for example two identical lines look different because of the arrowheads or converging lines around them.",
+    "The context (surrounding lines, perspective cues) changes how the brain judges size and length, even when a ruler proves the shapes are identical.",
+    "The lesson for flight: the eyes can be systematically fooled by the surroundings, so a pilot must be aware that a confident visual impression (of height, distance or slope) can simply be wrong.",
+  ],
+  "hpfig-29": [
+    "These are 'impossible figures' — drawings that look like solid objects at first glance but cannot actually exist, such as a triangle whose three corners each look correct yet can never join up in three dimensions.",
+    "They work because the brain builds a 3-D interpretation from small local cues without checking the whole, and only on closer study does the contradiction appear.",
+    "The point for pilots is the same as the other illusions: the brain jumps to a confident 'answer' from incomplete information, so a first impression needs cross-checking before it is trusted.",
+  ],
+  "hpfig-25": [
+    "This is an expectation (set) illusion. Most people read the sign as 'BIRD IN THE HAND' and completely miss that the word 'THE' is written twice.",
+    "It happens because the brain reads what it EXPECTS to see rather than what is actually there — a powerful shortcut that usually helps but sometimes hides the obvious.",
+    "In the cockpit the same effect makes a pilot 'read back' the clearance or checklist they expected, not the one actually given — which is why deliberate, careful reading and cross-checking matter so much.",
+  ],
+  "hpfig-49": [
+    "This shows the basic 'T' arrangement of the primary flight instruments: the attitude indicator on top centre, with the airspeed indicator to its left and the altimeter to its right, and the direction indicator below.",
+    "This standard layout lets a pilot build an efficient SCAN — eyes returning again and again to the attitude indicator in the middle, checking each surrounding instrument in turn.",
+    "A consistent scan pattern keeps the whole picture updated and stops the pilot fixating on one instrument; the standard 'T' means the scan transfers from aircraft to aircraft.",
+  ],
+  "hpfig-50": [
+    "This is a classic three-pointer (plus drum) altimeter reading 2230 ft. Its danger is that the small pointer (×10 000 ft) and the large pointer (×100 ft) are easily confused, so an altitude can be misread by 10 000 ft.",
+    "This is a 'design-induced error': the instrument itself invites mistakes, especially under workload or fatigue, and such misreadings have caused accidents.",
+    "It illustrates why display design matters — later counter/drum and electronic altimeters present the number directly to remove this trap.",
+  ],
+  "hpfig-51": [
+    "This is a modern glass-cockpit primary flight display (PFD). It gathers the information that used to be spread over many dials onto one screen: the attitude in the centre, a speed tape on the left, an altitude and vertical-speed tape on the right.",
+    "Presenting everything together, in colour and in one place, reduces the scanning and mental effort compared with separate round dials.",
+    "But it changes the human-factors challenge: the pilot must understand the display's modes and symbols and guard against 'automation complacency' — trusting the screen without cross-checking.",
+  ],
+  "hpfig-52": [
+    "This shows the power of pattern recognition in monitoring. A panel of identical gauges all reading the same way forms an easy-to-read PATTERN; the one gauge that is out of line (here one pointer at a different angle) jumps out instantly.",
+    "The matching set of engine instruments, and the power levers lined up below, let the crew spot an abnormal engine at a glance rather than reading each value.",
+    "This is why instruments are grouped and aligned so a normal state makes a tidy pattern — the eye detects the break in the pattern far faster than it reads numbers.",
+  ],
+  "hpfig-01": [
+    "This chart tracks world airline fatal accidents and the number of fatalities over about a decade. Both lines stay low and, against the huge growth in flying, the trend shows aviation becoming steadily safer.",
+    "The numbers are small because engineering and procedures have removed most mechanical causes of accidents.",
+    "This sets up the central point of human-factors study: with machines now so reliable, the majority of remaining accidents come down to human performance — which is what this subject sets out to improve.",
+  ],
+  "hpfig-03": [
+    "This pie chart shows what actually causes accidents today. Human-factor errors account for the large majority — about 73% — far outweighing mechanical failure, weather or ATC.",
+    "In other words, roughly three out of four accidents trace back not to a broken part but to a human decision, perception or action.",
+    "This single figure is the justification for the whole Human Performance subject: the biggest safety gains now come from understanding and reducing human error, not from building better machines.",
+  ],
+  "hpfig-04": [
+    "This is Reason's 'Swiss-cheese' model of how accidents happen. Each slice is a layer of defence (procedures, checks, training, equipment). Each layer has holes — latent weaknesses and active errors — that open and close over time.",
+    "Normally a hazard is stopped by one of the layers. An accident occurs only on the rare occasion when the holes in EVERY layer line up, letting the hazard pass straight through to cause harm.",
+    "The lesson is that accidents are rarely one person's single mistake; they are a chain through many weakened defences — so safety means strengthening every layer, not just blaming the last person in the chain.",
+  ],
+  "hpfig-54": [
+    "This uses a brick-wall analogy for error tolerance. In a well-designed ('protected') system the bricks overlap, so a single faulty brick (an error) is contained and the wall still stands.",
+    "In a poorly designed ('vulnerable') system the joints line up, so one bad brick can crack straight through and weaken the whole structure.",
+    "The message for operations: systems and procedures should be designed so that an inevitable human error is caught and absorbed, rather than being allowed to bring the whole operation down.",
+  ],
+  "hpfig-55": [
+    "This shows design-induced error from inconsistent controls. Three similar altimeter subscale knobs are turned the same way, yet because the displays are not standardised the result is 'decrease, decrease, increase' — the same action gives opposite effects.",
+    "When a control's direction of movement does not reliably match the expected ('natural') direction of the display, the operator is set up to make mistakes, especially under stress.",
+    "Good ergonomics obey population stereotypes — up/clockwise means 'more' — so that habits learned on one device transfer safely to the next.",
+  ],
+  "hpfig-26": [
+    "This is Maslow's hierarchy of needs. The base holds the physiological needs (hunger, thirst, oxygen); above them come safety and security, then belonging and affection, then self-esteem, and at the top self-fulfilment.",
+    "The idea is that lower needs must be reasonably satisfied before the higher ones motivate behaviour — a cold, frightened or exhausted person is driven by those needs, not by higher goals.",
+    "For crews it is a reminder that basic needs (rest, food, feeling safe) underlie motivation and performance: a pilot whose basic needs are unmet will not perform at their best however skilled.",
+  ],
+  "hpfig-27": [
+    "This models motivation. The value a person places on a reward and their expectation of getting it combine into the 'reward utility', which decides how much EFFORT they put in.",
+    "That effort, together with the person's natural abilities and learned skills, produces the performance achieved — which brings intrinsic rewards (satisfaction) and extrinsic rewards (pay, recognition).",
+    "The point is that effort is not automatic: people apply themselves when they believe the reward is both worthwhile and attainable — which is why fair, achievable goals motivate better than impossible or meaningless ones.",
+  ],
+  "hpfig-44": [
+    "This shows the three classic body types (somatotypes): the lean ectomorph, the rounded endomorph, and the muscular mesomorph.",
+    "Early theories tried to link these body shapes to personality, but the link is weak and unreliable — the figure is really a caution against judging people (or crew) by appearance.",
+    "The useful point for CRM is that individuals differ physically and psychologically, and stereotyping a colleague by their build or looks is a poor and misleading basis for working together.",
+  ],
+  "hpfig-45": [
+    "This is Eysenck's map of personality, using two axes. One runs from INTROVERSION to EXTROVERSION; the other from STABLE to anxious (neurotic).",
+    "The four quadrants give broad types — for example a stable extrovert is responsive and easy-going, while an anxious introvert is sober and pessimistic.",
+    "The value for crews is self-awareness and understanding others: knowing roughly where you and your colleagues sit helps anticipate how each will react under pressure and communicate better as a team.",
+  ],
+  "hpfig-46": [
+    "This leadership grid plots two concerns: how much a leader is GOAL-directed (getting the task done) against how much they are PERSON-directed (caring for the people).",
+    "A good captain needs BOTH — high on task and high on people — rather than driving the task while ignoring the crew, or being popular while the job slips.",
+    "The grid is a tool for thinking about leadership style: the most effective style flexes with the situation but keeps both the mission and the team in view.",
+  ],
+  "hpfig-47": [
+    "This shows the cockpit authority gradient — the balance of power between captain and first officer. The AUTOCRATIC cockpit has too steep a gradient: the captain dominates and the first officer is reluctant to speak up.",
+    "The LAISSEZ-FAIRE cockpit has almost no gradient: no one is clearly in charge, so monitoring and decisions fall through the gaps. The SYNERGISTIC cockpit (the ideal) has a moderate gradient — the captain leads, but the first officer is encouraged to contribute and challenge.",
+    "The accident record shows both extremes are dangerous; CRM aims for the synergistic middle, where the team's combined performance exceeds that of any individual.",
+  ],
+  "hpfig-48": [
+    "This is the SHELL model, a framework for human factors. The central L is Liveware — the human being — and the model studies how well that person fits with the parts around them.",
+    "Those parts are Software (procedures, checklists, symbology), Hardware (controls, displays, seats), Environment (noise, light, weather, time pressure) and the other Liveware (other people — crew, ATC).",
+    "The ragged edges show that each interface must be matched to human capabilities; a mismatch at any edge (confusing procedure, awkward control, poor communication) is where human error is bred.",
+  ],
+
+
   // ─── Airframes — Fuel Systems (A.1.2) ───
   "atgfig-ch16_fig_01": [
     "This is a gravity-feed fuel system, used on high-wing light aircraft. Fuel sits in a tank in each wing, high above the engine, so it simply flows down to the engine under its own weight — no pump is needed.",

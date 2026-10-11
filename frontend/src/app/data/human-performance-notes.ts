@@ -4,6 +4,7 @@
 export interface NoteBlock {
   heading: string;
   points: string[];
+  figureTopics?: string[];
 }
 
 export interface SectionNote {
@@ -21,7 +22,7 @@ const NOTES: Record<string, SectionNote> = {
     title: "Basic Physiology",
     intro: "How the body supplies oxygen, senses the world and copes with altitude and acceleration — the physical limits a pilot must respect.",
     blocks: [
-      { heading: "Atmosphere & respiration", points: [
+      { heading: "Atmosphere & respiration", figureTopics: ["Atmosphere & respiration"], points: [
         "Air ≈ 78% N₂, 21% O₂, 1% other — constant proportions up to ~70 000 ft.",
         "Oxygen is used to oxidise food for energy; carried on haemoglobin in the red blood cells.",
         "Gas exchange occurs across the alveoli/capillary membrane; the nose filters, warms and humidifies incoming air.",
@@ -34,13 +35,13 @@ const NOTES: Record<string, SectionNote> = {
         "Cabin pressurised to a max cabin altitude of ~6000–8000 ft; decompression sickness = N₂ bubbles out of solution.",
         "Hyperventilation blows off CO₂ → dizziness, tingling; cure by slowing breathing / rebreathing.",
       ]},
-      { heading: "Vision", points: [
+      { heading: "Vision", figureTopics: ["Vision"], points: [
         "Cornea does most focusing; lens accommodates; fovea (cones) = sharpest, central, colour vision.",
         "Rods = low-light, peripheral, monochrome; the blind spot is the optic-nerve exit.",
         "Empty-field myopia: eye relaxes to ~1–2 m without references — scan with small, frequent eye movements.",
         "Night vision: use off-centre viewing; takes ~30 min to adapt; destroyed quickly by bright light.",
       ]},
-      { heading: "Hearing, balance & acceleration", points: [
+      { heading: "Hearing, balance & acceleration", figureTopics: ["Hearing, balance & acceleration"], points: [
         "Ossicles pass eardrum vibration to the cochlear fluid; conductive deafness = eardrum/ossicle fault.",
         "Vestibular apparatus (semicircular canals + otoliths) senses motion/attitude → spatial orientation.",
         "Somatogravic illusion: acceleration feels nose-up, deceleration nose-down — fly the instruments.",
@@ -64,19 +65,19 @@ const NOTES: Record<string, SectionNote> = {
     title: "Health & Hygiene",
     intro: "Fitness to fly: sleep and circadian rhythm, stress and fatigue, and the health/lifestyle factors that ground a pilot.",
     blocks: [
-      { heading: "Sleep & circadian rhythm", points: [
+      { heading: "Sleep & circadian rhythm", figureTopics: ["Sleep & circadian rhythm"], points: [
         "Free-running body clock ≈ 25 h; re-synchronises at ~1–1.5 h per day; eastward travel is harder.",
         "Slow-wave sleep (stages 3–4) restores the body; REM consolidates memory and is where dreaming occurs.",
         "Sleep cycles ~90 min; slow-wave dominates early, REM lengthens later; REM-rebound after deprivation.",
         "Body temperature (and performance) troughs ~0500; alcohol suppresses REM.",
       ]},
-      { heading: "Stress & fatigue", points: [
+      { heading: "Stress & fatigue", figureTopics: ["Stress & fatigue"], points: [
         "Stress depends on PERCEIVED demand vs PERCEIVED ability; a normal, adaptive response (manage, don't eliminate).",
         "General Adaptation Syndrome: alarm → resistance → exhaustion.",
         "Arousal vs performance is an inverted-U — both extremes degrade performance.",
         "Fatigue (acute/chronic) degrades attention, memory and decision-making; only rest cures it.",
       ]},
-      { heading: "Health, hygiene & intoxication", points: [
+      { heading: "Health, hygiene & intoxication", figureTopics: ["Health, hygiene & intoxication"], points: [
         "BMI > 25 overweight, > 30 obese; acute gastro-enteritis is the top cause of in-flight incapacitation.",
         "Carbon monoxide binds haemoglobin ~200× more than O₂ (cherry-red skin); smoking 20/day ≈ +5000–6000 ft.",
         "Only time clears blood alcohol; no flying 12 h after a dive (24 h if >30 ft).",
@@ -100,20 +101,20 @@ const NOTES: Record<string, SectionNote> = {
     title: "Basic Aviation Psychology",
     intro: "Information processing, memory, error, decision-making and crew resource management — how the mind performs and fails in the cockpit.",
     blocks: [
-      { heading: "Information processing & memory", points: [
+      { heading: "Information processing & memory", figureTopics: ["Information processing & memory"], points: [
         "Sensory stores: iconic (visual) ~0.5–1 s, echoic (auditory) ~2–8 s.",
         "Working memory holds 7 ± 2 items, lost in ~10–20 s without rehearsal; chunking expands it.",
         "Long-term memory: episodic (events), semantic (facts), procedural (skills/motor programmes).",
         "Attention is needed because processing capacity is limited; simple reaction time ≈ 0.2 s.",
       ]},
-      { heading: "Behaviour, error & attitudes", points: [
+      { heading: "Behaviour, error & attitudes", figureTopics: ["Behaviour, error & attitudes"], points: [
         "Rasmussen: skill-based (automatic slips), rule-based (if–then), knowledge-based (novel).",
         "Fitts & Posner skill stages: cognitive → associative → autonomous.",
         "5 hazardous attitudes: anti-authority, impulsivity, invulnerability, macho, resignation.",
         "SHELL model (Software, Hardware, Environment, Liveware–Liveware) frames human-factors mismatches.",
         "Confirmation bias and false mental models (resistant to change) cause error chains.",
       ]},
-      { heading: "Decision-making & CRM", points: [
+      { heading: "Decision-making & CRM", figureTopics: ["Decision-making & CRM"], points: [
         "Group decisions usually beat the average individual, but risk the 'risky shift'.",
         "Situational awareness = perceive + comprehend + project; maintained by updating the mental model.",
         "CRM: communication, leadership, workload management; synergy = team > sum of members.",
