@@ -119,5 +119,16 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.2", "Directional gyro", "12_08", "DGI apparent wander (Earth rotation)"),
   I("A.7.2", "Directional gyro", "12_10", "DGI apparent wander at high latitude"),
   I("A.7.2", "Directional gyro", "12_13", "Gyro wander vs latitude"),
+
+  // Ch13 — The artificial horizon (A.7.2)
+  I("A.7.2", "Artificial horizon", "13_01", "Artificial horizon face"),
+  I("A.7.2", "Artificial horizon", "13_03", "AH indicating a climb"),
+  I("A.7.2", "Artificial horizon", "13_04", "AH indicating a bank"),
+  I("A.7.2", "Artificial horizon", "13_05", "AH construction (cutaway)"),
+  I("A.7.2", "Artificial horizon", "13_06", "Pendulous-vane erection unit"),
+  I("A.7.2", "Artificial horizon", "13_07", "Vane erection reaction force"),
+  I("A.7.2", "Artificial horizon", "13_09", "AH acceleration error"),
+  I("A.7.2", "Artificial horizon", "13_10", "Electric AH (pitch torque motor)"),
+  I("A.7.2", "Artificial horizon", "13_11", "Remote servo-driven horizon"),
 ];
 void I;

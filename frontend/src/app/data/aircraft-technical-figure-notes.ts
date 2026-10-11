@@ -5,6 +5,53 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.2 — artificial horizon) ═══
+  "insfig-13_01": [
+    "This is the face of an artificial horizon (attitude indicator). A fixed miniature-aircraft symbol (the little wings) represents the aeroplane, and a moving horizon bar represents the real horizon.",
+    "The pilot judges attitude by how the wings sit against the horizon line: wings on the line and level means straight and level flight.",
+    "Because it is driven by a gyro held vertical, the horizon bar gives a stable artificial picture of the real horizon even in cloud or at night.",
+  ],
+  "insfig-13_03": [
+    "This shows the artificial horizon indicating a CLIMB. The miniature-aircraft wings sit ABOVE the horizon bar, and the sky area grows — just as the real horizon drops below the nose when you pitch up.",
+    "The amount the wings sit above the line shows roughly how steep the nose-up attitude is.",
+    "Reading pitch this way lets the pilot set and hold a climb attitude precisely without looking outside.",
+  ],
+  "insfig-13_04": [
+    "This shows the artificial horizon indicating a BANK (turn). The horizon bar tilts while the miniature-aircraft wings stay fixed, so the angle between them shows the angle of bank.",
+    "A bank index around the top of the dial marks standard bank angles (10°, 20°, 30°, 45°, 60°) for precise turns.",
+    "Together with the pitch indication, this gives the pilot a complete attitude picture — pitch and bank — on one instrument.",
+  ],
+  "insfig-13_05": [
+    "This cutaway shows how an artificial horizon is built. The rotor spins about a VERTICAL axis inside inner and outer gimbals, so its rigidity holds a true-vertical reference.",
+    "The outer gimbal drives the horizon bar, which the pilot sees against the fixed aircraft symbol. A pendulous unit with vanes at the bottom keeps the spin axis erected to the true vertical.",
+    "The gimbal arrangement lets the case (and aircraft) pitch and roll around the steady gyro, so the horizon bar always shows the real attitude.",
+  ],
+  "insfig-13_06": [
+    "This shows the pendulous-vane erection system that keeps the gyro vertical. Under the gyro hang four vanes covering air-exhaust ports (A, C and two others); the spinning rotor's air escapes through them.",
+    "When the spin axis is truly vertical, all four ports are half-covered equally, so the air escapes evenly and no correcting force is produced.",
+    "This balanced exhaust is the 'at rest' condition — the next figure shows what happens when the gyro tilts.",
+  ],
+  "insfig-13_07": [
+    "This shows the vane system correcting a tilt. When the gyro leans, gravity swings the hanging vanes so one port opens more and the opposite one closes; the air then escapes unevenly.",
+    "The escaping air produces a REACTION force on that side, and because of precession this force acts 90° round to tip the spin axis back towards vertical.",
+    "So the pendulous vanes continuously 'erect' the gyro to the true vertical, keeping the horizon bar honest.",
+  ],
+  "insfig-13_09": [
+    "This shows an acceleration (and turning) error of the artificial horizon. During a forward acceleration the pendulous erection system is thrown back, so it wrongly 'corrects' the gyro and it becomes PRECESSED.",
+    "The tilted gyro then shows a small false climb and turn, so the horizon bar lies for a few seconds until the erection system settles.",
+    "Pilots learn that just after a rapid acceleration the attitude indicator can briefly show a false nose-up/turn, and allow for it.",
+  ],
+  "insfig-13_10": [
+    "This shows a modern ELECTRIC artificial horizon. The rotor is spun by an electric motor, and small pitch and roll TORQUE MOTORS are used to erect and control the gyro instead of air vanes.",
+    "Sensors detect any tilt of the spin axis from vertical and feed the torque motors, which apply a tiny torque; precession then moves the gyro back upright — a faster, more precise version of the vane system.",
+    "Electric drive removes the need for a vacuum system and gives a reliable attitude reference that can also feed other systems electrically.",
+  ],
+  "insfig-13_11": [
+    "This shows a remote (servo) artificial horizon. A separate vertical-reference gyro, mounted elsewhere in the aircraft, senses pitch and roll; pitch and roll synchros turn those into electrical signals.",
+    "The signals are amplified and drive motors in the cockpit indicator, which move the horizon disc to match the real attitude — the display is driven electrically, not by a gyro behind the panel.",
+    "Separating the gyro from the display lets one accurate reference feed several indicators, autopilot and recorders, and keeps the heavy gyro in a well-protected location.",
+  ],
+
   // ═══ Flight Instruments (A.7.2 — directional gyro) ═══
   "insfig-12_01": [
     "This shows the inside of a directional gyro indicator (DGI). The rotor is spun by an air jet from the nozzle pillar, and the whole assembly is carried in gimbals so the spin axis can hold a horizontal direction.",

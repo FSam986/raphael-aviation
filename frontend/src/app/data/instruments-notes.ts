@@ -143,6 +143,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Artificial Horizon (AH) — an earth (tied vertical-axis) gyro",
+        figureTopics: ["Artificial horizon"],
         points: [
           "Spin axis is held VERTICAL by rigidity, tied to the true vertical by a pendulous/mercury erection system. Outer gimbal pivots fore-aft (gives ROLL), inner gimbal pivots laterally (gives PITCH).",
           "ACCELERATION error: the pendulous erector is thrown back, precessing the gyro to show a false CLIMB and false RIGHT bank (deceleration → false descent + left bank).",
