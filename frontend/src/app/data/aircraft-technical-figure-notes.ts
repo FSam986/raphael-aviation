@@ -5,6 +5,23 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Instruments (A.7.1 — air data computer) ═══
+  "insfig-08_01": [
+    "This shows the air-data system built around an air data computer (ADC). Into the ADC go the raw inputs: pitot pressure, static pressure, the total-temperature sensor and a weight-on-wheels signal.",
+    "The ADC works these into every derived quantity and sends them out electrically to many users — the airspeed/Mach and altitude displays, the EFIS, the transponder, the altitude alerter, the overspeed warning, and the flight-control and navigation computers.",
+    "So instead of each instrument having its own pressure capsules, one computer calculates everything once and distributes it, keeping all the displays consistent.",
+  ],
+  "insfig-08_02": [
+    "This shows the heart of an (electromechanical) air data computer. Pitot and static pressures act on a pivoted beam; any imbalance moves a pick-off that produces an electrical signal.",
+    "That out-of-balance signal is amplified and drives a two-phase servomotor, which turns a lead screw to re-balance the beam against a precision control spring — a closed loop that always nulls itself.",
+    "The servomotor's shaft rotation is then a precise measure of the pressure, and it drives the computer's other sections and output shafts. This servo-follow-up is what gives the ADC its accuracy and lets it feed many systems.",
+  ],
+  "insfig-08_03": [
+    "This shows the redundancy built into a large aircraft's air-data system. Two independent air data computers (No.1 and No.2) are fed from separate pitot and static sources, and there are also standby altimeter and airspeed instruments on a third (standby) static line.",
+    "Change-over valves let the static sources be reconfigured if one blocks, and the captain, first officer and standby each have their own lines.",
+    "Triplicating the sources and computers means no single blockage or failure can leave the crew without airspeed and altitude — the standby instruments give a direct, independent back-up.",
+  ],
+
   // ═══ Flight Instruments (A.7.1 — machmeter) ═══
   "insfig-07_03": [
     "This graph shows how three speeds behave as true speed increases. Calibrated airspeed (CAS) grows the slowest, true airspeed (TAS) faster, and the Mach number (speed as a fraction of the local speed of sound) is a separate scale again.",

@@ -80,5 +80,10 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.1", "Machmeter", "07_03", "CAS, TAS & Mach vs speed"),
   I("A.7.1", "Machmeter", "07_06", "Combined airspeed/Mach indicator (VMO)"),
   I("A.7.1", "Machmeter", "07_07", "Machmeter with Mach & knots counters"),
+
+  // Ch8 — Air data computer (A.7.1)
+  I("A.7.1", "Air data computer", "08_01", "Air data system — inputs & outputs"),
+  I("A.7.1", "Air data computer", "08_02", "Air data computer servo mechanism"),
+  I("A.7.1", "Air data computer", "08_03", "Dual ADC architecture with standby instruments"),
 ];
 void I;
