@@ -212,6 +212,93 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.9 — engine instruments) ═══
+  "insfig-38_01": [
+    "This shows the many things measured on a jet engine. At the front, intake pressure and the low-pressure (LP) and high-pressure (HP) shaft speeds are sensed; through the engine, fuel flow, pressure and temperature, and oil temperature and pressure are monitored.",
+    "At the hot end, thermocouples measure the exhaust gas temperature and a probe senses the exhaust pressure.",
+    "Together these parameters tell the crew how much thrust the engine is making and whether it is healthy — the basis of all the engine gauges.",
+  ],
+  "insfig-38_02": [
+    "This shows engine pressure ratio (EPR), a common thrust indication on jets. A probe at the intake measures the inlet pressure (P1) and a manifold of probes at the exhaust measures the turbine-exit pressure (P7).",
+    "A transmitter divides P7 by P1 to give the ratio, displayed on the EPR gauge (here 2.4). The higher the ratio, the more the engine is 'pumping up' the pressure — and so the more thrust it is producing.",
+    "EPR is used because it relates directly to thrust; the crew set take-off and climb thrust by EPR.",
+  ],
+  "insfig-38_03": [
+    "This shows a torquemeter, used on turboprops to measure the power going to the propeller. The reduction gear uses helical gears, which are pushed sideways (axial thrust) by an amount proportional to the torque being transmitted.",
+    "That axial thrust is balanced by oil pressure (the torquemeter oil pressure); the stronger the torque, the higher the oil pressure needed, so the pressure is a direct measure of torque, shown in psi.",
+    "Because a turboprop's thrust comes from the propeller, torque (not EPR) is the key power indication, so the torquemeter is a primary engine gauge.",
+  ],
+  "insfig-38_04": [
+    "This shows a phonic-wheel (magnetic) speed probe. A toothed wheel on the shaft turns past a magnetic pickup; each tooth changes the magnetic field and induces a pulse in the coil.",
+    "The number of pulses per second is proportional to the rotational speed, so counting them gives RPM — with no electrical contact and no power needed at the probe.",
+    "This is the standard way the N1/N2 shaft speeds are sensed on a jet engine.",
+  ],
+  "insfig-38_05": [
+    "This shows a drag-cup (eddy-current) tachometer. The input shaft spins a permanent magnet inside an aluminium 'drag cup'; the moving magnetic field drags the cup round against a hairspring.",
+    "The faster the magnet spins, the stronger the drag and the further the cup (and the pointer) turns against the spring — so the pointer reads speed. A soft-iron flux return path concentrates the field and a bimetal strip compensates for temperature.",
+    "This gives a simple, reliable RPM indication driven directly by a flexible drive shaft from the engine.",
+  ],
+  "insfig-38_06": [
+    "This shows a tacho-generator (AC) speed system. The engine drives, through a gearbox, a small three-phase generator; the frequency of its output is proportional to the engine speed.",
+    "The three-phase output is sent to the indicator, which measures the frequency and displays RPM — the signal can be carried a long way with no loss of accuracy.",
+    "Because the output frequency depends only on speed (not voltage), this system is accurate and is widely used for engine RPM.",
+  ],
+  "insfig-38_07": [
+    "This is a percent-RPM tachometer. The main scale reads 0–100% of the maximum rated speed, and a small inner vernier dial shows the last digit for a precise reading.",
+    "Showing RPM as a percentage lets the same gauge be used on different engines and makes limits easy to remember (e.g. a red line at 100%).",
+    "The vernier lets the crew set speeds precisely — useful for synchronising engines or matching a target RPM.",
+  ],
+  "insfig-38_09": [
+    "This shows an N1 (fan) speed sensor on a modern jet. A magnetic sensor head is mounted just above the fan; as each fan blade passes, it disturbs the sensor's magnetic field and generates a pulse.",
+    "Counting the blade pulses gives the fan rotational speed (N1), the primary thrust-setting parameter on a high-bypass engine.",
+    "Sensing the blades directly, with no separate toothed wheel, keeps the system simple and reliable.",
+  ],
+  "insfig-38_10": [
+    "This is a synchroscope, used to match the speeds of engines (or propellers) on a multi-engine aircraft. It compares each engine against a reference; if an engine is running FAST its pointer rotates one way, if SLOW the other way.",
+    "The pilot adjusts that engine's RPM until its pointer stops rotating, meaning it is exactly matched to the reference.",
+    "Synchronising the engines removes the throbbing beat-note of slightly different speeds, reducing noise and vibration.",
+  ],
+  "insfig-38_11": [
+    "This shows the exhaust-gas-temperature (EGT) thermocouple system. Several chromel-and-alumel thermocouples are placed in the hot gas stream (the hot junctions) and wired in parallel to average the temperature around the turbine.",
+    "A thermocouple makes a small voltage proportional to the temperature difference between its hot junction (in the gas) and its cold junction (at the cockpit instrument), so the gauge reads that voltage as temperature — it needs no power supply.",
+    "Chromel/alumel is used because it withstands the high turbine temperatures and gives a reliable output; EGT is a key limit the crew must not exceed.",
+  ],
+  "insfig-38_16": [
+    "This shows a manifold absolute pressure (MAP) gauge, used on piston engines. Two capsules work against each other: one is evacuated (an aneroid) and the other is fed with the induction-manifold pressure.",
+    "The difference moves the linkage and pointer, reading absolute pressure in inches of mercury. Because it reads ABSOLUTE pressure, it shows the actual charge pressure reaching the cylinders, even with the engine stopped (it reads ambient).",
+    "MAP, with RPM, tells the pilot the power the engine is developing — the two together set the power on a constant-speed-propeller aircraft.",
+  ],
+  "insfig-38_17": [
+    "This shows a Bourdon-tube pressure gauge, used for oil and fuel pressures. A curved, flattened tube tends to straighten as the pressure inside rises; the movement of its free end is magnified through a link and quadrant (toothed gear) to drive the pointer.",
+    "A bimetal strip compensates for temperature, a hairspring takes up backlash, a limit stop protects the mechanism and a damping choke steadies the pointer.",
+    "The Bourdon tube is simple and robust, which is why it is the standard mechanism for direct-reading pressure gauges.",
+  ],
+  "insfig-38_18": [
+    "This shows an engine vibration monitoring system. A vibration sensor bolted to the engine contains a magnet suspended on springs inside a fixed coil; when the engine vibrates, the magnet moves relative to the coil and generates a signal proportional to the vibration.",
+    "That signal is filtered (to the frequencies of interest), tested, and shown on an engine-vibration (VIB) meter, with a warning circuit and light if it becomes excessive.",
+    "Rising vibration is an early sign of a developing fault — a failing bearing or a damaged/iced fan blade — so the crew watch it closely.",
+  ],
+  "insfig-38_19": [
+    "This shows a simple float-type fuel-quantity gauge, used on light aircraft. A float on an arm rides on the fuel surface; as the level changes, the arm moves a variable resistor (a potentiometer).",
+    "The changing resistance changes the current to the cockpit fuel-quantity gauge, which reads from Empty to Full. It measures VOLUME, so it is affected by aircraft attitude and does not compensate for fuel density.",
+    "It is cheap and simple but less accurate than the capacitance system used on larger aircraft.",
+  ],
+  "insfig-38_20": [
+    "This shows a large-aircraft fuel system's instruments. A capacitance tank unit (with temperature compensation) feeds an amplifier that drives the fuel-quantity gauge in POUNDS (mass), which is what matters for weight and range.",
+    "Separately, a fuel-flow meter with an integrator drives a fuel-flow gauge (lb/hr) and totaliser, while temperature and pressure sensors drive their own gauges.",
+    "Measuring fuel by MASS (via capacitance, which responds to fuel density) rather than volume makes the quantity accurate regardless of temperature and attitude.",
+  ],
+  "insfig-38_21": [
+    "This shows the construction of a capacitance fuel-tank unit (probe). It is essentially two concentric metal tubes — an inner and an outer tube — forming a capacitor, held apart by nylon sleeves and insulating pins, with co-axial connectors at the top.",
+    "Fuel between the tubes acts as the dielectric; because fuel and air have different dielectric constants, the capacitance changes with the fuel level (and, helpfully, with density).",
+    "Measuring that capacitance gives the mass of fuel in the tank — the basis of the accurate capacitance fuel-gauging system.",
+  ],
+  "insfig-38_23": [
+    "This is a fuel-flow transmitter (flowmeter) cutaway. Fuel entering the chamber spins an impeller that carries a magnetic insert; as it turns, the magnet induces pulses in an induction coil through the electrical connector.",
+    "The rate the impeller spins is proportional to the fuel flow, so the pulse rate gives the flow, which the cockpit gauge displays and the totaliser integrates into fuel used.",
+    "Knowing fuel flow lets the crew manage range and endurance and spot an abnormal consumption early.",
+  ],
+
   // ═══ Flight Instruments (A.7.9 — flight recorders) ═══
   "insfig-36_01": [
     "This shows the flight data recorder (FDR) system. A flight data acquisition unit (FDAU) collects data from the aircraft's systems, including a dedicated accelerometer (for the g-loads) and the flight warning computer.",

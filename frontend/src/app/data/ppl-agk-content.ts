@@ -19,7 +19,7 @@ import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
 // A.1.x = CPL Aircraft Technical; A.7.x = CPL Flight Instruments.
 const MAP: Record<string, string[]> = {
   "6.1": ["A.1.1", "A.1.2"],                       // Airframe (elements + structure/systems)
-  "6.2": ["A.1.4", "A.1.5"],                       // Powerplant (piston + turbine)
+  "6.2": ["A.1.4", "A.1.5", "A.7.9"],              // Powerplant (piston + turbine + engine instruments)
   "6.3": ["A.1.4"],                                // Propellers (covered in the piston notes)
   "6.4": ["A.1.2", "A.1.3"],                       // Systems (airframe systems + electrics)
   "6.5": ["A.7.1", "A.7.2", "A.7.7", "A.7.5", "A.7.8"], // Instruments

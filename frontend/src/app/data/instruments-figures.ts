@@ -248,5 +248,24 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.9", "Flight recorders", "36_02", "DFDR architecture"),
   I("A.7.9", "Flight recorders", "37_01", "CVR control panel & location"),
   I("A.7.9", "Flight recorders", "37_02", "CVR control unit face"),
+
+  // Ch38 — Engine instrumentation (A.7.9)
+  I("A.7.9", "Engine pressure & temperature", "38_01", "Engine parameters measured"),
+  I("A.7.9", "Engine pressure & temperature", "38_02", "Engine pressure ratio (EPR)"),
+  I("A.7.9", "Engine pressure & temperature", "38_11", "EGT thermocouple (chromel/alumel)"),
+  I("A.7.9", "Engine pressure & temperature", "38_16", "Manifold pressure gauge"),
+  I("A.7.9", "Engine pressure & temperature", "38_17", "Bourdon-tube pressure gauge"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_03", "Torquemeter"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_04", "Phonic-wheel speed probe"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_05", "Drag-cup tachometer"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_06", "Tacho-generator system"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_07", "Percent-RPM gauge"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_09", "N1 fan-speed magnetic sensor"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_10", "Synchroscope"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_18", "Engine vibration monitor"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_19", "Float-type fuel gauge"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_20", "Capacitance fuel quantity & flow"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_21", "Capacitance fuel probe construction"),
+  I("A.7.9", "Engine RPM, fuel & vibration", "38_23", "Fuel flow transmitter"),
 ];
 void I;

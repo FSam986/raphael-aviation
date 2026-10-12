@@ -388,6 +388,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Pressure & temperature sensing",
+        figureTopics: ["Engine pressure & temperature"],
         points: [
           "Pressure elements by range: aneroid capsule (low, e.g. manifold/intake absolute pressure) → bellows (medium) → Bourdon tube (high, e.g. oil pressure). MAP is absolute manifold pressure.",
           "Temperature: resistance thermometers (Wheatstone bridge) for air/oil; THERMOCOUPLES (two dissimilar metals) for high temperatures — CHT and EGT/turbine gas temperature. EGT is sensed at the turbine outlet; a ratiometer indicator is independent of supply voltage.",
@@ -396,6 +397,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. RPM, torque, fuel & vibration",
+        figureTopics: ["Engine RPM, fuel & vibration"],
         points: [
           "Tachometers: electronic (phonic/notched wheel + magnetic pickup, counts pulse frequency) or AC-generator (frequency ∝ RPM, drives a drag-cup) — AC types are self-powered and insensitive to line resistance.",
           "Torque: hydro-mechanical (oil pressure reacting the fixed gear of the reduction gearbox). Vibration: accelerometers, amplified and filtered.",
