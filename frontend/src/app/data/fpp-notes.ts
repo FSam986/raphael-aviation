@@ -310,6 +310,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Specific range vs endurance",
+        figureTopics: ["Nautical air miles"],
         points: [
           "Specific range = NM per unit fuel — best near the max-L/D (minimum-drag) speed for a piston aircraft; it is what matters for getting the most distance.",
           "Specific endurance = time per unit fuel — best at the minimum-fuel-flow (minimum-power) speed, slower than the range speed.",
@@ -415,6 +416,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "✍ Worked example — PET",
+        figureTopics: ["PET"],
         points: [
           "Given: TAS 300 kt, still-air distance A→B 500 nm, wind 60 kt HEAD on the way out.",
           "O (out) = 300 − 60 = 240 kt;  H (home) = 300 + 60 = 360 kt.",
@@ -424,6 +426,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "✍ Worked example — PSR",
+        figureTopics: ["PSR"],
         points: [
           "Given: GS out 435 kt, GS back 385 kt, safe endurance 9 h.",
           "PSR = 9 × 435 × 385 ÷ (435 + 385) = 9 × 167 475 ÷ 820 ≈ 1 838 nm from the departure point.",

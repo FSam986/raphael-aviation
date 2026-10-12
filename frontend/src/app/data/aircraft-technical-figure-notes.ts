@@ -5,6 +5,44 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Planning & Performance (A.4) ═══
+  "fppfig-03_01": [
+    "This shows the difference between air distance and ground distance. The AIR distance is how far the aircraft travels through the air; the GROUND distance is how far it moves over the ground; the gap is the WIND component.",
+    "With a headwind the aircraft is pushed back relative to the ground, so it flies further through the air than it covers over the ground — the air distance (nautical air miles, NAM) is GREATER than the ground distance (NGM).",
+    "Fuel is burned per air mile (it depends on the airspeed), so fuel planning is done in NAM; the wind then converts NAM to the ground distance actually flown.",
+  ],
+  "fppfig-03_02": [
+    "This shows the opposite case: with a TAILWIND the aircraft is helped along, so it covers more ground than it flies through the air — the nautical air miles (NAM) are LESS than the ground nautical miles (NGM).",
+    "The wind component is added to the air distance to give the (larger) ground distance.",
+    "So the rule is: headwind → NAM greater than NGM; tailwind → NAM less than NGM. Fuel is always figured on the air distance, and the wind sets how far over the ground that buys you.",
+  ],
+  "fppfig-13_01": [
+    "This shows the all-engine Point of Equal Time (PET, or critical point) — the point along the route from which it takes the same time to carry on to the destination (ON) as to turn back HOME.",
+    "It is NOT the halfway point unless there is no wind: a headwind outbound (which becomes a tailwind home) moves the PET DOWNWIND of the midpoint. The ground speeds home (H) and on (O) are worked out from the all-engine TAS and the wind.",
+    "The PET matters because, in an emergency needing a diversion, it tells the crew whether it is quicker to press on or turn back.",
+  ],
+  "fppfig-13_04": [
+    "This shows the engine-failure PET. After an engine fails the aircraft 'drifts down' to a lower stabilising level and flies at the slower engine-out TAS, so the ground speeds home (H) and on (O) are different from the all-engine case — and so the PET moves.",
+    "The elapsed TIME to reach the PET is still worked out on the all-engine TAS/GS (because both engines are running until the failure), but the speeds used to balance 'time on = time home' are the ENGINE-OUT speeds.",
+    "So an aircraft usually has two PETs — a normal (all-engine) one and an engine-failure one — and the crew must know which applies to the emergency they are facing.",
+  ],
+  "fppfig-14_01": [
+    "This shows the Point of Safe Return (PSR, or point of no return) — the furthest point to which the aircraft can fly and still return to base (or a chosen airfield) within its safe endurance.",
+    "By definition the DISTANCE out to the PSR equals the distance home from it. Because the wind is usually different on the two legs, the PSR is not simply 'half the endurance out' — a headwind outbound moves the PSR closer in.",
+    "The PSR is vital when there is no suitable destination alternate: it is the last point at which the aircraft can safely abandon the trip and get home.",
+  ],
+  "fppfig-14_02": [
+    "This derives the PSR time formula. Using DISTANCE = TIME × SPEED, and the definition that the distance out equals the distance home: T×O = (E−T)×H, where E is the safe endurance, T the time out to the PSR, O the ground speed out and H the ground speed home.",
+    "Rearranging gives T(O+H) = E×H, so the time to the PSR is T = E·H ÷ (O+H).",
+    "This neat formula lets the crew work out the PSR directly from the safe endurance and the two ground speeds — the key result to remember for flight planning.",
+  ],
+  "fppfig-14_03": [
+    "This shows how the PSR formula is solved on the circular navigation computer instead of by arithmetic. The relationship T = E·H ÷ (O+H) is set up on the slide rule, and the time to the PSR is read off directly.",
+    "The outer and inner scales handle the multiply-and-divide in one setting, which is faster and less error-prone than long-hand in the cockpit.",
+    "It is the same formula as the algebraic derivation — just mechanised on the nav computer for quick, reliable in-flight use.",
+  ],
+
+
   // ═══ Flight Instruments (A.7.2 — turn coordinator) ═══
   "insfig-15_01": [
     "This is a turn coordinator, a development of the turn indicator. Its rate gyro is tilted (canted about 30°), so it senses ROLL as well as yaw; the miniature aircraft symbol banks to show the turn, with wing-tip marks for a standard-rate turn.",

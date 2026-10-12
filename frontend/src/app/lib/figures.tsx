@@ -42,6 +42,7 @@ import { ATG_POWERPLANT_FIGURES } from "@/app/data/aircraft-technical-powerplant
 import { ATG_ELECTRICS_FIGURES } from "@/app/data/aircraft-technical-electrics-figures";
 import { HP_FIGURES } from "@/app/data/human-performance-figures";
 import { INSTRUMENTS_FIGURES } from "@/app/data/instruments-figures";
+import { FPP_FIGURES } from "@/app/data/fpp-figures";
 import { PPL_MET_FIGURE_KEY } from "@/app/data/ppl-met-content";
 import { PPL_NAV_FIGURE_KEY } from "@/app/data/ppl-nav-content";
 import { PPL_FPP_FIGURE_KEY } from "@/app/data/ppl-fpp-content";
@@ -296,6 +297,7 @@ const ATG_IMAGE_FIGURES: { section: string; topic: string; title: string; captio
   ...ATG_ELECTRICS_FIGURES,
   ...HP_FIGURES,
   ...INSTRUMENTS_FIGURES,
+  ...FPP_FIGURES,
 ];
 
 export function atgFiguresByTopic(topics: string[]): FigureDef[] {
