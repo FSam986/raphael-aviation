@@ -23,6 +23,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Great circle vs rhumb line",
+        figureTopics: ["Great circle & rhumb line"],
         points: [
           "Great circle: the shortest distance between two points; its plane passes through the earth's centre. It cuts each meridian at a different angle (except along a meridian or the equator).",
           "Rhumb line (loxodrome): a line of constant direction — cuts every meridian at the SAME angle. Longer than the great circle, but easy to steer.",
@@ -31,6 +32,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Convergency",
+        figureTopics: ["Convergency"],
         points: [
           "Meridians converge toward the poles, so the great-circle track direction changes along the route. Convergency = ch.long × sin(mean latitude).",
           "The great circle lies on the POLAR side of the rhumb line; conversion angle = ½ convergency.",
@@ -58,6 +60,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The three norths",
+        figureTopics: ["North references"],
         points: [
           "TRUE north (geographic), MAGNETIC north (the compass's undisturbed direction), COMPASS north (magnetic north deflected by the aircraft's own magnetism).",
           "VARIATION = angle between true and magnetic north (isogonals join equal variation; agonic = zero). DEVIATION = magnetic→compass error.",
@@ -66,6 +69,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Radio bearings (Q-codes)",
+        figureTopics: ["Radio bearings"],
         points: [
           "QDM = magnetic bearing TO the station (the heading to home in nil wind). QDR = magnetic bearing FROM the station (= QDM ± 180).",
           "QTE = TRUE bearing FROM the station. QUJ = true bearing TO the station.",
@@ -91,6 +95,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Key units & conversions",
+        figureTopics: ["Units & conversions"],
         points: [
           "1 NM = 1.852 km = 6076 ft ≈ 1.15 statute miles. 1 statute mile = 5280 ft = 1.609 km.",
           "1 NM = 1 minute of latitude (arc). Speed: knots = NM per hour.",
@@ -115,6 +120,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Time systems",
+        figureTopics: ["Time"],
         points: [
           "UTC (≈ GMT) is the world reference. LMT = local mean time (varies with longitude). Zone/standard time = a whole-degree band offset from UTC.",
           "Arc to time: 360° = 24 h, so 15° = 1 h, 1° = 4 min, 15′ = 1 min. East is ahead of UTC, West is behind.",
@@ -123,6 +129,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Seasons, twilight & sun",
+        figureTopics: ["Seasons & sun"],
         points: [
           "The 23.5° axial tilt gives the seasons; equinoxes (~21 Mar, 23 Sep) have equal day/night; solstices (~21 Jun, 21 Dec) the longest/shortest days.",
           "Tropics of Cancer (23.5°N) and Capricorn (23.5°S) mark the sun's overhead limits.",
@@ -156,6 +163,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Mercator (cylindrical, orthomorphic)",
+        figureTopics: ["Mercator chart"],
         points: [
           "Rhumb lines are STRAIGHT lines; great circles are CURVES concave to the equator. Meridians and parallels are straight and perpendicular.",
           "Scale is correct only at the equator and expands with latitude (× sec lat) — measure distance against the latitude scale at the mid-latitude of the leg.",
@@ -164,6 +172,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Lambert's Conformal Conic",
+        figureTopics: ["Lambert chart"],
         points: [
           "Great circles are ~straight lines; rhumb lines curve (concave to the parallel of origin). Meridians are straight lines converging to the pole; parallels are arcs.",
           "Scale is nearly constant (correct at the two standard parallels), so distance can be measured anywhere with the mid-scale.",
@@ -212,6 +221,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The triangle of velocities",
+        figureTopics: ["Triangle of velocities"],
         points: [
           "Air vector: HEADING (°T) and TAS. Wind vector: the direction FROM which the wind blows and its speed. Ground vector: TRACK (°T) and GROUNDSPEED.",
           "Air vector + Wind vector = Ground vector. Drift = angle between heading and track; wind correction angle is applied INTO wind to make good the track.",
@@ -255,6 +265,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Fixing & climb/descent nav",
+        figureTopics: ["Fixing & nav"],
         points: [
           "Position lines: a VOR radial/QTE, a bearing, or a DME arc; two crossing position lines give a fix (three is best). Transfer an earlier line along track for a running fix.",
           "In a climb/descent at constant RAS the TAS and groundspeed change continuously — use mean values for the leg, and the climb wind.",

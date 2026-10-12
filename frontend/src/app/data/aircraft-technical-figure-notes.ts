@@ -5,6 +5,238 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ General Navigation (A.9) — extended ═══
+  "navfig-010_figure_01": [
+    "This shows direction on the Earth. The planet spins about its axis, which defines the true North and South poles; from any point the cardinal directions (N, E, S, W) and the compass rose are referenced to true north.",
+    "Looking down on the North Pole the Earth turns anticlockwise; from the South Pole it turns clockwise. East is the direction of the sunrise — the way the Earth is turning.",
+    "All navigation directions are angles measured clockwise from a north reference, so fixing 'which way is north' is the first step.",
+  ],
+  "navfig-015_figure_01": [
+    "This shows the graticule — the grid of latitude and longitude on the Earth. Parallels of latitude run east-west, are evenly spaced, and get shorter toward the poles (only the equator is a great circle).",
+    "Meridians of longitude run north-south from pole to pole; they are all equal great semicircles and they converge at the poles.",
+    "Any position is given as a latitude (N/S of the equator) and a longitude (E/W of Greenwich) read off this grid.",
+  ],
+  "navfig-017_figure_01": [
+    "This shows the small difference between geocentric and geodetic latitude. Because the Earth is a slightly flattened ellipsoid (not a perfect sphere), the vertical at a point does not pass exactly through the centre.",
+    "GEODETIC (geographic) latitude is measured from the local vertical; GEOCENTRIC latitude is measured from the line to the Earth's centre. The two differ by up to about 11.6 minutes of arc, at 45° latitude.",
+    "Charts and positions use geodetic latitude; the distinction matters only for precise work, but it is a favourite exam point.",
+  ],
+  "navfig-018_figure_02": [
+    "This shows longitude. Meridians are measured as an angle east or west of the Prime (Greenwich) Meridian, 0°, up to 180° at the anti-meridian (the International Date Line).",
+    "The example marks a meridian and the 0° and 180° references, with East to one side and West to the other.",
+    "Longitude, with latitude, fixes a position; and because the Earth turns 360° in 24 hours, longitude is also directly linked to time (15° = 1 hour).",
+  ],
+  "navfig-013_figure_01": [
+    "This shows that the GREAT CIRCLE is the shortest distance between two points on the Earth. A great circle is any circle whose plane passes through the centre of the Earth (the equator and all meridians are great circles).",
+    "The arc of the great circle joining A and B (highlighted) is shorter than any other track between them.",
+    "The catch is that a great circle (except the equator and meridians) continuously changes its direction relative to the meridians it crosses — so it is the shortest route but not a constant heading.",
+  ],
+  "navfig-022_figure_01": [
+    "This shows the VERTEX of a great circle — the point where it reaches its highest latitude (nearest a pole). At the vertex the great circle runs due east-west (090°/270°) and is momentarily parallel to the equator.",
+    "The northern and southern vertices are antipodal (180° apart in longitude and equal latitude in opposite hemispheres), and the great circle crosses the equator 90° of longitude from each vertex.",
+    "Knowing the vertex helps describe and plot a great-circle route and work out its direction at any point.",
+  ],
+  "navfig-030_figure_01": [
+    "This polar view compares the great-circle and rhumb-line tracks from Vancouver to Moscow. The GREAT CIRCLE (the shorter track) bows toward the North Pole; the RHUMB LINE (a constant-heading track) is the longer, lower curve.",
+    "At these high latitudes the saving from flying the great circle is large, which is why long-haul flights follow great-circle routes.",
+    "The rhumb line is easier to fly (one heading) but longer; the great circle is shortest but needs the heading to be changed along the way.",
+  ],
+  "navfig-032_figure_01": [
+    "This shows the same Vancouver-Moscow tracks on a Mercator chart. Here the GREAT CIRCLE appears as a curve bowing toward the nearer pole (top of the chart), while the RHUMB LINE is the STRAIGHT line between the two points.",
+    "On a Mercator chart a straight line is a rhumb line (constant track), and the great circle always lies on the POLEWARD side of it.",
+    "So to fly the shortest route on a Mercator chart you do not fly the straight line — you follow the curved great circle above it.",
+  ],
+  "navfig-034_figure_01": [
+    "This shows which way a great circle bows relative to the rhumb line. In the NORTHERN hemisphere the great circle lies on the poleward (north) side of the rhumb line; in the SOUTHERN hemisphere it lies on the poleward (south) side.",
+    "The rhumb line keeps a steady 090°/270° while the great circle's direction changes either side of it.",
+    "The rule to remember: the great circle is always nearer the pole than the rhumb line joining the same two points.",
+  ],
+  "navfig-246_figure_01": [
+    "This shows CONVERGENCY — the fact that the meridians are not parallel but converge toward the poles. Two meridians that are a certain distance apart at the equator meet at the pole.",
+    "Because of this, a straight line (great circle) crossing successive meridians makes a different angle with each one — its direction changes.",
+    "Convergency is the angle by which the meridians converge between two points, and it is central to understanding great-circle direction and chart convergence.",
+  ],
+  "navfig-248_figure_01": [
+    "This shows convergency at a mid-latitude (30°N). For a change of longitude of 40°, the meridians at 30°N converge by an angle smaller than they would at the pole.",
+    "The relationship is: convergency = change of longitude × sine of the latitude. At the pole (90°) the sine is 1, so convergency equals the full change of longitude; at the equator (0°) it is zero.",
+    "This formula lets a navigator work out how much a great circle's direction will change, or the convergence of a chart, at any latitude.",
+  ],
+  "navfig-249_figure_02": [
+    "This shows convergency together with a great circle. As the great circle crosses the converging meridians, the angle it makes with each (its direction) changes by the amount of the convergency between them.",
+    "The angles 'a' at the two ends differ, and the great circle is not straight relative to the meridians — it curves.",
+    "So the initial great-circle track at one end differs from the final track at the other by the convergency between the two points.",
+  ],
+  "navfig-257_figure_01": [
+    "This shows the CONVERSION ANGLE — the angle between the great circle and the rhumb line joining two points. It is exactly HALF the convergency between them.",
+    "The example shows a conversion angle of 10° (so the convergency is 20°). The rhumb-line track is the mean of the two great-circle tracks.",
+    "Conversion angle is used to convert between great-circle and rhumb-line bearings: great-circle bearing = rhumb-line bearing ± conversion angle.",
+  ],
+  "navfig-051_figure_01": [
+    "This shows the Earth's magnetic field, which behaves roughly like a bar magnet tilted inside the planet. A freely-suspended compass needle lines up with the horizontal part of this field, pointing to magnetic north.",
+    "The magnetic poles are offset from the true (geographic) poles, and the field lines run between them.",
+    "Because the compass points to magnetic north, not true north, the navigator must allow for the difference — variation.",
+  ],
+  "navfig-052_figure_02": [
+    "This shows VARIATION around the Earth. Variation is the angle between true north and magnetic north at a place; it is named EASTERLY or WESTERLY depending on which side of true north the magnetic north lies.",
+    "The red AGONIC line is where variation is zero (magnetic and true north coincide); lines of equal variation are isogonals. Variation changes with position and slowly over the years.",
+    "A pilot applies variation to convert between true directions (from the chart) and magnetic directions (from the compass): 'variation west, magnetic best; variation east, magnetic least'.",
+  ],
+  "navfig-053_figure_01": [
+    "This shows how variation behaves near the poles. Between the true pole and the magnetic pole, a compass actually points 'south' toward the magnetic pole, so the variation there is 180°.",
+    "Lines of zero variation (agonic) run out from the region, and variation changes very rapidly near the magnetic pole.",
+    "This is one reason the magnetic compass becomes unreliable at very high latitudes — variation is huge and changes quickly.",
+  ],
+  "navfig-066_figure_02": [
+    "This shows the full heading conversion chain. Starting from true north, applying VARIATION gives magnetic heading, and then applying DEVIATION (the aircraft's own magnetism) gives compass heading.",
+    "The example shows true heading 100°, variation and deviation applied in turn to reach the magnetic and compass headings the pilot flies.",
+    "The working rule for going from true to compass is to apply variation then deviation; reverse it (compass → magnetic → true) by subtracting. Westerly errors are added when going true→compass.",
+  ],
+  "navfig-487_figure_01": [
+    "This defines the kinds of bearing. The TRUE HEADING (030°) is where the nose points relative to true north; the RELATIVE BEARING (060°) is the angle of an object measured clockwise from the nose; the TRUE BEARING (090°) is the object's direction from the aircraft relative to true north.",
+    "They are linked simply: true bearing = true heading + relative bearing (re-adjusting by 360° if needed).",
+    "This is the basis of position fixing with an ADF/NDB: the relative bearing from the instrument plus the heading gives the bearing to the beacon, which is plotted as a position line.",
+  ],
+  "navfig-080_figure_01": [
+    "This shows the principle of the circular slide rule used in the navigation computer. Numbers are placed on logarithmic scales, so that multiplying two numbers becomes ADDING their lengths along the scale (here 2 × 3 = 6).",
+    "On the circular version, one scale rotates against another; lining up the numbers performs the multiplication or division in a single setting.",
+    "This is why the CRP-5 can solve speed-distance-time, fuel and conversion problems quickly — it mechanises the arithmetic.",
+  ],
+  "navfig-390_figure_01": [
+    "This shows the difference between a sidereal day and a solar day. A SIDEREAL day is one full rotation of the Earth relative to the distant stars. But because the Earth also moves along its orbit, it must turn a little FURTHER for the sun to return to the same position.",
+    "That extra bit of turn makes the (apparent) SOLAR day about 4 minutes longer than the sidereal day.",
+    "Navigation and the clock are based on the solar day; the sidereal day matters for astronomy and explains why the stars rise about 4 minutes earlier each night.",
+  ],
+  "navfig-391_figure_01": [
+    "This is the EQUATION OF TIME — the difference between apparent (real sundial) time and mean (clock) time through the year. Because the Earth's orbit is elliptical and its axis is tilted, the real sun runs ahead of or behind the mean sun.",
+    "The curve shows the sun can be up to about 16 minutes fast or slow of clock time, crossing zero four times a year.",
+    "Clocks keep MEAN time (a steady average day); the equation of time is the correction between that and the real sun, important for sunrise/sunset and celestial work.",
+  ],
+  "navfig-401_figure_01": [
+    "This shows that Local Mean Time (LMT) depends on longitude. At one instant (here 0900 UTC) the mean sun is overhead one meridian; places east of it have a later LMT and places west an earlier LMT.",
+    "Because the Earth turns 15° of longitude per hour, LMT changes by 1 hour for every 15° of longitude (4 minutes per degree).",
+    "UTC (Greenwich mean time) is the worldwide reference; to get a place's LMT you add its longitude east (or subtract west), converted at 15°/hour.",
+  ],
+  "navfig-405_figure_01": [
+    "This shows the world's standard time zones. Rather than every town keeping its own LMT, the world is divided into zones (roughly 15° of longitude wide) each keeping a standard time that differs from UTC by a whole number of hours.",
+    "The zone letters and offsets (… −2, −1, Z=0, +1, +2 …) show how many hours a zone is ahead of or behind UTC.",
+    "Zone boundaries are bent to follow national borders; the navigator uses them to convert between UTC and the local clock time at departure and destination.",
+  ],
+  "navfig-409_figure_01": [
+    "This shows the INTERNATIONAL DATE LINE, roughly following the 180° meridian but zig-zagging to avoid splitting countries. Crossing it changes the DATE by one day.",
+    "Going WEST across it (e.g. Americas to Asia) you ADD a day; going EAST you subtract a day — so time of day is unchanged but the calendar date jumps.",
+    "It exists because, going right round the Earth through the time zones, you gain or lose 24 hours; the date line is where that full day is reconciled.",
+  ],
+  "navfig-386_figure_02": [
+    "This shows the Earth's orbit around the sun (viewed from above the North Pole). The orbit is a slight ellipse, so the Earth-sun distance varies: closest (PERIHELION) about 91.4 million miles on ~4 January, furthest (APHELION) about 94.6 million miles on ~4 July.",
+    "By Kepler's law the Earth moves FASTEST at perihelion and slowest at aphelion.",
+    "Note the seasons are NOT caused by this distance change (the Earth is actually closest in northern winter) — they are caused by the axial tilt, shown next.",
+  ],
+  "navfig-387_figure_01": [
+    "This shows the Earth's axis is tilted about 23.5° from the vertical (66.5° to the plane of its orbit). This tilt stays pointing the same way in space all year as the Earth goes round the sun.",
+    "Because of the tilt, each hemisphere leans toward the sun for part of the year and away for the other part.",
+    "This changing lean — not the Earth-sun distance — is what gives us the seasons and the changing length of day.",
+  ],
+  "navfig-387_figure_02": [
+    "This shows the seasons as the Earth orbits the sun. At the June solstice the sun is overhead 23.5°N (northern summer); at the December solstice overhead 23.5°S (northern winter); at the March and September equinoxes it is overhead the equator.",
+    "At the equinoxes day and night are equal everywhere; at the solstices one hemisphere has its longest day and the other its shortest.",
+    "This cycle, driven by the fixed axial tilt, sets the sun's declination and the seasons used throughout navigation and meteorology.",
+  ],
+  "navfig-389_figure_01": [
+    "This shows the sun's DECLINATION over the year — the latitude where the sun is directly overhead. It swings between 23.5°N (June solstice) and 23.5°S (December solstice), crossing zero (the equator) at the equinoxes.",
+    "The change of declination is fastest around the equinoxes and slowest (almost still) around the solstices.",
+    "Declination governs the length of day, the sun's noon altitude and sunrise/sunset times at any latitude — the practical output of the Earth's tilt.",
+  ],
+  "navfig-427_figure_01": [
+    "This shows day and night. Sunlight falls on the half of the Earth facing the sun; the circle dividing day from night is the TERMINATOR. The Earth's tilt (66.5°/23.5°) means the terminator does not pass through the poles except at the equinoxes.",
+    "So at a solstice one pole is in continuous daylight and the other in continuous darkness, while the equator always has about 12 hours of each.",
+    "This explains the long polar days and nights, and why day length changes with both latitude and season.",
+  ],
+  "navfig-290_figure_03": [
+    "This is a polar stereographic chart, used for high-latitude and polar navigation. The pole is at the centre, meridians radiate out as straight lines and parallels of latitude are concentric circles.",
+    "It is a conformal (orthomorphic) projection; near the pole a great circle is very nearly a straight line, and scale is reasonably constant around the pole.",
+    "Because Mercator and Lambert charts become awkward near the poles, the polar stereographic is the chart of choice there.",
+  ],
+  "navfig-291_figure_02": [
+    "This shows how a Mercator chart is made — by projecting the graticule onto a CYLINDER wrapped around the Earth touching at the equator, then unrolling it flat.",
+    "The meridians come out as equally-spaced parallel straight lines (they do NOT converge), and the parallels of latitude as straight lines that get further apart toward the poles.",
+    "Making the meridians parallel stretches east-west distances more and more toward the poles, which is why the latitude scale must also be stretched to keep the chart conformal.",
+  ],
+  "navfig-300_figure_02": [
+    "This shows WHY the Mercator latitude scale expands toward the poles. On the Earth the meridians converge, but the chart forces them parallel — so east-west distances are stretched by an increasing amount at higher latitude.",
+    "To keep shapes correct (conformal), the north-south (latitude) scale must be stretched by the same amount, so the spacing of the parallels grows toward the poles.",
+    "This expanding latitude scale is the key feature of a Mercator chart — and the reason distances must be measured on the latitude scale ALONGSIDE the feature being measured.",
+  ],
+  "navfig-304_figure_01": [
+    "This shows the consequence of the expanding scale: areas near the poles are greatly EXAGGERATED on a Mercator chart. Greenland looks as big as a continent, though it is far smaller.",
+    "The same ground distance (3000 NM) measured near the equator and near the pole occupies very different lengths on the chart.",
+    "So a Mercator chart badly distorts size and area at high latitude, even though it keeps shapes and bearings locally correct — which is why distances must be measured carefully.",
+  ],
+  "navfig-306_figure_01": [
+    "This shows tracks on a Mercator chart. A RHUMB LINE (constant track) plots as a STRAIGHT line. A GREAT CIRCLE (the shorter route) plots as a CURVE that is concave to the equator — i.e. it bows toward the nearer pole.",
+    "In the northern hemisphere the great circle curves above the straight rhumb line; in the southern hemisphere, below it.",
+    "So on a Mercator chart you draw the rhumb line straight, but to fly the shortest route you follow the curved great circle lying on its poleward side.",
+  ],
+  "navfig-292_figure_02": [
+    "This shows the CONIC projection behind a Lambert chart — made by fitting a cone over the Earth and projecting the graticule onto it, then unrolling the cone flat.",
+    "On the resulting chart the meridians are straight lines that converge toward the pole (as they do on the real Earth), and the parallels are arcs of circles.",
+    "Because the cone matches the Earth's curvature over a band of latitude, the Lambert chart has small, even scale error there — ideal for mid-latitude navigation.",
+  ],
+  "navfig-344_figure_01": [
+    "This shows chart convergence on a Lambert chart. The meridians converge, but by LESS than they do on the Earth — the ratio is the 'constant of the cone' (the convergence factor), equal to the sine of the parallel of origin.",
+    "The example shows that a 100° change of longitude gives 70.71° of chart convergence (so the convergence factor is 0.7071 = sin 45°).",
+    "On a Lambert chart, chart convergence = change of longitude × sin(parallel of origin), the same at all latitudes — which makes great circles plot almost straight.",
+  ],
+  "navfig-348_figure_01": [
+    "This shows the scale behaviour of a Lambert chart with TWO standard parallels (here about 44°N and 46°N). Scale is CORRECT exactly on the two standard parallels.",
+    "BETWEEN the standard parallels the scale is slightly too small (contracted); OUTSIDE them it is slightly too large (expanded). The error is least near the middle.",
+    "Because the error stays small over a wide latitude band, distances can be measured almost anywhere on a Lambert chart with little error — unlike Mercator.",
+  ],
+  "navfig-351_figure_02": [
+    "This shows that on a Lambert chart a GREAT CIRCLE plots as very nearly a STRAIGHT line (it is slightly concave toward the parallel of origin).",
+    "Because the chart's meridians converge like the real Earth's, the great circle's changing direction is reproduced, so joining two points with a straight line gives essentially the great-circle route.",
+    "This is the big advantage of the Lambert chart: the shortest track is simply the straight line you draw, and bearings are measured against the (converging) meridians.",
+  ],
+  "navfig-132_figure_02": [
+    "This is the SOLUTION to the drift problem: to make good the straight track from A to B across a 5-knot current, the craft is aimed (headed) slightly UPSTREAM so the current carries it onto the desired track.",
+    "The amount of 'aim-off' is the drift angle; the dashed geometry shows how the 5 NM of sideways push is countered, with the times (24 min / 12 min) depending on the resulting ground speed.",
+    "This is the triangle of velocities in action — allowing for the wind/current to achieve the intended track over the ground.",
+  ],
+  "navfig-165_figure_01": [
+    "This shows two tracks leaving point A — one at 060° doing 140 knots, another at 065° doing 120 knots to B. Comparing two bodies' motions is the basis of RELATIVE VELOCITY.",
+    "By drawing both velocity vectors from the same point, the navigator can find how fast one is moving relative to the other and the rate they close or open.",
+    "The same vector method solves overtaking, closing and intercept problems between two aircraft.",
+  ],
+  "navfig-181_figure_02": [
+    "This resolves a wind into its CROSSWIND and HEADWIND components for a runway. The wind velocity (W/V 300°/30 kt) makes a 30° angle with the runway direction (270°).",
+    "Dropping the wind vector onto the runway direction gives the HEADWIND component (along the runway, affecting take-off/landing distance) and the perpendicular CROSSWIND component (across it, the limiting factor for directional control).",
+    "Pilots resolve the wind this way to check it is within the aircraft's crosswind limit and to correct take-off and landing performance.",
+  ],
+  "navfig-134_figure_02": [
+    "This is the TRIANGLE OF VELOCITIES, the heart of dead-reckoning navigation. Three vectors form a triangle: the aircraft's HEADING and true airspeed, the WIND velocity, and the resulting TRACK and groundspeed.",
+    "The air vector (heading/TAS) plus the wind vector equals the ground vector (track/groundspeed). The angle between heading and track is the DRIFT.",
+    "Given any two of the vectors the third is found (by drawing or on the nav computer) — so the pilot can work out the heading to fly and the groundspeed for any wind.",
+  ],
+  "navfig-205_figure_03": [
+    "This shows TRACK ERROR. The aircraft intends to fly the 'planned track' (090°) but, usually because of wind, it actually makes good a different 'track made good'. The angle between them is the track error.",
+    "Here the heading (100°) and the track made good differ from the planned track, opening a growing distance off track.",
+    "Measuring the track error (often with the 1-in-60 rule from how far off track the aircraft is) lets the pilot work out the correction needed to regain and maintain track.",
+  ],
+  "navfig-207_figure_03": [
+    "This shows regaining track using the 1-in-60 rule. From the along-track distance flown (30) and the across-track error (4), the track error angle is found (≈ 8°); a further correction (the closing angle) is added to converge back onto track by a chosen point.",
+    "The pressures at 1000/1020/1040 illustrate working the problem at successive points to home back onto the planned track.",
+    "The practical rule: to regain track at the same distance ahead as you've flown, double the track-error angle; then maintain the new heading.",
+  ],
+  "navfig-217_figure_01": [
+    "This applies the 1-in-60 rule to a descent (or glideslope). The descent angle (Z) relates the HEIGHT to lose to the RANGE to run: a 1° path loses about 1 unit of height per 60 of distance.",
+    "So a 3° glidepath loses about 300 ft per nautical mile (3 × 100), and the required rate of descent ≈ groundspeed (kt) × 5.",
+    "This lets a pilot quickly work out when to start down and what rate of descent to use to arrive at the right height — a constant tool of approach flying.",
+  ],
+  "navfig-489_figure_02": [
+    "This shows a position FIX from three position lines (for example three bearings). Because of small errors the three lines rarely meet at a point but form a small triangle — the 'cocked hat'.",
+    "The aircraft is taken to be inside the cocked hat, at the point that best fits (the angles bisected by eye), and a tight triangle means a good fix.",
+    "Fixing position by crossing two or more position lines is the basis of all navigation fixing, from visual bearings to radio aids.",
+  ],
+
   // ═══ General Navigation (A.9) ═══
   "navfig-016_figure_02": [
     "This shows what LATITUDE means. It is the angle, measured at the centre of the Earth, between the plane of the equator and the line to the point — here point A is at latitude 40°N.",
