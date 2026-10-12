@@ -36,5 +36,15 @@ export const FPP_FIGURES: FppFigureMeta[] = [
   F("A.4.12", "Mass & balance", "mb_2_12", "Repositioning mass — CG shift"),
   F("A.4.12", "Mass & balance", "mb_2_15", "Adding or removing mass"),
   F("A.4.12", "Mass & balance", "mb_2_19", "Stabilizer trim vs CG (%MAC)"),
+  // Performance — take-off & landing distances (A.4.5)
+  F("A.4.5", "Take-off & landing distances", "pf_2_4", "Declared distances (TORA/ASDA/TODA)"),
+  F("A.4.5", "Take-off & landing distances", "pf_2_11", "Forces during the take-off run"),
+  F("A.4.5", "Take-off & landing distances", "pf_6_7", "Runway contamination & stopping distance"),
+  // Performance — climb, descent & cruise (A.4.7)
+  F("A.4.7", "Climb & descent", "pf_4_14", "Wind effect on descent angle & range"),
+  F("A.4.7", "Cruise & range", "pf_5_5", "Thrust/drag curve — min & max speed"),
+  F("A.4.7", "Cruise & range", "pf_5_10", "CAS, TAS & Mach with altitude"),
+  // Performance — Class A (A.4.1)
+  F("A.4.1", "Class A performance", "pf_14_1", "Ideal V1 (balanced field length)"),
 ];
 void F;

@@ -5,6 +5,43 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Planning & Performance (A.4 — performance) ═══
+  "fppfig-pf_2_4": [
+    "This shows the 'declared distances' at an aerodrome. The RUNWAY may be extended by a STOPWAY (a firm paved area able to take the aeroplane during a rejected take-off) and a CLEARWAY (a cleared area over which the aircraft can make its initial climb).",
+    "From these come: TORA (take-off run available, the runway), ASDA (accelerate-stop distance available = runway + stopway), and TODA (take-off distance available = runway + clearway, out to the first significant obstacle).",
+    "Performance calculations must show the aircraft can take off (or stop) within the appropriate declared distance — which is which depends on whether the take-off is continued or rejected.",
+  ],
+  "fppfig-pf_2_11": [
+    "This shows the forces during the take-off run. Thrust is high at the start and falls a little as speed builds; the total drag is made up of wheel drag (which falls as weight comes off the wheels) and aerodynamic drag (which grows with speed).",
+    "The gap between thrust and total drag is the EXCESS THRUST — the net accelerating force. The bigger this gap, the faster the aircraft accelerates to lift-off.",
+    "Anything that cuts the excess thrust (higher weight, higher/hotter airfield, up-slope, contamination) lengthens the take-off run.",
+  ],
+  "fppfig-pf_6_7": [
+    "This graph shows how runway contamination lengthens the stopping distance. For a given ground speed, stopping on a DRY runway takes the least distance; a wet-but-good surface a little more; a medium (slush/snow) surface more again; and a poor, icy or hydroplaning surface by far the most.",
+    "The curves fan out with speed, so the penalty for contamination grows rapidly the faster the aircraft is moving.",
+    "This is why landing-distance calculations apply large factors for wet and contaminated runways — the stopping distance can more than double.",
+  ],
+  "fppfig-pf_4_14": [
+    "This shows how wind affects a descent (glide). A HEADWIND steepens the descent angle and SHORTENS the distance covered over the ground; a TAILWIND shallows the angle and LENGTHENS the ground distance.",
+    "Crucially, the RATE of descent (feet per minute) is unchanged — in head, tail or zero wind the aircraft reaches the lower altitude in the same time. Wind only changes how far it travels over the ground, not how fast it sinks.",
+    "So for a given glide, plan the ground distance for the wind, but expect the same time to descend.",
+  ],
+  "fppfig-pf_5_5": [
+    "This shows the drag (thrust-required) curve against speed, with the thrust-available line across it. Drag is high at low speed (induced drag) and high again at high speed (parasite drag), with a minimum in between.",
+    "The aircraft can only fly where thrust available is at least equal to thrust required — i.e. between the two points where the lines cross. These crossings are the minimum and maximum level-flight speeds; the gap between them is the usable speed range.",
+    "At altitude the thrust-available line falls, so the speed range narrows — until, at the ceiling, it shrinks to a single speed.",
+  ],
+  "fppfig-pf_5_10": [
+    "This shows how the three speeds change as an aircraft climbs at a constant calibrated airspeed (CAS). Because the air thins with height, the TRUE airspeed (TAS) rises for the same CAS, and the MACH number rises faster still (the speed of sound also falls).",
+    "So holding a constant CAS in the climb means TAS and Mach both increase — important because the aircraft can run into its Mach limit high up even though the CAS is unchanged.",
+    "This is why a climb is flown at a constant CAS lower down and then a constant Mach higher up, swapping over where the two meet.",
+  ],
+  "fppfig-pf_14_1": [
+    "This shows how the ideal V1 (decision speed) is found for a balanced field. The red curve is the distance to CONTINUE the take-off after an engine failure (it shortens as the failure speed increases); the blue curve is the distance to STOP (accelerate-stop, which lengthens with speed).",
+    "Where the two curves cross, the distance to go and the distance to stop are equal — this failure speed is the ideal V1, giving the shortest 'balanced field length'.",
+    "Below V1 a failure means STOP; at or above V1 it means GO. Setting V1 correctly is central to Class A take-off performance.",
+  ],
+
   // ═══ Flight Planning & Performance (A.4 — mass & balance) ═══
   "fppfig-mb_2_2": [
     "This shows the basic mass-and-balance geometry. A fixed reference line, the DATUM, is chosen; the distance from the datum to any mass is its ARM. The aircraft's whole weight acts down through the centre of gravity (CG).",

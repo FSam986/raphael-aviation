@@ -18,6 +18,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The performance classes",
+        figureTopics: ["Class A performance"],
         points: [
           "Class A: multi-engine turbine transport aeroplanes (and large aeroplanes). Must be able to continue the take-off after failure of the critical engine at/after V1 and clear obstacles on a NET flight path.",
           "Class B: light propeller-driven aeroplanes (broadly ≤9 passengers and ≤5700 kg) — the class most CPL trainers fall into.",
@@ -140,6 +141,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Aerodrome distances",
+        figureTopics: ["Take-off & landing distances"],
         points: [
           "TORA (take-off run available); TODA = TORA + clearway; ASDA = TORA + stopway; LDA (landing distance available).",
           "TORR/TODR/LDR are the REQUIRED distances the aeroplane needs — must be ≤ the available ones.",
@@ -168,6 +170,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Climb, descent & glide",
+        figureTopics: ["Climb & descent"],
         points: [
           "In a steady climb: Thrust = Drag + Weight × sin(climb angle). Rate of climb depends on EXCESS POWER (power available − power required); climb angle depends on EXCESS THRUST.",
           "Climb gradient = height gained ÷ horizontal distance (often as a %); it is degraded by higher mass, altitude and temperature, and improved by headwind.",
@@ -176,6 +179,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Ceilings, range & endurance",
+        figureTopics: ["Cruise & range"],
         points: [
           "Absolute ceiling: rate of climb = 0. Service ceiling: rate of climb reduced to a small value (e.g. 100 ft/min).",
           "Endurance (time airborne) is best at the speed for minimum power required (minimum fuel flow); range (distance) is best near the speed for maximum L/D (piston) or a higher speed for jets.",
