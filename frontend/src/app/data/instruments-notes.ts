@@ -397,7 +397,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. RPM, torque, fuel & vibration",
-        figureTopics: ["Engine RPM, fuel & vibration"],
+        figureTopics: ["Engine RPM, fuel & vibration", "EICAS displays"],
         points: [
           "Tachometers: electronic (phonic/notched wheel + magnetic pickup, counts pulse frequency) or AC-generator (frequency ∝ RPM, drives a drag-cup) — AC types are self-powered and insensitive to line resistance.",
           "Torque: hydro-mechanical (oil pressure reacting the fixed gear of the reduction gearbox). Vibration: accelerometers, amplified and filtered.",

@@ -267,5 +267,16 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.9", "Engine RPM, fuel & vibration", "38_20", "Capacitance fuel quantity & flow"),
   I("A.7.9", "Engine RPM, fuel & vibration", "38_21", "Capacitance fuel probe construction"),
   I("A.7.9", "Engine RPM, fuel & vibration", "38_23", "Fuel flow transmitter"),
+
+  // Ch39 — Electronic instrumentation / EICAS-ECAM (A.7.9)
+  I("A.7.9", "EICAS displays", "39_01", "EICAS architecture"),
+  I("A.7.9", "EICAS displays", "39_02", "EICAS primary & secondary engine displays"),
+  I("A.7.9", "EICAS displays", "39_04", "EICAS status/system display"),
+  I("A.7.9", "EICAS displays", "39_05", "EICAS alert message levels A/B/C"),
+  I("A.7.9", "EICAS displays", "39_06", "Complete EICAS engine display"),
+  I("A.7.9", "EICAS displays", "39_07", "Standby engine indicator"),
+  I("A.7.9", "EICAS displays", "39_08", "ECAM architecture"),
+  I("A.7.9", "EICAS displays", "39_10", "ECAM status page"),
+  I("A.7.9", "EICAS displays", "39_13", "ECAM control panel"),
 ];
 void I;

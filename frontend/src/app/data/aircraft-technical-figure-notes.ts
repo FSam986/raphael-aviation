@@ -212,6 +212,53 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.9 — EICAS / ECAM) ═══
+  "insfig-39_01": [
+    "This shows the Boeing EICAS (Engine Indicating and Crew Alerting System). Two display units (upper for warnings/cautions and the primary engine display, lower for secondary/status/maintenance) are driven by two computers, with a display-select panel and automatic display switching.",
+    "Engine and system sensors feed the computers, which also drive discrete caution/warning lights and standby engine indicators, and a maintenance panel for the engineers.",
+    "EICAS replaces rows of engine gauges and warning lights with a prioritised electronic display that shows the crew what matters and hides what doesn't.",
+  ],
+  "insfig-39_02": [
+    "This shows how EICAS splits the engine information. The upper (primary) display always shows the key thrust parameters — N1 (LP compressor speed), EGT (and often EPR) — the things the crew must always see.",
+    "The lower (secondary) display shows the rest — N2, oil pressure, temperature and quantity, fuel flow and vibration — and can also show system status and maintenance pages when needed.",
+    "Separating primary from secondary keeps the most important numbers always in view while the detail is available on demand.",
+  ],
+  "insfig-39_04": [
+    "This shows an EICAS/ECAM system (status) display page. It presents system data in a compact form — here hydraulic quantities (left/centre/right), APU EGT and RPM, oxygen pressure, and the positions of the flight control surfaces (aileron, elevator, rudder).",
+    "Rather than separate gauges for each, the crew call up the relevant system page to see its state at a glance.",
+    "These system synoptic pages are a major benefit of electronic displays — the whole state of a system on one clear picture.",
+  ],
+  "insfig-39_05": [
+    "This shows how EICAS/ECAM ranks its alert messages by level. LEVEL A (red) are warnings needing immediate action — e.g. ENGINE FIRE, CABIN ALTITUDE. LEVEL B (amber) are cautions needing timely action — e.g. ENG OVHT, AUTOPILOT.",
+    "LEVEL C (amber, lower urgency) are advisories — e.g. YAW DAMPER, a bus off — awareness items.",
+    "Colour and position tell the crew instantly how urgent a message is, and the messages are listed in priority order so the most important is dealt with first.",
+  ],
+  "insfig-39_06": [
+    "This is a complete EICAS engine display in flight. The round N1 gauges (86.0, with a command bug and TO reference) dominate, with EGT (455), N2 (97.0) and fuel flow (8.4) alongside, plus oil pressure/temperature/quantity, vibration and TAT.",
+    "Combining dials for the primary parameters with digital read-outs for the rest gives both a quick trend picture and exact values.",
+    "Red radial limit marks and amber bands warn as a parameter nears its limit, so the crew can manage the engines within limits at a glance.",
+  ],
+  "insfig-39_07": [
+    "This is a standby engine indicator — an independent digital display of N1, EGT and N2, with the operating limits marked, used if the main EICAS/ECAM displays fail.",
+    "It has its own self-test switch and a display-control switch (AUTO/ON) so it can be brought up when needed, and it is powered and fed independently of the main displays.",
+    "Providing a simple, independent back-up of the key engine numbers means the crew never lose the essential engine information even with a major display failure.",
+  ],
+  "insfig-39_08": [
+    "This shows the Airbus ECAM (Electronic Centralised Aircraft Monitor) architecture. Left and right display panels are driven by symbol generators, fed and controlled by two flight warning computers, an ECAM control panel and a system data analogue converter.",
+    "The flight warning computers gather the aircraft systems' data, decide the alerts, drive the warning-light display unit and the aural warnings, and output to the AIDS (data recording).",
+    "ECAM is Airbus's equivalent of EICAS; it not only shows the alerts but also displays the corrective-action checklist for each warning.",
+  ],
+  "insfig-39_10": [
+    "This shows an ECAM STATUS page, shown after dealing with a failure. It is divided into LIMITATIONS (what the crew must now observe, e.g. speed or approach restrictions), SYSTEMS/FUNCTIONS LOST (what no longer works) and INFORMATION.",
+    "So after a fault, ECAM first leads the crew through the actions, then leaves this status summary of the consequences for the rest of the flight.",
+    "Having the limitations and lost systems summarised in one place helps the crew plan the approach and landing with the remaining systems.",
+  ],
+  "insfig-39_13": [
+    "This is the ECAM control panel. SGU (symbol generator unit) select switches and left/right brightness knobs manage the displays; CLR clears a message, STS calls the status page and RCL recalls cleared messages.",
+    "The row of system buttons (ENG, HYD, AC, DC, BLEED, COND, PRESS, FUEL, APU, F/CTL, DOOR, WHEEL) lets the crew call up any system's synoptic page on demand.",
+    "Normally ECAM shows pages automatically by flight phase and on a failure, but this panel lets the crew choose exactly which system to look at.",
+  ],
+
   // ═══ Flight Instruments (A.7.9 — engine instruments) ═══
   "insfig-38_01": [
     "This shows the many things measured on a jet engine. At the front, intake pressure and the low-pressure (LP) and high-pressure (HP) shaft speeds are sensed; through the engine, fuel flow, pressure and temperature, and oil temperature and pressure are monitored.",
