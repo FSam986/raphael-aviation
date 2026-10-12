@@ -5,6 +5,33 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Flight Planning & Performance (A.4 — mass & balance) ═══
+  "fppfig-mb_2_2": [
+    "This shows the basic mass-and-balance geometry. A fixed reference line, the DATUM, is chosen; the distance from the datum to any mass is its ARM. The aircraft's whole weight acts down through the centre of gravity (CG).",
+    "Arms measured AFT of the datum are POSITIVE, arms FORWARD of it are NEGATIVE. A mass's MOMENT is its weight × its arm; the CG is the total moment ÷ the total weight.",
+    "The CG must stay between the forward and aft CG limits shown; keeping it there is what mass-and-balance calculations are all about.",
+  ],
+  "fppfig-mb_2_10": [
+    "This is a CG envelope — a graph of weight (up the side) against CG position (along the bottom), with the forward and aft CG limits drawn as the sloping boundary lines.",
+    "After loading, the aircraft's total weight and its CG are plotted; the point MUST fall inside the envelope for every phase (take-off, and after burning fuel, landing).",
+    "If the plotted point is outside the envelope the aircraft is unsafe to fly as loaded, and the load must be moved, added or removed to bring the CG back within limits.",
+  ],
+  "fppfig-mb_2_12": [
+    "This shows what happens when a mass is MOVED (for example cargo shifted from hold A to hold B). Moving a mass m through a distance d shifts the whole aircraft's CG by an amount cc.",
+    "The CG shift is found from: CG shift = (mass moved × distance moved) ÷ total aircraft mass, i.e. cc = m·d ÷ M. The CG always moves in the SAME direction as the mass is moved.",
+    "This lets the loaders calculate exactly how far the CG will move, and check it stays within the CG limits.",
+  ],
+  "fppfig-mb_2_15": [
+    "This shows ADDING or REMOVING a mass (e.g. loading or unloading cargo at hold B). Unlike moving a mass, this changes both the total weight AND the CG.",
+    "The CG shift is: CG shift = (mass added or removed × distance of that mass from the OLD CG) ÷ the NEW total mass. Adding mass moves the CG TOWARDS the added mass; removing it moves the CG AWAY.",
+    "Both the new weight and the new CG must then be checked against the envelope — adding freight aft, for instance, can push the CG past the aft limit.",
+  ],
+  "fppfig-mb_2_19": [
+    "This shows the take-off stabilizer trim setting read against CG position (as a percentage of the mean aerodynamic chord, %MAC), with separate lines for different flap settings (here Flaps 5 and Flaps 15).",
+    "Because the CG sets how much the tailplane must balance, the correct stabilizer trim for take-off depends on the CG: a forward CG needs more nose-up trim, an aft CG less.",
+    "Setting the stabilizer trim from this chart for the actual CG and flap setting is a vital pre-take-off step — a mis-set stabilizer trim can make the aircraft very hard to rotate or control.",
+  ],
+
   // ═══ Flight Planning & Performance (A.4) ═══
   "fppfig-03_01": [
     "This shows the difference between air distance and ground distance. The AIR distance is how far the aircraft travels through the air; the GROUND distance is how far it moves over the ground; the gap is the WIND component.",

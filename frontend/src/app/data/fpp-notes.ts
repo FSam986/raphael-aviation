@@ -374,6 +374,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "The masses (know the ladder)",
+        figureTopics: ["Mass & balance"],
         points: [
           "Basic Empty Mass (BEM) → + operational items = Dry Operating Mass (DOM).",
           "DOM + traffic load (payload) = Zero Fuel Mass (ZFM) — must not exceed MZFM.",

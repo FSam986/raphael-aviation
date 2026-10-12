@@ -30,5 +30,11 @@ export const FPP_FIGURES: FppFigureMeta[] = [
   F("A.4.13", "PSR", "14_01", "Point of safe return — concept"),
   F("A.4.13", "PSR", "14_02", "PSR formula derivation"),
   F("A.4.13", "PSR", "14_03", "PSR on the navigation computer"),
+  // Mass & Balance (A.4.12)
+  F("A.4.12", "Mass & balance", "mb_2_2", "Balance arms — datum, CG & moment"),
+  F("A.4.12", "Mass & balance", "mb_2_10", "CG envelope (weight vs CG)"),
+  F("A.4.12", "Mass & balance", "mb_2_12", "Repositioning mass — CG shift"),
+  F("A.4.12", "Mass & balance", "mb_2_15", "Adding or removing mass"),
+  F("A.4.12", "Mass & balance", "mb_2_19", "Stabilizer trim vs CG (%MAC)"),
 ];
 void F;
