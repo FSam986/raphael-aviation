@@ -14,6 +14,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Shape & reference",
+        figureTopics: ["Earth & direction"],
         points: [
           "The earth is an oblate spheroid — flattened at the poles (compression ≈ 1/298); for most navigation it is treated as a sphere.",
           "Latitude: angular distance N/S of the equator (0–90°). Longitude: angular distance E/W of the Greenwich prime meridian (0–180°).",
@@ -147,6 +148,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Projection basics",
+        figureTopics: ["Chart projections"],
         points: [
           "Orthomorphic (conformal): bearings/shapes correct locally — required for navigation. Scale should be (nearly) constant.",
           "Cylindrical → Mercator; Conical → Lambert; Azimuthal → polar charts. Each is correct (scale exact) only at its point/line of tangency (or standard parallels).",
@@ -187,6 +189,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Closing & opening",
+        figureTopics: ["Relative velocity"],
         points: [
           "Same direction: relative speed = difference of groundspeeds (catching up). Opposite/converging: relative speed = sum of groundspeeds.",
           "Time to close = distance apart ÷ relative speed. Use it for separation, holding, and controlled time of arrival.",
@@ -217,6 +220,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Nav-computer routine",
+        figureTopics: ["Nav computer"],
         points: [
           "Speed/distance/time: set speed on the outer scale against the index; read distance vs time. GS × time = distance; distance ÷ GS = time.",
           "IAS→TAS (airspeed window): set pressure altitude against temperature, read TAS opposite CAS. Rule of thumb: TAS ≈ CAS + 2% per 1000 ft (roughly).",
@@ -242,6 +246,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The 1-in-60 rule",
+        figureTopics: ["1-in-60 rule"],
         points: [
           "1° of track error ≈ 1 NM off track per 60 NM flown. Track error angle = (distance off track ÷ distance gone) × 60.",
           "Closing angle = (distance off track ÷ distance to go) × 60. Total heading correction to regain track at the destination = track error + closing angle.",

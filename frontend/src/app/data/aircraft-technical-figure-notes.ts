@@ -5,6 +5,38 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ General Navigation (A.9) ═══
+  "navfig-016_figure_02": [
+    "This shows what LATITUDE means. It is the angle, measured at the centre of the Earth, between the plane of the equator and the line to the point — here point A is at latitude 40°N.",
+    "Latitude is measured 0° at the equator up to 90° at each pole, and labelled North or South of the equator. Lines of equal latitude (parallels) run east-west.",
+    "Together with longitude (the east-west angle), latitude fixes any position on the Earth — the starting point for all navigation.",
+  ],
+  "navfig-290_figure_01": [
+    "This shows the basic idea of a map projection. The round Earth (shrunk to a 'reduced Earth') is imagined with a light source inside or above it, casting the graticule (the lines of latitude and longitude) outwards onto a flat sheet of paper.",
+    "Because a sphere cannot be flattened without distortion, the projection stretches or squashes the pattern — points A and B on the globe fall at A₁ and B₁ on the paper, not quite in proportion.",
+    "Different placements of the paper and light source give the different chart types (cylindrical, conic, etc.), each distorting scale, shape, area or bearings in its own way.",
+  ],
+  "navfig-357_figure_01": [
+    "This shows a Lambert conformal conic chart's graticule, produced by wrapping a cone around the Earth so it cuts the surface at TWO standard parallels.",
+    "Scale is exactly correct along the two standard parallels; between them the chart is slightly too small, and outside them slightly too large — but the error stays small, so a Lambert chart is accurate over a wide band of latitude.",
+    "On a Lambert chart meridians converge (as they do on the real Earth), a straight line is very nearly a great circle, and it is 'conformal' (shapes and bearings are correct) — which is why it is the standard chart for mid-latitude navigation.",
+  ],
+  "navfig-132_figure_01": [
+    "This shows a relative-motion (drift) problem. An aircraft (or boat) must cross from A to B, directly across a 10 NM channel, while a 5-knot current flows across the path.",
+    "The current continuously pushes the craft sideways, so to actually track straight from A to B it must be aimed (headed) slightly INTO the current — the heading differs from the desired track by the drift angle.",
+    "This is the essence of the triangle of velocities: the aircraft's own motion through the air plus the wind (or current) gives the actual motion over the ground, and the pilot must allow for the wind to make good the intended track.",
+  ],
+  "navfig-085_figure_03": [
+    "This is the CRP-5 navigation computer — a circular slide rule used for the arithmetic of flight planning. The outer scales multiply and divide (speed, distance, time, fuel, conversions), and the central window and cursor handle airspeed and density corrections.",
+    "Here it is set up for a calculation reading 24.3 against 17000 — one setting solves a whole proportion in a single move.",
+    "The reverse side has a wind-face for solving the triangle of velocities. The nav computer is a required skill because it is fast, needs no power, and never fails at a bad moment.",
+  ],
+  "navfig-198_figure_01": [
+    "This is the triangle behind the '1-in-60 rule'. If you travel 60 units along a track and are 1 unit off to the side, the angular error is 1°. Here the ratio is 8 in 60, so the angle is about 8°.",
+    "The rule is: angle (degrees) ≈ 60 × (across-track distance ÷ along-track distance). It works because, for small angles, the arc and the tangent are almost equal.",
+    "Pilots use it constantly — to work out track error from how far off a feature is, to correct heading back onto track, and to judge descent gradients (e.g. a 3° slope loses about 300 ft per nautical mile).",
+  ],
+
   // ═══ Flight Planning & Performance (A.4 — performance) ═══
   "fppfig-pf_2_4": [
     "This shows the 'declared distances' at an aerodrome. The RUNWAY may be extended by a STOPWAY (a firm paved area able to take the aeroplane during a rejected take-off) and a CLEARWAY (a cleared area over which the aircraft can make its initial climb).",
