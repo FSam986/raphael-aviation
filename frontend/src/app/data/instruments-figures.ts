@@ -242,5 +242,11 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.8", "TCAS / ACAS", "35_06", "TCAS traffic display explained"),
   I("A.7.8", "TCAS / ACAS", "35_07", "TCAS traffic symbology (RA/TA/proximate)"),
   I("A.7.8", "TCAS / ACAS", "35_08", "TCAS traffic on the navigation display"),
+
+  // Ch36-37 — Flight recorders (A.7.9)
+  I("A.7.9", "Flight recorders", "36_01", "FDR system & DFDR event button"),
+  I("A.7.9", "Flight recorders", "36_02", "DFDR architecture"),
+  I("A.7.9", "Flight recorders", "37_01", "CVR control panel & location"),
+  I("A.7.9", "Flight recorders", "37_02", "CVR control unit face"),
 ];
 void I;

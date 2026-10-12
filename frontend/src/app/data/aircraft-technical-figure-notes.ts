@@ -212,6 +212,28 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.9 — flight recorders) ═══
+  "insfig-36_01": [
+    "This shows the flight data recorder (FDR) system. A flight data acquisition unit (FDAU) collects data from the aircraft's systems, including a dedicated accelerometer (for the g-loads) and the flight warning computer.",
+    "On the pedestal there is a DFDR event button the crew can press to 'mark' the recording at a point of interest, alongside the flood light and AIDS controls.",
+    "The FDR captures hundreds of parameters continuously so that, after an incident, investigators can reconstruct exactly what the aircraft and its systems were doing.",
+  ],
+  "insfig-36_02": [
+    "This shows the architecture of a digital flight data recorder (DFDR). A digital flight data acquisition unit (DFDAU) gathers the mandatory parameters (the minimum list the regulations require) plus optional ones, and an accelerometer input.",
+    "It formats them and sends them as 'flight data' to the DFDR itself — the crash-protected recorder (shown red, though the real crash-survivable case is bright orange). A control panel and status/playback lines let the recording be monitored and read out.",
+    "The recorder is built to survive crash impact, fire and immersion, and carries an underwater locator beacon, so the data can be recovered after an accident.",
+  ],
+  "insfig-37_01": [
+    "This shows the cockpit voice recorder (CVR) and its controls. A recorder control panel (RCDR) carries a ground-control AUTO/ON switch, a CVR ERASE button and a CVR TEST button, and is located on the overhead panel.",
+    "The CVR continuously records the flight crew's voices, radio transmissions and cockpit area sounds on a loop, keeping the last period (typically 2 hours on modern recorders).",
+    "The erase function only works on the ground with the parking brake set, so the recording cannot be wiped in flight.",
+  ],
+  "insfig-37_02": [
+    "This shows the CVR control unit face. It has an area MICROPHONE that picks up the general cockpit sounds, a MONITOR indicator to confirm the recorder is working, a TEST button and an ERASE button, and a HEADSET (600 ohm) jack to listen to the monitor.",
+    "Pressing TEST checks the recorder and deflects the monitor needle; ERASE (on the ground only) wipes the loop.",
+    "Together with the flight data recorder, the CVR gives investigators the crew's words and the cockpit sounds to go with the recorded flight data.",
+  ],
+
   // ═══ Flight Instruments (A.7.8 — TCAS / ACAS) ═══
   "insfig-35_01": [
     "This shows the protected airspace TCAS builds around the aircraft. An outer volume generates a traffic advisory (TA) — the yellow cylinder — and an inner volume generates a resolution advisory (RA) — the orange cylinder — with the aircraft in the protected core.",

@@ -404,6 +404,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Recorders (FDR / CVR)",
+        figureTopics: ["Flight recorders"],
         points: [
           "FDR retains at least the last 25 hours; CVR the last 30 minutes. Both are mounted as far aft as practicable (survivability), crash- and fire-protected, and start recording before the aircraft can move under its own power.",
           "CVR channels record R/T, cockpit area mic (ambient + alarms), interphone and PA; ECAM/EICAS centralise the monitoring, warnings and system synoptics.",
