@@ -212,6 +212,48 @@ export const FIGURE_NOTES: Record<string, string[]> = {
     "So the glideslope becomes more sensitive as the aircraft nears the runway, which is why small, smooth corrections are needed near the threshold.",
   ],
 
+  // ═══ Flight Instruments (A.7.8 — TCAS / ACAS) ═══
+  "insfig-35_01": [
+    "This shows the protected airspace TCAS builds around the aircraft. An outer volume generates a traffic advisory (TA) — the yellow cylinder — and an inner volume generates a resolution advisory (RA) — the orange cylinder — with the aircraft in the protected core.",
+    "The volumes are shaped by TIME to the closest point of approach, not just distance, so they stretch out ahead where the closing speed is high.",
+    "TCAS watches other aircraft's transponders; when one is predicted to enter these volumes it warns the crew (TA) and, if the threat grows, tells them what to do (RA).",
+  ],
+  "insfig-35_02": [
+    "This shows the coverage of the TCAS directional antenna. Mounted on top (and bottom) of the aircraft, it can tell roughly which direction an interrogated aircraft's reply comes from, giving the bearing to the traffic.",
+    "By interrogating nearby transponders and timing the replies, TCAS measures each intruder's range, and from the Mode C/S data its altitude and trend.",
+    "Knowing range, bearing and relative altitude lets TCAS place the traffic on the display and decide whether it is a threat.",
+  ],
+  "insfig-35_03": [
+    "This shows a complete TCAS installation. A Mode S transponder and TCAS computer work with top and bottom antennas to interrogate other aircraft's transponders and listen for the replies.",
+    "The transmitter/receiver computer works out the threats and drives the displays: the traffic is shown on a dedicated TCAS display or the ND, and resolution advisories appear on the PFD/VSI (e.g. 'INCREASE CLIMB'). A control panel sets the mode (STBY/TA/RA-TA) and range.",
+    "Crucially, two TCAS-equipped aircraft coordinate over the Mode S link so their resolution advisories are complementary — one told to climb, the other to descend.",
+  ],
+  "insfig-35_04": [
+    "This shows the TCAS alerting zones by time to collision. In the outer CAUTION area (about 35–45 seconds away) TCAS issues a Traffic Advisory (TA) — 'TRAFFIC, TRAFFIC' — to draw the crew's attention.",
+    "In the inner WARNING area (about 15–35 seconds away) it issues a Resolution Advisory (RA), telling the crew to climb or descend to avoid the COLLISION area.",
+    "Because the thresholds are in time, not distance, a fast closure triggers the alerts further out — giving the crew a roughly constant warning time.",
+  ],
+  "insfig-35_05": [
+    "This shows how a resolution advisory is flown on the vertical-speed indicator. A RED band marks the vertical speeds to AVOID, and a GREEN band the vertical speed to FLY TO; the pilot simply moves the VSI needle out of the red and into the green.",
+    "So an RA like 'CLIMB' puts the green band in the climb region and reds-out the descent; 'DESCEND' does the opposite.",
+    "Presenting the RA as a 'fly-to' zone on the VSI makes the required manoeuvre instant to read and fly.",
+  ],
+  "insfig-35_06": [
+    "This explains the TCAS traffic display. Own aircraft is the symbol in the centre with a range ring around it; the selected range (e.g. 10 NM) is shown in the corner. Each intruder is drawn at its relative bearing and range, tagged with its relative altitude and a trend arrow.",
+    "Messages tell the crew the state of the system: 'TA ONLY' (RAs inhibited, e.g. at low level), 'TD FAIL'/'TCAS OFF' for failures, 'OFF SCALE' when traffic is beyond the selected range, and 'NO BEARING' when the direction cannot be determined.",
+    "Reading the display tells the crew where the traffic is, whether it is above or below and climbing or descending, and whether TCAS is fully working.",
+  ],
+  "insfig-35_07": [
+    "This shows the standard TCAS traffic symbols. A cyan (open) diamond is 'other traffic'; a filled cyan diamond is 'proximate traffic' (close but not a threat); an amber filled circle is a Traffic Advisory (TA); and a red filled square is a Resolution Advisory (RA).",
+    "Each carries its relative altitude (e.g. −03 = 300 ft below) and an up/down arrow for its vertical trend. The red/green VSI scale around the edge shows the RA fly-to guidance.",
+    "The colour and shape instantly rank the threat — red square and the RA guidance demand action, amber circle is a heads-up, cyan diamonds are just awareness.",
+  ],
+  "insfig-35_08": [
+    "This shows TCAS traffic overlaid on the navigation display in map mode. The intruders (RA red square, TA amber, proximate cyan diamonds) appear in their real positions relative to the route, waypoints and weather.",
+    "Combining traffic with the moving map lets the crew see conflicting traffic in the context of where they are going, and an annunciation (e.g. 'TA 2.5') flags the threat.",
+    "Integrating TCAS into the ND means the crew do not need a separate instrument to see where the traffic is relative to their flight path.",
+  ],
+
   // ═══ Flight Instruments (A.7.8 — GPWS / TAWS) ═══
   "insfig-34_01": [
     "This shows the inputs and outputs of a ground proximity warning system (GPWS). Into the central processing unit go radio altitude, Mach/airspeed, air data, ILS glidepath deviation, and the undercarriage, flap and navigation inputs.",

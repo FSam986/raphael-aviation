@@ -232,5 +232,15 @@ export const INSTRUMENTS_FIGURES: InsFigureMeta[] = [
   I("A.7.8", "GPWS / TAWS", "34_12", "EGPWS/TAWS terrain display & alerts"),
   I("A.7.8", "GPWS / TAWS", "34_13", "EGPWS look-ahead warning envelope"),
   I("A.7.8", "GPWS / TAWS", "34_14", "EGPWS terrain clearance floor"),
+
+  // Ch35 — TCAS / ACAS (A.7.8)
+  I("A.7.8", "TCAS / ACAS", "35_01", "TCAS protection volumes (TA/RA)"),
+  I("A.7.8", "TCAS / ACAS", "35_02", "TCAS directional antenna coverage"),
+  I("A.7.8", "TCAS / ACAS", "35_03", "TCAS system architecture & displays"),
+  I("A.7.8", "TCAS / ACAS", "35_04", "TCAS TA/RA timing zones"),
+  I("A.7.8", "TCAS / ACAS", "35_05", "TCAS RA on the VSI"),
+  I("A.7.8", "TCAS / ACAS", "35_06", "TCAS traffic display explained"),
+  I("A.7.8", "TCAS / ACAS", "35_07", "TCAS traffic symbology (RA/TA/proximate)"),
+  I("A.7.8", "TCAS / ACAS", "35_08", "TCAS traffic on the navigation display"),
 ];
 void I;

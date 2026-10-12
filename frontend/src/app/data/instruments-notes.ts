@@ -360,6 +360,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. TCAS (ACAS)",
+        figureTopics: ["TCAS / ACAS"],
         points: [
           "TCAS interrogates the SSR TRANSPONDERS of nearby aircraft — it cannot see non-transponding traffic. Mode C/S altitude reporting is needed for a vertical resolution.",
           "TCAS I = Traffic Advisory (TA) only. TCAS II = TA + Resolution Advisory (RA), VERTICAL only (climb/descend).",
