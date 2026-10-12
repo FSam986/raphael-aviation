@@ -14,6 +14,7 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The wave",
+        figureTopics: ["Radio waves"],
         points: [
           "Speed of a radio wave = 3×10⁸ m/s (speed of light).",
           "λ(m) = 300 / f(MHz), or λ(m) = 300000 / f(KHz). Learn both directions.",
@@ -23,6 +24,7 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Modulation",
+        figureTopics: ["Modulation"],
         points: [
           "Modulation = impressing intelligence onto a carrier. AM varies amplitude (frequency constant); FM varies frequency (amplitude constant).",
           "Demodulation recovers the audio from the carrier.",
@@ -59,6 +61,7 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. NDB & the receiver",
+        figureTopics: ["ADF / NDB"],
         points: [
           "NDB: vertically polarised, LF/MF band (usually 200–500 KHz). A1A = long-range (unmodulated, BFO on); A2A = short-range approach/locator (modulated tone).",
           "The loop aerial resolves direction (its null is sharp); the sense aerial removes the 180° ambiguity, giving a single-null cardioid. BEARINGS need both aerials.",
@@ -67,6 +70,7 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Bearings (Q-codes)",
+        figureTopics: ["Radio bearings (Q-codes)"],
         points: [
           "QDM = magnetic bearing TO the station; QDR = magnetic bearing FROM; QTE = true bearing FROM; QUJ = true bearing TO.",
           "QDM = Heading(M) + Relative Bearing (subtract 360 if over). QDR = QDM ± 180.",
@@ -102,6 +106,7 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. VOR",
+        figureTopics: ["VOR"],
         points: [
           "Band 108.0–117.95 MHz. Bearing by phase comparison of a reference phase (9960 Hz sub-carrier, FM at 30 Hz) and a variable/directional phase (rotating limaçon, AM at 30 Hz).",
           "CDI ignores heading. TO with needle centred = you are on the reciprocal of the selected radial. No ident = under maintenance, DON'T use the bearings.",
@@ -110,6 +115,7 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. ILS geometry",
+        figureTopics: ["ILS"],
         points: [
           "Localiser (~300 m beyond the upwind runway end, on centreline) — carries the IDENT; 150 Hz/blue right of centreline, 90 Hz/yellow left. On the centreline the needle centres irrespective of OBS.",
           "Glide path array offset to the side, ~300 m upwind of the threshold; typically 3°. Full-scale deflection ±0.7° (GP), localiser tighter.",
@@ -220,6 +226,7 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Principle",
+        figureTopics: ["Radar"],
         points: [
           "~3 cm wavelength (9375 MHz, SHF): short enough to reflect off large drops/hail, long enough to see ahead through cloud. Below 3 cm too much is absorbed.",
           "A conical PENCIL beam (narrow in both planes, ~3.5°) gives the best target resolution. Antenna gyro-stabilised in pitch and roll.",

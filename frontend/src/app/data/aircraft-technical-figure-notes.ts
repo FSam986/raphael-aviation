@@ -5,6 +5,78 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Radio Navigation (A.10) ═══
+  "rnfig-1964": [
+    "This shows one cycle of a radio wave. The PERIOD (τ) is the time for one complete cycle; the number of cycles per second is the FREQUENCY (in hertz).",
+    "The physical length of one cycle is the WAVELENGTH, and the three are linked: wavelength = speed of light ÷ frequency (λ = 300 ÷ f(MHz) metres).",
+    "These basics underlie every radio aid — the frequency band chosen sets the wavelength, which in turn governs the aerial size, the range and how the signal propagates.",
+  ],
+  "rnfig-12037": [
+    "This compares the two ways information is added to a radio carrier. In AMPLITUDE modulation (AM) the HEIGHT of the carrier is varied in step with the signal (the carrier frequency stays constant).",
+    "In FREQUENCY modulation (FM) the carrier's amplitude stays constant but its FREQUENCY is varied — squeezed closer and spread wider — in step with the signal.",
+    "AM is simpler and used for voice and many navigation aids, but is prone to static; FM resists noise better, which is why it is used where a clean signal matters.",
+  ],
+  "rnfig-13186": [
+    "This is a Radio Magnetic Indicator (RMI). A compass card, slaved to the aircraft's heading, turns under the pointer; the needle points along the bearing TO a tuned beacon (an NDB via the ADF, or a VOR).",
+    "Because the card shows heading, the head of the needle reads the magnetic bearing to the station directly, and the tail reads the bearing from it.",
+    "The RMI gives the pilot instant situational awareness — which way the beacon lies and the aircraft's relative position — without any mental arithmetic.",
+  ],
+  "rnfig-12044": [
+    "This shows VHF Direction Finding (VDF) and the Q-codes for bearings. The aircraft transmits on VHF; the ground station measures the direction the signal arrives from and passes a bearing to the pilot.",
+    "QDM is the magnetic bearing TO the station (the heading to steer in nil wind); QDR is the magnetic bearing FROM the station (the radial the aircraft is on); QTE is the TRUE bearing from the station.",
+    "VDF is a simple ground-based service — the pilot just talks on the radio — and the Q-codes are the standard shorthand for the bearing information given.",
+  ],
+  "rnfig-1965": [
+    "This shows PHASE COMPARISON, the principle behind the VOR. Two signals are transmitted: a REFERENCE wave whose phase is the same in every direction, and a VARIABLE wave whose phase depends on the bearing from the station.",
+    "The receiver measures the phase difference between the two; that difference equals the aircraft's bearing (radial) from the VOR. Due north the two are in phase (0°).",
+    "So the VOR tells the aircraft which radial it is on purely by comparing the phase of these two signals — no ground operator needed.",
+  ],
+  "rnfig-13192": [
+    "This shows the 'cone of confusion' directly above a VOR (or the station-passage behaviour). As the aircraft flies over the station the signal geometry breaks down, the OFF/NAV flag may appear and the CDI becomes agitated and flicks side to side.",
+    "The TO/FROM flag changes as the aircraft passes overhead (from TO to FROM). The cone widens with height — about 40° total at the ICAO standard.",
+    "Pilots expect this brief unreliable indication over the beacon and simply hold heading until the needles settle on the far side.",
+  ],
+  "rnfig-13193": [
+    "This is a VOR display with its Omni-Bearing Selector (OBS). The pilot turns the OBS to select a radial; the Course Deviation Indicator (CDI) bar then shows how far left or right of that selected radial the aircraft is.",
+    "A TO/FROM flag shows whether flying the selected course would take the aircraft toward or away from the station. Each dot of CDI deflection is 2° off the selected radial.",
+    "To track a radial the pilot centres the CDI with a TO or FROM indication and flies to keep it centred.",
+  ],
+  "rnfig-13197": [
+    "This shows how the VOR display changes while intercepting and tracking a radial. As the aircraft approaches the selected radial the CDI bar moves in from full-scale toward the centre; crossing the radial it passes through centre.",
+    "Keeping the bar centred holds the aircraft on the radial; a steady off-centre bar means a parallel track, and the pilot turns toward the bar to re-intercept.",
+    "The sequence of displays around the track shows the standard 'turn toward the needle' technique for flying a VOR radial.",
+  ],
+  "rnfig-13201": [
+    "This explains the geometry of a VOR course deviation. With 360° set on the OBS, an aircraft 6° to the right of the required course shows a 6° course deviation and is on the 174° QDR (reciprocal of the set course).",
+    "The CDI shows the angular displacement from the selected radial, not a distance — so the same deflection means a smaller cross-track distance the closer you are to the station.",
+    "Understanding this lets the pilot judge how much to turn to regain the selected course.",
+  ],
+  "rnfig-12038": [
+    "This shows the ILS localizer. Two overlapping lobes are transmitted along the runway centreline: one modulated at 90 Hz (to one side) and one at 150 Hz (to the other), with an equisignal exactly on the centreline.",
+    "If the aircraft drifts to the 150 Hz side the receiver senses more 150 Hz and drives the course bar to show 'fly left', and vice-versa, so centring the bar keeps the aircraft on the extended centreline.",
+    "The glidepath works the same way vertically (90/150 Hz lobes, usually on a 3° slope), giving the full ILS approach guidance.",
+  ],
+  "rnfig-13216": [
+    "This shows the radiation patterns of ILS marker beacons (and the fan marker). Markers transmit a narrow vertical fan at 75 MHz; as the aircraft flies over one, a light and tone tell the crew they are at a known point on the approach.",
+    "The patterns include the elliptical and 'bone' shapes, a fan marker combined with an NDB (locator), and the Z marker over a beacon.",
+    "Markers (outer/middle/inner) give positive range checks along the ILS, though many are now replaced by DME.",
+  ],
+  "rnfig-13217": [
+    "This is an ILS approach profile. It shows the glide path descending at about 3° to the runway, with the marker beacons (outer and middle) and/or DME giving range, and the height checks the crew make on the way down.",
+    "The locator/outer marker marks the point to start the descent on the glide path; the middle marker is near the decision height.",
+    "Reading the profile lets the crew cross-check their height against distance all the way down the approach — a guard against following a false glide path.",
+  ],
+  "rnfig-12041": [
+    "This shows a radar beam sweeping the ground beneath an aircraft (ground-mapping / weather radar). The aerial sends out a narrow beam; echoes from the surface or from rain return to the set and are painted on the display.",
+    "The time for the echo to return gives the range; the direction the aerial is pointing gives the bearing — so targets can be placed on the screen.",
+    "The same principle gives airborne weather radar (echoes from precipitation) and ground-mapping for navigation.",
+  ],
+  "rnfig-13234": [
+    "This shows three ways a radar (or satcom) dish is fed. A DIPOLE feed sits at the focus of the parabolic reflector; a HORN feed uses a waveguide horn; a CASSEGRAIN feed bounces the signal off a small sub-reflector back through the main dish.",
+    "The parabolic reflector turns the feed's signal into a narrow, parallel 'pencil' beam (and focuses returning echoes back onto the feed).",
+    "A narrow beam gives good bearing resolution; the feed type is chosen for the size, frequency and performance the installation needs.",
+  ],
+
   // ═══ General Navigation (A.9) — extended ═══
   "navfig-010_figure_01": [
     "This shows direction on the Earth. The planet spins about its axis, which defines the true North and South poles; from any point the cardinal directions (N, E, S, W) and the compass rose are referenced to true north.",
