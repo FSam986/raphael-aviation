@@ -9,7 +9,6 @@ export const NAV_ITEMS = [
   { href: "/dashboard", icon: "🏠", label: "Dashboard" },
   { href: "/coach", icon: "🚀", label: "Guaranteed Pass" },
   { href: "/study", icon: "📚", label: "Study" },
-  { href: "/ai-tutor", icon: "🤖", label: "AI Instructor" },
   { href: "/exams", icon: "📝", label: "Mock Exams" },
   { href: "/exam-brief", icon: "🎯", label: "Exam-Day Brief" },
   { href: "/flashcards", icon: "🃏", label: "Flashcards" },

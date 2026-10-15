@@ -15,10 +15,9 @@ import { recordQuiz, recordStudyOpen } from "@/app/lib/progress";
 import { SUBJECT_BANKS, loadMastery } from "@/app/lib/readiness";
 import { recordResults } from "@/app/lib/examSelect";
 import { countByAspect, filterByAspect } from "@/app/lib/aspects";
-import { supabase } from "@/lib/supabase";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
 
-type Tab = "learn" | "ai-tutor" | "quiz" | "flashcards" | "illustrations" | "examples";
+type Tab = "learn" | "quiz" | "flashcards" | "illustrations" | "examples";
 
 export default function SectionPage() {
   const params = useParams();
@@ -30,11 +29,8 @@ export default function SectionPage() {
   const { userName, loading } = useAuthGuard();
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<Tab>(
-    tabParam === "quiz" || tabParam === "flashcards" || tabParam === "ai-tutor" || tabParam === "illustrations" || tabParam === "examples" ? tabParam : "learn"
+    tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" ? tabParam : "learn"
   );
-  const [aiQuestion, setAiQuestion] = useState("");
-  const [aiMessages, setAiMessages] = useState<{ role: "user" | "ai"; text: string }[]>([]);
-  const [aiLoading, setAiLoading] = useState(false);
 
   // Quiz state (uses the Meteorology question bank, filtered by this section)
   const [quizAnswers, setQuizAnswers] = useState<Record<string, "a" | "b" | "c" | "d">>({});
@@ -97,35 +93,6 @@ export default function SectionPage() {
   const subject = findSubject(subjectId);
   const section = subject?.sections.find((s) => s.id === sectionId);
 
-  async function handleAskAI(e: React.FormEvent) {
-    e.preventDefault();
-    if (!aiQuestion.trim() || aiLoading) return;
-    const question = aiQuestion.trim();
-    setAiQuestion("");
-    setAiMessages((m) => [...m, { role: "user", text: question }]);
-    setAiLoading(true);
-
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      const res = await fetch("/api/ai-tutor", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...(session ? { Authorization: `Bearer ${session.access_token}` } : {}) },
-        body: JSON.stringify({
-          question,
-          subject: subject?.title,
-          section: section?.title,
-          sectionId,
-          history: aiMessages.slice(-6),
-        }),
-      });
-      const data = await res.json();
-      setAiMessages((m) => [...m, { role: "ai", text: data.answer }]);
-    } catch {
-      setAiMessages((m) => [...m, { role: "ai", text: "Sorry, I couldn't connect. Check your OpenAI key and try again." }]);
-    }
-    setAiLoading(false);
-  }
-
   if (loading) return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
 
   if (!subject || !section) {
@@ -186,7 +153,6 @@ export default function SectionPage() {
     { id: "learn",     label: "Learn",      icon: "📖" },
     ...(sectionExamples.length > 0 ? [{ id: "examples" as Tab, label: "Examples", icon: "📐" }] : []),
     ...(sectionFigures.length > 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "🖼️" }] : []),
-    { id: "ai-tutor",  label: "Ask AI",     icon: "🤖" },
     { id: "quiz",      label: "Quiz",       icon: "📝" },
     { id: "flashcards",label: "Flashcards", icon: "🃏" },
   ];
@@ -386,21 +352,12 @@ export default function SectionPage() {
                         <button onClick={() => setActiveTab("quiz")} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors">
                           Test yourself →
                         </button>
-                        <button onClick={() => setActiveTab("ai-tutor")} className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm rounded-xl transition-colors">
-                          Ask AI about this topic
-                        </button>
                       </div>
                     </div>
                   ) : (
                     <div className="text-zinc-600 text-sm leading-relaxed border border-zinc-900 rounded-xl p-6 text-center">
                       <div className="text-3xl mb-3">📚</div>
                       <p className="text-zinc-500">Detailed study notes for this topic are being added.</p>
-                      <button
-                        onClick={() => setActiveTab("ai-tutor")}
-                        className="mt-4 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm rounded-xl transition-colors"
-                      >
-                        Ask AI about this topic →
-                      </button>
                     </div>
                   )}
                 </div>
@@ -491,78 +448,6 @@ export default function SectionPage() {
                 </div>
               ))}
               <button onClick={() => setActiveTab("quiz")} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl">Practise these in the quiz →</button>
-            </div>
-          )}
-
-          {activeTab === "ai-tutor" && (
-            <div className="max-w-3xl flex flex-col h-full" style={{ minHeight: "calc(100vh - 280px)" }}>
-              <div className="bg-zinc-950 border border-zinc-900 rounded-2xl flex flex-col flex-1 overflow-hidden">
-                <div className="px-6 py-4 border-b border-zinc-900 flex items-center gap-3">
-                  <span className="text-xl">🤖</span>
-                  <div>
-                    <div className="font-bold text-white text-sm">AI Instructor</div>
-                    <div className="text-zinc-600 text-xs">Specialist in SACAA CPL — {section.title}</div>
-                  </div>
-                </div>
-
-                {/* Messages */}
-                <div className="flex-1 overflow-auto p-6 space-y-4 min-h-0">
-                  {aiMessages.length === 0 && (
-                    <div className="text-center py-8">
-                      <div className="text-3xl mb-3">🤖</div>
-                      <p className="text-zinc-500 text-sm">Ask me anything about <strong className="text-white">{currentItem.topic}</strong></p>
-                      <div className="mt-4 grid grid-cols-1 gap-2 max-w-sm mx-auto">
-                        {[
-                          `Explain ${currentItem.topic} simply`,
-                          "What exam questions come from this topic?",
-                          "Give me a memory trick",
-                          "What are the common mistakes students make?",
-                        ].map((suggestion) => (
-                          <button
-                            key={suggestion}
-                            onClick={() => { setAiQuestion(suggestion); }}
-                            className="text-left text-xs text-zinc-600 hover:text-yellow-400 bg-zinc-900 hover:bg-zinc-800 px-3 py-2 rounded-lg transition-colors"
-                          >
-                            {suggestion}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {aiMessages.map((msg, i) => (
-                    <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                      <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm ${msg.role === "user" ? "bg-yellow-400 text-black font-medium" : "bg-zinc-900 text-zinc-200"}`}>
-                        {msg.text}
-                      </div>
-                    </div>
-                  ))}
-
-                  {aiLoading && (
-                    <div className="flex justify-start">
-                      <div className="bg-zinc-900 rounded-2xl px-4 py-3 text-sm text-zinc-600">
-                        Thinking...
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <form onSubmit={handleAskAI} className="p-4 border-t border-zinc-900 flex gap-3">
-                  <input
-                    value={aiQuestion}
-                    onChange={(e) => setAiQuestion(e.target.value)}
-                    placeholder={`Ask about ${currentItem.topic}...`}
-                    className="flex-1 bg-zinc-900 border border-zinc-800 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-yellow-400 transition-colors placeholder:text-zinc-700"
-                  />
-                  <button
-                    type="submit"
-                    disabled={!aiQuestion.trim() || aiLoading}
-                    className="px-4 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors disabled:opacity-40"
-                  >
-                    Ask
-                  </button>
-                </form>
-              </div>
             </div>
           )}
 
