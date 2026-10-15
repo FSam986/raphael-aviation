@@ -125,6 +125,10 @@ a { color: inherit; }
   .rise { animation: none; }
 }
 
+/* Horizontally scrollable rows (e.g. mobile tab bars) without a visible bar. */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 /* Faint chart-grid backdrop, reusable. */
 .chart-grid {
   background-image:

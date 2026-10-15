@@ -8,6 +8,7 @@ import { subjectContent } from "@/app/lib/subjectContent";
 import { subjectReadiness, type SubjectReadiness } from "@/app/lib/readiness";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
+import { Icon } from "@/app/components/Icon";
 
 export default function SubjectPage() {
   const params = useParams();
@@ -51,16 +52,16 @@ export default function SubjectPage() {
 
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         {/* Header */}
-        <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
+        <div className="px-5 sm:px-10 pt-10 pb-6 border-b border-zinc-900">
           <div className="flex items-center gap-2 text-zinc-600 text-sm mb-4">
             <Link href="/study" className="hover:text-zinc-400 transition-colors">Study</Link>
             <span>/</span>
             <span className="text-zinc-400">{subject.title}</span>
           </div>
-          <div className="flex items-start justify-between">
-            <div>
-              <h1 className="text-3xl font-black text-white">{subject.title}</h1>
-              <div className="flex items-center gap-4 mt-2 text-sm text-zinc-500">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="min-w-0">
+              <h1 className="font-display text-3xl text-white leading-tight">{subject.title}</h1>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm text-zinc-500">
                 <span className="text-yellow-400 font-mono font-bold">{subject.code}</span>
                 <span>{subject.sections.length} sections</span>
                 <span>{totalItems} exam topics</span>
@@ -68,9 +69,9 @@ export default function SubjectPage() {
                 <span>Pass: {subject.passPercent}%</span>
               </div>
             </div>
-            <div className="flex gap-3">
-              <Link href={`/flashcards/${subjectId}`} className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm rounded-xl transition-colors border border-zinc-800">
-                🃏 Flashcards
+            <div className="flex gap-3 flex-shrink-0">
+              <Link href={`/flashcards/${subjectId}`} className="flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm rounded-xl transition-colors border border-zinc-800">
+                <Icon name="flashcards" size={16} /> Flashcards
               </Link>
               <Link href={`/exams/${subjectId}`} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors">
                 Mock exam
@@ -96,7 +97,7 @@ export default function SubjectPage() {
         </div>
 
         {/* Sections */}
-        <div className="px-10 py-8 space-y-3 pb-16">
+        <div className="px-5 sm:px-10 py-8 space-y-3 pb-16">
           {subject.sections.map((section, idx) => {
             const isOpen = expandedSection === section.id;
             return (
@@ -152,7 +153,7 @@ export default function SubjectPage() {
                     ))}
                     <div className="px-5 py-3 flex gap-3">
                       <Link href={`/study/${subjectId}/${section.id}?tab=flashcards`} className="text-xs text-yellow-400 hover:text-yellow-300 transition-colors">
-                        🃏 Flashcards for this section →
+                        Flashcards for this section →
                       </Link>
                       <Link href={`/study/${subjectId}/${section.id}?tab=quiz`} className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors ml-4">
                         Section quiz →

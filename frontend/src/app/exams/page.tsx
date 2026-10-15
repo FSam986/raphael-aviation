@@ -62,7 +62,7 @@ export default function Exams() {
       <Sidebar active="/exams" userName={userName} />
 
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
-        <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
+        <div className="px-5 sm:px-10 pt-10 pb-6 border-b border-zinc-900">
           <h1 className="text-3xl font-black text-white">Mock Exams</h1>
           <p className="text-zinc-500 text-sm mt-1">
             SACAA-style papers. Each re-sit draws fresh, non-repeating questions from the bank.
@@ -71,7 +71,7 @@ export default function Exams() {
 
         {/* The Instrument Rating is examined as ONE combined 100-question paper. */}
         {course === "ir" ? (
-          <div className="px-10 py-8">
+          <div className="px-5 sm:px-10 py-8">
             <Link
               href="/exams/ir-combined"
               className="block bg-zinc-950 border border-zinc-900 hover:border-yellow-400/40 rounded-2xl p-6 transition-all group"
@@ -95,7 +95,7 @@ export default function Exams() {
             </p>
           </div>
         ) : (
-        <div className="px-10 py-8 grid grid-cols-1 gap-3">
+        <div className="px-5 sm:px-10 py-8 grid grid-cols-1 gap-3">
           {syllabus.map((subject) => {
             const count = READY[subject.id];
             const ready = !!count;

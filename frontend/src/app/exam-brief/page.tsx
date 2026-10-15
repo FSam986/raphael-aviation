@@ -52,7 +52,7 @@ export default function ExamBrief() {
     <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/exam-brief" userName={userName} />
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
-        <div className="px-10 pt-10 pb-5 border-b border-zinc-900">
+        <div className="px-5 sm:px-10 pt-10 pb-5 border-b border-zinc-900">
           <div className="flex items-center gap-3">
             <span className="text-gold"><Icon name="target" size={22} /></span>
             <h1 className="text-3xl font-black text-white">Exam-Day Brief</h1>
@@ -63,7 +63,7 @@ export default function ExamBrief() {
         </div>
 
         {/* subject tabs */}
-        <div className="px-10 pt-5 flex flex-wrap gap-2">
+        <div className="px-5 sm:px-10 pt-5 flex flex-wrap gap-2">
           {readySubjects.map((s) => (
             <button
               key={s.id}
@@ -79,7 +79,7 @@ export default function ExamBrief() {
         </div>
 
         {subject && (
-          <div className="px-10 py-6 no-copy" onContextMenu={(e) => e.preventDefault()}>
+          <div className="px-5 sm:px-10 py-6 no-copy" onContextMenu={(e) => e.preventDefault()}>
             <div className="flex items-center justify-between mb-5">
               <p className="text-zinc-500 text-xs">
                 {brief.length} topics · {totalPoints} key points. Skim top-to-bottom on the morning of your {subject.title} exam.

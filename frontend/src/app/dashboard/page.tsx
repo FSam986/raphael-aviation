@@ -71,7 +71,7 @@ export default function Dashboard() {
         <div className="pointer-events-none absolute inset-0 chart-grid opacity-40" aria-hidden="true" />
         <CompassRose />
 
-        <div className="relative px-10 pt-10 pb-20 max-w-4xl rise">
+        <div className="relative px-5 sm:px-10 pt-10 pb-20 max-w-4xl rise">
           {/* Leg label + greeting */}
           <div className="mono text-[11px] tracking-[0.2em] text-chart-ink-faint mb-2 uppercase">
             {course.toUpperCase()} route · {underway} of {legs.length} legs underway · est. readiness {overall}%
@@ -120,22 +120,22 @@ export default function Dashboard() {
                   />
                   <Link
                     href={`/study/${leg.subject.id}`}
-                    className="group block rounded-xl border border-chart-line bg-chart-ground-2/60 px-5 py-4 transition-colors hover:border-gold/40 hover:bg-chart-ground-2"
+                    className="group block rounded-xl border border-chart-line bg-chart-ground-2/60 px-4 sm:px-5 py-4 transition-colors hover:border-gold/40 hover:bg-chart-ground-2"
                   >
                     <div className="flex items-center gap-3">
                       <span className="mono text-[11px] text-chart-ink-faint tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                      <h3 className="text-chart-ink font-semibold text-[15px] flex-1 leading-tight">{leg.subject.title}</h3>
-                      <span className={`mono text-[10px] uppercase tracking-[0.14em] ${leg.done ? "text-gold" : leg.pct > 0 ? "text-chart-ink-dim" : "text-chart-ink-faint"}`}>
+                      <h3 className="text-chart-ink font-semibold text-[15px] flex-1 leading-tight min-w-0">{leg.subject.title}</h3>
+                      <span className={`mono text-[10px] uppercase tracking-[0.14em] whitespace-nowrap ${leg.done ? "text-gold" : leg.pct > 0 ? "text-chart-ink-dim" : "text-chart-ink-faint"}`}>
                         {leg.label}
                       </span>
                     </div>
-                    <div className="mt-2 flex items-center gap-4 pl-[34px]">
+                    <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2 pl-0 sm:pl-[34px]">
                       <span className="mono text-[11px] text-gold-deep tracking-wider">{leg.subject.code}</span>
                       <span className="mono text-[11px] text-chart-ink-faint">{leg.subject.sections.length} sec · {totalItems} topics</span>
-                      <div className="flex-1 h-[3px] rounded-full bg-chart-line overflow-hidden">
+                      <span className="mono text-[11px] text-chart-ink-dim tabular-nums ml-auto sm:ml-0 sm:order-last w-9 text-right">{leg.pct}%</span>
+                      <div className="order-last sm:order-none basis-full sm:basis-auto sm:flex-1 h-[3px] rounded-full bg-chart-line overflow-hidden">
                         <div className="h-full rounded-full bg-gold transition-all" style={{ width: `${leg.pct}%` }} />
                       </div>
-                      <span className="mono text-[11px] text-chart-ink-dim tabular-nums w-9 text-right">{leg.pct}%</span>
                     </div>
                   </Link>
                 </li>

@@ -58,7 +58,7 @@ export default function MeteorologyFlashcardsPage() {
       <Sidebar active="/flashcards" userName={userName} />
 
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
-        <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
+        <div className="px-5 sm:px-10 pt-10 pb-6 border-b border-zinc-900">
           <div className="flex items-center gap-2 text-zinc-600 text-sm mb-3">
             <Link href="/flashcards" className="hover:text-zinc-400">Flashcards</Link>
             <span>/</span>
@@ -96,7 +96,7 @@ export default function MeteorologyFlashcardsPage() {
           </div>
         </div>
 
-        <div className="max-w-2xl mx-auto px-10 py-10">
+        <div className="max-w-2xl mx-auto px-5 sm:px-10 py-10">
           {deck.length === 0 || !card ? (
             <div className="text-center text-zinc-600 py-20">No flashcards for this section yet.</div>
           ) : (

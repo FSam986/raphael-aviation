@@ -231,7 +231,7 @@ export function MockExam({
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         {/* INTRO */}
         {phase === "intro" && (
-          <div className="max-w-2xl mx-auto px-10 py-16">
+          <div className="max-w-2xl mx-auto px-5 sm:px-10 py-16">
             <div className="text-yellow-400 font-mono text-sm mb-2">
               {code} · {title}
             </div>
@@ -243,13 +243,13 @@ export function MockExam({
               you got wrong or haven&apos;t seen and retires the ones you&apos;ve mastered, so the more
               papers you sit, the more exam-ready you become.
             </p>
-            <div className="grid grid-cols-3 gap-3 mb-6">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
               {[
                 { k: "Questions", v: planTotal },
                 { k: "Time limit", v: `${examMinutes} min` },
                 { k: "Pass mark", v: `${passPercent}%` },
               ].map((s) => (
-                <div key={s.k} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-5 text-center">
+                <div key={s.k} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-3 sm:p-5 text-center">
                   <div className="text-2xl font-black text-white">{s.v}</div>
                   <div className="text-xs text-zinc-600 mt-1">{s.k}</div>
                 </div>
@@ -292,7 +292,7 @@ export function MockExam({
 
         {/* RUNNING */}
         {phase === "running" && q && (
-          <div className="max-w-3xl mx-auto px-10 py-8">
+          <div className="max-w-3xl mx-auto px-5 sm:px-10 py-8">
             <div className="flex items-center justify-between mb-6">
               <div className="text-sm text-zinc-500">
                 Question <span className="text-white font-bold">{current + 1}</span> / {questions.length}
@@ -393,7 +393,7 @@ export function MockExam({
 
         {/* RESULTS */}
         {phase === "results" && (
-          <div className="max-w-3xl mx-auto px-10 py-10">
+          <div className="max-w-3xl mx-auto px-5 sm:px-10 py-10">
             <div
               className={`rounded-2xl p-8 mb-8 text-center border ${
                 passed ? "bg-green-500/10 border-green-500/30" : "bg-red-500/10 border-red-500/30"

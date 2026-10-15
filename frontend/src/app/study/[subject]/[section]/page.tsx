@@ -180,7 +180,7 @@ export default function SectionPage() {
 
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto flex flex-col">
         {/* Breadcrumb + header */}
-        <div className="px-10 pt-8 pb-4 border-b border-zinc-900">
+        <div className="px-5 sm:px-10 pt-8 pb-4 border-b border-zinc-900">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2 text-zinc-600 text-xs">
               <Link href="/study" className="hover:text-zinc-400">Study</Link>
@@ -212,12 +212,12 @@ export default function SectionPage() {
           </div>
 
           {/* Tabs */}
-          <div className="flex gap-1 mt-5">
+          <div className="flex gap-1 mt-5 overflow-x-auto no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors ${activeTab === tab.id ? "bg-gold/10 text-gold font-medium" : "text-zinc-500 hover:text-white"}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors shrink-0 whitespace-nowrap ${activeTab === tab.id ? "bg-gold/10 text-gold font-medium" : "text-zinc-500 hover:text-white"}`}
               >
                 <Icon name={tab.icon} size={16} /> {tab.label}
               </button>
@@ -226,7 +226,7 @@ export default function SectionPage() {
         </div>
 
         {/* Tab content */}
-        <div className="flex-1 px-10 py-8">
+        <div className="flex-1 px-5 sm:px-10 py-8">
           {activeTab === "learn" && (
             <div className="max-w-5xl">
               <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 mb-6">
@@ -615,7 +615,7 @@ export default function SectionPage() {
             <div className="max-w-2xl">
               {sectionFlashcards.length === 0 ? (
                 <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 text-center">
-                  <div className="text-4xl mb-4">🃏</div>
+                  <div className="mb-4 flex justify-center text-zinc-600"><Icon name="flashcards" size={34} /></div>
                   <h3 className="text-white font-bold text-lg mb-2">Flashcards</h3>
                   <p className="text-zinc-500 text-sm">Flashcards for this subject are coming soon.</p>
                 </div>
@@ -663,7 +663,7 @@ export default function SectionPage() {
         </div>
 
         {/* Persistent section-to-section navigation */}
-        <div className="px-10 py-4 border-t border-zinc-900 flex items-center justify-between gap-3 sticky bottom-0 bg-black/80 backdrop-blur">
+        <div className="px-5 sm:px-10 py-4 border-t border-zinc-900 flex items-center justify-between gap-3 sticky bottom-0 bg-black/80 backdrop-blur">
           {prevSection ? (
             <Link href={`/study/${subjectId}/${prevSection.id}`} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-sm transition-colors max-w-[45%]">
               ← <span className="truncate"><span className="text-zinc-500">Prev:</span> {prevSection.title}</span>

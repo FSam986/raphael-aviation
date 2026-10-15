@@ -14,7 +14,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-chart-ground text-white flex flex-col">
       {/* Nav */}
-      <nav className="flex items-center justify-between px-6 sm:px-10 py-6 border-b border-zinc-900">
+      <nav className="flex items-center justify-between px-6 sm:px-5 sm:px-10 py-6 border-b border-zinc-900">
         <div className="flex items-center gap-3">
           <img src="/logo-emblem.png" alt="" className="h-9 w-auto" />
           <span className="font-display text-gold text-lg tracking-[0.18em] uppercase">Raphael Aviation</span>
@@ -46,7 +46,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="px-6 sm:px-10 py-24 bg-zinc-950 border-y border-zinc-900">
+      <section id="features" className="px-6 sm:px-5 sm:px-10 py-24 bg-zinc-950 border-y border-zinc-900">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl sm:text-4xl text-center mb-4">Everything the syllabus asks. Nothing it doesn&apos;t.</h2>
           <p className="text-zinc-500 text-center mb-16 max-w-xl mx-auto">Built directly against the SACAA syllabus — every note, question, and flashcard maps to a real aspect.</p>
@@ -63,13 +63,13 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 sm:px-10 py-24 text-center">
+      <section className="px-6 sm:px-5 sm:px-10 py-24 text-center">
         <h2 className="font-display text-4xl mb-4">Ready to earn your licence?</h2>
         <p className="text-zinc-500 mb-8">Study smarter — not longer.</p>
-        <Link href="/login" className="inline-block bg-gold text-gold-ink font-bold px-10 py-4 rounded-xl text-base hover:brightness-110 transition">Start for free</Link>
+        <Link href="/login" className="inline-block bg-gold text-gold-ink font-bold px-5 sm:px-10 py-4 rounded-xl text-base hover:brightness-110 transition">Start for free</Link>
       </section>
 
-      <footer className="border-t border-zinc-900 px-10 py-6 text-center text-zinc-700 text-xs">
+      <footer className="border-t border-zinc-900 px-5 sm:px-10 py-6 text-center text-zinc-700 text-xs">
         © 2025 Raphael Aviation · SACAA theoretical-knowledge study
       </footer>
     </main>

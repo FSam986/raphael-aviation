@@ -30,12 +30,12 @@ export default function Flashcards() {
       <Sidebar active="/flashcards" userName={userName} />
 
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
-        <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
+        <div className="px-5 sm:px-10 pt-10 pb-6 border-b border-zinc-900">
           <h1 className="text-3xl font-black text-white">Flashcards</h1>
           <p className="text-zinc-500 text-sm mt-1">Rapid recall practice, mapped to the SACAA syllabus.</p>
         </div>
 
-        <div className="px-10 py-8 grid grid-cols-1 gap-3">
+        <div className="px-5 sm:px-10 py-8 grid grid-cols-1 gap-3">
           {syllabus.map((subject) => {
             const count = countFor(subject);
             const ready = count > 0;
@@ -63,7 +63,7 @@ export default function Flashcards() {
                 key={subject.id}
                 className="bg-zinc-950/50 border border-zinc-900 rounded-2xl p-5 flex items-center gap-5 opacity-50"
               >
-                <span className="text-2xl grayscale">🃏</span>
+                <span className="text-chart-ink-faint"><Icon name="flashcards" size={22} /></span>
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
                     <h3 className="font-bold text-zinc-400">{subject.title}</h3>

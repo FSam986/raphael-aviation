@@ -49,7 +49,7 @@ export default function StudyPage() {
       <Sidebar active="/study" userName={userName} />
 
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
-        <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
+        <div className="px-5 sm:px-10 pt-10 pb-6 border-b border-zinc-900">
           <h1 className="text-3xl font-black text-white">Study</h1>
           <p className="text-zinc-500 text-sm mt-1">SACAA {course.toUpperCase()} syllabus — pick a subject to begin</p>
           <div className="mt-5 relative max-w-xl">
@@ -68,7 +68,7 @@ export default function StudyPage() {
 
         {/* Search results replace the subject grid while searching */}
         {query.trim().length >= 2 ? (
-          <div className="px-10 py-8">
+          <div className="px-5 sm:px-10 py-8">
             <div className="text-xs text-zinc-600 mb-3">{results.length} result{results.length === 1 ? "" : "s"} for “{query.trim()}”</div>
             <div className="flex flex-col gap-1.5">
               {results.map((r, i) => (
@@ -88,7 +88,7 @@ export default function StudyPage() {
             </div>
           </div>
         ) : (
-        <div className="px-10 py-8">
+        <div className="px-5 sm:px-10 py-8">
           <div className="grid grid-cols-1 gap-3">
             {syllabus.map((subject) => {
               const totalItems = subject.sections.reduce((n, s) => n + s.items.length, 0);
@@ -103,15 +103,15 @@ export default function StudyPage() {
                 <Link
                   key={subject.id}
                   href={`/study/${subject.id}`}
-                  className="bg-zinc-950 border border-zinc-900 hover:border-zinc-700 rounded-2xl p-5 flex items-center gap-5 transition-all group hover:bg-zinc-900/50"
+                  className="bg-zinc-950 border border-zinc-900 hover:border-zinc-700 rounded-2xl p-4 sm:p-5 flex items-start gap-3 sm:gap-5 transition-all group hover:bg-zinc-900/50"
                 >
-                  <span className="text-gold shrink-0"><Icon name={SUBJECT_ICON[subject.id] ?? "book"} size={28} /></span>
+                  <span className="text-gold shrink-0 mt-0.5"><Icon name={SUBJECT_ICON[subject.id] ?? "book"} size={26} /></span>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-1">
-                      <h3 className="font-bold text-white">{subject.title}</h3>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1.5">
+                      <h3 className="font-bold text-white leading-tight">{subject.title}</h3>
                       <span className="text-xs font-mono text-gold-deep">{subject.code}</span>
                     </div>
-                    <div className="flex items-center gap-4 text-xs text-zinc-600">
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-600">
                       <span>{subject.sections.length} sections</span>
                       <span>{totalItems} exam topics</span>
                       <span className={totalQuestions > 0 ? "text-yellow-400/80" : ""}>
@@ -119,16 +119,16 @@ export default function StudyPage() {
                       </span>
                       <span>{subject.passPercent}% pass mark</span>
                     </div>
-                  </div>
-                  {totalQuestions > 0 && (
-                    <div className="text-right shrink-0">
-                      <div className="text-xs text-zinc-700 mb-2">{pctBySubject[subject.id] ?? 0}% ready</div>
-                      <div className="w-32 h-1 bg-zinc-900 rounded-full overflow-hidden">
-                        <div className="h-full bg-yellow-400 rounded-full transition-all" style={{ width: `${pctBySubject[subject.id] ?? 0}%` }} />
+                    {totalQuestions > 0 && (
+                      <div className="mt-3 flex items-center gap-3">
+                        <div className="h-1 flex-1 max-w-[180px] bg-zinc-900 rounded-full overflow-hidden">
+                          <div className="h-full bg-yellow-400 rounded-full transition-all" style={{ width: `${pctBySubject[subject.id] ?? 0}%` }} />
+                        </div>
+                        <span className="text-xs text-zinc-500 tabular-nums">{pctBySubject[subject.id] ?? 0}% ready</span>
                       </div>
-                    </div>
-                  )}
-                  <span className="text-zinc-700 group-hover:text-yellow-400 transition-colors ml-4">→</span>
+                    )}
+                  </div>
+                  <span className="hidden sm:block text-zinc-700 group-hover:text-yellow-400 transition-colors self-center">→</span>
                 </Link>
               );
             })}

@@ -236,7 +236,7 @@ export default function CoachSessionReel() {
     return (
       <div className="min-h-screen bg-chart-ground flex items-center justify-center px-6">
         <div className="w-full max-w-sm text-center">
-          <div className="text-5xl mb-4">⏸️</div>
+          <div className="mb-4 flex justify-center text-gold"><Icon name="pause" size={44} /></div>
           <h1 className="text-2xl font-black text-white">Continue where you left off?</h1>
           <p className="text-zinc-400 text-sm mt-2">
             You have an unfinished Day {pendingResume.dayIdx + 1} session
@@ -332,7 +332,7 @@ export default function CoachSessionReel() {
                   {s.figures.length > 0 && (
                     <div className="mt-3 rounded-2xl border border-zinc-800 p-3">
                       <div className="text-blue-400 text-[10px] font-bold uppercase tracking-wider mb-2">Illustrations</div>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {s.figures.map((f) => (
                           <figure key={f.id}>
                             <div className="bg-white rounded-lg overflow-hidden border border-zinc-800">{f.render()}</div>

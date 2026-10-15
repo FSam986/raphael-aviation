@@ -61,7 +61,7 @@ export default function Progress() {
     <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/progress" userName={userName} />
       <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
-        <div className="px-10 pt-10 pb-5 border-b border-zinc-900">
+        <div className="px-5 sm:px-10 pt-10 pb-5 border-b border-zinc-900">
           <div className="flex items-center gap-3">
             <span className="text-gold"><Icon name="chart" size={22} /></span>
             <h1 className="text-3xl font-black text-white">Exam Readiness</h1>
@@ -72,7 +72,7 @@ export default function Progress() {
         </div>
 
         {prog && (
-          <div className="px-10 pt-8 max-w-4xl">
+          <div className="px-5 sm:px-10 pt-8 max-w-4xl">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { label: "Questions Worked", value: prog.attempted.toLocaleString() },
@@ -94,7 +94,7 @@ export default function Progress() {
           </div>
         )}
 
-        <div className="px-10 py-8 space-y-4 max-w-4xl">
+        <div className="px-5 sm:px-10 py-8 space-y-4 max-w-4xl">
           {subjects.map((s) => {
             const r = data[s.id];
             const pct = r?.pct ?? 0;
@@ -130,7 +130,7 @@ export default function Progress() {
                   <div className="border-t border-zinc-900 p-5 space-y-2">
                     {[...r.topics].sort((a, b) => a.pct - b.pct).map((t) => (
                       <div key={t.sectionId} className="flex items-center gap-3">
-                        <div className="w-56 shrink-0 text-xs text-zinc-400 truncate">{titleFor(s.id, t.sectionId)}</div>
+                        <div className="w-28 sm:w-56 shrink-0 text-xs text-zinc-400 truncate">{titleFor(s.id, t.sectionId)}</div>
                         <div className="flex-1 h-2.5 bg-zinc-800 rounded-full overflow-hidden">
                           <div className="h-full rounded-full" style={{ width: `${t.pct}%`, background: t.pct >= READY_GATE ? "#7fd6a2" : t.pct >= 50 ? "#e8c877" : t.pct >= 25 ? "#e8a657" : "#e8775a" }} />
                         </div>

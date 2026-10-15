@@ -37,6 +37,7 @@ const PATHS: Record<string, ReactNode> = {
   x: <><path d="M6 6l12 12M18 6L6 18" /></>,
   warn: <><path d="M12 4l9 16H3z" /><path d="M12 10v4M12 17.5v.1" /></>,
   bulb: <><path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1 1 1.6h5c.1-.6.4-1.1 1-1.6A6 6 0 0 0 12 3z" /></>,
+  pause: <><rect x="7" y="5" width="3.5" height="14" rx="1" /><rect x="13.5" y="5" width="3.5" height="14" rx="1" /></>,
 };
 
 export function Icon({ name, size = 20, className = "", strokeWidth = 1.5 }: { name: string; size?: number; className?: string; strokeWidth?: number }) {
