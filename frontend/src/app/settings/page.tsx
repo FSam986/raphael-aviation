@@ -102,7 +102,7 @@ export default function Settings() {
         <div className="max-w-2xl mx-auto px-8 py-10 space-y-5">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-black text-white">Settings</h1>
-            {saved && <span className="text-green-400 text-xs">✓ {saved}</span>}
+            {saved && <span className="text-green-400 text-xs">{saved}</span>}
           </div>
 
           <Card title="Account">

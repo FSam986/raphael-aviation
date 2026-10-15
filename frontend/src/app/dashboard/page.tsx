@@ -71,19 +71,19 @@ export default function Dashboard() {
         <div className="pointer-events-none absolute inset-0 chart-grid opacity-40" aria-hidden="true" />
         <CompassRose />
 
-        <div className="relative px-10 pt-10 pb-20 max-w-4xl">
+        <div className="relative px-10 pt-10 pb-20 max-w-4xl rise">
           {/* Leg label + greeting */}
           <div className="mono text-[11px] tracking-[0.2em] text-chart-ink-faint mb-2 uppercase">
             {course.toUpperCase()} route · {underway} of {legs.length} legs underway · est. readiness {overall}%
           </div>
           <h1 className="font-display text-4xl text-chart-ink leading-tight">Good morning, {userName}</h1>
 
-          {/* Instrument readout strip */}
-          <div className="mt-6 flex flex-wrap gap-x-10 gap-y-3 border-y border-chart-line py-4">
-            <Readout label="Questions worked" value={prog ? prog.attempted.toLocaleString() : "0"} note={prog && prog.attempted ? `${prog.accuracy}% correct` : "—"} />
-            <Readout label="Topics studied" value={prog ? String(prog.topicsStudied) : "0"} note="opened" />
-            <Readout label="Subjects underway" value={`${underway}/${legs.length}`} note="on route" />
-            <Readout label="Streak" value={`${prog?.streak ?? 0}`} note={`day${(prog?.streak ?? 0) === 1 ? "" : "s"}`} />
+          {/* Instrument readout line — a flight-log strip, not stat tiles */}
+          <div className="mt-5 border-y border-chart-line py-3 flex flex-wrap items-center gap-x-7 gap-y-2 mono text-[12px] tracking-[0.08em]">
+            <Metric k="QUESTIONS" v={prog ? prog.attempted.toLocaleString() : "0"} note={prog && prog.attempted ? `${prog.accuracy}% correct` : undefined} />
+            <Sep /><Metric k="TOPICS" v={prog ? String(prog.topicsStudied) : "0"} />
+            <Sep /><Metric k="UNDERWAY" v={`${underway}/${legs.length}`} />
+            <Sep /><Metric k="STREAK" v={`${prog?.streak ?? 0}`} note={`day${(prog?.streak ?? 0) === 1 ? "" : "s"}`} />
           </div>
 
           {/* Resume — the next leg */}
@@ -94,10 +94,10 @@ export default function Dashboard() {
               <Link href={resume.href} className="mt-6 group flex items-center gap-4 rounded-xl border border-gold/35 bg-gold/[0.07] px-5 py-4 hover:bg-gold/[0.12] transition-colors">
                 <ResumeGlyph />
                 <div className="flex-1 min-w-0">
-                  <div className="mono text-[10px] uppercase tracking-[0.18em] text-gold-deep">Resume the next leg</div>
                   <div className="text-chart-ink font-semibold truncate">{sub?.title ?? resume.subjectId}{sec ? ` — ${sec.title}` : ""}</div>
+                  <div className="mono text-[11px] text-chart-ink-faint tracking-wider mt-0.5">Pick up where your route left off</div>
                 </div>
-                <span className="text-gold text-sm whitespace-nowrap group-hover:translate-x-1 transition-transform">Continue →</span>
+                <span className="text-gold text-sm whitespace-nowrap group-hover:translate-x-1 transition-transform">Resume →</span>
               </Link>
             );
           })()}
@@ -153,21 +153,21 @@ export default function Dashboard() {
   );
 }
 
-function Readout({ label, value, note }: { label: string; value: string; note: string }) {
+function Metric({ k, v, note }: { k: string; v: string; note?: string }) {
   return (
-    <div>
-      <div className="mono text-[10px] uppercase tracking-[0.16em] text-chart-ink-faint">{label}</div>
-      <div className="mt-1 flex items-baseline gap-1.5">
-        <span className="font-display text-2xl text-gold tabular-nums leading-none">{value}</span>
-        <span className="mono text-[11px] text-chart-ink-faint">{note}</span>
-      </div>
-    </div>
+    <span className="text-chart-ink-faint">
+      {k} <b className="text-gold font-medium tabular-nums">{v}</b>
+      {note ? <span className="text-chart-ink-faint/70"> {note}</span> : null}
+    </span>
   );
+}
+function Sep() {
+  return <span className="text-chart-line-2" aria-hidden="true">·</span>;
 }
 
 function CompassRose() {
   return (
-    <svg className="pointer-events-none absolute right-8 top-6 h-56 w-56 opacity-[0.13]" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <svg className="pointer-events-none absolute right-6 top-4 h-64 w-64 opacity-[0.22]" viewBox="0 0 200 200" fill="none" aria-hidden="true">
       <circle cx="100" cy="100" r="92" stroke="var(--chart-line-2)" />
       <circle cx="100" cy="100" r="62" stroke="var(--chart-line-2)" />
       {Array.from({ length: 24 }).map((_, i) => {

@@ -33,6 +33,10 @@ const PATHS: Record<string, ReactNode> = {
   quiz: <><rect x="5" y="4" width="14" height="17" rx="2" /><path d="M9 3h6v3H9z" /><path d="M8.5 11l1.5 1.5L13 9M8.5 16l1.5 1.5L13 14" /></>,
   flashcards: <><rect x="3" y="7" width="14" height="12" rx="2" /><path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2" /></>,
   image: <><rect x="4" y="5" width="16" height="14" rx="2" /><circle cx="9" cy="10" r="1.5" /><path d="M5 17l4.5-4.5 3 3L16 11l3 3" /></>,
+  check: <><path d="M5 12.5l4.5 4.5L19 6.5" /></>,
+  x: <><path d="M6 6l12 12M18 6L6 18" /></>,
+  warn: <><path d="M12 4l9 16H3z" /><path d="M12 10v4M12 17.5v.1" /></>,
+  bulb: <><path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1 1 1.6h5c.1-.6.4-1.1 1-1.6A6 6 0 0 0 12 3z" /></>,
 };
 
 export function Icon({ name, size = 20, className = "", strokeWidth = 1.5 }: { name: string; size?: number; className?: string; strokeWidth?: number }) {

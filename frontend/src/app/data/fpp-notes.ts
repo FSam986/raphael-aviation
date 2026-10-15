@@ -121,7 +121,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
         ],
       },
       {
-        heading: "📐 Key formulas (altitudes)",
+        heading: "Key formulas (altitudes)",
         points: [
           "ISA temperature at a level = 15 − 2 × (altitude in thousands of ft).",
           "ISA deviation = OAT − ISA temperature.",
@@ -131,7 +131,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
         ],
       },
       {
-        heading: "✍ Worked example — pressure & density altitude",
+        heading: "Worked example — pressure & density altitude",
         points: [
           "Given: airfield elevation 4 000 ft, QNH 1030 hPa, OAT +28°C.",
           "PA = 4 000 + (1013 − 1030) × 30 = 4 000 − 510 = 3 490 ≈ 3 500 ft.",
@@ -251,7 +251,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
         ],
       },
       {
-        heading: "📐 Key formulas (graph work)",
+        heading: "Key formulas (graph work)",
         points: [
           "Ground distance from air distance: GNM = ANM + [time × (+TW or −HW)] ÷ 60.",
           "Alternative: GNM = ANM × GS ÷ TAS  (get TAS from the graph, then GS = TAS ± wind).",
@@ -347,7 +347,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       "Mass and balance is the numerical heart of Flight Planning: every load has a moment, and the aircraft is only safe to fly when the total mass and the centre of gravity both sit inside the limits. Master the moment method, %MAC and CG-movement calculations — they are guaranteed exam marks.",
     blocks: [
       {
-        heading: "📐 Key formulas",
+        heading: "Key formulas",
         points: [
           "Moment = Mass × Arm (arm is the distance from the datum).",
           "CG = Total Moment ÷ Total Mass  (ΣMoment / ΣMass).",
@@ -360,7 +360,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
         ],
       },
       {
-        heading: "✍ Worked example — % MAC",
+        heading: "Worked example — % MAC",
         points: [
           "Given: LEMAC = 14 m, MAC = 4.6 m, CG = 15.15 m.",
           "% MAC = (15.15 − 14) ÷ 4.6 × 100 = 1.15 ÷ 4.6 × 100 = 25%.",
@@ -368,7 +368,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
         ],
       },
       {
-        heading: "✍ Worked example — fuel to move the CG",
+        heading: "Worked example — fuel to move the CG",
         points: [
           "Given: mass 47 800 kg, CG at 30% MAC, want 23% MAC; LEMAC 16 m, TEMAC 19.5 m (MAC 3.5 m); tank arm 16 m; fuel SG 0.72.",
           "CG₁ = 16 + 30×3.5/100 = 17.05 m;  CG₂ = 16 + 23×3.5/100 = 16.805 m.",
@@ -409,7 +409,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       "This is the classic navigation-numeracy of flight planning: the Point of Equal Time (Critical Point), the Point of Safe Return (Point of No Return), and the fuel plan. Learn the three formulas and the difference between them — a PET is about TIME to a decision point, a PSR is about the FUEL to get home.",
     blocks: [
       {
-        heading: "📐 Key formulas",
+        heading: "Key formulas",
         points: [
           "Point of Equal Time (PET / Critical Point): distance from departure = D × H ÷ (O + H), where O = groundspeed ON (out) and H = groundspeed HOME (back).",
           "Time to the PET = PET distance ÷ O.",
@@ -420,7 +420,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
         ],
       },
       {
-        heading: "✍ Worked example — PET",
+        heading: "Worked example — PET",
         figureTopics: ["PET"],
         points: [
           "Given: TAS 300 kt, still-air distance A→B 500 nm, wind 60 kt HEAD on the way out.",
@@ -430,7 +430,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
         ],
       },
       {
-        heading: "✍ Worked example — PSR",
+        heading: "Worked example — PSR",
         figureTopics: ["PSR"],
         points: [
           "Given: GS out 435 kt, GS back 385 kt, safe endurance 9 h.",

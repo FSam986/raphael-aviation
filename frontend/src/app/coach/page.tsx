@@ -127,7 +127,7 @@ export default function CoachPage() {
                 return (
                   <button key={s.id} onClick={() => setSelected((x) => on ? x.filter((i) => i !== s.id) : [...x, s.id])}
                     className={`flex items-center justify-between px-4 py-3 rounded-xl border text-left text-sm transition-colors ${on ? "border-yellow-400/50 bg-yellow-400/5 text-white" : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700"}`}>
-                    <span className="flex items-center gap-2"><span className={`w-4 h-4 rounded border flex items-center justify-center text-[10px] ${on ? "bg-yellow-400 border-yellow-400 text-black" : "border-zinc-600"}`}>{on ? "✓" : ""}</span>{s.title}</span>
+                    <span className="flex items-center gap-2"><span className={`w-4 h-4 rounded border flex items-center justify-center text-[10px] ${on ? "bg-yellow-400 border-yellow-400 text-black" : "border-zinc-600"}`}>{on ? <Icon name="check" size={10} /> : null}</span>{s.title}</span>
                     <span className="text-xs text-zinc-600">{s.sections} topics</span>
                   </button>
                 );
@@ -200,7 +200,7 @@ export default function CoachPage() {
         </div>
 
         {load.tight && (
-          <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/5 p-3 text-xs text-amber-300">⚠ Tight timeline: ~{load.topicsPerStudyDay} topics/day. Doable if you keep the streak — or pick a slightly later date.</div>
+          <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/5 p-3 text-xs text-amber-300 flex items-center gap-1.5"><Icon name="warn" size={13} className="shrink-0" />Tight timeline: ~{load.topicsPerStudyDay} topics/day. Doable if you keep the streak — or pick a slightly later date.</div>
         )}
 
         {/* pilot-themed reminders */}
@@ -253,7 +253,7 @@ export default function CoachPage() {
               return (
                 <div key={d.dayIndex} className={`rounded-xl border px-4 py-3 ${isToday ? "border-yellow-400/40 bg-yellow-400/5" : done ? "border-zinc-900 bg-zinc-950 opacity-60" : "border-zinc-900 bg-zinc-950"}`}>
                   <div className="flex items-center gap-3">
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0 ${done ? "bg-green-500/20 text-green-400" : isToday ? "bg-yellow-400 text-black" : "bg-zinc-900 text-zinc-500"}`}>{done ? "✓" : d.dayIndex + 1}</span>
+                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0 ${done ? "bg-green-500/20 text-green-400" : isToday ? "bg-yellow-400 text-black" : "bg-zinc-900 text-zinc-500"}`}>{done ? <Icon name="check" size={12} /> : d.dayIndex + 1}</span>
                     <span className="text-zinc-300 flex-shrink-0 w-16 text-xs">{d.date.slice(5)}</span>
                     <span className={`text-[10px] px-2 py-0.5 rounded-full flex-shrink-0 uppercase tracking-wide ${d.kind === "study" ? "bg-gold/12 text-gold" : d.kind === "mock" ? "bg-danger/15 text-danger" : "bg-chart-line text-chart-ink-dim"}`}>{d.kind === "study" ? "learn" : d.kind}</span>
                     {isToday && <span className="text-[10px] text-yellow-400 ml-auto">today</span>}

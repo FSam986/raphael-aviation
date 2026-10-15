@@ -58,7 +58,8 @@ export default function LoginPage() {
     <main className="min-h-screen bg-chart-ground flex">
       {/* Left panel */}
       <div className="hidden lg:flex w-1/2 bg-zinc-950 border-r border-zinc-900 flex-col items-center justify-center p-16">
-        <img src="/logo.png" alt="Raphael Aviation" className="w-40 mb-8" />
+        <img src="/logo-emblem.png" alt="Raphael Aviation" className="w-44 mb-4" />
+        <div className="font-display text-gold text-2xl tracking-[0.18em] mb-10">RAPHAEL <span className="mono text-chart-ink-faint text-sm tracking-[0.34em] align-middle">AVIATION</span></div>
         <h2 className="font-display text-4xl text-white text-center leading-tight mb-4">
           Chart your course<br />
           to a <span className="text-gold">SACAA pass</span>.
@@ -88,7 +89,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           {/* Logo for mobile */}
           <div className="lg:hidden flex items-center gap-3 mb-10">
-            <img src="/logo.png" alt="Raphael Aviation" className="h-10" />
+            <img src="/logo-emblem.png" alt="" className="h-9" />
             <span className="text-yellow-400 font-bold tracking-widest text-sm uppercase">
               Raphael Aviation
             </span>

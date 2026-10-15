@@ -16,7 +16,7 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 sm:px-10 py-6 border-b border-zinc-900">
         <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="Raphael Aviation" className="h-10 w-auto" />
+          <img src="/logo-emblem.png" alt="" className="h-9 w-auto" />
           <span className="font-display text-gold text-lg tracking-[0.18em] uppercase">Raphael Aviation</span>
         </div>
         <div className="flex items-center gap-4">

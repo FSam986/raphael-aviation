@@ -65,6 +65,30 @@
   --color-yellow-400: #e8c877;
   --color-yellow-500: #d8b35a;
   --color-yellow-600: #c8a44d;
+
+  /* Semantic status colours retargeted to the chart palette (keep the
+     red/green split for meaning + accessibility, change only the hue). */
+  --color-green-300: #9ee0b8;
+  --color-green-400: #7fd6a2;
+  --color-green-500: #5cc189;
+  --color-red-300: #f09480;
+  --color-red-400: #e8775a;
+  --color-red-500: #d85c40;
+  --color-amber-200: #f3e2ad;
+  --color-amber-300: #f0d78f;
+  --color-amber-400: #e8c877;
+  --color-amber-500: #d8b35a;
+  --color-orange-400: #e8a657;
+
+  /* Off-world categorical hues folded into the monochrome world. */
+  --color-blue-300: #9fc0cb;
+  --color-blue-400: #9fc0cb;
+  --color-indigo-300: #9fc0cb;
+  --color-purple-300: #c8a44d;
+  --color-purple-400: #c8a44d;
+  --color-cyan-400: #9fc0cb;
+  --color-pink-400: #c8a44d;
+  --color-teal-400: #9fc0cb;
 }
 
 html { color-scheme: dark; }
@@ -89,6 +113,17 @@ body {
 * { scrollbar-color: var(--chart-line) var(--chart-ground); }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 a { color: inherit; }
+
+/* One authored entrance: content settles in on arrival, like a chart drawn in.
+   Exponential ease-out from an already-laid-out default; skipped for reduced motion. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; }
+}
 
 /* Faint chart-grid backdrop, reusable. */
 .chart-grid {

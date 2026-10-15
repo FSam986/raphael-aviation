@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Icon } from "@/app/components/Icon";
 
 // Original infographic shell (light theme, colour-coded panels) used to build
 // figures for sections without an uploaded image. Same visual language as the
@@ -77,14 +78,14 @@ export function Infographic({
           <div className="text-amber-700 text-[11px] font-black uppercase tracking-wider mb-1">Key points</div>
           <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-1">
             {keyPoints.map((k, i) => (
-              <li key={i} className="text-[12.5px] text-slate-700 flex gap-1.5"><span className="text-amber-600">★</span><span>{k}</span></li>
+              <li key={i} className="text-[12.5px] text-slate-700 flex gap-1.5"><span className="text-amber-600 mt-1.5 h-1 w-1 rounded-full bg-current shrink-0" aria-hidden="true" /><span>{k}</span></li>
             ))}
           </ul>
         </div>
       )}
       {summary && (
         <div className="mx-4 mb-4 rounded-lg bg-blue-50 border border-blue-100 px-3 py-2 text-[12.5px] text-blue-900">
-          💡 {summary}
+          <Icon name="bulb" size={14} className="inline-block align-[-2px] mr-1" />{summary}
         </div>
       )}
     </div>

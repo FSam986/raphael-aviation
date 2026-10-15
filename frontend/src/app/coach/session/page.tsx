@@ -316,7 +316,7 @@ export default function CoachSessionReel() {
                   {s.mustKnow.length > 0 && (
                     <div className="mt-4 rounded-2xl bg-green-500/5 border border-green-500/15 p-3">
                       <div className="text-green-400 text-[10px] font-bold uppercase tracking-wider mb-1.5">Must know</div>
-                      <ul className="space-y-1.5">{s.mustKnow.map((m, k) => <li key={k} className="text-zinc-200 text-sm flex gap-2"><span className="text-green-400">✓</span><span>{m}</span></li>)}</ul>
+                      <ul className="space-y-1.5">{s.mustKnow.map((m, k) => <li key={k} className="text-zinc-200 text-sm flex gap-2"><span className="text-success"><Icon name="check" size={13} /></span><span>{m}</span></li>)}</ul>
                     </div>
                   )}
                   {s.cards.length > 0 && (
@@ -356,7 +356,7 @@ export default function CoachSessionReel() {
                 const passed = acc >= PASS;
                 return (
                   <div className="text-center">
-                    <div className="text-5xl mb-3">{passed ? "✓" : "↻"}</div>
+                    <div className="text-5xl mb-3">{passed ? <Icon name="check" size={44} /> : <Icon name="warn" size={44} />}</div>
                     <div className="text-3xl font-black" style={{ color: passed ? "#4ade80" : "#fbbf24" }}>{acc}%</div>
                     <div className="text-white font-bold mt-1">{s.unit.sectionTitle}</div>
                     <p className="text-zinc-400 text-sm mt-2">{passed ? "Topic mastered — 90% reached." : s.round < MAX_ROUNDS ? "Below 90% — let's run this topic again to lock it in." : "Best effort logged — moving on."}</p>
@@ -402,7 +402,7 @@ function BreakSlide({ title, body, onDone }: { title: string; body: string; onDo
       <div className="text-yellow-400 text-xs font-bold uppercase tracking-widest">Crew rest</div>
       <div className="text-2xl font-black mt-1">{title}</div>
       <p className="text-zinc-400 text-sm mt-2 max-w-sm mx-auto">{body}</p>
-      <div className="mt-5 text-4xl font-mono tabular-nums text-yellow-400">{left > 0 ? `0:${String(left).padStart(2, "0")}` : "✓ Ready"}</div>
+      <div className="mt-5 text-4xl font-mono tabular-nums text-yellow-400">{left > 0 ? `0:${String(left).padStart(2, "0")}` : "Ready"}</div>
       <button onClick={onDone} className="mt-5 px-8 py-3 bg-yellow-400 text-black font-bold rounded-xl">{left > 0 ? "Skip break — continue ↑" : "Back to it ↑"}</button>
     </div>
   );
@@ -423,15 +423,15 @@ function QuestionSlide({ q, label, chosen, onPick, onNext }: { q: AirLawQuestion
             return (
               <button key={opt} disabled={!!chosen} onClick={() => onPick(opt)} className={`w-full flex items-center gap-3 p-3 rounded-xl text-left text-sm border transition-colors ${cls}`}>
                 <span className="font-bold uppercase">{opt}.</span><span>{text}</span>
-                {chosen && isCorrect && <span className="ml-auto text-green-400">✓</span>}
-                {chosen && isChosen && !isCorrect && <span className="ml-auto text-red-400">✗</span>}
+                {chosen && isCorrect && <span className="ml-auto text-success"><Icon name="check" size={16} /></span>}
+                {chosen && isChosen && !isCorrect && <span className="ml-auto text-danger"><Icon name="x" size={16} /></span>}
               </button>
             );
           })}
         </div>
         {chosen && (
           <div className={`mt-4 rounded-xl p-4 text-sm ${chosen === q.correctAnswer ? "bg-green-500/5 border border-green-500/20 text-green-200" : "bg-red-500/5 border border-red-500/20 text-red-200"}`}>
-            <div className="font-bold mb-1">{chosen === q.correctAnswer ? "Correct ✓" : `Answer: ${q.correctAnswer.toUpperCase()}`}</div>
+            <div className="font-bold mb-1">{chosen === q.correctAnswer ? "Correct" : `Answer: ${q.correctAnswer.toUpperCase()}`}</div>
             <div className="text-zinc-300 leading-relaxed">{q.explanation}</div>
           </div>
         )}

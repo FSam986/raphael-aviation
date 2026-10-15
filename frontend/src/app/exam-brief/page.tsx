@@ -125,7 +125,7 @@ export default function ExamBrief() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {b.mustKnow.length > 0 && (
                         <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-3">
-                          <div className="text-green-400 text-[11px] font-bold uppercase tracking-wider mb-1.5">✓ Must know</div>
+                          <div className="text-green-400 text-[11px] font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5"><Icon name="check" size={12} className="shrink-0" />Must know</div>
                           <ul className="space-y-1">
                             {b.mustKnow.map((p, j) => (
                               <li key={j} className="text-zinc-300 text-[12.5px] leading-snug flex gap-1.5"><span className="text-green-400/70">•</span><span>{p}</span></li>
@@ -135,7 +135,7 @@ export default function ExamBrief() {
                       )}
                       {b.traps.length > 0 && (
                         <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-3">
-                          <div className="text-red-400 text-[11px] font-bold uppercase tracking-wider mb-1.5">⚠ Traps</div>
+                          <div className="text-red-400 text-[11px] font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5"><Icon name="warn" size={12} className="shrink-0" />Traps</div>
                           <ul className="space-y-1">
                             {b.traps.map((p, j) => (
                               <li key={j} className="text-zinc-300 text-[12.5px] leading-snug flex gap-1.5"><span className="text-red-400/70">•</span><span>{p}</span></li>

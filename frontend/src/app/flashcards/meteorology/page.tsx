@@ -136,7 +136,7 @@ export default function MeteorologyFlashcardsPage() {
                   onClick={markKnown}
                   className="flex-1 px-5 py-2.5 bg-green-500/15 hover:bg-green-500/25 text-green-400 text-sm font-medium rounded-xl transition-colors"
                 >
-                  I know this ✓
+                  I know this
                 </button>
                 <button
                   onClick={next}

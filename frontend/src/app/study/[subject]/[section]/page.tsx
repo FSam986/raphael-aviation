@@ -258,17 +258,17 @@ export default function SectionPage() {
                           </button>
                         ))}
                         {sectionNote.mustKnow.length > 0 && (
-                          <button onClick={() => setPickedTopic("__mustknow")} className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${activeTopic === "__mustknow" ? "bg-green-400 text-black font-semibold" : "bg-zinc-900 text-green-400/80 hover:text-green-300"}`}>✓ Must know</button>
+                          <button onClick={() => setPickedTopic("__mustknow")} className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${activeTopic === "__mustknow" ? "bg-green-400 text-black font-semibold" : "bg-zinc-900 text-green-400/80 hover:text-green-300"}`}>Must know</button>
                         )}
                         {sectionNote.traps.length > 0 && (
-                          <button onClick={() => setPickedTopic("__traps")} className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${activeTopic === "__traps" ? "bg-red-400 text-black font-semibold" : "bg-zinc-900 text-red-400/80 hover:text-red-300"}`}>⚠ Traps</button>
+                          <button onClick={() => setPickedTopic("__traps")} className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${activeTopic === "__traps" ? "bg-red-400 text-black font-semibold" : "bg-zinc-900 text-red-400/80 hover:text-red-300"}`}>Traps</button>
                         )}
                       </div>
 
                       {/* Active topic only */}
                       {activeTopic === "__mustknow" ? (
                         <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-4">
-                          <div className="text-green-400 text-xs font-bold uppercase tracking-wider mb-2">✓ Must know for the exam</div>
+                          <div className="text-green-400 text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5"><Icon name="check" size={13} className="shrink-0" />Must know for the exam</div>
                           <ul className="space-y-1.5">
                             {sectionNote.mustKnow.map((p, i) => (
                               <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-green-400/70 mt-0.5">•</span><span>{p}</span></li>
@@ -277,7 +277,7 @@ export default function SectionPage() {
                         </div>
                       ) : activeTopic === "__traps" ? (
                         <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4">
-                          <div className="text-red-400 text-xs font-bold uppercase tracking-wider mb-2">⚠ Common exam traps</div>
+                          <div className="text-red-400 text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5"><Icon name="warn" size={13} className="shrink-0" />Common exam traps</div>
                           <ul className="space-y-1.5">
                             {sectionNote.traps.map((p, i) => (
                               <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-red-400/70 mt-0.5">•</span><span>{p}</span></li>
@@ -595,7 +595,7 @@ export default function SectionPage() {
                         }}
                         className="px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors"
                       >
-                        Submit answers ✓
+                        Submit answers
                       </button>
                     ) : (
                       <button

@@ -365,7 +365,7 @@ export function MockExam({
                   onClick={finishExam}
                   className="px-6 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors"
                 >
-                  Submit Exam ✓
+                  Submit exam
                 </button>
               )}
             </div>
@@ -477,7 +477,7 @@ export function MockExam({
                   >
                     <div className="flex items-start gap-3">
                       <span className={`text-lg ${correct ? "text-green-400" : "text-red-400"}`}>
-                        {correct ? "✓" : "✗"}
+                        {correct ? <Icon name="check" size={16} /> : <Icon name="x" size={16} />}
                       </span>
                       <div className="flex-1 min-w-0">
                         <div className="text-xs font-mono text-yellow-400/60 mb-1">

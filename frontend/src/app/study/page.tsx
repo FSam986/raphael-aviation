@@ -61,7 +61,7 @@ export default function StudyPage() {
               className="w-full bg-zinc-950 border border-zinc-800 focus:border-yellow-400/60 outline-none rounded-xl pl-11 pr-10 py-2.5 text-sm text-zinc-200 placeholder:text-zinc-600 transition-colors"
             />
             {query && (
-              <button onClick={() => setQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-600 hover:text-zinc-300 text-sm">✕</button>
+              <button onClick={() => setQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-600 hover:text-zinc-300"><Icon name="x" size={14} /></button>
             )}
           </div>
         </div>
