@@ -13,12 +13,12 @@ function Dial({ pct }: { pct: number }) {
   const r = 34;
   const c = 2 * Math.PI * r;
   const off = c * (1 - pct / 100);
-  const colour = pct >= READY_GATE ? "#22c55e" : pct >= 60 ? "#eab308" : pct >= 30 ? "#f97316" : "#ef4444";
+  const colour = pct >= READY_GATE ? "#7fd6a2" : pct >= 60 ? "#e8c877" : pct >= 30 ? "#e8a657" : "#e8775a";
   return (
     <svg viewBox="0 0 80 80" className="w-20 h-20 -rotate-90">
-      <circle cx="40" cy="40" r={r} fill="none" stroke="#27272a" strokeWidth="8" />
+      <circle cx="40" cy="40" r={r} fill="none" stroke="#243640" strokeWidth="8" />
       <circle cx="40" cy="40" r={r} fill="none" stroke={colour} strokeWidth="8" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={off} />
-      <text x="40" y="40" transform="rotate(90 40 40)" textAnchor="middle" dominantBaseline="central" fill="#fff" fontSize="18" fontWeight="800">{pct}%</text>
+      <text x="40" y="40" transform="rotate(90 40 40)" textAnchor="middle" dominantBaseline="central" fill="#dfeef2" fontSize="18" fontWeight="700" fontFamily="var(--font-spectral)">{pct}%</text>
     </svg>
   );
 }
@@ -81,7 +81,7 @@ export default function Progress() {
                 { label: "Day Streak", value: `${prog.streak}` },
               ].map((c) => (
                 <div key={c.label} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-5">
-                  <div className="text-2xl font-black text-yellow-400">{c.value}</div>
+                  <div className="text-2xl font-display text-gold">{c.value}</div>
                   <div className="text-zinc-500 text-xs uppercase tracking-wider mt-1">{c.label}</div>
                 </div>
               ))}
@@ -119,8 +119,8 @@ export default function Progress() {
                     </div>
                     {/* gate bar */}
                     <div className="mt-2 h-2 bg-zinc-800 rounded-full relative overflow-hidden">
-                      <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: ready ? "#22c55e" : "#eab308" }} />
-                      <div className="absolute top-0 bottom-0 w-0.5 bg-green-400/70" style={{ left: `${READY_GATE}%` }} title={`${READY_GATE}% gate`} />
+                      <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: ready ? "#7fd6a2" : "#e8c877" }} />
+                      <div className="absolute top-0 bottom-0 w-0.5 bg-success/70" style={{ left: `${READY_GATE}%` }} title={`${READY_GATE}% gate`} />
                     </div>
                   </div>
                   <span className="text-zinc-600 text-sm">{isOpen ? "▲" : "▼"}</span>
@@ -132,7 +132,7 @@ export default function Progress() {
                       <div key={t.sectionId} className="flex items-center gap-3">
                         <div className="w-56 shrink-0 text-xs text-zinc-400 truncate">{titleFor(s.id, t.sectionId)}</div>
                         <div className="flex-1 h-2.5 bg-zinc-800 rounded-full overflow-hidden">
-                          <div className="h-full rounded-full" style={{ width: `${t.pct}%`, background: t.pct >= READY_GATE ? "#22c55e" : t.pct >= 50 ? "#eab308" : t.pct >= 25 ? "#f97316" : "#ef4444" }} />
+                          <div className="h-full rounded-full" style={{ width: `${t.pct}%`, background: t.pct >= READY_GATE ? "#7fd6a2" : t.pct >= 50 ? "#e8c877" : t.pct >= 25 ? "#e8a657" : "#e8775a" }} />
                         </div>
                         <div className="w-10 text-right text-xs text-zinc-500">{t.pct}%</div>
                         <Link href={`/study/${s.id}/${t.sectionId}?tab=quiz`} className="text-[11px] text-yellow-400/70 hover:text-yellow-400 shrink-0">practise →</Link>

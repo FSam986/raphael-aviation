@@ -176,9 +176,9 @@ export default function CoachPage() {
             <div className="text-zinc-600 text-sm">{plan.examDate} · {plan.subjectIds.length} paper{plan.subjectIds.length === 1 ? "" : "s"}</div>
           </div>
           <div className="flex items-center gap-4 text-center">
-            <div><div className="text-2xl font-black text-orange-400">{progress.streak}</div><div className="text-[10px] text-zinc-600 uppercase">streak</div></div>
-            <div><div className="text-2xl font-black text-yellow-400">{progress.xp}</div><div className="text-[10px] text-zinc-600 uppercase">XP</div></div>
-            <div><div className="text-2xl font-black text-green-400">{masteredCount}</div><div className="text-[10px] text-zinc-600 uppercase">mastered</div></div>
+            <div><div className="text-2xl font-display text-gold">{progress.streak}</div><div className="text-[10px] text-zinc-600 uppercase">streak</div></div>
+            <div><div className="text-2xl font-display text-gold">{progress.xp}</div><div className="text-[10px] text-zinc-600 uppercase">XP</div></div>
+            <div><div className="text-2xl font-display text-success">{masteredCount}</div><div className="text-[10px] text-zinc-600 uppercase">mastered</div></div>
           </div>
         </div>
 
@@ -187,7 +187,7 @@ export default function CoachPage() {
             <div className="text-xs text-zinc-500 mb-2">Expert badges ({progress.badges.length})</div>
             <div className="flex gap-2 flex-wrap">
               {progress.badges.slice().reverse().map((b) => (
-                <div key={b.id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/25 text-xs text-yellow-200" title={b.title}><span>{b.emoji}</span><span className="truncate max-w-[180px]">{b.title}</span></div>
+                <div key={b.id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/25 text-xs text-yellow-200" title={b.title}><span className="text-gold"><Icon name="trophy" size={13} /></span><span className="truncate max-w-[180px]">{b.title}</span></div>
               ))}
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function CoachPage() {
         {/* overall progress */}
         <div className="mt-5">
           <div className="flex justify-between text-xs text-zinc-500 mb-1"><span>{doneCount} / {plan.days.length} days done</span><span>{pct}%</span></div>
-          <div className="h-2 bg-zinc-900 rounded-full overflow-hidden"><div className="h-full bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full" style={{ width: `${pct}%` }} /></div>
+          <div className="h-2 bg-zinc-900 rounded-full overflow-hidden"><div className="h-full bg-gold rounded-full" style={{ width: `${pct}%` }} /></div>
         </div>
 
         {load.tight && (
@@ -221,7 +221,7 @@ export default function CoachPage() {
             <Link href="/exams" className="inline-block mt-4 px-5 py-2.5 bg-yellow-400 text-black font-bold text-sm rounded-xl">Go to mock exams →</Link>
           </div>
         ) : (
-          <div className="mt-6 rounded-2xl border border-yellow-400/30 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6">
+          <div className="mt-6 rounded-2xl border border-gold/30 bg-chart-ground-2 p-6">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-xs uppercase tracking-wider text-yellow-400/80">Today · Day {todayIdx + 1}</div>
@@ -255,12 +255,12 @@ export default function CoachPage() {
                   <div className="flex items-center gap-3">
                     <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0 ${done ? "bg-green-500/20 text-green-400" : isToday ? "bg-yellow-400 text-black" : "bg-zinc-900 text-zinc-500"}`}>{done ? "✓" : d.dayIndex + 1}</span>
                     <span className="text-zinc-300 flex-shrink-0 w-16 text-xs">{d.date.slice(5)}</span>
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full flex-shrink-0 uppercase tracking-wide ${d.kind === "study" ? "bg-blue-500/15 text-blue-300" : d.kind === "mock" ? "bg-red-500/15 text-red-300" : "bg-purple-500/15 text-purple-300"}`}>{d.kind === "study" ? "learn" : d.kind}</span>
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full flex-shrink-0 uppercase tracking-wide ${d.kind === "study" ? "bg-gold/12 text-gold" : d.kind === "mock" ? "bg-danger/15 text-danger" : "bg-chart-line text-chart-ink-dim"}`}>{d.kind === "study" ? "learn" : d.kind}</span>
                     {isToday && <span className="text-[10px] text-yellow-400 ml-auto">today</span>}
                   </div>
                   <div className="mt-1.5 pl-9 space-y-0.5">
                     {learn.length > 0 && <div className="text-xs text-zinc-300"><span className="text-yellow-400/70">Learn + drill to 90%: </span>{learn.join(", ")}</div>}
-                    {review.length > 0 && <div className="text-xs text-zinc-500"><span className="text-purple-300/70">{d.kind === "mock" ? "Mock across: " : "Revise & re-test: "}</span>{d.kind === "mock" ? "all topics" : review.join(", ")}</div>}
+                    {review.length > 0 && <div className="text-xs text-zinc-500"><span className="text-chart-ink-dim">{d.kind === "mock" ? "Mock across: " : "Revise & re-test: "}</span>{d.kind === "mock" ? "all topics" : review.join(", ")}</div>}
                     {learn.length === 0 && review.length === 0 && <div className="text-xs text-zinc-600">Review earlier topics</div>}
                   </div>
                 </div>

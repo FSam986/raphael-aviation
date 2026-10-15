@@ -399,8 +399,8 @@ export function MockExam({
                 passed ? "bg-green-500/10 border-green-500/30" : "bg-red-500/10 border-red-500/30"
               }`}
             >
-              <div className="mb-3 flex justify-center text-gold">{passed ? <Icon name="trophy" size={48} /> : <Icon name="chart" size={48} />}</div>
-              <div className={`text-5xl font-black mb-2 ${passed ? "text-green-400" : "text-red-400"}`}>
+              <div className={`mb-3 flex justify-center ${passed ? "text-success" : "text-danger"}`}>{passed ? <Icon name="trophy" size={48} /> : <Icon name="chart" size={48} />}</div>
+              <div className={`font-display text-6xl mb-2 tabular-nums ${passed ? "text-success" : "text-danger"}`}>
                 {pct}%
               </div>
               <div className="text-white font-bold text-lg">
