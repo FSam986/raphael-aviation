@@ -7,6 +7,7 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourse } from "@/app/hooks/useCourse";
 import { SUBJECT_BANKS, subjectReadiness, READY_GATE, type SubjectReadiness } from "@/app/lib/readiness";
 import { getProgress, type ProgressSummary } from "@/app/lib/progress";
+import { Icon } from "@/app/components/Icon";
 
 function Dial({ pct }: { pct: number }) {
   const r = 34;
@@ -51,18 +52,18 @@ export default function Progress() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
         <div className="text-zinc-600 text-sm">Loading...</div>
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/progress" userName={userName} />
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         <div className="px-10 pt-10 pb-5 border-b border-zinc-900">
           <div className="flex items-center gap-3">
-            <span className="text-2xl">📊</span>
+            <span className="text-gold"><Icon name="chart" size={22} /></span>
             <h1 className="text-3xl font-black text-white">Exam Readiness</h1>
           </div>
           <p className="text-zinc-500 text-sm mt-1">

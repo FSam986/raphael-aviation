@@ -11,6 +11,7 @@ import {
   isPremium, setPremium, type CoachPlan, type CoachProgress,
 } from "@/app/lib/coachPlan";
 import { notifySupported, notifyPermission, requestNotifyPermission, scheduleDailyStreak, cancelDailyStreak, notifyNow, pick, PILOT_STREAK } from "@/lib/notify";
+import { Icon } from "@/app/components/Icon";
 
 export default function CoachPage() {
   const { userName, loading } = useAuthGuard();
@@ -47,7 +48,7 @@ export default function CoachPage() {
   async function disableReminders() { await cancelDailyStreak(); setRemindersOn(false); }
 
   if (loading || !hydrated)
-    return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+    return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
 
   function generate() {
     if (!examDate || selected.length === 0) return;
@@ -65,9 +66,9 @@ export default function CoachPage() {
   }
 
   const Shell = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/coach" userName={userName} />
-      <main className="flex-1 ml-64 overflow-auto">{children}</main>
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">{children}</main>
     </div>
   );
 
@@ -77,7 +78,7 @@ export default function CoachPage() {
       <Shell>
         <div className="max-w-xl mx-auto px-8 py-16">
           <div className="text-center">
-            <div className="text-5xl mb-4">🎯</div>
+            <div className="mb-4 flex justify-center text-gold"><Icon name="target" size={44} /></div>
             <h1 className="text-3xl font-black text-white">Guaranteed Pass</h1>
             <p className="text-zinc-400 mt-3 leading-relaxed">Tell us your exam date. We build a day-by-day plan and walk you through it — flash the memory table, drill each topic to 90%, and re-test your memory daily. Keep the streak, pass first time.</p>
           </div>
@@ -175,9 +176,9 @@ export default function CoachPage() {
             <div className="text-zinc-600 text-sm">{plan.examDate} · {plan.subjectIds.length} paper{plan.subjectIds.length === 1 ? "" : "s"}</div>
           </div>
           <div className="flex items-center gap-4 text-center">
-            <div><div className="text-2xl font-black text-orange-400">🔥 {progress.streak}</div><div className="text-[10px] text-zinc-600 uppercase">streak</div></div>
+            <div><div className="text-2xl font-black text-orange-400">{progress.streak}</div><div className="text-[10px] text-zinc-600 uppercase">streak</div></div>
             <div><div className="text-2xl font-black text-yellow-400">{progress.xp}</div><div className="text-[10px] text-zinc-600 uppercase">XP</div></div>
-            <div><div className="text-2xl font-black text-green-400">🎓 {masteredCount}</div><div className="text-[10px] text-zinc-600 uppercase">mastered</div></div>
+            <div><div className="text-2xl font-black text-green-400">{masteredCount}</div><div className="text-[10px] text-zinc-600 uppercase">mastered</div></div>
           </div>
         </div>
 
@@ -205,7 +206,7 @@ export default function CoachPage() {
         {/* pilot-themed reminders */}
         {notifySupported() && (
           <div className="mt-4 rounded-xl border border-zinc-900 bg-zinc-950 p-3 flex items-center justify-between gap-3">
-            <div className="text-xs text-zinc-400">🔔 Streak reminders — pilot-themed nudges to keep your streak airborne{notifyPermission() === "denied" ? " (blocked in browser settings)" : ""}.</div>
+            <div className="text-xs text-zinc-400">Streak reminders — pilot-themed nudges to keep your streak airborne{notifyPermission() === "denied" ? " (blocked in browser settings)" : ""}.</div>
             {remindersOn
               ? <button onClick={disableReminders} className="text-xs px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 flex-shrink-0">Turn off</button>
               : <button onClick={enableReminders} disabled={notifyPermission() === "denied"} className="text-xs px-3 py-1.5 rounded-lg bg-yellow-400 disabled:opacity-40 text-black font-bold flex-shrink-0">Enable</button>}
@@ -215,7 +216,7 @@ export default function CoachPage() {
         {/* today's session */}
         {allDone ? (
           <div className="mt-6 rounded-2xl border border-green-500/30 bg-green-500/5 p-6 text-center">
-            <div className="text-3xl mb-2">🎉</div>
+            <div className="mb-2 flex justify-center text-gold"><Icon name="party" size={28} /></div>
             <div className="text-white font-bold text-lg">Plan complete — you&apos;re exam-ready.</div>
             <Link href="/exams" className="inline-block mt-4 px-5 py-2.5 bg-yellow-400 text-black font-bold text-sm rounded-xl">Go to mock exams →</Link>
           </div>

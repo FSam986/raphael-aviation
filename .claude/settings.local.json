@@ -62,7 +62,9 @@
       "Bash(grep -iE \"logo|brand|icon|raphael|mark|\\\\.svg$\")",
       "Bash(\"/Users/fathimasamreen/.claude/plugins/cache/impeccable/impeccable/4.5.2/skills/impeccable/scripts/impeccable\" surface-brief *)",
       "Bash(\"/Users/fathimasamreen/.claude/plugins/cache/impeccable/impeccable/4.5.2/skills/impeccable/scripts/impeccable\" detect *)",
-      "Bash(git commit -q -m 'Redesign: Aeronautical Chart world — foundation + dashboard + nav *)"
+      "Bash(git commit -q -m 'Redesign: Aeronautical Chart world — foundation + dashboard + nav *)",
+      "Bash(python3 -I -)",
+      "Bash(git commit -q -m 'Redesign rollout: chart world across all pages, drawn icons, mobile nav *)"
     ]
   }
 }

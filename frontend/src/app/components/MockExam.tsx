@@ -12,6 +12,7 @@ import {
   type MasteryMap,
 } from "@/app/lib/examSelect";
 import { aspectOf } from "@/app/lib/aspects";
+import { Icon } from "@/app/components/Icon";
 
 // Structural shape shared by every subject's question bank.
 export interface ExamQuestion {
@@ -194,7 +195,7 @@ export function MockExam({
 
   if (loading)
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
         <div className="text-zinc-600 text-sm">Loading...</div>
       </div>
     );
@@ -224,10 +225,10 @@ export function MockExam({
   })();
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/exams" userName={userName} />
 
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         {/* INTRO */}
         {phase === "intro" && (
           <div className="max-w-2xl mx-auto px-10 py-16">
@@ -273,7 +274,7 @@ export function MockExam({
                 {mastery.mastered === 0
                   ? "Sit your first paper to start building mastery."
                   : mastery.mastered >= mastery.total
-                  ? "Every question mastered — you're exam-ready. 🎯"
+                  ? "Every question mastered — you're exam-ready."
                   : "Keep sitting papers — weak areas will keep coming back until they stick."}
               </div>
             </div>
@@ -398,7 +399,7 @@ export function MockExam({
                 passed ? "bg-green-500/10 border-green-500/30" : "bg-red-500/10 border-red-500/30"
               }`}
             >
-              <div className="text-6xl mb-3">{passed ? "🎉" : "📉"}</div>
+              <div className="mb-3 flex justify-center text-gold">{passed ? <Icon name="trophy" size={48} /> : <Icon name="chart" size={48} />}</div>
               <div className={`text-5xl font-black mb-2 ${passed ? "text-green-400" : "text-red-400"}`}>
                 {pct}%
               </div>

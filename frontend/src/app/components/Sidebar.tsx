@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { COURSES, type CourseId } from "@/app/lib/course";
 import { useCourse } from "@/app/hooks/useCourse";
 
@@ -52,8 +52,23 @@ export function Sidebar({
   onSignOut?: () => void;
 }) {
   const { course, setCourse } = useCourse();
+  const [open, setOpen] = useState(false);
   return (
-    <aside className="w-64 bg-chart-ground-2 border-r border-chart-line flex flex-col fixed h-full">
+    <>
+    {/* Mobile top bar */}
+    <div className="md:hidden fixed top-0 inset-x-0 z-50 h-14 flex items-center gap-3 px-4 bg-chart-ground-2 border-b border-chart-line">
+      <button onClick={() => setOpen(true)} aria-label="Open navigation" className="text-chart-ink-dim hover:text-chart-ink p-1 -ml-1">
+        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+      <span className="font-display text-gold text-lg tracking-[0.18em]">RAPHAEL</span>
+    </div>
+    {/* Backdrop */}
+    {open && <div className="md:hidden fixed inset-0 z-50 bg-black/60" onClick={() => setOpen(false)} aria-hidden="true" />}
+
+    <aside
+      className={`w-64 bg-chart-ground-2 border-r border-chart-line flex flex-col fixed h-full z-50 transition-transform duration-200 ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+      onClick={() => setOpen(false)}
+    >
       <div className="p-6 border-b border-chart-line">
         <div className="font-display text-gold text-xl tracking-[0.18em]">RAPHAEL</div>
         <div className="mono text-chart-ink-faint text-[10px] tracking-[0.3em] uppercase mt-0.5">Aviation</div>
@@ -124,5 +139,6 @@ export function Sidebar({
         )}
       </div>
     </aside>
+    </>
   );
 }

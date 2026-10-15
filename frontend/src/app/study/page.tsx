@@ -6,20 +6,8 @@ import { useCourse } from "@/app/hooks/useCourse";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { subjectReadiness } from "@/app/lib/readiness";
 import { Sidebar } from "@/app/components/Sidebar";
+import { Icon, SUBJECT_ICON } from "@/app/components/Icon";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
-
-const SUBJECT_META: Record<string, { icon: string; color: string }> = {
-  "aircraft-technical":   { icon: "⚙️",  color: "text-orange-400" },
-  "air-law":              { icon: "⚖️",  color: "text-purple-400" },
-  "flight-planning":      { icon: "📋",  color: "text-cyan-400"   },
-  "human-performance":    { icon: "🧠",  color: "text-pink-400"   },
-  "flight-instruments":   { icon: "🎛️", color: "text-slate-400"  },
-  "meteorology":          { icon: "☁️",  color: "text-blue-400"   },
-  "navigation":           { icon: "🧭",  color: "text-green-400"  },
-  "radio-navigation":     { icon: "📡",  color: "text-indigo-400" },
-  "mass-and-balance":     { icon: "⚖️",  color: "text-teal-400"   },
-  "principles-of-flight": { icon: "✈️",  color: "text-yellow-400" },
-};
 
 export default function StudyPage() {
   const { userName, loading } = useAuthGuard();
@@ -53,19 +41,19 @@ export default function StudyPage() {
   }, [query, syllabus]);
 
   if (loading) {
-    return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+    return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
   }
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/study" userName={userName} />
 
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
           <h1 className="text-3xl font-black text-white">Study</h1>
           <p className="text-zinc-500 text-sm mt-1">SACAA {course.toUpperCase()} syllabus — pick a subject to begin</p>
           <div className="mt-5 relative max-w-xl">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-600 pointer-events-none">🔍</span>
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 pointer-events-none"><Icon name="search" size={16} /></span>
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -103,7 +91,6 @@ export default function StudyPage() {
         <div className="px-10 py-8">
           <div className="grid grid-cols-1 gap-3">
             {syllabus.map((subject) => {
-              const meta = SUBJECT_META[subject.id] ?? { icon: "📚", color: "text-zinc-400" };
               const totalItems = subject.sections.reduce((n, s) => n + s.items.length, 0);
               const content = subjectContent(subject.id);
               // Count DISTINCT questions: IR subjects re-map several syllabus
@@ -118,11 +105,11 @@ export default function StudyPage() {
                   href={`/study/${subject.id}`}
                   className="bg-zinc-950 border border-zinc-900 hover:border-zinc-700 rounded-2xl p-5 flex items-center gap-5 transition-all group hover:bg-zinc-900/50"
                 >
-                  <span className="text-3xl">{meta.icon}</span>
+                  <span className="text-gold shrink-0"><Icon name={SUBJECT_ICON[subject.id] ?? "book"} size={28} /></span>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-1">
                       <h3 className="font-bold text-white">{subject.title}</h3>
-                      <span className={`text-xs font-mono ${meta.color}`}>{subject.code}</span>
+                      <span className="text-xs font-mono text-gold-deep">{subject.code}</span>
                     </div>
                     <div className="flex items-center gap-4 text-xs text-zinc-600">
                       <span>{subject.sections.length} sections</span>

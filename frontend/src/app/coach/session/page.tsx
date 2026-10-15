@@ -13,6 +13,7 @@ import {
   type CoachPlan, type CoachProgress, type StudyUnit,
 } from "@/app/lib/coachPlan";
 import { pick as pickMsg, PILOT_BREAK, scheduleDailyStreak, notifyPermission } from "@/lib/notify";
+import { Icon } from "@/app/components/Icon";
 
 const PASS = 90;
 const MAX_ROUNDS = 4;
@@ -189,7 +190,7 @@ export default function CoachSessionReel() {
       const inserts: Slide[] = [];
       if (acc >= PASS) {
         if (!masteredNow.has(s.unit.sectionId)) {
-          const [p2, badge] = awardBadge(merged, `topic:${s.unit.sectionId}`, `${s.unit.sectionTitle} — Expert`, "🎓");
+          const [p2, badge] = awardBadge(merged, `topic:${s.unit.sectionId}`, `${s.unit.sectionTitle} — Expert`, "");
           merged = p2;
           if (badge) inserts.push({ id: nid(), kind: "badge", emoji: badge.emoji, title: badge.title, sub: `${s.unit.subjectTitle} · +30 XP` });
           setMasteredNow((m) => new Set(m).add(s.unit.sectionId));
@@ -227,13 +228,13 @@ export default function CoachSessionReel() {
     try { if (notifyPermission() === "granted") scheduleDailyStreak(18, 0); } catch { /* ignore */ }
   }
 
-  if (loading) return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
 
   // Resume prompt — shown when an unfinished session for today was found.
   if (pendingResume) {
     const answered = Object.keys(pendingResume.answers).length;
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center px-6">
         <div className="w-full max-w-sm text-center">
           <div className="text-5xl mb-4">⏸️</div>
           <h1 className="text-2xl font-black text-white">Continue where you left off?</h1>
@@ -254,7 +255,7 @@ export default function CoachSessionReel() {
     );
   }
 
-  if (!hydrated) return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+  if (!hydrated) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
 
   const topics = plan!.days[dayIdx].units;
   const remaining = Math.max(0, slides.length - active - 1);
@@ -263,9 +264,9 @@ export default function CoachSessionReel() {
 
   if (streakEnd) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center px-6">
         <div className="text-center">
-          <div className="text-6xl mb-4">🔥</div>
+          <div className="mb-4 flex justify-center text-gold"><Icon name="flame" size={48} /></div>
           <h1 className="text-3xl font-black text-white">Day {dayIdx + 1} complete</h1>
           <p className="text-zinc-400 mt-2">Streak {streakEnd.streak} · +{streakEnd.xp} XP · {masteredNow.size} topic{masteredNow.size === 1 ? "" : "s"} mastered</p>
           <Link href="/coach" className="inline-block mt-6 px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl">Back to my plan →</Link>
@@ -300,7 +301,7 @@ export default function CoachSessionReel() {
             <div className="w-full max-w-xl">
               {s.kind === "intro" && (
                 <div className="text-center">
-                  <div className="text-5xl mb-4">🚀</div>
+                  <div className="mb-4 flex justify-center text-gold"><Icon name="target" size={44} /></div>
                   <h1 className="text-2xl font-black">Day {s.dayIdx + 1}</h1>
                   <p className="text-zinc-400 mt-2 text-sm">{s.reviewN > 0 ? `${s.reviewN}-question memory check, then ` : ""}{s.topics} new topic{s.topics === 1 ? "" : "s"} to master.</p>
                   <p className="text-zinc-600 text-xs mt-6">Swipe up to begin ↑</p>
@@ -309,7 +310,7 @@ export default function CoachSessionReel() {
 
               {s.kind === "mustknow" && (
                 <div className="max-h-[82vh] overflow-y-auto">
-                  <div className="text-yellow-400 text-xs font-bold uppercase tracking-wider">📋 Quick memory table</div>
+                  <div className="text-yellow-400 text-xs font-bold uppercase tracking-wider">Quick memory table</div>
                   <h2 className="text-xl font-black mt-1">{s.unit.sectionTitle}</h2>
                   <p className="text-zinc-500 text-xs">{s.unit.subjectTitle} · scan this, then answer the questions</p>
                   {s.mustKnow.length > 0 && (
@@ -330,7 +331,7 @@ export default function CoachSessionReel() {
                   )}
                   {s.figures.length > 0 && (
                     <div className="mt-3 rounded-2xl border border-zinc-800 p-3">
-                      <div className="text-blue-400 text-[10px] font-bold uppercase tracking-wider mb-2">🖼️ Illustrations</div>
+                      <div className="text-blue-400 text-[10px] font-bold uppercase tracking-wider mb-2">Illustrations</div>
                       <div className="grid grid-cols-2 gap-3">
                         {s.figures.map((f) => (
                           <figure key={f.id}>
@@ -355,7 +356,7 @@ export default function CoachSessionReel() {
                 const passed = acc >= PASS;
                 return (
                   <div className="text-center">
-                    <div className="text-5xl mb-3">{passed ? "✅" : "🔁"}</div>
+                    <div className="text-5xl mb-3">{passed ? "✓" : "↻"}</div>
                     <div className="text-3xl font-black" style={{ color: passed ? "#4ade80" : "#fbbf24" }}>{acc}%</div>
                     <div className="text-white font-bold mt-1">{s.unit.sectionTitle}</div>
                     <p className="text-zinc-400 text-sm mt-2">{passed ? "Topic mastered — 90% reached." : s.round < MAX_ROUNDS ? "Below 90% — let's run this topic again to lock it in." : "Best effort logged — moving on."}</p>
@@ -378,10 +379,10 @@ export default function CoachSessionReel() {
 
               {s.kind === "done" && (
                 <div className="text-center">
-                  <div className="text-6xl mb-4">🏁</div>
+                  <div className="mb-4 flex justify-center text-gold"><Icon name="target" size={48} /></div>
                   <h2 className="text-2xl font-black">That&apos;s today done</h2>
                   <p className="text-zinc-400 text-sm mt-2">{masteredNow.size} topic{masteredNow.size === 1 ? "" : "s"} mastered. Lock in the streak.</p>
-                  <button onClick={finish} className="mt-6 px-8 py-3.5 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl">Complete day 🔥</button>
+                  <button onClick={finish} className="mt-6 px-8 py-3.5 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl">Complete day </button>
                 </div>
               )}
             </div>
@@ -397,7 +398,7 @@ function BreakSlide({ title, body, onDone }: { title: string; body: string; onDo
   useEffect(() => { if (left <= 0) return; const t = setTimeout(() => setLeft((l) => l - 1), 1000); return () => clearTimeout(t); }, [left]);
   return (
     <div className="text-center">
-      <div className="text-6xl mb-3">🧑‍✈️</div>
+      <div className="mb-3 flex justify-center text-gold"><Icon name="plane" size={48} /></div>
       <div className="text-yellow-400 text-xs font-bold uppercase tracking-widest">Crew rest</div>
       <div className="text-2xl font-black mt-1">{title}</div>
       <p className="text-zinc-400 text-sm mt-2 max-w-sm mx-auto">{body}</p>
@@ -410,7 +411,7 @@ function BreakSlide({ title, body, onDone }: { title: string; body: string; onDo
 function QuestionSlide({ q, label, chosen, onPick, onNext }: { q: AirLawQuestion; label: string; chosen?: "a" | "b" | "c" | "d"; onPick: (o: "a" | "b" | "c" | "d") => void; onNext: () => void }) {
   return (
     <div>
-      <div className="text-yellow-400/90 text-xs font-bold uppercase tracking-wider mb-2">📝 {label}</div>
+      <div className="text-yellow-400/90 text-xs font-bold uppercase tracking-wider mb-2">{label}</div>
       <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
         <div className="text-white font-semibold">{q.question}</div>
         <div className="mt-4 space-y-2">

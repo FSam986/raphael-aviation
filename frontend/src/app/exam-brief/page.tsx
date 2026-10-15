@@ -6,6 +6,7 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourse } from "@/app/hooks/useCourse";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { getBriefReference } from "@/app/data/exam-brief-reference";
+import { Icon } from "@/app/components/Icon";
 
 // Exam-Day Brief — a last-minute cram summary per subject, assembled from the
 // mustKnow + traps already written in every section note. No new content to
@@ -42,18 +43,18 @@ export default function ExamBrief() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
         <div className="text-zinc-600 text-sm">Loading...</div>
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/exam-brief" userName={userName} />
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         <div className="px-10 pt-10 pb-5 border-b border-zinc-900">
           <div className="flex items-center gap-3">
-            <span className="text-2xl">🎯</span>
+            <span className="text-gold"><Icon name="target" size={22} /></span>
             <h1 className="text-3xl font-black text-white">Exam-Day Brief</h1>
           </div>
           <p className="text-zinc-500 text-sm mt-1">
@@ -83,13 +84,13 @@ export default function ExamBrief() {
               <p className="text-zinc-500 text-xs">
                 {brief.length} topics · {totalPoints} key points. Skim top-to-bottom on the morning of your {subject.title} exam.
               </p>
-              <span className="text-zinc-700 text-[11px]">🔒 For your personal use only</span>
+              <span className="text-zinc-700 text-[11px]">For your personal use only</span>
             </div>
 
             {/* Quick reference — formulas, conversions, V-speeds, key values */}
             {(() => { const reference = getBriefReference(subject.id); return reference.length > 0 && (
               <div className="max-w-4xl mb-5">
-                <div className="text-yellow-400 text-xs font-bold uppercase tracking-wider mb-2">📐 Formulas, conversions &amp; key values</div>
+                <div className="text-yellow-400 text-xs font-bold uppercase tracking-wider mb-2">Formulas, conversions &amp; key values</div>
                 <div className="grid md:grid-cols-3 gap-3">
                   {reference.map((blk) => (
                     <div key={blk.heading} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-4 break-inside-avoid">

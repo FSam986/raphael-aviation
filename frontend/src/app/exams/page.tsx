@@ -22,6 +22,7 @@ import { PPL_AGK_QUESTIONS } from "@/app/data/ppl-agk-content";
 import { PPL_FPP_QUESTIONS } from "@/app/data/ppl-fpp-content";
 import { PPL_POF_QUESTIONS } from "@/app/data/ppl-principles-of-flight-questions";
 import { PPL_HPL_QUESTIONS } from "@/app/data/ppl-human-performance-questions";
+import { Icon, SUBJECT_ICON } from "@/app/components/Icon";
 
 // Subjects with a built mock-exam engine (value = question-bank size).
 const READY: Record<string, number> = {
@@ -51,16 +52,16 @@ export default function Exams() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
         <div className="text-zinc-600 text-sm">Loading...</div>
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/exams" userName={userName} />
 
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
           <h1 className="text-3xl font-black text-white">Mock Exams</h1>
           <p className="text-zinc-500 text-sm mt-1">
@@ -76,7 +77,7 @@ export default function Exams() {
               className="block bg-zinc-950 border border-zinc-900 hover:border-yellow-400/40 rounded-2xl p-6 transition-all group"
             >
               <div className="flex items-center gap-4">
-                <span className="text-3xl">🎓</span>
+                <span className="text-gold"><Icon name="cap" size={28} /></span>
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
                     <h3 className="font-bold text-white text-lg">Instrument Rating</h3>
@@ -104,7 +105,7 @@ export default function Exams() {
                 href={`/exams/${subject.id}`}
                 className="bg-zinc-950 border border-zinc-900 hover:border-yellow-400/40 rounded-2xl p-5 flex items-center gap-5 transition-all group"
               >
-                <span className="text-2xl">☁️</span>
+                <span className="text-gold"><Icon name={SUBJECT_ICON[subject.id] ?? "book"} size={22} /></span>
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
                     <h3 className="font-bold text-white">{subject.title}</h3>
@@ -124,7 +125,7 @@ export default function Exams() {
                 key={subject.id}
                 className="bg-zinc-950/50 border border-zinc-900 rounded-2xl p-5 flex items-center gap-5 opacity-50"
               >
-                <span className="text-2xl grayscale">📄</span>
+                <span className="text-zinc-500"><Icon name="doc" size={22} /></span>
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
                     <h3 className="font-bold text-zinc-400">{subject.title}</h3>

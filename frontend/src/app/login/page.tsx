@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase, supabaseConfigured } from "@/lib/supabase";
+import { Icon } from "@/app/components/Icon";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -54,28 +55,28 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black flex">
+    <main className="min-h-screen bg-chart-ground flex">
       {/* Left panel */}
       <div className="hidden lg:flex w-1/2 bg-zinc-950 border-r border-zinc-900 flex-col items-center justify-center p-16">
         <img src="/logo.png" alt="Raphael Aviation" className="w-40 mb-8" />
-        <h2 className="text-3xl font-black text-white text-center leading-tight mb-4">
-          Your personal<br />
-          <span className="text-yellow-400">CPL instructor</span><br />
-          is waiting.
+        <h2 className="font-display text-4xl text-white text-center leading-tight mb-4">
+          Chart your course<br />
+          to a <span className="text-gold">SACAA pass</span>.
         </h2>
         <p className="text-zinc-500 text-center text-sm max-w-xs leading-relaxed">
-          Study smarter. Track your mastery. Know exactly when you&apos;re ready to
-          pass SACAA.
+          Study smarter, track your readiness, and know exactly when you&apos;re ready
+          to sit the exam.
         </p>
 
-        <div className="mt-12 space-y-4 w-full max-w-xs">
+        <div className="mt-12 space-y-3.5 w-full max-w-xs">
           {[
-            "✅ All 12 SACAA CPL subjects",
-            "✅ AI that knows your weak spots",
-            "✅ SACAA-style mock exams",
-            "✅ Predicted pass probability",
+            "Every SACAA PPL, CPL & IR subject",
+            "Readiness tracked for each subject",
+            "SACAA-style mock exams",
+            "Illustrated study notes & flashcards",
           ].map((item) => (
-            <div key={item} className="text-sm text-zinc-400">
+            <div key={item} className="flex items-center gap-3 text-sm text-zinc-300">
+              <span className="text-gold shrink-0"><Icon name="target" size={16} /></span>
               {item}
             </div>
           ))}
@@ -93,7 +94,7 @@ export default function LoginPage() {
             </span>
           </div>
 
-          <h1 className="text-3xl font-black text-white mb-2">
+          <h1 className="font-display text-3xl text-white mb-2">
             {mode === "signin" ? "Welcome back" : "Create your account"}
           </h1>
           <p className="text-zinc-500 mb-8 text-sm">

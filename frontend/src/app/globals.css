@@ -38,6 +38,33 @@
   --font-sans: var(--font-overpass), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-overpass-mono), ui-monospace, monospace;
   --font-display: var(--font-spectral), ui-serif, Georgia, serif;
+
+  /* ---- Rebrand remap: the app's existing zinc/yellow/slate utilities are
+     retargeted to the Aeronautical Chart palette so every page inherits the
+     world without per-file rewrites. New work should use the chart-* tokens. */
+  --color-zinc-950: #0e161a;
+  --color-zinc-900: #172329;
+  --color-zinc-800: #243640;
+  --color-zinc-700: #2f4651;
+  --color-zinc-600: #6f909b;
+  --color-zinc-500: #8fb0bb;
+  --color-zinc-400: #a9c6cf;
+  --color-zinc-300: #c6dde4;
+  --color-zinc-200: #dfeef2;
+  --color-zinc-100: #eef6f8;
+
+  --color-slate-950: #0e161a;
+  --color-slate-900: #172329;
+  --color-slate-800: #243640;
+  --color-slate-700: #6f909b;
+  --color-slate-400: #a9c6cf;
+  --color-slate-200: #dfeef2;
+
+  --color-yellow-200: #f3e2ad;
+  --color-yellow-300: #f0d78f;
+  --color-yellow-400: #e8c877;
+  --color-yellow-500: #d8b35a;
+  --color-yellow-600: #c8a44d;
 }
 
 html { color-scheme: dark; }

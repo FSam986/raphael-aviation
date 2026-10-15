@@ -40,7 +40,7 @@ export function PlottingCard({ q, index }: { q: PlottingQuestion; index: number 
         onClick={() => setReveal((r) => !r)}
         className="mt-3 px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors"
       >
-        {reveal ? "Hide solution" : "Show plotted solution ✏️"}
+        {reveal ? "Hide solution" : "Show plotted solution"}
       </button>
 
       {reveal && (

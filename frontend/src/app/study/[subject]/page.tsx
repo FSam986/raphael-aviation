@@ -25,11 +25,11 @@ export default function SubjectPage() {
 
   const subject = findSubject(subjectId);
 
-  if (loading) return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
 
   if (!subject) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center flex-col gap-4">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center flex-col gap-4">
         <div className="text-white text-xl font-bold">Subject not found</div>
         <Link href="/study" className="text-yellow-400 text-sm hover:underline">← Back to Study</Link>
       </div>
@@ -46,10 +46,10 @@ export default function SubjectPage() {
   const totalQuestions = qIds.size;
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/study" userName={userName} />
 
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         {/* Header */}
         <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
           <div className="flex items-center gap-2 text-zinc-600 text-sm mb-4">
@@ -73,7 +73,7 @@ export default function SubjectPage() {
                 🃏 Flashcards
               </Link>
               <Link href={`/exams/${subjectId}`} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors">
-                📝 Mock Exam
+                Mock exam
               </Link>
             </div>
           </div>
@@ -155,7 +155,7 @@ export default function SubjectPage() {
                         🃏 Flashcards for this section →
                       </Link>
                       <Link href={`/study/${subjectId}/${section.id}?tab=quiz`} className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors ml-4">
-                        📝 Section quiz →
+                        Section quiz →
                       </Link>
                     </div>
                   </div>

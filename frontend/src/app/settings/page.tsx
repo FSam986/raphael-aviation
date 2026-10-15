@@ -64,7 +64,7 @@ export default function Settings() {
   }, []);
 
   if (loading || !hydrated)
-    return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+    return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
 
   const flash = (m: string) => { setSaved(m); setTimeout(() => setSaved(""), 2000); };
 
@@ -96,9 +96,9 @@ export default function Settings() {
   function togglePref(k: string, cur: boolean, setter: (x: boolean) => void) { pref.set(k, cur ? "0" : "1"); setter(!cur); }
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/settings" userName={userName} />
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         <div className="max-w-2xl mx-auto px-8 py-10 space-y-5">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-black text-white">Settings</h1>

@@ -32,7 +32,7 @@ export default function MeteorologyFlashcardsPage() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
         <div className="text-zinc-600 text-sm">Loading...</div>
       </div>
     );
@@ -54,10 +54,10 @@ export default function MeteorologyFlashcardsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/flashcards" userName={userName} />
 
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
           <div className="flex items-center gap-2 text-zinc-600 text-sm mb-3">
             <Link href="/flashcards" className="hover:text-zinc-400">Flashcards</Link>

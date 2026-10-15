@@ -16,6 +16,7 @@ import { SUBJECT_BANKS, loadMastery } from "@/app/lib/readiness";
 import { recordResults } from "@/app/lib/examSelect";
 import { countByAspect, filterByAspect } from "@/app/lib/aspects";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
+import { Icon } from "@/app/components/Icon";
 
 type Tab = "learn" | "quiz" | "flashcards" | "illustrations" | "examples";
 
@@ -93,11 +94,11 @@ export default function SectionPage() {
   const subject = findSubject(subjectId);
   const section = subject?.sections.find((s) => s.id === sectionId);
 
-  if (loading) return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
 
   if (!subject || !section) {
     return (
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center gap-4">
+      <div className="min-h-screen bg-chart-ground flex flex-col items-center justify-center gap-4">
         <div className="text-white text-xl font-bold">Section not found</div>
         <Link href={`/study/${subjectId}`} className="text-yellow-400 text-sm hover:underline">← Back to subject</Link>
       </div>
@@ -150,15 +151,15 @@ export default function SectionPage() {
   const nextSection = sectionIndex >= 0 && sectionIndex < subject.sections.length - 1 ? subject.sections[sectionIndex + 1] : null;
 
   const tabs: { id: Tab; label: string; icon: string }[] = [
-    { id: "learn",     label: "Learn",      icon: "📖" },
-    ...(sectionExamples.length > 0 ? [{ id: "examples" as Tab, label: "Examples", icon: "📐" }] : []),
-    ...(sectionFigures.length > 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "🖼️" }] : []),
-    { id: "quiz",      label: "Quiz",       icon: "📝" },
-    { id: "flashcards",label: "Flashcards", icon: "🃏" },
+    { id: "learn",     label: "Learn",      icon: "book" },
+    ...(sectionExamples.length > 0 ? [{ id: "examples" as Tab, label: "Examples", icon: "formula" }] : []),
+    ...(sectionFigures.length > 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "image" }] : []),
+    { id: "quiz",      label: "Quiz",       icon: "quiz" },
+    { id: "flashcards",label: "Flashcards", icon: "flashcards" },
   ];
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/study" userName={userName}>
         {/* Section topic list in sidebar */}
         <div className="border-t border-zinc-900 overflow-auto flex-shrink-0 max-h-64">
@@ -177,7 +178,7 @@ export default function SectionPage() {
         </div>
       </Sidebar>
 
-      <main className="flex-1 ml-64 overflow-auto flex flex-col">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto flex flex-col">
         {/* Breadcrumb + header */}
         <div className="px-10 pt-8 pb-4 border-b border-zinc-900">
           <div className="flex items-center justify-between mb-4">
@@ -205,7 +206,7 @@ export default function SectionPage() {
                 className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 text-sm rounded-xl transition-colors"
                 title="View the full syllabus for this subject"
               >
-                📋 Check Syllabus
+                Check syllabus
               </button>
             </div>
           </div>
@@ -216,9 +217,9 @@ export default function SectionPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-xl text-sm transition-colors ${activeTab === tab.id ? "bg-yellow-400/10 text-yellow-400 font-medium" : "text-zinc-600 hover:text-white"}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors ${activeTab === tab.id ? "bg-gold/10 text-gold font-medium" : "text-zinc-500 hover:text-white"}`}
               >
-                {tab.icon} {tab.label}
+                <Icon name={tab.icon} size={16} /> {tab.label}
               </button>
             ))}
           </div>
@@ -230,7 +231,7 @@ export default function SectionPage() {
             <div className="max-w-5xl">
               <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 mb-6">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl">📖</span>
+                  <span className="text-gold"><Icon name="book" size={22} /></span>
                   <h2 className="font-bold text-white text-lg">Study Notes</h2>
                   <span className="text-xs text-zinc-600 ml-auto">Exam-focused</span>
                 </div>
@@ -353,7 +354,7 @@ export default function SectionPage() {
                     </div>
                   ) : (
                     <div className="text-zinc-600 text-sm leading-relaxed border border-zinc-900 rounded-xl p-6 text-center">
-                      <div className="text-3xl mb-3">📚</div>
+                      <div className="mb-3 flex justify-center text-zinc-600"><Icon name="book" size={30} /></div>
                       <p className="text-zinc-500">Detailed study notes for this topic are being added.</p>
                     </div>
                   )}
@@ -395,7 +396,7 @@ export default function SectionPage() {
             <div className="max-w-3xl space-y-8">
               {sectionFigures.length === 0 ? (
                 <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 text-center">
-                  <div className="text-4xl mb-4">🖼️</div>
+                  <div className="mb-4 flex justify-center text-zinc-600"><Icon name="image" size={34} /></div>
                   <h3 className="text-white font-bold text-lg mb-2">Illustrations</h3>
                   <p className="text-zinc-500 text-sm">Diagrams for this topic are coming soon.</p>
                 </div>
@@ -419,7 +420,7 @@ export default function SectionPage() {
               {sectionExamples.map((ex, n) => (
                 <div key={ex.id} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-lg">📐</span>
+                    <span className="text-gold"><Icon name="formula" size={18} /></span>
                     <h3 className="text-white font-bold">{ex.title}</h3>
                     <span className="text-xs text-zinc-600 ml-auto">Example {n + 1}</span>
                   </div>
@@ -466,7 +467,7 @@ export default function SectionPage() {
               {sectionQuestions.length === 0 ? (
                 sectionPlotting.length === 0 && (
                   <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 text-center">
-                    <div className="text-4xl mb-4">📝</div>
+                    <div className="mb-4 flex justify-center text-zinc-600"><Icon name="quiz" size={34} /></div>
                     <h3 className="text-white font-bold text-lg mb-2">Practice Quiz</h3>
                     <p className="text-zinc-500 text-sm">A question bank for this subject is coming soon.</p>
                   </div>
@@ -668,7 +669,7 @@ export default function SectionPage() {
               ← <span className="truncate"><span className="text-zinc-500">Prev:</span> {prevSection.title}</span>
             </Link>
           ) : <div />}
-          <button onClick={() => setShowSyllabus(true)} className="hidden sm:block px-3 py-2 text-xs text-zinc-500 hover:text-yellow-400 transition-colors">📋 Syllabus</button>
+          <button onClick={() => setShowSyllabus(true)} className="hidden sm:block px-3 py-2 text-xs text-zinc-500 hover:text-yellow-400 transition-colors">Syllabus</button>
           {nextSection ? (
             <Link href={`/study/${subjectId}/${nextSection.id}`} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm transition-colors max-w-[45%]">
               <span className="truncate"><span className="opacity-70">Next:</span> {nextSection.title}</span> →

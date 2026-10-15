@@ -66,7 +66,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/dashboard" userName={userName} onSignOut={handleSignOut} />
 
-      <main className="flex-1 ml-64 relative overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 relative overflow-auto">
         {/* Faint chart grid + compass rose backdrop */}
         <div className="pointer-events-none absolute inset-0 chart-grid opacity-40" aria-hidden="true" />
         <CompassRose />

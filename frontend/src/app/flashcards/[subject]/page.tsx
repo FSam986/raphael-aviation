@@ -33,15 +33,15 @@ export default function SubjectFlashcards() {
 
   useEffect(() => { scroller.current?.scrollTo({ top: 0 }); setActive(0); }, [sectionFilter]);
 
-  if (loading) return <div className="min-h-screen bg-black flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
 
   const pct = deck.length ? Math.round(((active + 1) / deck.length) * 100) : 0;
   function onScroll() { const el = scroller.current; if (el) setActive(Math.round(el.scrollTop / el.clientHeight)); }
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/flashcards" userName={userName} />
-      <main className="flex-1 ml-64 h-screen relative overflow-hidden">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 h-screen relative overflow-hidden">
         {/* header overlay: title, progress, section filter */}
         <div className="absolute top-0 inset-x-0 z-30 px-6 pt-4 pb-3 bg-gradient-to-b from-black via-black/80 to-transparent">
           <div className="flex items-center gap-3">

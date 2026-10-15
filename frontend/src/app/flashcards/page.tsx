@@ -5,6 +5,7 @@ import { useCourse } from "@/app/hooks/useCourse";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
+import { Icon, SUBJECT_ICON } from "@/app/components/Icon";
 
 export default function Flashcards() {
   const { userName, loading } = useAuthGuard();
@@ -19,16 +20,16 @@ export default function Flashcards() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
         <div className="text-zinc-600 text-sm">Loading...</div>
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/flashcards" userName={userName} />
 
-      <main className="flex-1 ml-64 overflow-auto">
+      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
           <h1 className="text-3xl font-black text-white">Flashcards</h1>
           <p className="text-zinc-500 text-sm mt-1">Rapid recall practice, mapped to the SACAA syllabus.</p>
@@ -44,7 +45,7 @@ export default function Flashcards() {
                 href={`/flashcards/${subject.id}`}
                 className="bg-zinc-950 border border-zinc-900 hover:border-yellow-400/40 rounded-2xl p-5 flex items-center gap-5 transition-all group"
               >
-                <span className="text-2xl">☁️</span>
+                <span className="text-gold"><Icon name={SUBJECT_ICON[subject.id] ?? "book"} size={22} /></span>
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
                     <h3 className="font-bold text-white">{subject.title}</h3>
