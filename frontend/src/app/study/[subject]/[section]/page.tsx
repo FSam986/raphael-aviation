@@ -207,9 +207,6 @@ export default function SectionPage() {
               >
                 📋 Check Syllabus
               </button>
-              <button className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors">
-                Mark Mastered ✓
-              </button>
             </div>
           </div>
 

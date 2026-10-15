@@ -166,7 +166,6 @@ export default function Settings() {
 
           <Card title="About">
             <Row label="App"><span className="text-sm text-zinc-500">Raphael Aviation · v1.0</span></Row>
-            <Row label="Legal"><div className="flex gap-3 text-xs"><Link href="#" className="text-zinc-400 hover:text-white">Terms</Link><Link href="#" className="text-zinc-400 hover:text-white">Privacy</Link></div></Row>
           </Card>
         </div>
       </main>
