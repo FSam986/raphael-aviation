@@ -64,7 +64,9 @@
       "Bash(\"/Users/fathimasamreen/.claude/plugins/cache/impeccable/impeccable/4.5.2/skills/impeccable/scripts/impeccable\" detect *)",
       "Bash(git commit -q -m 'Redesign: Aeronautical Chart world — foundation + dashboard + nav *)",
       "Bash(python3 -I -)",
-      "Bash(git commit -q -m 'Redesign rollout: chart world across all pages, drawn icons, mobile nav *)"
+      "Bash(git commit -q -m 'Redesign rollout: chart world across all pages, drawn icons, mobile nav *)",
+      "Bash(cp \"/Users/fathimasamreen/.claude/projects/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/tool-results/mcp-Claude_Browser-blob-1792061793795-yp808n.jpg\" .impeccable/review/desktop.png && echo \"saved desktop\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(len\\(d\\),'findings'\\); [print\\('-',x['name'],x['severity'],x['file'].split\\('/'\\)[-1]\\) for x in d]\")"
     ]
   }
 }

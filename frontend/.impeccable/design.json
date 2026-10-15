@@ -1,0 +1,40 @@
+{
+  "name": "Raphael Aviation",
+  "description": "SACAA pilot-exam study app rendered as an aeronautical navigation chart — dark chart ground, metallic gold, wayfinding type.",
+  "world": "aeronautical-chart",
+  "mode": "operate",
+  "colors": {
+    "chart-ground": "#10171b",
+    "chart-ground-2": "#141e23",
+    "chart-line": "#243640",
+    "chart-line-2": "#2f4651",
+    "chart-ink": "#dfeef2",
+    "chart-ink-dim": "#9fc0cb",
+    "chart-ink-faint": "#6f909b",
+    "gold": "#e8c877",
+    "gold-deep": "#c8a44d",
+    "gold-ink": "#3a2e12",
+    "danger": "#e8775a",
+    "success": "#7fd6a2"
+  },
+  "typography": {
+    "display": { "fontFamily": "Spectral, ui-serif, Georgia, serif", "fontWeight": 500, "lineHeight": 1.1 },
+    "body": { "fontFamily": "Overpass, ui-sans-serif, system-ui, sans-serif", "fontWeight": 400, "lineHeight": 1.5 },
+    "mono": { "fontFamily": "Overpass Mono, ui-monospace, monospace", "fontWeight": 500, "letterSpacing": "0.16em" }
+  },
+  "rounded": { "sm": "8px", "md": "12px", "lg": "16px", "pill": "9999px" },
+  "spacing": { "xs": "8px", "sm": "12px", "md": "20px", "lg": "40px" },
+  "components": {
+    "button-primary": { "backgroundColor": "{colors.gold}", "textColor": "{colors.gold-ink}", "rounded": "{rounded.sm}", "padding": "12px 20px" },
+    "button-secondary": { "backgroundColor": "{colors.chart-ground-2}", "textColor": "{colors.chart-ink}", "rounded": "{rounded.sm}", "padding": "8px 12px" },
+    "panel": { "backgroundColor": "{colors.chart-ground-2}", "textColor": "{colors.chart-ink}", "rounded": "{rounded.lg}", "padding": "20px" }
+  },
+  "principles": [
+    "One gold accent doing real jobs (brand, active route, cleared state, primary action).",
+    "Icons are drawn line glyphs (Icon.tsx), never emoji.",
+    "Coded/measured data in Overpass Mono, uppercase, wide-tracked.",
+    "Flat: no gradients, glass, or glow. Depth from ground→panel step + hairlines.",
+    "Status colours (danger/success) carry meaning only, never decoration.",
+    "Chart graticule stays behind solid panels for legibility."
+  ]
+}
