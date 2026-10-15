@@ -9,18 +9,12 @@ import { Sidebar } from "@/app/components/Sidebar";
 import { getProgress, getResume, type ProgressSummary } from "@/app/lib/progress";
 import { findSubject } from "@/app/lib/course";
 
-const SUBJECT_META: Record<string, { icon: string; color: string; border: string }> = {
-  "aircraft-technical":   { icon: "⚙️",  color: "from-orange-600/20 to-orange-900/10", border: "border-orange-500/20 hover:border-orange-400/50" },
-  "air-law":              { icon: "⚖️",  color: "from-purple-600/20 to-purple-900/10", border: "border-purple-500/20 hover:border-purple-400/50" },
-  "flight-planning":      { icon: "📋",  color: "from-cyan-600/20 to-cyan-900/10",     border: "border-cyan-500/20 hover:border-cyan-400/50" },
-  "human-performance":    { icon: "🧠",  color: "from-pink-600/20 to-pink-900/10",     border: "border-pink-500/20 hover:border-pink-400/50" },
-  "flight-instruments":   { icon: "🎛️", color: "from-slate-600/20 to-slate-900/10",   border: "border-slate-500/20 hover:border-slate-400/50" },
-  "meteorology":          { icon: "☁️",  color: "from-blue-600/20 to-blue-900/10",     border: "border-blue-500/20 hover:border-blue-400/50" },
-  "navigation":           { icon: "🧭",  color: "from-green-600/20 to-green-900/10",   border: "border-green-500/20 hover:border-green-400/50" },
-  "radio-navigation":     { icon: "📡",  color: "from-indigo-600/20 to-indigo-900/10", border: "border-indigo-500/20 hover:border-indigo-400/50" },
-  "mass-and-balance":     { icon: "⚖️",  color: "from-teal-600/20 to-teal-900/10",    border: "border-teal-500/20 hover:border-teal-400/50" },
-  "principles-of-flight": { icon: "✈️",  color: "from-yellow-600/20 to-yellow-900/10", border: "border-yellow-500/20 hover:border-yellow-400/50" },
-};
+// Each subject becomes a waypoint on the route. Status is read from study
+// coverage: no sections opened = planned, all opened = cleared, else en route.
+function legStatus(studied: number, total: number): { label: string; pct: number; done: boolean } {
+  const pct = total ? Math.round((studied / total) * 100) : 0;
+  return { label: pct === 0 ? "Planned" : pct >= 100 ? "Cleared" : "En route", pct, done: pct >= 100 };
+}
 
 export default function Dashboard() {
   const router = useRouter();
@@ -46,8 +40,6 @@ export default function Dashboard() {
     return () => window.removeEventListener("progress-change", read);
   }, []);
 
-  const subjectsStarted = prog ? new Set(Object.keys(prog.bySubject)).size : 0;
-
   async function handleSignOut() {
     await supabase.auth.signOut();
     router.push("/login");
@@ -55,109 +47,155 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-zinc-600 text-sm">Loading...</div>
+      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
+        <div className="text-chart-ink-faint text-sm mono tracking-widest">PLOTTING ROUTE…</div>
       </div>
     );
   }
 
+  // Route-wide readiness = mean of per-subject study coverage.
+  const legs = syllabus.map((subject) => {
+    const total = subject.sections.length || 1;
+    const studied = prog?.bySubject[subject.id]?.topics ?? 0;
+    return { subject, ...legStatus(Math.min(studied, total), total) };
+  });
+  const overall = legs.length ? Math.round(legs.reduce((n, l) => n + l.pct, 0) / legs.length) : 0;
+  const underway = legs.filter((l) => l.pct > 0).length;
+
   return (
-    <div className="min-h-screen bg-black flex">
+    <div className="min-h-screen bg-chart-ground flex">
       <Sidebar active="/dashboard" userName={userName} onSignOut={handleSignOut} />
 
-      {/* Main */}
-      <main className="flex-1 ml-64 overflow-auto">
-        <div className="px-10 pt-10 pb-6 border-b border-zinc-900">
-          <p className="text-zinc-500 text-sm mb-1">Good morning,</p>
-          <h1 className="text-3xl font-black text-white">Welcome back, {userName} ✈️</h1>
-        </div>
+      <main className="flex-1 ml-64 relative overflow-auto">
+        {/* Faint chart grid + compass rose backdrop */}
+        <div className="pointer-events-none absolute inset-0 chart-grid opacity-40" aria-hidden="true" />
+        <CompassRose />
 
-        {/* Resume where you left off */}
-        {resume && (() => {
-          const sub = findSubject(resume.subjectId);
-          const sec = sub?.sections.find((s) => s.id === resume.sectionId);
-          return (
-            <div className="px-10 pt-6">
-              <Link href={resume.href} className="flex items-center gap-4 bg-yellow-400/10 border border-yellow-400/30 rounded-2xl p-4 hover:bg-yellow-400/15 transition-colors group">
-                <span className="text-2xl">↩️</span>
-                <div className="flex-1 min-w-0">
-                  <div className="text-yellow-400 text-xs font-bold uppercase tracking-wider">Resume where you left off</div>
-                  <div className="text-white font-semibold truncate">{sub?.title ?? resume.subjectId}{sec ? ` — ${sec.title}` : ""}</div>
-                </div>
-                <span className="text-yellow-400 group-hover:translate-x-1 transition-transform">Continue →</span>
-              </Link>
-            </div>
-          );
-        })()}
+        <div className="relative px-10 pt-10 pb-20 max-w-4xl">
+          {/* Leg label + greeting */}
+          <div className="mono text-[11px] tracking-[0.2em] text-chart-ink-faint mb-2 uppercase">
+            {course.toUpperCase()} route · {underway} of {legs.length} legs underway · est. readiness {overall}%
+          </div>
+          <h1 className="font-display text-4xl text-chart-ink leading-tight">Good morning, {userName}</h1>
 
-        {/* Stats */}
-        <div className="px-10 py-8 grid grid-cols-4 gap-4">
-          {[
-            { label: "Questions Worked", value: prog ? prog.attempted.toLocaleString() : "0", sub: prog && prog.attempted ? `${prog.accuracy}% correct` : "Answer quizzes to begin" },
-            { label: "Topics Studied", value: prog ? String(prog.topicsStudied) : "0", sub: "Study topics opened" },
-            { label: "Subjects Started", value: `${subjectsStarted} / ${syllabus.length}`, sub: subjectsStarted ? "Keep going" : "Choose a subject below" },
-            { label: "Study Streak", value: `${prog?.streak ?? 0} day${(prog?.streak ?? 0) === 1 ? "" : "s"}`, sub: prog && prog.activeDays ? `${prog.activeDays} active day${prog.activeDays === 1 ? "" : "s"} total` : "Study daily to build a streak" },
-          ].map((card) => (
-            <div key={card.label} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-5">
-              <div className="text-zinc-500 text-xs uppercase tracking-wider mb-2">{card.label}</div>
-              <div className="text-2xl font-black text-yellow-400">{card.value}</div>
-              <div className="text-zinc-600 text-xs mt-1">{card.sub}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Subject grid */}
-        <div className="px-10 pb-16">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-xl font-bold text-white">SACAA {course.toUpperCase()} Subjects</h2>
-              <p className="text-zinc-600 text-xs mt-1">Official syllabus</p>
-            </div>
-            <span className="text-zinc-600 text-sm">{syllabus.length} subjects</span>
+          {/* Instrument readout strip */}
+          <div className="mt-6 flex flex-wrap gap-x-10 gap-y-3 border-y border-chart-line py-4">
+            <Readout label="Questions worked" value={prog ? prog.attempted.toLocaleString() : "0"} note={prog && prog.attempted ? `${prog.accuracy}% correct` : "—"} />
+            <Readout label="Topics studied" value={prog ? String(prog.topicsStudied) : "0"} note="opened" />
+            <Readout label="Subjects underway" value={`${underway}/${legs.length}`} note="on route" />
+            <Readout label="Streak" value={`${prog?.streak ?? 0}`} note={`day${(prog?.streak ?? 0) === 1 ? "" : "s"}`} />
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            {syllabus.map((subject) => {
-              const meta = SUBJECT_META[subject.id] ?? {
-                icon: "📚",
-                color: "from-zinc-600/20 to-zinc-900/10",
-                border: "border-zinc-500/20 hover:border-zinc-400/50",
-              };
-              const totalItems = subject.sections.reduce((n, s) => n + s.items.length, 0);
+          {/* Resume — the next leg */}
+          {resume && (() => {
+            const sub = findSubject(resume.subjectId);
+            const sec = sub?.sections.find((s) => s.id === resume.sectionId);
+            return (
+              <Link href={resume.href} className="mt-6 group flex items-center gap-4 rounded-xl border border-gold/35 bg-gold/[0.07] px-5 py-4 hover:bg-gold/[0.12] transition-colors">
+                <ResumeGlyph />
+                <div className="flex-1 min-w-0">
+                  <div className="mono text-[10px] uppercase tracking-[0.18em] text-gold-deep">Resume the next leg</div>
+                  <div className="text-chart-ink font-semibold truncate">{sub?.title ?? resume.subjectId}{sec ? ` — ${sec.title}` : ""}</div>
+                </div>
+                <span className="text-gold text-sm whitespace-nowrap group-hover:translate-x-1 transition-transform">Continue →</span>
+              </Link>
+            );
+          })()}
+
+          {/* The route */}
+          <div className="mt-12 flex items-baseline justify-between">
+            <h2 className="font-display text-xl text-chart-ink">Flight plan — SACAA {course.toUpperCase()}</h2>
+            <span className="mono text-[11px] text-chart-ink-faint tracking-wider">{legs.length} WAYPOINTS</span>
+          </div>
+
+          <ol className="relative mt-6 ml-[7px] border-l border-dashed border-chart-line-2">
+            {legs.map((leg, i) => {
+              const totalItems = leg.subject.sections.reduce((n, s) => n + s.items.length, 0);
               return (
-                <Link
-                  key={subject.id}
-                  href={`/study/${subject.id}`}
-                  className={`bg-gradient-to-br ${meta.color} border ${meta.border} rounded-2xl p-6 transition-all duration-200 hover:scale-[1.02] group`}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="text-3xl">{meta.icon}</span>
-                    <div className="text-right">
-                      <span className="text-xs text-zinc-500 bg-zinc-900/60 px-2 py-1 rounded-lg block">
-                        {subject.sections.length} sections
+                <li key={leg.subject.id} className="relative pl-8 pb-3">
+                  {/* Waypoint dot */}
+                  <span
+                    className={`absolute -left-[7px] top-4 h-3.5 w-3.5 rounded-full border-2 ${leg.done ? "bg-gold border-gold" : leg.pct > 0 ? "bg-chart-ground border-gold" : "bg-chart-ground border-chart-line-2"}`}
+                    aria-hidden="true"
+                  />
+                  <Link
+                    href={`/study/${leg.subject.id}`}
+                    className="group block rounded-xl border border-chart-line bg-chart-ground-2/60 px-5 py-4 transition-colors hover:border-gold/40 hover:bg-chart-ground-2"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="mono text-[11px] text-chart-ink-faint tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                      <h3 className="text-chart-ink font-semibold text-[15px] flex-1 leading-tight">{leg.subject.title}</h3>
+                      <span className={`mono text-[10px] uppercase tracking-[0.14em] ${leg.done ? "text-gold" : leg.pct > 0 ? "text-chart-ink-dim" : "text-chart-ink-faint"}`}>
+                        {leg.label}
                       </span>
-                      <span className="text-xs text-zinc-600 mt-1 block">{totalItems} exam topics</span>
                     </div>
-                  </div>
-
-                  <h3 className="font-bold text-white text-base mb-1 leading-tight">{subject.title}</h3>
-                  <div className="text-yellow-400/60 text-xs font-mono mb-2">{subject.code} · {subject.examQuestions}Q · {subject.passPercent}% pass</div>
-
-                  <div className="mt-4 pt-4 border-t border-zinc-800/50">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-zinc-600">Not started</span>
-                      <span className="text-zinc-700 group-hover:text-yellow-400 transition-colors">Begin →</span>
+                    <div className="mt-2 flex items-center gap-4 pl-[34px]">
+                      <span className="mono text-[11px] text-gold-deep tracking-wider">{leg.subject.code}</span>
+                      <span className="mono text-[11px] text-chart-ink-faint">{leg.subject.sections.length} sec · {totalItems} topics</span>
+                      <div className="flex-1 h-[3px] rounded-full bg-chart-line overflow-hidden">
+                        <div className="h-full rounded-full bg-gold transition-all" style={{ width: `${leg.pct}%` }} />
+                      </div>
+                      <span className="mono text-[11px] text-chart-ink-dim tabular-nums w-9 text-right">{leg.pct}%</span>
                     </div>
-                    <div className="mt-2 h-1 bg-zinc-900 rounded-full overflow-hidden">
-                      <div className="h-full w-0 bg-yellow-400 rounded-full" />
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
+                </li>
               );
             })}
-          </div>
+            {/* Destination */}
+            <li className="relative pl-8 pt-1">
+              <DestGlyph />
+              <div className="text-chart-ink-faint mono text-[11px] uppercase tracking-[0.18em] py-2">Destination · SACAA exam</div>
+            </li>
+          </ol>
         </div>
       </main>
     </div>
+  );
+}
+
+function Readout({ label, value, note }: { label: string; value: string; note: string }) {
+  return (
+    <div>
+      <div className="mono text-[10px] uppercase tracking-[0.16em] text-chart-ink-faint">{label}</div>
+      <div className="mt-1 flex items-baseline gap-1.5">
+        <span className="font-display text-2xl text-gold tabular-nums leading-none">{value}</span>
+        <span className="mono text-[11px] text-chart-ink-faint">{note}</span>
+      </div>
+    </div>
+  );
+}
+
+function CompassRose() {
+  return (
+    <svg className="pointer-events-none absolute right-8 top-6 h-56 w-56 opacity-[0.13]" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+      <circle cx="100" cy="100" r="92" stroke="var(--chart-line-2)" />
+      <circle cx="100" cy="100" r="62" stroke="var(--chart-line-2)" />
+      {Array.from({ length: 24 }).map((_, i) => {
+        const a = (i * 15 * Math.PI) / 180;
+        const r1 = i % 2 === 0 ? 78 : 86;
+        return <line key={i} x1={100 + 78 * Math.sin(a)} y1={100 - 78 * Math.cos(a)} x2={100 + r1 * Math.sin(a)} y2={100 - r1 * Math.cos(a)} stroke="var(--chart-line-2)" />;
+      })}
+      <path d="M100 18 L112 100 L100 128 L88 100 Z" fill="var(--gold)" opacity="0.5" />
+      <path d="M100 182 L112 100 L100 72 L88 100 Z" fill="var(--chart-line-2)" />
+      <text x="100" y="12" fill="var(--gold-deep)" fontSize="11" textAnchor="middle" fontFamily="var(--font-overpass-mono)">N</text>
+    </svg>
+  );
+}
+
+function ResumeGlyph() {
+  return (
+    <svg className="h-6 w-6 flex-shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <path d="M3 12a9 9 0 1 0 2.6-6.3" /><path d="M3 4v4h4" />
+    </svg>
+  );
+}
+
+function DestGlyph() {
+  return (
+    <span className="absolute -left-[11px] top-1 flex h-5 w-5 items-center justify-center" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-gold" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path d="M5 21V4l13 4.5L5 13" /><path d="M5 21h5" />
+      </svg>
+    </span>
   );
 }

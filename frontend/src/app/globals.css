@@ -1,28 +1,76 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Raphael Aviation — Aeronautical Chart world
+   Dark chart ground, metallic gold accent, wayfinding type.
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --chart-ground: #10171b;   /* deep ink-teal chart paper */
+  --chart-ground-2: #141e23; /* raised panels / rows */
+  --chart-line: #243640;     /* cartographic grid + hairlines */
+  --chart-line-2: #2f4651;   /* stronger rule */
+  --chart-ink: #dfeef2;      /* primary text */
+  --chart-ink-dim: #9fc0cb;  /* secondary text (tinted from ground) */
+  --chart-ink-faint: #6f909b;/* captions / chart labels */
+  --gold: #e8c877;           /* brand + active route + cleared */
+  --gold-deep: #c8a44d;      /* codes, quieter gold */
+  --gold-ink: #3a2e12;       /* text on gold fills */
+  --danger: #e8775a;
+  --danger-dim: #b05640;
+  --success: #7fd6a2;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-chart-ground: var(--chart-ground);
+  --color-chart-ground-2: var(--chart-ground-2);
+  --color-chart-line: var(--chart-line);
+  --color-chart-line-2: var(--chart-line-2);
+  --color-chart-ink: var(--chart-ink);
+  --color-chart-ink-dim: var(--chart-ink-dim);
+  --color-chart-ink-faint: var(--chart-ink-faint);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-ink: var(--gold-ink);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+
+  --font-sans: var(--font-overpass), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-overpass-mono), ui-monospace, monospace;
+  --font-display: var(--font-spectral), ui-serif, Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { color-scheme: dark; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--chart-ground);
+  color: var(--chart-ink);
+  font-family: var(--font-overpass), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display headings in the Spectral serif, echoing the wordmark. */
+.font-display { font-family: var(--font-spectral), ui-serif, Georgia, serif; }
+.font-mono, .mono { font-family: var(--font-overpass-mono), ui-monospace, monospace; }
+
+/* Browser surfaces themed from the palette (craft floor). */
+::selection { background: color-mix(in srgb, var(--gold) 32%, transparent); color: #fff; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--chart-ground); }
+::-webkit-scrollbar-thumb { background: var(--chart-line); border-radius: 6px; border: 2px solid var(--chart-ground); }
+::-webkit-scrollbar-thumb:hover { background: var(--chart-line-2); }
+* { scrollbar-color: var(--chart-line) var(--chart-ground); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+a { color: inherit; }
+
+/* Faint chart-grid backdrop, reusable. */
+.chart-grid {
+  background-image:
+    linear-gradient(var(--chart-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--chart-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: -1px -1px;
+  opacity: 1;
 }
 
 /* Anti-piracy: blank all printed / PDF output so cram sheets can't be exported. */

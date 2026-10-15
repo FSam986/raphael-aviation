@@ -55,7 +55,14 @@
       "Read(//private/tmp/**)",
       "Bash(pdftoppm -png -f 1 -l 1 -r 60 \"Page 16-13.pdf\" /tmp/p1613)",
       "Bash(awk 'NR>=1')",
-      "Bash(sort -k3 -t'.' -n)"
+      "Bash(sort -k3 -t'.' -n)",
+      "mcp__visualize__read_me",
+      "Bash(\"/Users/fathimasamreen/.claude/plugins/cache/impeccable/impeccable/4.5.2/skills/impeccable/scripts/impeccable\" context *)",
+      "Bash(\"/Users/fathimasamreen/.claude/plugins/cache/impeccable/impeccable/4.5.2/skills/impeccable/scripts/impeccable\" concept-seed *)",
+      "Bash(grep -iE \"logo|brand|icon|raphael|mark|\\\\.svg$\")",
+      "Bash(\"/Users/fathimasamreen/.claude/plugins/cache/impeccable/impeccable/4.5.2/skills/impeccable/scripts/impeccable\" surface-brief *)",
+      "Bash(\"/Users/fathimasamreen/.claude/plugins/cache/impeccable/impeccable/4.5.2/skills/impeccable/scripts/impeccable\" detect *)",
+      "Bash(git commit -q -m 'Redesign: Aeronautical Chart world — foundation + dashboard + nav *)"
     ]
   }
 }
