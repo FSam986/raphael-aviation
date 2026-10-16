@@ -25,9 +25,9 @@ export default function Dashboard() {
   const [resume, setResume] = useState<ReturnType<typeof getResume>>(null);
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      if (!data.user) { router.push("/login"); return; }
-      const name = data.user.user_metadata?.full_name?.split(" ")[0] || "Student";
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) { router.push("/login"); return; }
+      const name = session.user.user_metadata?.full_name?.split(" ")[0] || "Student";
       setUserName(name);
       setLoading(false);
     });

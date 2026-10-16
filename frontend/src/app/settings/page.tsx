@@ -50,9 +50,9 @@ export default function Settings() {
   const [remindExam, setRemindExam] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      setEmail(data.user?.email ?? "");
-      setFullName((data.user?.user_metadata?.full_name as string) ?? "");
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setEmail(session?.user?.email ?? "");
+      setFullName((session?.user?.user_metadata?.full_name as string) ?? "");
     });
     setPlan(loadPlan()); setPremium(isPremium());
     setDailyGoal(pref.get("dailyGoal", "20"));
