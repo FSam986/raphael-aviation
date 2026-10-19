@@ -5,6 +5,58 @@
 // Each string in the array is one paragraph.
 
 export const FIGURE_NOTES: Record<string, string[]> = {
+  // ═══ Air Law (A.3) ═══
+  "alfig-126_01": [
+    "This is the semi-circular (cruising-levels) rule for levels up to FL290. You pick your cruising level from your MAGNETIC track: tracks of 000°–179° take one set of levels, tracks of 180°–359° take the other.",
+    "IFR and VFR use different level sets so the two are kept apart: IFR flights take the 'base' levels, VFR flights sit 500 ft above them. The split by track direction keeps opposite-direction traffic naturally separated by height.",
+    "Reading it off the diagram beats memorising numbers — find your track half, pick IFR or VFR, and the available levels fall out.",
+  ],
+  "alfig-126_02": [
+    "Above FL290 the levels are spaced differently. In RVSM airspace (roughly FL290–FL410) the vertical spacing stays 1000 ft; outside RVSM it opens to 2000 ft because older altimetry is less precise that high.",
+    "The same track rule applies: 000°–179° takes one set of flight levels, 180°–359° the other, so opposite-direction aircraft are always at different levels.",
+    "This is why an aircraft climbing through the high levels steps in set increments rather than any round number.",
+  ],
+  "alfig-229_01": [
+    "The transition altitude is the altitude at or below which height is referenced to QNH (so the altimeter reads height above sea level). It is set by the State, published in the AIP, and shown on approach plates.",
+    "Climbing through the transition altitude, the pilot changes the altimeter setting from QNH to the standard pressure setting (1013.25 hPa). Above it, vertical position is a FLIGHT LEVEL, not an altitude.",
+    "Keeping everyone on the same standard setting up high means all high-level traffic shares one pressure datum, so their levels are directly comparable.",
+  ],
+  "alfig-230_01": [
+    "The transition level is the lowest flight level available for use above the transition altitude. Descending through it, the pilot changes the altimeter back from the standard setting to QNH.",
+    "The transition level isn't fixed — it moves with the pressure of the day, because it must always sit just above the transition altitude once the standard datum is applied. ATC passes it on descent.",
+    "So on the way up you change at a fixed altitude (transition altitude); on the way down you change at a level that varies (transition level).",
+  ],
+  "alfig-231_01": [
+    "The transition layer is the airspace sandwiched between the transition altitude (below) and the transition level (above). Aircraft don't normally cruise in it.",
+    "Its thickness varies with the day's pressure, since the transition altitude is fixed but the transition level floats above it. It simply absorbs the gap created by switching pressure datums.",
+    "Climbing you pass up through it changing QNH→standard at the bottom; descending you pass down through it changing standard→QNH at the top.",
+  ],
+  "alfig-381_01": [
+    "These are the declared distances published for a runway. TORA (take-off run available) is the runway length usable for the take-off run.",
+    "TODA (take-off distance available) is TORA plus any clearway — an obstacle-free area beyond the runway over which the aircraft can make its initial climb. ASDA (accelerate-stop distance available) is TORA plus any stopway — paved area able to take an aborted take-off.",
+    "LDA (landing distance available) is the length usable for the landing run. Because clearway and stopway differ at each runway end, the four distances are rarely equal, and performance calculations use the right one for the task.",
+  ],
+  "alfig-407_01": [
+    "This shows a runway-holding position and its 'pattern A' holding-point marking across the taxiway — the point you must not cross towards the runway without a clearance.",
+    "The marking (and the red-and-white holding-position sign) protects the runway strip: an aircraft held here is clear of the runway and of the protected area around it. The pattern-A marking is the one closest to the runway.",
+    "Reading the taxiway's markings and signs lets the pilot stop at exactly the right place and know which runway the holding point protects.",
+  ],
+  "alfig-411_01": [
+    "These are aerodrome signs. Red signs with white inscriptions are MANDATORY instruction signs — most importantly runway-holding-position signs (e.g. '27', '09-27', or a CAT I/II/III sign), telling you not to proceed without clearance.",
+    "A 'No Entry' sign (white bar on red) marks an area you must not enter. Other signs locate holding points for specific approaches (e.g. 15-APCH) or intermediate holding positions.",
+    "Knowing the colour convention — red = mandatory/instruction — lets a pilot react correctly even before reading the legend.",
+  ],
+  "alfig-433_01": [
+    "PAPI (Precision Approach Path Indicator) gives a visual glide-slope. A row of light units beside the runway shows each one as white or red depending on your angle of approach.",
+    "On the correct slope you see two white and two red. Too high shows more white (up to all white); too low shows more red (down to all red) — an easy memory is 'red over white, you're alright; all red, you're dead'.",
+    "It lets a pilot fly an accurate approach angle to the touchdown zone without any instrument guidance.",
+  ],
+  "alfig-434_01": [
+    "VASI (Visual Approach Slope Indicator) is the older two-bar system of a near and a far set of lights. Their colours together tell you if you are on, above or below the slope.",
+    "On the glidepath you see the near bar white and the far bar red. Too high shows both bars white; too low shows both bars red. The two bars working together make the slope unambiguous.",
+    "Like PAPI it gives a purely visual glidepath to the runway; PAPI has since largely replaced it.",
+  ],
+
   // ═══ Radio Navigation (A.10) ═══
   "rnfig-1964": [
     "This shows one cycle of a radio wave. The PERIOD (τ) is the time for one complete cycle; the number of cycles per second is the FREQUENCY (in hertz).",

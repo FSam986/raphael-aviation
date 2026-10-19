@@ -230,6 +230,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Minimum heights & cruising levels",
+        figureTopics: ["Cruising levels"],
         points: [
           "Except for take-off/landing, do not fly below 500 ft above the ground or water, or closer than 500 ft to any person, vessel, vehicle or structure.",
           "Over a congested area (city/town/settlement) or an open-air assembly of people, do not fly below 1000 ft above the highest obstacle within a specified radius, and always high enough to glide clear in the event of engine failure.",
@@ -310,6 +311,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Procedures & aerodrome data",
+        figureTopics: ["Altimetry & transition"],
         points: [
           "Altimeter-setting procedures: use QNH below the transition altitude, and the standard setting (1013.25 hPa / flight levels) above the transition level, per the AIP.",
           "The AIP AD/aerodrome sections give runway details, lighting, frequencies, procedures and the plates you interpret before flying to a field.",
@@ -336,6 +338,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Runway elements & declared distances",
+        figureTopics: ["Declared distances"],
         points: [
           "Threshold: the beginning of the runway usable for landing. Clearway: a defined area beyond the runway, clear of obstacles, over which an aeroplane may make its initial climb. Stopway: a defined area beyond the runway able to support an aeroplane during an aborted take-off.",
           "TORA (Take-Off Run Available): the runway length available for the take-off run.",
@@ -346,6 +349,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Visual aids — markings, lights, signs",
+        figureTopics: ["Visual aids"],
         points: [
           "Runway markings are WHITE (designation numbers, centreline, threshold 'piano keys', aiming point, touchdown zone); taxiway markings are YELLOW.",
           "Runway lighting: threshold lights GREEN, runway edge lights WHITE, runway end lights RED; taxiway edge lights BLUE, centreline GREEN.",
