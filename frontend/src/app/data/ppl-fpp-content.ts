@@ -16,7 +16,9 @@ const MAP: Record<string, string[]> = {
   "7.6": ["A.4.11", "A.4.13"],             // Fuel Weight & Performance
   "7.7": ["A.4.1", "A.4.7", "A.4.8", "A.4.10"], // Aircraft Performance
 };
-export function getPPLFppQuestionsBySection(s: string): AirLawQuestion[] { return (MAP[s] ?? []).flatMap(getFPPQuestionsBySection); }
+// PPL depth filter: exclude the hardest CPL questions (e.g. CAP-graph/performance
+// calculations beyond the PPL syllabus).
+export function getPPLFppQuestionsBySection(s: string): AirLawQuestion[] { return (MAP[s] ?? []).flatMap(getFPPQuestionsBySection).filter((q) => q.difficulty !== "hard"); }
 export function getPPLFppFlashcardsBySection(s: string): AirLawFlashcard[] { return (MAP[s] ?? []).flatMap(getFPPFlashcardsBySection); }
 export function getPPLFppNoteBySection(s: string): AirLawSectionNote | undefined {
   const notes = (MAP[s] ?? []).map(getFPPNoteBySection).filter((n): n is AirLawSectionNote => !!n);
@@ -25,7 +27,7 @@ export function getPPLFppNoteBySection(s: string): AirLawSectionNote | undefined
   return { sectionId: s, title: notes[0].title, intro: notes[0].intro, blocks: notes.flatMap((n) => n.blocks), mustKnow: notes.flatMap((n) => n.mustKnow), traps: notes.flatMap((n) => n.traps) };
 }
 const SECS = [...new Set(Object.values(MAP).flat())];
-export const PPL_FPP_QUESTIONS: AirLawQuestion[] = FPP_ALL_QUESTIONS.filter((x) => SECS.includes(x.sectionId));
+export const PPL_FPP_QUESTIONS: AirLawQuestion[] = FPP_ALL_QUESTIONS.filter((x) => SECS.includes(x.sectionId) && x.difficulty !== "hard");
 export const PPL_FPP_FIGURE_KEY: Record<string, string> = {
   "7.1": "A.4.2", "7.3": "A.4.5", "7.4": "A.4.7", "7.7": "A.4.7",
 };

@@ -34,7 +34,8 @@ const cplQuestions = (id: string): AirLawQuestion[] =>
 const cplFlashcards = (id: string): AirLawFlashcard[] =>
   (isATG(id) ? getAircraftTechnicalFlashcardsBySection(id) : getInstrumentsFlashcardsBySection(id)) as AirLawFlashcard[];
 
-export function getPPLAgkQuestionsBySection(s: string): AirLawQuestion[] { return (MAP[s] ?? []).flatMap(cplQuestions); }
+// PPL depth filter: exclude the hardest CPL questions (beyond PPL syllabus depth).
+export function getPPLAgkQuestionsBySection(s: string): AirLawQuestion[] { return (MAP[s] ?? []).flatMap(cplQuestions).filter((q) => q.difficulty !== "hard"); }
 export function getPPLAgkFlashcardsBySection(s: string): AirLawFlashcard[] { return (MAP[s] ?? []).flatMap(cplFlashcards); }
 export function getPPLAgkNoteBySection(s: string): AirLawSectionNote | undefined {
   const notes = (MAP[s] ?? []).map(cplNote).filter((n): n is AirLawSectionNote => !!n);
@@ -43,5 +44,5 @@ export function getPPLAgkNoteBySection(s: string): AirLawSectionNote | undefined
   return { sectionId: s, title: notes[0].title, intro: notes[0].intro, blocks: notes.flatMap((n) => n.blocks), mustKnow: notes.flatMap((n) => n.mustKnow), traps: notes.flatMap((n) => n.traps) };
 }
 const SECS = [...new Set(Object.values(MAP).flat())];
-export const PPL_AGK_QUESTIONS: AirLawQuestion[] = ALL_INSTRUMENTS_QUESTIONS.filter((x) => SECS.includes(x.sectionId));
+export const PPL_AGK_QUESTIONS: AirLawQuestion[] = ALL_INSTRUMENTS_QUESTIONS.filter((x) => SECS.includes(x.sectionId) && x.difficulty !== "hard");
 export const PPL_AGK_FIGURE_KEY: Record<string, string> = { "6.5": "A.7.1" };

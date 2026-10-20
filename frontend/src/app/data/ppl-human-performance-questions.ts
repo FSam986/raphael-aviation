@@ -15,7 +15,8 @@ const SECTION_MAP: Record<string, string> = {
   "A.6.3": "8.2", // psychology / human factors
 };
 
-export const PPL_HPL_QUESTIONS: AirLawQuestion[] = HUMAN_PERFORMANCE_QUESTIONS.map((q) => ({
+// PPL depth filter: exclude the hardest CPL questions (beyond PPL syllabus depth).
+export const PPL_HPL_QUESTIONS: AirLawQuestion[] = HUMAN_PERFORMANCE_QUESTIONS.filter((q) => q.difficulty !== "hard").map((q) => ({
   ...q,
   id: `PPL-${q.id}`,
   sectionId: SECTION_MAP[q.sectionId] ?? "8.1",

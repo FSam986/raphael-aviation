@@ -27,13 +27,15 @@ const MAP: Record<string, string[]> = {
   "9.15": ["A.8.21"], // Weather information for flight planning
 };
 
+// PPL depth filter: PPL candidates sit an easier paper than the CPL, so the
+// hardest CPL questions (which probe beyond the PPL syllabus depth) are excluded.
 export function getPPLMetQuestionsBySection(pplSection: string): MetQuestion[] {
-  return (MAP[pplSection] ?? []).flatMap((cpl) => getQuestionsBySection(cpl));
+  return (MAP[pplSection] ?? []).flatMap((cpl) => getQuestionsBySection(cpl)).filter((q) => q.difficulty !== "hard");
 }
 
 // Full PPL Met exam bank = the CPL met questions for every mapped topic (deduped).
 const PPL_MET_SECTIONS = [...new Set(Object.values(MAP).flat())];
-export const PPL_MET_QUESTIONS: MetQuestion[] = MET_QUESTIONS.filter((q) => PPL_MET_SECTIONS.includes(q.sectionId));
+export const PPL_MET_QUESTIONS: MetQuestion[] = MET_QUESTIONS.filter((q) => PPL_MET_SECTIONS.includes(q.sectionId) && q.difficulty !== "hard");
 export const PPL_MET_QUESTION_COUNT = PPL_MET_QUESTIONS.length;
 
 export function getPPLMetFlashcardsBySection(pplSection: string): MetFlashcard[] {

@@ -9,6 +9,9 @@ import { getNavFlashcardsBySection } from "@/app/data/nav-flashcards";
 import { ALL_INSTRUMENTS_QUESTIONS, getInstrumentsQuestionsBySection } from "@/app/data/instruments-questions";
 import { getInstrumentsNoteBySection } from "@/app/data/instruments-notes";
 import { getInstrumentsFlashcardsBySection } from "@/app/data/instruments-flashcards";
+import { getRadioNavQuestionsBySection } from "@/app/data/radionav-questions";
+import { getRadioNavNoteBySection } from "@/app/data/radionav-notes";
+import { getRadioNavFlashcardsBySection } from "@/app/data/radionav-flashcards";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -21,13 +24,16 @@ const MAP: Record<string, string[]> = {
   "10.5": ["A.7.7"],           // Aircraft Magnetism (compass)
   "10.6": ["A.9.7"],           // The Navigation Computer / triangle of velocities
   "10.7": ["A.9.8", "A.9.6"],  // Practical Navigation (1-in-60, relative velocity)
+  "10.8": ["A.10.1", "A.10.2", "A.10.3", "A.10.4", "A.10.12"], // Radio nav aids — ADF/NDB, VOR, DME, GNSS
 };
 const ins = (id: string) => id.startsWith("A.7");
-const q = (id: string) => (ins(id) ? getInstrumentsQuestionsBySection(id) : getNavQuestionsBySection(id));
-const f = (id: string) => (ins(id) ? getInstrumentsFlashcardsBySection(id) : getNavFlashcardsBySection(id));
-const nt = (id: string) => (ins(id) ? getInstrumentsNoteBySection(id) : getNavNoteBySection(id));
+const rad = (id: string) => id.startsWith("A.10");
+const q = (id: string) => (rad(id) ? getRadioNavQuestionsBySection(id) : ins(id) ? getInstrumentsQuestionsBySection(id) : getNavQuestionsBySection(id));
+const f = (id: string) => (rad(id) ? getRadioNavFlashcardsBySection(id) : ins(id) ? getInstrumentsFlashcardsBySection(id) : getNavFlashcardsBySection(id));
+const nt = (id: string) => (rad(id) ? getRadioNavNoteBySection(id) : ins(id) ? getInstrumentsNoteBySection(id) : getNavNoteBySection(id));
 
-export function getPPLNavQuestionsBySection(s: string): AirLawQuestion[] { return (MAP[s] ?? []).flatMap(q); }
+// PPL depth filter: exclude the hardest CPL questions (beyond PPL syllabus depth).
+export function getPPLNavQuestionsBySection(s: string): AirLawQuestion[] { return (MAP[s] ?? []).flatMap(q).filter((x) => x.difficulty !== "hard"); }
 export function getPPLNavFlashcardsBySection(s: string): AirLawFlashcard[] { return (MAP[s] ?? []).flatMap(f); }
 export function getPPLNavNoteBySection(s: string): AirLawSectionNote | undefined {
   const notes = (MAP[s] ?? []).map(nt).filter((n): n is AirLawSectionNote => !!n);
@@ -39,7 +45,8 @@ const SECS = [...new Set(Object.values(MAP).flat())];
 export const PPL_NAV_QUESTIONS: AirLawQuestion[] = [
   ...NAV_QUESTIONS.filter((x) => SECS.includes(x.sectionId)),
   ...ALL_INSTRUMENTS_QUESTIONS.filter((x) => SECS.includes(x.sectionId)),
-];
+  ...SECS.filter((s) => s.startsWith("A.10")).flatMap((s) => getRadioNavQuestionsBySection(s)),
+].filter((x) => x.difficulty !== "hard");
 export const PPL_NAV_FIGURE_KEY: Record<string, string> = {
   "10.1": "A.9.1", "10.3": "A.9.5", "10.4": "A.9.2", "10.5": "A.7.7", "10.6": "A.9.7", "10.7": "A.9.8",
 };
