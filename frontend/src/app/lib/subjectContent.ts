@@ -51,6 +51,7 @@ import { getPPLAgkQuestionsBySection, getPPLAgkNoteBySection, getPPLAgkFlashcard
 import { getIRMetQuestionsBySection, getIRMetNoteBySection, getIRMetFlashcardsBySection } from "@/app/data/ir-met-content";
 import { getIRAwoQuestionsBySection, getIRAwoNoteBySection, getIRAwoFlashcardsBySection } from "@/app/data/ir-awo-content";
 import { getIRFppQuestionsBySection, getIRFppNoteBySection, getIRFppFlashcardsBySection } from "@/app/data/ir-fpp-content";
+import { getIRRadioNavNoteBySection, getIRInstrumentsNoteBySection, getIRHumanPerfNoteBySection } from "@/app/data/ir-delegated-notes";
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -111,7 +112,7 @@ const REGISTRY: Record<string, SubjectGetters> = {
   },
   "ir-instruments": {
     questions: getIRInstrumentsQuestionsBySection,
-    note: () => undefined,
+    note: getIRInstrumentsNoteBySection,
     flashcards: getIRInstrumentsFlashcardsBySection,
   },
   "ir-special-procedures": {
@@ -121,12 +122,12 @@ const REGISTRY: Record<string, SubjectGetters> = {
   },
   "ir-human-performance": {
     questions: getIRHumanPerfQuestionsBySection,
-    note: () => undefined,
+    note: getIRHumanPerfNoteBySection,
     flashcards: getIRHumanPerfFlashcardsBySection,
   },
   "ir-radio-navigation": {
     questions: getIRRadioNavQuestionsBySection,
-    note: () => undefined,
+    note: getIRRadioNavNoteBySection,
     flashcards: getIRRadioNavFlashcardsBySection,
   },
   "general-radiotelephony": {
