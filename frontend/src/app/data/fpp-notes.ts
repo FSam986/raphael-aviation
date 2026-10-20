@@ -59,11 +59,21 @@ export const FPP_NOTES: AirLawSectionNote[] = [
           "Normal category prohibits acrobatic manoeuvres; Utility allows limited manoeuvres (e.g. spins if approved); Acrobatic allows manoeuvres subject to the flight manual.",
         ],
       },
+      {
+        heading: "2. Certification process & the V-n diagram",
+        points: [
+          "A new design is granted a TYPE CERTIFICATE when the authority is satisfied it meets the applicable design standard (e.g. CS-23/Part 23 for light aeroplanes); each individual aircraft then receives a Certificate of Airworthiness confirming it conforms to that type design and is fit for safe operation.",
+          "Limit load is the maximum expected in service (the structure must take it with no permanent deformation); ULTIMATE load = limit × 1.5 safety factor (the structure must not fail for at least 3 seconds). The airframe is not designed to survive beyond ultimate load.",
+          "The V-n (flight envelope) diagram plots load factor against airspeed, bounded by the positive/negative limit load factors and the stall curve; the manoeuvring speed VA is where the stall limit meets the limit load factor — below VA a full control deflection stalls the wing before it over-stresses it.",
+          "Aircraft markings tie to certification: the ASI arcs (white flap range, green normal range, yellow caution range, red-line VNE) express the certificated speed limits the pilot must respect.",
+        ],
+      },
     ],
     mustKnow: [
       "Categories: Normal, Utility, Acrobatic, Commuter, Transport.",
       "Limit load factors: Normal +3.8/−1.52, Utility +4.4/−1.76, Acrobatic +6.0/−3.0.",
-      "The type certificate and flight manual define permitted manoeuvres.",
+      "The type certificate and flight manual define permitted manoeuvres; each aircraft holds a C of A.",
+      "Ultimate load = limit load × 1.5; VA (manoeuvre speed) is where the stall and limit-load lines meet on the V-n diagram.",
     ],
     traps: [
       "Normal category = no acrobatics; higher g-limits belong to Utility and Acrobatic.",
@@ -213,6 +223,15 @@ export const FPP_NOTES: AirLawSectionNote[] = [
           "Wind: headwind shortens take-off and landing runs and steepens the climb path over the ground; tailwind lengthens them.",
           "Runway slope and surface: an upslope and a soft/contaminated surface lengthen the take-off run; a downslope helps take-off but lengthens landing.",
           "Configuration: flap increases lift and drag — some flap shortens take-off but reduces climb; more flap shortens the landing.",
+        ],
+      },
+      {
+        heading: "2. Density altitude & reading the charts",
+        points: [
+          "Pressure altitude = altitude with 1013 hPa set; density altitude = pressure altitude corrected for temperature above/below ISA (rule of thumb ~120 ft per °C off ISA). High density altitude is what actually degrades performance — a cool high field can out-perform a hot low one.",
+          "Humidity lowers air density further (water vapour is lighter than dry air) and reduces piston power — a real factor on hot, humid days even though charts often assume dry air.",
+          "Performance charts are entered with pressure altitude and temperature, then corrected for mass, wind and (for landing) slope; always apply the chart's stated correction factors and any 'dry/wet/grass' surface penalty rather than reading a single figure.",
+          "Contaminated runways (standing water, slush, snow) lengthen the take-off run and can cause aquaplaning on landing; clearway can increase TODA and stopway can increase ASDA, but neither increases the TORA or LDA.",
         ],
       },
     ],

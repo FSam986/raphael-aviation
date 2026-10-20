@@ -189,13 +189,25 @@ export const GR_NOTES: AirLawSectionNote[] = [
           "Greater separation is applied behind heavier aircraft (the follower is more affected).",
         ],
       },
+      {
+        heading: "2. The vortices & avoidance",
+        points: [
+          "Wake turbulence is a pair of counter-rotating wingtip vortices produced whenever a wing generates lift; they are strongest when the generating aircraft is HEAVY, CLEAN and SLOW (i.e. at high angle of attack — just after lift-off and on the approach/landing roll).",
+          "The vortices sink below the generating aircraft's flight path (typically 500–1000 ft) and, in a light crosswind, drift — one vortex can stay over the runway while the other moves off, so a light wind can be the worst case.",
+          "Avoidance on departure behind a heavier aircraft: rotate before its rotation point and climb ABOVE its path; on the approach stay AT or ABOVE its glide path and land BEYOND its touchdown point.",
+          "A pilot may waive the ATC wake-turbulence separation and accept responsibility, but the hazard — a roll beyond aileron authority close to the ground — is why the time/distance minima exist.",
+        ],
+      },
     ],
     mustKnow: [
       "Heavy = MCTOM > 136 000 kg; 'Heavy' is a suffix on the initial call.",
       "More separation behind heavier aircraft.",
+      "Vortices are worst when the generator is heavy, clean and slow; they sink and drift in a crosswind.",
+      "Avoid by staying above the heavier aircraft's path and landing beyond its touchdown point.",
     ],
     traps: [
       "Putting 'Heavy' before the call sign or on every call.",
+      "A light crosswind can be the worst case — it holds one vortex over the runway rather than clearing it.",
     ],
   },
   {

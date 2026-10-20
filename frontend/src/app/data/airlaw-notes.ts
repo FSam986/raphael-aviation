@@ -454,11 +454,21 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
           "Crew qualifications, maintenance and operational control are held to standards appropriate to the certificate.",
         ],
       },
+      {
+        heading: "2. Certificate, accountability & how it differs",
+        points: [
+          "To hold a Corporate Aviation Certificate the organisation must nominate an accountable manager and post-holders (flight operations, maintenance), hold an approved operations manual and maintenance programme, and satisfy the authority of its organisation, facilities and financial/operational control — a lighter version of the AOC framework.",
+          "The operations manual sets crew composition, training and checking, flight- and duty-time limits, minimum equipment (MEL), and standard operating procedures, which the authority approves and audits.",
+          "The key distinction: an AOC (Part 121/135) operator carries the public for reward; a corporate operator carries only its own people on its own business — so it needs a certificate and manual, but is not 'commercial air transport'. A private (Part 91) operator needs neither.",
+          "Aircraft must be maintained under an approved maintenance programme with a certificate of release to service, and operations stay within the privileges stated on the certificate.",
+        ],
+      },
     ],
     mustKnow: [
       "Corporate ops = an organisation flying its own aircraft for its own business, NOT for hire/reward.",
-      "Requires a Corporate Aviation Certificate + approved operations manual.",
-      "Non-commercial, but stricter than private (Part 91) flying.",
+      "Requires a Corporate Aviation Certificate + approved operations manual (accountable manager + post-holders).",
+      "Non-commercial, but stricter than private (Part 91) flying; sits below the AOC regime of Part 121/135.",
+      "Ops manual sets crew/training, flight-&-duty times, MEL and SOPs; approved and audited by the authority.",
     ],
     traps: [
       "Corporate operations are non-commercial — no hire or reward for transport — despite needing a certificate.",
@@ -477,11 +487,22 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
           "Operations require an Air Operator Certificate (AOC), an approved operations manual, and generally multi-crew operation with airline-level training, checking and dispatch standards.",
         ],
       },
+      {
+        heading: "2. What Part 121 demands",
+        points: [
+          "An AOC is issued only after the authority is satisfied as to the operator's organisation (accountable manager and nominated post-holders), facilities, aircraft, maintenance system and financial/operational control; the AOC lists the aircraft types and areas/kinds of operation approved.",
+          "Operations are controlled by an approved operations manual covering SOPs, performance (the aeroplane-performance classes and net take-off/landing requirements), mass & balance, the MEL, and an approved flight- and duty-time scheme to manage crew fatigue.",
+          "Dispatch/operational control: a flight is released against approved minima, fuel policy (trip + contingency + alternate + final reserve), and alternate requirements; a commander and an operations organisation share responsibility for the decision to depart.",
+          "Crew must complete type rating, recurrent training and checking, line checks, CRM and emergency/safety-equipment training; cabin crew are required above defined passenger numbers.",
+        ],
+      },
     ],
     mustKnow: [
       "Part 121 = commercial air transport, aeroplanes carrying MORE than 19 passengers.",
       "Part 135 = 19 or fewer; Part 121 = more than 19.",
       "Requires an AOC, approved ops manual and airline-standard procedures.",
+      "Controlled by MEL, performance rules, mass & balance, fuel policy and an approved flight-&-duty-time scheme.",
+      "Crew: type rating + recurrent training/checking, line checks, CRM; cabin crew above set passenger numbers.",
     ],
     traps: [
       "The 19-passenger line divides Part 135 (≤19) from Part 121 (>19).",
@@ -501,11 +522,22 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
           "The operator runs an aerodrome safety management system and reports changes/hazards affecting operations (e.g. via NOTAM).",
         ],
       },
+      {
+        heading: "2. Categories, declared distances & the pilot's checks",
+        points: [
+          "The licence category is set by the aerodrome's physical characteristics and the traffic it serves — reference code (runway length/aircraft size), day/night and VFR/IFR capability, and the rescue & fire-fighting (RFF) category that must be available for the aircraft using it.",
+          "The operator publishes the aerodrome's data (runways, declared distances TORA/TODA/ASDA/LDA, lighting, services and hours) in the AIP, and keeps an approved aerodrome manual describing facilities, procedures and the organisation.",
+          "Obstacle limitation surfaces (approach, take-off climb, transitional, inner horizontal/conical) must be kept clear or the obstacles lit/marked and promulgated; changes go out by NOTAM.",
+          "Pilot's responsibility: confirm the field is licensed/approved for the intended operation, check its category, published data and current NOTAMs, and that required services (e.g. RFF, lighting for night) are available before planning to use it.",
+        ],
+      },
     ],
     mustKnow: [
       "Aerodromes for defined operations must be licensed/approved; the licence category matches the operations allowed.",
       "The aerodrome operator maintains surfaces, markings, lighting, obstacle control and RFFS.",
-      "Changes/hazards are notified (e.g. by NOTAM); a safety management system applies.",
+      "Changes/hazards are notified (e.g. by NOTAM); a safety management system and aerodrome manual apply.",
+      "Category set by reference code, day/night, VFR/IFR and the RFF category; declared distances TORA/TODA/ASDA/LDA.",
+      "Pilot checks licence status/category, AIP data, NOTAMs and available services before using a field.",
     ],
     traps: [
       "It is the aerodrome operator, not the pilot, who is responsible for aerodrome surfaces and services — but the pilot must check NOTAMs for their status.",
@@ -559,11 +591,21 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
           "An aircraft may be detained or prevented from flying, and licences/certificates suspended or cancelled, where safety or compliance requires it.",
         ],
       },
+      {
+        heading: "2. Administrative penalties, process & appeal",
+        points: [
+          "Many contraventions are dealt with by an ADMINISTRATIVE penalty: the authority issues a penalty notice specifying the offence and the amount, which the person may pay or dispute — a faster route than prosecution for lesser breaches.",
+          "Serious offences (endangering safety, flying without a valid licence/certificate, operating an unairworthy aircraft, interfering with an investigation) may be prosecuted criminally, with heavier fines or imprisonment on conviction.",
+          "An authorised officer must be able to identify themselves; their powers include entering and inspecting aerodromes and premises, examining aircraft and records, and grounding an aircraft believed to be unsafe or non-compliant.",
+          "A person affected by a decision (penalty, suspension, cancellation or refusal) has a right to make representations and to appeal — to the Director and, ultimately, through the prescribed appeal mechanism — within the stated period.",
+        ],
+      },
     ],
     mustKnow: [
       "Authorised officers may inspect aircraft/documents and demand production of licences.",
-      "Contraventions carry penalties, including administrative fines.",
+      "Contraventions carry penalties, including administrative fines; serious offences can be prosecuted criminally.",
       "Aircraft can be detained and licences suspended/cancelled for non-compliance.",
+      "An administrative penalty notice can be paid or disputed; decisions carry a right of representation and appeal.",
     ],
     traps: [
       "You must produce your licence and documents to an authorised officer on demand.",

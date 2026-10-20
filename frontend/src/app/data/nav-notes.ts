@@ -102,10 +102,22 @@ export const NAV_NOTES: AirLawSectionNote[] = [
           "1 m = 3.28 ft; 1 inch = 2.54 cm; 1 imperial gallon = 4.55 L; 1 US gallon = 3.785 L.",
         ],
       },
+      {
+        heading: "2. Applying the units — speed, time, distance & fuel",
+        figureTopics: ["Units & conversions"],
+        points: [
+          "The core triangle: Distance = Speed × Time; Speed = Distance ÷ Time; Time = Distance ÷ Speed. Keep units consistent (knots with NM and hours; convert minutes to decimal hours, e.g. 20 min = 0.333 h).",
+          "Fuel: Fuel required = fuel flow × time. Endurance = usable fuel ÷ fuel flow; safe range = endurance × groundspeed (always use GROUNDSPEED, not TAS, for distance over the ground).",
+          "Change of latitude converts straight to distance (1' lat = 1 NM); departure (east–west distance) = change of longitude (in minutes) × cos(latitude) NM — so a longitude minute shrinks towards the poles and only equals 1 NM at the equator.",
+          "Mass/volume of fuel needs specific gravity: litres × SG = kg (AVGAS SG ≈ 0.72, Jet A-1 ≈ 0.80) — a frequent source of mass-&-balance and endurance errors.",
+        ],
+      },
     ],
     mustKnow: [
       "1 NM = 1.852 km = 6076 ft ≈ 1.15 st. miles = 1 minute of latitude.",
       "Knots = NM per hour; 1 m = 3.28 ft.",
+      "Distance = Speed × Time; use GROUNDSPEED for distance over the ground and decimal hours.",
+      "Departure (NM) = change of longitude (min) × cos(lat); litres × SG = kg (AVGAS ≈0.72, Jet ≈0.80).",
     ],
     traps: [
       "Mixing NM and statute miles in a groundspeed sum.",
@@ -204,13 +216,24 @@ export const NAV_NOTES: AirLawSectionNote[] = [
           "Time to close = distance apart ÷ relative speed. Use it for separation, holding, and controlled time of arrival.",
         ],
       },
+      {
+        heading: "2. Worked methods & overtaking in trail",
+        points: [
+          "Head-on example: two aircraft 200 NM apart closing at 250 kt and 250 kt → relative speed 500 kt → time to meet = 200 ÷ 500 h = 24 min.",
+          "Overtaking (same track) example: a 480-kt aircraft 30 NM behind a 420-kt aircraft → relative speed 60 kt → time to catch = 30 ÷ 60 = 30 min.",
+          "To hold a required spacing, work in the SLOWER aircraft's frame: the gap changes at the relative speed, so reduce the relative speed (speed control) to stop the gap closing, rather than thinking in absolute speeds.",
+          "For a controlled time of arrival, compute the groundspeed needed (distance ÷ time remaining) and adjust speed; a small speed change over a long leg moves the ETA more than it seems.",
+        ],
+      },
     ],
     mustKnow: [
       "Converging: relative speed = sum; same track: relative speed = difference.",
       "Time = distance ÷ relative speed.",
+      "Head-on closing 200 NM at 250+250 kt = 24 min; overtaking 30 NM at 60-kt difference = 30 min.",
     ],
     traps: [
       "Adding speeds when the aircraft are on the same track (should subtract).",
+      "Thinking in absolute speeds for spacing — the gap only changes at the RELATIVE speed.",
     ],
   },
   {

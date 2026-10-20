@@ -699,6 +699,15 @@ export const MET_NOTES: SectionNote[] = [
           "Extreme cold: Arctic / Polar continental (over ice/cold land).",
         ],
       },
+      {
+        heading: "2. Modification over the track & weather produced",
+        points: [
+          "An air mass is MODIFIED as it moves away from its source: warmed from below (moving over a warmer surface) it becomes unstable → convection, good visibility, cumuliform cloud, showers; cooled from below (moving over a colder surface) it becomes stable → little vertical motion, poor visibility, stratiform cloud, drizzle and fog.",
+          "Polar continental (Pc) in winter: very cold and dry at source, but if it tracks over a warm sea it picks up moisture and instability → showers on the windward coast (e.g. snow showers).",
+          "Tropical continental (Tc): warm, dry and often stable → generally fine but hazy, with poor visibility from dust/haze rather than cloud.",
+          "The life cycle ends as the mass takes on the character of the region it finally settles over, losing its original identity.",
+        ],
+      },
     ],
     mustKnow: [
       "Temperature (Polar/Tropical) + moisture (maritime/continental).",
