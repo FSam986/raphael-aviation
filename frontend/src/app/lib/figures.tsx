@@ -53,6 +53,7 @@ import { PPL_AGK_FIGURE_KEY } from "@/app/data/ppl-agk-content";
 import { IR_MET_FIGURE_KEY } from "@/app/data/ir-met-content";
 import { IR_AWO_FIGURE_KEY } from "@/app/data/ir-awo-content";
 import { IR_FPP_FIGURE_KEY } from "@/app/data/ir-fpp-content";
+import { IR_RNV_FIGURE_KEY, IR_INS_FIGURE_KEY, IR_HPL_FIGURE_KEY } from "@/app/data/ir-delegated-notes";
 import { ApproachSegments, ApproachLightingPAPI, StraightDeparture } from "@/app/components/figures/awoFigures";
 import { RunwayLighting, RunwayMarkings } from "@/app/components/figures/runwayFigures";
 import { PitotStaticLogic, AltimeterSettings, ASIColourCode, GyroProperties, CompassErrors } from "@/app/components/figures/instrumentsFigures";
@@ -321,6 +322,6 @@ export function atgFiguresForSection(sectionId: string): FigureDef[] {
 export function figuresForSection(sectionId: string): FigureDef[] {
   if (FIGURES[sectionId]) return FIGURES[sectionId];
   // PPL / IR subjects reuse the CPL figures via a mapping.
-  const mapped = PPL_MET_FIGURE_KEY[sectionId] ?? PPL_NAV_FIGURE_KEY[sectionId] ?? PPL_FPP_FIGURE_KEY[sectionId] ?? PPL_AGK_FIGURE_KEY[sectionId] ?? IR_MET_FIGURE_KEY[sectionId] ?? IR_AWO_FIGURE_KEY[sectionId] ?? IR_FPP_FIGURE_KEY[sectionId];
+  const mapped = PPL_MET_FIGURE_KEY[sectionId] ?? PPL_NAV_FIGURE_KEY[sectionId] ?? PPL_FPP_FIGURE_KEY[sectionId] ?? PPL_AGK_FIGURE_KEY[sectionId] ?? IR_MET_FIGURE_KEY[sectionId] ?? IR_AWO_FIGURE_KEY[sectionId] ?? IR_FPP_FIGURE_KEY[sectionId] ?? IR_RNV_FIGURE_KEY[sectionId] ?? IR_INS_FIGURE_KEY[sectionId] ?? IR_HPL_FIGURE_KEY[sectionId];
   return mapped ? FIGURES[mapped] ?? [] : [];
 }

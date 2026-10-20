@@ -128,3 +128,17 @@ const HPL_MAP: Record<string, string[]> = {
 export function getIRHumanPerfNoteBySection(s: string): AirLawSectionNote | undefined {
   return mergeNotes(HPL_MAP[s] ?? [], getHumanPerformanceNote);
 }
+
+// Illustration-gallery keys: map each IR section to the CPL figure section whose
+// gallery it should reuse, so the IR Illustrations tab shows the CPL figures.
+export const IR_RNV_FIGURE_KEY: Record<string, string> = {
+  "C.2.1": "A.10.1", "C.2.2": "A.10.2", "C.2.3": "A.10.3", "C.2.4": "A.10.4",
+  "C.2.5": "A.10.3", "C.2.6": "A.10.6", "C.2.7": "A.10.6", "C.2.8": "A.10.12",
+};
+export const IR_INS_FIGURE_KEY: Record<string, string> = {
+  "I.1": "A.7.1", "I.2": "A.7.2", "I.3": "A.7.2", "I.4": "A.7.3", "I.5": "A.7.6",
+  "I.6": "A.7.6", "I.7": "A.10.9", "I.9": "A.7.5", "I.10": "A.7.7",
+};
+export const IR_HPL_FIGURE_KEY: Record<string, string> = {
+  "H.1": "A.6.1", "H.2": "A.6.1", "H.3": "A.6.1", "H.4": "A.6.1", "H.5": "A.6.3",
+};

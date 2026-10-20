@@ -34,8 +34,10 @@ const cplQuestions = (id: string): AirLawQuestion[] =>
 const cplFlashcards = (id: string): AirLawFlashcard[] =>
   (isATG(id) ? getAircraftTechnicalFlashcardsBySection(id) : getInstrumentsFlashcardsBySection(id)) as AirLawFlashcard[];
 
-// PPL depth filter: exclude the hardest CPL questions (beyond PPL syllabus depth).
-export function getPPLAgkQuestionsBySection(s: string): AirLawQuestion[] { return (MAP[s] ?? []).flatMap(cplQuestions).filter((q) => q.difficulty !== "hard"); }
+// PPL depth filter: exclude the hardest CPL questions (beyond PPL syllabus
+// depth) and cap each section so the PPL ATG bank stays a sensible size (the
+// CPL bank is ~1600; a PPL student needs variety, not the whole thing).
+export function getPPLAgkQuestionsBySection(s: string): AirLawQuestion[] { return (MAP[s] ?? []).flatMap(cplQuestions).filter((q) => q.difficulty !== "hard").slice(0, 60); }
 export function getPPLAgkFlashcardsBySection(s: string): AirLawFlashcard[] { return (MAP[s] ?? []).flatMap(cplFlashcards); }
 export function getPPLAgkNoteBySection(s: string): AirLawSectionNote | undefined {
   const notes = (MAP[s] ?? []).map(cplNote).filter((n): n is AirLawSectionNote => !!n);
