@@ -52,6 +52,7 @@ import { getIRMetQuestionsBySection, getIRMetNoteBySection, getIRMetFlashcardsBy
 import { getIRAwoQuestionsBySection, getIRAwoNoteBySection, getIRAwoFlashcardsBySection } from "@/app/data/ir-awo-content";
 import { getIRFppQuestionsBySection, getIRFppNoteBySection, getIRFppFlashcardsBySection } from "@/app/data/ir-fpp-content";
 import { getIRRadioNavNoteBySection, getIRInstrumentsNoteBySection, getIRHumanPerfNoteBySection } from "@/app/data/ir-delegated-notes";
+import { getIRSpecProcNoteBySection } from "@/app/data/ir-special-procedures-notes";
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -117,7 +118,7 @@ const REGISTRY: Record<string, SubjectGetters> = {
   },
   "ir-special-procedures": {
     questions: getIRSpecProcQuestionsBySection,
-    note: () => undefined,
+    note: getIRSpecProcNoteBySection,
     flashcards: getIRSpecProcFlashcardsBySection,
   },
   "ir-human-performance": {
