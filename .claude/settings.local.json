@@ -66,7 +66,22 @@
       "Bash(python3 -I -)",
       "Bash(git commit -q -m 'Redesign rollout: chart world across all pages, drawn icons, mobile nav *)",
       "Bash(cp \"/Users/fathimasamreen/.claude/projects/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/tool-results/mcp-Claude_Browser-blob-1792061793795-yp808n.jpg\" .impeccable/review/desktop.png && echo \"saved desktop\")",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(len\\(d\\),'findings'\\); [print\\('-',x['name'],x['severity'],x['file'].split\\('/'\\)[-1]\\) for x in d]\")"
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(len\\(d\\),'findings'\\); [print\\('-',x['name'],x['severity'],x['file'].split\\('/'\\)[-1]\\) for x in d]\")",
+      "Bash(impeccable concept-seed *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(pip3 install *)",
+      "Bash(python3 -c \"import PIL, numpy; print\\('PIL', PIL.__version__, 'numpy ok'\\)\")",
+      "Bash(python3 -)",
+      "Bash(grep -vE \"^\\\\.$|^\\\\.\\\\.$\")",
+      "Bash(grep -E \"^[^/]+/|^[^/]+$\")",
+      "Bash(git commit *)",
+      "Bash(pdfinfo \"New Air Law Study Guide - 2.pdf\")",
+      "Bash(pdfinfo \"Air Law for Private Pilots.pdf\")",
+      "Bash(pdftotext -layout 'New Air Law Study Guide - 2.pdf' __TRACKED_VAR__/airlaw_guide.txt)",
+      "Bash(pdftotext -f 1 -l 3 \"Air Law for Private Pilots.pdf\" -)",
+      "Bash(awk 'NR>=42 && NR<=180' ir-syllabus.ts)",
+      "Bash(sort -t- -k2 -n)",
+      "Bash(cd ~ && echo \"=== met images: air law / question files ===\" && ls -la \"Desktop/met images\" 2>/dev/null | grep -iE \"air.?law|question|answer|q_a|q&a|exam|bank\" | head -30; echo \"\"; echo \"=== Downloads: air law / question files ===\" && ls -la Downloads 2>/dev/null | grep -iE \"air.?law|question|answer|exam|bank|ppl\" | head -30)"
     ]
   }
 }
