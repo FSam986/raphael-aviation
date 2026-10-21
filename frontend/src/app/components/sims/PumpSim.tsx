@@ -45,8 +45,12 @@ export default function PumpSim() {
           <radialGradient id="fblue" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stopColor="#93c5fd" /><stop offset="1" stopColor="#2563eb" /></radialGradient>
         </defs>
         <rect x={0} y={0} width={400} height={240} fill="url(#pbg)" />
-        <text x={20} y={22} fill="#93c5fd" fontSize={11}>INLET · suction</text>
-        <text x={300} y={22} fill="#fca5a5" fontSize={11}>OUTLET · pressure</text>
+        {kind !== "centrifugal" && (
+          <>
+            <text x={20} y={22} fill="#93c5fd" fontSize={11}>INLET · suction</text>
+            <text x={290} y={22} fill="#fca5a5" fontSize={11}>OUTLET · pressure</text>
+          </>
+        )}
         {kind === "gear" && <Gear a={a} />}
         {kind === "vane" && <Vane a={a} />}
         {kind === "piston" && <Piston a={a} />}
@@ -141,9 +145,10 @@ function Piston({ a }: { a: number }) {
 function Centrifugal({ a }: { a: number }) {
   return (
     <g>
-      <rect x={192} y={36} width={16} height={52} rx={6} fill="url(#inlet)" />
-      <text x={150} y={52} fill="#93c5fd" fontSize={10}>in · centre</text>
-      <path d="M278,112 h92 v16 h-92 z" fill="url(#outlet)" />
+      <rect x={192} y={28} width={16} height={40} rx={6} fill="url(#inlet)" />
+      <text x={200} y={22} fill="#93c5fd" fontSize={10} textAnchor="middle">INLET · centre</text>
+      <path d="M280,112 h90 v16 h-90 z" fill="url(#outlet)" />
+      <text x={325} y={104} fill="#fca5a5" fontSize={10} textAnchor="middle">OUTLET</text>
       <circle cx={200} cy={120} r={80} fill="#1f2630" stroke="#3f4654" strokeWidth={2} />
       <g transform={`rotate(${a} 200 120)`}>
         <circle cx={200} cy={120} r={66} fill="#171c24" />

@@ -58,6 +58,18 @@ const SIMS: Record<string, SimDef> = {
     blurb: "Load the aircraft and watch the CG move across the certified envelope in real time.",
     Component: d(() => import("./MassBalanceSim")),
   },
+  gasturbine: {
+    id: "gasturbine",
+    title: "Gas Turbine — the Brayton Cycle",
+    blurb: "Open the throttle and watch air accelerate through the compressor, combustor and turbine into thrust.",
+    Component: d(() => import("./GasTurbineSim")),
+  },
+  propeller: {
+    id: "propeller",
+    title: "Propeller — Pitch, Blade Angle & Thrust",
+    blurb: "Change pitch and airspeed to see the blade angle of attack, thrust, stall and windmilling.",
+    Component: d(() => import("./PropellerSim")),
+  },
 };
 
 // Syllabus section id → one or more sim ids (first is shown by default).
@@ -66,8 +78,10 @@ const SECTION_SIM: Record<string, string[]> = {
   // Aerodynamics / Principles of Flight
   "A.1.8": ["aerofoil"], "C.4.1": ["aerofoil"], "11.2": ["aerofoil"], "11.3": ["aerofoil"],
   "11.8": ["aerofoil"], "11.9": ["aerofoil"], "11.12": ["aerofoil"],
-  // Piston engine
-  "A.1.4": ["fourstroke"], "6.2": ["fourstroke", "valves"], "6.3": ["fourstroke"],
+  // Piston engine + propeller
+  "A.1.4": ["fourstroke", "propeller"], "6.2": ["fourstroke", "valves"], "6.3": ["propeller", "fourstroke"],
+  // Gas turbine
+  "A.1.5": ["gasturbine"],
   // Elements & hydraulics — pumps + valves
   "A.1.1": ["pumps", "valves"], "A.1.2": ["pumps", "valves"], "6.4": ["pumps", "valves"],
   // Mass & balance
