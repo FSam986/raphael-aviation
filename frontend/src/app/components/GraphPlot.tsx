@@ -26,9 +26,10 @@ export interface GraphSpec {
   readout?: string; // label near the final point
 }
 
-const RED = "#ef4444";
-const AX = "#a1a1aa";
-const GRID = "#3f3f46";
+const RED = "#f87171";
+const AX = "#d4d4d8";
+const GRID_MAJOR = "#52525b"; // visible major gridlines
+const GRID_MINOR = "#2a2a30"; // faint minor gridlines (graph-paper look)
 const CURVE = "#60a5fa";
 
 // SVG geometry
@@ -41,6 +42,13 @@ const PH = H - M.t - M.b;
 function ticks(a: GraphAxis): number[] {
   const out: number[] = [];
   for (let v = a.min; v <= a.max + 1e-9; v += a.step) out.push(Math.round(v * 1e6) / 1e6);
+  return out;
+}
+// minor gridlines at half the major step, for a graph-paper look
+function minorTicks(a: GraphAxis): number[] {
+  const out: number[] = [];
+  const s = a.step / 2;
+  for (let v = a.min; v <= a.max + 1e-9; v += s) out.push(Math.round(v * 1e6) / 1e6);
   return out;
 }
 
@@ -69,17 +77,26 @@ export function GraphPlot({ spec, reveal }: { spec: GraphSpec; reveal: boolean }
           height={H * zoom}
           className="block bg-zinc-950"
         >
-          {/* grid + tick values */}
+          {/* minor gridlines (graph paper) */}
+          {minorTicks(spec.x).map((v) => (
+            <line key={`xm${v}`} x1={sx(v)} y1={M.t} x2={sx(v)} y2={M.t + PH} stroke={GRID_MINOR} strokeWidth="0.5" />
+          ))}
+          {minorTicks(spec.y).map((v) => (
+            <line key={`ym${v}`} x1={M.l} y1={sy(v)} x2={M.l + PW} y2={sy(v)} stroke={GRID_MINOR} strokeWidth="0.5" />
+          ))}
+          {/* major gridlines + tick values on both axes */}
           {ticks(spec.x).map((v) => (
             <g key={`x${v}`}>
-              <line x1={sx(v)} y1={M.t} x2={sx(v)} y2={M.t + PH} stroke={GRID} strokeWidth="0.75" />
-              <text x={sx(v)} y={M.t + PH + 16} fill={AX} fontSize="11" textAnchor="middle">{v}</text>
+              <line x1={sx(v)} y1={M.t} x2={sx(v)} y2={M.t + PH} stroke={GRID_MAJOR} strokeWidth="0.9" />
+              <line x1={sx(v)} y1={M.t + PH} x2={sx(v)} y2={M.t + PH + 5} stroke={AX} strokeWidth="1" />
+              <text x={sx(v)} y={M.t + PH + 17} fill={AX} fontSize="11.5" textAnchor="middle">{v}</text>
             </g>
           ))}
           {ticks(spec.y).map((v) => (
             <g key={`y${v}`}>
-              <line x1={M.l} y1={sy(v)} x2={M.l + PW} y2={sy(v)} stroke={GRID} strokeWidth="0.75" />
-              <text x={M.l - 8} y={sy(v) + 4} fill={AX} fontSize="11" textAnchor="end">{v}</text>
+              <line x1={M.l} y1={sy(v)} x2={M.l + PW} y2={sy(v)} stroke={GRID_MAJOR} strokeWidth="0.9" />
+              <line x1={M.l - 5} y1={sy(v)} x2={M.l} y2={sy(v)} stroke={AX} strokeWidth="1" />
+              <text x={M.l - 9} y={sy(v) + 4} fill={AX} fontSize="11.5" textAnchor="end">{v}</text>
             </g>
           ))}
 
@@ -100,9 +117,16 @@ export function GraphPlot({ spec, reveal }: { spec: GraphSpec; reveal: boolean }
             );
           })}
 
-          {/* red worked path */}
+          {/* red worked path with dashed reference/guide lines to the axes */}
           {reveal && spec.red && (
             <g>
+              {/* dashed projection lines from the entry and read-off points to both axes */}
+              {[spec.red[0], spec.red[spec.red.length - 1]].map(([x, y], i) => (
+                <g key={`guide${i}`}>
+                  <line x1={sx(x)} y1={sy(y)} x2={sx(x)} y2={M.t + PH} stroke={RED} strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
+                  <line x1={sx(x)} y1={sy(y)} x2={M.l} y2={sy(y)} stroke={RED} strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
+                </g>
+              ))}
               <path d={path(spec.red)} fill="none" stroke={RED} strokeWidth="2.5" />
               {spec.red.map(([x, y], i) => (
                 <g key={i}>
@@ -118,7 +142,7 @@ export function GraphPlot({ spec, reveal }: { spec: GraphSpec; reveal: boolean }
         </svg>
       </div>
       <div className="text-[10px] text-zinc-600 mt-1 px-1">
-        Teaching replica — grid & values are representative. Confirm the exact figure on your CAP 697/698 manual.
+        Gridded teaching replica with real axis values. Tap "Show plotted solution" for the red reference lines. Confirm the exact figure on your CAP 696/697/698 manual.
       </div>
     </div>
   );
