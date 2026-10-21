@@ -13,6 +13,7 @@ function motif(subjectId: string) {
   if (id.includes("performance") || id.includes("planning") || id.includes("flight-perf")) return "graph";
   if (id.includes("human")) return "eye";
   if (id.includes("special")) return "warn";
+  if (id.includes("principles") || id.includes("aircraft") || id.includes("technical") || id.includes("agk")) return "wing";
   return "grid";
 }
 
@@ -41,6 +42,7 @@ export function FlashcardBackdrop({ subjectId, difficulty, flipped }: { subjectI
           {kind === "eye" && (<g transform="translate(320 70)"><path d="M-46 0 Q0 -34 46 0 Q0 34 -46 0 Z" strokeOpacity="0.09" /><circle r="15" strokeOpacity="0.1" /></g>)}
           {kind === "warn" && (<g transform="translate(322 70)" strokeOpacity="0.1"><path d="M0 -40 L40 34 L-40 34 Z" /><line x1="0" y1="-14" x2="0" y2="14" /><circle cx="0" cy="26" r="1.6" fill="#ffffff" fillOpacity="0.14" stroke="none" /></g>)}
           {kind === "seal" && (<g transform="translate(330 60)"><circle r="42" strokeOpacity="0.09" /><circle r="30" strokeOpacity="0.06" />{Array.from({ length: 20 }).map((_, i) => { const a = i * Math.PI / 10; return <circle key={i} cx={36 * Math.cos(a)} cy={36 * Math.sin(a)} r="1.4" fill="#ffffff" fillOpacity="0.08" stroke="none" />; })}</g>)}
+          {kind === "wing" && (<g transform="translate(300 70)"><path d="M-70 10 Q-10 -26 70 -6 Q10 10 -70 10 Z" strokeOpacity="0.1" fill="#ffffff" fillOpacity="0.04" />{Array.from({ length: 4 }).map((_, i) => <path key={i} d={`M${-78 - i * 10} ${-4 - i * 3} Q-10 ${-30 - i * 3} 78 ${-10 - i * 2}`} strokeOpacity="0.06" />)}<line x1="-70" y1="10" x2="70" y2="-6" strokeOpacity="0.05" /></g>)}
           {kind === "grid" && Array.from({ length: 9 }).map((_, i) => <line key={i} x1={i * 50} y1="0" x2={i * 50} y2="260" strokeOpacity="0.04" />)}
         </g>
       </svg>
