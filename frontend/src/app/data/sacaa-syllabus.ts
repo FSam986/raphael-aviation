@@ -888,10 +888,10 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
         ],
       },
       {
-        id: "C.10.7",
+        id: "A.10.7",
         title: "Secondary Surveillance Radar (SSR)",
         items: [
-          { id: "C.10.7.a", topic: "Principles, presentation and interpretation, modes and codes including Mode S" },
+          { id: "A.10.7.a", topic: "Principles, presentation and interpretation, modes and codes including Mode S" },
         ],
       },
       {

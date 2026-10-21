@@ -85,7 +85,11 @@
       "Bash(python3 /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/scan.py)",
       "WebSearch",
       "Bash(grep -nE \"^\\\\];|= \\\\[$|const [cf] = |export const .*FLASHCARDS\" airlaw-flashcards.ts)",
-      "Bash(sort -t. -k2 -n)"
+      "Bash(sort -t. -k2 -n)",
+      "Bash(perl -i -pe 's/Unlock Guaranteed Pass/Unlock Pass Mode/g; s/>Guaranteed Pass</>Pass Mode</g' src/app/coach/page.tsx)",
+      "Bash(perl -i -pe 's/C\\\\.10\\\\.7/A.10.7/g' sacaa-syllabus.ts radionav-questions-gap.ts radionav-questions-062.ts)",
+      "Bash(perl -i -pe 's/C\\\\.10\\\\.7\\\\.a/A.10.7.a/g' aspect-map.json)",
+      "Bash(python3 -c \"import json;json.load\\(open\\('aspect-map.json'\\)\\);print\\('valid json'\\)\")"
     ]
   }
 }

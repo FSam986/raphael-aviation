@@ -266,6 +266,40 @@ export const AWO_NOTES: AirLawSectionNote[] = [
       "Assuming a clearway must be a paved, load-bearing surface (it need not be).",
     ],
   },
+  {
+    sectionId: "C.3.3",
+    title: "Altimeter Setting Procedures",
+    intro:
+      "Instrument flying depends on everyone referencing altitude the same way. Below the transition altitude you fly altitudes on QNH; above the transition level you fly flight levels on the standard setting. Cold air is the hidden trap — the altimeter over-reads, so your true height is lower than indicated.",
+    blocks: [
+      {
+        heading: "1. QNH, QFE, QNE & the transition layer",
+        points: [
+          "QNH: sub-scale setting that makes the altimeter read altitude above mean sea level (reads aerodrome elevation on the ground). QFE: setting to read height above the aerodrome datum (zero on the runway). QNE / standard setting: 1013.25 hPa, used to fly flight levels.",
+          "Transition altitude: the altitude at/below which vertical position is controlled by ALTITUDE (QNH). Transition level: the lowest flight level available above the transition altitude (on 1013). The transition LAYER lies between them — you change the setting passing through it (to 1013 climbing, to QNH descending).",
+          "1 hPa ≈ 30 ft. Regional/area QNH is the lowest forecast value in an altimeter-setting region, guaranteeing terrain clearance is not eroded.",
+        ],
+      },
+      {
+        heading: "2. Cold-temperature correction",
+        points: [
+          "The altimeter is calibrated to ISA; in air COLDER than ISA the true altitude is LOWER than indicated ('high to low — or hot to cold — look out below'). This matters most on approach over high terrain in winter.",
+          "Apply the published cold-temperature correction (add height) to minimum altitudes — approach segment minima, the MDA/DA, holding and sector altitudes — when the aerodrome temperature is low (typically at or below 0°C).",
+          "The correction is roughly 4 ft per 1000 ft of height above the altimeter source per °C below ISA; use the AIP/Jeppesen cold-temperature table for the exact value. ATC-assigned levels on QNH in a cold mass are the controller's responsibility; corrections you apply must be advised.",
+        ],
+      },
+    ],
+    mustKnow: [
+      "QNH = altitude AMSL; QFE = height above aerodrome; QNE = 1013.25 hPa for flight levels. 1 hPa ≈ 30 ft.",
+      "Set 1013 climbing through the transition altitude; set QNH descending through the transition level.",
+      "Cold air: true altitude is LOWER than indicated — add the cold-temperature correction to minima.",
+      "Regional QNH is the lowest forecast value in the region (conservative for terrain clearance).",
+    ],
+    traps: [
+      "In cold temperatures you are LOWER than the altimeter shows — correct the minima upward.",
+      "QNE is not a pressure you can read off like QNH — it is the standard 1013.25 hPa datum for flight levels.",
+    ],
+  },
 ];
 
 export function getAWONoteBySection(sectionId: string): AirLawSectionNote | undefined {

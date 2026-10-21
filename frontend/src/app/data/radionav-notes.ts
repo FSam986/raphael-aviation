@@ -387,6 +387,74 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
       "Doppler is used for groundspeed, not altitude.",
     ],
   },
+  {
+    sectionId: "A.10.7",
+    title: "Secondary Surveillance Radar (SSR)",
+    intro:
+      "Unlike primary radar (which relies on a weak reflected echo), SSR interrogates an airborne transponder which replies with a coded signal — giving ATC positive identity and altitude without a skin echo.",
+    blocks: [
+      {
+        heading: "1. Principle, frequencies & modes",
+        points: [
+          "The ground interrogator transmits on 1030 MHz; the aircraft transponder replies on 1090 MHz. It is an ACTIVE system (a triggered coded reply), not a reflected echo — so the display is free of weather/ground clutter.",
+          "Mode A gives the 4-digit identity (squawk); Mode C adds pressure altitude (referenced to 1013.25 hPa, reported to the controller within ±50 ft); Mode S is selective, using a unique 24-bit aircraft address plus a data link (underpinning ACAS/TCAS and ADS-B).",
+          "A squawk is four OCTAL digits (each 0–7) = 4096 codes, available in all modes. Set codes in STANDBY to avoid flashing wrong codes; the IDENT button highlights the return on request.",
+        ],
+      },
+      {
+        heading: "2. Codes & advantages",
+        points: [
+          "Special codes: 7500 = unlawful interference (hijack), 7600 = radio communications failure, 7700 = general emergency; 2000 = conspicuity on entering SSR airspace from a non-SSR area; 7000 = VFR conspicuity.",
+          "Advantages over primary radar: a strong coded reply (far less power needed, no weak skin echo), positive identification and an altitude read-out.",
+          "Garbling can occur when two aircraft at a similar range reply together; side-lobe suppression (the P2 pulse) prevents replies to side-lobe interrogations.",
+        ],
+      },
+    ],
+    mustKnow: [
+      "Interrogate 1030 MHz, reply 1090 MHz; active coded reply, no weather clutter.",
+      "Mode A = identity, Mode C = pressure altitude (1013, ±50 ft), Mode S = selective 24-bit + data link.",
+      "4 octal digits = 4096 codes. 7500 hijack · 7600 radio failure · 7700 emergency · 2000/7000 conspicuity.",
+      "Set codes in STANDBY; IDENT highlights the return.",
+    ],
+    traps: [
+      "SSR is NOT a reflected-echo system — that is why the screen has no storm/ground clutter.",
+      "Know the order 7500 / 7600 / 7700: interference, radio failure, emergency.",
+    ],
+  },
+  {
+    sectionId: "A.10.8",
+    title: "Airborne Weather Radar",
+    intro:
+      "Airborne weather radar is an active primary radar that paints precipitation ahead of the aircraft so the crew can avoid the worst weather; it also has a ground-mapping mode.",
+    blocks: [
+      {
+        heading: "1. Principle & controls",
+        points: [
+          "It transmits pulses (typically X-band, ~9.3 GHz / ~3 cm) from a stabilised dish in the nose; energy reflected by precipitation (the larger the droplet, the stronger the return) is painted and colour-coded green→yellow→red→magenta (magenta = heaviest).",
+          "TILT scans the weather at different heights and avoids ground returns; GAIN adjusts sensitivity. A narrow 'pencil' beam is used for weather; a cosecant 'fan' beam for ground mapping (≤~60 NM).",
+          "It detects PRECIPITATION, not thin cloud or clear-air turbulence — dry (frozen) hail and turbulence in cloud may give weak or no returns.",
+        ],
+      },
+      {
+        heading: "2. Interpretation & limitations",
+        points: [
+          "Steep colour gradients, scalloped edges, fingers and hooks indicate severe turbulence/hail — avoid cells by 10 NM (up to 20 NM above the freezing level where hail is thrown out).",
+          "ATTENUATION: heavy rain close in absorbs the beam and can hide stronger weather behind it ('radar shadow') — a weak return behind a strong one may be attenuation, not weak weather.",
+          "Iso-echo/contour mode blanks the strongest returns to black to highlight the steepest gradients (turbulence).",
+        ],
+      },
+    ],
+    mustKnow: [
+      "Active primary radar, X-band ~3 cm; paints precipitation by droplet size (magenta = heaviest).",
+      "Use TILT to scan height and avoid ground returns; pencil beam = weather, fan beam = mapping.",
+      "Avoid cells by 10–20 NM; sharp gradients/hooks = severe weather.",
+      "Attenuation can hide severe weather behind heavy rain.",
+    ],
+    traps: [
+      "It does not detect dry turbulence or thin cloud — a clear screen is not a guarantee of smooth air.",
+      "A weak return directly behind a strong one may be attenuation — give it a wide berth.",
+    ],
+  },
 ];
 
 export function getRadioNavNoteBySection(sectionId: string): AirLawSectionNote | undefined {

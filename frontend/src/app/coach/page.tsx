@@ -79,11 +79,11 @@ export default function CoachPage() {
         <div className="max-w-xl mx-auto px-8 py-16">
           <div className="text-center">
             <div className="mb-4 flex justify-center text-gold"><Icon name="target" size={44} /></div>
-            <h1 className="text-3xl font-black text-white">Guaranteed Pass</h1>
+            <h1 className="text-3xl font-black text-white">Pass Mode</h1>
             <p className="text-zinc-400 mt-3 leading-relaxed">Tell us your exam date. We build a day-by-day plan and walk you through it — flash the memory table, drill each topic to 90%, and re-test your memory daily. Keep the streak, pass first time.</p>
           </div>
           <div className="mt-8 rounded-2xl border border-yellow-400/30 bg-yellow-400/5 p-6 text-center">
-            <div className="text-white font-bold text-lg">Unlock Guaranteed Pass</div>
+            <div className="text-white font-bold text-lg">Unlock Pass Mode</div>
             <div className="text-zinc-500 text-xs mt-1">Premium feature · billed separately</div>
             <button onClick={() => { setPremium(true); setPremiumState(true); }} className="mt-4 w-full px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-colors">Unlock now</button>
             <p className="text-zinc-600 text-[11px] mt-3">Payment integration is pending — this unlocks the full flow for now.</p>
@@ -171,7 +171,7 @@ export default function CoachPage() {
         {/* stat bar */}
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-yellow-400 text-xs font-bold uppercase tracking-wider">Guaranteed Pass</div>
+            <div className="text-yellow-400 text-xs font-bold uppercase tracking-wider">Pass Mode</div>
             <h1 className="text-2xl font-black text-white">Exam in {daysLeft} day{daysLeft === 1 ? "" : "s"}</h1>
             <div className="text-zinc-600 text-sm">{plan.examDate} · {plan.subjectIds.length} paper{plan.subjectIds.length === 1 ? "" : "s"}</div>
           </div>

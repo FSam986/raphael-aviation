@@ -27,8 +27,8 @@ function NavIcon({ name }: { name: string }) {
 }
 
 export const NAV_ITEMS = [
-  { href: "/dashboard", icon: "dashboard", label: "Chart" },
-  { href: "/coach", icon: "coach", label: "Guaranteed Pass" },
+  { href: "/dashboard", icon: "dashboard", label: "Dashboard" },
+  { href: "/coach", icon: "coach", label: "Pass Mode" },
   { href: "/study", icon: "study", label: "Study" },
   { href: "/exams", icon: "exams", label: "Mock Exams" },
   { href: "/exam-brief", icon: "brief", label: "Exam-Day Brief" },

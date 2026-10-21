@@ -5,6 +5,7 @@
 import { FPP_ALL_QUESTIONS, getFPPQuestionsBySection } from "@/app/data/fpp-questions";
 import { getFPPFlashcardsBySection } from "@/app/data/fpp-flashcards";
 import { getFPPNoteBySection } from "@/app/data/fpp-notes";
+import { getAircraftTechnicalNote } from "@/app/data/aircraft-technical-notes";
 import { getFPPPlottingBySection, type PlottingQuestion } from "@/app/data/fpp-plotting";
 import { IR_FPP_MINED_QUESTIONS, getIRFppMinedQuestionsBySection } from "@/app/data/ir-fpp-questions";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
@@ -39,7 +40,48 @@ export function getIRFppQuestionsBySection(s: string): AirLawQuestion[] {
 export function getIRFppFlashcardsBySection(s: string): AirLawFlashcard[] {
   return (MAP[s] ?? []).flatMap((c) => getFPPFlashcardsBySection(c));
 }
+// Sections with no CPL FPP note source: C.4.1 aerodynamics reuses the CPL
+// Aircraft-Technical subsonic-aerodynamics note; C.4.13 documentation is authored.
+const AUTHORED: Record<string, AirLawSectionNote> = {
+  "C.4.13": {
+    sectionId: "C.4.13",
+    title: "Documentation & Preflight Information",
+    intro:
+      "Before an IFR flight the pilot must gather and check the legal documents, the aircraft's status, and the current aeronautical information. Missing or out-of-date information (a NOTAM, an MEL item) is an airworthiness/legal issue, not a formality.",
+    blocks: [
+      {
+        heading: "1. Documents to carry & the AFM",
+        points: [
+          "Carried in the aircraft: Certificate of Registration, Certificate of Airworthiness, radio station licence, mass & balance data, the Aircraft Flight Manual (AFM/POH), certificate of release to service, proof of insurance, crew licences & medicals, the flight folio, and the operational flight plan.",
+          "The AFM/POH contains the certified limitations, performance data and checklists; the flight is planned and flown within its limits. The flight folio records each flight and the maintenance/defect status.",
+          "A flight plan (ICAO format) is filed for IFR flights; the operational flight plan carries the fuel, route, levels, alternates and timings.",
+        ],
+      },
+      {
+        heading: "2. NOTAM, MEL/MMEL and the AIP",
+        points: [
+          "NOTAM: time-critical notices (runway/navaid unserviceability, airspace activity, hazards) — checked for departure, destination, alternates and en-route. The AIP (GEN/ENR/AD) holds the permanent information; AICs give advisory/explanatory notices.",
+          "MEL (Minimum Equipment List, operator-specific, approved from the manufacturer's MMEL) states which items may be unserviceable and under what conditions a flight may still depart — an unlisted inoperative item means the aircraft is not airworthy.",
+          "Pre-flight: confirm the aircraft is released to service, the required equipment for IFR/the intended operation is serviceable or MEL-permitted, and the aeronautical information (charts, NOTAMs, weather) is current.",
+        ],
+      },
+    ],
+    mustKnow: [
+      "Carry: C of R, C of A, radio licence, mass & balance, AFM/POH, CRS, insurance, licences/medicals, flight folio, flight plan.",
+      "NOTAMs checked for departure, destination, alternates and en-route; AIP = permanent info (GEN/ENR/AD).",
+      "MEL (from the MMEL) permits specified unserviceabilities; an unlisted inop item = not airworthy.",
+      "Fly within the AFM limitations and performance data.",
+    ],
+    traps: [
+      "An inoperative item NOT covered by the MEL makes the aircraft unairworthy — you may not depart on it.",
+      "The AIP is permanent information; time-critical changes come by NOTAM — check both.",
+    ],
+  },
+};
+
 export function getIRFppNoteBySection(s: string): AirLawSectionNote | undefined {
+  if (s === "C.4.1") return getAircraftTechnicalNote("A.1.8"); // basic aerodynamics
+  if (AUTHORED[s]) return AUTHORED[s];
   const notes = (MAP[s] ?? []).map(getFPPNoteBySection).filter((n): n is AirLawSectionNote => !!n);
   if (notes.length === 0) return undefined;
   if (notes.length === 1) return notes[0];
