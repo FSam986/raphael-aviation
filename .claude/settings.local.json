@@ -84,7 +84,8 @@
       "Bash(cd ~ && echo \"=== met images: air law / question files ===\" && ls -la \"Desktop/met images\" 2>/dev/null | grep -iE \"air.?law|question|answer|q_a|q&a|exam|bank\" | head -30; echo \"\"; echo \"=== Downloads: air law / question files ===\" && ls -la Downloads 2>/dev/null | grep -iE \"air.?law|question|answer|exam|bank|ppl\" | head -30)",
       "Bash(python3 /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/scan.py)",
       "WebSearch",
-      "Bash(grep -nE \"^\\\\];|= \\\\[$|const [cf] = |export const .*FLASHCARDS\" airlaw-flashcards.ts)"
+      "Bash(grep -nE \"^\\\\];|= \\\\[$|const [cf] = |export const .*FLASHCARDS\" airlaw-flashcards.ts)",
+      "Bash(sort -t. -k2 -n)"
     ]
   }
 }

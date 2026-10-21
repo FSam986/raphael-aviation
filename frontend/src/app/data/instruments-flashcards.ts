@@ -64,6 +64,14 @@ export const INSTRUMENTS_FLASHCARDS: AirLawFlashcard[] = [
   { id: "IFC-A79-02", sectionId: "A.7.9", front: "EPR — what is it, and thrust parameters?", back: "EPR = turbine exhaust pressure ÷ compressor inlet pressure (∝ thrust). Thrust set by N1 (fan) or EPR.", difficulty: "medium" },
   { id: "IFC-A79-03", sectionId: "A.7.9", front: "Float vs capacitance fuel gauge?", back: "Float reads VOLUME (affected by attitude/accel/temperature). Capacitance reads MASS (dielectric tracks density) — temperature-independent, used on transports.", difficulty: "medium" },
   { id: "IFC-A79-04", sectionId: "A.7.9", front: "FDR & CVR retention and location?", back: "FDR ≥ 25 h, CVR ≥ 30 min; mounted as far aft as practicable; crash/fire protected; start before the aircraft moves under its own power.", difficulty: "medium" },
+
+  // ───── Numbers & formulas to memorise (added) ─────
+  { id: "IFC-NUM-01", sectionId: "A.7.1", front: "Altimeter & pressure numbers", back: "1 hPa ≈ 30 ft near MSL (1 inHg ≈ 1000 ft). QNE standard = 1013.25 hPa / 29.92 inHg. 'High to low (or hot to cold), look out below' — altimeter over-reads, true altitude is lower.", difficulty: "medium" },
+  { id: "IFC-NUM-02", sectionId: "A.7.1", front: "Pitot/static blockage (table)", back: "Blocked PITOT: ASI behaves like an altimeter (over-reads in climb, under-reads in descent); ALT & VSI OK. Blocked STATIC: ASI under-reads in climb/over-reads in descent, ALT freezes, VSI reads zero — use the alternate static.", difficulty: "hard" },
+  { id: "IFC-NUM-03", sectionId: "A.7.2", front: "Gyro drift & rate-1 numbers", back: "DG apparent drift ≈ 15 × sin(latitude) °/hr (earth rate). Rate 1 = 3°/sec = 360° in 2 min. Bank for rate 1 ≈ (TAS÷10)+7. Rigidity ∝ rotor RPM × mass at the rim.", difficulty: "hard" },
+  { id: "IFC-NUM-04", sectionId: "A.7.1", front: "VSI lag & IVSI", back: "VSI has an inherent lag of ~6–9 s (metered leak). The IVSI adds an accelerometer pump to give an instantaneous reading at the start of a climb/descent.", difficulty: "medium" },
+  { id: "IFC-NUM-05", sectionId: "A.7.7", front: "Compass errors (acceleration/turning)", back: "Southern hemisphere — ANDS: Accelerate → North; Decelerate → South (on E/W headings). Turning error worst through N/S; the compass LEADS turns through S and LAGS through N (S-hemisphere). Dip is zero at the magnetic equator.", difficulty: "hard" },
+  { id: "IFC-NUM-06", sectionId: "A.7.5", front: "TAT/ram-rise formula", back: "Ram rise (°C) ≈ (TAS in kt ÷ 100)² for recovery factor 1.0. SAT (true static) is used for TAS; TAT = SAT + full ram rise. Density altitude uses SAT.", difficulty: "hard" },
 ];
 
 export function getInstrumentsFlashcardsBySection(sectionId: string): AirLawFlashcard[] {

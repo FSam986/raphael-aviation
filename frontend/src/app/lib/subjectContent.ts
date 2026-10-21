@@ -21,6 +21,7 @@ import { getHumanPerformanceNote } from "@/app/data/human-performance-notes";
 import { getHumanPerformanceFlashcardsBySection } from "@/app/data/human-performance-flashcards";
 import { getPPLPofQuestionsBySection } from "@/app/data/ppl-principles-of-flight-questions";
 import { getPPLPofNoteBySection } from "@/app/data/ppl-principles-of-flight-content";
+import { getPPLPofFlashcardsBySection } from "@/app/data/ppl-principles-of-flight-flashcards";
 import { getPPLHplQuestionsBySection } from "@/app/data/ppl-human-performance-questions";
 import { getPPLHplNoteBySection, getPPLHplFlashcardsBySection } from "@/app/data/ppl-human-performance-content";
 import { getNavNoteBySection } from "@/app/data/nav-notes";
@@ -99,7 +100,7 @@ const REGISTRY: Record<string, SubjectGetters> = {
   "ppl-principles-of-flight": {
     questions: getPPLPofQuestionsBySection,
     note: getPPLPofNoteBySection,
-    flashcards: () => [],
+    flashcards: getPPLPofFlashcardsBySection,
   },
   navigation: {
     questions: getNavQuestionsBySection,

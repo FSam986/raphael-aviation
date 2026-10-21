@@ -67,6 +67,15 @@ export const HUMAN_PERFORMANCE_FLASHCARDS: HPFlashcard[] = [
   { id: "HPFC-64-05", sectionId: "A.6.4", front: "Survival priorities?", back: "Protection (shelter/first aid), Location (signals/ELT), Water, Food — in that order.", difficulty: "medium" },
   { id: "HPFC-64-06", sectionId: "A.6.4", front: "Hypothermia vs hyperthermia?", back: "Hypothermia = dangerous cooling (shelter, insulate, warm slowly). Hyperthermia/heatstroke = overheating (shade, cool, hydrate).", difficulty: "medium" },
   { id: "HPFC-64-07", sectionId: "A.6.4", front: "ELT frequencies?", back: "121.5 MHz (homing) and 406 MHz (satellite — Cospas-Sarsat).", difficulty: "easy" },
+
+  // ───── Numbers to memorise (added) ─────
+  { id: "HPFC-NUM-01", sectionId: "A.6.1", front: "Time of Useful Consciousness (table)", back: "~30 min at 18 000 ft · ~20–30 min at 20 000 ft · ~1–2 min at 30 000 ft · ~15–20 s (explosive) at 40 000 ft. Halved by exertion/rapid decompression.", difficulty: "hard" },
+  { id: "HPFC-NUM-02", sectionId: "A.6.1", front: "Oxygen-cover ceilings & regs", back: "Air/O₂ mix sufficient to ~33 700 ft; 100% O₂ to ~40 000 ft; pressure-breathing above. CAR: crew O₂ above cabin alt 10 000 ft (and >30 min between 10 000–13 000  ft); passengers above 13 000 ft.", difficulty: "medium" },
+  { id: "HPFC-NUM-03", sectionId: "A.6.1", front: "Atmosphere composition & cabin altitude", back: "Air ≈ 21% O₂ (constant % to ~70 000 ft); partial pressure falls with altitude = cause of hypoxia. Jet cabins pressurised to a max cabin altitude ~6000–8000 ft.", difficulty: "medium" },
+  { id: "HPFC-NUM-04", sectionId: "A.6.1", front: "G-tolerance & vision numbers", back: "Highest g-tolerance is fore-and-aft. Grey-out ~+3–4 Gz, black-out ~+4.5–5.5, red-out on −Gz. Night adaptation ~30 min; use off-centre viewing (rods). Empty-field myopia: eye relaxes to ~1–2 m.", difficulty: "medium" },
+  { id: "HPFC-NUM-05", sectionId: "A.6.2", front: "Alcohol, diving & donation rules", back: "No flying within 8–12 h of alcohol (blood alcohol 0 and no hangover). After diving: 12 h (no-decompression) / 24 h if below ~30 ft or decompression stops. Blood donation 24 h; bone marrow 48 h.", difficulty: "medium" },
+  { id: "HPFC-NUM-06", sectionId: "A.6.2", front: "Circadian & CO numbers", back: "Body clock free-runs ~25 h; resync ~1–1.5 h/day; eastward worse. Temp/performance trough ~0300–0500. CO binds haemoglobin ~200–250× more strongly than O₂. BMI >25 overweight, >30 obese.", difficulty: "medium" },
+  { id: "HPFC-NUM-07", sectionId: "A.6.3", front: "Memory & reaction numbers", back: "Iconic store ~0.5–1 s, echoic ~2–8 s. Working memory 7±2 items, lost in ~10–20 s without rehearsal. Simple reaction time ~0.2 s. The 5 hazardous attitudes: anti-authority, impulsivity, invulnerability, macho, resignation.", difficulty: "hard" },
 ];
 
 export function getHumanPerformanceFlashcardsBySection(sectionId: string): HPFlashcard[] {
