@@ -55,12 +55,22 @@ export const IR_SOP_NOTES: AirLawSectionNote[] = [
           "Report every strike — a struck engine should be monitored and may require a precautionary shutdown; after landing an inspection is required before further flight.",
         ],
       },
+      {
+        heading: "2. Handling a strike & the bigger picture",
+        points: [
+          "On a strike during take-off: if before V1/rotation and performance allows, reject; after V1 continue the take-off and handle it as an engine/airframe problem — a windshield strike may craft structural damage or obscured vision, so have the other pilot or an alternate reference ready.",
+          "Monitor struck engines for vibration, rising temperatures, falling oil pressure or power loss; be prepared for a precautionary shutdown and an overweight/immediate return.",
+          "Multiple-bird or large-bird ingestion can fail more than one engine (as in several well-known accidents) — fly the aeroplane first, then work the drills; a forced landing/ditching may become the plan.",
+          "Aerodrome bird control (habitat management, dispersal, and NOTAMs/ATIS warnings) is the first line of defence; pilots support it by reporting strikes and bird activity so the picture stays current.",
+        ],
+      },
     ],
     mustKnow: [
       "Highest risk: below 2000 ft near aerodromes, on take-off/climb and approach; dawn/dusk and migration.",
       "Reduce risk with landing lights, radar, and avoiding low flight over bird concentrations.",
       "Seeing a flock ahead — generally climb (birds dive to escape).",
       "Report all strikes; inspect before further flight.",
+      "Before V1 reject; after V1 continue and treat as an engine/airframe problem — fly the aeroplane first.",
     ],
     traps: [
       "Birds generally escape by diving — climbing is usually the safer avoidance manoeuvre.",
@@ -209,11 +219,22 @@ export const IR_SOP_NOTES: AirLawSectionNote[] = [
           "Avoidance: respect minimum safe/sector altitudes and the MDA/DA, fly a stabilised approach, cross-check altimeter settings, maintain terrain awareness (charts/GPS), and ALWAYS respond immediately to a GPWS/TAWS 'PULL UP' warning with a maximum-performance climb.",
         ],
       },
+      {
+        heading: "2. High-risk phases, altimetry traps & the escape manoeuvre",
+        points: [
+          "Classic CFIT setups: the non-precision/circling approach at night or in poor weather, descending early or 'diving and driving' below the step-down/MDA, and the visual illusion of a flat or up-sloping runway that invites a low approach.",
+          "Altimetry traps: a mis-set QNH, using QFE when QNH is expected (or vice versa), and the COLD-TEMPERATURE error — in very cold air the true height is LOWER than indicated, so apply the cold-temperature correction to minima and crossing altitudes.",
+          "Maintain a mental model of the terrain: brief the MSA/sector altitudes, the approach profile and the go-around, and call deviations early; a GPS/TAWS terrain display is a backup to that awareness, not a substitute.",
+          "The pull-up (escape) manoeuvre: simultaneously apply maximum thrust, roll wings level and rotate to the pitch-limit/initial climb attitude, retract speedbrakes, and climb until clear of terrain and the warning stops — do NOT change configuration or chase the flight director until safe.",
+        ],
+      },
     ],
     mustKnow: [
       "CFIT = airworthy aircraft under control flown unintentionally into terrain/water/obstacle.",
       "Main defences: minimum safe altitudes, MDA/DA discipline, stabilised approach, TAWS.",
       "An immediate, maximum-performance climb is the correct response to a GPWS/TAWS 'PULL UP'.",
+      "Highest risk: non-precision/circling approaches at night/in poor weather, descending below minima.",
+      "Cold air: true height is LOWER than indicated — apply the cold-temperature correction to minima.",
     ],
     traps: [
       "CFIT is NOT a loss of control — the aircraft is flyable and under command; the failure is awareness.",
@@ -234,11 +255,21 @@ export const IR_SOP_NOTES: AirLawSectionNote[] = [
           "Advantages: more time to monitor instruments and the runway environment, smaller corrections, consistent flare and touchdown in the touchdown zone, and a built-in defence against CFIT and runway overruns.",
         ],
       },
+      {
+        heading: "2. Monitoring the gate & the go-around decision",
+        points: [
+          "Only small, brief deviations corrected back towards stable are acceptable below the gate; sustained or increasing deviations — high/fast, low/slow, excessive sink (e.g. >1000 ft/min), full or large power changes, or late configuration — mandate a go-around.",
+          "'Unstable → go around' is a no-fault decision; most approach-and-landing accidents follow a continued unstable approach, and the industry treats the go-around as the expected, professional response, not a failure.",
+          "Long/float landings, firm 'ducked-under' arrivals and runway excursions trace directly to destabilisation in the last 500 ft; a go-around costs minutes, an overrun or hard landing costs far more.",
+          "Fly the go-around positively: max/go-around thrust, pitch to the go-around attitude, positive climb then flaps/gear per the SOP, and advise ATC — then re-plan rather than rushing straight back in.",
+        ],
+      },
     ],
     mustKnow: [
       "Stabilised by ~1000 ft (IMC) / 500 ft (VMC): on path, in configuration, on speed, normal descent rate, thrust set, checklists done.",
       "Not stabilised by the gate (or unstable below it) → GO AROUND.",
       "A stabilised approach is the key defence against approach-and-landing accidents and CFIT.",
+      "A go-around for an unstable approach is a no-fault, expected decision — not a failure.",
     ],
     traps: [
       "The correct action for an unstable approach is a go-around — not an attempt to salvage the landing.",

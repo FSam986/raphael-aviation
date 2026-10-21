@@ -20,9 +20,14 @@ const AUTHORED: Record<string, AirLawSectionNote> = {
       "It transmits pulses (typically in the X-band, ~9 GHz) from a stabilised dish in the nose; energy reflected by precipitation (the larger the water droplets, the stronger the return) is painted on the display, colour-coded by intensity (green→yellow→red→magenta).",
       "TILT is used to scan the weather at different heights and to avoid ground returns; GAIN adjusts sensitivity. The radar detects precipitation, not cloud or clear-air turbulence — dry (frozen) hail or turbulence in cloud may give weak returns.",
       "ATTENUATION: heavy rain close in absorbs the beam and can hide stronger weather behind it ('radar shadow'/the attenuation trap). Avoid the strongest returns and sharp gradients by a wide margin.",
+    ] }, { heading: "2. Interpretation & limitations", points: [
+      "Shape and gradient matter as much as colour: scalloped edges, fingers, hooks or a sharp colour gradient (green straight to red over a short distance) indicate severe turbulence and hail — avoid by at least 10 NM, and up to 20 NM above the freezing level where hail can be thrown out of the cell top.",
+      "Contour/turbulence (Doppler) modes outline the steepest-gradient areas; the WX+T mode adds magenta for detected turbulence, but the basic radar still cannot see clear-air turbulence or dry (unglaciated) cloud.",
+      "Beam geometry: the beam widens with range (~3–5°), so distant returns are averaged and weak; ground mapping (MAP mode) uses the returns from terrain/coastlines for orientation but is not a weather function.",
+      "Use it to AVOID, not penetrate — plan deviations early, stay upwind of cells, and never fly into the notch between two cells where they may be merging.",
     ] }],
-    mustKnow: ["Paints precipitation by droplet size; red/magenta = heaviest.", "Use tilt to scan height and avoid ground returns.", "Attenuation can hide severe weather behind heavy rain.", "It does not detect dry turbulence or thin cloud."],
-    traps: ["A weak return behind a strong one may be attenuation, not weak weather — give it a wide berth."],
+    mustKnow: ["Paints precipitation by droplet size; red/magenta = heaviest.", "Use tilt to scan height and avoid ground returns.", "Attenuation can hide severe weather behind heavy rain.", "It does not detect dry turbulence or thin cloud.", "Sharp gradients/hooks = severe weather; avoid cells by 10–20 NM, especially above the freezing level."],
+    traps: ["A weak return behind a strong one may be attenuation, not weak weather — give it a wide berth.", "The radar cannot see clear-air turbulence — a clear screen is not a guarantee of smooth air."],
   },
   "C.2.7": {
     sectionId: "C.2.7", title: "Secondary Surveillance Radar (SSR) & Transponder",
@@ -31,9 +36,14 @@ const AUTHORED: Record<string, AirLawSectionNote> = {
       "The ground interrogates on 1030 MHz; the transponder replies on 1090 MHz. Mode A gives the 4-digit identity (squawk) code; Mode C adds pressure altitude; Mode S is selective, data-linked and underlies ACAS/ADS-B.",
       "Special codes: 7500 = unlawful interference (hijack), 7600 = radio communications failure, 7700 = general emergency; 2000 is a common conspicuity code.",
       "Advantages over primary radar: a strong coded reply (no weak skin echo), positive identification, and altitude read-out. The IDENT button highlights the return when ATC asks you to 'squawk ident'.",
+    ] }, { heading: "2. Mode S, ADS-B & limitations", points: [
+      "Mode S gives each aircraft a unique 24-bit address and a selective interrogation, so the system is not saturated by every aircraft replying to every sweep; it carries the callsign and data-links altitude, and is the basis for ACAS/TCAS and ADS-B.",
+      "ADS-B (Automatic Dependent Surveillance–Broadcast) 'OUT' broadcasts GPS-derived position/velocity/identity once per second on 1090 MHz Extended Squawk; 'IN' lets aircraft receive it — more accurate and faster-updating than ground radar, and it works without a ground radar head.",
+      "Limitations: Mode C/S altitude is PRESSURE altitude (1013 hPa) — ATC applies the QNH correction, so an incorrectly reported level usually means a transponder/encoder fault, not a pilot error. Garbling can occur when two aircraft at a similar range reply together.",
+      "Set the assigned code promptly, check Mode C is on ('ALT') unless told 'squawk standby', and never select 7500/7600/7700 inadvertently while changing codes.",
     ] }],
-    mustKnow: ["Interrogate 1030 MHz, reply 1090 MHz.", "Mode A = identity, Mode C = altitude, Mode S = selective/data-link.", "7500 hijack, 7600 radio failure, 7700 emergency.", "SSR gives positive ID and altitude without a skin echo."],
-    traps: ["7500/7600/7700 — know the order: unlawful interference, radio failure, emergency."],
+    mustKnow: ["Interrogate 1030 MHz, reply 1090 MHz.", "Mode A = identity, Mode C = altitude, Mode S = selective/data-link.", "7500 hijack, 7600 radio failure, 7700 emergency.", "SSR gives positive ID and altitude without a skin echo.", "Mode S has a unique 24-bit address and underlies TCAS/ADS-B; Mode C/S altitude is pressure altitude."],
+    traps: ["7500/7600/7700 — know the order: unlawful interference, radio failure, emergency.", "Transponder altitude is always pressure altitude — ATC corrects for QNH, so it is not a 'wrong' readout."],
   },
   "I.7": {
     sectionId: "I.7", title: "Radio Altimeter",
@@ -42,9 +52,14 @@ const AUTHORED: Record<string, AirLawSectionNote> = {
       "It transmits a frequency-modulated continuous-wave signal (around 4.3 GHz) straight down; the frequency difference between the transmitted and reflected signal is proportional to the height above the surface.",
       "It reads AGL height, normally over the range 0–2500 ft, and feeds the decision height alert on an ILS, the GPWS/TAWS and the autoland system. A 'bug' sets the DH.",
       "Because it reads height above whatever is below, the reading changes with terrain (hills, buildings) and is only meaningful close to the ground.",
+    ] }, { heading: "2. Use on approach & limitations", points: [
+      "On an ILS/precision approach the radio altimeter gives the Decision Height callout ('MINIMUMS'/'DECIDE') and auto callouts ('100', '50', '40'…), and arms the autoland flare — the barometric altimeter gives the DA/MDA on a non-precision approach instead.",
+      "It is independent of QNH, so it is immune to pressure-setting errors — a key advantage for the final-approach height check, but it reads height above the terrain under the approach, which may be lower than the airfield elevation (rising or falling ground, a valley short of the threshold).",
+      "Limitations: valid only within its range (typically to 2500 ft) and over reasonably reflective, level surfaces; large pitch/bank angles, very rough terrain or water can give erroneous or fluctuating readings.",
+      "Treat the DH bug and callout as a cross-check of the approach, not the primary vertical guidance — the glidepath (ILS) or the baro minima still define the approach profile.",
     ] }],
-    mustKnow: ["Reads actual height above the terrain (AGL), not altitude above sea level.", "FM-CW around 4.3 GHz; typical range 0–2500 ft.", "Feeds DH alerting, GPWS/TAWS and autoland."],
-    traps: ["The radio altimeter reads AGL — it is not corrected to sea level and varies with the terrain below."],
+    mustKnow: ["Reads actual height above the terrain (AGL), not altitude above sea level.", "FM-CW around 4.3 GHz; typical range 0–2500 ft.", "Feeds DH alerting, GPWS/TAWS and autoland.", "Gives the DH/auto callouts on a precision approach; immune to QNH errors but reads over the terrain under the approach."],
+    traps: ["The radio altimeter reads AGL — it is not corrected to sea level and varies with the terrain below.", "Height over terrain short of the threshold can differ from the airfield elevation — don't read it as height above the runway."],
   },
   "I.8": {
     sectionId: "I.8", title: "Proximity & Warning Systems (GPWS/TAWS, TCAS/ACAS)",
@@ -66,9 +81,14 @@ const AUTHORED: Record<string, AirLawSectionNote> = {
       "CONTROL instruments (attitude indicator and power) set the aircraft's attitude and thrust; PERFORMANCE instruments (ASI, altimeter, VSI, heading, turn coordinator) show the result. You set an attitude and power, then check the performance and trim.",
       "The attitude indicator is the master instrument and the centre of the scan. A selective radial scan returns to it between each performance instrument, avoiding fixation on any one gauge.",
       "Know the failure implications: a blocked pitot/static affects ASI/ALT/VSI; a failed attitude or heading gyro (vacuum loss) is dangerous because the master reference is lost — cross-check with the 'partial-panel' instruments (turn coordinator, ASI, altimeter, compass) and recognise the failure early.",
+    ] }, { heading: "2. Scan patterns, trim & unusual-attitude recovery", points: [
+      "Scan techniques: the selective radial scan (AI out to one performance instrument and back) suits most phases; the inverted-V and the rectangular scan add the engine/nav instruments. The instrument you need most leads the scan — airspeed on the climb, altimeter in the cruise, the ILS needles on the approach.",
+      "TRIM is what makes instrument flying sustainable: trim off the control pressures after each attitude/power change so the aircraft holds the attitude and the scan is freed from holding a force. Chasing the needles without trimming causes over-controlling and PIOs.",
+      "Common scan errors: FIXATION (staring at one gauge), OMISSION (dropping an instrument, e.g. forgetting heading in a climb) and EMPHASIS (over-weighting one instrument). Recognise them by lagging corrections and a wandering heading/altitude.",
+      "Unusual-attitude recovery on instruments — nose-HIGH (low/decreasing airspeed): simultaneously add power, lower the nose and level the wings. Nose-LOW (high/increasing airspeed): reduce power, level the wings, then ease out of the dive. Use the AI if reliable; on partial panel use the ASI, altimeter and turn coordinator.",
     ] }],
-    mustKnow: ["Control instruments (AI + power) set attitude/thrust; performance instruments show the result.", "The attitude indicator is the master instrument and centre of the scan.", "Avoid fixation — use a selective radial scan.", "Recognise instrument failures (pitot/static, vacuum) and fly partial panel."],
-    traps: ["On a vacuum failure the AI and DG are unreliable — revert to partial panel; don't chase the failed master instrument."],
+    mustKnow: ["Control instruments (AI + power) set attitude/thrust; performance instruments show the result.", "The attitude indicator is the master instrument and centre of the scan.", "Avoid fixation — use a selective radial scan; the instrument you need most leads it.", "Trim off control pressures after every change; untrimmed flying causes over-controlling.", "Recognise instrument failures (pitot/static, vacuum) and fly partial panel.", "UA recovery: nose-high → power/nose-down/level; nose-low → reduce power/level/ease out."],
+    traps: ["On a vacuum failure the AI and DG are unreliable — revert to partial panel; don't chase the failed master instrument.", "In a nose-low unusual attitude, LEVEL THE WINGS before pulling — pulling in a bank tightens the spiral."],
   },
 };
 
