@@ -89,7 +89,10 @@
       "Bash(perl -i -pe 's/Unlock Guaranteed Pass/Unlock Pass Mode/g; s/>Guaranteed Pass</>Pass Mode</g' src/app/coach/page.tsx)",
       "Bash(perl -i -pe 's/C\\\\.10\\\\.7/A.10.7/g' sacaa-syllabus.ts radionav-questions-gap.ts radionav-questions-062.ts)",
       "Bash(perl -i -pe 's/C\\\\.10\\\\.7\\\\.a/A.10.7.a/g' aspect-map.json)",
-      "Bash(python3 -c \"import json;json.load\\(open\\('aspect-map.json'\\)\\);print\\('valid json'\\)\")"
+      "Bash(python3 -c \"import json;json.load\\(open\\('aspect-map.json'\\)\\);print\\('valid json'\\)\")",
+      "Bash(grep -iE \"\\\\.docx$\")",
+      "Bash(grep -iE \"question.*\\\\.docx$|\\\\.docx$\")",
+      "Bash(awk '/graph: \\\\{/{f=1} f{print} /\\\\},$/&&f{c++; if\\(c>=1 && /^    graph:/==0 && /readout/\\){f=0}}' fpp-plotting.ts)"
     ]
   }
 }

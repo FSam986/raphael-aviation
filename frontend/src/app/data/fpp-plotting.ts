@@ -267,6 +267,100 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       readout: "≈ 800 nm",
     },
   },
+
+  // ===== A.4.12 — MASS & BALANCE (CAP 696) =====
+  {
+    id: "PLOT-412-001",
+    sectionId: "A.4.12",
+    graphRef: "CAP 696 · SEP1 · Figure 2.5 — Centre of Gravity Envelope",
+    diagram: "cruise",
+    given: [
+      "SEP1: BEM 2 415 lb, BEM moment ÷100 = 1 876.46 (CG 77.7 in)",
+      "Two front-seat occupants: 360 lb at arm 79 in",
+      "Fuel: 50 US gal = 300 lb at arm 75 in (moment ÷100 = 225)",
+      "Datum 39 in fwd of firewall; CG limits fwd 74.0–80.4 in, aft 87.7 in; MTOM 3 650 lb",
+    ],
+    ask: "Find the take-off mass and CG, and confirm it lies inside the envelope.",
+    steps: [
+      "Zero-Fuel: mass = 2 415 + 360 = 2 775 lb; moment ÷100 = 1 876.46 + (360×79÷100 = 284.4) = 2 160.86; CG = 216 086 ÷ 2 775 = 77.9 in.",
+      "Take-off: add fuel → mass = 2 775 + 300 = 3 075 lb; moment ÷100 = 2 160.86 + 225 = 2 385.86; CG = 238 586 ÷ 3 075 = 77.6 in.",
+      "Plot the 3 075 lb / 77.6 in point on Figure 2.5 — it must fall inside the envelope (fwd limit at this mass ≈ 75 in, aft 87.7 in).",
+    ],
+    answer: "TOM ≈ 3 075 lb, CG ≈ 77.6 in — inside the envelope. Confirm on your CAP 696 Fig 2.5.",
+    difficulty: "hard",
+    graph: {
+      x: { label: "CG — inches aft of datum", min: 68, max: 92, step: 2 },
+      y: { label: "Weight — lb", min: 2000, max: 3800, step: 200 },
+      curves: [
+        { label: "Fwd limit", pts: [[74, 2100], [74, 2350], [80.4, 3650]] },
+        { label: "Aft limit", pts: [[87.7, 2100], [87.7, 3650]] },
+        { label: "MTOM 3 650", pts: [[80.4, 3650], [87.7, 3650]] },
+      ],
+      // plot the take-off point: up the 77.6 in line to 3 075 lb
+      red: [[77.6, 2000], [77.6, 3075]],
+      readout: "TOM 3 075 lb @ 77.6 in ✓",
+    },
+  },
+  {
+    id: "PLOT-412-002",
+    sectionId: "A.4.12",
+    graphRef: "CAP 696 · SEP1 · Figure 2.5 — Centre of Gravity Envelope",
+    diagram: "cruise",
+    given: [
+      "SEP1 loaded to MTOM 3 650 lb",
+      "Baggage Zone C (arm 180 in) is loaded heavily",
+      "Resulting CG works out to 88.5 in aft of datum",
+    ],
+    ask: "Plot 3 650 lb / 88.5 in — is the aircraft legal for take-off?",
+    steps: [
+      "Enter the envelope at CG 88.5 in on the bottom axis and go up to 3 650 lb.",
+      "The point lies to the RIGHT of the aft limit line (87.7 in).",
+      "The CG is beyond the aft limit → NOT legal. Move load forward (reduce Zone C, add to Zone A/front) and re-check.",
+    ],
+    answer: "Outside the envelope (aft of the 87.7 in limit) — NOT legal; shift load forward.",
+    difficulty: "hard",
+    graph: {
+      x: { label: "CG — inches aft of datum", min: 68, max: 92, step: 2 },
+      y: { label: "Weight — lb", min: 2000, max: 3800, step: 200 },
+      curves: [
+        { label: "Fwd limit", pts: [[74, 2100], [74, 2350], [80.4, 3650]] },
+        { label: "Aft limit", pts: [[87.7, 2100], [87.7, 3650]] },
+        { label: "MTOM 3 650", pts: [[80.4, 3650], [87.7, 3650]] },
+      ],
+      red: [[88.5, 2000], [88.5, 3650]],
+      readout: "88.5 in → aft of limit ✗",
+    },
+  },
+  {
+    id: "PLOT-412-003",
+    sectionId: "A.4.12",
+    graphRef: "CAP 696 · MEP1 · Figure 3.3 — Centre of Gravity Envelope",
+    diagram: "cruise",
+    given: [
+      "MEP1 example loading manifest (Fig 3.2): Take-off Mass 4 748 lb",
+      "Take-off moment ÷100 = 4 458.14 → CG = 445 814 ÷ 4 748 = 93.9 in",
+      "Datum 78.4 in; CG limits fwd 82.0–90.8 in, aft 94.6 in; MSTOM 4 750 lb",
+    ],
+    ask: "Plot the take-off point and confirm the CG is within limits.",
+    steps: [
+      "Enter the envelope at CG 93.9 in and go up to 4 748 lb.",
+      "Check against the aft limit (94.6 in) and the fwd limit (≈90.8 in at this mass).",
+      "93.9 in lies between the limits → within the envelope. Re-check the landing CG after fuel burn the same way.",
+    ],
+    answer: "TOM 4 748 lb, CG 93.9 in — inside the envelope (fwd 90.8 / aft 94.6). Confirm on CAP 696 Fig 3.3.",
+    difficulty: "hard",
+    graph: {
+      x: { label: "CG — inches aft of datum", min: 80, max: 96, step: 2 },
+      y: { label: "Weight — lb", min: 3000, max: 4800, step: 200 },
+      curves: [
+        { label: "Fwd limit", pts: [[82, 3200], [82, 3400], [90.8, 4750]] },
+        { label: "Aft limit", pts: [[94.6, 3200], [94.6, 4750]] },
+        { label: "MTOM 4 750", pts: [[90.8, 4750], [94.6, 4750]] },
+      ],
+      red: [[93.9, 3000], [93.9, 4748]],
+      readout: "TOM 4 748 lb @ 93.9 in ✓",
+    },
+  },
 ];
 
 import { FPP_GUIDE_PLOTTING } from "@/app/data/fpp-plotting-guide";
