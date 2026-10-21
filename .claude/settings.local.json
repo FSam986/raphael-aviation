@@ -103,7 +103,9 @@
       "Bash(sips -g pixelWidth -g pixelHeight \"/Users/fathimasamreen/Desktop/met images/pilot_simulator_image_pack/02_four_stroke_cycle.png\")",
       "Bash(node -e \"try{require\\('sharp'\\);console.log\\('sharp ok'\\)}catch\\(e\\){console.log\\('no sharp require'\\)}\")",
       "Bash(node -e ' *)",
-      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/fathimasamreen/Desktop/met images/pilot_simulator_image_pack/04_airfoil_aerodynamics.png\")"
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/fathimasamreen/Desktop/met images/pilot_simulator_image_pack/04_airfoil_aerodynamics.png\")",
+      "Bash(rm -f public/sims/4stroke_*.png public/sims/airfoil_*.png)",
+      "Bash(sed -i '' 's|if \\(!session\\) { setUserName\\(\"Fathima\"\\); setLoading\\(false\\); return; } // TEMP-PREVIEW-BYPASS|if \\(!session\\) { router.push\\(\"/login\"\\); return; }|' src/app/hooks/useAuthGuard.ts)"
     ]
   }
 }
