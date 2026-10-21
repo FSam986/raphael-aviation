@@ -12,6 +12,13 @@ export interface ATGFlashcard {
 }
 
 export const AIRCRAFT_TECHNICAL_FLASHCARDS: ATGFlashcard[] = [
+  // ───────── A.1.1 Elements (valves, bearings, pumps, filters) ─────────
+  { id: "ATGFC-11a-01", sectionId: "A.1.1", front: "Non-return (check) valve vs pressure-relief valve?", back: "A check (non-return) valve allows flow in one direction only. A pressure-relief valve opens at a set pressure to protect the system from over-pressure, returning fluid to the reservoir.", difficulty: "medium" },
+  { id: "ATGFC-11a-02", sectionId: "A.1.1", front: "Selector, restrictor & thermal-relief valves?", back: "Selector valve directs flow to a chosen service; restrictor (one-way) slows flow in one direction (e.g. gear/flap damping); thermal-relief valve relieves pressure caused by fluid thermal expansion in a closed line.", difficulty: "medium" },
+  { id: "ATGFC-11a-03", sectionId: "A.1.1", front: "Plain vs ball/roller bearings?", back: "Plain bearings (bushes/split) carry radial load with a large contact area and are cheap/quiet; ball and roller (anti-friction) bearings reduce friction and carry higher speeds — rollers take more radial load, ball bearings also take axial (thrust) loads.", difficulty: "medium" },
+  { id: "ATGFC-11a-04", sectionId: "A.1.1", front: "Pump types — positive-displacement vs non-positive?", back: "Positive-displacement (gear, vane, piston, diaphragm) move a fixed volume per revolution and can build high pressure — used for hydraulics. Centrifugal pumps are non-positive (boost/fuel) — high flow, low pressure, won't dead-head.", difficulty: "hard" },
+  { id: "ATGFC-11a-05", sectionId: "A.1.1", front: "Filters — micron rating, bypass & sediment traps?", back: "Filters are rated in microns (smaller = finer). A bypass (relief) valve lets fluid pass if the filter clogs, so the system keeps working (unfiltered). Strainers/sediment traps catch coarse debris and water at low points.", difficulty: "medium" },
+
   // ───────── A.1.1 Structures ─────────
   { id: "ATGFC-11-01", sectionId: "A.1.2", front: "Design Ultimate Load (DUL)?", back: "DLL × 1.5 safety factor — the structure must not fail below it.", difficulty: "medium" },
   { id: "ATGFC-11-02", sectionId: "A.1.2", front: "What does the wing main spar carry?", back: "Bending (and a share of torsional) loads.", difficulty: "medium" },

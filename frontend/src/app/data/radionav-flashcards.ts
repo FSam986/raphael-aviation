@@ -48,6 +48,16 @@ export const RADIONAV_FLASHCARDS: AirLawFlashcard[] = [
   { id: "RNFC-110-2", sectionId: "A.10.10", front: "ELT/COSPAS-SARSAT detail?", back: "406 MHz is satellite-detected (digital, encodes a unique ID & often GPS position); 121.5 MHz is the homing/analogue beacon no longer satellite-monitored. VHF emergency = 121.5 MHz (guard).", difficulty: "medium" },
   { id: "RNFC-111-2", sectionId: "A.10.11", front: "RNAV / PBN specs (table)?", back: "RNAV 10 (±10 NM oceanic) · RNAV 5/B-RNAV (±5 NM) · RNAV 1 & P-RNAV (±1 NM) · RNP APCH (±0.3 NM). 'RNP' adds on-board performance monitoring & alerting; 'RNAV' does not.", difficulty: "hard" },
   { id: "RNFC-112-3", sectionId: "A.10.12", front: "GNSS systems & augmentation?", back: "GPS (USA) · GLONASS (RU) · Galileo (EU) · BeiDou (CN). Augmentation: SBAS (e.g. WAAS/EGNOS, wide-area) & GBAS (local, for precision approach). L1 C/A = 1575.42 MHz.", difficulty: "medium" },
+
+  // A.10.7 SSR / transponder
+  { id: "RNFC-107-1", sectionId: "A.10.7", front: "SSR interrogation/reply frequencies?", back: "Ground interrogates on 1030 MHz; the transponder replies on 1090 MHz. An ACTIVE coded reply (not a skin echo) — so the display is free of weather/ground clutter.", difficulty: "medium" },
+  { id: "RNFC-107-2", sectionId: "A.10.7", front: "SSR modes A / C / S?", back: "Mode A = 4-digit identity (squawk); Mode C = pressure altitude (1013, ±50 ft to ATC); Mode S = selective, unique 24-bit address + data link (underpins ACAS/TCAS and ADS-B).", difficulty: "medium" },
+  { id: "RNFC-107-3", sectionId: "A.10.7", front: "Squawk codes & special codes?", back: "4 octal digits = 4096 codes (all modes). 7500 hijack · 7600 radio failure · 7700 emergency · 2000 entering SSR airspace · 7000 VFR conspicuity. Set codes in STANDBY.", difficulty: "medium" },
+  { id: "RNFC-107-4", sectionId: "A.10.7", front: "SSR advantages over primary radar?", back: "Strong coded reply (far less power), positive identification and altitude read-out. P2 pulse = side-lobe suppression; garbling if two aircraft reply together at a similar range.", difficulty: "hard" },
+  // A.10.8 Airborne weather radar
+  { id: "RNFC-108-1", sectionId: "A.10.8", front: "Airborne weather radar — band & principle?", back: "Active primary radar, X-band (~9.3 GHz / ~3 cm). Reflects off precipitation (bigger droplets = stronger return), colour-coded green→yellow→red→magenta (magenta = heaviest).", difficulty: "medium" },
+  { id: "RNFC-108-2", sectionId: "A.10.8", front: "TILT, GAIN and beam types?", back: "TILT scans weather at different heights and avoids ground returns; GAIN sets sensitivity. Pencil beam for weather; cosecant fan beam for ground mapping (≤~60 NM).", difficulty: "medium" },
+  { id: "RNFC-108-3", sectionId: "A.10.8", front: "Weather-radar hazards: attenuation & gradients?", back: "Heavy rain close in absorbs the beam and hides stronger cells behind it (radar shadow). Steep colour gradients/hooks = severe turbulence/hail — avoid cells by 10–20 NM. It can't see dry turbulence or thin cloud.", difficulty: "hard" },
 ];
 
 export function getRadioNavFlashcardsBySection(sectionId: string): AirLawFlashcard[] {

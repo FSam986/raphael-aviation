@@ -6,6 +6,7 @@ import { FPP_ALL_QUESTIONS, getFPPQuestionsBySection } from "@/app/data/fpp-ques
 import { getFPPFlashcardsBySection } from "@/app/data/fpp-flashcards";
 import { getFPPNoteBySection } from "@/app/data/fpp-notes";
 import { getAircraftTechnicalNote } from "@/app/data/aircraft-technical-notes";
+import { getAircraftTechnicalFlashcardsBySection } from "@/app/data/aircraft-technical-flashcards";
 import { getFPPPlottingBySection, type PlottingQuestion } from "@/app/data/fpp-plotting";
 import { IR_FPP_MINED_QUESTIONS, getIRFppMinedQuestionsBySection } from "@/app/data/ir-fpp-questions";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
@@ -37,7 +38,15 @@ export function getIRFppQuestionsBySection(s: string): AirLawQuestion[] {
   // which has no CPL FPP source).
   return [...(MAP[s] ?? []).flatMap((c) => getFPPQuestionsBySection(c)), ...getIRFppMinedQuestionsBySection(s)];
 }
+const C413_FLASHCARDS: AirLawFlashcard[] = [
+  { id: "IRFPPFC-413-1", sectionId: "C.4.13", front: "Documents to carry for an IFR flight?", back: "C of R, C of A, radio station licence, mass & balance data, AFM/POH, certificate of release to service, insurance, crew licences/medicals, flight folio and the operational flight plan.", difficulty: "medium" },
+  { id: "IRFPPFC-413-2", sectionId: "C.4.13", front: "MEL vs MMEL?", back: "The MMEL is the manufacturer's master list; the operator's MEL is approved from it and is aircraft/operator-specific. An inoperative item NOT covered by the MEL makes the aircraft unairworthy — you may not depart.", difficulty: "hard" },
+  { id: "IRFPPFC-413-3", sectionId: "C.4.13", front: "NOTAM vs AIP vs AIC?", back: "NOTAM = time-critical notices (unserviceabilities, hazards, airspace), checked for departure/destination/alternates/en-route. AIP = permanent info (GEN/ENR/AD). AIC = advisory/explanatory circulars.", difficulty: "medium" },
+];
+
 export function getIRFppFlashcardsBySection(s: string): AirLawFlashcard[] {
+  if (s === "C.4.1") return getAircraftTechnicalFlashcardsBySection("A.1.8") as AirLawFlashcard[]; // aerodynamics
+  if (s === "C.4.13") return C413_FLASHCARDS;
   return (MAP[s] ?? []).flatMap((c) => getFPPFlashcardsBySection(c));
 }
 // Sections with no CPL FPP note source: C.4.1 aerodynamics reuses the CPL

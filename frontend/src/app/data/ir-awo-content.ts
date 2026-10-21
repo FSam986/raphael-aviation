@@ -28,7 +28,28 @@ export function getIRAwoQuestionsBySection(s: string): AirLawQuestion[] {
   // questions are already tagged with their own C.3.x section id.
   return [...(MAP[s] ?? []).flatMap((c) => getAirLawQuestionsBySection(c)), ...getIRAwoMinedQuestionsBySection(s)];
 }
+const AWO_AUTHORED_FC: Record<string, AirLawFlashcard[]> = {
+  "C.3.2": [
+    { id: "IRAWOFC-32-1", sectionId: "C.3.2", front: "PANS-OPS obstacle clearance — primary vs secondary area?", back: "The protected area has a full-width primary area (full MOC applied) and tapering secondary areas either side where the obstacle clearance reduces linearly to zero at the outer edge.", difficulty: "hard" },
+    { id: "IRAWOFC-32-2", sectionId: "C.3.2", front: "Minimum obstacle clearance (MOC) en-route / approach?", back: "En-route MOC 1000 ft (2000 ft over high/mountainous terrain). Initial approach 1000 ft; intermediate 500 ft; final (non-precision) 250 ft (typical). ICAO Doc 8168 (PANS-OPS).", difficulty: "hard" },
+  ],
+  "C.3.3": [
+    { id: "IRAWOFC-33-1", sectionId: "C.3.3", front: "QNH / QFE / QNE?", back: "QNH = altitude AMSL; QFE = height above the aerodrome (0 on the runway); QNE = 1013.25 hPa standard setting for flight levels. 1 hPa ≈ 30 ft.", difficulty: "medium" },
+    { id: "IRAWOFC-33-2", sectionId: "C.3.3", front: "Transition altitude / level / layer?", back: "Below the transition altitude fly altitudes on QNH; above the transition level fly flight levels on 1013. Set 1013 climbing through the TA; set QNH descending through the TL. The layer lies between them.", difficulty: "medium" },
+    { id: "IRAWOFC-33-3", sectionId: "C.3.3", front: "Cold-temperature altimetry error?", back: "In air colder than ISA the true altitude is LOWER than indicated ('hot to cold, look out below'). Apply the cold-temperature correction (add height) to minima/crossing altitudes, especially over high terrain in winter.", difficulty: "hard" },
+  ],
+  "C.3.4": [
+    { id: "IRAWOFC-34-1", sectionId: "C.3.4", front: "SID straight vs turning departure?", back: "Straight: initial track within 15° of the extended centreline. Turning: a turn >15°; a turn is not specified until ≥120 m (394 ft) obstacle clearance is assured, normally above 500 ft AGL.", difficulty: "medium" },
+    { id: "IRAWOFC-34-2", sectionId: "C.3.4", front: "Procedure Design Gradient (PDG)?", back: "The minimum climb gradient a SID guarantees obstacle clearance on — standard 3.3% (200 ft/NM). A steeper published PDG must be met or the SID cannot be used at that mass.", difficulty: "hard" },
+  ],
+  "C.3.6": [
+    { id: "IRAWOFC-36-1", sectionId: "C.3.6", front: "Approach segments (IAF/IF/FAF/MAPt)?", back: "Arrival → Initial (IAF) → Intermediate (IF) → Final (FAF) → Missed Approach Point (MAPt). STAR links the en-route structure to the IAF.", difficulty: "medium" },
+    { id: "IRAWOFC-36-2", sectionId: "C.3.6", front: "DA/DH vs MDA/MDH?", back: "Precision/APV approach uses a Decision Altitude/Height (you may go below while going around). Non-precision uses a Minimum Descent Altitude/Height (must not descend below it without the required visual reference).", difficulty: "hard" },
+  ],
+};
+
 export function getIRAwoFlashcardsBySection(s: string): AirLawFlashcard[] {
+  if (AWO_AUTHORED_FC[s]) return AWO_AUTHORED_FC[s];
   return (MAP[s] ?? []).flatMap((c) => getAirLawFlashcardsBySection(c));
 }
 export function getIRAwoNoteBySection(s: string): AirLawSectionNote | undefined {
