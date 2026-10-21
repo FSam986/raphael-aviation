@@ -684,6 +684,113 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     answer: "Gradient = (300 ÷ 102) × (6000 ÷ 6080) ≈ 2.9% — above the 0.75% minimum.",
     difficulty: "hard",
   },
+
+  // ===== A.4.10 — MEP1 cruise performance (CAP 697 Section 3) =====
+  {
+    id: "PLOT-410-015",
+    sectionId: "A.4.10",
+    graphRef: "CAP 697 · MEP1 · Figure 3.4 — Speed v Power (True Airspeed)",
+    diagram: "cruise",
+    given: ["OAT +13 °C", "Pressure altitude 16 500 ft", "Power 55%", "Mixture leaned, cowl flaps closed, mid cruise mass 4 450 lb"],
+    ask: "Find the cruise true airspeed.",
+    steps: [
+      "Enter at OAT +13 °C, up to the 16 500 ft pressure-altitude line.",
+      "Across to the 55% power curve.",
+      "Read the true airspeed on the right-hand axis (≈ 172 kt).",
+    ],
+    answer: "TAS ≈ 172 kt. Confirm on CAP 697 Fig 3.4.",
+    difficulty: "hard",
+    graph: {
+      x: { label: "Outside air temperature — °C", min: -40, max: 40, step: 10 },
+      y: { label: "True airspeed — kt", min: 120, max: 200, step: 20 },
+      curves: [
+        { label: "45%", pts: [[-40, 164], [13, 155], [40, 150]] },
+        { label: "55%", pts: [[-40, 182], [13, 172], [40, 166]] },
+        { label: "65%", pts: [[-40, 192], [13, 182], [40, 176]] },
+        { label: "75%", pts: [[-40, 199], [13, 190], [40, 184]] },
+      ],
+      red: [[13, 120], [13, 172], [40, 172]],
+      readout: "TAS ≈ 172 kt",
+    },
+  },
+  {
+    id: "PLOT-410-016",
+    sectionId: "A.4.10",
+    graphRef: "CAP 697 · MEP1 · Figure 3.5 — Endurance",
+    diagram: "cruise",
+    given: ["Cruise pressure altitude 16 500 ft", "Power 45%", "Usable fuel 123 US gal", "Mixture leaned, cowl flaps closed"],
+    ask: "Find the safe endurance (45 min reserve) and the maximum endurance (no reserve).",
+    steps: [
+      "Enter the left axis at the cruise pressure altitude (16 500 ft).",
+      "Move across to the 45% power grid line — read the SAFE endurance (with 45 min reserve) ≈ 6.2 hr.",
+      "Move to the 'no reserve' 45% line for the MAXIMUM endurance ≈ 6.95 hr.",
+    ],
+    answer: "Safe endurance ≈ 6.2 hr (45 min reserve); maximum endurance ≈ 6.95 hr. Confirm on CAP 697 Fig 3.5.",
+    difficulty: "hard",
+    graph: {
+      x: { label: "Pressure altitude — ft", min: 5000, max: 25000, step: 5000 },
+      y: { label: "Endurance — hr", min: 3, max: 8, step: 1 },
+      curves: [
+        { label: "45% (no reserve)", pts: [[5000, 7.6], [16500, 6.95], [25000, 6.3]] },
+        { label: "45% (45 min reserve)", pts: [[5000, 6.9], [16500, 6.2], [25000, 5.6]] },
+        { label: "55%", pts: [[5000, 5.6], [16500, 5.0], [25000, 4.5]] },
+        { label: "65%", pts: [[5000, 4.6], [16500, 4.1], [25000, 3.7]] },
+      ],
+      red: [[16500, 3], [16500, 6.2]],
+      readout: "Safe ≈ 6.2 hr / Max ≈ 6.95 hr",
+    },
+  },
+  {
+    id: "PLOT-410-017",
+    sectionId: "A.4.10",
+    graphRef: "CAP 697 · MEP1 · Figure 3.6 — Fuel, Time and Distance to Descend",
+    diagram: "cruise",
+    given: [
+      "Cruise altitude 16 500 ft, OAT +13 °C",
+      "Destination altitude 3 000 ft, OAT +22 °C",
+      "145 kt IAS, 1 000 fpm descent, no wind",
+    ],
+    ask: "Find the fuel, time and distance for the descent.",
+    steps: [
+      "At cruise: enter +13 °C, up to 16 500 ft, read ≈ 6 US gal, 16 min, 45 NM.",
+      "At destination: enter +22 °C, up to 3 000 ft, read ≈ 1 US gal, 3 min, 8 NM.",
+      "Subtract: fuel 6−1, time 16−3, distance 45−8.",
+    ],
+    answer: "Descent = 5 US gal, 13 min, 37 NM. Confirm on CAP 697 Fig 3.6.",
+    difficulty: "hard",
+  },
+
+  // ===== A.4.9 — SEP1 cruise power settings table (CAP 697 Table 2.2.x) =====
+  {
+    id: "PLOT-49-008",
+    sectionId: "A.4.9",
+    graphRef: "CAP 697 · SEP1 · Table 2.2.1 — Recommended Cruise Power (25 in Hg / 2 500 rpm)",
+    diagram: "cruise",
+    given: ["Table 2.2.1 (25.0 in Hg / 2 500 rpm, cruise lean, 3 400 lb)", "ISA deviation 0 °C", "Pressure altitude 8 000 ft"],
+    ask: "Read the manifold pressure, fuel flow and airspeeds.",
+    steps: [
+      "Select the correct table (2.2.1 for 25 in Hg / 2 500 rpm) and the ISA-deviation block (0 °C).",
+      "Enter at the 8 000 ft row (IOAT +2 °C).",
+      "Read across: MAP 22.3 in Hg, fuel flow 79.3 PPH (13.2 GPH), 152 KIAS, 169 KTAS. Shaded = full-throttle operation.",
+    ],
+    answer: "MAP 22.3 in Hg, fuel flow 79.3 PPH / 13.2 GPH, 152 KIAS, 169 KTAS. Confirm on CAP 697 Table 2.2.1.",
+    difficulty: "medium",
+  },
+  {
+    id: "PLOT-49-009",
+    sectionId: "A.4.9",
+    graphRef: "CAP 697 · SEP1 — Economy vs recommended cruise fuel flow",
+    diagram: "cruise",
+    given: ["Pressure altitude 8 000 ft, ISA deviation 0 °C", "Compare 2 500 rpm (Table 2.2.1) with 2 100 rpm (Table 2.2.2)"],
+    ask: "How much fuel flow is saved by the lower-rpm economy setting?",
+    steps: [
+      "Table 2.2.1 (2 500 rpm) at 8 000 ft / ISA 0: fuel flow 79.3 PPH (13.2 GPH), 169 KTAS.",
+      "Table 2.2.2 (2 100 rpm) at 8 000 ft / ISA 0: fuel flow 61.9 PPH (10.3 GPH), 148 KTAS.",
+      "Saving ≈ 17.4 PPH (2.9 GPH) for ≈ 21 kt less TAS — the economy/endurance trade-off.",
+    ],
+    answer: "2 500 rpm: 79.3 PPH / 169 KTAS. 2 100 rpm: 61.9 PPH / 148 KTAS. Economy setting saves ≈ 2.9 GPH for ≈ 21 kt less speed.",
+    difficulty: "medium",
+  },
 ];
 
 import { FPP_GUIDE_PLOTTING } from "@/app/data/fpp-plotting-guide";
