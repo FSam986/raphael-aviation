@@ -32,6 +32,7 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Aircraft Technical & General",
     examQuestions: 50,
     passPercent: 75,
+    examMinutes: 120, // public-source estimate; confirm vs SA-CATS 61
     sections: [
       {
         id: "A.1.1",
@@ -149,6 +150,7 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Air Law",
     examQuestions: 40,
     passPercent: 75,
+    examMinutes: 90, // public-source estimate; confirm vs SA-CATS 61
     sections: [
       {
         id: "A.3.1",
@@ -290,6 +292,7 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Flight Planning & Performance",
     examQuestions: 50,
     passPercent: 75,
+    examMinutes: 150, // public-source estimate; confirm vs SA-CATS 61
     sections: [
       {
         id: "A.4.1",
@@ -404,6 +407,7 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Human Performance & Limitations",
     examQuestions: 40,
     passPercent: 75,
+    examMinutes: 75, // public-source estimate; confirm vs SA-CATS 61
     sections: [
       {
         id: "A.6.1",
@@ -467,6 +471,7 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Flight Instruments",
     examQuestions: 40,
     passPercent: 75,
+    examMinutes: 90, // public-source estimate; confirm vs SA-CATS 61
     sections: [
       {
         id: "A.7.1",
@@ -548,7 +553,7 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Meteorology",
     examQuestions: 40,
     passPercent: 75,
-    examMinutes: 120, // ponytail: confirm against SACAA appendix; update if different
+    examMinutes: 90, // public-source estimate; confirm vs SA-CATS 61
     sections: [
       {
         id: "A.8.1",
@@ -751,6 +756,7 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Navigation",
     examQuestions: 40,
     passPercent: 75,
+    examMinutes: 150, // public-source estimate; confirm vs SA-CATS 61
     sections: [
       {
         id: "A.9.1",
@@ -833,6 +839,7 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
     title: "Radio Navigation & Communications",
     examQuestions: 40,
     passPercent: 75,
+    examMinutes: 90, // public-source estimate; confirm vs SA-CATS 61
     sections: [
       {
         id: "A.10.1",
