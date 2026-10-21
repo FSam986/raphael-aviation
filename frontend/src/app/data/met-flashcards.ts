@@ -154,6 +154,20 @@ export const MET_FLASHCARDS: MetFlashcard[] = [
   { id: "FC-A821-05", sectionId: "A.8.21", front: "SIGMET purpose?", back: "Warns of en-route weather hazardous to aircraft (Cb, TS, severe ice/turb, volcanic ash, TC).", difficulty: "medium" },
   { id: "FC-A821-06", sectionId: "A.8.21", front: "METAR pressure group?", back: "QNH rounded DOWN to the nearest whole hectopascal, e.g. Q1013.", difficulty: "medium" },
   // __FLASHCARDS_INSERT_POINT__
+
+  // ───── Numbers & tables to memorise (added) ─────
+  { id: "FC-NUM-01", sectionId: "A.8.1", front: "ISA sea-level values (memorise)", back: "Pressure 1013.25 hPa · Temperature +15°C (288 K) · Density 1.225 kg/m³ · Lapse 1.98°C/1000 ft (≈2°C) to 36 090 ft, then isothermal −56.5°C.", difficulty: "medium" },
+  { id: "FC-NUM-02", sectionId: "A.8.2", front: "Lapse rates (table)", back: "ISA/environmental ≈2°C/1000 ft. DALR = 3°C/1000 ft (dry/unsaturated). SALR ≈1.5°C/1000 ft (saturated, varies). Inversion = temp RISES with height.", difficulty: "medium" },
+  { id: "FC-NUM-03", sectionId: "A.8.3", front: "Pressure conversions & altimetry", back: "1 hPa ≈ 30 ft near MSL (27 ft) · 1 inHg = 33.86 hPa · 1013 hPa = 29.92 inHg. QNH→PA: PA = elev + (1013−QNH)×30. 'High to low/ hot to cold — look out below'.", difficulty: "medium" },
+  { id: "FC-NUM-04", sectionId: "A.8.5", front: "Saturation & dewpoint numbers", back: "Cloud base (ft) ≈ (Temp − Dewpoint) ÷ 2.5 × 1000 (≈400 ft per °C spread). RH = (actual ÷ saturation vapour pressure) × 100%. Dewpoint = temp at which air saturates.", difficulty: "medium" },
+  { id: "FC-NUM-05", sectionId: "A.8.9", front: "Cloud base/top heights (table)", back: "Low <6500 ft (ST, SC, CU, CB base). Medium 6500–23 000 ft (AS, AC, NS). High >16 500–45 000 ft (CI, CC, CS). CB can tower from <2000 ft to the tropopause.", difficulty: "medium" },
+  { id: "FC-NUM-06", sectionId: "A.8.12", front: "Airframe icing temperature bands", back: "Clear ice: 0 to −10°C (large drops, worst). Mixed: −10 to −15°C. Rime: −15 to −40°C (small drops). Most severe icing 0 to −20°C in cloud; little below −40°C.", difficulty: "medium" },
+  { id: "FC-NUM-07", sectionId: "A.8.10", front: "Thunderstorm stages & triggers", back: "Three conditions: instability + moisture + a lift/trigger. Stages: cumulus (updraught) → mature (up+down draught, worst) → dissipating (downdraught). Hail, windshear, icing, lightning.", difficulty: "medium" },
+  { id: "FC-NUM-08", sectionId: "A.8.7", front: "Wind: geostrophic, gradient, Buys-Ballot", back: "Buys-Ballot (S hemisphere): back to the wind, LOW pressure is on your RIGHT. Surface wind backs & slows vs the 2000 ft wind (friction ~10–15°/30% over land). Gradient wind curves around isobars.", difficulty: "hard" },
+  { id: "FC-NUM-09", sectionId: "A.8.15", front: "Fog types & formation numbers", back: "Radiation fog: clear night, light wind (<5 kt), high humidity, over land. Advection fog: warm moist air over a cooler surface. Needs the temp–dewpoint spread to close (~0).", difficulty: "medium" },
+  { id: "FC-NUM-10", sectionId: "A.8.13", front: "Visibility categories & RVR", back: "Mist = vis ≥1000 m (RH high); Fog = vis <1000 m. Haze = dry particles. RVR reported when vis/RVR <1500 m. METAR visibility in metres, 9999 = ≥10 km.", difficulty: "medium" },
+  { id: "FC-NUM-11", sectionId: "A.8.19", front: "Jet stream & tropopause numbers", back: "Polar-front jet near the tropopause ~30 000–40 000 ft, cores >60 kt (often 100–150+). CAT on the cold/poleward side. Tropopause ~36 000 ft mid-lat (higher/colder at the equator).", difficulty: "medium" },
+  { id: "FC-NUM-12", sectionId: "A.8.4", front: "Diurnal & temperature numbers", back: "Max temp ~1400–1500 local; min ~just after sunrise. Diurnal range largest with clear skies, light wind, dry air over land; smallest with cloud/wind/over sea.", difficulty: "easy" },
 ];
 
 /** All flashcards for one SACAA section. */

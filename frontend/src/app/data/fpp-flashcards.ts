@@ -60,6 +60,20 @@ export const FPP_FLASHCARDS: AirLawFlashcard[] = [
   { id: "FPPFC-413-02", sectionId: "A.4.13", front: "PNR (Point of No Return)?", back: "The furthest point you can fly and still return to base with the fuel available (allowing reserves). Determined by endurance, not just distance.", difficulty: "hard" },
   { id: "FPPFC-413-03", sectionId: "A.4.13", front: "Fuel order (CAR 91.07.12)?", back: "Taxi + trip + contingency + alternate + final reserve (+ additional/extra). Never plan below final reserve.", difficulty: "medium" },
   { id: "FPPFC-413-04", sectionId: "A.4.13", front: "Documents to carry?", back: "C of A, C of R, radio licence, mass & balance, AFM/POH, insurance, licences/medicals, flight plan/folio, NOTAM/MEL/AIP as applicable.", difficulty: "medium" },
+
+  // ───── Formulas & numbers to memorise (added) ─────
+  { id: "FPPFC-42-03", sectionId: "A.4.2", front: "Ultimate load & the lift/drag formulas?", back: "Ultimate = limit load × 1.5. Lift = ½ρV²·S·CL; Drag = ½ρV²·S·CD. Both vary with the SQUARE of speed (and with air density ρ).", difficulty: "hard" },
+  { id: "FPPFC-44-05", sectionId: "A.4.4", front: "Load factor & stall speed in a turn?", back: "Load factor n = 1 ÷ cos(bank). 30°→1.15 g, 45°→1.41 g, 60°→2 g. New stall speed = Vs × √n (e.g. 60° bank → stall speed × 1.41).", difficulty: "hard" },
+  { id: "FPPFC-44-06", sectionId: "A.4.4", front: "TAS rule of thumb from CAS?", back: "TAS ≈ CAS + 2% per 1000 ft (roughly). Local speed of sound a = 38.95 × √(T in K); Mach = TAS ÷ a.", difficulty: "medium" },
+  { id: "FPPFC-45-05", sectionId: "A.4.5", front: "Pressure altitude from QNH?", back: "Pressure alt = elevation + (1013 − QNH) × 30 ft. Then density alt = PA + 120 ft × (OAT − ISA). ISA temp = 15 − 2×(alt/1000) °C.", difficulty: "hard" },
+  { id: "FPPFC-47-05", sectionId: "A.4.7", front: "Climb gradient formula?", back: "Gradient (%) = (rate of climb ÷ groundspeed) × 100, with RoC in ft/min and GS in ft/min (or ×60/6080 for kt). Required: ~3.3% (Class B) first-segment net.", difficulty: "hard" },
+  { id: "FPPFC-47-06", sectionId: "A.4.7", front: "Glide ratio & distance?", back: "Glide distance = height × (L/D). A 10:1 glide from 5000 ft ≈ 8.2 NM still-air. Best glide speed gives max L/D; wind shifts the no-wind range.", difficulty: "medium" },
+  { id: "FPPFC-48-04", sectionId: "A.4.8", front: "Aquaplaning (hydroplaning) speed?", back: "Dynamic aquaplaning speed (kt) ≈ 9 × √(tyre pressure in psi) for a rotating tyre (7.7×√p stationary). On a contaminated runway the take-off run lengthens and braking is poor.", difficulty: "hard" },
+  { id: "FPPFC-48-05", sectionId: "A.4.8", front: "Take-off/landing distance rules of thumb?", back: "TOD roughly ∝ mass² and ∝ 1/ρ; +10% mass ≈ +20% TOD. A 10% tailwind component can add ~20% to the distance. Always apply the AFM factors, not thumb rules, for real planning.", difficulty: "medium" },
+  { id: "FPPFC-412-05", sectionId: "A.4.12", front: "Weight-shift & added-weight formulas?", back: "CG shift = (weight moved × distance moved) ÷ total mass. Added weight: new CG = (old moment + added mass×arm) ÷ (old mass + added mass).", difficulty: "hard" },
+  { id: "FPPFC-412-06", sectionId: "A.4.12", front: "%MAC formula?", back: "%MAC = ((CG station − LEMAC) ÷ MAC length) × 100. Convert a %MAC limit back to a station: station = LEMAC + (%/100 × MAC).", difficulty: "hard" },
+  { id: "FPPFC-413-05", sectionId: "A.4.13", front: "PET & PNR formulas?", back: "PET distance = (D × H) ÷ (O + H). PNR time = (E × H) ÷ (O + H). O = GS out, H = GS home, D = total distance, E = safe endurance.", difficulty: "hard" },
+  { id: "FPPFC-413-06", sectionId: "A.4.13", front: "Final reserve figures?", back: "Piston: 30 min at normal cruise. Turbine: 30 min holding at 1500 ft above the alternate. Contingency ≈ 5% of trip fuel. Never plan to land below final reserve.", difficulty: "medium" },
 ];
 
 export function getFPPFlashcardsBySection(sectionId: string): AirLawFlashcard[] {

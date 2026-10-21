@@ -39,6 +39,15 @@ export const RADIONAV_FLASHCARDS: AirLawFlashcard[] = [
   // A.10.12 GPS
   { id: "RNFC-112-1", sectionId: "A.10.12", front: "GPS constellation & satellites for a 3D fix?", back: "24 sats, 6 planes, 55° incl. 3 ranges = 2D; a 4th fixes clock bias for 3D. Civil C/A on L₁ 1575.42 MHz.", difficulty: "medium" },
   { id: "RNFC-112-2", sectionId: "A.10.12", front: "RAIM & GDOP?", back: "RAIM (receiver self-integrity check) needs a 5th satellite. GDOP is worst when satellites are close together.", difficulty: "hard" },
+
+  // ───── Frequencies & numbers to memorise (added) ─────
+  { id: "RNFC-101-5", sectionId: "A.10.1", front: "Frequency bands & aero uses (table)", back: "VLF 3–30 kHz · LF 30–300 kHz (NDB) · MF 300 kHz–3 MHz (NDB) · HF 3–30 MHz (oceanic) · VHF 30–300 MHz (COM 118–136.975, VOR 108–117.95, ILS LOC) · UHF 300 MHz–3 GHz (DME, GPS, GS) · SHF 3–30 GHz (radar).", difficulty: "hard" },
+  { id: "RNFC-101-6", sectionId: "A.10.1", front: "Propagation paths by band?", back: "Surface/ground wave: LF/MF. Sky wave (ionospheric refraction): HF. Space/line-of-sight: VHF and above. Static falls, line-of-sight dominates, as frequency rises.", difficulty: "medium" },
+  { id: "RNFC-103-5", sectionId: "A.10.3", front: "VOR/ILS frequency ranges & GP angle?", back: "VOR 108.00–117.95 MHz (odd .05 tenths = ILS LOC 108–111.975). Glidepath 329–335 MHz, nominal 3°. Markers 75 MHz (outer 400 Hz, middle 1300 Hz, inner 3000 Hz).", difficulty: "hard" },
+  { id: "RNFC-109-2", sectionId: "A.10.9", front: "Radio altimeter — use & callouts?", back: "Reads AGL 0–2500 ft; feeds the DH alert, auto callouts, GPWS/TAWS and autoland. Independent of QNH, but reads over the terrain under the approach (may differ from field elevation).", difficulty: "medium" },
+  { id: "RNFC-110-2", sectionId: "A.10.10", front: "ELT/COSPAS-SARSAT detail?", back: "406 MHz is satellite-detected (digital, encodes a unique ID & often GPS position); 121.5 MHz is the homing/analogue beacon no longer satellite-monitored. VHF emergency = 121.5 MHz (guard).", difficulty: "medium" },
+  { id: "RNFC-111-2", sectionId: "A.10.11", front: "RNAV / PBN specs (table)?", back: "RNAV 10 (±10 NM oceanic) · RNAV 5/B-RNAV (±5 NM) · RNAV 1 & P-RNAV (±1 NM) · RNP APCH (±0.3 NM). 'RNP' adds on-board performance monitoring & alerting; 'RNAV' does not.", difficulty: "hard" },
+  { id: "RNFC-112-3", sectionId: "A.10.12", front: "GNSS systems & augmentation?", back: "GPS (USA) · GLONASS (RU) · Galileo (EU) · BeiDou (CN). Augmentation: SBAS (e.g. WAAS/EGNOS, wide-area) & GBAS (local, for precision approach). L1 C/A = 1575.42 MHz.", difficulty: "medium" },
 ];
 
 export function getRadioNavFlashcardsBySection(sectionId: string): AirLawFlashcard[] {

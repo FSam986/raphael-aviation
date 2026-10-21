@@ -87,6 +87,16 @@ export const AIRLAW_FLASHCARDS: AirLawFlashcard[] = [
   { id: "LFC-A317-01", sectionId: "A.3.17", front: "MEA vs MOCA?", back: "MEA = navaid reception AND obstacle clearance on the airway; MOCA = obstacle clearance, navaid reception only near the navaid.", difficulty: "hard" },
   { id: "LFC-A317-02", sectionId: "A.3.17", front: "Reporting-point triangles?", back: "Solid triangle = compulsory reporting point; open triangle = on request.", difficulty: "medium" },
   { id: "LFC-A317-03", sectionId: "A.3.17", front: "Grid MORA?", back: "Minimum off-route altitude giving obstacle clearance off the airway within a defined grid area.", difficulty: "hard" },
+
+  // ───── Tables & numbers to memorise (added) ─────
+  { id: "LFC-NUM-01", sectionId: "A.3.5", front: "Medical validity (table)", back: "Class 1 (CPL/ATPL): 12 months — 6 months if single-pilot commercial pax ops or age 60+. Class 2 (PPL): 60 months <40 yr · 24 months 40–<50 · 12 months 50+. Class 3 (ATC): 48/24/12 similarly.", difficulty: "hard" },
+  { id: "LFC-NUM-02", sectionId: "A.3.6", front: "VFR VMC minima (table, CAR 91.06.21)", back: "CTR/ATZ: 5 km vis, 600 m horiz / 500 ft vert from cloud, ceiling ≥1500 ft. ≥10 000 ft: 8 km, 1500 m/1000 ft. 3000–10 000 ft: 5 km, 1500 m/1000 ft. ≤3000 ft Class C 5 km 1500 m/1000 ft; Class F/G 5 km clear of cloud, surface in sight.", difficulty: "hard" },
+  { id: "LFC-NUM-03", sectionId: "A.3.6", front: "Semi-circular cruising levels", back: "By magnetic track: 000–179° = ODD thousands; 180–359° = EVEN thousands (IFR). VFR adds +500 ft. Exempt below 1500 ft AGL; FL200+ must be IFR.", difficulty: "medium" },
+  { id: "LFC-NUM-04", sectionId: "A.3.6", front: "Minimum heights & fuel reserve", back: "≥500 ft from any person/vessel/vehicle/structure; ≥1000 ft above the highest obstacle within 600 m over a congested area. Final reserve: piston 30 min cruise; turbine 30 min holding at 1500 ft.", difficulty: "medium" },
+  { id: "LFC-NUM-05", sectionId: "A.3.6", front: "Right of way (table)", back: "Converging: aircraft on the other's RIGHT has priority. Head-on: both turn RIGHT. Overtaking: alter RIGHT, keep clear. Priority (least manoeuvrable first): balloon > glider > airship > powered; distress & landing aircraft have priority.", difficulty: "medium" },
+  { id: "LFC-NUM-06", sectionId: "A.3.4", front: "Passenger recency & licence ages", back: "Carry passengers: 3 take-offs + 3 landings in last 90 days (3 by night for night pax). PPL age 17 (solo 16), Class 2; CPL age 18, Class 1; ATPL 21.", difficulty: "medium" },
+  { id: "LFC-NUM-07", sectionId: "A.3.14", front: "Airspace classes (table)", back: "A: IFR only. B: IFR+VFR, all separated. C: IFR separated from all; VFR separated from IFR + traffic info. D: IFR separated from IFR; traffic info on VFR. E: IFR separated from IFR; VFR free. F: advisory. G: uncontrolled. A–E controlled.", difficulty: "hard" },
+  { id: "LFC-NUM-08", sectionId: "A.3.2", front: "Accident-report & injury numbers", back: "Serious injury = >48 h hospitalisation (within 7 days) / any fracture except fingers-toes-nose / burns >5% body. Fatal = death within 30 days. Report accidents/serious incidents to the AIID without delay.", difficulty: "medium" },
 ];
 
 export function getAirLawFlashcardsBySection(sectionId: string): AirLawFlashcard[] {

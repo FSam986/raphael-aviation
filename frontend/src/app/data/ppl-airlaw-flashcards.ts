@@ -43,6 +43,16 @@ export const PPL_AIRLAW_FLASHCARDS: AirLawFlashcard[] = [
   { id: "PFC-57-01", sectionId: "5.7", front: "The three SAR phases?", back: "Uncertainty (INCERFA) → Alert (ALERFA) → Distress (DETRESFA).", difficulty: "medium" },
   { id: "PFC-57-02", sectionId: "5.7", front: "Ground-air signals V and X?", back: "V = require assistance; X = require medical assistance.", difficulty: "medium" },
   { id: "PFC-57-03", sectionId: "5.7", front: "Purpose of an accident investigation (Annex 13)?", back: "Prevention of future accidents/incidents — never to apportion blame.", difficulty: "easy" },
+
+  // ───── Tables & numbers to memorise (added) ─────
+  { id: "PFC-NUM-01", sectionId: "4", front: "Light-gun signals (table)", back: "STEADY GREEN = cleared land/take-off · STEADY RED = give way/stop · FLASHING GREEN = cleared to taxi / return to land · FLASHING RED = taxi clear / aerodrome unsafe · FLASHING WHITE = return to start · RED pyro = do not land for now.", difficulty: "hard" },
+  { id: "PFC-NUM-02", sectionId: "4", front: "PAPI on-slope & declared distances", back: "PAPI on slope = 2 white + 2 red ('red over white, you're alright'; all red = too low, all white = too high). Declared distances: TORA, TODA (+clearway), ASDA (+stopway), LDA.", difficulty: "medium" },
+  { id: "PFC-NUM-03", sectionId: "5.1", front: "Injury & occurrence numbers", back: "Serious injury = >48 h hospitalisation (within 7 days) / any fracture except fingers-toes-nose / burns >5% body. Fatal = death within 30 days. Night = sun 6° below horizon (civil twilight).", difficulty: "medium" },
+  { id: "PFC-NUM-04", sectionId: "5.3", front: "PPL(A) key numbers", back: "Age 17 (solo 16), Class 2 medical, English Level 4. 45 h total (≤5 h FSTD); ≥25 h dual; ≥15 h PIC incl ≥5 h solo X-C with one ≥150 NM landing at 2 other aerodromes. No flying for reward.", difficulty: "hard" },
+  { id: "PFC-NUM-05", sectionId: "5.4", front: "Class 2 medical validity (table)", back: "Valid 60 months if <40 yr · 24 months 40–<50 · 12 months 50+. Self-ground when unfit; report illness/injury expected to last >21 days. Issued by a DAME.", difficulty: "medium" },
+  { id: "PFC-NUM-06", sectionId: "5.5", front: "VFR VMC minima (table)", back: "CTR/ATZ: 5 km vis, 600 m/500 ft from cloud, ceiling ≥1500 ft. ≤3000 ft Class F/G: 5 km, clear of cloud, surface in sight. Not above 3/8 cloud within 5 NM. Special VFR (CTR): DAY, ceiling ≥600 ft, vis ≥1500 m.", difficulty: "hard" },
+  { id: "PFC-NUM-07", sectionId: "5.5", front: "Semi-circular rule & fuel/recency", back: "Magnetic track 000–179° odd thousands; 180–359° even (IFR); VFR +500 ft. Passenger recency: 3 T/O + 3 landings in 90 days (3 by night for night pax). Piston final reserve 30 min.", difficulty: "medium" },
+  { id: "PFC-NUM-08", sectionId: "5.5", front: "RCF squawk & VFR join", back: "Radio-comms failure: squawk 7600. VFR: continue in VMC, blind-broadcast intentions, lights on, join OVERHEAD 1000 ft above circuit, land, log it. (7500 hijack, 7700 emergency.)", difficulty: "medium" },
 ];
 
 export function getPPLAirLawFlashcardsBySection(sectionId: string): AirLawFlashcard[] {

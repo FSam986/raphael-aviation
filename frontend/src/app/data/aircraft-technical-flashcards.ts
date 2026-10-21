@@ -121,6 +121,28 @@ export const AIRCRAFT_TECHNICAL_FLASHCARDS: ATGFlashcard[] = [
   { id: "ATGFC-18-12", sectionId: "A.1.8", front: "What is VA and why respect it?", back: "Manoeuvre speed (varies with mass); above it, full control deflection can overstress the airframe.", difficulty: "hard" },
   { id: "ATGFC-18-13", sectionId: "A.1.8", front: "Transonic range, and Mach in a constant-IAS climb?", back: "Transonic ≈ MCRIT to M1.3; climbing at constant IAS, Mach increases.", difficulty: "hard" },
   { id: "ATGFC-18-14", sectionId: "A.1.8", front: "Advantage of a constant-speed propeller?", back: "Keeps the blade near its best angle of attack across the whole speed range (fine pitch + high RPM for take-off).", difficulty: "medium" },
+
+  // ───────── A.1.4 Piston engine (added) ─────────
+  { id: "ATGFC-14-01", sectionId: "A.1.4", front: "The four strokes (Otto cycle)?", back: "Induction → Compression → Power (combustion) → Exhaust. 'Suck, squeeze, bang, blow'. One power stroke every 2 crankshaft revolutions (720°).", difficulty: "easy" },
+  { id: "ATGFC-14-02", sectionId: "A.1.4", front: "Compression ratio — definition & typical value?", back: "Ratio of cylinder volume at BDC to volume at TDC (total ÷ clearance volume). Typical light-aero piston ≈ 8.5:1 to 10:1. Higher ratio → more power but more detonation risk.", difficulty: "medium" },
+  { id: "ATGFC-14-03", sectionId: "A.1.4", front: "BHP, IHP, FHP relationship?", back: "IHP (indicated) = power developed in the cylinders; FHP (friction) = power lost to friction; BHP (brake, usable at the shaft) = IHP − FHP. Mechanical efficiency = BHP ÷ IHP.", difficulty: "hard" },
+  { id: "ATGFC-14-04", sectionId: "A.1.4", front: "Detonation vs pre-ignition?", back: "Detonation = spontaneous explosive burn AFTER the spark (knock) from too-low octane / high CHT / lean mix at high power. Pre-ignition = mixture ignites BEFORE the spark (hot spot). Both overheat and damage the engine.", difficulty: "hard" },
+  { id: "ATGFC-14-05", sectionId: "A.1.4", front: "Magneto drop check limits?", back: "On each mag: a small RPM drop is normal (e.g. ≤125 RPM, max difference between mags ≤50 RPM — check the POH). A rising RPM when selecting a single mag or no drop = a dead/earth fault.", difficulty: "medium" },
+  { id: "ATGFC-14-06", sectionId: "A.1.4", front: "Mixture, altitude & EGT?", back: "Air density falls with altitude so the mixture richens — lean to maintain it. Peak EGT = chemically correct (stoichiometric) ~15:1; lean of peak = cooler/economy, rich of peak = cooler/more power.", difficulty: "medium" },
+  { id: "ATGFC-14-07", sectionId: "A.1.4", front: "Carburettor icing — conditions & cure?", back: "Most likely at low power (descent) in +(-10) to +25°C with visible moisture/high humidity; temperature drops ~up to 30°C through the venturi. Cure: apply carb heat (expect a brief RPM drop then rise).", difficulty: "medium" },
+  { id: "ATGFC-14-08", sectionId: "A.1.4", front: "AVGAS grades & colours?", back: "100LL = blue (low lead); 100/130 = green; 80/87 = red; Jet A-1 = straw/clear (turbine, NOT for piston). Octane/performance number = anti-detonation rating.", difficulty: "medium" },
+
+  // ───────── A.1.5 Gas turbine (added) ─────────
+  { id: "ATGFC-15-01", sectionId: "A.1.5", front: "Gas-turbine working cycle & stations?", back: "Brayton cycle: INTAKE → COMPRESSOR → COMBUSTION → TURBINE → EXHAUST. 'Suck, squeeze, burn, blow' continuously. Pressure rises in the compressor, falls across the turbine; velocity highest at the jet pipe.", difficulty: "medium" },
+  { id: "ATGFC-15-02", sectionId: "A.1.5", front: "N1 / N2 / EPR / EGT — what do they measure?", back: "N1 = LP spool (fan) RPM %, N2 = HP spool %. EPR = engine pressure ratio (outlet ÷ inlet) — a thrust indication. EGT/TGT = exhaust/turbine gas temperature (a key limit, highest at start/take-off).", difficulty: "hard" },
+  { id: "ATGFC-15-03", sectionId: "A.1.5", front: "Compressor stall / surge — cause & recognition?", back: "Airflow separates from the compressor blades (AoA too high) from rapid throttle movement, damage or icing. Recognised by bangs, vibration, rising EGT and fluctuating RPM. Avoid by smooth power changes and bleed valves/variable stators.", difficulty: "hard" },
+  { id: "ATGFC-15-04", sectionId: "A.1.5", front: "Thrust formula & propulsive efficiency?", back: "Thrust = mass flow × (Vjet − Vaircraft) [+ pressure term]. High-bypass fans move MORE air at a LOWER velocity change → higher propulsive efficiency and lower fuel burn & noise.", difficulty: "hard" },
+  { id: "ATGFC-15-05", sectionId: "A.1.5", front: "Why variable stators / bleed valves?", back: "They keep the airflow angle onto the compressor blades correct across the RPM range, preventing stall/surge — especially at low RPM and during acceleration.", difficulty: "medium" },
+
+  // ───────── A.1.8 Principles — formulas (added) ─────────
+  { id: "ATGFC-18-15", sectionId: "A.1.8", front: "Lift & drag equations?", back: "L = ½ρV²·S·CL ; D = ½ρV²·S·CD. Both ∝ V² and ∝ air density ρ. S = wing area, CL/CD from angle of attack.", difficulty: "medium" },
+  { id: "ATGFC-18-16", sectionId: "A.1.8", front: "Stall speed vs weight & load factor?", back: "Vs ∝ √weight and ∝ √load factor. In a level turn Vs(new) = Vs × √n, where n = 1 ÷ cos(bank). 60° bank → 2 g → stall speed × 1.41.", difficulty: "hard" },
+  { id: "ATGFC-18-17", sectionId: "A.1.8", front: "Where is induced vs parasite drag greatest?", back: "Induced drag (∝ 1/V²) dominates at LOW speed/high AoA; parasite drag (∝ V²) dominates at HIGH speed. Total drag is minimum where they are equal — that speed gives max L/D (best glide/range).", difficulty: "medium" },
 ];
 
 export function getAircraftTechnicalFlashcardsBySection(sectionId: string): ATGFlashcard[] {
