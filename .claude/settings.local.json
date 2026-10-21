@@ -97,7 +97,13 @@
       "Bash(xargs ls -la)",
       "Bash(awk '{printf \"%7d KB %s\\\\n\", $5/1024, $9}')",
       "Bash(sort -k5 -rn)",
-      "Bash(awk '{printf \"%7d KB  %s\\\\n\", $5/1024, $9}')"
+      "Bash(awk '{printf \"%7d KB  %s\\\\n\", $5/1024, $9}')",
+      "Bash(python3 -I -c ' *)",
+      "Bash(./node_modules/.bin/..)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/fathimasamreen/Desktop/met images/pilot_simulator_image_pack/02_four_stroke_cycle.png\")",
+      "Bash(node -e \"try{require\\('sharp'\\);console.log\\('sharp ok'\\)}catch\\(e\\){console.log\\('no sharp require'\\)}\")",
+      "Bash(node -e ' *)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/fathimasamreen/Desktop/met images/pilot_simulator_image_pack/04_airfoil_aerodynamics.png\")"
     ]
   }
 }
