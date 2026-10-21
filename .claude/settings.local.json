@@ -92,7 +92,12 @@
       "Bash(python3 -c \"import json;json.load\\(open\\('aspect-map.json'\\)\\);print\\('valid json'\\)\")",
       "Bash(grep -iE \"\\\\.docx$\")",
       "Bash(grep -iE \"question.*\\\\.docx$|\\\\.docx$\")",
-      "Bash(awk '/graph: \\\\{/{f=1} f{print} /\\\\},$/&&f{c++; if\\(c>=1 && /^    graph:/==0 && /readout/\\){f=0}}' fpp-plotting.ts)"
+      "Bash(awk '/graph: \\\\{/{f=1} f{print} /\\\\},$/&&f{c++; if\\(c>=1 && /^    graph:/==0 && /readout/\\){f=0}}' fpp-plotting.ts)",
+      "Bash(awk '/Route \\\\\\(app\\\\\\)/,/First Load JS shared/')",
+      "Bash(xargs ls -la)",
+      "Bash(awk '{printf \"%7d KB %s\\\\n\", $5/1024, $9}')",
+      "Bash(sort -k5 -rn)",
+      "Bash(awk '{printf \"%7d KB  %s\\\\n\", $5/1024, $9}')"
     ]
   }
 }
