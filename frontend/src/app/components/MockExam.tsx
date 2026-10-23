@@ -9,9 +9,12 @@ import {
   pickAdaptiveExam,
   recordResults,
   masteryStats,
+  examStage,
+  STAGES,
   type MasteryMap,
 } from "@/app/lib/examSelect";
 import { aspectOf } from "@/app/lib/aspects";
+import { starOfSubject } from "@/app/data/exam-priority";
 import { Icon } from "@/app/components/Icon";
 
 // Structural shape shared by every subject's question bank.
@@ -115,7 +118,7 @@ export function MockExam({
         }
       }
     } else {
-      assembled = pickAdaptiveExam(bank, examSize, loadMastery(storeKey), aspectOf);
+      assembled = pickAdaptiveExam(bank, examSize, loadMastery(storeKey), aspectOf, starOfSubject(subjectId));
       for (const q of assembled) km[q.id] = storeKey;
     }
     setQuestions(assembled);
@@ -125,7 +128,15 @@ export function MockExam({
     setSecondsLeft(examMinutes * 60);
     setStartedAt(Date.now());
     setPhase("running");
-  }, [bank, examSize, examMinutes, storeKey, plan]);
+  }, [bank, examSize, examMinutes, storeKey, plan, subjectId]);
+
+  // Staged exam-priority progression (classified single-subject only).
+  const stageInfo = useMemo(() => {
+    void masteryVersion;
+    if (plan || !starOfSubject(subjectId)) return null;
+    const s = examStage(loadMastery(storeKey), examSize);
+    return { idx: s, ...STAGES[s] };
+  }, [plan, subjectId, storeKey, examSize, masteryVersion]);
 
   const score = useMemo(
     () => questions.reduce((n, q) => (answers[q.id] === q.correctAnswer ? n + 1 : n), 0),
@@ -278,6 +289,33 @@ export function MockExam({
                   : "Keep sitting papers — weak areas will keep coming back until they stick."}
               </div>
             </div>
+            {/* Staged priority progression — drills high-yield topics first,
+                broadening as the student advances. */}
+            {stageInfo && (
+              <div className="bg-zinc-950 border border-yellow-400/20 rounded-2xl p-5 mb-8">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold text-yellow-400">
+                    Stage {stageInfo.idx + 1} of 3 · {stageInfo.name}
+                  </span>
+                  <span className="text-xs text-zinc-500">
+                    Target {stageInfo.targetPct}
+                  </span>
+                </div>
+                <div className="flex gap-1.5 mb-3">
+                  {STAGES.map((st, i) => (
+                    <div
+                      key={st.name}
+                      className={`h-1.5 flex-1 rounded-full ${i <= stageInfo.idx ? "bg-yellow-400" : "bg-zinc-800"}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-[11px] text-zinc-500 leading-relaxed">
+                  {stageInfo.blurb} Every paper still covers all topics; the mix
+                  shifts toward broader coverage as you sit more papers.
+                  <span className="text-zinc-600"> Target is a design goal, not a guarantee.</span>
+                </p>
+              </div>
+            )}
             <button
               onClick={startExam}
               className="w-full py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-2xl transition-colors"

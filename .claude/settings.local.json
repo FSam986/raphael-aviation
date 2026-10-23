@@ -133,7 +133,11 @@
       "Bash(perl -0pi -e 's/\\(import \\\\{ NAV_OXFORD_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/nav-questions-oxford\";\\)/$1\\\\nimport { NAV_AUTHORED_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/nav-questions-authored\";/' src/app/data/nav-questions.ts)",
       "Bash(perl -0pi -e 's/\\(\\\\.\\\\.\\\\.NAV_OXFORD_QUESTIONS\\)\\\\];/$1, ...NAV_AUTHORED_QUESTIONS];/' src/app/data/nav-questions.ts)",
       "Bash(perl -0pi -e 's/\\(import \\\\{ RADIONAV_OXFORD_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-oxford\";\\)/$1\\\\nimport { RADIONAV_AUTHORED_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-authored\";/' src/app/data/radionav-questions.ts)",
-      "Bash(perl -0pi -e 's/\\(\\\\.\\\\.\\\\.RADIONAV_OXFORD_QUESTIONS\\)\\\\];/$1, ...RADIONAV_AUTHORED_QUESTIONS];/' src/app/data/radionav-questions.ts)"
+      "Bash(perl -0pi -e 's/\\(\\\\.\\\\.\\\\.RADIONAV_OXFORD_QUESTIONS\\)\\\\];/$1, ...RADIONAV_AUTHORED_QUESTIONS];/' src/app/data/radionav-questions.ts)",
+      "Bash(pdftotext -layout \"feismo.com-question-bank-meteorology-for-atpl-pr_7be0e847bcd4a7038fa18f11d5e5345f.pdf\" /tmp/feismo.txt)",
+      "Bash(sort -k2)",
+      "Bash(grep -nA6 'id: \"meteorology\"' src/app/data/sacaa-syllabus.ts)",
+      "Bash(node /tmp/stagetest.mjs)"
     ]
   }
 }

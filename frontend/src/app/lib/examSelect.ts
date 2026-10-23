@@ -65,25 +65,99 @@ function allocate(groups: string[], sizes: Map<string, number>, target: number):
   return quota;
 }
 
+// ── Staged exam-priority progression ───────────────────────────────────────
+// Stars (1/2/3) set drill WEIGHT, not inclusion. The weighting shifts across the
+// mock sequence: early papers drill the high-yield ★★★ core; later papers
+// broaden to ★★ then ★ for a full exam-representative spread. Coverage floors
+// keep lower-star aspects present once the student advances. See exam-priority.ts.
+export type ExamStage = 0 | 1 | 2;
+interface StageCfg { name: string; blurb: string; targetPct: string; ratio: Record<number, number>; floorStars: number[]; }
+export const STAGES: StageCfg[] = [
+  { name: "Foundation", blurb: "Drilling the high-yield ★★★ topics first.", targetPct: "~70%", ratio: { 3: 70, 2: 25, 1: 5 }, floorStars: [3] },
+  { name: "Expansion", blurb: "Broadening into ★★ topics.", targetPct: "~80–85%", ratio: { 3: 45, 2: 40, 1: 15 }, floorStars: [3, 2] },
+  { name: "Completion", blurb: "Full exam-representative spread across every topic.", targetPct: "~85–90%", ratio: { 3: 35, 2: 35, 1: 30 }, floorStars: [3, 2, 1] },
+];
+
+/** Which stage the student is in, from how many papers they've sat (≈ total
+ *  attempts ÷ paper size). Foundation 0–2 papers, Expansion 3–6, Completion 7+. */
+export function examStage(m: MasteryMap, examSize: number): ExamStage {
+  const totalSeen = Object.values(m).reduce((n, s) => n + s.seen, 0);
+  const papers = examSize > 0 ? totalSeen / examSize : 0;
+  return papers < 3 ? 0 : papers < 7 ? 1 : 2;
+}
+
+/** Largest-remainder apportionment of `target` slots across sections, by weight,
+ *  respecting each section's capacity (`cap`) and a minimum (`floor`). Sum of the
+ *  returned quotas equals `target` (capacity permitting). Deterministic. */
+function apportion(sections: string[], weight: Map<string, number>, cap: Map<string, number>, floor: Map<string, number>, target: number): Map<string, number> {
+  const q = new Map(sections.map((s) => [s, Math.min(floor.get(s) ?? 0, cap.get(s) ?? 0)]));
+  const spare = (s: string) => (cap.get(s) ?? 0) - q.get(s)!;
+  let assigned = [...q.values()].reduce((a, b) => a + b, 0);
+  if (assigned >= target) {
+    // Floors already meet/exceed target — trim lowest-weight sections down.
+    for (const s of [...sections].sort((a, b) => weight.get(a)! - weight.get(b)!)) {
+      while (assigned > target && q.get(s)! > 0) { q.set(s, q.get(s)! - 1); assigned--; }
+    }
+    return q;
+  }
+  let remaining = target - assigned;
+  const wsum = sections.reduce((a, s) => a + (spare(s) > 0 ? weight.get(s)! : 0), 0) || 1;
+  const frac: [string, number][] = [];
+  for (const s of sections) {
+    const want = spare(s) > 0 ? (remaining * weight.get(s)!) / wsum : 0;
+    const give = Math.min(Math.floor(want), spare(s));
+    q.set(s, q.get(s)! + give);
+    frac.push([s, want - Math.floor(want)]);
+  }
+  remaining = target - [...q.values()].reduce((a, b) => a + b, 0);
+  frac.sort((a, b) => b[1] - a[1]);
+  for (const [s] of frac) { if (remaining <= 0) break; if (spare(s) > 0) { q.set(s, q.get(s)! + 1); remaining--; } }
+  // Capacity-limited rounding leftovers: hand out anywhere with spare room.
+  while (remaining > 0) {
+    let gave = false;
+    for (const s of sections) { if (spare(s) > 0) { q.set(s, q.get(s)! + 1); remaining--; gave = true; if (remaining <= 0) break; } }
+    if (!gave) break;
+  }
+  return q;
+}
+
 /**
  * Build a balanced, full-syllabus paper. Two-level round-robin so no single
  * topic — and, when `aspectOf` is supplied, no single sub-topic within a topic —
- * can crowd the paper: every topic gets an (almost) equal share, and that share
- * is then spread evenly across the topic's sub-topics. Within each sub-topic the
- * draw is weighted toward weak/unseen questions. Returned length equals `count`
- * (capped by the bank).
+ * can crowd the paper. Within each sub-topic the draw is weighted toward
+ * weak/unseen questions. When `starOf` is supplied, Level-1 topic shares are
+ * biased by the staged exam-priority ratios (★★★ drilled early, broadening over
+ * the mock sequence), with coverage floors so topics are never abandoned.
+ * Returned length equals `count` (capped by the bank).
  */
 export function pickAdaptiveExam<T extends HasId>(
-  all: T[], count: number, m: MasteryMap, aspectOf?: (q: T) => string | null
+  all: T[], count: number, m: MasteryMap,
+  aspectOf?: (q: T) => string | null,
+  starOf?: (sectionId: string) => number
 ): T[] {
   const bySection = groupBy(all, (q) => q.sectionId);
   const sections = shuffle([...bySection.keys()]);
   if (sections.length === 0) return [];
   const target = Math.min(count, all.length);
 
-  // Level 1: balance across topics (sections).
+  // Level 1: balance across topics (sections) — equal share, or staged
+  // star-weighted share when a priority classification is available.
   const secSizes = new Map([...bySection].map(([s, arr]) => [s, arr.length]));
-  const secQuota = allocate(sections, secSizes, target);
+  let secQuota: Map<string, number>;
+  if (starOf) {
+    const cfg = STAGES[examStage(m, target)];
+    const starCount: Record<number, number> = { 1: 0, 2: 0, 3: 0 };
+    for (const s of sections) starCount[starOf(s)]++;
+    // Per-section weight = its star band's ratio spread over the sections in that band.
+    const weight = new Map(sections.map((s) => {
+      const st = starOf(s);
+      return [s, (cfg.ratio[st] ?? 0) / (starCount[st] || 1)];
+    }));
+    const floor = new Map(sections.map((s) => [s, cfg.floorStars.includes(starOf(s)) ? 1 : 0]));
+    secQuota = apportion(sections, weight, secSizes, floor, target);
+  } else {
+    secQuota = allocate(sections, secSizes, target);
+  }
 
   const picked: T[] = [];
   for (const s of sections) {

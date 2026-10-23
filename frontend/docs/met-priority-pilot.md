@@ -1,0 +1,155 @@
+# Exam-Priority Classification — Meteorology Pilot (for review)
+
+**Status:** analysis only. Nothing wired into the app. No questions modified.
+**Date:** 2026-10-23. **Pilot subject:** CPL Meteorology (A.8.x, 21 aspects, 1 051 questions).
+
+---
+
+## 1. Provenance finding (what evidence actually exists)
+
+I inventoried the ~90 source files. Three buckets; **none carry recurrence
+metadata** — no sitting dates, no occurrence counts, no per-question source IDs,
+no pre-dedup cluster records:
+
+| Bucket | Example files | Extractable | Value |
+|---|---|---|---|
+| Textbooks | CAE Oxford (Met, Nav, Radio, Instruments…) | ✅ text | Topic lists → syllabus mapping only |
+| Flat question collections | True North "Typical Questions – Met" (554 Qs, Jan 2004); the "– QUESTIONS" PDFs | ⚠️ True North only; most are scanned (0 text) | Vendor-curated, **single-source, mostly no answer key** |
+| Scanned / handwritten | Gen nav sahiti, 1000 Questions Instruments, FUEL WEIGHT | ❌ image-only (0 words) | None recoverable without OCR |
+
+**Two hard consequences (your Rules 2 & C):**
+
+1. The app Met bank is **deliberately balanced at exactly 50 questions per
+   aspect** (21 × 50 ≈ 1 051). In-bank frequency therefore carries **zero**
+   priority signal — dedup/balancing erased it, exactly as your brief warned.
+2. "Verified recurrence" and "Reported recurrence (independent)" labels are
+   **not supportable** from this data. The strongest honest label is *"Reported
+   recurrence — single commercial source, independence uncertain."*
+
+**The one legitimate signal:** cross-source concept overlap. Where a concept
+appears both in our bank and in the independent True North bank *and* is a core
+syllabus aspect, it is defensibly higher-yield. That is the backbone used below.
+It is a weak proxy and is labelled as such.
+
+---
+
+## 2. Classification method (reproducible)
+
+Per aspect (= concept cluster):
+- **Core?** — is it a fundamental/prerequisite Met concept (manual syllabus call).
+- **TN hits** — count of the aspect's concept keywords in the True North bank text
+  (`scripts/` reproducible; median across aspects = 55). "Strong" = at/above median.
+- **Star:** 3★ = core **and** strong; 2★ = core **or** strong; 1★ = neither.
+
+| Aspect | Star | TN hits | Core | Evidence label |
+|---|---|---|---|---|
+| A.8.1 Climatology & Meteorology | ★★ | 214 | no | Reported (single source) |
+| A.8.2 The Atmosphere | ★★ | 28 | yes | Syllabus-critical (no recurrence data) |
+| A.8.3 Atmospheric Pressure | ★★★ | 181 | yes | Syllabus-critical + reported |
+| A.8.4 Temperature | ★★★ | 117 | yes | Syllabus-critical + reported |
+| A.8.5 Humidity | ★★ | 43 | yes | Syllabus-critical (no recurrence data) |
+| A.8.6 Density | ★★ | 24 | yes | Syllabus-critical (no recurrence data) |
+| A.8.7 Altimetry | ★★★ | 55 | yes | Syllabus-critical + reported |
+| A.8.8 Wind | ★★★ | 222 | yes | Syllabus-critical + reported |
+| A.8.9 Lapse / Adiabatic / Stability | ★★★ | 82 | yes | Syllabus-critical + reported |
+| A.8.10 Clouds | ★★★ | 294 | yes | Syllabus-critical + reported |
+| A.8.11 Precipitation | ★★ | 212 | no | Reported (single source) |
+| A.8.12 Thunderstorms | ★★ | 47 | yes | Syllabus-critical (no recurrence data) |
+| A.8.13 Ice Accretion | ★★ | 39 | yes | Syllabus-critical (no recurrence data) |
+| A.8.14 Windshear & Turbulence | ★★ | 34 | yes | Syllabus-critical (no recurrence data) |
+| A.8.15 Visibility | ★★★ | 152 | yes | Syllabus-critical + reported |
+| A.8.16 Air Masses | ★ | 17 | no | Limited evidence — **⚠ review (feeds Fronts)** |
+| A.8.17 Fronts | ★★★ | 96 | yes | Syllabus-critical + reported |
+| A.8.18 Hurricanes (Tropical Cyclones) | ★ | 3 | no | Limited evidence |
+| A.8.19 Climatology & World Weather | ★ | 7 | no | Limited evidence |
+| A.8.20 South African Weather | ★ | 40 | no | Limited evidence — **⚠ review (SACAA = SA-specific)** |
+| A.8.21 Meteorological Information (METAR/TAF) | ★★★ | 136 | yes | Syllabus-critical + reported |
+
+**Cluster distribution:** 3★ = 9 aspects · 2★ = 8 · 1★ = 4.
+
+**⚠ Two ratings I flag for your (SME) review** — the keyword proxy is almost
+certainly wrong on these:
+- **A.8.20 South African Weather** rated 1★, but this is a *South African* exam —
+  berg winds, coastal lows, highveld thunderstorms are plausibly high-yield.
+- **A.8.16 Air Masses** rated 1★, but it is the prerequisite for Fronts (3★).
+
+---
+
+## 3. The coverage problem — and why "stars = weight, not inclusion"
+
+If stars **gate inclusion** (Path A = 3★ only), objective coverage is:
+
+| Path | Aspects in path | Objective coverage | Your target |
+|---|---|---|---|
+| A: 3★ only | 9 / 21 | **43%** | ~70% |
+| B: 3★ + 2★ | 17 / 21 | **81%** | ~80–85% |
+| C: all | 21 / 21 | **100%** | ~90%+ |
+
+**Path A at 43% cannot plausibly yield 70% on a syllabus-spanning exam** — it
+leaves 57% of objectives untrained. Forcing more aspects to 3★ just to hit the
+proportion would be fabricating priority (your Rule 6 forbids this).
+
+**Recommended model (matches your own wording — "3★ drilled, mixing with 2★/1★
+every mock"):** stars set **drill weight**, not inclusion. Every mock samples
+**all 21 aspects** (coverage stays 100%), but question draw is weighted, e.g.
+**3★ : 2★ : 1★ = 3 : 2 : 1**. A 40-question mock then looks like:
+
+- ~20 questions from 3★ aspects, ~13 from 2★, ~7 from 1★ — all aspects present,
+  high-yield concepts drilled hardest, nothing abandoned.
+
+This is honest, protects coverage, and is exactly the "drill + mix" you asked for.
+
+---
+
+## 4. Can students reach 85% after 5–10 mocks? (honest answer)
+
+- **Mechanism: yes, buildable.** Weighted sampling over a 1 051-question pool
+  gives many near-non-repeating mocks per subject.
+- **85% outcome: a design goal, NOT a validated result.** Proving it needs
+  (a) held-out mocks of *unseen* questions and (b) real student scores — neither
+  exists yet. Claiming it is proven would violate your Rule 8.
+- **What the app should show (your "Both" choice):** measured **objective
+  coverage %** as the headline (43 / 81 / 100), with "~85% target" underneath
+  **explicitly labelled a design goal, not a guarantee.**
+
+---
+
+## 5. Proposed non-destructive schema (for approval — not yet built)
+
+`src/app/data/met-classification.ts` — one row per question id, **separate file;
+`met-questions.ts` untouched:**
+
+```ts
+interface QuestionClassification {
+  question_id: string;
+  subject_id: "meteorology";
+  syllabus_version: "Appendix 2.0A (2015-05-28)";
+  syllabus_reference: string;      // e.g. "A.8.8"
+  topic_name: string;              // e.g. "Wind"
+  star_rating: 1 | 2 | 3;          // = drill weight
+  evidence_label: "reported-single-source" | "syllabus-critical"
+                 | "syllabus-critical+reported" | "limited-evidence";
+  concept_cluster_id: string;      // = aspect code for now
+  review_required: boolean;        // true for A.8.16, A.8.20
+  review_reason: string | null;
+  classification_version: "met-pilot-1";
+}
+```
+
+Unknowns are `null`; no fabricated source IDs, dates, or occurrence counts.
+Existing question IDs and student progress are never touched.
+
+---
+
+## 6. If you approve, next steps (in order)
+
+1. You correct the two flagged ratings (A.8.16, A.8.20) — or tell me to bump both to 2★.
+2. I generate `met-classification.ts` (cluster-level ratings applied to all 1 051 Qs).
+3. I add a weighted mock-sampler (3:2:1) that keeps all aspects in every mock.
+4. UI shows coverage % headline + labelled 85% goal.
+5. Roll the same method to the other subjects.
+
+**Open limitation to accept up front:** ratings are cluster-level (per aspect),
+not per-question. True per-question priority needs real exam-report data we
+don't have. This is honest and good enough for weighted drilling; refine later
+if sitting data ever arrives.
