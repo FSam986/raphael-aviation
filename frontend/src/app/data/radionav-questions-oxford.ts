@@ -1,0 +1,45 @@
+// Radio Navigation questions mined from CAE Oxford ATPL (Radio Navigation)
+// end-of-chapter question banks. Stems and options are from the textbook; every
+// correct answer was re-verified by hand against radio theory (the PDF's
+// auto-extracted answer keys were unreliable, so they were not trusted).
+
+import type { AirLawQuestion } from "@/app/data/airlaw-questions";
+
+const Q = (id: string, sectionId: string, question: string, a: string, b: string, c: string, d: string, correct: "a" | "b" | "c" | "d", explanation: string, difficulty: "easy" | "medium" | "hard" = "medium"): AirLawQuestion =>
+  ({ id, sectionId, question, optionA: a, optionB: b, optionC: c, optionD: d, correctAnswer: correct, explanation, difficulty });
+
+export const RADIONAV_OXFORD_QUESTIONS: AirLawQuestion[] = [
+  // ── A.10.1 Basic radio theory ──
+  Q("RNOX-001", "A.10.1", "To carry out a phase comparison between two electromagnetic waves:", "both waves must have the same amplitude", "both waves must have the same frequency", "both waves must have the same amplitude and frequency", "both waves must have the same phase", "b", "Phase can only be meaningfully compared between waves of the same frequency."),
+  Q("RNOX-002", "A.10.1", "The phase of the reference wave is 110° and the phase of the variable wave is 315°. What is the phase difference?", "205°", "025°", "155°", "335°", "c", "315 − 110 = 205°; the phase difference is the smaller angle, 360 − 205 = 155°.", "hard"),
+  Q("RNOX-003", "A.10.1", "The wavelength corresponding to a frequency of 15 625 MHz is:", "1.92 m", "19.2 m", "1.92 cm", "19.2 cm", "c", "λ = 300 ÷ f(MHz) = 300 ÷ 15625 = 0.0192 m = 1.92 cm.", "hard"),
+  Q("RNOX-004", "A.10.1", "A wavelength of 1200 m lies in which frequency band?", "UHF", "LF", "HF", "MF", "b", "f = 300000 ÷ 1200 = 250 kHz, which is in the LF band (30–300 kHz)."),
+  Q("RNOX-005", "A.10.1", "Concerning HF communications, which of the following is correct?", "the frequency required in low latitudes is less than at high latitudes", "at night a higher frequency is required than by day", "the frequency required is independent of the time of day", "the frequency required for short ranges is less than for long ranges", "d", "Shorter ranges use lower frequencies; at night lower (about half the day) frequencies are used as ionisation falls."),
+  Q("RNOX-006", "A.10.1", "The average height of the E-layer and the maximum range for a single-hop sky wave are approximately:", "60 km, 1350 NM", "125 km, 2200 km", "225 km, 2200 km", "125 km, 1350 NM", "d", "The E-layer averages about 125 km, giving a maximum single-hop sky-wave range of roughly 1350 NM."),
+  Q("RNOX-007", "A.10.1", "Which statement concerning amplitude modulation (AM) is correct?", "the amplitude of the RF is modified by the frequency of the audio signal", "the amplitude of the RF is modified by the amplitude of the audio signal", "the frequency of the RF is modified by the frequency of the audio signal", "the frequency of the RF is modified by the amplitude of the audio signal", "b", "In AM the carrier AMPLITUDE varies with the amplitude of the modulating (audio) signal."),
+  Q("RNOX-008", "A.10.1", "Which statement concerning frequency modulation (FM) is correct?", "the amplitude of the RF is modified by the frequency of the audio signal", "the amplitude of the RF is modified by the amplitude of the audio signal", "the frequency of the RF is modified by the frequency of the audio signal", "the frequency of the RF is modified by the amplitude of the audio signal", "d", "In FM the carrier FREQUENCY varies with the amplitude of the modulating (audio) signal."),
+  Q("RNOX-009", "A.10.1", "An RF carrier of 4716 kHz is amplitude-modulated by an audio signal of 6 kHz. The bandwidth produced is:", "6 kHz", "3 kHz", "12 kHz", "9 kHz", "c", "AM bandwidth = 2 × highest modulating frequency = 2 × 6 = 12 kHz."),
+  Q("RNOX-010", "A.10.1", "Which of the following is an advantage of single-sideband (SSB) emissions?", "more frequencies available", "reduced power requirement", "better signal-to-noise ratio", "all of the above", "d", "SSB saves bandwidth (more frequencies), needs less power and improves the signal-to-noise ratio."),
+  // ── A.10.1 VDF / DF ──
+  Q("RNOX-011", "A.10.1", "Class ‘B’ VHF/DF bearings are accurate to within:", "± 1°", "± 5°", "± 2°", "± 10°", "b", "VDF accuracy classes: A ±2°, B ±5°, C ±10°, D worse than ±10°."),
+  Q("RNOX-012", "A.10.1", "A VDF QDM passed without an accuracy classification may be assumed accurate to within:", "± 2°", "± 5°", "± 7.5°", "± 10°", "b", "An unclassified VDF bearing is assumed to be Class B, i.e. ± 5°."),
+  Q("RNOX-013", "A.10.1", "An aircraft is passed a true bearing from a VDF station of 353°. This bearing is a:", "QDM of 345° ± 5°", "QDR of 345° ± 2°", "QTE of 353° ± 5°", "QUJ of 353° ± 2°", "c", "A true bearing FROM the station is a QTE; unclassified accuracy is ± 5°."),
+  // ── A.10.3 ILS ──
+  Q("RNOX-014", "A.10.3", "The outer marker of an ILS has a visual identification of:", "alternating dots and dashes on a blue light", "continuous dots at 3 per second, blue light", "continuous dashes at 2 per second, amber light", "continuous dashes at 2 per second, blue light", "d", "Outer marker: 400 Hz, continuous dashes (2/sec), BLUE light (middle = alternating dot/dash amber; inner = dots white)."),
+  // ── A.10.5 Radar principles ──
+  Q("RNOX-015", "A.10.5", "The factor which determines the maximum range of a pulsed radar is the:", "pulse repetition frequency", "pulse width", "transmitter power", "beamwidth", "a", "Maximum unambiguous range is set by the PRF/PRI (time between pulses); pulse width sets minimum range/resolution."),
+  Q("RNOX-016", "A.10.5", "To double the maximum range of a primary (reflecting) radar, the transmitter power must be increased by a factor of:", "2", "4", "8", "16", "d", "Received echo power ∝ 1/range⁴, so doubling range needs 2⁴ = 16 times the power."),
+  Q("RNOX-017", "A.10.5", "The main advantage of continuous-wave (CW) radar is:", "no maximum range limitation", "better range resolution", "no minimum range limitation", "higher transmitter power", "c", "CW radar transmits continuously, so it has no minimum-range limitation (but cannot measure range directly without modulation)."),
+  Q("RNOX-018", "A.10.5", "If the PRF of a primary radar is 500 pulses per second, the maximum unambiguous range is:", "324 NM", "300 NM", "162 NM", "600 NM", "c", "Range = c ÷ (2 × PRF) = 3×10⁸ ÷ 1000 = 300 000 m = 162 NM."),
+  Q("RNOX-019", "A.10.5", "A radar is required to have a maximum range of 100 NM. The maximum PRF that will allow this is approximately:", "1620 pps", "1234 pps", "617 pps", "810 pps", "d", "PRF = c ÷ (2 × range) = 3×10⁸ ÷ (2 × 185 200) ≈ 810 pps."),
+  Q("RNOX-020", "A.10.5", "The time between transmission of a pulse and reception of the echo is 1720 microseconds. The range of the target is:", "139 km", "258 km", "278 km", "516 km", "b", "Range = c × t ÷ 2 = 3×10⁸ × 1720×10⁻⁶ ÷ 2 = 258 000 m = 258 km."),
+  // ── A.10.8 Airborne weather radar ──
+  Q("RNOX-021", "A.10.8", "A frequency used by airborne weather radar is:", "8800 MHz", "9.375 GHz", "93.75 GHz", "1213 MHz", "b", "Airborne weather radar typically operates near 9.375 GHz (9375 MHz), in the SHF X-band."),
+  Q("RNOX-022", "A.10.8", "Airborne weather radar is an example of a radar operating on a frequency of:", "primary, 8800 MHz, SHF", "secondary, 9.375 MHz, UHF", "secondary, 9375 MHz, SHF", "primary, 9375 MHz, SHF", "d", "It is a PRIMARY (reflecting) radar at about 9375 MHz in the SHF band."),
+  Q("RNOX-023", "A.10.8", "The sequence of colours on a colour airborne weather radar as the returns get stronger is:", "red, yellow, green", "yellow, green, red", "green, yellow, red", "red, green, yellow", "c", "Returns strengthen green → yellow → red (→ magenta for the most intense)."),
+  Q("RNOX-024", "A.10.8", "An airborne weather radar must detect targets to a maximum range of 200 NM. The maximum PRF is approximately:", "405 pps", "810 pps", "1500 pps", "750 pps", "a", "PRF = c ÷ (2 × range) = 3×10⁸ ÷ (2 × 370 400) ≈ 405 pps."),
+  // ── A.10.11 RNAV / FMS ──
+  Q("RNOX-025", "A.10.11", "The FMC navigation database can be accessed by the pilots:", "to update the database at any time", "to read information only", "to change information between the 28-day updates", "to change information to meet the sector requirements", "b", "Pilots may READ the navigation database; it can only be updated on the 28-day AIRAC cycle, not edited in flight."),
+  Q("RNOX-026", "A.10.11", "The maximum range at which VOR bearing information is used by the B737 FMC for position updating is:", "10 NM", "25 NM", "50 NM", "60 NM", "b", "The FMC uses VOR radial updating out to about 25 NM, where the bearing geometry is strong."),
+  Q("RNOX-027", "A.10.11", "The heading inputs to the EHSI are provided from:", "the IRS", "the FMC", "the IRS through the symbol generator", "the FMC through the symbol generator", "a", "EHSI heading comes from the IRS (inertial reference system)."),
+];

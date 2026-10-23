@@ -6,6 +6,7 @@
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import { NAV_BOOST_QUESTIONS } from "@/app/data/nav-questions-boost";
 import { NAV_GAP_QUESTIONS } from "@/app/data/nav-questions-gap";
+import { NAV_OXFORD_QUESTIONS } from "@/app/data/nav-questions-oxford";
 
 const NAV_BASE_QUESTIONS: AirLawQuestion[] = [
   { id: "NAVQ-001", sectionId: "A.9.2", question: "A line drawn on a chart which joins all points where the value of magnetic variation is zero is called an:", optionA: "isotach", optionB: "agonic line", optionC: "aclinic line", optionD: "isogonal", correctAnswer: "b", explanation: "Navigation theory (uploaded question bank).", difficulty: "medium" },
@@ -157,7 +158,7 @@ const NAV_BASE_QUESTIONS: AirLawQuestion[] = [
   { id: "NAVB-401", sectionId: "A.9.4", question: "An aircraft is over longitude 060°W. Its Local Mean Time relative to UTC is:", optionA: "4 hours ahead", optionB: "4 hours behind", optionC: "6 hours behind", optionD: "the same as UTC", correctAnswer: "b", explanation: "60 ÷ 15 = 4 hours; West longitude → LMT is BEHIND UTC.", difficulty: "medium", tag: "calc" },
 ];
 
-export const NAV_QUESTIONS: AirLawQuestion[] = [...NAV_BASE_QUESTIONS, ...NAV_BOOST_QUESTIONS, ...NAV_GAP_QUESTIONS];
+export const NAV_QUESTIONS: AirLawQuestion[] = [...NAV_BASE_QUESTIONS, ...NAV_BOOST_QUESTIONS, ...NAV_GAP_QUESTIONS, ...NAV_OXFORD_QUESTIONS];
 
 export const NAV_QUESTION_COUNT = NAV_QUESTIONS.length;
 

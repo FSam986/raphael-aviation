@@ -106,7 +106,21 @@
       "Bash(sips -g pixelWidth -g pixelHeight \"/Users/fathimasamreen/Desktop/met images/pilot_simulator_image_pack/04_airfoil_aerodynamics.png\")",
       "Bash(rm -f public/sims/4stroke_*.png public/sims/airfoil_*.png)",
       "Bash(sed -i '' 's|if \\(!session\\) { setUserName\\(\"Fathima\"\\); setLoading\\(false\\); return; } // TEMP-PREVIEW-BYPASS|if \\(!session\\) { router.push\\(\"/login\"\\); return; }|' src/app/hooks/useAuthGuard.ts)",
-      "Bash(pdftotext \"Gen nav sahiti.pdf\" -)"
+      "Bash(pdftotext \"Gen nav sahiti.pdf\" -)",
+      "Bash(mkdir -p /tmp/oxmine)",
+      "Bash(pdftotext \"10 CAE Oxford \\(General Navigation\\).pdf\" /tmp/oxmine/gennav.txt)",
+      "Bash(pdftotext \"11 CAE Oxford \\(Radio Navigation\\).pdf\" /tmp/oxmine/radionav.txt)",
+      "Bash(pdftotext -layout \"10 CAE Oxford \\(General Navigation\\).pdf\" /tmp/oxmine/gennav_l.txt)",
+      "Bash(grep -n \"^Answers\\\\|Answers$\" gennav_l.txt)",
+      "Bash(awk 'NR>=930 && NR<=975' gennav_l.txt)",
+      "Bash(grep -vE \"^\\\\s*$\")",
+      "Bash(grep -nE \"^[0-9]+ \\(Questions|Answers\\)$\" gennav.txt)",
+      "Bash(awk '/Which of the following statements concerning FM is correct/{f=1} f{print; n++} n>8{exit}' radionav_l.txt)",
+      "Bash(awk 'NR>=2152 && /Answers/{f=1} f{print; n++} n>14{exit}' radionav_l.txt)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ NAV_GAP_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/nav-questions-gap\";\\)/$1\\\\nimport { NAV_OXFORD_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/nav-questions-oxford\";/' nav-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(export const NAV_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\\\.\\\\.\\\\.NAV_BASE_QUESTIONS, \\\\.\\\\.\\\\.NAV_BOOST_QUESTIONS, \\\\.\\\\.\\\\.NAV_GAP_QUESTIONS\\)\\\\];/$1, ...NAV_OXFORD_QUESTIONS];/' nav-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ RADIONAV_062_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-062\";\\)/$1\\\\nimport { RADIONAV_OXFORD_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-oxford\";/' radionav-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(export const RADIONAV_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\\\.\\\\.\\\\.RADIONAV_BASE_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_BOOST_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_GAP_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_062_QUESTIONS\\)\\\\];/$1, ...RADIONAV_OXFORD_QUESTIONS];/' radionav-questions.ts)"
     ]
   }
 }
