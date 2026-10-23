@@ -16,10 +16,9 @@ import { SUBJECT_BANKS, loadMastery } from "@/app/lib/readiness";
 import { recordResults } from "@/app/lib/examSelect";
 import { countByAspect, filterByAspect } from "@/app/lib/aspects";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
-import { SimPanel, simsForSection } from "@/app/components/sims/SimPanel";
 import { Icon } from "@/app/components/Icon";
 
-type Tab = "learn" | "quiz" | "flashcards" | "illustrations" | "examples" | "simulator";
+type Tab = "learn" | "quiz" | "flashcards" | "illustrations" | "examples";
 
 export default function SectionPage() {
   const params = useParams();
@@ -31,9 +30,8 @@ export default function SectionPage() {
   const { userName, loading } = useAuthGuard();
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<Tab>(
-    tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" || tabParam === "simulator" ? tabParam : "learn"
+    tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" ? tabParam : "learn"
   );
-  const sectionSims = useMemo(() => simsForSection(sectionId), [sectionId]);
 
   // Quiz state (uses the Meteorology question bank, filtered by this section)
   const [quizAnswers, setQuizAnswers] = useState<Record<string, "a" | "b" | "c" | "d">>({});
@@ -154,7 +152,6 @@ export default function SectionPage() {
 
   const tabs: { id: Tab; label: string; icon: string }[] = [
     { id: "learn",     label: "Learn",      icon: "book" },
-    ...(sectionSims.length > 0 ? [{ id: "simulator" as Tab, label: "Simulator", icon: "bulb" }] : []),
     ...(sectionExamples.length > 0 ? [{ id: "examples" as Tab, label: "Examples", icon: "formula" }] : []),
     ...(sectionFigures.length > 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "image" }] : []),
     { id: "quiz",      label: "Quiz",       icon: "quiz" },
@@ -393,10 +390,6 @@ export default function SectionPage() {
                 )}
               </div>
             </div>
-          )}
-
-          {activeTab === "simulator" && (
-            <SimPanel sectionId={sectionId} />
           )}
 
           {activeTab === "illustrations" && (
