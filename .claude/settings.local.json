@@ -122,7 +122,18 @@
       "Bash(perl -0pi -e 's/\\(import \\\\{ RADIONAV_062_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-062\";\\)/$1\\\\nimport { RADIONAV_OXFORD_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-oxford\";/' radionav-questions.ts)",
       "Bash(perl -0pi -e 's/\\(export const RADIONAV_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\\\.\\\\.\\\\.RADIONAV_BASE_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_BOOST_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_GAP_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_062_QUESTIONS\\)\\\\];/$1, ...RADIONAV_OXFORD_QUESTIONS];/' radionav-questions.ts)",
       "Bash(grep -nE \"^export const INSTRUMENTS_QUESTIONS|\\\\];$\" instruments-questions.ts)",
-      "Bash(python3 -I)"
+      "Bash(python3 -I)",
+      "Bash(xargs -I{} sh -c 'echo \"{}: $\\(grep -cE \"sectionId:|^\\\\s*Q\\\\\\(\" {}\\)\"')",
+      "Bash(kill %1)",
+      "Bash(pkill -f gen-authored)",
+      "Bash(timeout 60 python3 -I scripts/gen-authored-questions.py)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(python3 -I scripts/gen-authored-questions.py)",
+      "Bash(perl -0pi -e 's/for qdr in range\\\\\\(0,360,20\\\\\\):\\\\n    for var in \\\\[4,7,11,15\\\\]:/for qdr in range\\(0,360,15\\):\\\\n    for var in [4,7,11,15]:/' scripts/gen-authored-questions.py)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ NAV_OXFORD_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/nav-questions-oxford\";\\)/$1\\\\nimport { NAV_AUTHORED_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/nav-questions-authored\";/' src/app/data/nav-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(\\\\.\\\\.\\\\.NAV_OXFORD_QUESTIONS\\)\\\\];/$1, ...NAV_AUTHORED_QUESTIONS];/' src/app/data/nav-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ RADIONAV_OXFORD_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-oxford\";\\)/$1\\\\nimport { RADIONAV_AUTHORED_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-authored\";/' src/app/data/radionav-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(\\\\.\\\\.\\\\.RADIONAV_OXFORD_QUESTIONS\\)\\\\];/$1, ...RADIONAV_AUTHORED_QUESTIONS];/' src/app/data/radionav-questions.ts)"
     ]
   }
 }
