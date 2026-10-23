@@ -184,6 +184,16 @@ const REGISTRY: Record<string, SubjectGetters> = {
   },
 };
 
+import { deriveNoteFlashcards } from "@/app/data/note-flashcards";
+
+// Append flashcards derived from the section's study note (its mustKnow / traps /
+// key facts) to the authored flashcards, so flashcard coverage tracks the notes.
 export function subjectContent(subjectId: string): SubjectGetters | undefined {
-  return REGISTRY[subjectId];
+  const g = REGISTRY[subjectId];
+  if (!g) return undefined;
+  return {
+    questions: g.questions,
+    note: g.note,
+    flashcards: (sectionId: string) => [...g.flashcards(sectionId), ...deriveNoteFlashcards(g.note(sectionId) as never)],
+  };
 }

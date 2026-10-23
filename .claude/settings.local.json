@@ -105,7 +105,8 @@
       "Bash(node -e ' *)",
       "Bash(sips -g pixelWidth -g pixelHeight \"/Users/fathimasamreen/Desktop/met images/pilot_simulator_image_pack/04_airfoil_aerodynamics.png\")",
       "Bash(rm -f public/sims/4stroke_*.png public/sims/airfoil_*.png)",
-      "Bash(sed -i '' 's|if \\(!session\\) { setUserName\\(\"Fathima\"\\); setLoading\\(false\\); return; } // TEMP-PREVIEW-BYPASS|if \\(!session\\) { router.push\\(\"/login\"\\); return; }|' src/app/hooks/useAuthGuard.ts)"
+      "Bash(sed -i '' 's|if \\(!session\\) { setUserName\\(\"Fathima\"\\); setLoading\\(false\\); return; } // TEMP-PREVIEW-BYPASS|if \\(!session\\) { router.push\\(\"/login\"\\); return; }|' src/app/hooks/useAuthGuard.ts)",
+      "Bash(pdftotext \"Gen nav sahiti.pdf\" -)"
     ]
   }
 }
