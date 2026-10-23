@@ -120,7 +120,9 @@
       "Bash(perl -0pi -e 's/\\(import \\\\{ NAV_GAP_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/nav-questions-gap\";\\)/$1\\\\nimport { NAV_OXFORD_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/nav-questions-oxford\";/' nav-questions.ts)",
       "Bash(perl -0pi -e 's/\\(export const NAV_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\\\.\\\\.\\\\.NAV_BASE_QUESTIONS, \\\\.\\\\.\\\\.NAV_BOOST_QUESTIONS, \\\\.\\\\.\\\\.NAV_GAP_QUESTIONS\\)\\\\];/$1, ...NAV_OXFORD_QUESTIONS];/' nav-questions.ts)",
       "Bash(perl -0pi -e 's/\\(import \\\\{ RADIONAV_062_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-062\";\\)/$1\\\\nimport { RADIONAV_OXFORD_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-oxford\";/' radionav-questions.ts)",
-      "Bash(perl -0pi -e 's/\\(export const RADIONAV_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\\\.\\\\.\\\\.RADIONAV_BASE_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_BOOST_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_GAP_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_062_QUESTIONS\\)\\\\];/$1, ...RADIONAV_OXFORD_QUESTIONS];/' radionav-questions.ts)"
+      "Bash(perl -0pi -e 's/\\(export const RADIONAV_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\\\.\\\\.\\\\.RADIONAV_BASE_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_BOOST_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_GAP_QUESTIONS, \\\\.\\\\.\\\\.RADIONAV_062_QUESTIONS\\)\\\\];/$1, ...RADIONAV_OXFORD_QUESTIONS];/' radionav-questions.ts)",
+      "Bash(grep -nE \"^export const INSTRUMENTS_QUESTIONS|\\\\];$\" instruments-questions.ts)",
+      "Bash(python3 -I)"
     ]
   }
 }
