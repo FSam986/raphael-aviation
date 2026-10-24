@@ -132,8 +132,8 @@ export default function CoachSessionReel() {
 
   useEffect(() => {
     const p = loadPlan(); const pr = loadProgress();
-    // Old-schema plan (no reviewUnits) → send back to rebuild.
-    if (!p || !p.days?.every((d) => Array.isArray(d.reviewUnits))) { router.replace("/coach"); return; }
+    // Old-schema plan (no reviewUnits, or no star on units) → send back to rebuild.
+    if (!p || !p.days?.every((d) => Array.isArray(d.reviewUnits) && d.units.every((u) => typeof u.star === "number"))) { router.replace("/coach"); return; }
     progressRef.current = pr;
     const idx = currentDayIndex(p, pr);
     setPlan(p); setDayIdx(idx);

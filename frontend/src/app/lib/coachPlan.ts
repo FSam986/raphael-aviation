@@ -221,7 +221,7 @@ export function orderedUnits(plan: CoachPlan): StudyUnit[] {
 export function activeTier(plan: CoachPlan, pr: CoachProgress): 1 | 2 | 3 | null {
   const u = orderedUnits(plan);
   for (const s of [3, 2, 1] as const) {
-    if (u.some((x) => x.star === s && !isStrong(pr, x.subjectId, x.sectionId))) return s;
+    if (u.some((x) => (x.star ?? 2) === s && !isStrong(pr, x.subjectId, x.sectionId))) return s;
   }
   return null;
 }
@@ -232,7 +232,7 @@ export function nextSessionUnits(plan: CoachPlan, pr: CoachProgress, batch: numb
   const tier = activeTier(plan, pr);
   if (tier == null) return [];
   return orderedUnits(plan)
-    .filter((x) => x.star === tier && !isStrong(pr, x.subjectId, x.sectionId))
+    .filter((x) => (x.star ?? 2) === tier && !isStrong(pr, x.subjectId, x.sectionId))
     .slice(0, Math.max(1, batch));
 }
 
@@ -240,7 +240,7 @@ export function nextSessionUnits(plan: CoachPlan, pr: CoachProgress, batch: numb
 export function ladderProgress(plan: CoachPlan, pr: CoachProgress): Record<1 | 2 | 3, { total: number; strong: number }> {
   const out = { 1: { total: 0, strong: 0 }, 2: { total: 0, strong: 0 }, 3: { total: 0, strong: 0 } };
   for (const x of orderedUnits(plan)) {
-    const t = out[x.star];
+    const t = out[x.star ?? 2];
     t.total++;
     if (isStrong(pr, x.subjectId, x.sectionId)) t.strong++;
   }

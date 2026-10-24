@@ -34,7 +34,9 @@ export default function CoachPage() {
     setPremiumState(isPremium());
     let p = loadPlan();
     // Discard plans saved by an older schema (missing reviewUnits) so they rebuild.
-    if (p && !p.days?.every((d) => Array.isArray(d.reviewUnits))) { clearPlan(); p = null; }
+    // Discard plans from an older schema (missing reviewUnits, or units saved
+    // before the star/ladder field) so they rebuild with the current shape.
+    if (p && !p.days?.every((d) => Array.isArray(d.reviewUnits) && d.units.every((u) => typeof u.star === "number"))) { clearPlan(); p = null; }
     setPlan(p); setProgress(loadProgress());
     if (p) { setExamDate(p.examDate); setSelected(p.subjectIds); }
     setRemindersOn(notifyPermission() === "granted");
