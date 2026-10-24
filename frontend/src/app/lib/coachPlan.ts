@@ -7,15 +7,20 @@
 
 import { COURSES, type CourseId } from "@/app/lib/course";
 import { subjectContent } from "@/app/lib/subjectContent";
+import { starOfSubject } from "@/app/data/exam-priority";
 
 export interface StudyUnit {
   subjectId: string;
   subjectTitle: string;
   sectionId: string;
   sectionTitle: string;
+  star: 1 | 2 | 3;           // pedagogical priority: 3 = foundational, 1 = specialised
 }
 
 export type DayKind = "study" | "review" | "mock";
+// Master-Ladder phase a study day belongs to (foundations first, then build up).
+export type Phase = "Foundations" | "Build" | "Complete";
+export const PHASE_OF: Record<1 | 2 | 3, Phase> = { 3: "Foundations", 2: "Build", 1: "Complete" };
 
 export interface DayPlan {
   dayIndex: number;
@@ -23,6 +28,7 @@ export interface DayPlan {
   kind: DayKind;
   units: StudyUnit[];        // NEW topics to learn & drill this day
   reviewUnits: StudyUnit[];  // earlier topics re-tested this day (spaced / consolidation / mock)
+  phase?: Phase;             // which ladder phase this study day sits in
 }
 
 export interface CoachPlan {
@@ -65,9 +71,10 @@ export function learnableUnits(courseId: CourseId, subjectIds: string[]): StudyU
     if (!subjectIds.includes(subj.id)) continue;
     const content = subjectContent(subj.id);
     if (!content) continue;
+    const star = starOfSubject(subj.id);
     for (const sec of subj.sections) {
       if (content.questions(sec.id).length > 0) {
-        out.push({ subjectId: subj.id, subjectTitle: subj.title, sectionId: sec.id, sectionTitle: sec.title });
+        out.push({ subjectId: subj.id, subjectTitle: subj.title, sectionId: sec.id, sectionTitle: sec.title, star: star ? star(sec.id) : 2 });
       }
     }
   }
@@ -100,7 +107,14 @@ const dedupeUnits = (arr: StudyUnit[]): StudyUnit[] => {
 // Guarantees every topic is: learned + drilled to 90%, memory-checked on later
 // days, revised again in consolidation, and sampled in the final mock.
 export function buildPlan(courseId: CourseId, examDate: string, subjectIds: string[]): CoachPlan {
-  const units = learnableUnits(courseId, subjectIds);
+  // Master-Ladder ordering: foundations (3★) first, then build (2★), then
+  // complete (1★). Stable sort preserves each subject's syllabus (teaching)
+  // sequence within a tier, so prerequisites still come before what builds on
+  // them. This replaces the old syllabus-linear topic-by-topic spread.
+  const units = learnableUnits(courseId, subjectIds)
+    .map((u, i) => [u, i] as const)
+    .sort((a, b) => b[0].star - a[0].star || a[1] - b[1])
+    .map(([u]) => u);
   const total = Math.max(1, daysBetween(ymd(new Date()), examDate));
   let reserved = Math.min(5, Math.max(1, Math.floor(total * 0.25)));
   reserved = Math.min(reserved, Math.max(0, total - 1)); // always keep ≥1 study day when possible
@@ -118,7 +132,8 @@ export function buildPlan(courseId: CourseId, examDate: string, subjectIds: stri
       studyUnitsByDay.push(dayUnits);
       const review: StudyUnit[] = [];
       for (const back of [1, 3, 7]) { const idx = i - back; if (idx >= 0 && studyUnitsByDay[idx]) review.push(...studyUnitsByDay[idx].slice(0, 2)); }
-      days.push({ dayIndex: i, date, kind: "study", units: dayUnits, reviewUnits: dedupeUnits(review).slice(0, 5) });
+      const topStar = (dayUnits.reduce<number>((m, un) => Math.max(m, un.star), 0) || 1) as 1 | 2 | 3;
+      days.push({ dayIndex: i, date, kind: "study", units: dayUnits, reviewUnits: dedupeUnits(review).slice(0, 5), phase: dayUnits.length ? PHASE_OF[topStar] : undefined });
     } else {
       const isMock = i === total - 1;
       const revDays = Math.max(1, reserved - 1);         // pure-review days before the mock

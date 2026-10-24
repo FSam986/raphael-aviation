@@ -10,7 +10,7 @@ import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
 import {
   loadPlan, loadProgress, saveProgress, completeDay, recordDrill, awardBadge, currentDayIndex,
-  type CoachPlan, type CoachProgress, type StudyUnit,
+  type CoachPlan, type CoachProgress, type StudyUnit, type Phase,
 } from "@/app/lib/coachPlan";
 import { pick as pickMsg, PILOT_BREAK, scheduleDailyStreak, notifyPermission } from "@/lib/notify";
 import { Icon } from "@/app/components/Icon";
@@ -56,7 +56,7 @@ function clearSession() {
 }
 
 type Slide =
-  | { id: string; kind: "intro"; dayIdx: number; topics: number; reviewN: number }
+  | { id: string; kind: "intro"; dayIdx: number; topics: number; reviewN: number; phase?: Phase }
   | { id: string; kind: "mustknow"; unit: StudyUnit; mustKnow: string[]; cards: AirLawFlashcard[]; figures: FigureDef[] }
   | { id: string; kind: "question"; unit: StudyUnit | null; q: AirLawQuestion; roundKey: string; label: string }
   | { id: string; kind: "score"; unit: StudyUnit; roundKey: string; round: number; qids: string[]; resolved: boolean }
@@ -87,7 +87,7 @@ export default function CoachSessionReel() {
   function buildAndHydrate(p: CoachPlan, idx: number) {
     idc.current = 0;
     const day = p.days[idx];
-    const out: Slide[] = [{ id: nid(), kind: "intro", dayIdx: idx, topics: day.units.length, reviewN: 0 }];
+    const out: Slide[] = [{ id: nid(), kind: "intro", dayIdx: idx, topics: day.units.length, reviewN: 0, phase: day.phase }];
     if (day.reviewUnits.length) {
       const rq: AirLawQuestion[] = [];
       for (const u of day.reviewUnits) { const bank = subjectContent(u.subjectId)?.questions(u.sectionId) ?? []; if (bank.length) rq.push(shuffle(bank)[0]); }
@@ -302,8 +302,14 @@ export default function CoachSessionReel() {
               {s.kind === "intro" && (
                 <div className="text-center">
                   <div className="mb-4 flex justify-center text-gold"><Icon name="target" size={44} /></div>
+                  {s.phase && (
+                    <div className="mb-2 inline-block text-[11px] font-bold uppercase tracking-wider text-gold border border-gold/30 rounded-full px-3 py-1">
+                      {s.phase === "Foundations" ? "★★★ Foundations" : s.phase === "Build" ? "★★ Build" : "★ Complete"}
+                    </div>
+                  )}
                   <h1 className="text-2xl font-black">Day {s.dayIdx + 1}</h1>
                   <p className="text-zinc-400 mt-2 text-sm">{s.reviewN > 0 ? `${s.reviewN}-question memory check, then ` : ""}{s.topics} new topic{s.topics === 1 ? "" : "s"} to master.</p>
+                  {s.phase === "Foundations" && <p className="text-zinc-600 text-xs mt-2">Core concepts the rest of the subject builds on — master these first.</p>}
                   <p className="text-zinc-600 text-xs mt-6">Swipe up to begin ↑</p>
                 </div>
               )}

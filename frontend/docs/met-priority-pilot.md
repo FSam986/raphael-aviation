@@ -10,6 +10,19 @@
 > any mis-rating since every aspect still appears in every paper. The Met method
 > below is the reference; §4–5 apply unchanged to all subjects.
 
+> **Semantics (2026-10-24):** stars mean **pedagogical priority**, not exam
+> frequency — 3★ = foundational/prerequisite concepts a pilot must master and
+> that later topics build on; 2★ = core applications; 1★ = specialised detail.
+> The goal is a teaching structure that builds knowledge in the order it
+> compounds, so mock tests teach the whole subject, not just rank exam odds.
+>
+> **Pass Mode — Master-Ladder:** the coach plan is now tier-ordered, not
+> syllabus-linear. Foundations (3★) are front-loaded and drilled first, then
+> Build (2★), then Complete (1★); within each tier, syllabus order is preserved
+> so prerequisites precede what depends on them. Earlier topics stay alive via
+> the existing spaced review (1/3/7 days) + consolidation + final mock. Each
+> study day is tagged with its phase. (buildPlan in lib/coachPlan.ts.)
+
 ---
 
 
