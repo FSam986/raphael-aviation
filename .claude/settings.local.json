@@ -161,7 +161,14 @@
       "Bash(rm -f __TRACKED_VAR__/fp/*.jpg)",
       "Bash(pdftoppm -jpeg -r 68 -f 2 -l 16 'Page 16-13.pdf' __TRACKED_VAR__/fp/aip)",
       "Bash(perl -0pi -e 's/\\(import \\\\{ AIRLAW_GAPFILL_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/airlaw-questions-gapfill\";\\)/$1\\\\nimport { AIRLAW_SACAA_TEXTBOOK_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/airlaw-questions-sacaa-textbook\";/' src/app/data/airlaw-questions.ts)",
-      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.AIRLAW_GAPFILL_QUESTIONS\\\\];/, ...AIRLAW_GAPFILL_QUESTIONS, ...AIRLAW_SACAA_TEXTBOOK_QUESTIONS];/' src/app/data/airlaw-questions.ts)"
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.AIRLAW_GAPFILL_QUESTIONS\\\\];/, ...AIRLAW_GAPFILL_QUESTIONS, ...AIRLAW_SACAA_TEXTBOOK_QUESTIONS];/' src/app/data/airlaw-questions.ts)",
+      "Bash(pdftoppm -jpeg -r 55 -f 1 -l 1 'FULL BOOK.pdf' __TRACKED_VAR__/fp/full)",
+      "Bash(pdftoppm -jpeg -r 55 -f 1 -l 1 'Scanned Documents 4.pdf' __TRACKED_VAR__/fp/sd4)",
+      "Bash(pdftoppm -jpeg -r 55 -f 1 -l 1 'Scanned Documents 5.pdf' __TRACKED_VAR__/fp/sd5)",
+      "Bash(awk 'NR>=6236 && NR<=6320' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/sacaa_doc.txt)",
+      "Bash(awk 'NR>=6338 && NR<=6420' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/sacaa_doc.txt)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ AIRLAW_SACAA_TEXTBOOK_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/airlaw-questions-sacaa-textbook\";\\)/$1\\\\nimport { AIRLAW_SACAA_DOC_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/airlaw-questions-sacaa-doc\";/' src/app/data/airlaw-questions.ts)",
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.AIRLAW_SACAA_TEXTBOOK_QUESTIONS\\\\];/, ...AIRLAW_SACAA_TEXTBOOK_QUESTIONS, ...AIRLAW_SACAA_DOC_QUESTIONS];/' src/app/data/airlaw-questions.ts)"
     ]
   }
 }

@@ -165,9 +165,10 @@ import { AIRLAW_BOOST_QUESTIONS } from "@/app/data/airlaw-questions-boost";
 import { AIRLAW_GAP_QUESTIONS } from "@/app/data/airlaw-questions-gap";
 import { AIRLAW_GAPFILL_QUESTIONS } from "@/app/data/airlaw-questions-gapfill";
 import { AIRLAW_SACAA_TEXTBOOK_QUESTIONS } from "@/app/data/airlaw-questions-sacaa-textbook";
+import { AIRLAW_SACAA_DOC_QUESTIONS } from "@/app/data/airlaw-questions-sacaa-doc";
 import { LAW_010_QUESTIONS } from "@/app/data/law-010-questions";
 
-export const AIRLAW_ALL_QUESTIONS: AirLawQuestion[] = [...AIRLAW_QUESTIONS, ...AIRLAW_EXTRA_QUESTIONS, ...AIRLAW_EXTRA2_QUESTIONS, ...AIRLAW_MONIQ_QUESTIONS, ...AIRLAW_MONIQ2_QUESTIONS, ...AIRLAW_NEW_QUESTIONS, ...AIRLAW_BOOST_QUESTIONS, ...AIRLAW_GAP_QUESTIONS, ...LAW_010_QUESTIONS, ...AIRLAW_GAPFILL_QUESTIONS, ...AIRLAW_SACAA_TEXTBOOK_QUESTIONS];
+export const AIRLAW_ALL_QUESTIONS: AirLawQuestion[] = [...AIRLAW_QUESTIONS, ...AIRLAW_EXTRA_QUESTIONS, ...AIRLAW_EXTRA2_QUESTIONS, ...AIRLAW_MONIQ_QUESTIONS, ...AIRLAW_MONIQ2_QUESTIONS, ...AIRLAW_NEW_QUESTIONS, ...AIRLAW_BOOST_QUESTIONS, ...AIRLAW_GAP_QUESTIONS, ...LAW_010_QUESTIONS, ...AIRLAW_GAPFILL_QUESTIONS, ...AIRLAW_SACAA_TEXTBOOK_QUESTIONS, ...AIRLAW_SACAA_DOC_QUESTIONS];
 
 export function getAirLawQuestionsBySection(sectionId: string): AirLawQuestion[] {
   return AIRLAW_ALL_QUESTIONS.filter((q) => q.sectionId === sectionId);
