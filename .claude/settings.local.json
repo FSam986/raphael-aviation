@@ -143,7 +143,18 @@
       "Bash(awk -F: '$1>1700 && $1<15000')",
       "Bash(grep -inE 'answer|memorandum|correct option|^[[:space:]]*[0-9]+\\\\.[[:space:]]*[a-d]\\\\\\)?[[:space:]]*$' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/sg.txt)",
       "Bash(unzip -p \"1 - Air Law Questions - Answers.docx\" word/document.xml)",
-      "Bash(python3 -I - /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/qa.xml)"
+      "Bash(python3 -I - /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/qa.xml)",
+      "Bash(grep -inE '^\\\\s*\\(Questions|Answers\\)\\\\s*$' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/ox_radio.txt)",
+      "Bash(awk -F: '$1>7000')",
+      "Bash(awk 'NR>=8020 && NR<=8175' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/ox_radio.txt)",
+      "Bash(grep -vE '^\\\\s*$')",
+      "Bash(awk 'NR>=8176 && NR<=8345' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/ox_radio.txt)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ RADIONAV_GAPFILL_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-gapfill\";\\)/$1\\\\nimport { RADIONAV_OXFORD_RADAR_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/radionav-questions-oxford-radar\";/' src/app/data/radionav-questions.ts)",
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.RADIONAV_GAPFILL_QUESTIONS\\\\];/, ...RADIONAV_GAPFILL_QUESTIONS, ...RADIONAV_OXFORD_RADAR_QUESTIONS];/' src/app/data/radionav-questions.ts)",
+      "Bash(grep -inE 'Performance Class A|Performance Class B|Performance Class C|screen height|reciprocating|certificated|CS-23|CS-25|aeroplanes certificated' __TRACKED_VAR__/ox_perf.txt)",
+      "Bash(awk 'NR>=6971 && NR<=6995' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/ox_perf.txt)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ FPP_GAPFILL_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/fpp-questions-gapfill\";\\)/$1\\\\nimport { FPP_OXFORD_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/fpp-questions-oxford\";/' src/app/data/fpp-questions.ts)",
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.FPP_GAPFILL_QUESTIONS\\\\];/, ...FPP_GAPFILL_QUESTIONS, ...FPP_OXFORD_QUESTIONS];/' src/app/data/fpp-questions.ts)"
     ]
   }
 }

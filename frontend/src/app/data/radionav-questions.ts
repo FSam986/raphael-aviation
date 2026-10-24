@@ -20,6 +20,7 @@ import { RADIONAV_062_QUESTIONS } from "@/app/data/radionav-questions-062";
 import { RADIONAV_OXFORD_QUESTIONS } from "@/app/data/radionav-questions-oxford";
 import { RADIONAV_AUTHORED_QUESTIONS } from "@/app/data/radionav-questions-authored";
 import { RADIONAV_GAPFILL_QUESTIONS } from "@/app/data/radionav-questions-gapfill";
+import { RADIONAV_OXFORD_RADAR_QUESTIONS } from "@/app/data/radionav-questions-oxford-radar";
 
 const RADIONAV_BASE_QUESTIONS: AirLawQuestion[] = [
   // ── Ch1 Basic Radio → A.10.1 ──
@@ -235,7 +236,7 @@ const RADIONAV_BASE_QUESTIONS: AirLawQuestion[] = [
   { id: "RADB-1011d", sectionId: "A.10.11", question: "A Rho-Theta RNAV waypoint is computed from:", optionA: "two VOR bearings", optionB: "a DME distance (Rho) and a VOR bearing (Theta)", optionC: "two DME distances", optionD: "GPS latitude and longitude only", correctAnswer: "b", explanation: "VOR/DME (Rho-Theta) RNAV solves the waypoint triangle from DME range and VOR bearing.", difficulty: "medium", tag: "apply" },
 ];
 
-export const RADIONAV_QUESTIONS: AirLawQuestion[] = [...RADIONAV_BASE_QUESTIONS, ...RADIONAV_BOOST_QUESTIONS, ...RADIONAV_GAP_QUESTIONS, ...RADIONAV_062_QUESTIONS, ...RADIONAV_OXFORD_QUESTIONS, ...RADIONAV_AUTHORED_QUESTIONS, ...RADIONAV_GAPFILL_QUESTIONS];
+export const RADIONAV_QUESTIONS: AirLawQuestion[] = [...RADIONAV_BASE_QUESTIONS, ...RADIONAV_BOOST_QUESTIONS, ...RADIONAV_GAP_QUESTIONS, ...RADIONAV_062_QUESTIONS, ...RADIONAV_OXFORD_QUESTIONS, ...RADIONAV_AUTHORED_QUESTIONS, ...RADIONAV_GAPFILL_QUESTIONS, ...RADIONAV_OXFORD_RADAR_QUESTIONS];
 
 export function getRadioNavQuestionsBySection(sectionId: string): AirLawQuestion[] {
   return RADIONAV_QUESTIONS.filter((x) => x.sectionId === sectionId);
