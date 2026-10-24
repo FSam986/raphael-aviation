@@ -138,7 +138,8 @@
       "Bash(sort -k2)",
       "Bash(grep -nA6 'id: \"meteorology\"' src/app/data/sacaa-syllabus.ts)",
       "Bash(node /tmp/stagetest.mjs)",
-      "Bash(python3 -I scripts/gen-exam-priority.py)"
+      "Bash(python3 -I scripts/gen-exam-priority.py)",
+      "Bash(awk '/id: \"A\\\\.1\\\\.1\"/{f=1} f&&/A\\\\.1\\\\.1\\\\.[a-z]/{print} /id: \"A\\\\.1\\\\.2\"/{f=0}' src/app/data/sacaa-syllabus.ts)"
     ]
   }
 }

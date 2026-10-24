@@ -15,6 +15,7 @@ import { ATG_EXAM11_QUESTIONS } from "@/app/data/aircraft-technical-exam11";
 import { ATG_CAE_AIRFRAMES_QUESTIONS } from "@/app/data/aircraft-technical-cae-airframes";
 import { ATG_CAE_POWERPLANT_QUESTIONS } from "@/app/data/aircraft-technical-cae-powerplant";
 import { ATG_CAE_ELECTRICS_QUESTIONS } from "@/app/data/aircraft-technical-cae-electrics";
+import { ATG_ELEMENTS_QUESTIONS } from "@/app/data/aircraft-technical-elements";
 
 const q = (
   id: string, sectionId: string, question: string,
@@ -391,6 +392,7 @@ export const ATG_QUESTIONS: AirLawQuestion[] = [
   ...ATG_CAE_AIRFRAMES_QUESTIONS,
   ...ATG_CAE_POWERPLANT_QUESTIONS,
   ...ATG_CAE_ELECTRICS_QUESTIONS,
+  ...ATG_ELEMENTS_QUESTIONS,
 ];
 
 export function getAircraftTechnicalQuestionsBySection(sectionId: string): AirLawQuestion[] {
