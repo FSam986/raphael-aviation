@@ -10,6 +10,7 @@ import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
 import {
   loadPlan, loadProgress, saveProgress, completeDay, recordDrill, awardBadge, currentDayIndex,
+  nextSessionUnits, ladderProgress, activeTier, PHASE_OF,
   type CoachPlan, type CoachProgress, type StudyUnit, type Phase,
 } from "@/app/lib/coachPlan";
 import { pick as pickMsg, PILOT_BREAK, scheduleDailyStreak, notifyPermission } from "@/lib/notify";
@@ -56,7 +57,7 @@ function clearSession() {
 }
 
 type Slide =
-  | { id: string; kind: "intro"; dayIdx: number; topics: number; reviewN: number; phase?: Phase }
+  | { id: string; kind: "intro"; dayIdx: number; topics: number; reviewN: number; phase?: Phase; ladder?: Record<1 | 2 | 3, { total: number; strong: number }>; tier?: 1 | 2 | 3 | null }
   | { id: string; kind: "mustknow"; unit: StudyUnit; mustKnow: string[]; cards: AirLawFlashcard[]; figures: FigureDef[] }
   | { id: string; kind: "question"; unit: StudyUnit | null; q: AirLawQuestion; roundKey: string; label: string }
   | { id: string; kind: "score"; unit: StudyUnit; roundKey: string; round: number; qids: string[]; resolved: boolean }
@@ -87,14 +88,23 @@ export default function CoachSessionReel() {
   function buildAndHydrate(p: CoachPlan, idx: number) {
     idc.current = 0;
     const day = p.days[idx];
-    const out: Slide[] = [{ id: nid(), kind: "intro", dayIdx: idx, topics: day.units.length, reviewN: 0, phase: day.phase }];
+    const pr = loadProgress();
+    // Mastery gate: on study days, the topics drilled are the active tier's
+    // un-strong topics (foundations first), not a fixed roster slice — so weak
+    // foundations resurface and 2★ stays locked until 3★ is strong. Review/mock
+    // days keep their fixed review set.
+    const batch = Math.max(1, day.units.length);
+    const gatedUnits = day.kind === "study" ? nextSessionUnits(p, pr, batch) : [];
+    const ladder = ladderProgress(p, pr);
+    const tier = activeTier(p, pr);
+    const out: Slide[] = [{ id: nid(), kind: "intro", dayIdx: idx, topics: gatedUnits.length, reviewN: 0, phase: tier ? PHASE_OF[tier] : undefined, ladder, tier }];
     if (day.reviewUnits.length) {
       const rq: AirLawQuestion[] = [];
       for (const u of day.reviewUnits) { const bank = subjectContent(u.subjectId)?.questions(u.sectionId) ?? []; if (bank.length) rq.push(shuffle(bank)[0]); }
       shuffle(rq).slice(0, 8).forEach((q) => out.push({ id: nid(), kind: "question", unit: null, q, roundKey: "review", label: "Memory check" }));
       (out[0] as Extract<Slide, { kind: "intro" }>).reviewN = Math.min(8, rq.length);
     }
-    day.units.forEach((u, ui) => {
+    gatedUnits.forEach((u, ui) => {
       const content = subjectContent(u.subjectId);
       const note = content?.note(u.sectionId);
       const cards = content?.flashcards(u.sectionId) ?? [];
@@ -106,12 +116,12 @@ export default function CoachSessionReel() {
       const qids: string[] = [];
       bank.forEach((q) => { const id = nid(); qids.push(id); out.push({ id, kind: "question", unit: u, q, roundKey, label: u.sectionTitle }); });
       out.push({ id: nid(), kind: "score", unit: u, roundKey, round: 1, qids, resolved: false });
-      if ((ui + 1) % 2 === 0 && ui < day.units.length - 1) {
+      if ((ui + 1) % 2 === 0 && ui < gatedUnits.length - 1) {
         const [title, body] = pickMsg(PILOT_BREAK);
         out.push({ id: nid(), kind: "break", title, body });
       }
     });
-    if (day.units.length === 0) {
+    if (gatedUnits.length === 0) {
       const rq: AirLawQuestion[] = [];
       for (const u of day.reviewUnits) { const bank = subjectContent(u.subjectId)?.questions(u.sectionId) ?? []; if (bank.length) rq.push(...shuffle(bank).slice(0, 2)); }
       shuffle(rq).slice(0, 20).forEach((q) => out.push({ id: nid(), kind: "question", unit: null, q, roundKey: "review", label: day.kind === "mock" ? "Final mock" : "Review" }));
@@ -308,8 +318,26 @@ export default function CoachSessionReel() {
                     </div>
                   )}
                   <h1 className="text-2xl font-black">Day {s.dayIdx + 1}</h1>
-                  <p className="text-zinc-400 mt-2 text-sm">{s.reviewN > 0 ? `${s.reviewN}-question memory check, then ` : ""}{s.topics} new topic{s.topics === 1 ? "" : "s"} to master.</p>
-                  {s.phase === "Foundations" && <p className="text-zinc-600 text-xs mt-2">Core concepts the rest of the subject builds on — master these first.</p>}
+                  <p className="text-zinc-400 mt-2 text-sm">{s.reviewN > 0 ? `${s.reviewN}-question memory check, then ` : ""}{s.topics > 0 ? `${s.topics} topic${s.topics === 1 ? "" : "s"} to master` : "spaced review"}.</p>
+                  {/* Live mastery gate — the current tier must be strong (≥90%, 2 rounds) to unlock the next. */}
+                  {s.ladder && s.tier && (
+                    <div className="mt-5 space-y-1.5 text-left max-w-xs mx-auto">
+                      {([3, 2, 1] as const).map((t) => {
+                        const l = s.ladder![t];
+                        if (!l.total) return null;
+                        const name = PHASE_OF[t];
+                        const done = l.strong >= l.total;
+                        const activeRow = s.tier === t;
+                        return (
+                          <div key={t} className={`flex items-center justify-between text-xs rounded-lg px-3 py-2 border ${activeRow ? "border-gold/40 bg-gold/5 text-white" : done ? "border-green-500/30 text-green-400" : "border-zinc-800 text-zinc-600"}`}>
+                            <span>{"★".repeat(t)} {name}{activeRow ? " — now" : done ? " ✓" : " — locked"}</span>
+                            <span className="tabular-nums">{l.strong}/{l.total}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {s.phase === "Foundations" && <p className="text-zinc-600 text-xs mt-3">Master every foundation (≥90%) to unlock Build.</p>}
                   <p className="text-zinc-600 text-xs mt-6">Swipe up to begin ↑</p>
                 </div>
               )}
