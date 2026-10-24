@@ -179,7 +179,16 @@
       "Bash(perl -0pi -e 's/\\(import \\\\{ INSTRUMENTS_TOPUP2_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup2\";\\)/$1\\\\nimport { INSTRUMENTS_TOPUP3_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup3\";/' src/app/data/instruments-questions.ts)",
       "Bash(perl -0pi -e 's/  \\\\.\\\\.\\\\.INSTRUMENTS_TOPUP2_QUESTIONS,/  ...INSTRUMENTS_TOPUP2_QUESTIONS,\\\\n  ...INSTRUMENTS_TOPUP3_QUESTIONS,/' src/app/data/instruments-questions.ts)",
       "Bash(grep -vE '\\\\.\\(tsx|ts|css|ico\\)$|^api$|^components$|^data$|^hooks$|^lib$')",
-      "Bash(python3 -I -c \"import sys,json;d=json.load\\(sys.stdin\\);print\\([{k:c.get\\(k\\) for k in \\('name','runtimeExecutable','runtimeArgs','port'\\)} for c in d['configurations']]\\)\")"
+      "Bash(python3 -I -c \"import sys,json;d=json.load\\(sys.stdin\\);print\\([{k:c.get\\(k\\) for k in \\('name','runtimeExecutable','runtimeArgs','port'\\)} for c in d['configurations']]\\)\")",
+      "Bash(perl -0pi -e 's/\\(export const IR_SPECPROC_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\)/import { IR_SPECPROC_BOOST_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/ir-special-procedures-boost\";\\\\n\\\\n$1/' src/app/data/ir-special-procedures-questions.ts)",
+      "Bash(perl -0pi -e 's/return IR_SPECPROC_QUESTIONS\\\\.filter\\\\\\(/return [...IR_SPECPROC_QUESTIONS, ...IR_SPECPROC_BOOST_QUESTIONS].filter\\(/' src/app/data/ir-special-procedures-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(export const IR_HUMANPERF_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\)/import { IR_HUMANPERF_BOOST_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/ir-human-performance-boost\";\\\\n\\\\n$1/' src/app/data/ir-human-performance-questions.ts)",
+      "Bash(perl -0pi -e 's/return IR_HUMANPERF_QUESTIONS\\\\.filter\\\\\\(/return [...IR_HUMANPERF_QUESTIONS, ...IR_HUMANPERF_BOOST_QUESTIONS].filter\\(/' src/app/data/ir-human-performance-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(export const IR_RADIONAV_QUESTIONS: AirLawQuestion\\\\[\\\\] = \\\\[\\)/import { IR_RADIONAV_BOOST_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/ir-radio-navigation-boost\";\\\\n\\\\n$1/' src/app/data/ir-radio-navigation-questions.ts)",
+      "Bash(perl -0pi -e 's/return IR_RADIONAV_QUESTIONS\\\\.filter\\\\\\(/return [...IR_RADIONAV_QUESTIONS, ...IR_RADIONAV_BOOST_QUESTIONS].filter\\(/' src/app/data/ir-radio-navigation-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ PPL_AIRLAW_MINED_QUESTIONS \\\\} from \"[^\"]+\";\\)/$1\\\\nimport { PPL_AIRLAW_BOOST_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/ppl-airlaw-boost\";/' src/app/data/ppl-airlaw-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(export const NAV_FLASHCARDS: AirLawFlashcard\\\\[\\\\] = \\\\[\\)/import { NAV_FLASHCARDS_BOOST } from \"\\\\@\\\\/app\\\\/data\\\\/nav-flashcards-boost\";\\\\n\\\\n$1/' src/app/data/nav-flashcards.ts)",
+      "Bash(perl -0pi -e 's/return NAV_FLASHCARDS\\\\.filter\\\\\\(/return [...NAV_FLASHCARDS, ...NAV_FLASHCARDS_BOOST].filter\\(/' src/app/data/nav-flashcards.ts)"
     ]
   }
 }

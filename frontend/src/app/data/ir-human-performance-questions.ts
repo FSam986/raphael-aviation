@@ -6,6 +6,8 @@
 
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 
+import { IR_HUMANPERF_BOOST_QUESTIONS } from "@/app/data/ir-human-performance-boost";
+
 export const IR_HUMANPERF_QUESTIONS: AirLawQuestion[] = [
   // ── H.1 The Human Body & the Environment ──
   { id: "IRHP-001", sectionId: "H.1", question: "The barometric pressure has dropped to ½ of the pressure at sea level at:", optionA: "18,000 ft", optionB: "30,000 ft", optionC: "25,000 ft", optionD: "10,000 ft", correctAnswer: "a", explanation: "Atmospheric pressure falls to about half its sea-level value at approximately 18,000 ft.", difficulty: "medium" },
@@ -171,5 +173,5 @@ export const IR_HUMANPERF_QUESTIONS: AirLawQuestion[] = [
 export const IR_HUMANPERF_COUNT = IR_HUMANPERF_QUESTIONS.length;
 
 export function getIRHumanPerfQuestionsBySection(sectionId: string): AirLawQuestion[] {
-  return IR_HUMANPERF_QUESTIONS.filter((q) => q.sectionId === sectionId);
+  return [...IR_HUMANPERF_QUESTIONS, ...IR_HUMANPERF_BOOST_QUESTIONS].filter((q) => q.sectionId === sectionId);
 }

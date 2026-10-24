@@ -10,6 +10,7 @@
 
 import type { AirLawQuestion } from "./airlaw-questions";
 import { PPL_AIRLAW_MINED_QUESTIONS } from "./ppl-airlaw-questions-mined";
+import { PPL_AIRLAW_BOOST_QUESTIONS } from "@/app/data/ppl-airlaw-boost";
 
 export const PPL_AIRLAW_QUESTIONS: AirLawQuestion[] = [
   // ============ 1 — ICAO CONVENTION & ARTICLES ============
@@ -148,7 +149,7 @@ export const PPL_AIRLAW_QUESTIONS: AirLawQuestion[] = [
   { id: "PLAW-57-008", sectionId: "5.7", question: "The ICAO Annexes covering Search and Rescue, and Accident Investigation, are:", optionA: "Annex 12 and Annex 13", optionB: "Annex 11 and Annex 12", optionC: "Annex 13 and Annex 14", optionD: "Annex 6 and Annex 8", correctAnswer: "a", explanation: "Annex 12 = Search and Rescue; Annex 13 = Aircraft Accident and Incident Investigation.", difficulty: "medium" },
 ];
 
-const PPL_AIRLAW_ALL: AirLawQuestion[] = [...PPL_AIRLAW_QUESTIONS, ...PPL_AIRLAW_MINED_QUESTIONS];
+const PPL_AIRLAW_ALL: AirLawQuestion[] = [...PPL_AIRLAW_QUESTIONS, ...PPL_AIRLAW_MINED_QUESTIONS, ...PPL_AIRLAW_BOOST_QUESTIONS];
 
 export function getPPLAirLawQuestionsBySection(sectionId: string): AirLawQuestion[] {
   return PPL_AIRLAW_ALL.filter((q) => q.sectionId === sectionId);

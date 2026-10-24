@@ -5,6 +5,8 @@
 
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 
+import { IR_SPECPROC_BOOST_QUESTIONS } from "@/app/data/ir-special-procedures-boost";
+
 export const IR_SPECPROC_QUESTIONS: AirLawQuestion[] = [
   // ── C.5.6 Contaminated Runways / Hydroplaning ──
   { id: "IRSP-001", sectionId: "C.5.6", question: "Viscous hydroplaning occurs primarily if the runway is covered with a thin film of water and:", optionA: "the runway has a rough surface", optionB: "the runway is very smooth and dirty", optionC: "the tyre treads show minor cuts", optionD: "the runway is very smooth and clean", correctAnswer: "b", explanation: "Viscous hydroplaning needs a thin water film on a smooth, contaminated (dirty) surface, and can occur at low speeds.", difficulty: "medium" },
@@ -131,5 +133,5 @@ export const IR_SPECPROC_QUESTIONS: AirLawQuestion[] = [
 export const IR_SPECPROC_COUNT = IR_SPECPROC_QUESTIONS.length;
 
 export function getIRSpecProcQuestionsBySection(sectionId: string): AirLawQuestion[] {
-  return IR_SPECPROC_QUESTIONS.filter((q) => q.sectionId === sectionId);
+  return [...IR_SPECPROC_QUESTIONS, ...IR_SPECPROC_BOOST_QUESTIONS].filter((q) => q.sectionId === sectionId);
 }

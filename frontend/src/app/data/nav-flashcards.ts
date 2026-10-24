@@ -2,6 +2,8 @@
 
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
 
+import { NAV_FLASHCARDS_BOOST } from "@/app/data/nav-flashcards-boost";
+
 export const NAV_FLASHCARDS: AirLawFlashcard[] = [
   { id: "NFC-A91-01", sectionId: "A.9.1", front: "1 minute of latitude = ?", back: "1 NM (along a meridian). 1° = 60 NM. A longitude minute is only 1 NM at the equator (× cos lat elsewhere).", difficulty: "easy" },
   { id: "NFC-A91-02", sectionId: "A.9.1", front: "Great circle vs rhumb line?", back: "Great circle = shortest distance (plane through earth's centre), cuts meridians at changing angles. Rhumb line = constant direction, cuts every meridian at the same angle (longer).", difficulty: "medium" },
@@ -39,5 +41,5 @@ export const NAV_FLASHCARDS: AirLawFlashcard[] = [
 ];
 
 export function getNavFlashcardsBySection(sectionId: string): AirLawFlashcard[] {
-  return NAV_FLASHCARDS.filter((f) => f.sectionId === sectionId);
+  return [...NAV_FLASHCARDS, ...NAV_FLASHCARDS_BOOST].filter((f) => f.sectionId === sectionId);
 }

@@ -7,6 +7,8 @@
 
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 
+import { IR_RADIONAV_BOOST_QUESTIONS } from "@/app/data/ir-radio-navigation-boost";
+
 export const IR_RADIONAV_QUESTIONS: AirLawQuestion[] = [
   { id: "IRRN-001", sectionId: "C.2.5", question: "As an aeroplane approaches the runway while taxiing for departure, the flight crew observes two sets of yellow lines across the taxiway, one further away signed \"S2 CAT II/III\" and one closer signed \"S1\". Why is there a separate holding position for category II and III operations compared to all other operations, including CAT I?", optionA: "Since aeroplanes perform an autoland during CAT I operations the autopilot flies more accurately, so the CAT I position may be closer to the runway", optionB: "Because of the lower visibility during CAT II/III operations, the landing pilot(s) may mistake the lights from the waiting aircraft as runway lighting", optionC: "Aircraft must be kept further away during CAT II/III operations as arriving aeroplanes may land automatically and therefore require more space", optionD: "The landing minima for CAT II and III operations are lower and therefore require greater precision, and an aircraft waiting too close to the landing runway may affect the quality of the ILS signals", correctAnswer: "d", explanation: "CAT II/III minima are lower and demand precise ILS signals; a too-close waiting aircraft can disturb the ILS, so the holding point is set further back (clear of the ILS critical/sensitive area).", difficulty: "medium" },
   { id: "IRRN-002", sectionId: "C.2.5", question: "What is the difference between CAT II and CAT III ILS approaches?", optionA: "Only CAT III allows NO decision height", optionB: "Only CAT III requires a radio altimeter", optionC: "Only CAT III requires a runway visual range", optionD: "Only CAT II requires a runway visual range", correctAnswer: "a", explanation: "CAT III (notably IIIb/c) can be flown with no decision height, whereas CAT II always has a decision height.", difficulty: "medium" },
@@ -216,5 +218,5 @@ export const IR_RADIONAV_QUESTIONS: AirLawQuestion[] = [
 export const IR_RADIONAV_COUNT = IR_RADIONAV_QUESTIONS.length;
 
 export function getIRRadioNavQuestionsBySection(sectionId: string): AirLawQuestion[] {
-  return IR_RADIONAV_QUESTIONS.filter((q) => q.sectionId === sectionId);
+  return [...IR_RADIONAV_QUESTIONS, ...IR_RADIONAV_BOOST_QUESTIONS].filter((q) => q.sectionId === sectionId);
 }
