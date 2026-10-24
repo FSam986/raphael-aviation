@@ -11,6 +11,8 @@ import { INSTRUMENTS_ECQB_QUESTIONS } from "@/app/data/instruments-questions-ecq
 import { INSTRUMENTS_GAP_QUESTIONS } from "@/app/data/instruments-questions-gap";
 import { INSTRUMENTS_OXFORD_QUESTIONS } from "@/app/data/instruments-questions-oxford";
 import { INSTRUMENTS_TOPUP_QUESTIONS } from "@/app/data/instruments-questions-topup";
+import { INSTRUMENTS_TOPUP2_QUESTIONS } from "@/app/data/instruments-questions-topup2";
+import { INSTRUMENTS_TOPUP3_QUESTIONS } from "@/app/data/instruments-questions-topup3";
 
 export const INSTRUMENTS_QUESTIONS: AirLawQuestion[] = [
   // ── Ch1 Temperature & Pressure Measurement → A.7.5 ──
@@ -240,6 +242,8 @@ export const ALL_INSTRUMENTS_QUESTIONS: AirLawQuestion[] = [
   ...INSTRUMENTS_GAP_QUESTIONS,
   ...INSTRUMENTS_OXFORD_QUESTIONS,
   ...INSTRUMENTS_TOPUP_QUESTIONS,
+  ...INSTRUMENTS_TOPUP2_QUESTIONS,
+  ...INSTRUMENTS_TOPUP3_QUESTIONS,
 ];
 
 export function getInstrumentsQuestionsBySection(sectionId: string): AirLawQuestion[] {

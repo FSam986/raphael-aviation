@@ -173,7 +173,11 @@
       "Bash(perl -0pi -e 's/\\(import \\\\{ INSTRUMENTS_OXFORD_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-oxford\";\\)/$1\\\\nimport { INSTRUMENTS_TOPUP_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup\";/' src/app/data/instruments-questions.ts)",
       "Bash(perl -0pi -e 's/  \\\\.\\\\.\\\\.INSTRUMENTS_OXFORD_QUESTIONS,/  ...INSTRUMENTS_OXFORD_QUESTIONS,\\\\n  ...INSTRUMENTS_TOPUP_QUESTIONS,/' src/app/data/instruments-questions.ts)",
       "Bash(perl -0pi -e 's/\\(import \\\\{ FPP_OXFORD_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/fpp-questions-oxford\";\\)/$1\\\\nimport { FPP_TOPUP_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/fpp-questions-topup\";/' src/app/data/fpp-questions.ts)",
-      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.FPP_OXFORD_QUESTIONS\\\\];/, ...FPP_OXFORD_QUESTIONS, ...FPP_TOPUP_QUESTIONS];/' src/app/data/fpp-questions.ts)"
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.FPP_OXFORD_QUESTIONS\\\\];/, ...FPP_OXFORD_QUESTIONS, ...FPP_TOPUP_QUESTIONS];/' src/app/data/fpp-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ INSTRUMENTS_TOPUP_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup\";\\)/$1\\\\nimport { INSTRUMENTS_TOPUP2_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup2\";/' src/app/data/instruments-questions.ts)",
+      "Bash(perl -0pi -e 's/  \\\\.\\\\.\\\\.INSTRUMENTS_TOPUP_QUESTIONS,/  ...INSTRUMENTS_TOPUP_QUESTIONS,\\\\n  ...INSTRUMENTS_TOPUP2_QUESTIONS,/' src/app/data/instruments-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ INSTRUMENTS_TOPUP2_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup2\";\\)/$1\\\\nimport { INSTRUMENTS_TOPUP3_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup3\";/' src/app/data/instruments-questions.ts)",
+      "Bash(perl -0pi -e 's/  \\\\.\\\\.\\\\.INSTRUMENTS_TOPUP2_QUESTIONS,/  ...INSTRUMENTS_TOPUP2_QUESTIONS,\\\\n  ...INSTRUMENTS_TOPUP3_QUESTIONS,/' src/app/data/instruments-questions.ts)"
     ]
   }
 }
