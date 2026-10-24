@@ -115,7 +115,7 @@ export default function StudyPage() {
                       <span>{subject.sections.length} sections</span>
                       <span>{totalItems} exam topics</span>
                       <span className={totalQuestions > 0 ? "text-yellow-400/80" : ""}>
-                        {totalQuestions > 0 ? `${totalQuestions} questions` : "questions coming soon"}
+                        {totalQuestions > 0 ? `${totalQuestions} questions` : "No questions"}
                       </span>
                       <span>{subject.passPercent}% pass mark</span>
                     </div>

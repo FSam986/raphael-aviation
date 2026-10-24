@@ -131,7 +131,7 @@ export default function Exams() {
                     <h3 className="font-bold text-zinc-400">{subject.title}</h3>
                     <span className="text-xs font-mono text-zinc-600">{subject.code}</span>
                   </div>
-                  <div className="text-xs text-zinc-700 mt-1">Question bank coming soon</div>
+                  <div className="text-xs text-zinc-700 mt-1">No questions yet</div>
                 </div>
               </div>
             );

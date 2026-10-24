@@ -118,10 +118,9 @@ export default function Settings() {
           <Card title="Subscription">
             <Row label="Plan"><span className={`text-sm font-bold ${premium ? "text-yellow-400" : "text-zinc-400"}`}>{premium ? "Guaranteed Pass (Premium)" : "Free"}</span></Row>
             <Row label="Manage">
-              {premium ? <span className="text-xs text-zinc-600">Billing portal coming soon</span>
+              {premium ? <span className="text-xs text-zinc-500">Active</span>
                 : <Link href="/coach" className="text-xs px-3 py-1.5 rounded-lg bg-yellow-400 text-black font-bold">Upgrade →</Link>}
             </Row>
-            <p className="text-zinc-600 text-[11px] mt-2">Payment integration is pending — premium currently unlocks in-app.</p>
           </Card>
 
           <Card title="Exam target" desc="Drives your dashboard countdown and the Guaranteed-Pass plan.">

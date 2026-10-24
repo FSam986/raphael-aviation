@@ -398,7 +398,7 @@ export default function SectionPage() {
                 <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 text-center">
                   <div className="mb-4 flex justify-center text-zinc-600"><Icon name="image" size={34} /></div>
                   <h3 className="text-white font-bold text-lg mb-2">Illustrations</h3>
-                  <p className="text-zinc-500 text-sm">Diagrams for this topic are coming soon.</p>
+                  <p className="text-zinc-500 text-sm">No diagram for this topic.</p>
                 </div>
               ) : (
                 sectionFigures.map((f) => (
@@ -469,7 +469,7 @@ export default function SectionPage() {
                   <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 text-center">
                     <div className="mb-4 flex justify-center text-zinc-600"><Icon name="quiz" size={34} /></div>
                     <h3 className="text-white font-bold text-lg mb-2">Practice Quiz</h3>
-                    <p className="text-zinc-500 text-sm">A question bank for this subject is coming soon.</p>
+                    <p className="text-zinc-500 text-sm">No questions for this topic.</p>
                   </div>
                 )
               ) : (
@@ -617,7 +617,7 @@ export default function SectionPage() {
                 <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 text-center">
                   <div className="mb-4 flex justify-center text-zinc-600"><Icon name="flashcards" size={34} /></div>
                   <h3 className="text-white font-bold text-lg mb-2">Flashcards</h3>
-                  <p className="text-zinc-500 text-sm">Flashcards for this subject are coming soon.</p>
+                  <p className="text-zinc-500 text-sm">No flashcards for this topic.</p>
                 </div>
               ) : (
                 (() => {
