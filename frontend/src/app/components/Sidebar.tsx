@@ -33,8 +33,7 @@ export const NAV_ITEMS = [
   { href: "/exams", icon: "exams", label: "Mock Exams" },
   { href: "/exam-brief", icon: "brief", label: "Exam-Day Brief" },
   { href: "/flashcards", icon: "flashcards", label: "Flashcards" },
-  { href: "/progress", icon: "progress", label: "Progress" },
-  { href: "/achievements", icon: "achievements", label: "Achievements" },
+  { href: "/progress", icon: "progress", label: "Briefing" },
   { href: "/settings", icon: "settings", label: "Settings" },
 ];
 

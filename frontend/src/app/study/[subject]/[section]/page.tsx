@@ -583,7 +583,7 @@ export default function SectionPage() {
                         onClick={() => {
                           const answered = sectionQuestions.filter((q) => quizAnswers[q.id]);
                           const correct = answered.filter((q) => quizAnswers[q.id] === q.correctAnswer).length;
-                          recordQuiz(subjectId, answered.length, correct);
+                          recordQuiz(subjectId, answered.length, correct, section?.title);
                           try {
                             const bank = SUBJECT_BANKS[subjectId];
                             if (bank) {

@@ -177,7 +177,8 @@
       "Bash(perl -0pi -e 's/\\(import \\\\{ INSTRUMENTS_TOPUP_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup\";\\)/$1\\\\nimport { INSTRUMENTS_TOPUP2_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup2\";/' src/app/data/instruments-questions.ts)",
       "Bash(perl -0pi -e 's/  \\\\.\\\\.\\\\.INSTRUMENTS_TOPUP_QUESTIONS,/  ...INSTRUMENTS_TOPUP_QUESTIONS,\\\\n  ...INSTRUMENTS_TOPUP2_QUESTIONS,/' src/app/data/instruments-questions.ts)",
       "Bash(perl -0pi -e 's/\\(import \\\\{ INSTRUMENTS_TOPUP2_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup2\";\\)/$1\\\\nimport { INSTRUMENTS_TOPUP3_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup3\";/' src/app/data/instruments-questions.ts)",
-      "Bash(perl -0pi -e 's/  \\\\.\\\\.\\\\.INSTRUMENTS_TOPUP2_QUESTIONS,/  ...INSTRUMENTS_TOPUP2_QUESTIONS,\\\\n  ...INSTRUMENTS_TOPUP3_QUESTIONS,/' src/app/data/instruments-questions.ts)"
+      "Bash(perl -0pi -e 's/  \\\\.\\\\.\\\\.INSTRUMENTS_TOPUP2_QUESTIONS,/  ...INSTRUMENTS_TOPUP2_QUESTIONS,\\\\n  ...INSTRUMENTS_TOPUP3_QUESTIONS,/' src/app/data/instruments-questions.ts)",
+      "Bash(grep -vE '\\\\.\\(tsx|ts|css|ico\\)$|^api$|^components$|^data$|^hooks$|^lib$')"
     ]
   }
 }

@@ -12,17 +12,31 @@
 
 const KEY = "ra-progress";
 
+// One completed quiz or mock exam — the auditable attempt history the student
+// can use to see where they are strong/weak over time.
+export interface SessionRecord {
+  ts: number;
+  kind: "quiz" | "mock";
+  subjectId: string;
+  label?: string;      // section title (quiz) or paper title (mock)
+  score: number;
+  total: number;
+}
+
+const HISTORY_CAP = 300; // keep the most recent attempts
+
 export interface ProgressState {
   q: { attempted: number; correct: number; bySubject: Record<string, { attempted: number; correct: number }> };
   study: { topics: Record<string, number>; bySubject: Record<string, number> };
   days: Record<string, { q: number; s: number }>;
+  history?: SessionRecord[];
   resume?: { href: string; subjectId: string; sectionId: string; itemId: string; ts: number };
   firstSeen?: number;
   lastSeen?: number;
 }
 
 function empty(): ProgressState {
-  return { q: { attempted: 0, correct: 0, bySubject: {} }, study: { topics: {}, bySubject: {} }, days: {} };
+  return { q: { attempted: 0, correct: 0, bySubject: {} }, study: { topics: {}, bySubject: {} }, days: {}, history: [] };
 }
 
 function load(): ProgressState {
@@ -37,6 +51,7 @@ function load(): ProgressState {
     p.study ??= { topics: {}, bySubject: {} };
     p.study.topics ??= {}; p.study.bySubject ??= {};
     p.days ??= {};
+    p.history ??= [];
     return p;
   } catch {
     return empty();
@@ -60,8 +75,13 @@ function today(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+function pushHistory(p: ProgressState, rec: SessionRecord) {
+  (p.history ??= []).push(rec);
+  if (p.history.length > HISTORY_CAP) p.history = p.history.slice(-HISTORY_CAP);
+}
+
 /** Record the result of a study-page quiz (or any question set). */
-export function recordQuiz(subjectId: string, attempted: number, correct: number) {
+export function recordQuiz(subjectId: string, attempted: number, correct: number, label?: string) {
   if (attempted <= 0) return;
   const p = load();
   p.q.attempted += attempted;
@@ -70,7 +90,27 @@ export function recordQuiz(subjectId: string, attempted: number, correct: number
   s.attempted += attempted; s.correct += correct;
   const d = (p.days[today()] ??= { q: 0, s: 0 });
   d.q += attempted;
+  pushHistory(p, { ts: Date.now(), kind: "quiz", subjectId, label, score: correct, total: attempted });
   save(p);
+}
+
+/** Record the result of a completed mock exam (logs history + overall counts). */
+export function recordExamResult(subjectId: string, score: number, total: number, label?: string) {
+  if (total <= 0) return;
+  const p = load();
+  p.q.attempted += total;
+  p.q.correct += score;
+  const s = (p.q.bySubject[subjectId] ??= { attempted: 0, correct: 0 });
+  s.attempted += total; s.correct += score;
+  const d = (p.days[today()] ??= { q: 0, s: 0 });
+  d.q += total;
+  pushHistory(p, { ts: Date.now(), kind: "mock", subjectId, label, score, total });
+  save(p);
+}
+
+/** Most-recent-first attempt history (quizzes + mock exams). */
+export function getHistory(): SessionRecord[] {
+  return [...(load().history ?? [])].reverse();
 }
 
 /** Record that a study topic was opened, and set it as the resume point. */

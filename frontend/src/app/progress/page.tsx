@@ -6,7 +6,7 @@ import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourse } from "@/app/hooks/useCourse";
 import { SUBJECT_BANKS, subjectReadiness, READY_GATE, type SubjectReadiness } from "@/app/lib/readiness";
-import { getProgress, type ProgressSummary } from "@/app/lib/progress";
+import { getProgress, getHistory, type ProgressSummary, type SessionRecord } from "@/app/lib/progress";
 import { Icon } from "@/app/components/Icon";
 
 function Dial({ pct }: { pct: number }) {
@@ -29,11 +29,12 @@ export default function Progress() {
   const [data, setData] = useState<Record<string, SubjectReadiness | null>>({});
   const [open, setOpen] = useState<string | null>(null);
   const [prog, setProg] = useState<ProgressSummary | null>(null);
+  const [hist, setHist] = useState<SessionRecord[]>([]);
 
   const subjects = useMemo(() => syllabus.filter((s) => SUBJECT_BANKS[s.id]), [syllabus]);
 
   useEffect(() => {
-    const read = () => setProg(getProgress());
+    const read = () => { setProg(getProgress()); setHist(getHistory()); };
     read();
     window.addEventListener("progress-change", read);
     return () => window.removeEventListener("progress-change", read);
@@ -49,6 +50,14 @@ export default function Progress() {
 
   const titleFor = (subjectId: string, sectionId: string) =>
     subjects.find((s) => s.id === subjectId)?.sections.find((x) => x.id === sectionId)?.title ?? sectionId;
+  const subjectTitle = (subjectId: string) => subjects.find((s) => s.id === subjectId)?.title ?? subjectId;
+
+  // Strongest / weakest subject from the readiness dials (only rated subjects).
+  const rated = subjects
+    .map((s) => ({ s, r: data[s.id] }))
+    .filter((x): x is { s: typeof subjects[number]; r: SubjectReadiness } => !!x.r && x.r.seen > 0);
+  const strongest = rated.length ? rated.reduce((a, b) => (b.r.pct > a.r.pct ? b : a)) : null;
+  const weakest = rated.length ? rated.reduce((a, b) => (b.r.pct < a.r.pct ? b : a)) : null;
 
   if (loading)
     return (
@@ -64,10 +73,10 @@ export default function Progress() {
         <div className="px-5 sm:px-10 pt-10 pb-5 border-b border-zinc-900">
           <div className="flex items-center gap-3">
             <span className="text-gold"><Icon name="chart" size={22} /></span>
-            <h1 className="text-3xl font-black text-white">Exam Readiness</h1>
+            <h1 className="text-3xl font-black text-white">Briefing</h1>
           </div>
           <p className="text-zinc-500 text-sm mt-1">
-            Built from every question you answer. Aim for <span className="text-green-400 font-semibold">{READY_GATE}%</span> in a subject before you sit the real exam.
+            Your readiness and attempt history, built from every question you answer. Aim for <span className="text-green-400 font-semibold">{READY_GATE}%</span> in a subject before you sit the real exam.
           </p>
         </div>
 
@@ -94,7 +103,60 @@ export default function Progress() {
           </div>
         )}
 
+        {/* Strongest / weakest reference */}
+        {(strongest || weakest) && (
+          <div className="px-5 sm:px-10 pt-8 max-w-4xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {strongest && (
+                <div className="bg-zinc-950 border border-green-500/25 rounded-2xl p-5">
+                  <div className="text-[11px] uppercase tracking-wider text-green-400/80">Strongest subject</div>
+                  <div className="text-white font-bold mt-1">{strongest.s.title}</div>
+                  <div className="text-zinc-500 text-xs mt-0.5">{strongest.r.pct}% ready · {strongest.r.seen}/{strongest.r.total} attempted</div>
+                </div>
+              )}
+              {weakest && (
+                <div className="bg-zinc-950 border border-red-500/25 rounded-2xl p-5">
+                  <div className="text-[11px] uppercase tracking-wider text-red-400/80">Needs the most work</div>
+                  <div className="text-white font-bold mt-1">{weakest.s.title}</div>
+                  <div className="text-zinc-500 text-xs mt-0.5">{weakest.r.pct}% ready · {weakest.r.seen}/{weakest.r.total} attempted</div>
+                  <Link href={`/study/${weakest.s.id}`} className="inline-block mt-2 text-[11px] text-yellow-400/80 hover:text-yellow-400">Go study it →</Link>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Attempt history — quizzes & mock exams */}
+        {hist.length > 0 && (
+          <div className="px-5 sm:px-10 pt-8 max-w-4xl">
+            <h2 className="text-white font-bold text-sm mb-3">Recent attempts</h2>
+            <div className="bg-zinc-950 border border-zinc-900 rounded-2xl divide-y divide-zinc-900 overflow-hidden">
+              {hist.slice(0, 40).map((h, i) => {
+                const pct = h.total ? Math.round((h.score / h.total) * 100) : 0;
+                const pass = pct >= READY_GATE;
+                return (
+                  <div key={i} className="flex items-center gap-3 px-4 sm:px-5 py-3">
+                    <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full shrink-0 ${h.kind === "mock" ? "bg-yellow-400/15 text-yellow-400" : "bg-zinc-800 text-zinc-400"}`}>
+                      {h.kind === "mock" ? "Mock" : "Quiz"}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm text-white truncate">{subjectTitle(h.subjectId)}{h.label ? <span className="text-zinc-500"> · {h.label}</span> : null}</div>
+                      <div className="text-[11px] text-zinc-600">{new Date(h.ts).toLocaleDateString()} {new Date(h.ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <div className={`text-sm font-bold tabular-nums ${pass ? "text-green-400" : pct >= 50 ? "text-yellow-400" : "text-red-400"}`}>{pct}%</div>
+                      <div className="text-[11px] text-zinc-600 tabular-nums">{h.score}/{h.total}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-zinc-600 text-xs mt-2">Your last {Math.min(hist.length, 40)} attempt{hist.length === 1 ? "" : "s"} — use the pattern to see where to focus.</p>
+          </div>
+        )}
+
         <div className="px-5 sm:px-10 py-8 space-y-4 max-w-4xl">
+          <h2 className="text-white font-bold text-sm">Readiness by subject &amp; topic</h2>
           {subjects.map((s) => {
             const r = data[s.id];
             const pct = r?.pct ?? 0;

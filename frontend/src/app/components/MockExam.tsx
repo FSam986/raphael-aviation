@@ -14,6 +14,7 @@ import {
   type MasteryMap,
 } from "@/app/lib/examSelect";
 import { aspectOf } from "@/app/lib/aspects";
+import { recordExamResult } from "@/app/lib/progress";
 import { starOfSubject } from "@/app/data/exam-priority";
 import { Icon } from "@/app/components/Icon";
 
@@ -147,6 +148,8 @@ export function MockExam({
   const finishExam = useCallback(async () => {
     setElapsedSec(startedAt ? Math.round((Date.now() - startedAt) / 1000) : 0);
     setPhase("results");
+    // Log this paper to the attempt history (quizzes + mocks) on the Briefing page.
+    recordExamResult(subjectId, score, questions.length, title);
     // Mastery: record each answer so future papers target weak areas and retire
     // mastered questions. Purely local, so it works with no backend.
     try {
@@ -191,7 +194,7 @@ export function MockExam({
         /* Supabase optional — rotation still works via localStorage */
       }
     }
-  }, [questions, score, userId, startedAt, answers, subjectId, storeKey, keyMap]);
+  }, [questions, score, userId, startedAt, answers, subjectId, storeKey, keyMap, title]);
 
   // Countdown timer
   useEffect(() => {
