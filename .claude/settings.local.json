@@ -139,7 +139,11 @@
       "Bash(grep -nA6 'id: \"meteorology\"' src/app/data/sacaa-syllabus.ts)",
       "Bash(node /tmp/stagetest.mjs)",
       "Bash(python3 -I scripts/gen-exam-priority.py)",
-      "Bash(awk '/id: \"A\\\\.1\\\\.1\"/{f=1} f&&/A\\\\.1\\\\.1\\\\.[a-z]/{print} /id: \"A\\\\.1\\\\.2\"/{f=0}' src/app/data/sacaa-syllabus.ts)"
+      "Bash(awk '/id: \"A\\\\.1\\\\.1\"/{f=1} f&&/A\\\\.1\\\\.1\\\\.[a-z]/{print} /id: \"A\\\\.1\\\\.2\"/{f=0}' src/app/data/sacaa-syllabus.ts)",
+      "Bash(awk -F: '$1>1700 && $1<15000')",
+      "Bash(grep -inE 'answer|memorandum|correct option|^[[:space:]]*[0-9]+\\\\.[[:space:]]*[a-d]\\\\\\)?[[:space:]]*$' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/sg.txt)",
+      "Bash(unzip -p \"1 - Air Law Questions - Answers.docx\" word/document.xml)",
+      "Bash(python3 -I - /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/qa.xml)"
     ]
   }
 }
