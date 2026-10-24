@@ -37,6 +37,7 @@ export interface ExamPlanEntry {
   storeKey: string; // that subject's mastery key
   questions: ExamQuestion[]; // that subject's bank
   count: number; // how many questions this subject contributes, in order
+  subjectId?: string; // for exam-priority star weighting (optional)
 }
 
 export interface MockExamProps {
@@ -111,7 +112,7 @@ export function MockExam({
     if (plan) {
       assembled = [];
       for (const p of plan) {
-        const picked = pickAdaptiveExam(p.questions, Math.min(p.count, p.questions.length), loadMastery(p.storeKey), aspectOf);
+        const picked = pickAdaptiveExam(p.questions, Math.min(p.count, p.questions.length), loadMastery(p.storeKey), aspectOf, p.subjectId ? starOfSubject(p.subjectId) : undefined);
         for (const q of picked) {
           assembled.push(q);
           km[q.id] = p.storeKey;

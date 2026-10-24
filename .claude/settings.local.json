@@ -137,7 +137,8 @@
       "Bash(pdftotext -layout \"feismo.com-question-bank-meteorology-for-atpl-pr_7be0e847bcd4a7038fa18f11d5e5345f.pdf\" /tmp/feismo.txt)",
       "Bash(sort -k2)",
       "Bash(grep -nA6 'id: \"meteorology\"' src/app/data/sacaa-syllabus.ts)",
-      "Bash(node /tmp/stagetest.mjs)"
+      "Bash(node /tmp/stagetest.mjs)",
+      "Bash(python3 -I scripts/gen-exam-priority.py)"
     ]
   }
 }
