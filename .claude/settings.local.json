@@ -154,7 +154,14 @@
       "Bash(grep -inE 'Performance Class A|Performance Class B|Performance Class C|screen height|reciprocating|certificated|CS-23|CS-25|aeroplanes certificated' __TRACKED_VAR__/ox_perf.txt)",
       "Bash(awk 'NR>=6971 && NR<=6995' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/ox_perf.txt)",
       "Bash(perl -0pi -e 's/\\(import \\\\{ FPP_GAPFILL_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/fpp-questions-gapfill\";\\)/$1\\\\nimport { FPP_OXFORD_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/fpp-questions-oxford\";/' src/app/data/fpp-questions.ts)",
-      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.FPP_GAPFILL_QUESTIONS\\\\];/, ...FPP_GAPFILL_QUESTIONS, ...FPP_OXFORD_QUESTIONS];/' src/app/data/fpp-questions.ts)"
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.FPP_GAPFILL_QUESTIONS\\\\];/, ...FPP_GAPFILL_QUESTIONS, ...FPP_OXFORD_QUESTIONS];/' src/app/data/fpp-questions.ts)",
+      "Bash(rm -f /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/sacaa_pages/*.png)",
+      "Bash(pdftoppm -jpeg -r 72 -f 1 -l 6 '/Users/fathimasamreen/Downloads/SACAA AIRLAW CPL textbook.pdf' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/sacaa_pages/pg)",
+      "Bash(awk '{print $5\"  \"$9}')",
+      "Bash(rm -f __TRACKED_VAR__/fp/*.jpg)",
+      "Bash(pdftoppm -jpeg -r 68 -f 2 -l 16 'Page 16-13.pdf' __TRACKED_VAR__/fp/aip)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ AIRLAW_GAPFILL_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/airlaw-questions-gapfill\";\\)/$1\\\\nimport { AIRLAW_SACAA_TEXTBOOK_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/airlaw-questions-sacaa-textbook\";/' src/app/data/airlaw-questions.ts)",
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.AIRLAW_GAPFILL_QUESTIONS\\\\];/, ...AIRLAW_GAPFILL_QUESTIONS, ...AIRLAW_SACAA_TEXTBOOK_QUESTIONS];/' src/app/data/airlaw-questions.ts)"
     ]
   }
 }
