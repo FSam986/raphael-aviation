@@ -168,7 +168,12 @@
       "Bash(awk 'NR>=6236 && NR<=6320' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/sacaa_doc.txt)",
       "Bash(awk 'NR>=6338 && NR<=6420' /private/tmp/claude-501/-Users-fathimasamreen-AI-CoPilot/ceb7694f-6308-4159-82f6-9c05a47876b4/scratchpad/sacaa_doc.txt)",
       "Bash(perl -0pi -e 's/\\(import \\\\{ AIRLAW_SACAA_TEXTBOOK_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/airlaw-questions-sacaa-textbook\";\\)/$1\\\\nimport { AIRLAW_SACAA_DOC_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/airlaw-questions-sacaa-doc\";/' src/app/data/airlaw-questions.ts)",
-      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.AIRLAW_SACAA_TEXTBOOK_QUESTIONS\\\\];/, ...AIRLAW_SACAA_TEXTBOOK_QUESTIONS, ...AIRLAW_SACAA_DOC_QUESTIONS];/' src/app/data/airlaw-questions.ts)"
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.AIRLAW_SACAA_TEXTBOOK_QUESTIONS\\\\];/, ...AIRLAW_SACAA_TEXTBOOK_QUESTIONS, ...AIRLAW_SACAA_DOC_QUESTIONS];/' src/app/data/airlaw-questions.ts)",
+      "Bash(awk -F: '$1>600 && $1<13000')",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ INSTRUMENTS_OXFORD_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-oxford\";\\)/$1\\\\nimport { INSTRUMENTS_TOPUP_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/instruments-questions-topup\";/' src/app/data/instruments-questions.ts)",
+      "Bash(perl -0pi -e 's/  \\\\.\\\\.\\\\.INSTRUMENTS_OXFORD_QUESTIONS,/  ...INSTRUMENTS_OXFORD_QUESTIONS,\\\\n  ...INSTRUMENTS_TOPUP_QUESTIONS,/' src/app/data/instruments-questions.ts)",
+      "Bash(perl -0pi -e 's/\\(import \\\\{ FPP_OXFORD_QUESTIONS \\\\} from \"\\\\@\\\\/app\\\\/data\\\\/fpp-questions-oxford\";\\)/$1\\\\nimport { FPP_TOPUP_QUESTIONS } from \"\\\\@\\\\/app\\\\/data\\\\/fpp-questions-topup\";/' src/app/data/fpp-questions.ts)",
+      "Bash(perl -0pi -e 's/, \\\\.\\\\.\\\\.FPP_OXFORD_QUESTIONS\\\\];/, ...FPP_OXFORD_QUESTIONS, ...FPP_TOPUP_QUESTIONS];/' src/app/data/fpp-questions.ts)"
     ]
   }
 }
