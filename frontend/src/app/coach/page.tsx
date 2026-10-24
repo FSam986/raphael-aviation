@@ -8,6 +8,7 @@ import { useCourse } from "@/app/hooks/useCourse";
 import {
   buildPlan, savePlan, loadPlan, clearPlan, loadProgress, saveProgress, freshProgress,
   subjectsWithContent, currentDayIndex, planLoad, daysBetween, ymd,
+  estimateTimeline, feasibility, HF, pace, coachNudge, checkMilestones,
   isPremium, setPremium, type CoachPlan, type CoachProgress,
 } from "@/app/lib/coachPlan";
 import { notifySupported, notifyPermission, requestNotifyPermission, scheduleDailyStreak, cancelDailyStreak, notifyNow, pick, PILOT_STREAK } from "@/lib/notify";
@@ -39,6 +40,13 @@ export default function CoachPage() {
     setRemindersOn(notifyPermission() === "granted");
     setHydrated(true);
   }, []);
+
+  // Award ladder/streak milestones when progress changes (idempotent).
+  useEffect(() => {
+    if (!plan) return;
+    const [np, got] = checkMilestones(plan, progress);
+    if (got.length) { setProgress(np); saveProgress(np); }
+  }, [plan, progress]);
 
   async function enableReminders() {
     const ok = await requestNotifyPermission();
@@ -136,6 +144,25 @@ export default function CoachPage() {
             {selected.length === 0 && <div className="text-amber-400/80 text-xs mt-3">Pick at least one paper to build a plan.</div>}
           </div>
 
+          {examDate && selected.length > 0 && (() => {
+            const fe = feasibility(course, selected, examDate);
+            const tl = estimateTimeline(course, selected);
+            const cls = { comfortable: "border-green-500/30 bg-green-500/5 text-green-300", doable: "border-sky-500/30 bg-sky-500/5 text-sky-300", tight: "border-amber-500/30 bg-amber-500/5 text-amber-300", unrealistic: "border-red-500/30 bg-red-500/5 text-red-300" }[fe.verdict];
+            const msg = {
+              comfortable: `Comfortable: about ${fe.requiredNewPerDay} new topics/day. Room to master everything and pass with margin.`,
+              doable: `Doable: about ${fe.requiredNewPerDay} new topics/day — within a healthy focus limit. Keep the daily streak.`,
+              tight: `Tight: needs ~${fe.requiredNewPerDay} new topics/day, above the healthy ~${HF.newTopicsPerDay}. Possible with discipline — or allow ~${tl.recommendedDays} days for a stronger pass.`,
+              unrealistic: `Too tight: ~${fe.requiredNewPerDay} new topics/day isn't sustainable. For a reliable pass allow at least ${tl.minDays} days (ideally ${tl.recommendedDays}).`,
+            }[fe.verdict];
+            return (
+              <div className={`mt-5 rounded-2xl border p-6 ${cls}`}>
+                <div className="text-sm font-bold">3 · Your timeline — {tl.totalTopics} topics</div>
+                <p className="text-xs mt-2 leading-relaxed">{msg}</p>
+                <div className="text-[11px] text-zinc-500 mt-2">Minimum ~{tl.minDays} days · recommended ~{tl.recommendedDays} days for a higher %. Estimates based on attention span and spaced practice — not a guarantee.</div>
+              </div>
+            );
+          })()}
+
           <button onClick={generate} disabled={!examDate || selected.length === 0}
             className="mt-6 w-full px-6 py-3.5 bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-black font-bold rounded-xl transition-colors">
             {plan ? "Rebuild my plan →" : "Generate my plan →"}
@@ -199,9 +226,20 @@ export default function CoachPage() {
           <div className="h-2 bg-zinc-900 rounded-full overflow-hidden"><div className="h-full bg-gold rounded-full" style={{ width: `${pct}%` }} /></div>
         </div>
 
-        {load.tight && (
-          <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/5 p-3 text-xs text-amber-300 flex items-center gap-1.5"><Icon name="warn" size={13} className="shrink-0" />Tight timeline: ~{load.topicsPerStudyDay} topics/day. Doable if you keep the streak — or pick a slightly later date.</div>
-        )}
+        {/* Human-factors pace + escalating nudge */}
+        {(() => {
+          const doneToday = progress.lastDoneDate === ymd(new Date());
+          const pc = pace(plan, progress);
+          const nd = coachNudge(plan, progress, doneToday);
+          const cls = nd.tone === "urgent" ? "border-red-500/40 bg-red-500/5 text-red-300" : nd.tone === "push" ? "border-amber-500/40 bg-amber-500/5 text-amber-300" : "border-zinc-800 bg-zinc-950 text-zinc-300";
+          return (
+            <div className={`mt-4 rounded-xl border p-4 ${cls}`}>
+              <div className="flex items-center gap-2 text-sm font-bold">{nd.tone !== "mild" && <Icon name="warn" size={14} className="shrink-0" />}{nd.title}</div>
+              <p className="text-xs mt-1 leading-relaxed text-zinc-400">{nd.body}</p>
+              <div className="text-[11px] text-zinc-500 mt-2 tabular-nums">{pc.strong}/{pc.total} topics strong · {pc.daysLeft} days left{pc.status !== "ahead" && pc.total > pc.strong ? ` · ~${pc.neededPerDay}/day to stay ready` : ""}</div>
+            </div>
+          );
+        })()}
 
         {/* pilot-themed reminders */}
         {notifySupported() && (
