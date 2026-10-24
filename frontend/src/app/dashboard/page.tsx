@@ -108,45 +108,51 @@ export default function Dashboard() {
             <span className="mono text-[11px] text-chart-ink-faint tracking-wider">{legs.length} WAYPOINTS</span>
           </div>
 
-          <ol className="relative mt-6 ml-[7px] border-l border-dashed border-chart-line-2">
+          <div className="mt-6 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {legs.map((leg, i) => {
               const totalItems = leg.subject.sections.reduce((n, s) => n + s.items.length, 0);
               return (
-                <li key={leg.subject.id} className="relative pl-8 pb-3">
-                  {/* Waypoint dot */}
+                <Link
+                  key={leg.subject.id}
+                  href={`/study/${leg.subject.id}`}
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-chart-line bg-chart-ground-2/60 p-4 sm:p-5 transition-colors hover:border-gold/45 hover:bg-chart-ground-2"
+                >
+                  {/* status accent bar along the top */}
                   <span
-                    className={`absolute -left-[7px] top-4 h-3.5 w-3.5 rounded-full border-2 ${leg.done ? "bg-gold border-gold" : leg.pct > 0 ? "bg-chart-ground border-gold" : "bg-chart-ground border-chart-line-2"}`}
+                    className={`absolute inset-x-0 top-0 h-[3px] ${leg.done ? "bg-gold" : leg.pct > 0 ? "bg-gold/50" : "bg-chart-line-2"}`}
                     aria-hidden="true"
                   />
-                  <Link
-                    href={`/study/${leg.subject.id}`}
-                    className="group block rounded-xl border border-chart-line bg-chart-ground-2/60 px-4 sm:px-5 py-4 transition-colors hover:border-gold/40 hover:bg-chart-ground-2"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="mono text-[11px] text-chart-ink-faint tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                      <h3 className="text-chart-ink font-semibold text-[15px] flex-1 leading-tight min-w-0">{leg.subject.title}</h3>
-                      <span className={`mono text-[10px] uppercase tracking-[0.14em] whitespace-nowrap ${leg.done ? "text-gold" : leg.pct > 0 ? "text-chart-ink-dim" : "text-chart-ink-faint"}`}>
-                        {leg.label}
-                      </span>
-                    </div>
-                    <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2 pl-0 sm:pl-[34px]">
-                      <span className="mono text-[11px] text-gold-deep tracking-wider">{leg.subject.code}</span>
-                      <span className="mono text-[11px] text-chart-ink-faint">{leg.subject.sections.length} sec · {totalItems} topics</span>
-                      <span className="mono text-[11px] text-chart-ink-dim tabular-nums ml-auto sm:ml-0 sm:order-last w-9 text-right">{leg.pct}%</span>
-                      <div className="order-last sm:order-none basis-full sm:basis-auto sm:flex-1 h-[3px] rounded-full bg-chart-line overflow-hidden">
+                  {/* large faint index — the thumbnail motif */}
+                  <span className="pointer-events-none absolute -right-1 -bottom-3 font-display text-7xl leading-none text-chart-line/40 select-none" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className="relative flex items-center justify-between">
+                    <span className="mono text-[11px] tracking-wider text-gold-deep">{leg.subject.code}</span>
+                    <span className={`mono text-[9px] uppercase tracking-[0.14em] ${leg.done ? "text-gold" : leg.pct > 0 ? "text-chart-ink-dim" : "text-chart-ink-faint"}`}>
+                      {leg.label}
+                    </span>
+                  </div>
+
+                  <h3 className="relative mt-3 text-chart-ink font-semibold text-[15px] leading-snug min-h-[2.6em]">{leg.subject.title}</h3>
+
+                  <div className="relative mt-auto pt-3">
+                    <div className="mono text-[10px] text-chart-ink-faint mb-2">{leg.subject.sections.length} sec · {totalItems} topics</div>
+                    <div className="flex items-center gap-2">
+                      <div className="flex-1 h-[3px] rounded-full bg-chart-line overflow-hidden">
                         <div className="h-full rounded-full bg-gold transition-all" style={{ width: `${leg.pct}%` }} />
                       </div>
+                      <span className="mono text-[10px] text-chart-ink-dim tabular-nums w-8 text-right">{leg.pct}%</span>
                     </div>
-                  </Link>
-                </li>
+                  </div>
+                </Link>
               );
             })}
-            {/* Destination */}
-            <li className="relative pl-8 pt-1">
-              <DestGlyph />
-              <div className="text-chart-ink-faint mono text-[11px] uppercase tracking-[0.18em] py-2">Destination · SACAA exam</div>
-            </li>
-          </ol>
+          </div>
+
+          <div className="mt-6 flex items-center gap-2 text-chart-ink-faint mono text-[11px] uppercase tracking-[0.18em]">
+            <DestGlyph /> <span className="pl-1">Destination · SACAA exam</span>
+          </div>
         </div>
       </main>
     </div>
@@ -192,10 +198,8 @@ function ResumeGlyph() {
 
 function DestGlyph() {
   return (
-    <span className="absolute -left-[11px] top-1 flex h-5 w-5 items-center justify-center" aria-hidden="true">
-      <svg viewBox="0 0 24 24" className="h-5 w-5 text-gold" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M5 21V4l13 4.5L5 13" /><path d="M5 21h5" />
-      </svg>
-    </span>
+    <svg viewBox="0 0 24 24" className="h-4 w-4 text-gold shrink-0" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <path d="M5 21V4l13 4.5L5 13" /><path d="M5 21h5" />
+    </svg>
   );
 }
