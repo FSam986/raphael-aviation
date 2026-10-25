@@ -31,7 +31,7 @@ export interface CarpetSpec {
 const RED = "#ef4444";
 const AX = "#a1a1aa";
 const GRIDMAJ = "#52525b";
-const GRIDMIN = "#3f3f46";
+const GRIDMIN = "#45454e";
 const CURVE = "#60a5fa";
 const REFC = "#e4e4e7";
 
@@ -54,11 +54,11 @@ function grid() {
   // minor vertical every ~19px, major every ~95
   let k = 0;
   for (let x = X0; x <= X1 + 0.5; x += (X1 - X0) / 52, k++) {
-    lines.push(<line key={`v${k}`} x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMIN} strokeWidth="0.5" />);
+    lines.push(<line key={`v${k}`} x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMIN} strokeWidth="1" />);
   }
   k = 0;
   for (let y = Y0; y <= Y1 + 0.5; y += (Y1 - Y0) / 40, k++) {
-    lines.push(<line key={`h${k}`} x1={X0} y1={y} x2={X1} y2={y} stroke={GRIDMIN} strokeWidth="0.5" />);
+    lines.push(<line key={`h${k}`} x1={X0} y1={y} x2={X1} y2={y} stroke={GRIDMIN} strokeWidth="1" />);
   }
   return lines;
 }
@@ -103,8 +103,9 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
         <button onClick={() => setZoom((z) => Math.min(4, +(z + 0.5).toFixed(1)))} className="w-7 h-7 rounded-lg bg-zinc-900 text-zinc-300">+</button>
       </div>
 
-      <div className="overflow-auto rounded-lg border border-zinc-900" style={{ maxHeight: 520 }}>
-        <svg viewBox="0 0 1120 560" width={1120 * zoom} height={560 * zoom} className="block bg-zinc-950">
+      <div className="overflow-auto rounded-lg border border-zinc-900" style={{ maxHeight: 560 }}>
+        <svg viewBox="0 0 1120 560" preserveAspectRatio="xMidYMid meet" className="block bg-zinc-950"
+          style={zoom === 1 ? { width: "100%", height: "auto" } : { width: 1120 * zoom, height: 560 * zoom }}>
           {grid()}
 
           {/* panel reference lines */}

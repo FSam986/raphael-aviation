@@ -28,8 +28,8 @@ export interface GraphSpec {
 
 const RED = "#f87171";
 const AX = "#d4d4d8";
-const GRID_MAJOR = "#52525b"; // visible major gridlines
-const GRID_MINOR = "#2a2a30"; // faint minor gridlines (graph-paper look)
+const GRID_MAJOR = "#6b6b76"; // visible major gridlines
+const GRID_MINOR = "#3a3a42"; // minor gridlines (graph-paper look)
 const CURVE = "#60a5fa";
 
 // Dark halo behind labels (paint-order: stroke) so text stays readable where a
@@ -74,31 +74,31 @@ export function GraphPlot({ spec, reveal }: { spec: GraphSpec; reveal: boolean }
         <button onClick={() => setZoom((z) => Math.min(4, +(z + 0.5).toFixed(1)))} className="w-7 h-7 rounded-lg bg-zinc-900 text-zinc-300 text-sm">+</button>
       </div>
 
-      <div className="overflow-auto rounded-lg border border-zinc-900" style={{ maxHeight: 460 }}>
+      <div className="overflow-auto rounded-lg border border-zinc-900" style={{ maxHeight: 520 }}>
         <svg
           viewBox={`0 0 ${W} ${H}`}
-          width={W * zoom}
-          height={H * zoom}
+          preserveAspectRatio="xMidYMid meet"
           className="block bg-zinc-950"
+          style={zoom === 1 ? { width: "100%", height: "auto" } : { width: W * zoom, height: H * zoom }}
         >
           {/* minor gridlines (graph paper) */}
           {minorTicks(spec.x).map((v) => (
-            <line key={`xm${v}`} x1={sx(v)} y1={M.t} x2={sx(v)} y2={M.t + PH} stroke={GRID_MINOR} strokeWidth="0.5" />
+            <line key={`xm${v}`} x1={sx(v)} y1={M.t} x2={sx(v)} y2={M.t + PH} stroke={GRID_MINOR} strokeWidth="0.8" />
           ))}
           {minorTicks(spec.y).map((v) => (
-            <line key={`ym${v}`} x1={M.l} y1={sy(v)} x2={M.l + PW} y2={sy(v)} stroke={GRID_MINOR} strokeWidth="0.5" />
+            <line key={`ym${v}`} x1={M.l} y1={sy(v)} x2={M.l + PW} y2={sy(v)} stroke={GRID_MINOR} strokeWidth="0.8" />
           ))}
           {/* major gridlines + tick values on both axes */}
           {ticks(spec.x).map((v) => (
             <g key={`x${v}`}>
-              <line x1={sx(v)} y1={M.t} x2={sx(v)} y2={M.t + PH} stroke={GRID_MAJOR} strokeWidth="0.9" />
+              <line x1={sx(v)} y1={M.t} x2={sx(v)} y2={M.t + PH} stroke={GRID_MAJOR} strokeWidth="1.2" />
               <line x1={sx(v)} y1={M.t + PH} x2={sx(v)} y2={M.t + PH + 5} stroke={AX} strokeWidth="1" />
               <text x={sx(v)} y={M.t + PH + 17} {...halo} fill={AX} fontSize="11.5" textAnchor="middle">{v}</text>
             </g>
           ))}
           {ticks(spec.y).map((v) => (
             <g key={`y${v}`}>
-              <line x1={M.l} y1={sy(v)} x2={M.l + PW} y2={sy(v)} stroke={GRID_MAJOR} strokeWidth="0.9" />
+              <line x1={M.l} y1={sy(v)} x2={M.l + PW} y2={sy(v)} stroke={GRID_MAJOR} strokeWidth="1.2" />
               <line x1={M.l - 5} y1={sy(v)} x2={M.l} y2={sy(v)} stroke={AX} strokeWidth="1" />
               <text x={M.l - 9} y={sy(v) + 4} {...halo} fill={AX} fontSize="11.5" textAnchor="end">{v}</text>
             </g>
