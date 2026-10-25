@@ -116,7 +116,7 @@ export function GraphPlot({ spec, reveal }: { spec: GraphSpec; reveal: boolean }
             return (
               <g key={c.label}>
                 <path d={path(c.pts)} fill="none" stroke={CURVE} strokeWidth="1.75" />
-                <text x={sx(last[0]) + 4} y={sy(last[1]) + 3} {...halo} fill={CURVE} fontSize="10">{c.label}</text>
+                <text x={sx(last[0]) + 4} y={sy(last[1]) + 3} {...halo} fill={CURVE} fontSize="11.5">{c.label}</text>
               </g>
             );
           })}

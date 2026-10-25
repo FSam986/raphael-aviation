@@ -124,17 +124,17 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
             const base = 0.1 + (pa / 10000) * 0.42;
             const y = Y1 - base * (Y1 - Y0);
             return (
-              <text key={`l${pa}`} x={x - 6} y={y - 3} {...halo} fill={CURVE} fontSize="9" textAnchor="end">
+              <text key={`l${pa}`} x={x - 6} y={y - 3} {...halo} fill={CURVE} fontSize="12" textAnchor="end">
                 {pa === 0 ? "SL" : pa === 10000 ? "10 000" : pa}
               </text>
             );
           })}
           {oatTicks.map((t) => {
             const x = PX[0] + ((t + 40) / 100) * (PX[1] - PX[0]);
-            return <text key={`o${t}`} x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="10" textAnchor="middle">{t}</text>;
+            return <text key={`o${t}`} x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{t}</text>;
           })}
-          <text x={(PX[0] + PX[1]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="11" textAnchor="middle">OUTSIDE AIR TEMPERATURE °C</text>
-          <text x={PX[0] + 8} y={Y0 + 14} {...halo} fill={AX} fontSize="9">PRESSURE ALTITUDE (ft)</text>
+          <text x={(PX[0] + PX[1]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">OUTSIDE AIR TEMPERATURE °C</text>
+          <text x={PX[0] + 8} y={Y0 + 14} {...halo} fill={AX} fontSize="12">PRESSURE ALTITUDE (ft)</text>
 
           {/* ── Panel 2: mass ── */}
           {massTicks.map((m) => {
@@ -142,7 +142,7 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
             return (
               <g key={`m${m}`}>
                 <line x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMAJ} strokeWidth="0.6" strokeDasharray="2 3" />
-                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="10" textAnchor="middle">{m}</text>
+                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{m}</text>
               </g>
             );
           })}
@@ -150,7 +150,7 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
           {[0.2, 0.35, 0.5, 0.65, 0.8].map((h, i) => (
             <path key={`mf${i}`} d={`M ${PX[1]} ${sy(h)} Q ${(PX[1] + PX[2]) / 2} ${sy(h - 0.12)} ${PX[2]} ${sy(h - 0.22)}`} fill="none" stroke={CURVE} strokeWidth="1" opacity="0.7" />
           ))}
-          <text x={(PX[1] + PX[2]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="11" textAnchor="middle">MASS — lb</text>
+          <text x={(PX[1] + PX[2]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">MASS — lb</text>
 
           {/* ── Panel 3: wind ── */}
           {windTicks.map((w) => {
@@ -158,7 +158,7 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
             return (
               <g key={`w${w}`}>
                 <line x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMAJ} strokeWidth="0.6" strokeDasharray="2 3" />
-                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="10" textAnchor="middle">{w === 0 ? "0" : w < 0 ? "T" + -w : "H" + w}</text>
+                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{w === 0 ? "0" : w < 0 ? "T" + -w : "H" + w}</text>
               </g>
             );
           })}
@@ -168,8 +168,8 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
               <line x1={sx((PX[2] - X0) / (X1 - X0))} y1={sy(h)} x2={PX[3]} y2={sy(h - 0.14)} stroke={CURVE} strokeWidth="1" opacity="0.6" />
             </g>
           ))}
-          <text x={PX[2] + 6} y={Y0 + 14} {...halo} fill={AX} fontSize="9">headwind ↓ / tailwind ↑</text>
-          <text x={(PX[2] + PX[3]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="11" textAnchor="middle">WIND COMPONENT — kt</text>
+          <text x={PX[2] + 6} y={Y0 + 14} {...halo} fill={AX} fontSize="12">headwind ↓ / tailwind ↑</text>
+          <text x={(PX[2] + PX[3]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">WIND COMPONENT — kt</text>
 
           {/* ── Panel 4: obstacle height ── */}
           {obsTicks.map((o) => {
@@ -177,14 +177,14 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
             return (
               <g key={`ob${o}`}>
                 <line x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMAJ} strokeWidth="0.6" strokeDasharray="2 3" />
-                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="10" textAnchor="middle">{o}</text>
+                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{o}</text>
               </g>
             );
           })}
           {[0.35, 0.5, 0.65].map((h, i) => (
             <line key={`of${i}`} x1={PX[3]} y1={sy(h)} x2={PX[4]} y2={sy(h + 0.1)} stroke={CURVE} strokeWidth="1" opacity="0.6" />
           ))}
-          <text x={(PX[3] + PX[4]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="11" textAnchor="middle">OBSTACLE HT — ft</text>
+          <text x={(PX[3] + PX[4]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">OBSTACLE HT — ft</text>
 
           {/* ── Distance axis (right) ── */}
           {distTicks.map((d) => {
@@ -192,11 +192,11 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
             return (
               <g key={`d${d}`}>
                 <line x1={X0} y1={y} x2={X1} y2={y} stroke={GRIDMAJ} strokeWidth="0.4" opacity="0.5" />
-                <text x={X1 + 6} y={y + 3} {...halo} fill={AX} fontSize="10">{d}</text>
+                <text x={X1 + 6} y={y + 3} {...halo} fill={AX} fontSize="13">{d}</text>
               </g>
             );
           })}
-          <text x={X1 + 40} y={(Y0 + Y1) / 2} {...halo} fill={AX} fontSize="11" textAnchor="middle" transform={`rotate(-90 ${X1 + 40} ${(Y0 + Y1) / 2})`}>DISTANCE — ft</text>
+          <text x={X1 + 40} y={(Y0 + Y1) / 2} {...halo} fill={AX} fontSize="14" textAnchor="middle" transform={`rotate(-90 ${X1 + 40} ${(Y0 + Y1) / 2})`}>DISTANCE — ft</text>
 
           {/* ── Red worked path ── */}
           {reveal && (
