@@ -11,6 +11,8 @@ const RED = "#ef4444";
 const AX = "#71717a"; // zinc-500 axes
 const GRID = "#3f3f46"; // zinc-700 faint lines
 const LBL = "#a1a1aa"; // zinc-400 labels
+// Dark halo behind labels so text stays readable over grid/curve/guide lines.
+const halo = { stroke: "#09090b", strokeWidth: 3, strokeLinejoin: "round" as const, style: { paintOrder: "stroke" as const } };
 
 function Carpet({ reveal }: { reveal: boolean }) {
   // Zones: OAT/altitude | mass | wind | distance readout
@@ -34,11 +36,11 @@ function Carpet({ reveal }: { reveal: boolean }) {
         <line key={i} x1="360" y1={120 + i * 60} x2="490" y2={180 + i * 50} stroke={GRID} strokeWidth="1" />
       ))}
       {/* axis labels */}
-      <text x="125" y="325" fill={LBL} fontSize="12" textAnchor="middle">OAT / Pressure altitude</text>
-      <text x="285" y="325" fill={LBL} fontSize="12" textAnchor="middle">Mass</text>
-      <text x="425" y="325" fill={LBL} fontSize="12" textAnchor="middle">Wind</text>
-      <text x="545" y="325" fill={LBL} fontSize="12" textAnchor="middle">Distance</text>
-      <text x="30" y="160" fill={LBL} fontSize="11" textAnchor="middle" transform="rotate(-90 30 160)">Reference lines →</text>
+      <text x="125" y="325" {...halo} fill={LBL} fontSize="12" textAnchor="middle">OAT / Pressure altitude</text>
+      <text x="285" y="325" {...halo} fill={LBL} fontSize="12" textAnchor="middle">Mass</text>
+      <text x="425" y="325" {...halo} fill={LBL} fontSize="12" textAnchor="middle">Wind</text>
+      <text x="545" y="325" {...halo} fill={LBL} fontSize="12" textAnchor="middle">Distance</text>
+      <text x="30" y="160" {...halo} fill={LBL} fontSize="11" textAnchor="middle" transform="rotate(-90 30 160)">Reference lines →</text>
 
       {/* RED worked path */}
       {reveal && (
@@ -62,12 +64,12 @@ function Carpet({ reveal }: { reveal: boolean }) {
           ].map(([cx, cy], i) => (
             <g key={i}>
               <circle cx={cx} cy={cy} r="9" fill="#000" stroke={RED} />
-              <text x={cx} y={cy + 3.5} fill={RED} fontSize="10" textAnchor="middle" strokeWidth="0">
+              <text x={cx} y={cy + 3.5} {...halo} fill={RED} fontSize="10" textAnchor="middle">
                 {i + 1}
               </text>
             </g>
           ))}
-          <text x="500" y="295" fill={RED} fontSize="11" strokeWidth="0">read distance</text>
+          <text x="500" y="295" {...halo} fill={RED} fontSize="11">read distance</text>
         </g>
       )}
     </svg>
@@ -90,8 +92,8 @@ function Curve({ reveal }: { reveal: boolean }) {
       ))}
       {/* performance curve */}
       <path d="M 90 90 Q 300 120 590 250" fill="none" stroke={LBL} strokeWidth="1.75" />
-      <text x="335" y="330" fill={LBL} fontSize="12" textAnchor="middle">Input (altitude / temperature / power)</text>
-      <text x="40" y="170" fill={LBL} fontSize="12" textAnchor="middle" transform="rotate(-90 40 170)">Output (RoC / range / endurance)</text>
+      <text x="335" y="330" {...halo} fill={LBL} fontSize="12" textAnchor="middle">Input (altitude / temperature / power)</text>
+      <text x="40" y="170" {...halo} fill={LBL} fontSize="12" textAnchor="middle" transform="rotate(-90 40 170)">Output (RoC / range / endurance)</text>
 
       {reveal && (
         <g stroke={RED} strokeWidth="2.5" fill="none">
@@ -104,12 +106,12 @@ function Curve({ reveal }: { reveal: boolean }) {
           ].map(([cx, cy], i) => (
             <g key={i}>
               <circle cx={cx} cy={cy} r="9" fill="#000" stroke={RED} />
-              <text x={cx} y={cy + 3.5} fill={RED} fontSize="10" textAnchor="middle" strokeWidth="0">
+              <text x={cx} y={cy + 3.5} {...halo} fill={RED} fontSize="10" textAnchor="middle">
                 {i + 1}
               </text>
             </g>
           ))}
-          <text x="80" y="155" fill={RED} fontSize="11" strokeWidth="0">read value</text>
+          <text x="80" y="155" {...halo} fill={RED} fontSize="11">read value</text>
         </g>
       )}
     </svg>

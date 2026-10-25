@@ -32,6 +32,10 @@ const GRID_MAJOR = "#52525b"; // visible major gridlines
 const GRID_MINOR = "#2a2a30"; // faint minor gridlines (graph-paper look)
 const CURVE = "#60a5fa";
 
+// Dark halo behind labels (paint-order: stroke) so text stays readable where a
+// grid/curve/guide line runs behind it.
+const halo = { stroke: "#09090b", strokeWidth: 3, strokeLinejoin: "round" as const, style: { paintOrder: "stroke" as const } };
+
 // SVG geometry
 const W = 660;
 const H = 440;
@@ -89,22 +93,22 @@ export function GraphPlot({ spec, reveal }: { spec: GraphSpec; reveal: boolean }
             <g key={`x${v}`}>
               <line x1={sx(v)} y1={M.t} x2={sx(v)} y2={M.t + PH} stroke={GRID_MAJOR} strokeWidth="0.9" />
               <line x1={sx(v)} y1={M.t + PH} x2={sx(v)} y2={M.t + PH + 5} stroke={AX} strokeWidth="1" />
-              <text x={sx(v)} y={M.t + PH + 17} fill={AX} fontSize="11.5" textAnchor="middle">{v}</text>
+              <text x={sx(v)} y={M.t + PH + 17} {...halo} fill={AX} fontSize="11.5" textAnchor="middle">{v}</text>
             </g>
           ))}
           {ticks(spec.y).map((v) => (
             <g key={`y${v}`}>
               <line x1={M.l} y1={sy(v)} x2={M.l + PW} y2={sy(v)} stroke={GRID_MAJOR} strokeWidth="0.9" />
               <line x1={M.l - 5} y1={sy(v)} x2={M.l} y2={sy(v)} stroke={AX} strokeWidth="1" />
-              <text x={M.l - 9} y={sy(v) + 4} fill={AX} fontSize="11.5" textAnchor="end">{v}</text>
+              <text x={M.l - 9} y={sy(v) + 4} {...halo} fill={AX} fontSize="11.5" textAnchor="end">{v}</text>
             </g>
           ))}
 
           {/* axes */}
           <line x1={M.l} y1={M.t} x2={M.l} y2={M.t + PH} stroke={AX} strokeWidth="1.5" />
           <line x1={M.l} y1={M.t + PH} x2={M.l + PW} y2={M.t + PH} stroke={AX} strokeWidth="1.5" />
-          <text x={M.l + PW / 2} y={H - 8} fill={AX} fontSize="12" textAnchor="middle">{spec.x.label}</text>
-          <text x={16} y={M.t + PH / 2} fill={AX} fontSize="12" textAnchor="middle" transform={`rotate(-90 16 ${M.t + PH / 2})`}>{spec.y.label}</text>
+          <text x={M.l + PW / 2} y={H - 8} {...halo} fill={AX} fontSize="12" textAnchor="middle">{spec.x.label}</text>
+          <text x={16} y={M.t + PH / 2} {...halo} fill={AX} fontSize="12" textAnchor="middle" transform={`rotate(-90 16 ${M.t + PH / 2})`}>{spec.y.label}</text>
 
           {/* curve family */}
           {spec.curves.map((c) => {
@@ -112,7 +116,7 @@ export function GraphPlot({ spec, reveal }: { spec: GraphSpec; reveal: boolean }
             return (
               <g key={c.label}>
                 <path d={path(c.pts)} fill="none" stroke={CURVE} strokeWidth="1.75" />
-                <text x={sx(last[0]) + 4} y={sy(last[1]) + 3} fill={CURVE} fontSize="10">{c.label}</text>
+                <text x={sx(last[0]) + 4} y={sy(last[1]) + 3} {...halo} fill={CURVE} fontSize="10">{c.label}</text>
               </g>
             );
           })}
@@ -135,7 +139,7 @@ export function GraphPlot({ spec, reveal }: { spec: GraphSpec; reveal: boolean }
                 </g>
               ))}
               {spec.readout && (
-                <text x={sx(spec.red[spec.red.length - 1][0]) + 6} y={sy(spec.red[spec.red.length - 1][1]) - 8} fill={RED} fontSize="11" fontWeight="bold">{spec.readout}</text>
+                <text x={sx(spec.red[spec.red.length - 1][0]) + 6} y={sy(spec.red[spec.red.length - 1][1]) - 8} {...halo} fill={RED} fontSize="11" fontWeight="bold">{spec.readout}</text>
               )}
             </g>
           )}
