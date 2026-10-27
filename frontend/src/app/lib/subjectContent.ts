@@ -194,6 +194,14 @@ export function subjectContent(subjectId: string): SubjectGetters | undefined {
   return {
     questions: g.questions,
     note: g.note,
-    flashcards: (sectionId: string) => [...g.flashcards(sectionId), ...deriveNoteFlashcards(g.note(sectionId) as never)],
+    // Authored + note-derived cards, de-duplicated within the deck (same front+back).
+    flashcards: (sectionId: string) => {
+      const seen = new Set<string>();
+      return [...g.flashcards(sectionId), ...deriveNoteFlashcards(g.note(sectionId) as never)]
+        .filter((f) => {
+          const k = `${(f.front ?? "").trim().toLowerCase()}||${(f.back ?? "").trim().toLowerCase()}`;
+          return seen.has(k) ? false : (seen.add(k), true);
+        });
+    },
   };
 }
