@@ -20,7 +20,7 @@ export function MessagePriority() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 441 214" className="w-full">
         <defs>
           <linearGradient id="gr-pri" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#fef2f2" /><stop offset="100%" stopColor="#f8fafc" />
@@ -55,7 +55,7 @@ export function RCFFlow() {
   );
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 551 202" className="w-full">
         <defs>
           <linearGradient id="gr-rcf" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#eff6ff" /><stop offset="100%" stopColor="#f8fafc" />
@@ -89,7 +89,7 @@ export function PhraseologyCard() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 660 214" className="w-full">
         <defs>
           <linearGradient id="gr-ph" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#f0fdfa" /><stop offset="100%" stopColor="#f8fafc" />

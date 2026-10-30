@@ -14,7 +14,7 @@ function Frame({ children }: { children: React.ReactNode }) {
 export function EarthGCRL() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 487 210" className="w-full">
         <defs>
           <radialGradient id="nav-sky" cx="35%" cy="30%" r="90%">
             <stop offset="0%" stopColor="#eef2ff" /><stop offset="100%" stopColor="#dbeafe" />
@@ -59,7 +59,7 @@ export function EarthGCRL() {
 export function WindTriangle() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 553 210" className="w-full">
         <defs>
           <linearGradient id="nav-tri" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#ecfeff" /><stop offset="100%" stopColor="#cffafe" />
@@ -94,7 +94,7 @@ export function WindTriangle() {
 export function OneInSixty() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 441 200" className="w-full">
         <defs>
           <linearGradient id="nav-map" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#f7fee7" /><stop offset="100%" stopColor="#ecfccb" />
@@ -104,7 +104,7 @@ export function OneInSixty() {
         <text x={12} y={18} fontSize="11" fontWeight="bold" fill="#0f172a">The 1-in-60 rule</text>
         {/* required track and actual track */}
         <line x1={30} y1={70} x2={300} y2={70} stroke="#64748b" strokeWidth="1.6" strokeDasharray="6 4" />
-        <text x={210} y={64} fontSize="8.5" fill="#64748b">required track</text>
+        <text x={40} y={64} fontSize="8.5" fill="#64748b">required track</text>
         <line x1={30} y1={70} x2={170} y2={110} stroke="#dc2626" strokeWidth="2" />
         <text x={70} y={104} fontSize="8.5" fill="#dc2626">actual track</text>
         <line x1={170} y1={70} x2={170} y2={110} stroke="#1d4ed8" strokeWidth="1.4" />
@@ -130,7 +130,7 @@ export function OneInSixty() {
 export function ChartProjections() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 528 200" className="w-full">
         <defs>
           <linearGradient id="nav-chart" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#f5f3ff" /><stop offset="100%" stopColor="#ede9fe" />

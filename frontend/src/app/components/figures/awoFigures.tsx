@@ -20,7 +20,7 @@ export function ApproachSegments() {
   );
   return (
     <Frame>
-      <svg viewBox="0 0 360 210" className="w-full">
+      <svg viewBox="0 0 395 210" className="w-full">
         <SkyDuskScene w={360} />
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#0f172a">Instrument approach — segments &amp; profile</text>
         {/* ground / runway */}
@@ -92,7 +92,7 @@ export function ApproachLightingPAPI() {
 export function StraightDeparture() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 489 205" className="w-full">
         <SkyDayScene h={200} />
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#0f172a">Straight departure &amp; climb gradient</text>
         {/* runway */}

@@ -13,7 +13,7 @@ import { SkyDayScene, StormScene, SkyDuskScene, FogScene } from "@/app/component
 export function ISAColumn() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 367 210" className="w-full">
         <defs>
           <linearGradient id="isa-sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#1e3a8a" /><stop offset="55%" stopColor="#60a5fa" /><stop offset="100%" stopColor="#e0f2fe" />
@@ -49,7 +49,7 @@ export function ISAColumn() {
 export function StabilityLapseRates() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 499 210" className="w-full">
         <defs>
           <linearGradient id="stab-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#eef2ff" /><stop offset="100%" stopColor="#f8fafc" />
@@ -64,7 +64,7 @@ export function StabilityLapseRates() {
         {/* axes */}
         <line x1={40} y1={40} x2={40} y2={150} stroke="#94a3b8" /><line x1={40} y1={150} x2={182} y2={150} stroke="#94a3b8" />
         <text x={18} y={48} fontSize="7.5" fill="#64748b">alt ↑</text><text x={150} y={164} fontSize="7.5" fill="#64748b">warmer →</text>
-        <circle cx={150} cy={150} r={2.5} fill="#0f172a" /><text x={140} y={162} fontSize="6.5" fill="#334155">surface</text>
+        <circle cx={150} cy={150} r={2.5} fill="#0f172a" /><text x={112} y={152} fontSize="6.5" fill="#334155">surface</text>
         {/* DALR (steeper cool) and SALR reference lines, both rising up-left */}
         <line x1={150} y1={150} x2={100} y2={40} stroke="#dc2626" strokeWidth="2" /><text x={88} y={37} fontSize="7.5" fill="#dc2626" fontWeight="bold" textAnchor="middle">DALR</text>
         <line x1={150} y1={150} x2={128} y2={40} stroke="#16a34a" strokeWidth="2" /><text x={132} y={37} fontSize="7.5" fill="#16a34a" fontWeight="bold" textAnchor="middle">SALR</text>
@@ -92,7 +92,7 @@ export function StabilityLapseRates() {
 export function CloudLadder() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 516 210" className="w-full">
         <defs>
           <linearGradient id="cl-sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#bfdbfe" /><stop offset="100%" stopColor="#f0f9ff" />
@@ -133,7 +133,7 @@ export function ThunderstormCycle() {
   );
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 551 200" className="w-full">
         <defs>
           <linearGradient id="ts-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#334155" /><stop offset="100%" stopColor="#e2e8f0" />
@@ -161,7 +161,7 @@ export function ThunderstormCycle() {
 export function FrontsDiagram() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 435 200" className="w-full">
         <defs>
           <linearGradient id="fr-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#f8fafc" /><stop offset="100%" stopColor="#eef2ff" />
@@ -198,7 +198,7 @@ export function FrontsDiagram() {
 export function FogTypes() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 533 201" className="w-full">
         <defs>
           <linearGradient id="fog-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#e2e8f0" /><stop offset="100%" stopColor="#f8fafc" />

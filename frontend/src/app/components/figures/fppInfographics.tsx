@@ -13,7 +13,7 @@ function ASI() {
     return `M ${x1} ${y1} A ${rr} ${rr} 0 ${b - a > 180 ? 1 : 0} 1 ${x2} ${y2}`;
   };
   return (
-    <svg viewBox="0 0 300 180" className="w-full">
+    <svg viewBox="0 0 449 180" className="w-full">
       <circle cx={cx} cy={cy} r={r + 6} fill="#0f172a" />
       <path d={arc(30, 110, r)} stroke="#fff" strokeWidth="7" fill="none" />
       <path d={arc(40, 250, r - 9)} stroke="#22c55e" strokeWidth="7" fill="none" />
@@ -48,7 +48,7 @@ function DeclaredDistances() {
 }
 function Seesaw() {
   return (
-    <svg viewBox="0 0 320 120" className="w-full">
+    <svg viewBox="0 0 402 120" className="w-full">
       <line x1={20} y1={80} x2={300} y2={80} stroke="#94a3b8" strokeWidth="2" />
       <line x1={40} y1={20} x2={40} y2={92} stroke="#334155" strokeWidth="1.5" strokeDasharray="3 3" />
       <text x={40} y={106} fontSize="9" textAnchor="middle" fill="#334155">datum</text>
@@ -64,7 +64,7 @@ function Seesaw() {
 }
 function PETdiagram() {
   return (
-    <svg viewBox="0 0 320 110" className="w-full">
+    <svg viewBox="0 0 455 110" className="w-full">
       <line x1={20} y1={55} x2={300} y2={55} stroke="#334155" strokeWidth="2" />
       <circle cx={20} cy={55} r="5" fill="#1d4ed8" /><text x={20} y={78} fontSize="10" textAnchor="middle" fill="#1d4ed8">A</text>
       <circle cx={300} cy={55} r="5" fill="#1d4ed8" /><text x={300} y={78} fontSize="10" textAnchor="middle" fill="#1d4ed8">B</text>

@@ -3,29 +3,29 @@
 import { useState } from "react";
 
 // Faithful replica of the CAP 698 take-off / landing DISTANCE carpet graph
-// (Figure 2.1 / 2.4 family). Rebuilt from the manual's own axis scales, curve
-// families and labels — the ARTWORK is original (not a scan of the Crown-
-// copyright figure), the DATA (axis ranges, curve set, worked-example path) is
-// transcribed from the student's CAP 698. The red worked path per question is
-// calibrated to the manual's worked example / representative read — the student
-// confirms the exact value on their own CAP manual (allowed in the exam).
-//
-// The graph is the real 4-panel chain the exam tests:
-//   OAT + Pressure Altitude  →  Mass  →  Wind component  →  Obstacle height
-// with take-off DISTANCE read on the right-hand axis.
-
-export interface CarpetPath {
-  // red worked path, in graph data-fractions across the 4 panels (x 0→1 spans
-  // the whole chart left→right; y 0→1 is distance 0→max bottom→top). Each point
-  // is a numbered plotting step.
-  pts: [number, number][];
-  readout: string; // e.g. "≈ 3 450 ft"
-}
+// (Figure 2.1 / 2.4 family). The ARTWORK is original (not a scan of the Crown-
+// copyright figure); the axis scales, curve families and the worked path follow
+// the manual's own method (CAP 698 §2.2.1):
+//   a) enter OAT, go UP to the pressure-altitude curve  → "corrected" PA level
+//   b) HORIZONTAL right to the mass reference line, then PARALLEL the grid to mass
+//   c) HORIZONTAL to the wind reference line, then PARALLEL the grid to the wind
+//   d) HORIZONTAL to the obstacle reference line (ground-roll read), then PARALLEL
+//      the grid up to 50 ft → read total take-off/landing DISTANCE.
+// The worked line is GENERATED from that chain, so inside every panel it runs
+// parallel to the guide family and lands on the answer — it never cuts across.
 
 export interface CarpetSpec {
   variant: "takeoff" | "landing";
   distanceMax: number; // top of the distance axis in ft
-  path: CarpetPath;
+  oatC: number; // OAT entry (°C)
+  massLb: number; // mass input (lb)
+  windKt: number; // wind component, + = headwind, − = tailwind
+  // carried DISTANCE levels (ft) at each stage of the chain — see §2.2.1 above.
+  paLevelFt: number; // after climbing to the pressure-altitude curve (corrected PA)
+  afterMassFt: number; // after paralleling the mass grid to the mass input
+  groundRollFt: number; // after paralleling the wind grid (ground roll @ 0 ft obstacle)
+  totalFt: number; // after paralleling the obstacle grid to 50 ft (the answer)
+  readout: string; // e.g. "≈ 3 450 ft"
 }
 
 const RED = "#ef4444";
@@ -46,12 +46,19 @@ const Y1 = 484; // bottom (distance = 0)
 // panel reference-line x positions
 const PX = [X0, 430, 662, 862, X1]; // temp/PA | mass | wind | obstacle | dist-axis
 
-const sx = (f: number) => X0 + f * (X1 - X0); // fraction 0..1 → x
 const sy = (f: number) => Y1 - f * (Y1 - Y0); // fraction 0..1 → y (dist)
+
+// axis → pixel x mappings (match the printed scales)
+const oatPx = (t: number) => PX[0] + ((t + 40) / 100) * (PX[1] - PX[0]); // −40..+60 °C
+const massPx = (m: number) => PX[1] + (1 - (m - 2800) / 850) * (PX[2] - PX[1]); // 3650(left)..2800
+// Wind axis is MAGNITUDE only (0..30 kt): the 0 reference line is at the left; head-
+// and tail-wind both plot to the right of it and differ only by which guide family is
+// paralleled (head = down/shorter, tail = up/longer) — exactly as on CAP 698 Fig 2.1.
+const windPx = (magKt: number) => PX[2] + (Math.min(Math.abs(magKt), 30) / 30) * (PX[3] - PX[2]);
+const obsPx = (o: number) => PX[3] + (o / 50) * (PX[4] - PX[3]); // 0..50 ft
 
 function grid() {
   const lines: React.ReactElement[] = [];
-  // minor vertical every ~19px, major every ~95
   let k = 0;
   for (let x = X0; x <= X1 + 0.5; x += (X1 - X0) / 52, k++) {
     lines.push(<line key={`v${k}`} x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMIN} strokeWidth="1" />);
@@ -64,34 +71,74 @@ function grid() {
 }
 
 // Panel 1: pressure-altitude curve family over OAT −40..+60 °C.
-// Faithful fan: higher altitude sits higher-left; each curve bends near ISA.
 const PA_SET = [0, 2000, 4000, 6000, 8000, 10000];
 function paCurve(pa: number): string {
-  const p1x = PX[0], p2x = PX[1];
-  const oatToX = (t: number) => p1x + ((t + 40) / 100) * (p2x - p1x);
-  // baseline output-height (fraction of panel) at +15°C, rising with altitude
   const base = 0.1 + (pa / 10000) * 0.42;
   const pts: string[] = [];
   for (let t = -40; t <= 60; t += 10) {
-    // hotter & higher → more distance (curve rises); gentle slope
     const h = base + (t - 15) * 0.0032 + (pa / 10000) * (t - 15) * 0.0006;
     const y = Y1 - Math.max(0.02, Math.min(0.95, h)) * (Y1 - Y0);
-    pts.push(`${pts.length ? "L" : "M"} ${oatToX(t).toFixed(1)} ${y.toFixed(1)}`);
+    pts.push(`${pts.length ? "L" : "M"} ${oatPx(t).toFixed(1)} ${y.toFixed(1)}`);
   }
   return pts.join(" ");
+}
+
+// A family of parallel guide lines (slope m) filling a panel [xL,xR]; the worked
+// segment in that panel shares this slope, so the red line is provably parallel.
+function GuideFan({ xL, xR, m, keyp }: { xL: number; xR: number; m: number; keyp: string }) {
+  const lines: React.ReactElement[] = [];
+  const span = Y1 - Y0;
+  const n = 7;
+  for (let i = -2; i <= n + 2; i++) {
+    const b = Y0 + (span * i) / n;
+    lines.push(<line key={`${keyp}${i}`} x1={xL} y1={b} x2={xR} y2={b + m * (xR - xL)} stroke={CURVE} strokeWidth="1" opacity="0.6" />);
+  }
+  return <g clipPath="url(#carpetClip)">{lines}</g>;
 }
 
 export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean }) {
   const [zoom, setZoom] = useState(1);
 
   const oatTicks = [-40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60];
-  const massTicks = spec.variant === "takeoff" ? [3650, 3400, 3200, 3000, 2800] : [3650, 3400, 3200, 3000, 2800];
-  const windTicks = [-10, 0, 10, 20, 30];
+  const massTicks = [3650, 3400, 3200, 3000, 2800];
+  const windTicks = [0, 10, 20, 30];
   const obsTicks = [0, 25, 50];
   const distTicks: number[] = [];
   for (let d = 0; d <= spec.distanceMax; d += 1000) distTicks.push(d);
 
-  const redPath = spec.path.pts.map(([x, y], i) => `${i ? "L" : "M"} ${sx(x)} ${sy(y)}`).join(" ");
+  const yf = (ft: number) => sy(ft / spec.distanceMax);
+
+  // Worked-path vertices (CAP 698 §2.2.1 chain).
+  const V = {
+    foot: [oatPx(spec.oatC), Y1] as const, // enter at OAT
+    pa: [oatPx(spec.oatC), yf(spec.paLevelFt)] as const, // up to PA curve (corrected PA)
+    massRef: [PX[1], yf(spec.paLevelFt)] as const, // horizontal to mass ref
+    mass: [massPx(spec.massLb), yf(spec.afterMassFt)] as const, // parallel mass grid
+    windRef: [windPx(0), yf(spec.afterMassFt)] as const, // horizontal to wind ref (0 kt)
+    wind: [windPx(Math.abs(spec.windKt)), yf(spec.groundRollFt)] as const, // parallel head/tail grid (to the right of 0)
+    obsRef: [PX[3], yf(spec.groundRollFt)] as const, // horizontal to obstacle ref (0 ft) = ground roll
+    total: [obsPx(50), yf(spec.totalFt)] as const, // parallel obstacle grid to 50 ft = answer
+  };
+  const order = [V.foot, V.pa, V.massRef, V.mass, V.windRef, V.wind, V.obsRef, V.total];
+  const redPath = order.map((p, i) => `${i ? "L" : "M"} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(" ");
+
+  // Guide-fan slopes derived from the worked segments → guaranteed parallel.
+  const slope = (a: readonly [number, number], b: readonly [number, number], fallback: number) =>
+    Math.abs(b[0] - a[0]) < 1 ? fallback : (b[1] - a[1]) / (b[0] - a[0]);
+  const mMass = slope(V.massRef, V.mass, (0.22 * (Y1 - Y0)) / (PX[2] - PX[1])); // down-right default
+  const mObs = slope(V.obsRef, V.total, (-0.1 * (Y1 - Y0)) / (PX[4] - PX[3]));
+  // Wind: two families drawn from the 0 reference — head slopes DOWN (+), tail UP (−).
+  // The worked segment parallels whichever matches, so use |slope| for both fans.
+  const sWind = Math.abs(slope(V.windRef, V.wind, (0.14 * (Y1 - Y0)) / (PX[3] - PX[2])));
+
+  // numbered plotting steps (match the manual's triangle markers)
+  const steps: { p: readonly [number, number]; n: number }[] = [
+    { p: V.pa, n: 1 },
+    { p: V.mass, n: 2 },
+    { p: V.wind, n: 3 },
+    { p: V.obsRef, n: 4 },
+    { p: V.total, n: 5 },
+  ];
 
   return (
     <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-3">
@@ -106,6 +153,9 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
       <div className="overflow-auto rounded-lg border border-zinc-900" style={{ maxHeight: 560 }}>
         <svg viewBox="0 0 1120 560" preserveAspectRatio="xMidYMid meet" className="block bg-zinc-950"
           style={zoom === 1 ? { width: "100%", height: "auto" } : { width: 1120 * zoom, height: 560 * zoom }}>
+          <defs>
+            <clipPath id="carpetClip"><rect x={X0} y={Y0} width={X1 - X0} height={Y1 - Y0} /></clipPath>
+          </defs>
           {grid()}
 
           {/* panel reference lines */}
@@ -119,8 +169,7 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
             <path key={pa} d={paCurve(pa)} fill="none" stroke={CURVE} strokeWidth="1.4" />
           ))}
           {PA_SET.map((pa) => {
-            const p1x = PX[0], p2x = PX[1];
-            const x = p1x + ((15 + 40) / 100) * (p2x - p1x);
+            const x = oatPx(15);
             const base = 0.1 + (pa / 10000) * 0.42;
             const y = Y1 - base * (Y1 - Y0);
             return (
@@ -129,95 +178,82 @@ export function CarpetPlot({ spec, reveal }: { spec: CarpetSpec; reveal: boolean
               </text>
             );
           })}
-          {oatTicks.map((t) => {
-            const x = PX[0] + ((t + 40) / 100) * (PX[1] - PX[0]);
-            return <text key={`o${t}`} x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{t}</text>;
-          })}
+          {oatTicks.map((t) => (
+            <text key={`o${t}`} x={oatPx(t)} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{t}</text>
+          ))}
           <text x={(PX[0] + PX[1]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">OUTSIDE AIR TEMPERATURE °C</text>
           <text x={PX[0] + 8} y={Y0 + 14} {...halo} fill={AX} fontSize="12">PRESSURE ALTITUDE (ft)</text>
 
           {/* ── Panel 2: mass ── */}
-          {massTicks.map((m) => {
-            const x = PX[1] + (1 - (m - 2800) / (3650 - 2800)) * (PX[2] - PX[1]);
-            return (
-              <g key={`m${m}`}>
-                <line x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMAJ} strokeWidth="0.6" strokeDasharray="2 3" />
-                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{m}</text>
-              </g>
-            );
-          })}
-          {/* mass guide fan (curves sweeping down-right from the ref line) */}
-          {[0.2, 0.35, 0.5, 0.65, 0.8].map((h, i) => (
-            <path key={`mf${i}`} d={`M ${PX[1]} ${sy(h)} Q ${(PX[1] + PX[2]) / 2} ${sy(h - 0.12)} ${PX[2]} ${sy(h - 0.22)}`} fill="none" stroke={CURVE} strokeWidth="1" opacity="0.7" />
-          ))}
-          <text x={(PX[1] + PX[2]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">MASS — lb</text>
-
-          {/* ── Panel 3: wind ── */}
-          {windTicks.map((w) => {
-            const x = PX[2] + ((w + 10) / 40) * (PX[3] - PX[2]);
-            return (
-              <g key={`w${w}`}>
-                <line x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMAJ} strokeWidth="0.6" strokeDasharray="2 3" />
-                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{w === 0 ? "0" : w < 0 ? "T" + -w : "H" + w}</text>
-              </g>
-            );
-          })}
-          {/* headwind guides (down-right) and tailwind (up-right) from wind ref at 0 */}
-          {[0.3, 0.45, 0.6].map((h, i) => (
-            <g key={`wf${i}`}>
-              <line x1={sx((PX[2] - X0) / (X1 - X0))} y1={sy(h)} x2={PX[3]} y2={sy(h - 0.14)} stroke={CURVE} strokeWidth="1" opacity="0.6" />
+          <GuideFan xL={PX[1]} xR={PX[2]} m={mMass} keyp="mf" />
+          {massTicks.map((mm) => (
+            <g key={`m${mm}`}>
+              <line x1={massPx(mm)} y1={Y0} x2={massPx(mm)} y2={Y1} stroke={GRIDMAJ} strokeWidth="0.6" strokeDasharray="2 3" />
+              <text x={massPx(mm)} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{mm}</text>
             </g>
           ))}
-          <text x={PX[2] + 6} y={Y0 + 14} {...halo} fill={AX} fontSize="12">headwind ↓ / tailwind ↑</text>
+          <text x={PX[1] + 4} y={Y0 + 14} {...halo} fill={REFC} fontSize="11">REF</text>
+          <text x={(PX[1] + PX[2]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">MASS — lb</text>
+
+          {/* ── Panel 3: wind (magnitude axis; HEAD fan descends, TAIL fan ascends) ── */}
+          <GuideFan xL={PX[2]} xR={PX[3]} m={sWind} keyp="wfh" />
+          <GuideFan xL={PX[2]} xR={PX[3]} m={-sWind} keyp="wft" />
+          {windTicks.map((w) => (
+            <g key={`w${w}`}>
+              <line x1={windPx(w)} y1={Y0} x2={windPx(w)} y2={Y1} stroke={w === 0 ? REFC : GRIDMAJ} strokeWidth={w === 0 ? 1.2 : 0.6} strokeDasharray={w === 0 ? undefined : "2 3"} />
+              <text x={windPx(w)} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{w}</text>
+            </g>
+          ))}
+          <text x={windPx(0) + 4} y={Y0 + 14} {...halo} fill={REFC} fontSize="11">REF (0)</text>
+          <text x={windPx(26)} y={Y0 + 28} {...halo} fill={CURVE} fontSize="11" textAnchor="middle">TAIL WIND ↑</text>
+          <text x={windPx(26)} y={Y1 - 20} {...halo} fill={CURVE} fontSize="11" textAnchor="middle">HEAD WIND ↓</text>
           <text x={(PX[2] + PX[3]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">WIND COMPONENT — kt</text>
 
           {/* ── Panel 4: obstacle height ── */}
-          {obsTicks.map((o) => {
-            const x = PX[3] + (o / 50) * (PX[4] - PX[3]);
-            return (
-              <g key={`ob${o}`}>
-                <line x1={x} y1={Y0} x2={x} y2={Y1} stroke={GRIDMAJ} strokeWidth="0.6" strokeDasharray="2 3" />
-                <text x={x} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{o}</text>
-              </g>
-            );
-          })}
-          {[0.35, 0.5, 0.65].map((h, i) => (
-            <line key={`of${i}`} x1={PX[3]} y1={sy(h)} x2={PX[4]} y2={sy(h + 0.1)} stroke={CURVE} strokeWidth="1" opacity="0.6" />
+          <GuideFan xL={PX[3]} xR={PX[4]} m={mObs} keyp="of" />
+          {obsTicks.map((o) => (
+            <g key={`ob${o}`}>
+              <line x1={obsPx(o)} y1={Y0} x2={obsPx(o)} y2={Y1} stroke={o === 0 ? REFC : GRIDMAJ} strokeWidth={o === 0 ? 1.2 : 0.6} strokeDasharray={o === 0 ? undefined : "2 3"} />
+              <text x={obsPx(o)} y={Y1 + 15} {...halo} fill={AX} fontSize="13" textAnchor="middle">{o}</text>
+            </g>
           ))}
+          <text x={PX[3] + 4} y={Y0 + 14} {...halo} fill={REFC} fontSize="11">REF</text>
           <text x={(PX[3] + PX[4]) / 2} y={Y1 + 34} {...halo} fill={AX} fontSize="14" textAnchor="middle">OBSTACLE HT — ft</text>
 
           {/* ── Distance axis (right) ── */}
-          {distTicks.map((d) => {
-            const y = sy(d / spec.distanceMax);
-            return (
-              <g key={`d${d}`}>
-                <line x1={X0} y1={y} x2={X1} y2={y} stroke={GRIDMAJ} strokeWidth="0.4" opacity="0.5" />
-                <text x={X1 + 6} y={y + 3} {...halo} fill={AX} fontSize="13">{d}</text>
-              </g>
-            );
-          })}
+          {distTicks.map((d) => (
+            <g key={`d${d}`}>
+              <line x1={X0} y1={yf(d)} x2={X1} y2={yf(d)} stroke={GRIDMAJ} strokeWidth="0.4" opacity="0.5" />
+              <text x={X1 + 6} y={yf(d) + 3} {...halo} fill={AX} fontSize="13">{d}</text>
+            </g>
+          ))}
           <text x={X1 + 40} y={(Y0 + Y1) / 2} {...halo} fill={AX} fontSize="14" textAnchor="middle" transform={`rotate(-90 ${X1 + 40} ${(Y0 + Y1) / 2})`}>DISTANCE — ft</text>
 
           {/* ── Red worked path ── */}
           {reveal && (
             <g>
               <path d={redPath} fill="none" stroke={RED} strokeWidth="2.4" />
-              {spec.path.pts.map(([x, y], i) => (
-                <g key={i}>
-                  <circle cx={sx(x)} cy={sy(y)} r="8.5" fill="#000" stroke={RED} strokeWidth="1.4" />
-                  <text x={sx(x)} y={sy(y) + 3.2} {...halo} fill={RED} fontSize="9.5" textAnchor="middle">{i + 1}</text>
+              {/* ground-roll read-off (horizontal from the obstacle reference line) */}
+              <line x1={PX[3]} y1={yf(spec.groundRollFt)} x2={X1} y2={yf(spec.groundRollFt)} stroke={RED} strokeWidth="1.3" strokeDasharray="4 4" opacity="0.8" />
+              <text x={X1 - 4} y={yf(spec.groundRollFt) - 5} {...halo} fill={RED} fontSize="11" textAnchor="end">ground roll ≈ {spec.groundRollFt.toLocaleString()} ft</text>
+              {/* total read-off */}
+              <line x1={V.total[0]} y1={V.total[1]} x2={X1} y2={V.total[1]} stroke={RED} strokeWidth="1.3" strokeDasharray="4 4" opacity="0.8" />
+              {steps.map(({ p, n }) => (
+                <g key={n}>
+                  <circle cx={p[0]} cy={p[1]} r="8.5" fill="#000" stroke={RED} strokeWidth="1.4" />
+                  <text x={p[0]} y={p[1] + 3.2} {...halo} fill={RED} fontSize="9.5" textAnchor="middle">{n}</text>
                 </g>
               ))}
-              <text x={X1 - 4} y={sy(spec.path.pts[spec.path.pts.length - 1][1]) - 8} {...halo} fill={RED} fontSize="12" fontWeight="bold" textAnchor="end">
-                {spec.path.readout}
+              <text x={X1 - 4} y={V.total[1] - 8} {...halo} fill={RED} fontSize="12" fontWeight="bold" textAnchor="end">
+                {spec.readout}
               </text>
             </g>
           )}
         </svg>
       </div>
       <div className="text-[10px] text-zinc-600 mt-1 px-1">
-        Faithful replica of CAP 698 {spec.variant === "takeoff" ? "Fig 2.1 Take-off" : "Fig 2.4 Landing"} distance graph — axis
-        values transcribed from the manual. Confirm the exact read on your own CAP 698.
+        CAP 698 {spec.variant === "takeoff" ? "Fig 2.1 Take-off" : "Fig 2.4 Landing"} distance method — enter OAT → up to the
+        pressure-altitude curve → parallel the mass, wind and obstacle grids. Confirm the exact read on your own CAP 698.
       </div>
     </div>
   );

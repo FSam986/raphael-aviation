@@ -14,7 +14,7 @@ function Frame({ children }: { children: React.ReactNode }) {
 export function ADFQCodes() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 539 210" className="w-full">
         <defs>
           <radialGradient id="rn-adf-sky" cx="30%" cy="25%" r="95%">
             <stop offset="0%" stopColor="#f0fdfa" /><stop offset="100%" stopColor="#ccfbf1" />
@@ -62,7 +62,7 @@ export function ADFQCodes() {
 export function ILSGeometry() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 393 210" className="w-full">
         <defs>
           <linearGradient id="rn-ils-sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#eff6ff" /><stop offset="100%" stopColor="#dbeafe" />
@@ -111,7 +111,7 @@ export function ILSGeometry() {
 export function SSRModes() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 400 210" className="w-full">
         <defs>
           <linearGradient id="rn-ssr-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#faf5ff" /><stop offset="100%" stopColor="#ede9fe" />
@@ -152,7 +152,7 @@ export function SSRModes() {
 export function GPSFix() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 360 210" className="w-full">
         <defs>
           <radialGradient id="rn-gps-space" cx="50%" cy="20%" r="100%">
             <stop offset="0%" stopColor="#0b1220" /><stop offset="100%" stopColor="#1e293b" />
@@ -202,13 +202,13 @@ export function GPSFix() {
 export function DMEPrinciple() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 520 210" className="w-full">
         <SkyDuskScene />
         <text x={12} y={18} fontSize="11" fontWeight="bold" fill="#0f172a">DME — distance measuring equipment</text>
         {/* aircraft + ground station + slant triangle */}
         <PlaneSide x={258} y={60} s={1.15} rot={-6} />
         <rect x={60} y={150} width={14} height={18} fill="#334155" /><rect x={64} y={138} width={6} height={14} fill="#334155" />
-        <text x={48} y={182} fontSize="7.5" fill="#334155">DME station</text>
+        <text x={38} y={134} fontSize="7.5" fill="#334155">DME station</text>
         <line x1={70} y1={138} x2={258} y2={66} stroke="#dc2626" strokeWidth="2" /><text x={150} y={92} fontSize="7.5" fill="#dc2626" transform="rotate(-20 150 92)">slant range</text>
         <line x1={70} y1={150} x2={258} y2={150} stroke="#64748b" strokeWidth="1" strokeDasharray="4 3" /><text x={150} y={162} fontSize="7" fill="#64748b">ground range</text>
         <line x1={258} y1={66} x2={258} y2={150} stroke="#64748b" strokeWidth="1" strokeDasharray="3 3" /><text x={262} y={112} fontSize="7" fill="#64748b">height</text>
@@ -228,7 +228,7 @@ export function DMEPrinciple() {
 export function WeatherRadarModes() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 514 210" className="w-full">
         <StormScene />
         <text x={12} y={18} fontSize="11" fontWeight="bold" fill="#0f172a">Airborne weather radar</text>
         {/* pencil vs cosecant beam */}
@@ -256,7 +256,7 @@ export function WeatherRadarModes() {
 export function RadioAltimeter() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 546 210" className="w-full">
         <SkyDayScene />
         <text x={12} y={18} fontSize="11" fontWeight="bold" fill="#0f172a">Radio altimeter — FM-CW</text>
         {/* frequency-time sawtooth (transmit vs echo, offset in time) */}
@@ -286,7 +286,7 @@ export function RadioAltimeter() {
 export function ELTCard() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 190" className="w-full">
+      <svg viewBox="0 0 481 190" className="w-full">
         <SkyDuskScene h={190} />
         <text x={12} y={18} fontSize="11" fontWeight="bold" fill="#0f172a">Emergency Locator Transmitter (ELT)</text>
         <rect x={12} y={28} width={158} height={64} rx={5} fill="#ffffff" opacity={0.95} stroke="#cbd5e1" />
@@ -313,7 +313,7 @@ export function ELTCard() {
 export function RNAVWaypoint() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 476 201" className="w-full">
         <MapGridScene h={200} />
         <text x={12} y={18} fontSize="11" fontWeight="bold" fill="#0f172a">Area navigation (RNAV) — Rho-Theta</text>
         {/* triangle VOR/DME - aircraft - waypoint */}
