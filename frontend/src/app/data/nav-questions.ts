@@ -159,7 +159,8 @@ const NAV_BASE_QUESTIONS: AirLawQuestion[] = [
   { id: "NAVB-401", sectionId: "A.9.4", question: "An aircraft is over longitude 060°W. Its Local Mean Time relative to UTC is:", optionA: "4 hours ahead", optionB: "4 hours behind", optionC: "6 hours behind", optionD: "the same as UTC", correctAnswer: "b", explanation: "60 ÷ 15 = 4 hours; West longitude → LMT is BEHIND UTC.", difficulty: "medium", tag: "calc" },
 ];
 
-export const NAV_QUESTIONS: AirLawQuestion[] = [...NAV_BASE_QUESTIONS, ...NAV_BOOST_QUESTIONS, ...NAV_GAP_QUESTIONS, ...NAV_OXFORD_QUESTIONS, ...NAV_AUTHORED_QUESTIONS];
+import { NAV_INTERP_QUESTIONS } from "@/app/data/nav-questions-interp";
+export const NAV_QUESTIONS: AirLawQuestion[] = [...NAV_BASE_QUESTIONS, ...NAV_BOOST_QUESTIONS, ...NAV_GAP_QUESTIONS, ...NAV_OXFORD_QUESTIONS, ...NAV_AUTHORED_QUESTIONS, ...NAV_INTERP_QUESTIONS];
 
 export const NAV_QUESTION_COUNT = NAV_QUESTIONS.length;
 

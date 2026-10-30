@@ -21,7 +21,7 @@ export function PitotStaticLogic() {
   );
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 510 212" className="w-full">
         <CockpitScene />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Pitot-static: who reads what &amp; blockages</text>
         {/* which instrument uses which pressure */}
@@ -51,7 +51,7 @@ export function PitotStaticLogic() {
 export function AltimeterSettings() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 540 201" className="w-full">
         <SkyDayScene h={200} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Altimeter settings &amp; error rules</text>
         {[["QNH", "reads ALTITUDE (amsl); on ground = elevation", "#1d4ed8", 30],
@@ -90,7 +90,7 @@ export function ASIColourCode() {
   const radial = (v: number, col: string, sw = 2.6) => { const [x, y] = pt(A(v), r + 1); const [xi, yi] = pt(A(v), r - 12); return <line x1={xi} y1={yi} x2={x} y2={y} stroke={col} strokeWidth={sw} />; };
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 537 201" className="w-full">
         <CockpitScene h={200} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Airspeed indicator — colour code</text>
         {/* dial */}
@@ -137,7 +137,7 @@ export function ASIColourCode() {
 export function GyroProperties() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 614 200" className="w-full">
         <CockpitScene h={200} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Gyro: rigidity, precession &amp; wander</text>
         {/* spinning rotor */}
@@ -178,7 +178,7 @@ export function GyroProperties() {
 export function CompassErrors() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 608 201" className="w-full">
         <CockpitScene h={200} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Magnetic compass errors (N hemisphere)</text>
         <rect x={12} y={24} width={158} height={70} rx={5} fill="#eff6ff" stroke="#93c5fd" />

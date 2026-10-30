@@ -107,7 +107,7 @@ export function VSpeedTable() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 168" className="w-full">
+      <svg viewBox="0 0 355 171" className="w-full">
         <CockpitScene h={168} />
         <Table x={10} y={6} w={320} cols={["V-speed", "Meaning", "ASI mark", "kt*"]} colX={[6, 62, 218, 290]} rows={rows} title="V-speeds — ASI markings & meanings" />
         <text x={12} y={162} fontSize="6.8" fill="#475569">*typical SEP values (varies by type). VA reduces at lighter weight.</text>
@@ -135,7 +135,7 @@ export function DragCurve() {
   };
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 404 200" className="w-full">
         <SkyDayScene h={200} />
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#0f172a">Drag vs speed — Vmd = L/D max</text>
         {/* axes */}
@@ -190,7 +190,7 @@ export function VnDiagram() {
   };
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 377 200" className="w-full">
         <SkyDayScene h={200} />
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#0f172a">V-n flight envelope (load factor limits)</text>
         {/* axes */}

@@ -9,6 +9,7 @@ import { findSubject } from "@/app/lib/course";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { getFPPPlottingBySection } from "@/app/data/fpp-plotting";
 import { PlottingCard } from "@/app/components/PlottingCard";
+import { CruiseTables } from "@/app/components/CruiseTables";
 import { figuresForSection, atgFiguresByTopic } from "@/app/lib/figures";
 import { FIGURE_NOTES } from "@/app/data/aircraft-technical-figure-notes";
 import { recordQuiz, recordStudyOpen } from "@/app/lib/progress";
@@ -451,6 +452,11 @@ export default function SectionPage() {
 
           {activeTab === "quiz" && (
             <div className="max-w-3xl">
+              {sectionId === "A.4.9" && (
+                <div className="mb-6">
+                  <CruiseTables />
+                </div>
+              )}
               {sectionPlotting.length > 0 && (
                 <div className="mb-6 space-y-4">
                   <div>
@@ -514,9 +520,20 @@ export default function SectionPage() {
                   <div className="space-y-4">
                     {quizPageQuestions.map((q, idx) => {
                       const i = quizPage * QUIZ_PER_PAGE + idx;
+                      const isInterp = /^(FPI-|NAV-INT-|MET-INT-)/.test(q.id);
+                      const isCruiseInterp = q.id.startsWith("FPI-");
                       return (
                       <div key={q.id} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-5">
-                        <div className="text-sm text-white font-medium mb-3">{i + 1}. {q.question}</div>
+                        <div className="text-sm text-white font-medium mb-3">
+                          {isInterp && <span className="text-[10px] uppercase tracking-widest mr-2 px-1.5 py-0.5 rounded bg-sky-500/10 text-sky-300 border border-sky-500/20 align-middle">Interpolation</span>}
+                          {i + 1}. {q.question}
+                        </div>
+                        {isCruiseInterp && (
+                          <details className="mb-3 group">
+                            <summary className="cursor-pointer text-xs text-sky-300 select-none">📊 Show the cruise-power table to interpolate from</summary>
+                            <div className="mt-2"><CruiseTables /></div>
+                          </details>
+                        )}
                         <div className="space-y-2">
                           {(["a", "b", "c", "d"] as const).map((opt) => {
                             const text = q[`option${opt.toUpperCase()}` as "optionA"];
@@ -541,7 +558,18 @@ export default function SectionPage() {
                           })}
                         </div>
                         {quizSubmitted && (
-                          <p className="text-xs text-zinc-500 mt-3 leading-relaxed">{q.explanation}</p>
+                          isInterp ? (
+                            <div className="mt-3 bg-sky-500/5 border border-sky-500/20 rounded-xl p-3">
+                              <div className="text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-1">How to solve — worked interpolation</div>
+                              <p className="text-xs text-zinc-300 leading-relaxed">{q.explanation}</p>
+                              <div className="text-xs text-white mt-2">
+                                <span className="text-green-400 font-bold">Answer: </span>
+                                {q[`option${q.correctAnswer.toUpperCase()}` as "optionA"]}
+                              </div>
+                            </div>
+                          ) : (
+                            <p className="text-xs text-zinc-500 mt-3 leading-relaxed">{q.explanation}</p>
+                          )
                         )}
                       </div>
                       );

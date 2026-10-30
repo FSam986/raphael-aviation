@@ -14,7 +14,7 @@ function Frame({ children }: { children: React.ReactNode }) {
 export function EarthGCRL() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 487 210" className="w-full">
         <defs>
           <radialGradient id="nav-sky" cx="35%" cy="30%" r="90%">
             <stop offset="0%" stopColor="#eef2ff" /><stop offset="100%" stopColor="#dbeafe" />
@@ -59,7 +59,7 @@ export function EarthGCRL() {
 export function WindTriangle() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 553 210" className="w-full">
         <defs>
           <linearGradient id="nav-tri" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#ecfeff" /><stop offset="100%" stopColor="#cffafe" />
@@ -94,7 +94,7 @@ export function WindTriangle() {
 export function OneInSixty() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 441 200" className="w-full">
         <defs>
           <linearGradient id="nav-map" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#f7fee7" /><stop offset="100%" stopColor="#ecfccb" />
@@ -130,7 +130,7 @@ export function OneInSixty() {
 export function ChartProjections() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 528 200" className="w-full">
         <defs>
           <linearGradient id="nav-chart" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#f5f3ff" /><stop offset="100%" stopColor="#ede9fe" />

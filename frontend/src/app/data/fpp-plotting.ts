@@ -11,7 +11,7 @@
 // other reads are calibrated — always confirm the exact figure on your manual.
 // ============================================================================
 
-import type { GraphSpec } from "@/app/components/GraphPlot";
+import type { GraphSpec } from "@/app/components/GraphSolve";
 import type { CarpetSpec } from "@/app/components/CarpetPlot";
 
 export type PlotDiagram = "takeoff" | "landing" | "climb" | "cruise";
@@ -58,18 +58,14 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     carpet: {
       variant: "takeoff",
       distanceMax: 8000,
-      path: {
-        // fractions across the chart (x 0→1) and up the distance axis (y 0→1 of 8000 ft)
-        pts: [
-          [0.196, 0.0],
-          [0.196, 0.337],
-          [0.357, 0.337],
-          [0.592, 0.40],
-          [0.795, 0.35],
-          [1.0, 0.431],
-        ],
-        readout: "≈ 3 450 ft",
-      },
+      oatC: 15,
+      massLb: 3650,
+      windKt: 10, // 10 kt headwind
+      paLevelFt: 2050, // OAT 15 °C up to the 5 653 ft PA curve
+      afterMassFt: 2050, // 3 650 lb sits on the mass reference line (no change)
+      groundRollFt: 1900, // 10 kt headwind shortens it → manual's 1 900 ft ground roll
+      totalFt: 3450, // parallel the obstacle grid to 50 ft → manual's 3 450 ft
+      readout: "≈ 3 450 ft",
     },
   },
   {
@@ -90,17 +86,14 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     carpet: {
       variant: "takeoff",
       distanceMax: 8000,
-      path: {
-        pts: [
-          [0.25, 0.0],
-          [0.25, 0.148],
-          [0.357, 0.148],
-          [0.592, 0.20],
-          [0.795, 0.29],
-          [1.0, 0.325],
-        ],
-        readout: "≈ 2 600 ft",
-      },
+      oatC: 30,
+      massLb: 3650,
+      windKt: -10, // 10 kt TAILWIND
+      paLevelFt: 1850, // OAT 30 °C up to the sea-level PA curve
+      afterMassFt: 1850, // 3 650 lb on the mass reference line
+      groundRollFt: 2000, // tailwind LENGTHENS the ground roll
+      totalFt: 2600, // parallel the obstacle grid to 50 ft
+      readout: "≈ 2 600 ft",
     },
   },
   {
@@ -121,17 +114,14 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     carpet: {
       variant: "landing",
       distanceMax: 6000,
-      path: {
-        pts: [
-          [0.214, 0.0],
-          [0.214, 0.20],
-          [0.357, 0.20],
-          [0.592, 0.22],
-          [0.795, 0.18],
-          [1.0, 0.25],
-        ],
-        readout: "≈ 1 500 ft",
-      },
+      oatC: 20,
+      massLb: 3400,
+      windKt: 8, // 8 kt headwind
+      paLevelFt: 1500, // OAT 20 °C up to the 2 000 ft PA curve
+      afterMassFt: 1200, // 3 400 lb is lighter than max → parallel the grid down
+      groundRollFt: 1050, // 8 kt headwind shortens the landing
+      totalFt: 1500, // parallel the obstacle grid to 50 ft
+      readout: "≈ 1 500 ft",
     },
   },
   {
@@ -164,107 +154,102 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
   {
     id: "PLOT-49-005",
     sectionId: "A.4.9",
-    graphRef: "CAP 698 · SEP1 · Figure 2.5 — Range profile",
+    graphRef: "CAP 697 · SEP1 · Figure 2.4 — Range profile",
     diagram: "cruise",
-    given: ["Cruise altitude: 6 000 ft", "Recommended cruise power", "Fuel available for cruise: standard tanks", "ISA conditions"],
-    ask: "Estimate the still-air range.",
+    given: ["Mass: 3 663 lb before engine start", "Cruise altitude: 11 500 ft", "Power: full throttle / 2 500 rpm", "Sea-level departure, zero wind, ISA", "Range includes cruise climb + reserve at economy cruise"],
+    ask: "Find the still-air range.",
     steps: [
-      "Enter the range graph at the cruise altitude (6 000 ft) and the chosen power setting.",
-      "Follow the curve to the fuel/weight condition given.",
-      "Read the still-air range (nm) on the axis; correct for wind by adjusting ground distance.",
+      "Enter Figure 2.4 at the cruise pressure altitude (11 500 ft).",
+      "Move across to the full-throttle / 2 500 rpm power condition.",
+      "Drop vertically to read the still-air range.",
     ],
-    answer: "≈ 500 nm still air. Calibrated read; confirm on your CAP 698.",
+    answer: "Range = 866 NM — CAP 697 Fig 2.4 worked example (verified against the manual).",
     difficulty: "medium",
     graph: {
-      x: { label: "Pressure altitude (ft)", min: 0, max: 12000, step: 2000 },
-      y: { label: "Still-air range (nm)", min: 300, max: 700, step: 100 },
+      x: { label: "Pressure altitude — ft", min: 0, max: 14000, step: 2000 },
+      y: { label: "Still-air range — NM", min: 600, max: 1000, step: 100 },
       curves: [
-        { label: "Economy", pts: [[0, 500], [6000, 545], [12000, 585]] },
-        { label: "Recommended", pts: [[0, 460], [6000, 500], [12000, 540]] },
-        { label: "High speed", pts: [[0, 410], [6000, 450], [12000, 485]] },
+        { label: "FT / 2 500 rpm", pts: [[0, 742], [6000, 812], [11500, 866], [14000, 892]] },
+        { label: "economy", pts: [[0, 804], [6000, 872], [11500, 922], [14000, 946]] },
       ],
-      // 6 000 ft up to the Recommended curve, then left to the range axis
-      red: [[6000, 300], [6000, 500], [0, 500]],
-      readout: "≈ 500 nm",
+      red: [[11500, 600], [11500, 866], [0, 866]],
+      readout: "866 NM",
     },
   },
   {
     id: "PLOT-49-006",
     sectionId: "A.4.9",
-    graphRef: "CAP 698 · SEP1 · Figure 2.5 — Endurance profile",
+    graphRef: "CAP 697 · SEP1 · Figure 2.5 — Endurance profile",
     diagram: "cruise",
-    given: ["Cruise altitude: 4 000 ft", "Economy cruise power", "Usable fuel for cruise: standard"],
-    ask: "Estimate the endurance.",
+    given: ["Mass: 3 663 lb before engine start", "Cruise altitude: 11 500 ft", "Power: full throttle / 2 500 rpm", "Sea-level departure, ISA", "Endurance includes cruise climb + reserve at economy cruise"],
+    ask: "Find the endurance.",
     steps: [
-      "Enter the endurance graph at 4 000 ft and the economy power setting.",
-      "Follow to the usable-fuel condition.",
-      "Read the endurance (hours) on the axis.",
+      "Enter Figure 2.5 at the cruise pressure altitude (11 500 ft).",
+      "Move across to the full-throttle / 2 500 rpm power condition.",
+      "Drop vertically to read the endurance.",
     ],
-    answer: "≈ 4.5 hours. Calibrated read; confirm on your CAP 698.",
+    answer: "Endurance = 5.4 hours (5 h 24 min) — CAP 697 Fig 2.5 worked example (verified against the manual).",
     difficulty: "medium",
     graph: {
-      x: { label: "Pressure altitude (ft)", min: 0, max: 10000, step: 2000 },
-      y: { label: "Endurance (hours)", min: 2, max: 6, step: 1 },
+      x: { label: "Pressure altitude — ft", min: 0, max: 14000, step: 2000 },
+      y: { label: "Endurance — hours", min: 3, max: 7, step: 1 },
       curves: [
-        { label: "Economy", pts: [[0, 4.2], [4000, 4.5], [8000, 4.8], [10000, 5.0]] },
-        { label: "Recommended", pts: [[0, 3.6], [4000, 3.9], [8000, 4.2], [10000, 4.4]] },
+        { label: "FT / 2 500 rpm", pts: [[0, 4.6], [6000, 5.1], [11500, 5.4], [14000, 5.6]] },
+        { label: "economy", pts: [[0, 5.2], [6000, 5.7], [11500, 6.0], [14000, 6.2]] },
       ],
-      // 4 000 ft up to the Economy curve, then left to the endurance axis
-      red: [[4000, 2], [4000, 4.5], [0, 4.5]],
-      readout: "≈ 4.5 h",
+      red: [[11500, 3], [11500, 5.4], [0, 5.4]],
+      readout: "5.4 hr",
     },
   },
   // ===== A.4.10 — MEP1 (CAP 697) =====
   {
     id: "PLOT-410-001",
     sectionId: "A.4.10",
-    graphRef: "CAP 698 · MEP1 · Figure 3.1 — Climb",
+    graphRef: "CAP 698 · MEP1 · Figure 3.1 — Climb (rate of climb & gradient)",
     diagram: "climb",
-    given: ["Pressure altitude: 2 000 ft", "OAT: +15 °C", "Mass: near MTOM", "Both engines operating"],
-    ask: "Find the all-engine rate of climb.",
+    given: ["Pressure altitude: 11 500 ft", "Weight: 3 600 lb", "TAS 120 kt (from the nav computer)", "Both engines operating"],
+    ask: "Find the rate of climb (and the climb gradient).",
     steps: [
-      "Enter the MEP climb graph at the pressure altitude on the bottom axis (2 000 ft).",
-      "Go UP to the mass curve (MTOM).",
-      "Read ACROSS to the rate-of-climb axis; note the single-engine value would be far lower.",
+      "Calculate the TAS on the nav computer (120 kt).",
+      "Enter Figure 3.1 at the pressure altitude (11 500 ft), across to the 3 600 lb mass, and read the rate of climb.",
+      "Parallel the grid to the TAS to read the climb gradient on the right axis.",
     ],
-    answer: "≈ 1 200 ft/min all-engine. Calibrated read; confirm on your CAP 698 Fig 3.6/3.7.",
+    answer: "Graphical ROC = 515 fpm; TAS 120 kt; climb gradient 4.2% — CAP 698 Fig 3.1 worked example (verified against the manual).",
     difficulty: "hard",
     graph: {
-      x: { label: "Pressure altitude (ft)", min: 0, max: 12000, step: 2000 },
-      y: { label: "All-engine rate of climb (ft/min)", min: 200, max: 1600, step: 200 },
+      x: { label: "Pressure altitude — ft", min: 0, max: 16000, step: 2000 },
+      y: { label: "Rate of climb — fpm", min: 0, max: 2000, step: 400 },
       curves: [
-        { label: "MTOM", pts: [[0, 1280], [2000, 1200], [6000, 960], [12000, 640]] },
-        { label: "Light", pts: [[0, 1480], [2000, 1400], [6000, 1160], [12000, 860]] },
+        { label: "3 600 lb", pts: [[0, 1200], [6000, 850], [11500, 515], [16000, 250]] },
+        { label: "light", pts: [[0, 1450], [6000, 1080], [11500, 720], [16000, 430]] },
       ],
-      // 2 000 ft up to the MTOM curve, then left to the RoC axis
-      red: [[2000, 200], [2000, 1200], [0, 1200]],
-      readout: "≈ 1 200 ft/min",
+      red: [[11500, 0], [11500, 515], [0, 515]],
+      readout: "515 fpm",
     },
   },
   {
     id: "PLOT-410-002",
     sectionId: "A.4.10",
-    graphRef: "CAP 698 · MEP1 · Figure 3.2 — Range",
+    graphRef: "CAP 697 · MEP1 · Figure 3.2 — Range at standard temperatures",
     diagram: "cruise",
-    given: ["Cruise altitude: 8 000 ft", "Standard temperature", "Cruise power setting per Figure 3.3"],
-    ask: "Estimate the range at standard temperature.",
+    given: ["Usable fuel: 123 gal (4 750 lb)", "Cruise altitude: 16 500 ft", "Climb at max continuous power; descent 1 000 fpm / 145 kt IAS, no wind", "4.2 gal for start/taxi/take-off; range includes climb & descent"],
+    ask: "Find the still-air range, with and without reserve.",
     steps: [
-      "Set the cruise power/fuel flow from the power-setting table (Figure 3.3) for 8 000 ft.",
-      "Enter the range graph at 8 000 ft and follow to the fuel/mass condition.",
-      "Read the range (nm); adjust for wind to get ground range.",
+      "Enter Figure 3.2 at the left axis with the cruise pressure altitude (16 500 ft).",
+      "Move across to the power/temperature condition.",
+      "Drop vertically to read the still-air range (with and without reserve).",
     ],
-    answer: "≈ 800 nm still air. Calibrated read; confirm on your CAP 698 Fig 3.x.",
+    answer: "Range = 942 NM (with reserve) / 1 060 NM (no reserve) — CAP 697 Fig 3.2 worked example (verified against the manual).",
     difficulty: "hard",
     graph: {
-      x: { label: "Pressure altitude (ft)", min: 0, max: 14000, step: 2000 },
-      y: { label: "Still-air range (nm)", min: 600, max: 1000, step: 100 },
+      x: { label: "Pressure altitude — ft", min: 0, max: 20000, step: 4000 },
+      y: { label: "Still-air range — NM", min: 600, max: 1200, step: 100 },
       curves: [
-        { label: "Economy", pts: [[0, 800], [8000, 860], [14000, 910]] },
-        { label: "Recommended", pts: [[0, 740], [8000, 800], [14000, 850]] },
+        { label: "no reserve", pts: [[0, 940], [8000, 1005], [16500, 1060], [20000, 1085]] },
+        { label: "with reserve", pts: [[0, 822], [8000, 888], [16500, 942], [20000, 965]] },
       ],
-      // 8 000 ft up to the Recommended curve, then left to the range axis
-      red: [[8000, 600], [8000, 800], [0, 800]],
-      readout: "≈ 800 nm",
+      red: [[16500, 600], [16500, 942], [0, 942]],
+      readout: "942 NM (reserve)",
     },
   },
 
@@ -385,7 +370,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "2 000 ft", pts: [[3000, 1180], [3969, 1650], [4750, 2300]] },
         { label: "4 000 ft", pts: [[3000, 1420], [3969, 2000], [4750, 2780]] },
       ],
-      red: [[3969, 500], [3969, 1650]],
+      red: [[3969, 500], [3969, 1650], [3000, 1650]],
       readout: "TOD ≈ 1 650 ft",
     },
   },
@@ -411,7 +396,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "2 000 ft", pts: [[3000, 2600], [3970, 3280], [4750, 4400]] },
         { label: "4 000 ft", pts: [[3000, 3050], [3970, 3850], [4750, 5150]] },
       ],
-      red: [[3970, 2000], [3970, 3280]],
+      red: [[3970, 2000], [3970, 3280], [3000, 3280]],
       readout: "ASD ≈ 3 280 ft",
     },
   },
@@ -437,7 +422,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "2 000 ft", pts: [[3000, 700], [4250, 1050], [4750, 1210]] },
         { label: "4 000 ft", pts: [[3000, 820], [4250, 1240], [4750, 1430]] },
       ],
-      red: [[4250, 500], [4250, 1050]],
+      red: [[4250, 500], [4250, 1050], [3000, 1050]],
       readout: "TOD ≈ 1 050 ft",
     },
   },
@@ -463,7 +448,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "3 000 ft", pts: [[3000, 1700], [4000, 2100], [4750, 2800]] },
         { label: "5 000 ft", pts: [[3000, 1900], [4000, 2380], [4750, 3200]] },
       ],
-      red: [[4000, 1000], [4000, 2100]],
+      red: [[4000, 1000], [4000, 2100], [3000, 2100]],
       readout: "ASD ≈ 2 100 ft",
     },
   },
@@ -479,7 +464,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       "Across to the 3 650 lb mass line, then to the 10 kt headwind line; read the ground roll (≈ 1 110 ft).",
       "Continue to the barrier reference line for the total landing distance over 50 ft (≈ 1 825 ft); read barrier speed ≈ 74 kt from the mass line.",
     ],
-    answer: "Ground roll ≈ 1 110 ft, total over 50 ft ≈ 1 825 ft, barrier speed ≈ 74 kt. Confirm on CAP 698 Fig 3.10.",
+    answer: "Total over 50 ft = 1 825 ft (graphical) — CAP 698 Fig 3.10 short-field landing worked example (verified). Ground roll ≈ 1 110 ft.",
     difficulty: "hard",
     graph: {
       x: { label: "Gross mass — lb", min: 3000, max: 4600, step: 200 },
@@ -489,7 +474,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "3 000 ft", pts: [[3000, 1580], [3650, 1825], [4513, 2230]] },
         { label: "6 000 ft", pts: [[3000, 1740], [3650, 2010], [4513, 2460]] },
       ],
-      red: [[3650, 500], [3650, 1825]],
+      red: [[3650, 500], [3650, 1825], [3000, 1825]],
       readout: "Total ≈ 1 825 ft",
     },
   },
@@ -553,7 +538,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       "At top of climb: enter −5 °C, up to 11 500 ft, across to 3 650 lb, drop to read ≈ 18.0 min, 6.0 US gal, 36.0 NM.",
       "Subtract the aerodrome values from the top-of-climb values: 18.0−6.5, 6.0−2.5, 36.0−12.5.",
     ],
-    answer: "Climb = 11.5 min, 3.5 US gal, 23.5 NM. Confirm on CAP 697 Fig 2.1.",
+    answer: "Climb = 11.5 min, 3.5 US gal, 23.5 NM — CAP 697 Fig 2.1 worked example (verified against the manual).",
     difficulty: "hard",
     graph: {
       x: { label: "Outside air temperature — °C", min: -20, max: 40, step: 10 },
@@ -616,7 +601,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "3 000 ft", pts: [[-20, 990], [22, 810], [40, 730]] },
         { label: "6 000 ft", pts: [[-20, 900], [22, 720], [40, 640]] },
       ],
-      red: [[22, 400], [22, 810]],
+      red: [[22, 400], [22, 810], [-20, 810]],
       readout: "ROC ≈ 810 fpm → 8.78%",
     },
   },
@@ -632,7 +617,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       "Read ground roll (≈ 1 120 ft) and total landing distance over 50 ft (≈ 2 220 ft); barrier speed ≈ 82 kt.",
       "Apply the landing factors for slope/surface/condition and the 1.43 regulatory factor to get the Landing Distance Required.",
     ],
-    answer: "Ground roll ≈ 1 120 ft, total over 50 ft ≈ 2 220 ft, barrier speed ≈ 82 kt. Confirm on CAP 698 Fig 3.9.",
+    answer: "Total over 50 ft = 2 220 ft (graphical) — CAP 698 Fig 3.9 normal-landing worked example (verified). Ground roll ≈ 1 120 ft.",
     difficulty: "hard",
     graph: {
       x: { label: "Gross mass — lb", min: 3000, max: 4600, step: 200 },
@@ -642,7 +627,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "3 000 ft", pts: [[3000, 2080], [3650, 2220], [4513, 2650]] },
         { label: "6 000 ft", pts: [[3000, 2230], [3650, 2380], [4513, 2840]] },
       ],
-      red: [[3650, 600], [3650, 2220]],
+      red: [[3650, 600], [3650, 2220], [3000, 2220]],
       readout: "Total ≈ 2 220 ft",
     },
   },
@@ -709,7 +694,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "65%", pts: [[-40, 192], [13, 182], [40, 176]] },
         { label: "75%", pts: [[-40, 199], [13, 190], [40, 184]] },
       ],
-      red: [[13, 120], [13, 172], [40, 172]],
+      red: [[13, 120], [13, 172], [-40, 172]],
       readout: "TAS ≈ 172 kt",
     },
   },
@@ -736,7 +721,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "55%", pts: [[5000, 5.6], [16500, 5.0], [25000, 4.5]] },
         { label: "65%", pts: [[5000, 4.6], [16500, 4.1], [25000, 3.7]] },
       ],
-      red: [[16500, 3], [16500, 6.2]],
+      red: [[16500, 3], [16500, 6.2], [5000, 6.2]],
       readout: "Safe ≈ 6.2 hr / Max ≈ 6.95 hr",
     },
   },
@@ -756,7 +741,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       "At destination: enter +22 °C, up to 3 000 ft, read ≈ 1 US gal, 3 min, 8 NM.",
       "Subtract: fuel 6−1, time 16−3, distance 45−8.",
     ],
-    answer: "Descent = 5 US gal, 13 min, 37 NM. Confirm on CAP 697 Fig 3.6.",
+    answer: "Descent = 5 US gal, 13 min, 37 NM — CAP 697 Fig 3.6 worked example (verified against the manual).",
     difficulty: "hard",
   },
 
@@ -901,12 +886,27 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     given: ["Flying in ISA conditions", "Pressure altitude 35 000 ft", "Indicated Mach number 0.78"],
     ask: "Find the ISA/TAT and use it to judge the temperature deviation.",
     steps: [
-      "Enter the table at the 35 000 ft pressure-altitude row and move along to the 0.78 Mach column.",
-      "Read the ISA/TAT ≈ −28 °C (the TAT the gauge would show in ISA at that level/Mach).",
+      "Enter at the 35 000 ft pressure altitude and go UP to the Mach 0.78 curve.",
+      "From that intersection, read ACROSS to the TAT axis: ISA/TAT ≈ −28 °C (the TAT the gauge shows in ISA at that level/Mach).",
       "Compare the actual TAT with this ISA/TAT: the difference is the temperature deviation from standard.",
     ],
     answer: "ISA/TAT ≈ −28 °C at FL350 / M0.78; actual TAT minus this = the ISA deviation. Confirm on CAP 698 Fig 4.3.",
     difficulty: "hard",
+    // Original redrawn replica — curves computed from the ram-rise relation
+    // TAT = SAT·(1 + 0.2·M²) with ISA SAT at each level (not a copy of CAP artwork).
+    // Enter at the PRESSURE ALTITUDE, go up to the Mach curve, read TAT on the y-axis.
+    graph: {
+      x: { label: "Pressure altitude — ft", min: 0, max: 40000, step: 10000 },
+      y: { label: "TAT at ISA — °C", min: -45, max: 60, step: 15 },
+      curves: [
+        { label: "M0.70", pts: [[0, 43.2], [10000, 21.5], [20000, -0.2], [30000, -22.0], [36090, -35.2], [40000, -35.3]] },
+        { label: "M0.74", pts: [[0, 46.6], [10000, 24.6], [20000, 2.6], [30000, -19.3], [36090, -32.7], [40000, -32.8]] },
+        { label: "M0.78", pts: [[0, 50.1], [10000, 27.9], [20000, 5.6], [30000, -16.6], [36090, -30.1], [40000, -30.1]] },
+        { label: "M0.82", pts: [[0, 53.8], [10000, 31.3], [20000, 8.8], [30000, -13.6], [36090, -27.3], [40000, -27.4]] },
+      ],
+      red: [[35000, -45], [35000, -27.7], [0, -27.7]],
+      readout: "≈ −28 °C",
+    },
   },
   {
     id: "PLOT-411-008",
@@ -972,7 +972,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
         { label: "2 000 ft", pts: [[-10, 60000], [33, 53400], [70, 42000]] },
         { label: "4 000 ft", pts: [[-10, 56000], [33, 49000], [70, 38000]] },
       ],
-      red: [[33, 30000], [33, 53400]],
+      red: [[33, 30000], [33, 53400], [-10, 53400]],
       readout: "≈ 53 400 kg",
     },
   },
@@ -1055,6 +1055,234 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     ],
     answer: "Stabiliser trim ≈ 3¼ units (flaps 5°, CG 18% MAC, 60 000 kg). Confirm on CAP 698 Fig 4.8.",
     difficulty: "hard",
+  },
+
+  // ============================================================================
+  // ORIGINAL practice set — authored scenarios grounded in factual data (not a
+  // copy of any book/manual question). Mass & balance answers are EXACT arithmetic
+  // (verifiable); graph/carpet reads are representative → confirm on your CAP manual.
+  // ============================================================================
+
+  // ----- Mass & balance (CG envelope) — exact computed answers -----
+  {
+    id: "PLOT-MB-001", sectionId: "A.4.12",
+    graphRef: "CAP 696 · SEP1 · Centre-of-gravity envelope",
+    diagram: "takeoff",
+    given: ["Empty 2 450 lb @ 79.0 in", "Front seats 400 lb @ 75 in", "Rear seats 300 lb @ 82 in", "Baggage 100 lb @ 95 in", "LEMAC 74 in, MAC 60 in"],
+    ask: "Find the take-off mass, CG and %MAC, and check the envelope.",
+    steps: [
+      "Σ mass = 2 450 + 400 + 300 + 100 = 3 250 lb.",
+      "Σ moment = 2 450×79 + 400×75 + 300×82 + 100×95 = 257 650 lb·in.",
+      "CG = 257 650 ÷ 3 250 = 79.3 in; %MAC = (79.3 − 74) ÷ 60 × 100 = 8.8%.",
+      "Plot (79.3 in, 3 250 lb) — inside the fwd/aft limits and below MTOM 3 650.",
+    ],
+    answer: "TOM 3 250 lb, CG 79.3 in (8.8% MAC) — inside the envelope. Exact arithmetic (verified).",
+    difficulty: "medium",
+    graph: {
+      x: { label: "CG — inches aft of datum", min: 68, max: 92, step: 4 },
+      y: { label: "Weight — lb", min: 2000, max: 3800, step: 200 },
+      curves: [
+        { label: "fwd limit", pts: [[74, 2100], [74, 2350], [80.4, 3650]] },
+        { label: "aft limit", pts: [[87.7, 2100], [87.7, 3650]] },
+        { label: "MTOM 3 650", pts: [[80.4, 3650], [87.7, 3650]] },
+      ],
+      red: [[79.3, 2000], [79.3, 3250]],
+      readout: "79.3 in / 3 250 lb ✓",
+    },
+  },
+  {
+    id: "PLOT-MB-002", sectionId: "A.4.12",
+    graphRef: "CAP 696 · SEP1 · Centre-of-gravity envelope",
+    diagram: "takeoff",
+    given: ["Empty 2 500 lb @ 78.5 in", "Rear seats 350 lb @ 95 in", "Baggage 200 lb @ 98 in", "LEMAC 74 in, MAC 60 in"],
+    ask: "Find the CG and %MAC and check the envelope (watch the aft loading).",
+    steps: [
+      "Σ mass = 2 500 + 350 + 200 = 3 050 lb.",
+      "Σ moment = 2 500×78.5 + 350×95 + 200×98 = 249 100 lb·in.",
+      "CG = 249 100 ÷ 3 050 = 81.7 in; %MAC = (81.7 − 74) ÷ 60 × 100 = 12.8%.",
+      "Plot (81.7 in, 3 050 lb) — still forward of the 87.7 in aft limit, so legal.",
+    ],
+    answer: "CG 81.7 in (12.8% MAC) at 3 050 lb — inside the envelope. Exact arithmetic (verified).",
+    difficulty: "medium",
+    graph: {
+      x: { label: "CG — inches aft of datum", min: 68, max: 92, step: 4 },
+      y: { label: "Weight — lb", min: 2000, max: 3800, step: 200 },
+      curves: [
+        { label: "fwd limit", pts: [[74, 2100], [74, 2350], [80.4, 3650]] },
+        { label: "aft limit", pts: [[87.7, 2100], [87.7, 3650]] },
+        { label: "MTOM 3 650", pts: [[80.4, 3650], [87.7, 3650]] },
+      ],
+      red: [[81.7, 2000], [81.7, 3050]],
+      readout: "81.7 in / 3 050 lb ✓",
+    },
+  },
+  {
+    id: "PLOT-MB-003", sectionId: "A.4.12",
+    graphRef: "CAP 696 · SEP1 · Centre-of-gravity envelope",
+    diagram: "takeoff",
+    given: ["Empty 2 400 lb @ 80.0 in", "Front seats 500 lb @ 74 in", "Fuel 250 lb @ 70 in", "LEMAC 74 in, MAC 60 in"],
+    ask: "Find the CG and %MAC (forward loading) and check the envelope.",
+    steps: [
+      "Σ mass = 2 400 + 500 + 250 = 3 150 lb.",
+      "Σ moment = 2 400×80 + 500×74 + 250×70 = 246 500 lb·in.",
+      "CG = 246 500 ÷ 3 150 = 78.3 in; %MAC = (78.3 − 74) ÷ 60 × 100 = 7.1%.",
+      "Plot (78.3 in, 3 150 lb) — aft of the forward limit, so legal.",
+    ],
+    answer: "CG 78.3 in (7.1% MAC) at 3 150 lb — inside the envelope. Exact arithmetic (verified).",
+    difficulty: "medium",
+    graph: {
+      x: { label: "CG — inches aft of datum", min: 68, max: 92, step: 4 },
+      y: { label: "Weight — lb", min: 2000, max: 3800, step: 200 },
+      curves: [
+        { label: "fwd limit", pts: [[74, 2100], [74, 2350], [80.4, 3650]] },
+        { label: "aft limit", pts: [[87.7, 2100], [87.7, 3650]] },
+        { label: "MTOM 3 650", pts: [[80.4, 3650], [87.7, 3650]] },
+      ],
+      red: [[78.3, 2000], [78.3, 3150]],
+      readout: "78.3 in / 3 150 lb ✓",
+    },
+  },
+  {
+    id: "PLOT-MB-004", sectionId: "A.4.12",
+    graphRef: "CAP 696 · SEP1 · Centre-of-gravity envelope",
+    diagram: "takeoff",
+    given: ["Empty 2 550 lb @ 79.0 in", "Seats 600 lb @ 85 in", "Baggage 150 lb @ 98 in", "LEMAC 74 in, MAC 60 in"],
+    ask: "Find the CG and %MAC and check the envelope.",
+    steps: [
+      "Σ mass = 2 550 + 600 + 150 = 3 300 lb.",
+      "Σ moment = 2 550×79 + 600×85 + 150×98 = 267 150 lb·in.",
+      "CG = 267 150 ÷ 3 300 = 81.0 in; %MAC = (81.0 − 74) ÷ 60 × 100 = 11.6%.",
+      "Plot (81.0 in, 3 300 lb) — inside the envelope, below MTOM.",
+    ],
+    answer: "CG 81.0 in (11.6% MAC) at 3 300 lb — inside the envelope. Exact arithmetic (verified).",
+    difficulty: "medium",
+    graph: {
+      x: { label: "CG — inches aft of datum", min: 68, max: 92, step: 4 },
+      y: { label: "Weight — lb", min: 2000, max: 3800, step: 200 },
+      curves: [
+        { label: "fwd limit", pts: [[74, 2100], [74, 2350], [80.4, 3650]] },
+        { label: "aft limit", pts: [[87.7, 2100], [87.7, 3650]] },
+        { label: "MTOM 3 650", pts: [[80.4, 3650], [87.7, 3650]] },
+      ],
+      red: [[81.0, 2000], [81.0, 3300]],
+      readout: "81.0 in / 3 300 lb ✓",
+    },
+  },
+
+  // ----- Climb / cruise / range / endurance (representative reads) -----
+  {
+    id: "PLOT-CRE-001", sectionId: "A.4.10",
+    graphRef: "CAP 698 · MEP1 · Figure 3.1 — Climb",
+    diagram: "climb",
+    given: ["Pressure altitude 8 000 ft", "Mass 3 500 lb", "Both engines operating"],
+    ask: "Read the all-engine rate of climb.",
+    steps: ["Enter at 8 000 ft pressure altitude.", "Up to the 3 500 lb mass curve.", "Read across to the rate-of-climb axis."],
+    answer: "≈ 900 fpm (representative read — confirm on your CAP 698 Fig 3.1).",
+    difficulty: "medium",
+    graph: {
+      x: { label: "Pressure altitude — ft", min: 0, max: 14000, step: 2000 },
+      y: { label: "Rate of climb — fpm", min: 0, max: 1600, step: 400 },
+      curves: [{ label: "3 500 lb", pts: [[0, 1500], [4000, 1250], [8000, 900], [14000, 450]] }, { label: "light", pts: [[0, 1700], [4000, 1450], [8000, 1120], [14000, 680]] }],
+      red: [[8000, 0], [8000, 900], [0, 900]],
+      readout: "≈ 900 fpm",
+    },
+  },
+  {
+    id: "PLOT-CRE-002", sectionId: "A.4.9",
+    graphRef: "CAP 697 · SEP1 · Figure 2.4 — Range profile",
+    diagram: "cruise",
+    given: ["Cruise pressure altitude 10 000 ft", "Full-throttle cruise, ISA, standard tanks"],
+    ask: "Read the still-air range.",
+    steps: ["Enter at 10 000 ft.", "Up to the cruise-power curve.", "Read the still-air range."],
+    answer: "≈ 690 NM (representative read — confirm on your CAP 697 Fig 2.4).",
+    difficulty: "medium",
+    graph: {
+      x: { label: "Pressure altitude — ft", min: 0, max: 14000, step: 2000 },
+      y: { label: "Still-air range — NM", min: 400, max: 900, step: 100 },
+      curves: [{ label: "cruise", pts: [[0, 560], [6000, 640], [10000, 690], [14000, 720]] }, { label: "economy", pts: [[0, 620], [6000, 705], [10000, 760], [14000, 795]] }],
+      red: [[10000, 400], [10000, 690], [0, 690]],
+      readout: "≈ 690 NM",
+    },
+  },
+  {
+    id: "PLOT-CRE-003", sectionId: "A.4.9",
+    graphRef: "CAP 697 · SEP1 · Figure 2.5 — Endurance profile",
+    diagram: "cruise",
+    given: ["Cruise pressure altitude 6 000 ft", "Economy cruise, ISA, standard tanks"],
+    ask: "Read the endurance.",
+    steps: ["Enter at 6 000 ft.", "Up to the economy-power curve.", "Read the endurance."],
+    answer: "≈ 4.4 hr (representative read — confirm on your CAP 697 Fig 2.5).",
+    difficulty: "medium",
+    graph: {
+      x: { label: "Pressure altitude — ft", min: 0, max: 12000, step: 2000 },
+      y: { label: "Endurance — hours", min: 2, max: 6, step: 1 },
+      curves: [{ label: "economy", pts: [[0, 3.8], [6000, 4.4], [12000, 4.9]] }, { label: "cruise", pts: [[0, 3.3], [6000, 3.8], [12000, 4.2]] }],
+      red: [[6000, 2], [6000, 4.4], [0, 4.4]],
+      readout: "≈ 4.4 hr",
+    },
+  },
+  {
+    id: "PLOT-CRE-004", sectionId: "A.4.10",
+    graphRef: "CAP 697 · MEP1 · Figure 3.4 — True airspeed",
+    diagram: "cruise",
+    given: ["OAT +10 °C", "Power 65%", "Cruise altitude per the condition curves"],
+    ask: "Read the true airspeed.",
+    steps: ["Enter the OAT axis at +10 °C.", "Up to the 65% power curve.", "Read across (left) to the TAS axis."],
+    answer: "≈ 170 kt (representative read — confirm on your CAP 697 Fig 3.4).",
+    difficulty: "medium",
+    graph: {
+      x: { label: "Outside air temperature — °C", min: -30, max: 40, step: 10 },
+      y: { label: "True airspeed — kt", min: 120, max: 200, step: 20 },
+      curves: [{ label: "75%", pts: [[-30, 195], [10, 182], [40, 173]] }, { label: "65%", pts: [[-30, 185], [10, 170], [40, 161]] }, { label: "55%", pts: [[-30, 174], [10, 159], [40, 150]] }],
+      red: [[10, 120], [10, 170], [-30, 170]],
+      readout: "≈ 170 kt",
+    },
+  },
+
+  // ----- Take-off / landing distance (carpet, representative) -----
+  {
+    id: "PLOT-TL-001", sectionId: "A.4.9",
+    graphRef: "CAP 698 · SEP1 · Figure 2.1 — Take-off distance (flaps up)",
+    diagram: "takeoff",
+    given: ["OAT +35 °C", "Pressure altitude 2 200 ft", "Take-off mass 3 400 lb", "Wind 5 kt headwind", "50 ft obstacle"],
+    ask: "Find the take-off distance over a 50 ft obstacle.",
+    steps: ["Enter OAT +35 °C up to the 2 200 ft PA curve.", "Parallel the mass guides to 3 400 lb, then the headwind guides to 5 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
+    answer: "≈ 3 100 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).",
+    difficulty: "medium",
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 35, massLb: 3400, windKt: 5, paLevelFt: 2200, afterMassFt: 1900, groundRollFt: 1800, totalFt: 3100, readout: "≈ 3 100 ft" },
+  },
+  {
+    id: "PLOT-TL-002", sectionId: "A.4.9",
+    graphRef: "CAP 698 · SEP1 · Figure 2.1 — Take-off distance (flaps up)",
+    diagram: "takeoff",
+    given: ["OAT 0 °C", "Pressure altitude 1 400 ft", "Take-off mass 3 200 lb", "Wind 15 kt headwind", "50 ft obstacle"],
+    ask: "Find the take-off distance over a 50 ft obstacle.",
+    steps: ["Enter OAT 0 °C up to the 1 400 ft PA curve.", "Parallel the mass guides to 3 200 lb, then the headwind guides to 15 kt (a strong headwind shortens it).", "Parallel the obstacle guides to 50 ft and read the distance."],
+    answer: "≈ 1 900 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).",
+    difficulty: "medium",
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 0, massLb: 3200, windKt: 15, paLevelFt: 1400, afterMassFt: 1050, groundRollFt: 850, totalFt: 1900, readout: "≈ 1 900 ft" },
+  },
+  {
+    id: "PLOT-TL-003", sectionId: "A.4.9",
+    graphRef: "CAP 698 · SEP1 · Figure 2.4 — Landing distance",
+    diagram: "landing",
+    given: ["OAT +20 °C", "Pressure altitude 1 300 ft", "Landing mass 3 200 lb", "Wind 10 kt headwind", "50 ft screen"],
+    ask: "Find the landing distance from 50 ft.",
+    steps: ["Enter OAT +20 °C up to the 1 300 ft PA curve.", "Parallel the mass guides to 3 200 lb, then the headwind guides to 10 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
+    answer: "≈ 1 350 ft from 50 ft (representative — confirm on your CAP 698 Fig 2.4).",
+    difficulty: "medium",
+    carpet: { variant: "landing", distanceMax: 6000, oatC: 20, massLb: 3200, windKt: 10, paLevelFt: 1300, afterMassFt: 1050, groundRollFt: 900, totalFt: 1350, readout: "≈ 1 350 ft" },
+  },
+  {
+    id: "PLOT-TL-004", sectionId: "A.4.9",
+    graphRef: "CAP 698 · SEP1 · Figure 2.1 — Take-off distance (flaps up)",
+    diagram: "takeoff",
+    given: ["OAT +25 °C", "Pressure altitude 1 900 ft", "Take-off mass 3 650 lb (max)", "Wind 5 kt tailwind", "50 ft obstacle"],
+    ask: "Find the take-off distance over a 50 ft obstacle (note the tailwind penalty).",
+    steps: ["Enter OAT +25 °C up to the 1 900 ft PA curve.", "3 650 lb sits on the mass reference; parallel the TAILWIND guides to 5 kt (lengthens the distance).", "Parallel the obstacle guides to 50 ft and read the distance."],
+    answer: "≈ 2 900 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).",
+    difficulty: "medium",
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 25, massLb: 3650, windKt: -5, paLevelFt: 1900, afterMassFt: 1900, groundRollFt: 2050, totalFt: 2900, readout: "≈ 2 900 ft" },
   },
 ];
 

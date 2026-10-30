@@ -13,7 +13,7 @@ import { SkyDayScene, StormScene, SkyDuskScene, FogScene } from "@/app/component
 export function ISAColumn() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 367 210" className="w-full">
         <defs>
           <linearGradient id="isa-sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#1e3a8a" /><stop offset="55%" stopColor="#60a5fa" /><stop offset="100%" stopColor="#e0f2fe" />
@@ -49,7 +49,7 @@ export function ISAColumn() {
 export function StabilityLapseRates() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 499 210" className="w-full">
         <defs>
           <linearGradient id="stab-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#eef2ff" /><stop offset="100%" stopColor="#f8fafc" />
@@ -92,7 +92,7 @@ export function StabilityLapseRates() {
 export function CloudLadder() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 210" className="w-full">
+      <svg viewBox="0 0 516 210" className="w-full">
         <defs>
           <linearGradient id="cl-sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#bfdbfe" /><stop offset="100%" stopColor="#f0f9ff" />
@@ -133,7 +133,7 @@ export function ThunderstormCycle() {
   );
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 551 200" className="w-full">
         <defs>
           <linearGradient id="ts-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#334155" /><stop offset="100%" stopColor="#e2e8f0" />
@@ -161,7 +161,7 @@ export function ThunderstormCycle() {
 export function FrontsDiagram() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 435 200" className="w-full">
         <defs>
           <linearGradient id="fr-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#f8fafc" /><stop offset="100%" stopColor="#eef2ff" />
@@ -198,7 +198,7 @@ export function FrontsDiagram() {
 export function FogTypes() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 533 201" className="w-full">
         <defs>
           <linearGradient id="fog-bg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#e2e8f0" /><stop offset="100%" stopColor="#f8fafc" />

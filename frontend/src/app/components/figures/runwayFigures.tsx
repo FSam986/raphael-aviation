@@ -75,7 +75,7 @@ export function RunwayMarkings() {
   const L = cx - w, R = cx + w;
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 551 200" className="w-full">
         <rect width={340} height={200} fill="#0f172a" />
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#e2e8f0">Runway markings</text>
         {/* runway surface */}

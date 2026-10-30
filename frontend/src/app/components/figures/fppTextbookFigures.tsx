@@ -21,7 +21,7 @@ export function AccelerateStopGo() {
   );
   return (
     <Frame>
-      <svg viewBox="0 0 340 220" className="w-full">
+      <svg viewBox="0 0 363 220" className="w-full">
         {/* accelerate-stop */}
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#0f172a">Accelerate-Stop Distance</text>
         <rect x={16} y={30} width={308} height={12} fill="#94a3b8" />
@@ -63,7 +63,7 @@ export function AccelerateStopGo() {
 export function PETConstruction() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 368 205" className="w-full">
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#0f172a">Point of Equal Time (PET)</text>
         {/* A --- PET --- B line */}
         <line x1={30} y1={70} x2={310} y2={70} stroke="#334155" strokeWidth="1.5" />
@@ -89,7 +89,7 @@ export function PETConstruction() {
 export function PNRConstruction() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 190" className="w-full">
+      <svg viewBox="0 0 433 190" className="w-full">
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#0f172a">Point of No Return (PNR)</text>
         <line x1={30} y1={64} x2={310} y2={64} stroke="#334155" strokeWidth="1.5" />
         {[["A", 30], ["B", 310]].map(([l, x]) => (
