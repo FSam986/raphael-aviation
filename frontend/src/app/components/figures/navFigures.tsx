@@ -104,7 +104,7 @@ export function OneInSixty() {
         <text x={12} y={18} fontSize="11" fontWeight="bold" fill="#0f172a">The 1-in-60 rule</text>
         {/* required track and actual track */}
         <line x1={30} y1={70} x2={300} y2={70} stroke="#64748b" strokeWidth="1.6" strokeDasharray="6 4" />
-        <text x={210} y={64} fontSize="8.5" fill="#64748b">required track</text>
+        <text x={40} y={64} fontSize="8.5" fill="#64748b">required track</text>
         <line x1={30} y1={70} x2={170} y2={110} stroke="#dc2626" strokeWidth="2" />
         <text x={70} y={104} fontSize="8.5" fill="#dc2626">actual track</text>
         <line x1={170} y1={70} x2={170} y2={110} stroke="#1d4ed8" strokeWidth="1.4" />

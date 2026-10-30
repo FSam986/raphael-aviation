@@ -64,7 +64,7 @@ export function StabilityLapseRates() {
         {/* axes */}
         <line x1={40} y1={40} x2={40} y2={150} stroke="#94a3b8" /><line x1={40} y1={150} x2={182} y2={150} stroke="#94a3b8" />
         <text x={18} y={48} fontSize="7.5" fill="#64748b">alt ↑</text><text x={150} y={164} fontSize="7.5" fill="#64748b">warmer →</text>
-        <circle cx={150} cy={150} r={2.5} fill="#0f172a" /><text x={140} y={162} fontSize="6.5" fill="#334155">surface</text>
+        <circle cx={150} cy={150} r={2.5} fill="#0f172a" /><text x={112} y={152} fontSize="6.5" fill="#334155">surface</text>
         {/* DALR (steeper cool) and SALR reference lines, both rising up-left */}
         <line x1={150} y1={150} x2={100} y2={40} stroke="#dc2626" strokeWidth="2" /><text x={88} y={37} fontSize="7.5" fill="#dc2626" fontWeight="bold" textAnchor="middle">DALR</text>
         <line x1={150} y1={150} x2={128} y2={40} stroke="#16a34a" strokeWidth="2" /><text x={132} y={37} fontSize="7.5" fill="#16a34a" fontWeight="bold" textAnchor="middle">SALR</text>

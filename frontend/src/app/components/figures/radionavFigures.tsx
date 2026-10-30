@@ -208,7 +208,7 @@ export function DMEPrinciple() {
         {/* aircraft + ground station + slant triangle */}
         <PlaneSide x={258} y={60} s={1.15} rot={-6} />
         <rect x={60} y={150} width={14} height={18} fill="#334155" /><rect x={64} y={138} width={6} height={14} fill="#334155" />
-        <text x={48} y={182} fontSize="7.5" fill="#334155">DME station</text>
+        <text x={38} y={134} fontSize="7.5" fill="#334155">DME station</text>
         <line x1={70} y1={138} x2={258} y2={66} stroke="#dc2626" strokeWidth="2" /><text x={150} y={92} fontSize="7.5" fill="#dc2626" transform="rotate(-20 150 92)">slant range</text>
         <line x1={70} y1={150} x2={258} y2={150} stroke="#64748b" strokeWidth="1" strokeDasharray="4 3" /><text x={150} y={162} fontSize="7" fill="#64748b">ground range</text>
         <line x1={258} y1={66} x2={258} y2={150} stroke="#64748b" strokeWidth="1" strokeDasharray="3 3" /><text x={262} y={112} fontSize="7" fill="#64748b">height</text>

@@ -152,7 +152,7 @@ export function GyroProperties() {
         <text x={78} y={30} fontSize="8" fill="#dc2626">force</text>
         <path d="M96 72 q18 0 26 12" stroke="#15803d" strokeWidth="1.8" fill="none" markerEnd="url(#gg)" />
         <defs><marker id="gg" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#15803d" /></marker></defs>
-        <text x={120} y={96} fontSize="8" fill="#15803d">precesses 90° round</text>
+        <text x={44} y={100} fontSize="8" fill="#15803d">precesses 90° round</text>
         {/* rules */}
         <g fontSize="8.5">
           <text x={158} y={36} fontWeight="bold" fill="#0f172a">Rigidity ∝ RPM × inertia (mass at rim)</text>
