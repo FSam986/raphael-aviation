@@ -6,7 +6,7 @@ import { Infographic } from "@/app/components/figures/Infographic";
 // --- small inline diagrams ---
 function LowHigh() {
   return (
-    <svg viewBox="0 0 300 110" className="w-full">
+    <svg viewBox="0 0 311 110" className="w-full">
       {[16, 27, 38].map((r) => <circle key={r} cx={72} cy={55} r={r} fill="none" stroke="#94a3b8" />)}
       <text x={72} y={60} fill="#b91c1c" fontSize="20" fontWeight="800" textAnchor="middle">L</text>
       <text x={72} y={100} fill="#64748b" fontSize="10" textAnchor="middle">in + clockwise (SH)</text>
@@ -18,7 +18,7 @@ function LowHigh() {
 }
 function Cyclone() {
   return (
-    <svg viewBox="0 0 300 120" className="w-full">
+    <svg viewBox="0 0 331 120" className="w-full">
       {[52, 40, 28].map((r, i) => <circle key={r} cx={150} cy={60} r={r} fill="none" stroke={["#1d4ed8", "#3b82f6", "#93c5fd"][i]} strokeWidth="6" strokeDasharray="10 6" />)}
       <circle cx={150} cy={60} r={12} fill="#e0f2fe" stroke="#0369a1" />
       <text x={150} y={64} fontSize="9" textAnchor="middle" fill="#0369a1" fontWeight="700">eye</text>

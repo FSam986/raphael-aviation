@@ -14,7 +14,7 @@ function Frame({ children }: { children: React.ReactNode }) {
 export function VSIFigure() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 461 200" className="w-full">
         <CockpitScene h={200} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Vertical Speed Indicator (VSI)</text>
         {/* dial */}
@@ -50,7 +50,7 @@ export function VSIFigure() {
 export function TurnRateFigure() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 394 200" className="w-full">
         <CockpitScene h={200} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Turn coordinator &amp; rate of turn</text>
         {/* mini aircraft symbol banked */}
@@ -89,7 +89,7 @@ export function TemperatureFigure() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 158" className="w-full">
+      <svg viewBox="0 0 384 161" className="w-full">
         <SkyDayScene h={158} />
         <Table x={10} y={6} w={320} cols={["Term", "Meaning", "Value"]} colX={[6, 92, 228]} rows={rows} title="Air temperature — SAT / RAT / TAT" />
         <text x={12} y={152} fontSize="6.9" fill="#475569">TAT = SAT + ram rise. Corrected OAT is needed for TAS and true altitude.</text>
@@ -123,7 +123,7 @@ export function EngineInstruments() {
 export function NorthVariation() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 200" className="w-full">
+      <svg viewBox="0 0 397 200" className="w-full">
         <MapGridScene h={200} />
         <text x={10} y={16} fontSize="11" fontWeight="bold" fill="#0f172a">North references — T / M / C</text>
         {/* three north arrows fanning from a point */}
@@ -163,7 +163,7 @@ export function DistanceConversions() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 158" className="w-full">
+      <svg viewBox="0 0 344 161" className="w-full">
         <MapGridScene h={158} />
         <Table x={10} y={6} w={320} cols={["Unit", "Equals", "Note"]} colX={[6, 72, 214]} rows={rows} title="Distance units &amp; conversions" />
         <text x={12} y={152} fontSize="6.9" fill="#475569">Departure (E-W distance) = ch.long(min) × cos(mean latitude) NM.</text>
@@ -183,7 +183,7 @@ export function TimeConversions() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 176" className="w-full">
+      <svg viewBox="0 0 421 177" className="w-full">
         <SkyDayScene h={176} />
         <Table x={10} y={6} w={196} cols={["Arc", "Time", "Note"]} colX={[6, 60, 120]} rows={rows} title="Arc-to-time conversion" />
         <rect x={214} y={22} width={118} height={112} rx={5} fill="#ffffff" opacity={0.94} stroke="#cbd5e1" />
@@ -212,7 +212,7 @@ export function WakeTurbulence() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 190" className="w-full">
+      <svg viewBox="0 0 523 191" className="w-full">
         <SkyDayScene h={190} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Wake turbulence</text>
         {/* vortices behind aircraft */}
@@ -232,7 +232,7 @@ export function WakeTurbulence() {
 export function FlightPlanSAR() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 190" className="w-full">
+      <svg viewBox="0 0 449 191" className="w-full">
         <SkyDuskScene h={190} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Flight plans &amp; SAR phases</text>
         <rect x={10} y={24} width={320} height={54} rx={5} fill="#ffffff" opacity={0.95} stroke="#cbd5e1" />
@@ -261,7 +261,7 @@ export function FlightPlanSAR() {
 export function EmergencyPhraseology() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 180" className="w-full">
+      <svg viewBox="0 0 441 180" className="w-full">
         <RadioWaveScene h={180} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Emergency &amp; urgency calls</text>
         <rect x={10} y={24} width={320} height={44} rx={5} fill="#fff1f2" opacity={0.96} stroke="#fecaca" />
@@ -307,7 +307,7 @@ export function MetKeyNumbers() {
 export function EFISFlightDirector() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 190" className="w-full">
+      <svg viewBox="0 0 563 190" className="w-full">
         <CockpitScene h={190} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">EFIS — PFD, ND &amp; flight director</text>
         {/* PFD attitude */}
@@ -338,7 +338,7 @@ export function EFISFlightDirector() {
 export function AutopilotModes() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 176" className="w-full">
+      <svg viewBox="0 0 501 177" className="w-full">
         <CockpitScene h={176} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Autopilot — axes &amp; modes</text>
         {/* aircraft with 3 axes */}
@@ -369,7 +369,7 @@ export function AutopilotModes() {
 export function StallWarning() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 176" className="w-full">
+      <svg viewBox="0 0 513 176" className="w-full">
         <SkyDayScene h={176} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Stall warning systems</text>
         <defs><marker id="aff" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0ea5e9" /></marker></defs>
@@ -406,7 +406,7 @@ export function StallWarning() {
 export function RelativeVelocity() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 160" className="w-full">
+      <svg viewBox="0 0 470 161" className="w-full">
         <SkyDayScene h={160} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Relative velocity — closing &amp; opening</text>
         {/* head-on closing */}
@@ -444,7 +444,7 @@ export function RadioSpectrum() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 176" className="w-full">
+      <svg viewBox="0 0 469 179" className="w-full">
         <RadioWaveScene h={176} />
         <Table x={10} y={6} w={320} cols={["Band", "Frequency", "Typical use"]} colX={[6, 52, 150]} rows={rows} title="Radio spectrum — bands & uses" />
         <text x={12} y={170} fontSize="6.9" fill="#475569">Higher frequency → shorter wavelength, more line-of-sight, less diffraction, less static.</text>
@@ -457,7 +457,7 @@ export function RadioSpectrum() {
 export function RadioOperation() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 170" className="w-full">
+      <svg viewBox="0 0 514 170" className="w-full">
         <RadioWaveScene h={170} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">Principles of radio operation</text>
         <rect x={10} y={22} width={158} height={62} rx={5} fill="#ffffff" opacity={0.95} stroke="#cbd5e1" />
@@ -494,7 +494,7 @@ export function AirspaceClasses() {
   ];
   return (
     <Frame>
-      <svg viewBox="0 0 340 186" className="w-full">
+      <svg viewBox="0 0 470 189" className="w-full">
         <SkyDayScene h={186} />
         <Table x={10} y={6} w={320} cols={["Class", "Traffic", "Clearance", "Separation"]} colX={[6, 46, 130, 210]} rows={rows} title="Airspace classes (ICAO)" />
         <rect x={10} y={124} width={322} height={40} rx={5} fill="#ffffff" opacity={0.95} stroke="#cbd5e1" />
@@ -511,7 +511,7 @@ export function AirspaceClasses() {
 export function Part91Card() {
   return (
     <Frame>
-      <svg viewBox="0 0 340 176" className="w-full">
+      <svg viewBox="0 0 504 176" className="w-full">
         <MapGridScene h={176} />
         <text x={10} y={15} fontSize="11" fontWeight="bold" fill="#0f172a">SA CAR Part 91 — key rules</text>
         <rect x={10} y={22} width={158} height={64} rx={5} fill="#ffffff" opacity={0.95} stroke="#cbd5e1" />

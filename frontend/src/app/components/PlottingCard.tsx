@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { PlottingDiagram } from "@/app/components/PlottingDiagram";
-import { GraphPlot } from "@/app/components/GraphPlot";
+import { MethodPanel } from "@/app/components/MethodPanel";
+import { GraphSolve } from "@/app/components/GraphSolve";
 import { CarpetPlot } from "@/app/components/CarpetPlot";
 import type { PlottingQuestion } from "@/app/data/fpp-plotting";
 
@@ -31,9 +31,9 @@ export function PlottingCard({ q, index }: { q: PlottingQuestion; index: number 
       {q.carpet ? (
         <CarpetPlot spec={q.carpet} reveal={reveal} />
       ) : q.graph ? (
-        <GraphPlot spec={q.graph} reveal={reveal} />
+        <GraphSolve spec={q.graph} reveal={reveal} figure={q.graphRef} />
       ) : (
-        <PlottingDiagram type={q.diagram} reveal={reveal} />
+        <MethodPanel q={q} />
       )}
 
       <button

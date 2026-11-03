@@ -1101,10 +1101,12 @@ const MET_BASE_QUESTIONS: MetQuestion[] = [
 // ---------------------------------------------------------------------------
 
 /** Base bank above + keyed CAA-paper boost (numeric-calc & scenario items). */
+import { MET_INTERP_QUESTIONS } from "@/app/data/met-questions-interp";
 export const MET_QUESTIONS: MetQuestion[] = [
   ...MET_BASE_QUESTIONS,
   ...MET_BOOST_QUESTIONS,
   ...MET_GAP_QUESTIONS,
+  ...MET_INTERP_QUESTIONS,
 ];
 
 /** All questions belonging to one SACAA section, e.g. "A.8.12". */

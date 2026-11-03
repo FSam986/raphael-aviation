@@ -60,7 +60,7 @@ function AirspaceLadder() {
 
 function RightOfWay() {
   return (
-    <svg viewBox="0 0 320 90" className="w-full">
+    <svg viewBox="0 0 612 91" className="w-full">
       <text x={10} y={14} fontSize="9" fontWeight="700" fill="#b91c1c">HEAD-ON → both turn RIGHT</text>
       <path d="M40 45 h60" stroke="#334155" strokeWidth="1.5" /><path d="M100 45 l-8 -4 v8 z" fill="#334155" />
       <path d="M280 45 h-60" stroke="#334155" strokeWidth="1.5" /><path d="M220 45 l8 -4 v8 z" fill="#334155" />
