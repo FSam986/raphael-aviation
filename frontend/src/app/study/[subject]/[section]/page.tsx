@@ -8,8 +8,12 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { findSubject } from "@/app/lib/course";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { getFPPPlottingBySection } from "@/app/data/fpp-plotting";
-import { PlottingCard } from "@/app/components/PlottingCard";
-import { CruiseTables } from "@/app/components/CruiseTables";
+import dynamic from "next/dynamic";
+// Lazy-load the plotting/graph + cruise-table components: a sizeable tree
+// (GraphSolve, CarpetPlot, MethodPanel, CruiseTables) only ever shown on the
+// Flight-Planning quiz tab, so it is not in the base study-page bundle.
+const PlottingCard = dynamic(() => import("@/app/components/PlottingCard").then((m) => m.PlottingCard), { ssr: false });
+const CruiseTables = dynamic(() => import("@/app/components/CruiseTables").then((m) => m.CruiseTables), { ssr: false });
 import { figuresForSection, atgFiguresByTopic } from "@/app/lib/figures";
 import { FIGURE_NOTES } from "@/app/data/aircraft-technical-figure-notes";
 import { recordQuiz, recordStudyOpen } from "@/app/lib/progress";

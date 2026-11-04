@@ -45,7 +45,8 @@ export default function LoginPage() {
         password,
       });
       if (error) {
-        setError(error.message);
+        // Generic message so we never reveal whether the email exists.
+        setError("Invalid email or password.");
       } else {
         router.push("/dashboard");
       }
