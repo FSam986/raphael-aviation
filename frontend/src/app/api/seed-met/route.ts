@@ -1,7 +1,15 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { timingSafeEqual } from "crypto";
 import { MET_QUESTIONS } from "@/app/data/met-questions";
 import { MET_FLASHCARDS } from "@/app/data/met-flashcards";
+
+// Constant-time string compare (avoids leaking the secret via response timing).
+function safeEqual(a: string, b: string): boolean {
+  const ba = Buffer.from(a), bb = Buffer.from(b);
+  if (ba.length !== bb.length) return false;
+  return timingSafeEqual(ba, bb);
+}
 
 // One-shot seeder: populates met_questions and met_flashcards in Supabase from
 // the local TypeScript bank. Uses the SERVICE ROLE key so it bypasses RLS.
@@ -22,9 +30,16 @@ function chunk<T>(arr: T[], size: number): T[][] {
 }
 
 export async function GET(request: Request) {
-  // Destructive route (wipes + reseeds). Requires ?secret= matching SEED_SECRET.
+  // Destructive route (wipes + reseeds). Locked off in production unless the
+  // operator explicitly opts in with ALLOW_SEED=true, so a leaked secret can
+  // never wipe the live database by accident.
+  if (process.env.NODE_ENV === "production" && process.env.ALLOW_SEED !== "true") {
+    return new NextResponse("Not found", { status: 404 });
+  }
+  // Requires ?secret= matching SEED_SECRET (constant-time compare).
   const secret = process.env.SEED_SECRET;
-  if (!secret || new URL(request.url).searchParams.get("secret") !== secret) {
+  const provided = new URL(request.url).searchParams.get("secret") || "";
+  if (!secret || !safeEqual(provided, secret)) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
