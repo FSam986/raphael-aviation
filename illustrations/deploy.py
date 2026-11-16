@@ -18,7 +18,11 @@ SETS = {
     'instruments': ('instruments-gallery.html', 'instruments', lambda t: t + '.png'),
     'met':         ('met-gallery.html', 'met', lambda t: t),
     'fpp':         ('fpp-gallery.html', 'fpp', lambda t: t + '.png'),
+    'fpp-b':       ('fpp-b-gallery.html', 'fpp', lambda t: t + '.png'),
+    'airlaw':      ('airlaw-gallery.html', 'airlaw', lambda t: t + '.png'),
+    'radionav':    ('radionav-gallery.html', 'radionav', lambda t: t + '.png'),
 }
+NEW_OK = {'fpp-b', 'airlaw', 'radionav'}   # sets allowed to create files that do not exist yet
 
 def run(name):
     gal, folder, fn = SETS[name]
@@ -32,7 +36,8 @@ def run(name):
         tag = re.search(r'<span class="tag">([^<]+)', c).group(1).strip()
         svg = re.search(r'<svg viewBox="0 0 ([\d.]+) ([\d.]+)".*?</svg>', c, re.S)
         target = os.path.join(PUB, folder, fn(tag))
-        if not svg or not os.path.exists(target):
+        os.makedirs(os.path.dirname(target), exist_ok=True)
+        if not svg or (not os.path.exists(target) and name not in NEW_OK):
             print('  skip (no target file):', tag); skipped += 1; continue
         vw, vh = float(svg.group(1)), float(svg.group(2))
         iw = W - 2 * PAD; ih = iw * vh / vw; H = int(round(ih + 2 * PAD))
