@@ -21,8 +21,12 @@ SETS = {
     'fpp-b':       ('fpp-b-gallery.html', 'fpp', lambda t: t + '.png'),
     'airlaw':      ('airlaw-gallery.html', 'airlaw', lambda t: t + '.png'),
     'radionav':    ('radionav-gallery.html', 'radionav', lambda t: t + '.png'),
+    'hp1':         ('hp1-gallery.html', 'human-performance', lambda t: t + '.png'),
+    'hp2':         ('hp2-gallery.html', 'human-performance', lambda t: t + '.png'),
+    'nav':         ('nav-gallery.html', 'nav', lambda t: t + '.png'),
+    'electrics':   ('electrics-gallery.html', 'electrics', lambda t: t + '.png'),
 }
-NEW_OK = {'fpp-b', 'airlaw', 'radionav'}   # sets allowed to create files that do not exist yet
+NEW_OK = {'fpp-b', 'airlaw', 'radionav', 'hp1', 'hp2', 'nav', 'electrics'}   # sets allowed to create files that do not exist yet
 
 def run(name):
     gal, folder, fn = SETS[name]
