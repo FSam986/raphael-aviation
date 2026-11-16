@@ -1,0 +1,136 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flight Planning Gallery</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>Flight Planning — Illustrations</h1>
+    <p class="lede">Original redraws of the three Flight Planning figures (PET and PSR), replacing the textbook scans. Nothing deploys into the app until you approve it.</p>
+    <div class="prog"><span class="pct">3 / 3 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ POINT OF EQUAL TIME (PET) — ALL ENGINES -->
+  <section class="card">
+    <h2>Point of Equal Time (PET) — All Engines</h2>
+    <div class="meta"><span class="tag">fig_13_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="A route from home to destination with the point of equal time marked, showing continuing on at one level or returning home at another">
+        <rect x="60.0" y="98.0" width="640.0" height="24.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="60.0" y="198.0" width="352.0" height="24.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="388.0" y="110.0" width="24.0" height="100.0" rx="0" fill="var(--chart-ground-3)" stroke="none" stroke-width="0"/>
+        <text x="668.0" y="114.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">FL370</text>
+        <text x="100.0" y="214.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">FL350</text>
+        <g transform="translate(220 108) rotate(0) scale(-0.42 0.42)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <g transform="translate(560 108) rotate(0) scale(-0.42 0.42)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <g transform="translate(230 208) rotate(0) scale(0.42 0.42)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <path d="M400,98 L391,78 L409,78 Z" stroke="var(--hot)" stroke-width="1" fill="var(--hot)"/>
+        <text x="400.0" y="66.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">PET (critical point)</text>
+        <text x="54.0" y="114.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">HOME</text>
+        <text x="706.0" y="114.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">ON</text>
+        <text x="220.0" y="82.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">out to the PET: all-engine GS</text>
+        <text x="570.0" y="82.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">O = GS on from the PET</text>
+        <text x="230.0" y="244.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">H = GS home from the PET</text>
+        <line x1="300.0" y1="140.0" x2="250.0" y2="140.0" stroke="var(--gold)" stroke-width="2" marker-end="url(#m-gold)"/>
+        <line x1="480.0" y1="140.0" x2="530.0" y2="140.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <rect x="440.0" y="170.0" width="290.0" height="100.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="452.0" y="192.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" font-weight="700">Distance to PET = D × H / (O + H)</text>
+        <text x="452.0" y="210.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">D = total distance, H = GS home, O = GS on</text>
+        <text x="452.0" y="226.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">Time to PET = distance / GS out</text>
+        <text x="452.0" y="242.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">All-engine TAS is used throughout.</text>
+        <text x="452.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">The PET lies into wind of the mid-point.</text>
+        <text x="380.0" y="312.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">At the PET it takes the same time to continue as to return.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The PET (critical point)</b> is the point on track from which it takes the <b>same time to continue</b> to the destination as to <b>return</b> to the departure aerodrome. It depends only on the ground speeds on and home, not on fuel: <b>distance to PET = D × H ÷ (O + H)</b>, where D is the total distance, H the ground speed home and O the ground speed on. In still air it is the mid-point; with wind it always moves <b>into wind</b>. For the all-engine case the normal cruise TAS is used for both O and H, and the time to reach the PET is found from the ground speed out.</p>
+  </section>
+
+  <!-- 2 ─ POINT OF EQUAL TIME (PET) — ENGINE FAILURE -->
+  <section class="card">
+    <h2>Point of Equal Time (PET) — Engine Failure</h2>
+    <div class="meta"><span class="tag">fig_13_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="A cruise at flight level 370 to the engine-failure point of equal time, then a drift-down to a lower level either home or on">
+        <path d="M60,110 L400,110" stroke="var(--chart-ground-3)" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M400,110 C340,110 330,230 250,230 L60,230" stroke="var(--chart-ground-3)" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M400,110 C460,110 470,230 550,230 L700,230" stroke="var(--chart-ground-3)" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="96.0" y="114.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">FL370</text>
+        <g transform="translate(210 108) rotate(0) scale(-0.42 0.42)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <g transform="translate(150 228) rotate(0) scale(0.42 0.42)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/><path d="M-20,5 L4,21 M4,5 L-20,21" stroke="var(--hot)" stroke-width="5" stroke-linecap="round"/></g>
+        <g transform="translate(620 228) rotate(0) scale(-0.42 0.42)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/><path d="M-20,5 L4,21 M4,5 L-20,21" stroke="var(--hot)" stroke-width="5" stroke-linecap="round"/></g>
+        <path d="M400,97 L391,77 L409,77 Z" stroke="var(--hot)" stroke-width="1" fill="var(--hot)"/>
+        <text x="400.0" y="64.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">engine-failure PET</text>
+        <text x="210.0" y="82.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">ETA at the PET: all-engine TAS / GS</text>
+        <text x="400.0" y="240.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">drift down to the</text>
+        <text x="400.0" y="253.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">stabilising flight level</text>
+        <text x="150.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">H = GS home, engine-failure TAS</text>
+        <text x="620.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">O = GS on, engine-failure TAS</text>
+        <text x="44.0" y="174.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">HOME</text>
+        <text x="716.0" y="234.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">ON</text>
+        <text x="380.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">Distance to PET = D × H / (O + H), with H and O found from the engine-failure TAS</text>
+        <text x="380.0" y="318.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">The time to reach the PET is still calculated with the all-engine ground speed.</text>
+        <text x="380.0" y="334.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-faint)" text-anchor="middle">A red cross marks the failed engine.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Engine-failure PET</b> — the same idea, planned for the loss of an engine. After the failure the aircraft cannot hold its cruise level: it <b>drifts down</b> to a lower stabilising level and flies at a lower TAS, whichever way it goes. So O and H are calculated with the <b>engine-failure TAS</b> and the winds at the lower level, which moves the PET. But the aircraft is still on all engines until it gets there, so the <b>time (ETA) at the PET is calculated with the all-engine ground speed</b>.</p>
+  </section>
+
+  <!-- 3 ─ POINT OF SAFE RETURN (PSR) -->
+  <section class="card">
+    <h2>Point of Safe Return (PSR)</h2>
+    <div class="meta"><span class="tag">fig_14_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="An outbound leg at one flight level to the point of safe return, and the return leg home at another level">
+        <rect x="60.0" y="88.0" width="472.0" height="24.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="60.0" y="178.0" width="472.0" height="24.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="508.0" y="100.0" width="24.0" height="90.0" rx="0" fill="var(--chart-ground-3)" stroke="none" stroke-width="0"/>
+        <line x1="536.0" y1="100.0" x2="690.0" y2="100.0" stroke="var(--chart-ink-faint)" stroke-width="1.6" stroke-dasharray="6 5"/>
+        <text x="100.0" y="104.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">FL310</text>
+        <text x="100.0" y="194.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">FL290</text>
+        <g transform="translate(290 98) rotate(0) scale(-0.42 0.42)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <g transform="translate(290 188) rotate(0) scale(0.42 0.42)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <path d="M520,88 L511,68 L529,68 Z" stroke="var(--hot)" stroke-width="1" fill="var(--hot)"/>
+        <text x="520.0" y="56.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">PSR: point of safe return</text>
+        <text x="290.0" y="72.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">O = GS out to the PSR</text>
+        <text x="290.0" y="224.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">H = GS home from the PSR</text>
+        <text x="54.0" y="150.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">HOME</text>
+        <text x="700.0" y="90.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="end">destination</text>
+        <text x="700.0" y="124.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">(no alternate available)</text>
+        <line x1="380.0" y1="132.0" x2="440.0" y2="132.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <line x1="440.0" y1="158.0" x2="380.0" y2="158.0" stroke="var(--gold)" stroke-width="2" marker-end="url(#m-gold)"/>
+        <text x="380.0" y="254.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--gold)" text-anchor="middle" font-weight="700">Time to PSR = E × H / (O + H)</text>
+        <text x="380.0" y="272.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">E = safe endurance (fuel available, less reserves), O = GS out, H = GS home</text>
+        <text x="380.0" y="288.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">Distance to PSR = time to PSR × GS out. Distance out = distance home.</text>
+        <text x="380.0" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">Beyond the PSR the aircraft cannot return to the departure aerodrome with its reserves intact.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The PSR (point of no return)</b> is the furthest point along track to which the aircraft can fly and <b>still return to the departure aerodrome</b> with the required reserves intact. It matters when the destination has no usable alternate. Unlike the PET it depends on <b>fuel</b>: <b>time to PSR = E × H ÷ (O + H)</b>, where E is the safe endurance, O the ground speed out and H the ground speed home. The distance out equals the distance home. Any wind component, head or tail, <b>reduces</b> the distance to the PSR compared with still air.</p>
+  </section>
+
+  <footer>
+    Flight Planning set complete — 3 of 3 scans replaced. Point at anything to change.
+  </footer>
+</div>
+</body></html>
