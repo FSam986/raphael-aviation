@@ -9,6 +9,7 @@ import { useCourse } from "@/app/hooks/useCourse";
 import { COURSES, type CourseId } from "@/app/lib/course";
 import { supabase, supabaseConfigured } from "@/lib/supabase";
 import { isPremium, loadPlan, type CoachPlan } from "@/app/lib/coachPlan";
+import { ownedCourses, grantCourse, revokeCourse } from "@/app/lib/entitlement";
 
 const pref = {
   get: (k: string, d: string) => { try { return localStorage.getItem("pref:" + k) ?? d; } catch { return d; } },
@@ -40,6 +41,7 @@ export default function Settings() {
   const [saved, setSaved] = useState("");
   const [plan, setPlan] = useState<CoachPlan | null>(null);
   const [premium, setPremium] = useState(false);
+  const [owned, setOwned] = useState<CourseId[]>([]);
   const [hydrated, setHydrated] = useState(false);
 
   // preferences
@@ -54,7 +56,7 @@ export default function Settings() {
       setEmail(session?.user?.email ?? "");
       setFullName((session?.user?.user_metadata?.full_name as string) ?? "");
     });
-    setPlan(loadPlan()); setPremium(isPremium());
+    setPlan(loadPlan()); setPremium(isPremium()); setOwned(ownedCourses());
     setDailyGoal(pref.get("dailyGoal", "20"));
     setUnits(pref.get("units", "kt"));
     setReduceMotion(pref.get("reduceMotion", "0") === "1");
@@ -115,18 +117,23 @@ export default function Settings() {
             <Row label="Session"><button onClick={signOut} className="text-xs px-3 py-1.5 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-300">Sign out</button></Row>
           </Card>
 
-          <Card title="Subscription">
+          <Card title="Subscription" desc="Each course is sold separately. Locked courses hide their study material, flashcards and mock exams.">
             <Row label="Plan"><span className={`text-sm font-bold ${premium ? "text-yellow-400" : "text-zinc-400"}`}>{premium ? "Guaranteed Pass (Premium)" : "Free"}</span></Row>
-            <Row label="Manage">
-              {premium ? <span className="text-xs text-zinc-500">Active</span>
-                : <Link href="/coach" className="text-xs px-3 py-1.5 rounded-lg bg-yellow-400 text-black font-bold">Upgrade →</Link>}
-            </Row>
+            {Object.values(COURSES).map((c) => {
+              const on = owned.includes(c.id);
+              return (
+                <Row key={c.id} label={c.name}>
+                  <span className={`text-xs ${on ? "text-yellow-400" : "text-zinc-600"}`}>{on ? "Owned" : "Locked"}</span>
+                  <Toggle on={on} onClick={() => { on ? revokeCourse(c.id) : grantCourse(c.id); setOwned(ownedCourses()); }} />
+                </Row>
+              );
+            })}
           </Card>
 
           <Card title="Exam target" desc="Drives your dashboard countdown and the Guaranteed-Pass plan.">
             <Row label="Default course">
               <select value={course} onChange={(e) => setCourse(e.target.value as CourseId)} className="bg-zinc-900 border border-zinc-800 text-white text-sm rounded-lg px-3 py-1.5 focus:outline-none focus:border-yellow-400">
-                {Object.values(COURSES).map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+                {Object.values(COURSES).filter((c) => owned.includes(c.id)).map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
             </Row>
             <Row label="Exam date">

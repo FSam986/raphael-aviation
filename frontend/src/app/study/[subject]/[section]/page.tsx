@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
+import { useCourseGuard } from "@/app/hooks/useCourseGuard";
+import { LockedCourse } from "@/app/components/LockedCourse";
 import { findSubject } from "@/app/lib/course";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { getFPPPlottingBySection } from "@/app/data/fpp-plotting";
@@ -33,6 +35,7 @@ export default function SectionPage() {
   const focusItemId = searchParams.get("item");
 
   const { userName, loading } = useAuthGuard();
+  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<Tab>(
     tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" ? tabParam : "learn"
@@ -99,7 +102,9 @@ export default function SectionPage() {
   const subject = findSubject(subjectId);
   const section = subject?.sections.find((s) => s.id === sectionId);
 
-  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+  if (loading || !accessReady) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+
+  if (locked) return <LockedCourse course={course} />;
 
   if (!subject || !section) {
     return (

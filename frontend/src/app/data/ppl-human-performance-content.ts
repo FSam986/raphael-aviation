@@ -6,6 +6,7 @@
 import { getHumanPerformanceNote, type SectionNote } from "@/app/data/human-performance-notes";
 import { getHumanPerformanceFlashcardsBySection } from "@/app/data/human-performance-flashcards";
 import type { HPFlashcard } from "@/app/data/human-performance-flashcards";
+import { mergePplNotes, pplFlashcardDepth } from "@/app/data/ppl-depth";
 
 // PPL section id → the CPL A.6 section(s) that cover it.
 const MAP: Record<string, string[]> = {
@@ -14,21 +15,9 @@ const MAP: Record<string, string[]> = {
 };
 
 export function getPPLHplNoteBySection(pplSection: string): SectionNote | undefined {
-  const notes = (MAP[pplSection] ?? [])
-    .map(getHumanPerformanceNote)
-    .filter((n): n is SectionNote => !!n);
-  if (notes.length === 0) return undefined;
-  if (notes.length === 1) return notes[0];
-  return {
-    sectionId: pplSection,
-    title: notes[0].title,
-    intro: notes[0].intro,
-    blocks: notes.flatMap((n) => n.blocks),
-    mustKnow: notes.flatMap((n) => n.mustKnow),
-    traps: notes.flatMap((n) => n.traps),
-  };
+  return mergePplNotes(pplSection, (MAP[pplSection] ?? []).map(getHumanPerformanceNote).filter((n): n is SectionNote => !!n));
 }
 
 export function getPPLHplFlashcardsBySection(pplSection: string): HPFlashcard[] {
-  return (MAP[pplSection] ?? []).flatMap((cpl) => getHumanPerformanceFlashcardsBySection(cpl));
+  return pplFlashcardDepth((MAP[pplSection] ?? []).flatMap((cpl) => getHumanPerformanceFlashcardsBySection(cpl)));
 }

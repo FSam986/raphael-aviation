@@ -8,12 +8,15 @@ import { subjectContent } from "@/app/lib/subjectContent";
 import { subjectReadiness, type SubjectReadiness } from "@/app/lib/readiness";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
+import { useCourseGuard } from "@/app/hooks/useCourseGuard";
+import { LockedCourse } from "@/app/components/LockedCourse";
 import { Icon } from "@/app/components/Icon";
 
 export default function SubjectPage() {
   const params = useParams();
   const subjectId = params.subject as string;
   const { userName, loading } = useAuthGuard();
+  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   // Real syllabus progress from the adaptive-mastery localStorage (client only).
@@ -26,7 +29,9 @@ export default function SubjectPage() {
 
   const subject = findSubject(subjectId);
 
-  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+  if (loading || !accessReady) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+
+  if (locked) return <LockedCourse course={course} />;
 
   if (!subject) {
     return (

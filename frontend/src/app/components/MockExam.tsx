@@ -5,6 +5,8 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
+import { useCourseGuard } from "@/app/hooks/useCourseGuard";
+import { LockedCourse } from "@/app/components/LockedCourse";
 import {
   pickAdaptiveExam,
   recordResults,
@@ -77,6 +79,7 @@ export function MockExam({
   plan,
 }: MockExamProps) {
   const { userName, userId, loading } = useAuthGuard();
+  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
 
   const [phase, setPhase] = useState<Phase>("intro");
   const [questions, setQuestions] = useState<ExamQuestion[]>([]);
@@ -208,12 +211,14 @@ export function MockExam({
     return () => clearTimeout(t);
   }, [phase, secondsLeft, finishExam]);
 
-  if (loading)
+  if (loading || !accessReady)
     return (
       <div className="min-h-screen bg-chart-ground flex items-center justify-center">
         <div className="text-zinc-600 text-sm">Loading...</div>
       </div>
     );
+
+  if (locked) return <LockedCourse course={course} />;
 
   const q = questions[current];
   const answeredCount = Object.keys(answers).length;

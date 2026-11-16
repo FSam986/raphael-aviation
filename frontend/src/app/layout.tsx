@@ -1,4 +1,5 @@
 import "./globals.css";
+import ContentShield from "./components/ContentShield";
 import { Overpass, Overpass_Mono, Spectral } from "next/font/google";
 
 const overpass = Overpass({
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="en" className={`${overpass.variable} ${overpassMono.variable} ${spectral.variable}`}>
       <body className="bg-chart-ground text-chart-ink">
         {children}
+        <ContentShield />
       </body>
     </html>
   );

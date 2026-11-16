@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
+import { useCourseGuard } from "@/app/hooks/useCourseGuard";
+import { LockedCourse } from "@/app/components/LockedCourse";
 import { findSubject } from "@/app/lib/course";
 import { subjectContent } from "@/app/lib/subjectContent";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -15,6 +17,7 @@ export default function SubjectFlashcards() {
   const { userName, loading } = useAuthGuard();
   const params = useParams();
   const subjectId = params.subject as string;
+  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
   const subject = findSubject(subjectId);
   const content = subjectContent(subjectId);
 
@@ -33,7 +36,9 @@ export default function SubjectFlashcards() {
 
   useEffect(() => { scroller.current?.scrollTo({ top: 0 }); setActive(0); }, [sectionFilter]);
 
-  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+  if (loading || !accessReady) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+
+  if (locked) return <LockedCourse course={course} />;
 
   const pct = deck.length ? Math.round(((active + 1) / deck.length) * 100) : 0;
   function onScroll() { const el = scroller.current; if (el) setActive(Math.round(el.scrollTop / el.clientHeight)); }
