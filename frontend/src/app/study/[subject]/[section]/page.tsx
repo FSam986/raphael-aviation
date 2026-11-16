@@ -310,7 +310,7 @@ export default function SectionPage() {
                           <h3 className="text-white font-bold text-base mb-4">{curSlide.heading}</h3>
                           <div className="bg-zinc-950/60 border border-zinc-800 rounded-2xl overflow-hidden">
                             {curSlide.fig && (
-                              <div className="bg-white flex items-center justify-center p-4">
+                              <div className={`${curSlide.fig.src ? "bg-[#10171b]" : "bg-white"} flex items-center justify-center p-4`}>
                                 <div className="max-h-[52vh] overflow-hidden flex items-center justify-center [&_img]:max-h-[52vh] [&_img]:w-auto [&_img]:object-contain">
                                   {curSlide.fig.render()}
                                 </div>

@@ -119,7 +119,7 @@ export function imageFigure(id: string, title: string, caption: string, file: st
     src: `${folder}/${file}`,
     render: () => (
       // eslint-disable-next-line @next/next/no-img-element
-      <img src={`/figures/${folder}/${file}`} alt={title} loading="lazy" className="w-full rounded-lg border border-zinc-800 bg-white" />
+      <img src={`/figures/${folder}/${file}`} alt={title} loading="lazy" className="w-full rounded-lg border border-zinc-800 bg-[#10171b]" />
     ),
   };
 }

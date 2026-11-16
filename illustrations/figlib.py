@@ -6,7 +6,7 @@ import math, html, sys
 C = dict(ink='var(--chart-ink)', dim='var(--chart-ink-dim)', faint='var(--chart-ink-faint)',
          gold='var(--gold)', gd='var(--gold-deep)', hot='var(--hot)', cool='var(--cool)',
          green='var(--green)', warm='var(--warm)', steel='var(--steel)', g2='var(--chart-ground-2)',
-         g3='var(--chart-ground-3)', line='var(--chart-line-2)', bg='var(--chart-ground)',
+         g3='var(--chart-ground-3)', fluid='var(--fluid)', line='var(--chart-line-2)', bg='var(--chart-ground)',
          white='#ffffff', black='#0b0f11', mag='#d94fa0', amber='#f0a830', sky='#2f6f93', gnd='#7a5a34')
 def col(c): return C.get(c, c)
 WARN = []
