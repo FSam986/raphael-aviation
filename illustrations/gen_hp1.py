@@ -93,7 +93,7 @@ f.Ci(530, 190, 74, 'ink', 2, 'g3'); f.T(530, 170, 'ALVEOLUS', 11, 'ink', 'middle
 f.P('M440,280 C480,300 580,300 620,280', RED, 14); f.P('M440,280 C470,296 500,298 530,298', BLU, 14)
 f.T(530, 326, 'capillary: blood flows past', 9.5, 'dim', 'middle')
 f.L(520, 220, 500, 284, 'hot', 2.6, me='hot'); f.T(498, 232, 'O2', 11, 'hot', 'end', bold=True)
-f.L(560, 284, 546, 222, 'cool', 2.6, me='cool'); f.T(566, 240, 'CO2', 11, 'cool', bold=True)
+f.L(560, 284, 546, 222, 'cool', 2.6, me='cool'); f.T(578, 268, 'CO2', 11, 'cool', bold=True)
 f.T(530, 100, 'gas exchange by diffusion', 10.5, 'ink', 'middle', bold=True)
 note(f, 630, 150, ['Rest: 12–16', 'breaths/min,', '500 ml each.', '', 'Rate is driven', 'by CO2 level.'], first='ink')
 HP.append(f)
