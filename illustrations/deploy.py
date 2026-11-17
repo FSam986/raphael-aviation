@@ -28,8 +28,9 @@ SETS = {
     'el1':         ('el1-gallery.html', 'electrics', lambda t: t + '.png'),
     'el2':         ('el2-gallery.html', 'electrics', lambda t: t + '.png'),
     'el3':         ('el3-gallery.html', 'electrics', lambda t: t + '.png'),
+    'ins5':        ('ins5-gallery.html', 'instruments', lambda t: t + '.png'),
 }
-NEW_OK = {'fpp-b', 'airlaw', 'radionav', 'hp1', 'hp2', 'nav1', 'nav2', 'el1', 'el2', 'el3'}   # sets allowed to create files that do not exist yet
+NEW_OK = {'fpp-b', 'airlaw', 'radionav', 'hp1', 'hp2', 'nav1', 'nav2', 'el1', 'el2', 'el3', 'ins5'}   # sets allowed to create files that do not exist yet
 
 def run(name):
     gal, folder, fn = SETS[name]
