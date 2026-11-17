@@ -175,7 +175,7 @@ f.L(100, 200, 680, 200, 'cool', 2.4); f.T(684, 204, 'SAT', 11, 'cool', bold=True
 pl(f, ' '.join(f'{100 + x:.1f},{200 - 150 * (x / 580) ** 2:.1f}' for x in range(0, 581, 10)), 'hot', 2.6); f.T(684, 54, 'TAT', 11, 'hot', bold=True)
 pl(f, ' '.join(f'{100 + x:.1f},{200 - 120 * (x / 580) ** 2:.1f}' for x in range(0, 581, 10)), 'gold', 2.2); f.T(684, 84, 'RAT', 11, 'gold', bold=True)
 f.L(600, 199, 600, 103, 'white', 1.4, me='white', ms='white'); f.T(594, 150, 'ram rise', 10, 'white', 'end', bold=True)
-f.T(380, 290, 'ram rise ∝ TAS²:  RAT = SAT + K × ram rise   (K = recovery factor)', 11, 'ink', 'middle', bold=True)
+f.T(380, 290, 'ram rise grows with TAS²:  RAT = SAT + K × ram rise   (K = recovery factor)', 11, 'ink', 'middle', bold=True)
 IN.append(f)
 
 f = I('03_08', 'Temperature-Rise Correction on the Navigation Computer', 760, 280, 'A navigation computer temperature rise scale with TAS and the correction to subtract from indicated temperature',
@@ -580,7 +580,7 @@ IN.append(f)
 
 f = I('16_02', 'Hard-Iron Magnetism — Components', 760, 300, 'A plan view of an aircraft with the permanent magnetism of hard iron resolved into fore-and-aft P, athwartships Q and vertical R components',
     '<b>Hard iron</b> — steel parts that hold permanent magnetism — behaves like a magnet fixed in the aircraft. Its field at the compass is resolved into three components: <b>P</b> along the fore-and-aft axis, <b>Q</b> athwartships and <b>R</b> vertical. P causes <b>coefficient B</b> deviation, greatest on east and west headings; Q causes <b>coefficient C</b>, greatest on north and south. They are removed by adjusting the <b>compensating magnets</b> in the compass during a compass swing. Soft iron (temporarily magnetised by the Earth’s field) causes deviations that change with latitude and is harder to compensate.')
-f.raw(aircraft(300, 160, -90, 1.2))
+planview(f, 300, 160, 0, 1.9)
 f.Ci(300, 130, 6, 'gold', 1, 'gold'); f.T(286, 150, 'compass', 9.5, 'gold', 'end')
 f.L(300, 130, 300, 50, 'hot', 3, me='hot'); f.T(310, 60, 'P (fore and aft)', 11, 'hot', bold=True)
 f.L(300, 130, 400, 130, 'cool', 3, me='cool'); f.T(406, 134, 'Q (athwartships)', 11, 'cool', bold=True)

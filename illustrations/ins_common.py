@@ -30,3 +30,6 @@ def att(f, cx, cy, w, h, pitch=0, bank=0, uid='a'):
           f'<rect x="{cx-w}" y="{cy-h+pitch}" width="{2*w}" height="{h}" fill="{C["sky"]}"/><rect x="{cx-w}" y="{cy+pitch}" width="{2*w}" height="{h}" fill="{C["gnd"]}"/>'
           f'<line x1="{cx-w}" y1="{cy+pitch}" x2="{cx+w}" y2="{cy+pitch}" stroke="#fff" stroke-width="2"/></g></g>')
     f.L(cx - w * 0.36, cy, cx - w * 0.12, cy, 'gold', 4); f.L(cx + w * 0.12, cy, cx + w * 0.36, cy, 'gold', 4); f.R(cx - 4, cy - 4, 8, 8, c='gold', sw=1.6, fill='black', rx=0)
+def planview(f, cx, cy, hdg=0, s=1.0, c='#c4d1d6'):
+    """Top-down airliner, nose pointing to compass heading hdg (0 = up)."""
+    f.raw(f'<g transform="translate({cx} {cy}) rotate({hdg}) scale({s})"><path d="M0,-60 C5,-56 6,-48 6,-40 L6,-8 L58,14 L58,22 L6,10 L5,38 L22,50 L22,56 L0,52 L-22,56 L-22,50 L-5,38 L-6,10 L-58,22 L-58,14 L-6,-8 L-6,-40 C-6,-48 -5,-56 0,-60 Z" fill="{c}" stroke="{C["ink"]}" stroke-width="{1.6/s:.2f}"/></g>')
