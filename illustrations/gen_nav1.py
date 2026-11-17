@@ -442,6 +442,7 @@ f.T(700, 162, 'mean time', 9.5, 'ink', 'end'); f.T(110, 64, 'Sun ahead of the cl
 f.T(400, 330, 'equation of time = apparent solar time − mean solar time', 10.5, 'ink', 'middle', bold=True)
 NV.append(f)
 
-gallery(NV, 'Navigation Gallery 1', 'General Navigation — The Earth, Direction & Time', 'Original figures for latitude and longitude, great circles and rhumb lines, convergency, magnetism and time.', 'nav1-gallery.html')
-print(f'NAV1 {len(NV)}  QA warnings: {len(WARN)}')
-for w in WARN: print('  ⚠', w)
+if __name__ == '__main__':
+    gallery(NV, 'Navigation Gallery 1', 'General Navigation — The Earth, Direction & Time', 'Original figures for latitude and longitude, great circles and rhumb lines, convergency, magnetism and time.', 'nav1-gallery.html')
+    print(f'NAV1 {len(NV)}  QA warnings: {len(WARN)}')
+    for w in WARN: print('  ⚠', w)
