@@ -1,0 +1,1352 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electrics Gallery 2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>Electrics — Generation, Motors & Distribution</h1>
+    <p class="lede">Original figures for electromagnetic induction, DC generators and regulators, DC motors and actuators, and DC distribution.</p>
+    <div class="prog"><span class="pct">33 / 33 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ ELECTROMAGNETIC INDUCTION NEEDS RELATIVE MOTION -->
+  <section class="card">
+    <h2>Electromagnetic Induction Needs Relative Motion</h2>
+    <div class="meta"><span class="tag">ch06_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A magnet pushed into a coil connected to a meter, with the meter deflecting only while the magnet moves">
+        <ellipse cx="110" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="124" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="138" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="152" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="166" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <rect x="42.0" y="138.0" width="26.0" height="24.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="68.0" y="138.0" width="26.0" height="24.0" rx="2" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="55.0" y="155.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <text x="81.0" y="155.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <line x1="48.0" y1="120.0" x2="88.0" y2="120.0" stroke="var(--gold)" stroke-width="2.4" marker-end="url(#m-gold)"/>
+        <path d="M110.0,186.0 L110.0,230.0 L200.0,230.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M166.0,186.0 L166.0,210.0 L200.0,210.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="222.0" cy="220.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="222.0" y1="228.0" x2="232.0" y2="210.7" stroke="var(--hot)" stroke-width="2.4"/>
+        <text x="140.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">magnet moving IN</text>
+        <text x="140.0" y="276.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">meter deflects</text>
+        <ellipse cx="355" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="369" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="383" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="397" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="411" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <rect x="287.0" y="138.0" width="26.0" height="24.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="313.0" y="138.0" width="26.0" height="24.0" rx="2" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="300.0" y="155.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <text x="326.0" y="155.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <path d="M355.0,186.0 L355.0,230.0 L445.0,230.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M411.0,186.0 L411.0,210.0 L445.0,210.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="467.0" cy="220.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="467.0" y1="228.0" x2="467.0" y2="208.0" stroke="var(--hot)" stroke-width="2.4"/>
+        <text x="385.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">magnet STATIONARY</text>
+        <text x="385.0" y="276.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle" font-weight="700">no reading</text>
+        <ellipse cx="600" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="614" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="628" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="642" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="656" cy="150" rx="7" ry="36" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <rect x="532.0" y="138.0" width="26.0" height="24.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="558.0" y="138.0" width="26.0" height="24.0" rx="2" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="545.0" y="155.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <text x="571.0" y="155.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <line x1="578.0" y1="120.0" x2="538.0" y2="120.0" stroke="var(--gold)" stroke-width="2.4" marker-end="url(#m-gold)"/>
+        <path d="M600.0,186.0 L600.0,230.0 L690.0,230.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M656.0,186.0 L656.0,210.0 L690.0,210.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="712.0" cy="220.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="712.0" y1="228.0" x2="702.0" y2="210.7" stroke="var(--hot)" stroke-width="2.4"/>
+        <text x="630.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">magnet moving OUT</text>
+        <text x="630.0" y="276.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">meter deflects</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Faraday’s discovery.</b> Moving a magnet into a coil makes the connected meter <b>deflect</b>; holding it still gives <b>no reading</b>; pulling it out deflects the meter the <b>other way</b>. An EMF is induced only while the magnetic flux linking the coil is <b>changing</b> — it does not matter whether the magnet moves, the coil moves, or the current in a nearby coil changes. This is <b>electromagnetic induction</b>, the principle of every generator, alternator and transformer.</p>
+  </section>
+
+  <!-- 2 ─ DIRECTION OF THE INDUCED CURRENT FOLLOWS THE MOTION -->
+  <section class="card">
+    <h2>Direction of the Induced Current Follows the Motion</h2>
+    <div class="meta"><span class="tag">ch06_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A magnet moved towards and away from a coil, with the induced current and meter deflection reversing">
+        <ellipse cx="100" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="114" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="128" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="142" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="156" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <rect x="190.0" y="136.0" width="40.0" height="28.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="230.0" y="136.0" width="40.0" height="28.0" rx="2" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="210.0" y="155.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <text x="250.0" y="155.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <line x1="256.0" y1="120.0" x2="204.0" y2="120.0" stroke="var(--gold)" stroke-width="2.6" marker-end="url(#m-gold)"/>
+        <text x="176.0" y="116.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--hot)" text-anchor="middle" font-weight="700">N</text>
+        <path d="M100.0,190.0 L100.0,240.0 L240.0,240.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M156.0,190.0 L156.0,220.0 L240.0,220.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="264.0" cy="230.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="264.0" y1="238.0" x2="254.0" y2="220.7" stroke="var(--hot)" stroke-width="2.4"/>
+        <text x="190.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">north pole moving TOWARDS the coil</text>
+        <text x="190.0" y="76.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">coil end becomes N: repels</text>
+        <ellipse cx="470" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="484" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="498" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="512" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <ellipse cx="526" cy="150" rx="7" ry="40" fill="none" stroke="var(--warm)" stroke-width="2.6"/>
+        <rect x="560.0" y="136.0" width="40.0" height="28.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="600.0" y="136.0" width="40.0" height="28.0" rx="2" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="580.0" y="155.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <text x="620.0" y="155.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <line x1="574.0" y1="120.0" x2="626.0" y2="120.0" stroke="var(--gold)" stroke-width="2.6" marker-end="url(#m-gold)"/>
+        <text x="546.0" y="116.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--cool)" text-anchor="middle" font-weight="700">S</text>
+        <path d="M470.0,190.0 L470.0,240.0 L610.0,240.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M526.0,190.0 L526.0,220.0 L610.0,220.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="634.0" cy="230.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="634.0" y1="238.0" x2="644.0" y2="220.7" stroke="var(--hot)" stroke-width="2.4"/>
+        <text x="560.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">north pole moving AWAY from the coil</text>
+        <text x="560.0" y="76.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">coil end becomes S: attracts</text>
+        <text x="380.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Lenz: the induced current opposes the change that causes it.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Lenz’s law.</b> The induced current always flows in the direction that <b>opposes the change</b> producing it. Push the north pole towards the coil and the induced current makes the near end of the coil a <b>north</b> pole, repelling the magnet; pull it away and the near end becomes a <b>south</b> pole, attracting it. So reversing the motion — or the pole — reverses the induced current and the meter swings the other way. Because the induced field always opposes the motion, mechanical work must be done to generate electricity.</p>
+  </section>
+
+  <!-- 3 ─ FLEMING'S RIGHT-HAND (GENERATOR) RULE -->
+  <section class="card">
+    <h2>Fleming&#x27;s Right-Hand (Generator) Rule</h2>
+    <div class="meta"><span class="tag">ch06_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Three mutually perpendicular arrows for thumb motion, first finger field and second finger current, with a conductor moving between poles">
+        <line x1="140.0" y1="190.0" x2="140.0" y2="90.0" stroke="var(--green)" stroke-width="4" marker-end="url(#m-green)"/>
+        <line x1="140.0" y1="190.0" x2="260.0" y2="190.0" stroke="var(--hot)" stroke-width="4" marker-end="url(#m-hot)"/>
+        <line x1="140.0" y1="190.0" x2="206.0" y2="134.0" stroke="var(--cool)" stroke-width="4" marker-end="url(#m-cool)"/>
+        <text x="212.0" y="128.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" font-weight="700">seCond finger: Current (into the page)</text>
+        <text x="148.0" y="94.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" font-weight="700">thuMb: Motion</text>
+        <text x="264.0" y="194.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" font-weight="700">First finger: Field</text>
+        <text x="170.0" y="30.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">RIGHT hand (generator)</text>
+        <rect x="430.0" y="100.0" width="70.0" height="110.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="465.0" y="162.0" font-family="Overpass,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <rect x="640.0" y="100.0" width="70.0" height="110.0" rx="4" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="675.0" y="162.0" font-family="Overpass,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <line x1="500.0" y1="125.0" x2="640.0" y2="125.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <line x1="500.0" y1="155.0" x2="640.0" y2="155.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <line x1="500.0" y1="185.0" x2="640.0" y2="185.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <circle cx="570.0" cy="155.0" r="14" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="561.6" y1="146.6" x2="578.4" y2="163.4" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="561.6" y1="163.4" x2="578.4" y2="146.6" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="570.0" y1="136.0" x2="570.0" y2="96.0" stroke="var(--green)" stroke-width="3" marker-end="url(#m-green)"/>
+        <text x="580.0" y="104.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">motion up</text>
+        <text x="570.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">conductor moved up: current INTO the page</text>
+      </svg>
+    </div>
+    <p class="cap"><b>For generators use the right hand.</b> Hold the thumb, first finger and second finger of the <b>right</b> hand at right angles to each other. The <b>thu</b>Mb points in the direction of <b>Motion</b> of the conductor, the <b>F</b>irst finger along the <b>F</b>ield (north to south), and the se<b>C</b>ond finger then gives the direction of the induced <b>C</b>urrent (conventional). Memory aid: right for generating, left for motoring — “<b>G</b>enerators drive on the right”.</p>
+  </section>
+
+  <!-- 4 ─ THREE WAYS TO INCREASE THE INDUCED EMF -->
+  <section class="card">
+    <h2>Three Ways to Increase the Induced EMF</h2>
+    <div class="meta"><span class="tag">ch06_05</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Three coil and meter set-ups showing more speed, a stronger magnet and more turns each giving a larger reading">
+        <ellipse cx="100" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="110" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="120" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="130" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="140" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <rect x="40.0" y="126.0" width="40.0" height="28.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="60.0" y="145.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <line x1="42.0" y1="110.0" x2="76.0" y2="110.0" stroke="var(--gold)" stroke-width="2.4" marker-end="url(#m-gold)"/>
+        <line x1="54.0" y1="110.0" x2="88.0" y2="110.0" stroke="var(--gold)" stroke-width="2.4" marker-end="url(#m-gold)"/>
+        <circle cx="210.0" cy="150.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="210.0" y1="158.0" x2="225.3" y2="145.1" stroke="var(--hot)" stroke-width="2.4"/>
+        <path d="M100.0,174.0 L100.0,200.0 L186.0,200.0 L186.0,160.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="140.0" y="60.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">1  MORE SPEED</text>
+        <text x="140.0" y="236.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">move the magnet faster</text>
+        <ellipse cx="345" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="355" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="365" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="375" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="385" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <rect x="285.0" y="126.0" width="40.0" height="28.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="2.4"/>
+        <text x="305.0" y="145.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <line x1="287.0" y1="110.0" x2="321.0" y2="110.0" stroke="var(--gold)" stroke-width="2.4" marker-end="url(#m-gold)"/>
+        <circle cx="455.0" cy="150.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="455.0" y1="158.0" x2="470.3" y2="145.1" stroke="var(--hot)" stroke-width="2.4"/>
+        <path d="M345.0,174.0 L345.0,200.0 L431.0,200.0 L431.0,160.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="385.0" y="60.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">2  STRONGER FIELD</text>
+        <text x="385.0" y="236.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">a stronger magnet</text>
+        <ellipse cx="590" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="600" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="610" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="620" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="630" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="640" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="650" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="660" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <ellipse cx="670" cy="140" rx="6" ry="34" fill="none" stroke="var(--warm)" stroke-width="2.4"/>
+        <rect x="530.0" y="126.0" width="40.0" height="28.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="550.0" y="145.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <line x1="532.0" y1="110.0" x2="566.0" y2="110.0" stroke="var(--gold)" stroke-width="2.4" marker-end="url(#m-gold)"/>
+        <circle cx="700.0" cy="150.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="700.0" y1="158.0" x2="715.3" y2="145.1" stroke="var(--hot)" stroke-width="2.4"/>
+        <path d="M590.0,174.0 L590.0,200.0 L676.0,200.0 L676.0,160.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="630.0" y="60.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">3  MORE TURNS</text>
+        <text x="630.0" y="236.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">more turns on the coil</text>
+        <text x="380.0" y="286.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Aircraft generators regulate their voltage by controlling the FIELD current.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The induced EMF is proportional to the rate of change of flux linkage</b> (Faraday’s law), so it can be increased in three ways: <b>1</b> move the conductor or magnet <b>faster</b>; <b>2</b> use a <b>stronger magnetic field</b>; <b>3</b> use <b>more turns</b> on the coil. In a generator these correspond to the <b>speed</b> of rotation, the <b>field current</b> (which sets the field strength) and the number of turns built into the armature. Since engine speed varies, aircraft generators control their output voltage by adjusting the <b>field current</b>.</p>
+  </section>
+
+  <!-- 5 ─ SPLIT-RING COMMUTATOR — MAKING DC -->
+  <section class="card">
+    <h2>Split-Ring Commutator — Making DC</h2>
+    <div class="meta"><span class="tag">ch06_08</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A single loop rotating between magnet poles with its ends on a two-segment commutator and brushes feeding a load">
+        <rect x="60.0" y="90.0" width="80.0" height="120.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="100.0" y="156.0" font-family="Overpass,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <rect x="360.0" y="90.0" width="80.0" height="120.0" rx="4" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="400.0" y="156.0" font-family="Overpass,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <path d="M180,120 L320,120 L320,180 L180,180" stroke="var(--warm)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <line x1="180.0" y1="120.0" x2="180.0" y2="150.0" stroke="var(--warm)" stroke-width="4"/>
+        <line x1="180.0" y1="180.0" x2="180.0" y2="160.0" stroke="var(--warm)" stroke-width="4"/>
+        <path d="M196,134 A16,16 0 0 0 196,166" stroke="var(--hot)" stroke-width="6" fill="none"/>
+        <path d="M200,134 A16,16 0 0 1 200,166" stroke="var(--cool)" stroke-width="6" fill="none"/>
+        <rect x="186.0" y="112.0" width="24.0" height="14.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="186.0" y="174.0" width="24.0" height="14.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M198.0,112.0 L198.0,60.0 L560.0,60.0 L560.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M560,120 L553,123.3 L567,130.0 L553,136.7 L567,143.3 L553,150.0 L567,156.7 L553,163.3 L567,170.0 L553,176.7 L567,183.3 L553,190.0 L567,196.7 L560,200" stroke="var(--hot)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <path d="M560.0,200.0 L560.0,250.0 L198.0,250.0 L198.0,188.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="580.0" y="166.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">LOAD</text>
+        <text x="260.0" y="110.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--warm)" text-anchor="middle" font-weight="700">rotating loop</text>
+        <text x="198.0" y="216.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">split-ring commutator</text>
+        <text x="232.0" y="96.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)">brush</text>
+        <text x="232.0" y="200.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)">brush</text>
+        <text x="600.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Every half-turn</text>
+        <text x="600.0" y="74.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">the commutator</text>
+        <text x="600.0" y="88.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">swaps the loop</text>
+        <text x="600.0" y="102.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">connections:</text>
+        <text x="600.0" y="116.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">output stays one</text>
+        <text x="600.0" y="130.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">direction (DC).</text>
+      </svg>
+    </div>
+    <p class="cap"><b>How a DC generator gets direct current.</b> A loop rotating in a magnetic field generates an EMF that reverses every half-turn. The loop’s ends are connected to the two halves of a <b>split ring</b> — the <b>commutator</b> — and fixed carbon <b>brushes</b> press on it. Every half-turn, just as the EMF in the loop reverses, the commutator also swaps the connections to the brushes, so the output at the brushes is always in the <b>same direction</b>: pulsating DC. The commutator and brushes wear and spark, which limits DC generators’ speed and output.</p>
+  </section>
+
+  <!-- 6 ─ SINGLE-LOOP DC OUTPUT WAVEFORM -->
+  <section class="card">
+    <h2>Single-Loop DC Output Waveform</h2>
+    <div class="meta"><span class="tag">ch06_09</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 280" role="img" aria-label="The output of a single loop with a commutator: a series of half sine waves all on the positive side">
+        <line x1="80.0" y1="220.0" x2="700.0" y2="220.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="80.0" y1="230.0" x2="80.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <polyline points="80.0,220.0 83.0,215.9 86.0,211.8 89.0,207.8 92.0,203.7 95.0,199.7 98.0,195.6 101.0,191.6 104.0,187.7 107.0,183.7 110.0,179.8 113.0,176.0 116.0,172.1 119.0,168.4 122.0,164.6 125.0,161.0 128.0,157.4 131.0,153.8 134.0,150.3 137.0,146.9 140.0,143.6 143.0,140.3 146.0,137.1 149.0,134.0 152.0,131.0 155.0,128.1 158.0,125.2 161.0,122.5 164.0,119.8 167.0,117.3 170.0,114.8 173.0,112.5 176.0,110.2 179.0,108.1 182.0,106.1 185.0,104.2 188.0,102.4 191.0,100.7 194.0,99.1 197.0,97.7 200.0,96.4 203.0,95.2 206.0,94.1 209.0,93.1 212.0,92.3 215.0,91.6 218.0,91.0 221.0,90.6 224.0,90.3 227.0,90.1 230.0,90.0 233.0,90.1 236.0,90.3 239.0,90.6 242.0,91.0 245.0,91.6 248.0,92.3 251.0,93.1 254.0,94.1 257.0,95.2 260.0,96.4 263.0,97.7 266.0,99.1 269.0,100.7 272.0,102.4 275.0,104.2 278.0,106.1 281.0,108.1 284.0,110.2 287.0,112.5 290.0,114.8 293.0,117.3 296.0,119.8 299.0,122.5 302.0,125.2 305.0,128.1 308.0,131.0 311.0,134.0 314.0,137.1 317.0,140.3 320.0,143.6 323.0,146.9 326.0,150.3 329.0,153.8 332.0,157.4 335.0,161.0 338.0,164.6 341.0,168.4 344.0,172.1 347.0,176.0 350.0,179.8 353.0,183.7 356.0,187.7 359.0,191.6 362.0,195.6 365.0,199.7 368.0,203.7 371.0,207.8 374.0,211.8 377.0,215.9 380.0,220.0 383.0,215.9 386.0,211.8 389.0,207.8 392.0,203.7 395.0,199.7 398.0,195.6 401.0,191.6 404.0,187.7 407.0,183.7 410.0,179.8 413.0,176.0 416.0,172.1 419.0,168.4 422.0,164.6 425.0,161.0 428.0,157.4 431.0,153.8 434.0,150.3 437.0,146.9 440.0,143.6 443.0,140.3 446.0,137.1 449.0,134.0 452.0,131.0 455.0,128.1 458.0,125.2 461.0,122.5 464.0,119.8 467.0,117.3 470.0,114.8 473.0,112.5 476.0,110.2 479.0,108.1 482.0,106.1 485.0,104.2 488.0,102.4 491.0,100.7 494.0,99.1 497.0,97.7 500.0,96.4 503.0,95.2 506.0,94.1 509.0,93.1 512.0,92.3 515.0,91.6 518.0,91.0 521.0,90.6 524.0,90.3 527.0,90.1 530.0,90.0 533.0,90.1 536.0,90.3 539.0,90.6 542.0,91.0 545.0,91.6 548.0,92.3 551.0,93.1 554.0,94.1 557.0,95.2 560.0,96.4 563.0,97.7 566.0,99.1 569.0,100.7 572.0,102.4 575.0,104.2 578.0,106.1 581.0,108.1 584.0,110.2 587.0,112.5 590.0,114.8 593.0,117.3 596.0,119.8 599.0,122.5 602.0,125.2 605.0,128.1 608.0,131.0 611.0,134.0 614.0,137.1 617.0,140.3 620.0,143.6 623.0,146.9 626.0,150.3 629.0,153.8 632.0,157.4 635.0,161.0 638.0,164.6 641.0,168.4 644.0,172.1 647.0,176.0 650.0,179.8 653.0,183.7 656.0,187.7 659.0,191.6 662.0,195.6 665.0,199.7 668.0,203.7 671.0,207.8 674.0,211.8 677.0,215.9 680.0,220.0" fill="none" stroke="var(--gold)" stroke-width="2.4" stroke-linejoin="round"/>
+        <line x1="80.0" y1="220.0" x2="80.0" y2="226.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="242.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">0°</text>
+        <line x1="230.0" y1="220.0" x2="230.0" y2="226.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="230.0" y="242.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">90°</text>
+        <line x1="380.0" y1="220.0" x2="380.0" y2="226.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="380.0" y="242.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">180°</text>
+        <line x1="530.0" y1="220.0" x2="530.0" y2="226.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="530.0" y="242.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">270°</text>
+        <line x1="680.0" y1="220.0" x2="680.0" y2="226.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="680.0" y="242.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">360°</text>
+        <text x="230.0" y="76.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">peak</text>
+        <text x="530.0" y="76.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">peak</text>
+        <text x="380.0" y="208.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">zero</text>
+        <text x="60.0" y="140.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">EMF</text>
+        <text x="700.0" y="210.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">rotation</text>
+        <text x="380.0" y="270.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pulsating DC: always one direction, but falling to zero every half-turn.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Pulsating DC.</b> Without a commutator one loop gives a sine wave that goes positive for half a turn and negative for the next. The commutator reverses the connections each half-turn, flipping the negative halves positive, so the output is a series of <b>humps</b> — always in one direction, but rising to a peak at 90° and 270° (when the loop cuts the flux at right angles) and falling to <b>zero</b> at 0°, 180° and 360° (when it moves along the flux). Usable DC needs many coils, as the next figure shows.</p>
+  </section>
+
+  <!-- 7 ─ SERIES-WOUND DC GENERATOR -->
+  <section class="card">
+    <h2>Series-Wound DC Generator</h2>
+    <div class="meta"><span class="tag">ch06_10</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Circuit of a series DC generator, its load characteristic and a diagrammatic view">
+        <circle cx="140.0" cy="150.0" r="34" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="140.0" y="155.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <path d="M140.0,116.0 L140.0,70.0 L200.0,70.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M200,70 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M280.0,70.0 L340.0,70.0 L340.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="240.0" y="52.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">series field</text>
+        <path d="M340,120 L333,123.3 L347,130.0 L333,136.7 L347,143.3 L333,150.0 L347,156.7 L333,163.3 L347,170.0 L333,176.7 L347,183.3 L333,190.0 L347,196.7 L340,200" stroke="var(--hot)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <text x="356.0" y="166.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">LOAD</text>
+        <path d="M340.0,200.0 L340.0,230.0 L140.0,230.0 L140.0,184.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="440.0" y1="240.0" x2="440.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="440.0" y1="240.0" x2="700.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="430.0" y="150.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle" transform="rotate(-90 430 150)">volts</text>
+        <text x="570.0" y="270.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">load current</text>
+        <path d="M440,240 Q520,110 680,90" stroke="var(--gold)" stroke-width="2.6" fill="none"/>
+        <text x="560.0" y="80.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">voltage RISES with load</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Field in series with the load.</b> All the load current flows through the <b>series field</b> winding, which has a few turns of heavy wire. With no load there is almost no field and almost no output; as the load increases, the field strengthens and the <b>voltage rises</b> with load (until the iron saturates). That makes the output voltage depend on the load, so a series generator is unsuitable for supplying an aircraft bus-bar. Series windings are used, however, in compound generators and in motors.</p>
+  </section>
+
+  <!-- 8 ─ SINGLE VS MULTIPLE COIL — SMOOTHING THE DC -->
+  <section class="card">
+    <h2>Single vs Multiple Coil — Smoothing the DC</h2>
+    <div class="meta"><span class="tag">ch06_11</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="The output of a single coil as humps falling to zero, and the combined output of many coils as a nearly steady voltage">
+        <text x="60.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">single coil</text>
+        <line x1="60.0" y1="130.0" x2="700.0" y2="130.0" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <polyline points="60.0,130.0 63.2,125.6 66.4,121.2 69.6,116.9 72.8,112.6 76.0,108.4 79.2,104.2 82.4,100.2 85.6,96.3 88.8,92.5 92.0,88.9 95.2,85.4 98.4,82.1 101.6,79.0 104.8,76.1 108.0,73.4 111.2,70.9 114.4,68.7 117.6,66.7 120.8,64.9 124.0,63.4 127.2,62.2 130.4,61.2 133.6,60.6 136.8,60.1 140.0,60.0 143.2,60.1 146.4,60.6 149.6,61.2 152.8,62.2 156.0,63.4 159.2,64.9 162.4,66.7 165.6,68.7 168.8,70.9 172.0,73.4 175.2,76.1 178.4,79.0 181.6,82.1 184.8,85.4 188.0,88.9 191.2,92.5 194.4,96.3 197.6,100.2 200.8,104.2 204.0,108.4 207.2,112.6 210.4,116.9 213.6,121.2 216.8,125.6 220.0,130.0 223.2,125.6 226.4,121.2 229.6,116.9 232.8,112.6 236.0,108.4 239.2,104.2 242.4,100.2 245.6,96.3 248.8,92.5 252.0,88.9 255.2,85.4 258.4,82.1 261.6,79.0 264.8,76.1 268.0,73.4 271.2,70.9 274.4,68.7 277.6,66.7 280.8,64.9 284.0,63.4 287.2,62.2 290.4,61.2 293.6,60.6 296.8,60.1 300.0,60.0 303.2,60.1 306.4,60.6 309.6,61.2 312.8,62.2 316.0,63.4 319.2,64.9 322.4,66.7 325.6,68.7 328.8,70.9 332.0,73.4 335.2,76.1 338.4,79.0 341.6,82.1 344.8,85.4 348.0,88.9 351.2,92.5 354.4,96.3 357.6,100.2 360.8,104.2 364.0,108.4 367.2,112.6 370.4,116.9 373.6,121.2 376.8,125.6 380.0,130.0 383.2,125.6 386.4,121.2 389.6,116.9 392.8,112.6 396.0,108.4 399.2,104.2 402.4,100.2 405.6,96.3 408.8,92.5 412.0,88.9 415.2,85.4 418.4,82.1 421.6,79.0 424.8,76.1 428.0,73.4 431.2,70.9 434.4,68.7 437.6,66.7 440.8,64.9 444.0,63.4 447.2,62.2 450.4,61.2 453.6,60.6 456.8,60.1 460.0,60.0 463.2,60.1 466.4,60.6 469.6,61.2 472.8,62.2 476.0,63.4 479.2,64.9 482.4,66.7 485.6,68.7 488.8,70.9 492.0,73.4 495.2,76.1 498.4,79.0 501.6,82.1 504.8,85.4 508.0,88.9 511.2,92.5 514.4,96.3 517.6,100.2 520.8,104.2 524.0,108.4 527.2,112.6 530.4,116.9 533.6,121.2 536.8,125.6 540.0,130.0 543.2,125.6 546.4,121.2 549.6,116.9 552.8,112.6 556.0,108.4 559.2,104.2 562.4,100.2 565.6,96.3 568.8,92.5 572.0,88.9 575.2,85.4 578.4,82.1 581.6,79.0 584.8,76.1 588.0,73.4 591.2,70.9 594.4,68.7 597.6,66.7 600.8,64.9 604.0,63.4 607.2,62.2 610.4,61.2 613.6,60.6 616.8,60.1 620.0,60.0 623.2,60.1 626.4,60.6 629.6,61.2 632.8,62.2 636.0,63.4 639.2,64.9 642.4,66.7 645.6,68.7 648.8,70.9 652.0,73.4 655.2,76.1 658.4,79.0 661.6,82.1 664.8,85.4 668.0,88.9 671.2,92.5 674.4,96.3 677.6,100.2 680.8,104.2 684.0,108.4 687.2,112.6 690.4,116.9 693.6,121.2 696.8,125.6 700.0,130.0" fill="none" stroke="var(--gold)" stroke-width="2.4" stroke-linejoin="round"/>
+        <text x="60.0" y="170.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">multiple coils</text>
+        <line x1="60.0" y1="270.0" x2="700.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <polyline points="60.0,270.0 63.2,265.6 66.4,261.2 69.6,256.9 72.8,252.6 76.0,248.4 79.2,244.2 82.4,240.2 85.6,236.3 88.8,232.5 92.0,228.9 95.2,225.4 98.4,222.1 101.6,219.0 104.8,216.1 108.0,213.4 111.2,210.9 114.4,208.7 117.6,206.7 120.8,204.9 124.0,203.4 127.2,202.2 130.4,201.2 133.6,200.6 136.8,200.1 140.0,200.0 143.2,200.1 146.4,200.6 149.6,201.2 152.8,202.2 156.0,203.4 159.2,204.9 162.4,206.7 165.6,208.7 168.8,210.9 172.0,213.4 175.2,216.1 178.4,219.0 181.6,222.1 184.8,225.4 188.0,228.9 191.2,232.5 194.4,236.3 197.6,240.2 200.8,244.2 204.0,248.4 207.2,252.6 210.4,256.9 213.6,261.2 216.8,265.6 220.0,270.0 223.2,265.6 226.4,261.2 229.6,256.9 232.8,252.6 236.0,248.4 239.2,244.2 242.4,240.2 245.6,236.3 248.8,232.5 252.0,228.9 255.2,225.4 258.4,222.1 261.6,219.0 264.8,216.1 268.0,213.4 271.2,210.9 274.4,208.7 277.6,206.7 280.8,204.9 284.0,203.4 287.2,202.2 290.4,201.2 293.6,200.6 296.8,200.1 300.0,200.0 303.2,200.1 306.4,200.6 309.6,201.2 312.8,202.2 316.0,203.4 319.2,204.9 322.4,206.7 325.6,208.7 328.8,210.9 332.0,213.4 335.2,216.1 338.4,219.0 341.6,222.1 344.8,225.4 348.0,228.9 351.2,232.5 354.4,236.3 357.6,240.2 360.8,244.2 364.0,248.4 367.2,252.6 370.4,256.9 373.6,261.2 376.8,265.6 380.0,270.0 383.2,265.6 386.4,261.2 389.6,256.9 392.8,252.6 396.0,248.4 399.2,244.2 402.4,240.2 405.6,236.3 408.8,232.5 412.0,228.9 415.2,225.4 418.4,222.1 421.6,219.0 424.8,216.1 428.0,213.4 431.2,210.9 434.4,208.7 437.6,206.7 440.8,204.9 444.0,203.4 447.2,202.2 450.4,201.2 453.6,200.6 456.8,200.1 460.0,200.0 463.2,200.1 466.4,200.6 469.6,201.2 472.8,202.2 476.0,203.4 479.2,204.9 482.4,206.7 485.6,208.7 488.8,210.9 492.0,213.4 495.2,216.1 498.4,219.0 501.6,222.1 504.8,225.4 508.0,228.9 511.2,232.5 514.4,236.3 517.6,240.2 520.8,244.2 524.0,248.4 527.2,252.6 530.4,256.9 533.6,261.2 536.8,265.6 540.0,270.0 543.2,265.6 546.4,261.2 549.6,256.9 552.8,252.6 556.0,248.4 559.2,244.2 562.4,240.2 565.6,236.3 568.8,232.5 572.0,228.9 575.2,225.4 578.4,222.1 581.6,219.0 584.8,216.1 588.0,213.4 591.2,210.9 594.4,208.7 597.6,206.7 600.8,204.9 604.0,203.4 607.2,202.2 610.4,201.2 613.6,200.6 616.8,200.1 620.0,200.0 623.2,200.1 626.4,200.6 629.6,201.2 632.8,202.2 636.0,203.4 639.2,204.9 642.4,206.7 645.6,208.7 648.8,210.9 652.0,213.4 655.2,216.1 658.4,219.0 661.6,222.1 664.8,225.4 668.0,228.9 671.2,232.5 674.4,236.3 677.6,240.2 680.8,244.2 684.0,248.4 687.2,252.6 690.4,256.9 693.6,261.2 696.8,265.6 700.0,270.0" fill="none" stroke="var(--chart-line-2)" stroke-width="1" stroke-linejoin="round"/>
+        <polyline points="60.0,220.5 63.2,217.5 66.4,214.7 69.6,212.1 72.8,209.7 76.0,207.6 79.2,205.8 82.4,204.1 85.6,202.8 88.8,201.7 92.0,200.9 95.2,200.3 98.4,200.0 101.6,200.0 104.8,200.3 108.0,200.9 111.2,201.7 114.4,202.8 117.6,204.1 120.8,205.8 124.0,207.6 127.2,209.7 130.4,212.1 133.6,214.7 136.8,217.5 140.0,220.5 143.2,223.7 146.4,227.1 149.6,230.7 152.8,234.4 156.0,238.2 159.2,242.2 162.4,246.3 165.6,250.5 168.8,254.7 172.0,259.0 175.2,263.4 178.4,267.8 181.6,267.8 184.8,263.4 188.0,259.0 191.2,254.7 194.4,250.5 197.6,246.3 200.8,242.2 204.0,238.2 207.2,234.4 210.4,230.7 213.6,227.1 216.8,223.7 220.0,220.5 223.2,217.5 226.4,214.7 229.6,212.1 232.8,209.7 236.0,207.6 239.2,205.8 242.4,204.1 245.6,202.8 248.8,201.7 252.0,200.9 255.2,200.3 258.4,200.0 261.6,200.0 264.8,200.3 268.0,200.9 271.2,201.7 274.4,202.8 277.6,204.1 280.8,205.8 284.0,207.6 287.2,209.7 290.4,212.1 293.6,214.7 296.8,217.5 300.0,220.5 303.2,223.7 306.4,227.1 309.6,230.7 312.8,234.4 316.0,238.2 319.2,242.2 322.4,246.3 325.6,250.5 328.8,254.7 332.0,259.0 335.2,263.4 338.4,267.8 341.6,267.8 344.8,263.4 348.0,259.0 351.2,254.7 354.4,250.5 357.6,246.3 360.8,242.2 364.0,238.2 367.2,234.4 370.4,230.7 373.6,227.1 376.8,223.7 380.0,220.5 383.2,217.5 386.4,214.7 389.6,212.1 392.8,209.7 396.0,207.6 399.2,205.8 402.4,204.1 405.6,202.8 408.8,201.7 412.0,200.9 415.2,200.3 418.4,200.0 421.6,200.0 424.8,200.3 428.0,200.9 431.2,201.7 434.4,202.8 437.6,204.1 440.8,205.8 444.0,207.6 447.2,209.7 450.4,212.1 453.6,214.7 456.8,217.5 460.0,220.5 463.2,223.7 466.4,227.1 469.6,230.7 472.8,234.4 476.0,238.2 479.2,242.2 482.4,246.3 485.6,250.5 488.8,254.7 492.0,259.0 495.2,263.4 498.4,267.8 501.6,267.8 504.8,263.4 508.0,259.0 511.2,254.7 514.4,250.5 517.6,246.3 520.8,242.2 524.0,238.2 527.2,234.4 530.4,230.7 533.6,227.1 536.8,223.7 540.0,220.5 543.2,217.5 546.4,214.7 549.6,212.1 552.8,209.7 556.0,207.6 559.2,205.8 562.4,204.1 565.6,202.8 568.8,201.7 572.0,200.9 575.2,200.3 578.4,200.0 581.6,200.0 584.8,200.3 588.0,200.9 591.2,201.7 594.4,202.8 597.6,204.1 600.8,205.8 604.0,207.6 607.2,209.7 610.4,212.1 613.6,214.7 616.8,217.5 620.0,220.5 623.2,223.7 626.4,227.1 629.6,230.7 632.8,234.4 636.0,238.2 639.2,242.2 642.4,246.3 645.6,250.5 648.8,254.7 652.0,259.0 655.2,263.4 658.4,267.8 661.6,267.8 664.8,263.4 668.0,259.0 671.2,254.7 674.4,250.5 677.6,246.3 680.8,242.2 684.0,238.2 687.2,234.4 690.4,230.7 693.6,227.1 696.8,223.7 700.0,220.5" fill="none" stroke="var(--chart-line-2)" stroke-width="1" stroke-linejoin="round"/>
+        <polyline points="60.0,200.0 63.2,200.1 66.4,200.6 69.6,201.2 72.8,202.2 76.0,203.4 79.2,204.9 82.4,206.7 85.6,208.7 88.8,210.9 92.0,213.4 95.2,216.1 98.4,219.0 101.6,222.1 104.8,225.4 108.0,228.9 111.2,232.5 114.4,236.3 117.6,240.2 120.8,244.2 124.0,248.4 127.2,252.6 130.4,256.9 133.6,261.2 136.8,265.6 140.0,270.0 143.2,265.6 146.4,261.2 149.6,256.9 152.8,252.6 156.0,248.4 159.2,244.2 162.4,240.2 165.6,236.3 168.8,232.5 172.0,228.9 175.2,225.4 178.4,222.1 181.6,219.0 184.8,216.1 188.0,213.4 191.2,210.9 194.4,208.7 197.6,206.7 200.8,204.9 204.0,203.4 207.2,202.2 210.4,201.2 213.6,200.6 216.8,200.1 220.0,200.0 223.2,200.1 226.4,200.6 229.6,201.2 232.8,202.2 236.0,203.4 239.2,204.9 242.4,206.7 245.6,208.7 248.8,210.9 252.0,213.4 255.2,216.1 258.4,219.0 261.6,222.1 264.8,225.4 268.0,228.9 271.2,232.5 274.4,236.3 277.6,240.2 280.8,244.2 284.0,248.4 287.2,252.6 290.4,256.9 293.6,261.2 296.8,265.6 300.0,270.0 303.2,265.6 306.4,261.2 309.6,256.9 312.8,252.6 316.0,248.4 319.2,244.2 322.4,240.2 325.6,236.3 328.8,232.5 332.0,228.9 335.2,225.4 338.4,222.1 341.6,219.0 344.8,216.1 348.0,213.4 351.2,210.9 354.4,208.7 357.6,206.7 360.8,204.9 364.0,203.4 367.2,202.2 370.4,201.2 373.6,200.6 376.8,200.1 380.0,200.0 383.2,200.1 386.4,200.6 389.6,201.2 392.8,202.2 396.0,203.4 399.2,204.9 402.4,206.7 405.6,208.7 408.8,210.9 412.0,213.4 415.2,216.1 418.4,219.0 421.6,222.1 424.8,225.4 428.0,228.9 431.2,232.5 434.4,236.3 437.6,240.2 440.8,244.2 444.0,248.4 447.2,252.6 450.4,256.9 453.6,261.2 456.8,265.6 460.0,270.0 463.2,265.6 466.4,261.2 469.6,256.9 472.8,252.6 476.0,248.4 479.2,244.2 482.4,240.2 485.6,236.3 488.8,232.5 492.0,228.9 495.2,225.4 498.4,222.1 501.6,219.0 504.8,216.1 508.0,213.4 511.2,210.9 514.4,208.7 517.6,206.7 520.8,204.9 524.0,203.4 527.2,202.2 530.4,201.2 533.6,200.6 536.8,200.1 540.0,200.0 543.2,200.1 546.4,200.6 549.6,201.2 552.8,202.2 556.0,203.4 559.2,204.9 562.4,206.7 565.6,208.7 568.8,210.9 572.0,213.4 575.2,216.1 578.4,219.0 581.6,222.1 584.8,225.4 588.0,228.9 591.2,232.5 594.4,236.3 597.6,240.2 600.8,244.2 604.0,248.4 607.2,252.6 610.4,256.9 613.6,261.2 616.8,265.6 620.0,270.0 623.2,265.6 626.4,261.2 629.6,256.9 632.8,252.6 636.0,248.4 639.2,244.2 642.4,240.2 645.6,236.3 648.8,232.5 652.0,228.9 655.2,225.4 658.4,222.1 661.6,219.0 664.8,216.1 668.0,213.4 671.2,210.9 674.4,208.7 677.6,206.7 680.8,204.9 684.0,203.4 687.2,202.2 690.4,201.2 693.6,200.6 696.8,200.1 700.0,200.0" fill="none" stroke="var(--chart-line-2)" stroke-width="1" stroke-linejoin="round"/>
+        <polyline points="60.0,220.5 63.2,223.7 66.4,227.1 69.6,230.7 72.8,234.4 76.0,238.2 79.2,242.2 82.4,246.3 85.6,250.5 88.8,254.7 92.0,259.0 95.2,263.4 98.4,267.8 101.6,267.8 104.8,263.4 108.0,259.0 111.2,254.7 114.4,250.5 117.6,246.3 120.8,242.2 124.0,238.2 127.2,234.4 130.4,230.7 133.6,227.1 136.8,223.7 140.0,220.5 143.2,217.5 146.4,214.7 149.6,212.1 152.8,209.7 156.0,207.6 159.2,205.8 162.4,204.1 165.6,202.8 168.8,201.7 172.0,200.9 175.2,200.3 178.4,200.0 181.6,200.0 184.8,200.3 188.0,200.9 191.2,201.7 194.4,202.8 197.6,204.1 200.8,205.8 204.0,207.6 207.2,209.7 210.4,212.1 213.6,214.7 216.8,217.5 220.0,220.5 223.2,223.7 226.4,227.1 229.6,230.7 232.8,234.4 236.0,238.2 239.2,242.2 242.4,246.3 245.6,250.5 248.8,254.7 252.0,259.0 255.2,263.4 258.4,267.8 261.6,267.8 264.8,263.4 268.0,259.0 271.2,254.7 274.4,250.5 277.6,246.3 280.8,242.2 284.0,238.2 287.2,234.4 290.4,230.7 293.6,227.1 296.8,223.7 300.0,220.5 303.2,217.5 306.4,214.7 309.6,212.1 312.8,209.7 316.0,207.6 319.2,205.8 322.4,204.1 325.6,202.8 328.8,201.7 332.0,200.9 335.2,200.3 338.4,200.0 341.6,200.0 344.8,200.3 348.0,200.9 351.2,201.7 354.4,202.8 357.6,204.1 360.8,205.8 364.0,207.6 367.2,209.7 370.4,212.1 373.6,214.7 376.8,217.5 380.0,220.5 383.2,223.7 386.4,227.1 389.6,230.7 392.8,234.4 396.0,238.2 399.2,242.2 402.4,246.3 405.6,250.5 408.8,254.7 412.0,259.0 415.2,263.4 418.4,267.8 421.6,267.8 424.8,263.4 428.0,259.0 431.2,254.7 434.4,250.5 437.6,246.3 440.8,242.2 444.0,238.2 447.2,234.4 450.4,230.7 453.6,227.1 456.8,223.7 460.0,220.5 463.2,217.5 466.4,214.7 469.6,212.1 472.8,209.7 476.0,207.6 479.2,205.8 482.4,204.1 485.6,202.8 488.8,201.7 492.0,200.9 495.2,200.3 498.4,200.0 501.6,200.0 504.8,200.3 508.0,200.9 511.2,201.7 514.4,202.8 517.6,204.1 520.8,205.8 524.0,207.6 527.2,209.7 530.4,212.1 533.6,214.7 536.8,217.5 540.0,220.5 543.2,223.7 546.4,227.1 549.6,230.7 552.8,234.4 556.0,238.2 559.2,242.2 562.4,246.3 565.6,250.5 568.8,254.7 572.0,259.0 575.2,263.4 578.4,267.8 581.6,267.8 584.8,263.4 588.0,259.0 591.2,254.7 594.4,250.5 597.6,246.3 600.8,242.2 604.0,238.2 607.2,234.4 610.4,230.7 613.6,227.1 616.8,223.7 620.0,220.5 623.2,217.5 626.4,214.7 629.6,212.1 632.8,209.7 636.0,207.6 639.2,205.8 642.4,204.1 645.6,202.8 648.8,201.7 652.0,200.9 655.2,200.3 658.4,200.0 661.6,200.0 664.8,200.3 668.0,200.9 671.2,201.7 674.4,202.8 677.6,204.1 680.8,205.8 684.0,207.6 687.2,209.7 690.4,212.1 693.6,214.7 696.8,217.5 700.0,220.5" fill="none" stroke="var(--chart-line-2)" stroke-width="1" stroke-linejoin="round"/>
+        <polyline points="60.0,200.0 63.2,200.1 66.4,200.6 69.6,201.2 72.8,202.2 76.0,203.4 79.2,204.9 82.4,204.1 85.6,202.8 88.8,201.7 92.0,200.9 95.2,200.3 98.4,200.0 101.6,200.0 104.8,200.3 108.0,200.9 111.2,201.7 114.4,202.8 117.6,204.1 120.8,204.9 124.0,203.4 127.2,202.2 130.4,201.2 133.6,200.6 136.8,200.1 140.0,200.0 143.2,200.1 146.4,200.6 149.6,201.2 152.8,202.2 156.0,203.4 159.2,204.9 162.4,204.1 165.6,202.8 168.8,201.7 172.0,200.9 175.2,200.3 178.4,200.0 181.6,200.0 184.8,200.3 188.0,200.9 191.2,201.7 194.4,202.8 197.6,204.1 200.8,204.9 204.0,203.4 207.2,202.2 210.4,201.2 213.6,200.6 216.8,200.1 220.0,200.0 223.2,200.1 226.4,200.6 229.6,201.2 232.8,202.2 236.0,203.4 239.2,204.9 242.4,204.1 245.6,202.8 248.8,201.7 252.0,200.9 255.2,200.3 258.4,200.0 261.6,200.0 264.8,200.3 268.0,200.9 271.2,201.7 274.4,202.8 277.6,204.1 280.8,204.9 284.0,203.4 287.2,202.2 290.4,201.2 293.6,200.6 296.8,200.1 300.0,200.0 303.2,200.1 306.4,200.6 309.6,201.2 312.8,202.2 316.0,203.4 319.2,204.9 322.4,204.1 325.6,202.8 328.8,201.7 332.0,200.9 335.2,200.3 338.4,200.0 341.6,200.0 344.8,200.3 348.0,200.9 351.2,201.7 354.4,202.8 357.6,204.1 360.8,204.9 364.0,203.4 367.2,202.2 370.4,201.2 373.6,200.6 376.8,200.1 380.0,200.0 383.2,200.1 386.4,200.6 389.6,201.2 392.8,202.2 396.0,203.4 399.2,204.9 402.4,204.1 405.6,202.8 408.8,201.7 412.0,200.9 415.2,200.3 418.4,200.0 421.6,200.0 424.8,200.3 428.0,200.9 431.2,201.7 434.4,202.8 437.6,204.1 440.8,204.9 444.0,203.4 447.2,202.2 450.4,201.2 453.6,200.6 456.8,200.1 460.0,200.0 463.2,200.1 466.4,200.6 469.6,201.2 472.8,202.2 476.0,203.4 479.2,204.9 482.4,204.1 485.6,202.8 488.8,201.7 492.0,200.9 495.2,200.3 498.4,200.0 501.6,200.0 504.8,200.3 508.0,200.9 511.2,201.7 514.4,202.8 517.6,204.1 520.8,204.9 524.0,203.4 527.2,202.2 530.4,201.2 533.6,200.6 536.8,200.1 540.0,200.0 543.2,200.1 546.4,200.6 549.6,201.2 552.8,202.2 556.0,203.4 559.2,204.9 562.4,204.1 565.6,202.8 568.8,201.7 572.0,200.9 575.2,200.3 578.4,200.0 581.6,200.0 584.8,200.3 588.0,200.9 591.2,201.7 594.4,202.8 597.6,204.1 600.8,204.9 604.0,203.4 607.2,202.2 610.4,201.2 613.6,200.6 616.8,200.1 620.0,200.0 623.2,200.1 626.4,200.6 629.6,201.2 632.8,202.2 636.0,203.4 639.2,204.9 642.4,204.1 645.6,202.8 648.8,201.7 652.0,200.9 655.2,200.3 658.4,200.0 661.6,200.0 664.8,200.3 668.0,200.9 671.2,201.7 674.4,202.8 677.6,204.1 680.8,204.9 684.0,203.4 687.2,202.2 690.4,201.2 693.6,200.6 696.8,200.1 700.0,200.0" fill="none" stroke="var(--green)" stroke-width="2.8" stroke-linejoin="round"/>
+        <text x="700.0" y="192.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="end" font-weight="700">resultant: nearly steady</text>
+      </svg>
+    </div>
+    <p class="cap"><b>More coils, smoother DC.</b> A single coil gives humps that fall to zero twice a revolution. A practical armature has <b>many coils</b> spaced round it, each connected to its own pair of commutator segments, so the brushes always pick up the coil that is near its peak. The overlapping humps combine into a nearly <b>steady</b> output with only a small <b>ripple</b>. The more coils and segments, the smaller the ripple.</p>
+  </section>
+
+  <!-- 9 ─ COMPOUND-WOUND DC GENERATOR -->
+  <section class="card">
+    <h2>Compound-Wound DC Generator</h2>
+    <div class="meta"><span class="tag">ch06_13</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Circuit of a compound DC generator, its load characteristic and a diagrammatic view">
+        <circle cx="140.0" cy="150.0" r="34" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="140.0" y="155.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <path d="M140.0,116.0 L140.0,70.0 L200.0,70.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M200,70 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M280.0,70.0 L340.0,70.0 L340.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="240.0" y="52.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">series field</text>
+        <path d="M110.0,150.0 L60.0,150.0 L60.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M60,120 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0" stroke="var(--gold)" stroke-width="2" fill="none"/>
+        <path d="M60.0,200.0 L60.0,230.0 L140.0,230.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="30.0" y="160.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="end">shunt</text>
+        <text x="30.0" y="174.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="end">field</text>
+        <path d="M340,120 L333,123.3 L347,130.0 L333,136.7 L347,143.3 L333,150.0 L347,156.7 L333,163.3 L347,170.0 L333,176.7 L347,183.3 L333,190.0 L347,196.7 L340,200" stroke="var(--hot)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <text x="356.0" y="166.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">LOAD</text>
+        <path d="M340.0,200.0 L340.0,230.0 L140.0,230.0 L140.0,184.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="440.0" y1="240.0" x2="440.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="440.0" y1="240.0" x2="700.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="430.0" y="150.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle" transform="rotate(-90 430 150)">volts</text>
+        <text x="570.0" y="270.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">load current</text>
+        <line x1="440.0" y1="120.0" x2="690.0" y2="120.0" stroke="var(--gold)" stroke-width="2.6"/>
+        <text x="565.0" y="108.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">voltage nearly constant</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Shunt and series fields together.</b> A <b>shunt field</b> (many turns of fine wire, connected across the output) provides the main field and keeps the voltage up at light load. A small <b>series field</b> carries the load current and adds flux as the load rises, compensating for the voltage drop inside the armature. Proportioned correctly (“level compounded”) the output voltage stays <b>nearly constant</b> from no load to full load. Aircraft DC generators are usually shunt or compound wound, with a voltage regulator controlling the shunt field current.</p>
+  </section>
+
+  <!-- 10 ─ DC GENERATOR VS ALTERNATOR -->
+  <section class="card">
+    <h2>DC Generator vs Alternator</h2>
+    <div class="meta"><span class="tag">ch06_14</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A DC generator with a rotating armature, stationary field and commutator beside an alternator with a rotating field, stationary armature and rectifier">
+        <text x="190.0" y="40.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">DC GENERATOR</text>
+        <rect x="80.0" y="90.0" width="50.0" height="110.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="250.0" y="90.0" width="50.0" height="110.0" rx="4" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="105.0" y="150.0" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <text x="275.0" y="150.0" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <circle cx="190.0" cy="145.0" r="36" fill="var(--chart-ground-3)" stroke="var(--warm)" stroke-width="3"/>
+        <text x="190.0" y="150.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">armature</text>
+        <path d="M207.1,98.0 A50,50 0 0 1 237.0,127.9" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M172.9,192.0 A50,50 0 0 1 143.0,162.1" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <text x="190.0" y="236.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">stationary field, ROTATING armature</text>
+        <text x="190.0" y="252.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle">load current through the commutator</text>
+        <line x1="380.0" y1="30.0" x2="380.0" y2="290.0" stroke="var(--chart-line-2)" stroke-width="1" stroke-dasharray="3 5"/>
+        <text x="570.0" y="40.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ALTERNATOR</text>
+        <circle cx="570.0" cy="145.0" r="80" fill="var(--chart-ground-3)" stroke="var(--warm)" stroke-width="6"/>
+        <rect x="546.0" y="110.0" width="48.0" height="70.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="570.0" y="136.0" font-family="Overpass,sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <text x="570.0" y="168.0" font-family="Overpass,sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <path d="M587.1,98.0 A50,50 0 0 1 617.0,127.9" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M552.9,192.0 A50,50 0 0 1 523.0,162.1" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <text x="570.0" y="252.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">ROTATING field, stationary armature (stator)</text>
+        <text x="570.0" y="268.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle">output rectified by diodes</text>
+        <text x="380.0" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Alternator: lighter, output at low rpm, little brush wear — but needs the battery to excite the field.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Swap what rotates.</b> In a <b>DC generator</b> the field is <b>stationary</b> and the <b>armature rotates</b>, so the full load current has to pass through the <b>commutator and brushes</b> — heavy, sparking and limiting at high speed or altitude. An <b>alternator</b> turns this round: the <b>field rotates</b> (it needs only a small current, fed through slip rings) and the output is taken from a <b>stationary armature</b> (stator) by fixed connections. Its AC output is <b>rectified</b> by diodes to DC for a light-aircraft bus. Alternators are lighter, give useful output at low engine speed and need far less maintenance — but, unlike a DC generator, cannot self-excite from a flat battery.</p>
+  </section>
+
+  <!-- 11 ─ CARBON-PILE VOLTAGE REGULATOR -->
+  <section class="card">
+    <h2>Carbon-Pile Voltage Regulator</h2>
+    <div class="meta"><span class="tag">ch06_15</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A pile of carbon discs in series with the generator field, compressed by a spring and released by an electromagnet sensing output voltage">
+        <circle cx="100.0" cy="160.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="100.0" y="165.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <path d="M100.0,130.0 L100.0,60.0 L660.0,60.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M100.0,190.0 L100.0,270.0 L660.0,270.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="670.0" y="64.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">+ to bus</text>
+        <text x="670.0" y="274.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">−</text>
+        <path d="M230,110 a11.2,11.2 0 0 1 0,22.5 a11.2,11.2 0 0 1 0,22.5 a11.2,11.2 0 0 1 0,22.5 a11.2,11.2 0 0 1 0,22.5" stroke="var(--gold)" stroke-width="2" fill="none"/>
+        <text x="200.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="end">field</text>
+        <path d="M100.0,100.0 L230.0,100.0 L230.0,110.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M230.0,200.0 L230.0,230.0 L330.0,230.0 L330.0,210.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="310.0" y="120.0" width="40.0" height="9.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="310.0" y="131.0" width="40.0" height="9.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="310.0" y="142.0" width="40.0" height="9.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="310.0" y="153.0" width="40.0" height="9.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="310.0" y="164.0" width="40.0" height="9.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="310.0" y="175.0" width="40.0" height="9.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="310.0" y="186.0" width="40.0" height="9.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="310.0" y="197.0" width="40.0" height="9.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="370.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">carbon pile</text>
+        <path d="M330.0,120.0 L330.0,100.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M330,100 L330,96" stroke="var(--chart-ink)" stroke-width="1" fill="none"/>
+        <path d="M300,98 L360,98" stroke="var(--chart-ink)" stroke-width="3" fill="none"/>
+        <path d="M330,98 L330,84 L322,80 L338,74 L322,68 L338,62 L330,58" stroke="var(--green)" stroke-width="2" fill="none"/>
+        <text x="346.0" y="86.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)">spring compresses</text>
+        <path d="M470,110 a9.0,9.0 0 0 1 0,18.0 a9.0,9.0 0 0 1 0,18.0 a9.0,9.0 0 0 1 0,18.0 a9.0,9.0 0 0 1 0,18.0 a9.0,9.0 0 0 1 0,18.0" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <text x="486.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">voltage coil</text>
+        <path d="M470.0,60.0 L470.0,110.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M470.0,200.0 L470.0,270.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="450.0" y1="120.0" x2="370.0" y2="110.0" stroke="var(--cool)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#m-cool)"/>
+        <text x="420.0" y="140.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">pulls against the spring</text>
+        <text x="560.0" y="110.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Voltage high: pile loosens,</text>
+        <text x="560.0" y="124.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">resistance up, field</text>
+        <text x="560.0" y="138.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">current down.</text>
+        <text x="560.0" y="190.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">Voltage low: pile compresses,</text>
+        <text x="560.0" y="204.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">resistance down, field</text>
+        <text x="560.0" y="218.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">current up.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Controlling the field current to hold the voltage.</b> A stack of <b>carbon discs</b> is in series with the generator’s <b>shunt field</b>. A <b>spring</b> squeezes the pile: tightly compressed, its resistance is low, field current high. An <b>electromagnet</b> connected across the generator output pulls against the spring. If the output voltage rises — say with engine speed — the electromagnet pulls harder, the pile <b>loosens</b>, its resistance <b>rises</b>, the field current falls and the voltage drops back. If the voltage falls, the opposite happens. The action is smooth and continuous, without contacts opening and closing.</p>
+  </section>
+
+  <!-- 12 ─ VIBRATING-CONTACT VOLTAGE & CURRENT REGULATOR -->
+  <section class="card">
+    <h2>Vibrating-Contact Voltage &amp; Current Regulator</h2>
+    <div class="meta"><span class="tag">ch06_16</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A voltage regulator relay and a current limiter relay whose contacts open and close rapidly to insert a resistor in the field circuit">
+        <circle cx="90.0" cy="170.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="90.0" y="175.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <path d="M90.0,140.0 L90.0,60.0 L690.0,60.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="694.0" y="64.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">to bus</text>
+        <rect x="230.0" y="90.0" width="160.0" height="150.0" rx="8" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="310.0" y="260.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="middle" font-weight="700">VOLTAGE REGULATOR</text>
+        <path d="M270,130 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <line x1="300.0" y1="120.0" x2="360.0" y2="112.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <circle cx="300.0" cy="120.0" r="3" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="356.0" y="116.0" width="10.0" height="8.0" rx="1" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M330,116 L330,100 L324,104" stroke="var(--green)" stroke-width="1.6" fill="none"/>
+        <path d="M310,200 L315.0,193 L325.0,207 L335.0,193 L345.0,207 L355.0,193 L365.0,207 L370,200" stroke="var(--hot)" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+        <rect x="450.0" y="90.0" width="160.0" height="150.0" rx="8" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="530.0" y="260.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">CURRENT LIMITER</text>
+        <path d="M490,130 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0" stroke="var(--gold)" stroke-width="2" fill="none"/>
+        <line x1="520.0" y1="120.0" x2="580.0" y2="112.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <circle cx="520.0" cy="120.0" r="3" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="576.0" y="116.0" width="10.0" height="8.0" rx="1" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M550,116 L550,100 L544,104" stroke="var(--green)" stroke-width="1.6" fill="none"/>
+        <path d="M530,200 L535.0,193 L545.0,207 L555.0,193 L565.0,207 L575.0,193 L585.0,207 L590,200" stroke="var(--hot)" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+        <text x="300.0" y="108.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">contacts</text>
+        <text x="520.0" y="108.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">contacts</text>
+        <path d="M140,220 a10.0,10.0 0 0 1 0,20.0 a10.0,10.0 0 0 1 0,20.0 a10.0,10.0 0 0 1 0,20.0" stroke="var(--warm)" stroke-width="2" fill="none"/>
+        <text x="160.0" y="256.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--warm)">generator field</text>
+        <text x="380.0" y="304.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Contacts vibrate open and shut, inserting a resistor into the field: average field current holds the voltage.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The older light-aircraft regulator.</b> The generator field is fed through two sets of <b>vibrating contacts</b> in series. The <b>voltage regulator</b> coil is across the output: when the voltage reaches the set value it pulls its contacts open, inserting a <b>resistor</b> into the field circuit, the field weakens and the voltage falls; the contacts close again and the cycle repeats many times a second, holding a steady average voltage. The <b>current limiter</b> coil carries the load current and opens its contacts in the same way if the generator is overloaded. Spring tension sets each operating point.</p>
+  </section>
+
+  <!-- 13 ─ GENERATOR, BUS-BAR & BATTERY -->
+  <section class="card">
+    <h2>Generator, Bus-Bar &amp; Battery</h2>
+    <div class="meta"><span class="tag">ch06_17</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A generator and a battery both connected to a bus-bar feeding the loads">
+        <rect x="250.0" y="50.0" width="260.0" height="24.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="380.0" y="67.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">BUS-BAR</text>
+        <circle cx="140.0" cy="170.0" r="36" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="140.0" y="175.8" font-family="Overpass,sans-serif" font-size="16" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <path d="M140.0,134.0 L140.0,62.0 L250.0,62.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M140.0,206.0 L140.0,260.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="140.0" y1="260.0" x2="140.0" y2="268.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="128.0" y1="268.0" x2="152.0" y2="268.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="132.0" y1="272.0" x2="148.0" y2="272.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="136.0" y1="276.0" x2="144.0" y2="276.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M300.0,74.0 L300.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="300.0" cy="134.0" r="12" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="291.6" y1="125.6" x2="308.4" y2="142.4" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="291.6" y1="142.4" x2="308.4" y2="125.6" stroke="var(--gold)" stroke-width="1.6"/>
+        <path d="M300.0,146.0 L300.0,230.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="300.0" y1="230.0" x2="300.0" y2="238.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="288.0" y1="238.0" x2="312.0" y2="238.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="292.0" y1="242.0" x2="308.0" y2="242.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="296.0" y1="246.0" x2="304.0" y2="246.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M360.0,74.0 L360.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="360.0" cy="134.0" r="12" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="351.6" y1="125.6" x2="368.4" y2="142.4" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="351.6" y1="142.4" x2="368.4" y2="125.6" stroke="var(--gold)" stroke-width="1.6"/>
+        <path d="M360.0,146.0 L360.0,230.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="360.0" y1="230.0" x2="360.0" y2="238.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="348.0" y1="238.0" x2="372.0" y2="238.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="352.0" y1="242.0" x2="368.0" y2="242.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="356.0" y1="246.0" x2="364.0" y2="246.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M420.0,74.0 L420.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="420.0" cy="134.0" r="12" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="411.6" y1="125.6" x2="428.4" y2="142.4" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="411.6" y1="142.4" x2="428.4" y2="125.6" stroke="var(--gold)" stroke-width="1.6"/>
+        <path d="M420.0,146.0 L420.0,230.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="420.0" y1="230.0" x2="420.0" y2="238.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="408.0" y1="238.0" x2="432.0" y2="238.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="412.0" y1="242.0" x2="428.0" y2="242.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="416.0" y1="246.0" x2="424.0" y2="246.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="360.0" y="270.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">loads (in parallel)</text>
+        <path d="M510.0,62.0 L620.0,62.0 L620.0,150.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="606.0" y1="155.0" x2="634.0" y2="155.0" stroke="var(--chart-ink)" stroke-width="2.4"/>
+        <line x1="613.0" y1="163.0" x2="627.0" y2="163.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="606.0" y1="169.0" x2="634.0" y2="169.0" stroke="var(--chart-ink)" stroke-width="2.4"/>
+        <line x1="613.0" y1="177.0" x2="627.0" y2="177.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <text x="640.0" y="170.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">24 V</text>
+        <path d="M620.0,182.0 L620.0,230.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="620.0" y1="230.0" x2="620.0" y2="238.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="608.0" y1="238.0" x2="632.0" y2="238.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="612.0" y1="242.0" x2="628.0" y2="242.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="616.0" y1="246.0" x2="624.0" y2="246.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="140.0" y="120.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">generator</text>
+        <text x="660.0" y="140.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">battery</text>
+        <line x1="560.0" y1="40.0" x2="600.0" y2="40.0" stroke="var(--green)" stroke-width="2" marker-end="url(#m-green)"/>
+        <text x="560.0" y="32.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)">charging</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The basic DC power system.</b> The <b>generator</b> supplies the <b>bus-bar</b>, from which every load is fed in parallel through its own circuit breaker. The <b>battery</b> is also connected to the bus. With the engine running the generator voltage (about 28 V on a 24 V system) is slightly higher than the battery’s, so the generator powers the loads <b>and charges the battery</b>. If the generator fails or the engine is stopped, the battery takes over automatically and supplies the bus for a limited time — so the pilot must reduce the load. The ammeter shows whether the battery is charging or discharging.</p>
+  </section>
+
+  <!-- 14 ─ PARALLELED DC GENERATORS WITH LOAD SHARING -->
+  <section class="card">
+    <h2>Paralleled DC Generators with Load Sharing</h2>
+    <div class="meta"><span class="tag">ch06_18</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Two generators each with a voltage regulator, connected to a common bus with an equalising circuit between the regulators">
+        <circle cx="140.0" cy="200.0" r="32" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="140.0" y="205.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <text x="140.0" y="254.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">generator 1</text>
+        <path d="M140.0,168.0 L140.0,70.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="80.0" y="90.0" width="120.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="140.0" y="108.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">voltage</text>
+        <text x="140.0" y="122.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">regulator</text>
+        <circle cx="620.0" cy="200.0" r="32" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="620.0" y="205.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <text x="620.0" y="254.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">generator 2</text>
+        <path d="M620.0,168.0 L620.0,70.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="560.0" y="90.0" width="120.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="620.0" y="108.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">voltage</text>
+        <text x="620.0" y="122.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">regulator</text>
+        <rect x="140.0" y="40.0" width="480.0" height="20.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="380.0" y="55.0" font-family="Overpass,sans-serif" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="700">BUS-BAR</text>
+        <line x1="200.0" y1="112.0" x2="560.0" y2="112.0" stroke="var(--gold)" stroke-width="2.4" stroke-dasharray="8 5"/>
+        <text x="380.0" y="104.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">equalising circuit</text>
+        <text x="380.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">the regulators compare loads and adjust the fields</text>
+        <text x="380.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Heavily loaded generator: field reduced.  Lightly loaded: field increased.  Loads equalise.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Sharing the load evenly.</b> When two or more DC generators feed the same bus, small differences in their voltages would make one take most of the load. An <b>equalising (load-sharing) circuit</b> links the regulators: a small resistor (or the series-field interpole winding) in each generator’s negative lead produces a voltage proportional to its load, and an <b>equalising coil</b> in each regulator compares them. The more heavily loaded generator has its field reduced and the lighter one has its field increased until the loads are equal. Each generator is connected to the bus through its own reverse-current cut-out.</p>
+  </section>
+
+  <!-- 15 ─ FLEMING'S LEFT-HAND (MOTOR) RULE -->
+  <section class="card">
+    <h2>Fleming&#x27;s Left-Hand (Motor) Rule</h2>
+    <div class="meta"><span class="tag">ch07_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Three mutually perpendicular arrows for thumb thrust, first finger field and second finger current, with a conductor forced between poles">
+        <line x1="140.0" y1="170.0" x2="140.0" y2="70.0" stroke="var(--green)" stroke-width="4" marker-end="url(#m-green)"/>
+        <line x1="140.0" y1="170.0" x2="260.0" y2="170.0" stroke="var(--hot)" stroke-width="4" marker-end="url(#m-hot)"/>
+        <line x1="140.0" y1="170.0" x2="70.0" y2="230.0" stroke="var(--cool)" stroke-width="4" marker-end="url(#m-cool)"/>
+        <text x="66.0" y="248.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" font-weight="700">seCond finger: Current (out of the page)</text>
+        <text x="148.0" y="74.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" font-weight="700">thuMb: Motion (force)</text>
+        <text x="264.0" y="174.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" font-weight="700">First finger: Field</text>
+        <text x="170.0" y="30.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LEFT hand (motor)</text>
+        <rect x="430.0" y="100.0" width="70.0" height="110.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="465.0" y="162.0" font-family="Overpass,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <rect x="640.0" y="100.0" width="70.0" height="110.0" rx="4" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="675.0" y="162.0" font-family="Overpass,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <line x1="500.0" y1="125.0" x2="640.0" y2="125.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <line x1="500.0" y1="155.0" x2="640.0" y2="155.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <line x1="500.0" y1="185.0" x2="640.0" y2="185.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <circle cx="570.0" cy="155.0" r="14" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="570.0" cy="155.0" r="3" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="570.0" y1="136.0" x2="570.0" y2="96.0" stroke="var(--green)" stroke-width="3" marker-end="url(#m-green)"/>
+        <text x="580.0" y="104.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">force up</text>
+        <text x="570.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">current OUT of the page: force UP</text>
+      </svg>
+    </div>
+    <p class="cap"><b>For motors use the left hand.</b> Hold the thumb, first and second fingers of the <b>left</b> hand at right angles. The <b>F</b>irst finger points along the <b>F</b>ield (north to south), the se<b>C</b>ond finger along the <b>C</b>urrent (conventional), and the <b>thu</b>Mb then shows the direction of <b>M</b>otion — the force on the conductor. Reverse either the field or the current and the motion reverses; reverse both and it does not change, which is why a series-wound DC motor also runs on AC.</p>
+  </section>
+
+  <!-- 16 ─ DC MOTOR — LOOP & MULTI-COIL ARMATURE -->
+  <section class="card">
+    <h2>DC Motor — Loop &amp; Multi-Coil Armature</h2>
+    <div class="meta"><span class="tag">ch07_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A single loop between poles with forces in opposite directions on its two sides producing a turning torque, fed through a commutator">
+        <rect x="60.0" y="80.0" width="90.0" height="140.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="105.0" y="156.0" font-family="Overpass,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <rect x="470.0" y="80.0" width="90.0" height="140.0" rx="4" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="515.0" y="156.0" font-family="Overpass,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <circle cx="230.0" cy="150.0" r="16" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="220.4" y1="140.4" x2="239.6" y2="159.6" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="220.4" y1="159.6" x2="239.6" y2="140.4" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="390.0" cy="150.0" r="16" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="390.0" cy="150.0" r="3" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <ellipse cx="310" cy="150" rx="80" ry="30" fill="none" stroke="var(--warm)" stroke-width="2" stroke-dasharray="6 4"/>
+        <line x1="230.0" y1="130.0" x2="230.0" y2="86.0" stroke="var(--green)" stroke-width="3" marker-end="url(#m-green)"/>
+        <line x1="390.0" y1="170.0" x2="390.0" y2="214.0" stroke="var(--green)" stroke-width="3" marker-end="url(#m-green)"/>
+        <text x="244.0" y="96.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">force</text>
+        <text x="404.0" y="206.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">force</text>
+        <path d="M344.2,56.0 A100,100 0 0 1 404.0,115.8" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M275.8,244.0 A100,100 0 0 1 216.0,184.2" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <text x="310.0" y="270.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">turning couple (torque)</text>
+        <text x="590.0" y="80.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Commutator keeps the</text>
+        <text x="590.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">torque in one direction.</text>
+        <text x="590.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">Many coils give smooth</text>
+        <text x="590.0" y="174.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">torque and self-starting.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>How the armature turns.</b> Current flows <b>in</b> along one side of the loop and <b>out</b> along the other, so by the left-hand rule one side is pushed <b>up</b> and the other <b>down</b>: a turning <b>couple</b>. The commutator reverses the current in the loop each half-turn, so the torque always acts in the same rotational direction. With one loop the torque falls to zero twice per revolution; a real armature has many coils in slots round an iron core, so the torque is <b>smooth</b> and the motor will start from any position.</p>
+  </section>
+
+  <!-- 17 ─ DC MOTOR CONSTRUCTION -->
+  <section class="card">
+    <h2>DC Motor Construction</h2>
+    <div class="meta"><span class="tag">ch07_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A section of a DC motor showing the yoke, pole pieces with field coils, the armature on its shaft, commutator, brushes and bearings">
+        <rect x="110.0" y="70.0" width="420.0" height="160.0" rx="14" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <rect x="200.0" y="76.0" width="240.0" height="30.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="200.0" y="194.0" width="240.0" height="30.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <path d="M210,104 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0" stroke="var(--cool)" stroke-width="1.6" fill="none"/>
+        <path d="M210,222 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0 a11.0,11.0 0 0 1 22.0,0" stroke="var(--cool)" stroke-width="1.6" fill="none"/>
+        <rect x="200.0" y="112.0" width="240.0" height="76.0" rx="6" fill="var(--warm)" stroke="var(--chart-ink)" stroke-width="1.6" opacity="0.8"/>
+        <line x1="210.0" y1="116.0" x2="210.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="230.0" y1="116.0" x2="230.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="250.0" y1="116.0" x2="250.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="270.0" y1="116.0" x2="270.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="290.0" y1="116.0" x2="290.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="310.0" y1="116.0" x2="310.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="330.0" y1="116.0" x2="330.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="350.0" y1="116.0" x2="350.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="370.0" y1="116.0" x2="370.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="390.0" y1="116.0" x2="390.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="410.0" y1="116.0" x2="410.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="430.0" y1="116.0" x2="430.0" y2="184.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <line x1="40.0" y1="150.0" x2="720.0" y2="150.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <rect x="150.0" y="120.0" width="40.0" height="60.0" rx="3" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4" opacity="0.8"/>
+        <rect x="160.0" y="98.0" width="20.0" height="16.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="160.0" y="186.0" width="20.0" height="16.0" rx="2" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="118.0" cy="150.0" r="14" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="522.0" cy="150.0" r="14" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <path d="M560,120 L580,150 L560,180" stroke="var(--chart-ink)" stroke-width="2" fill="none"/>
+        <text x="320.0" y="50.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">yoke</text>
+        <line x1="320.0" y1="54.0" x2="320.0" y2="70.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="470.0" y="50.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">pole piece and field coil</text>
+        <line x1="470.0" y1="54.0" x2="440.0" y2="90.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="320.0" y="268.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">armature (laminated)</text>
+        <line x1="320.0" y1="258.0" x2="320.0" y2="150.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="150.0" y="268.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">commutator</text>
+        <line x1="150.0" y1="258.0" x2="170.0" y2="150.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="60.0" y="50.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">brushes</text>
+        <line x1="60.0" y1="54.0" x2="170.0" y2="100.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="60.0" y="268.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">bearing</text>
+        <line x1="60.0" y1="258.0" x2="118.0" y2="150.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="610.0" y="120.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">fan</text>
+        <line x1="610.0" y1="124.0" x2="570.0" y2="150.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+      </svg>
+    </div>
+    <p class="cap"><b>Inside a DC machine</b> (a motor and a generator are built the same way). The outer <b>yoke</b> carries the <b>pole pieces</b> wound with <b>field coils</b>. The <b>armature</b> — a laminated iron core with coils in its slots — turns on a shaft in <b>ball and roller bearings</b>. One end of the armature carries the <b>commutator</b>, a ring of copper segments insulated from each other, on which spring-loaded carbon <b>brushes</b> in brush holders bear. A <b>fan</b> on the shaft draws cooling air through. The laminations reduce eddy-current losses in the iron.</p>
+  </section>
+
+  <!-- 18 ─ STARTER MOTOR WITH SLOW-START RESISTOR -->
+  <section class="card">
+    <h2>Starter Motor with Slow-Start Resistor</h2>
+    <div class="meta"><span class="tag">ch07_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A starter motor circuit with a slow-start resistor in series, shorted out by a time switch once the engine has begun to turn">
+        <path d="M80.0,250.0 L80.0,80.0 L200.0,80.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M200,80 L205.0,73 L215.0,87 L225.0,73 L235.0,87 L245.0,73 L255.0,87 L265.0,73 L275.0,87 L285.0,73 L295.0,87 L305.0,73 L315.0,87 L320,80" stroke="var(--hot)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <text x="260.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">slow-start resistor</text>
+        <path d="M320.0,80.0 L520.0,80.0 L520.0,130.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="520.0" cy="160.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="520.0" y="165.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">M</text>
+        <text x="560.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">starter motor</text>
+        <path d="M180.0,80.0 L180.0,140.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="180.0" cy="140.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="340.0" cy="140.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="182.0" y1="138.0" x2="336.0" y2="122.0" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <path d="M340.0,140.0 L340.0,80.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="260.0" y="170.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">time / centrifugal switch: shorts the</text>
+        <text x="260.0" y="184.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">resistor once the engine turns</text>
+        <path d="M520.0,190.0 L520.0,250.0 L80.0,250.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="280.0" y="240.0" width="30.0" height="20.0" rx="0" fill="var(--chart-ground)" stroke="none" stroke-width="0"/>
+        <line x1="291.0" y1="236.0" x2="291.0" y2="264.0" stroke="var(--chart-ink)" stroke-width="2.4"/>
+        <line x1="299.0" y1="243.0" x2="299.0" y2="257.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <text x="295.0" y="280.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">battery</text>
+        <text x="580.0" y="230.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Stationary motor: no</text>
+        <text x="580.0" y="244.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">back-EMF, huge inrush.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Limiting the starting surge.</b> A motor standing still has no back-EMF, so at switch-on its current is limited only by the low resistance of its windings — a huge <b>inrush</b> that would pull the bus voltage down and strain the battery, gears and engine. A <b>slow-start resistor</b> in series limits the current for the first few seconds while the engine is turning over; then a <b>time switch or centrifugal switch</b> shorts the resistor out and the motor receives full voltage. As the motor speeds up its back-EMF rises and the current falls naturally.</p>
+  </section>
+
+  <!-- 19 ─ SERIES-WOUND DC MOTOR -->
+  <section class="card">
+    <h2>Series-Wound DC Motor</h2>
+    <div class="meta"><span class="tag">ch07_05</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Circuit of a series-wound DC motor and its speed and torque characteristics">
+        <circle cx="150.0" cy="160.0" r="32" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="150.0" y="165.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">M</text>
+        <text x="150.0" y="210.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">armature</text>
+        <path d="M150.0,128.0 L150.0,70.0 L200.0,70.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M200,70 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0 a6.7,6.7 0 0 1 13.3,0" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M280.0,70.0 L340.0,70.0 L340.0,250.0 L150.0,250.0 L150.0,192.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="240.0" y="52.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">series field</text>
+        <circle cx="340.0" cy="120.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <circle cx="340.0" cy="200.0" r="4" fill="var(--cool)" stroke="var(--cool)" stroke-width="1"/>
+        <text x="356.0" y="124.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--hot)" font-weight="700">+</text>
+        <text x="356.0" y="204.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--cool)" font-weight="700">−</text>
+        <line x1="440.0" y1="240.0" x2="440.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="440.0" y1="240.0" x2="700.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="570.0" y="270.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">load</text>
+        <path d="M450,70 Q500,200 690,220" stroke="var(--gold)" stroke-width="2.6" fill="none"/>
+        <text x="520.0" y="110.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">speed falls sharply with load</text>
+        <path d="M450,226 Q560,200 690,80" stroke="var(--hot)" stroke-width="2.6" fill="none"/>
+        <text x="686.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="end" font-weight="700">torque</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Huge starting torque.</b> The field is in series with the armature, so at start the large current flows through both and the torque is very high (roughly proportional to the current squared). As speed rises the back-EMF reduces the current, the field weakens, and the motor speeds up further — so the speed varies widely with load, and with <b>no load</b> it can <b>run away</b> to destructive speed. Series motors are therefore used where they are always loaded and high starting torque is needed: <b>engine starters</b>, landing-gear and flap actuators, and they are never run off-load.</p>
+  </section>
+
+  <!-- 20 ─ SHUNT-WOUND DC MOTOR -->
+  <section class="card">
+    <h2>Shunt-Wound DC Motor</h2>
+    <div class="meta"><span class="tag">ch07_06</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Circuit of a shunt-wound DC motor and its speed and torque characteristics">
+        <circle cx="150.0" cy="160.0" r="32" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="150.0" y="165.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">M</text>
+        <text x="150.0" y="210.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">armature</text>
+        <path d="M150.0,128.0 L150.0,70.0 L340.0,70.0 L340.0,250.0 L150.0,250.0 L150.0,192.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M260.0,70.0 L260.0,110.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M260,110 a8.3,8.3 0 0 1 0,16.7 a8.3,8.3 0 0 1 0,16.7 a8.3,8.3 0 0 1 0,16.7 a8.3,8.3 0 0 1 0,16.7 a8.3,8.3 0 0 1 0,16.7 a8.3,8.3 0 0 1 0,16.7" stroke="var(--gold)" stroke-width="2" fill="none"/>
+        <path d="M260.0,210.0 L260.0,250.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="278.0" y="160.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">shunt field</text>
+        <circle cx="340.0" cy="120.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <circle cx="340.0" cy="200.0" r="4" fill="var(--cool)" stroke="var(--cool)" stroke-width="1"/>
+        <text x="356.0" y="124.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--hot)" font-weight="700">+</text>
+        <text x="356.0" y="204.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--cool)" font-weight="700">−</text>
+        <line x1="440.0" y1="240.0" x2="440.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="440.0" y1="240.0" x2="700.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="570.0" y="270.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">load</text>
+        <line x1="450.0" y1="110.0" x2="690.0" y2="128.0" stroke="var(--gold)" stroke-width="2.6"/>
+        <text x="470.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">speed nearly constant</text>
+        <line x1="450.0" y1="226.0" x2="690.0" y2="150.0" stroke="var(--hot)" stroke-width="2.6"/>
+        <text x="690.0" y="170.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="end" font-weight="700">torque</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Steady speed.</b> The field is connected in parallel (shunt) with the armature, so it has the full supply voltage across it and a constant field strength regardless of load. The motor therefore runs at a nearly <b>constant speed</b> from no load to full load, but its starting torque is modest. Shunt motors are used for loads that need a steady speed — fans, pumps and some instrument drives. A compound motor combines series and shunt fields for good starting torque with limited speed variation.</p>
+  </section>
+
+  <!-- 21 ─ STARTER-GENERATOR -->
+  <section class="card">
+    <h2>Starter-Generator</h2>
+    <div class="meta"><span class="tag">ch07_07</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="One machine connected as a series motor for starting, then switched to act as a shunt-wound generator once the engine runs">
+        <text x="200.0" y="40.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">START: motor mode</text>
+        <rect x="60.0" y="120.0" width="70.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--steel)" stroke-width="1.6"/>
+        <text x="95.0" y="148.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">engine</text>
+        <line x1="130.0" y1="145.0" x2="170.0" y2="145.0" stroke="var(--chart-ink)" stroke-width="6"/>
+        <circle cx="200.0" cy="145.0" r="30" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="200.0" y="150.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--gold)" text-anchor="middle" font-weight="700">M</text>
+        <line x1="170.0" y1="200.0" x2="130.0" y2="200.0" stroke="var(--gold)" stroke-width="2.4" marker-end="url(#m-gold)"/>
+        <text x="150.0" y="222.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">drives the engine</text>
+        <rect x="250.0" y="120.0" width="110.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="305.0" y="141.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">battery / GPU</text>
+        <text x="305.0" y="155.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">supplies it</text>
+        <line x1="250.0" y1="145.0" x2="232.0" y2="145.0" stroke="var(--chart-ink)" stroke-width="2" marker-end="url(#m-ink)"/>
+        <text x="560.0" y="40.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">RUN: generator mode</text>
+        <rect x="420.0" y="120.0" width="70.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--steel)" stroke-width="1.6"/>
+        <text x="455.0" y="148.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">engine</text>
+        <line x1="490.0" y1="145.0" x2="530.0" y2="145.0" stroke="var(--chart-ink)" stroke-width="6"/>
+        <circle cx="560.0" cy="145.0" r="30" fill="var(--chart-ground-3)" stroke="var(--green)" stroke-width="2"/>
+        <text x="560.0" y="150.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--green)" text-anchor="middle" font-weight="700">G</text>
+        <line x1="490.0" y1="200.0" x2="530.0" y2="200.0" stroke="var(--green)" stroke-width="2.4" marker-end="url(#m-green)"/>
+        <text x="510.0" y="222.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">driven by the engine</text>
+        <rect x="610.0" y="120.0" width="110.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.6"/>
+        <text x="665.0" y="141.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">supplies</text>
+        <text x="665.0" y="155.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">the bus</text>
+        <line x1="592.0" y1="145.0" x2="610.0" y2="145.0" stroke="var(--chart-ink)" stroke-width="2" marker-end="url(#m-ink)"/>
+        <line x1="380.0" y1="30.0" x2="380.0" y2="260.0" stroke="var(--chart-line-2)" stroke-width="1" stroke-dasharray="3 5"/>
+        <text x="380.0" y="286.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Series/compound motor for starting torque; shunt generator with a regulator once running.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>One machine, two jobs.</b> Many turboprop and small turbine engines use a <b>starter-generator</b> mounted on the accessory gearbox. For starting, it is connected as a <b>compound or series motor</b> to give high torque and turns the engine; once the engine is self-sustaining, the starter circuit drops out and the machine is switched to run as a <b>shunt-wound generator</b> supplying the bus under the control of its voltage regulator. It saves the weight of a separate starter motor and generator, at the cost of brush wear and a more complex control system.</p>
+  </section>
+
+  <!-- 22 ─ REVERSIBLE SPLIT-FIELD ACTUATOR MOTOR -->
+  <section class="card">
+    <h2>Reversible Split-Field Actuator Motor</h2>
+    <div class="meta"><span class="tag">ch07_08</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A series motor with two field windings, one for each direction, selected by a switch, with limit switches and a brake coil">
+        <rect x="320.0" y="40.0" width="120.0" height="20.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="380.0" y="55.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">28 V DC BUS</text>
+        <path d="M380.0,60.0 L380.0,100.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="380.0" cy="100.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="380.0" y1="100.0" x2="330.0" y2="134.0" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <circle cx="320.0" cy="140.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="440.0" cy="140.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="310.0" y="132.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="end" font-weight="700">OPEN</text>
+        <text x="450.0" y="132.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">SHUT</text>
+        <text x="390.0" y="92.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">control switch</text>
+        <path d="M320.0,143.0 L320.0,160.0 L200.0,160.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="160.0" cy="160.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="200.0" cy="160.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="163.0" y1="160.0" x2="197.0" y2="160.0" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <path d="M160.0,160.0 L120.0,160.0 L120.0,190.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M120,190 a6.2,6.2 0 0 1 0,12.5 a6.2,6.2 0 0 1 0,12.5 a6.2,6.2 0 0 1 0,12.5 a6.2,6.2 0 0 1 0,12.5" stroke="var(--green)" stroke-width="2" fill="none"/>
+        <text x="100.0" y="220.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" text-anchor="end">OPEN field</text>
+        <path d="M440.0,143.0 L440.0,160.0 L560.0,160.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="560.0" cy="160.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="600.0" cy="160.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="563.0" y1="160.0" x2="597.0" y2="160.0" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <path d="M600.0,160.0 L640.0,160.0 L640.0,190.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M640,190 a6.2,6.2 0 0 1 0,12.5 a6.2,6.2 0 0 1 0,12.5 a6.2,6.2 0 0 1 0,12.5 a6.2,6.2 0 0 1 0,12.5" stroke="var(--hot)" stroke-width="2" fill="none"/>
+        <text x="660.0" y="220.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)">SHUT field</text>
+        <text x="180.0" y="146.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">limit switch</text>
+        <text x="580.0" y="146.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">limit switch</text>
+        <path d="M120.0,240.0 L120.0,270.0 L340.0,270.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M640.0,240.0 L640.0,270.0 L420.0,270.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="380.0" cy="270.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="380.0" y="275.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">M</text>
+        <path d="M420,214 a7.5,7.5 0 0 1 15.0,0 a7.5,7.5 0 0 1 15.0,0 a7.5,7.5 0 0 1 15.0,0 a7.5,7.5 0 0 1 15.0,0" stroke="var(--gold)" stroke-width="2" fill="none"/>
+        <text x="450.0" y="200.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">brake coil</text>
+        <text x="380.0" y="314.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Limit switches stop the motor at each end of travel; the brake locks it when power is removed.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Running an actuator both ways.</b> A <b>split-field series motor</b> has <b>two field windings</b> wound in opposite senses. Selecting OPEN energises one field and the motor turns one way; selecting SHUT energises the other and it turns the other way. A <b>limit switch</b> in each field circuit opens when the actuator reaches the end of its travel, stopping the motor and preparing the opposite circuit. An electromagnetic <b>brake</b>, released while the motor is powered, locks the output the moment power is removed so the actuator does not overrun or creep.</p>
+  </section>
+
+  <!-- 23 ─ ROTARY ELECTRIC ACTUATOR -->
+  <section class="card">
+    <h2>Rotary Electric Actuator</h2>
+    <div class="meta"><span class="tag">ch07_09</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A motor driving through a clutch and reduction gearbox to an output shaft, with a brake, limit switches and a position indicator">
+        <rect x="30.0" y="120.0" width="108.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="84.0" y="153.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle">MOTOR</text>
+        <line x1="138.0" y1="150.0" x2="172.0" y2="150.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <rect x="172.0" y="120.0" width="108.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="226.0" y="153.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle">BRAKE</text>
+        <line x1="280.0" y1="150.0" x2="314.0" y2="150.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <rect x="314.0" y="120.0" width="108.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="368.0" y="153.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle">CLUTCH</text>
+        <line x1="422.0" y1="150.0" x2="456.0" y2="150.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <rect x="456.0" y="120.0" width="108.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--warm)" stroke-width="1.6"/>
+        <text x="510.0" y="146.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle">REDUCTION</text>
+        <text x="510.0" y="160.7" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">GEARBOX</text>
+        <line x1="564.0" y1="150.0" x2="598.0" y2="150.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <rect x="598.0" y="120.0" width="108.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.6"/>
+        <text x="652.0" y="146.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle">OUTPUT</text>
+        <text x="652.0" y="160.7" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">SHAFT</text>
+        <rect x="474.0" y="220.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="549.0" y="243.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">limit switches (cams)</text>
+        <line x1="549.0" y1="220.0" x2="549.0" y2="182.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)" marker-start="url(#m-hot)"/>
+        <rect x="474.0" y="40.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.6"/>
+        <text x="549.0" y="63.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">position indicator</text>
+        <line x1="668.0" y1="120.0" x2="600.0" y2="82.0" stroke="var(--green)" stroke-width="1.6" marker-end="url(#m-green)"/>
+        <text x="380.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">High-speed motor, low-speed high-torque output; limits stop it, the brake holds it.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Turning a valve or flap.</b> A small high-speed <b>reversible motor</b> drives through a <b>reduction gearbox</b> to an output shaft that turns through a limited angle — for example to open or shut a fuel or bleed valve. A <b>clutch</b> (often a friction or magnetic clutch) protects the motor if the output jams. <b>Limit switches</b>, operated by cams on the output shaft, cut the motor at each end of travel, and an electromagnetic <b>brake</b> holds the shaft when the motor stops. A position switch drives a cockpit indicator such as a <b>doll’s eye</b> or flow-bar.</p>
+  </section>
+
+  <!-- 24 ─ LINEAR (SCREW-JACK) ACTUATOR -->
+  <section class="card">
+    <h2>Linear (Screw-Jack) Actuator</h2>
+    <div class="meta"><span class="tag">ch07_10</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A motor turning a screw shaft through gearing so that a nut and ram extend or retract, with limit switches at each end">
+        <rect x="40.0" y="110.0" width="110.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="95.0" y="148.8" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">MOTOR</text>
+        <rect x="160.0" y="110.0" width="90.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--warm)" stroke-width="1.6"/>
+        <text x="205.0" y="148.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">gears</text>
+        <rect x="250.0" y="136.0" width="360.0" height="18.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="256.0" y1="136.0" x2="262.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="266.0" y1="136.0" x2="272.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="276.0" y1="136.0" x2="282.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="286.0" y1="136.0" x2="292.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="296.0" y1="136.0" x2="302.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="306.0" y1="136.0" x2="312.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="316.0" y1="136.0" x2="322.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="326.0" y1="136.0" x2="332.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="336.0" y1="136.0" x2="342.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="346.0" y1="136.0" x2="352.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="356.0" y1="136.0" x2="362.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="366.0" y1="136.0" x2="372.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="376.0" y1="136.0" x2="382.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="386.0" y1="136.0" x2="392.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="396.0" y1="136.0" x2="402.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="406.0" y1="136.0" x2="412.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="416.0" y1="136.0" x2="422.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="426.0" y1="136.0" x2="432.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="436.0" y1="136.0" x2="442.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="446.0" y1="136.0" x2="452.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="456.0" y1="136.0" x2="462.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="466.0" y1="136.0" x2="472.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="476.0" y1="136.0" x2="482.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="486.0" y1="136.0" x2="492.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="496.0" y1="136.0" x2="502.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="506.0" y1="136.0" x2="512.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="516.0" y1="136.0" x2="522.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="526.0" y1="136.0" x2="532.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="536.0" y1="136.0" x2="542.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="546.0" y1="136.0" x2="552.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="556.0" y1="136.0" x2="562.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="566.0" y1="136.0" x2="572.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="576.0" y1="136.0" x2="582.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="586.0" y1="136.0" x2="592.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="596.0" y1="136.0" x2="602.0" y2="154.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="400.0" y="120.0" width="50.0" height="50.0" rx="4" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.6" opacity="0.85"/>
+        <text x="425.0" y="112.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">nut</text>
+        <rect x="450.0" y="128.0" width="220.0" height="34.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="560.0" y="150.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">RAM</text>
+        <line x1="560.0" y1="200.0" x2="720.0" y2="200.0" stroke="var(--green)" stroke-width="2.4" marker-end="url(#m-green)" marker-start="url(#m-green)"/>
+        <text x="640.0" y="222.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">extends / retracts</text>
+        <path d="M310.3,116.8 A30,30 0 0 1 328.2,134.7" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M289.7,173.2 A30,30 0 0 1 271.8,155.3" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <text x="300.0" y="196.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle">screw rotates</text>
+        <rect x="258.0" y="230.0" width="30.0" height="20.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.4"/>
+        <rect x="600.0" y="230.0" width="30.0" height="20.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.4"/>
+        <text x="444.0" y="246.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle">limit switches at each end of travel</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Turning rotation into a push or pull.</b> A reversible motor drives, through reduction gears, a threaded <b>screw shaft</b>. A <b>nut</b> on the screw is prevented from turning, so as the screw rotates the nut — and the <b>ram</b> fixed to it — moves along: in or out, depending on the direction of rotation. Linear actuators move trim tabs, flaps on light aircraft, and cowl flaps. <b>Limit switches</b> stop the motor at full extension and retraction, a brake prevents creep, and the screw is often self-locking so loads cannot back-drive it.</p>
+  </section>
+
+  <!-- 25 ─ MAGNETIC POSITION INDICATORS — DOLL'S EYE & FLOW-BAR -->
+  <section class="card">
+    <h2>Magnetic Position Indicators — Doll&#x27;s Eye &amp; Flow-Bar</h2>
+    <div class="meta"><span class="tag">ch07_11</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A doll&#x27;s eye indicator showing a line in line with a pipe when a valve is open and across it when shut, and a magnetic barber&#x27;s-pole indicator">
+        <line x1="40.0" y1="130.0" x2="86.0" y2="130.0" stroke="var(--cool)" stroke-width="6"/>
+        <line x1="154.0" y1="130.0" x2="200.0" y2="130.0" stroke="var(--cool)" stroke-width="6"/>
+        <circle cx="120.0" cy="130.0" r="30" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="144.0" y1="130.0" x2="96.0" y2="130.0" stroke="var(--green)" stroke-width="7" stroke-linecap="round"/>
+        <text x="120.0" y="196.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">OPEN: in line with flow</text>
+        <line x1="240.0" y1="130.0" x2="286.0" y2="130.0" stroke="var(--cool)" stroke-width="6"/>
+        <line x1="354.0" y1="130.0" x2="400.0" y2="130.0" stroke="var(--cool)" stroke-width="6"/>
+        <circle cx="320.0" cy="130.0" r="30" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="320.0" y1="154.0" x2="320.0" y2="106.0" stroke="var(--hot)" stroke-width="7" stroke-linecap="round"/>
+        <text x="320.0" y="196.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">SHUT: across the flow</text>
+        <line x1="440.0" y1="130.0" x2="486.0" y2="130.0" stroke="var(--cool)" stroke-width="6"/>
+        <line x1="554.0" y1="130.0" x2="600.0" y2="130.0" stroke="var(--cool)" stroke-width="6"/>
+        <circle cx="520.0" cy="130.0" r="30" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="482.0" y1="110.0" x2="504.0" y2="150.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="488.0" y1="110.0" x2="510.0" y2="150.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="494.0" y1="110.0" x2="516.0" y2="150.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="500.0" y1="110.0" x2="522.0" y2="150.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="506.0" y1="110.0" x2="528.0" y2="150.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="512.0" y1="110.0" x2="534.0" y2="150.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="518.0" y1="110.0" x2="540.0" y2="150.0" stroke="var(--gold)" stroke-width="2"/>
+        <text x="520.0" y="196.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">IN TRANSIT / no power</text>
+        <rect x="640.0" y="90.0" width="60.0" height="80.0" rx="4" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="646.0" y1="98.0" x2="694.0" y2="110.0" stroke="#ffffff" stroke-width="4"/>
+        <line x1="646.0" y1="114.0" x2="694.0" y2="126.0" stroke="#ffffff" stroke-width="4"/>
+        <line x1="646.0" y1="130.0" x2="694.0" y2="142.0" stroke="#ffffff" stroke-width="4"/>
+        <line x1="646.0" y1="146.0" x2="694.0" y2="158.0" stroke="#ffffff" stroke-width="4"/>
+        <line x1="646.0" y1="162.0" x2="694.0" y2="174.0" stroke="#ffffff" stroke-width="4"/>
+        <text x="670.0" y="196.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">barber’s pole</text>
+        <text x="380.0" y="266.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Doll’s eye and magnetic indicators show the commanded state and need power to move.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Simple electrical position repeaters.</b> A <b>doll’s eye</b> (magnetic) indicator has a small rotating disc marked with a bar, turned by an electromagnet: when a valve is <b>open</b> the bar lines up with the flow line printed on the panel; when <b>shut</b> it lies across it; in transit, or with no power, it shows a third position (often cross-hatched). A <b>magnetic indicator</b> (“barber’s pole” or prism type) shows a striped or coloured face when a component is in transit or a system is unpowered. Because they need power to move, they show the last commanded state, not a measured position — check that power is available.</p>
+  </section>
+
+  <!-- 26 ─ GENERATOR → BUS-BAR → PARALLEL LOADS (TWO-WIRE) -->
+  <section class="card">
+    <h2>Generator → Bus-Bar → Parallel Loads (Two-Wire)</h2>
+    <div class="meta"><span class="tag">ch08_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A generator feeding a bus-bar with four loads connected in parallel, each with its own return wire">
+        <rect x="230.0" y="40.0" width="360.0" height="26.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="410.0" y="58.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">BUS-BAR</text>
+        <circle cx="120.0" cy="170.0" r="34" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="120.0" y="175.8" font-family="Overpass,sans-serif" font-size="16" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <text x="80.0" y="128.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--hot)" font-weight="700">+</text>
+        <text x="80.0" y="228.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--cool)" font-weight="700">−</text>
+        <path d="M120.0,136.0 L120.0,53.0 L230.0,53.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M120.0,204.0 L120.0,260.0 L650.0,260.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M290.0,66.0 L290.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="272.0" y="120.0" width="36.0" height="90.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="290.0" y="170.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--hot)" text-anchor="middle" font-weight="700" transform="rotate(-90 290 170)">LOAD</text>
+        <path d="M290.0,210.0 L290.0,260.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M380.0,66.0 L380.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="362.0" y="120.0" width="36.0" height="90.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="170.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--hot)" text-anchor="middle" font-weight="700" transform="rotate(-90 380 170)">LOAD</text>
+        <path d="M380.0,210.0 L380.0,260.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M470.0,66.0 L470.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="452.0" y="120.0" width="36.0" height="90.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="470.0" y="170.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--hot)" text-anchor="middle" font-weight="700" transform="rotate(-90 470 170)">LOAD</text>
+        <path d="M470.0,210.0 L470.0,260.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M560.0,66.0 L560.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="542.0" y="120.0" width="36.0" height="90.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="560.0" y="170.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--hot)" text-anchor="middle" font-weight="700" transform="rotate(-90 560 170)">LOAD</text>
+        <path d="M560.0,210.0 L560.0,260.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="470.0" y="286.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">separate return wire for every load (two-wire system)</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Every load in parallel across the bus.</b> The generator feeds a <b>bus-bar</b> — a heavy conductor that distributes power — and each load is connected between the bus and the return, in parallel, so every load gets the full system voltage and each can be switched or fail without affecting the others. In this <b>two-wire (dipole)</b> system each load has its own return wire back to the negative side. It is used where the structure is non-conducting (composite airframes) or where currents must be kept separate to avoid interference, but it doubles the amount of cable.</p>
+  </section>
+
+  <!-- 27 ─ EARTH-RETURN (SINGLE-POLE) DISTRIBUTION -->
+  <section class="card">
+    <h2>Earth-Return (Single-Pole) Distribution</h2>
+    <div class="meta"><span class="tag">ch08_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A generator feeding a bus-bar with four loads, each returning its current through the metal airframe to earth">
+        <rect x="230.0" y="40.0" width="360.0" height="26.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="410.0" y="58.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">BUS-BAR</text>
+        <circle cx="120.0" cy="160.0" r="34" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="120.0" y="165.8" font-family="Overpass,sans-serif" font-size="16" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <path d="M120.0,126.0 L120.0,53.0 L230.0,53.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M120.0,194.0 L120.0,220.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="120.0" y1="220.0" x2="120.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="108.0" y1="228.0" x2="132.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="112.0" y1="232.0" x2="128.0" y2="232.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="116.0" y1="236.0" x2="124.0" y2="236.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M290.0,66.0 L290.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="272.0" y="120.0" width="36.0" height="80.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="290.0" y="166.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--hot)" text-anchor="middle" font-weight="700" transform="rotate(-90 290 166)">LOAD</text>
+        <path d="M290.0,200.0 L290.0,220.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="290.0" y1="220.0" x2="290.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="278.0" y1="228.0" x2="302.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="282.0" y1="232.0" x2="298.0" y2="232.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="286.0" y1="236.0" x2="294.0" y2="236.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M380.0,66.0 L380.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="362.0" y="120.0" width="36.0" height="80.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="166.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--hot)" text-anchor="middle" font-weight="700" transform="rotate(-90 380 166)">LOAD</text>
+        <path d="M380.0,200.0 L380.0,220.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="380.0" y1="220.0" x2="380.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="368.0" y1="228.0" x2="392.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="372.0" y1="232.0" x2="388.0" y2="232.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="376.0" y1="236.0" x2="384.0" y2="236.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M470.0,66.0 L470.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="452.0" y="120.0" width="36.0" height="80.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="470.0" y="166.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--hot)" text-anchor="middle" font-weight="700" transform="rotate(-90 470 166)">LOAD</text>
+        <path d="M470.0,200.0 L470.0,220.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="470.0" y1="220.0" x2="470.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="458.0" y1="228.0" x2="482.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="462.0" y1="232.0" x2="478.0" y2="232.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="466.0" y1="236.0" x2="474.0" y2="236.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M560.0,66.0 L560.0,120.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="542.0" y="120.0" width="36.0" height="80.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="560.0" y="166.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--hot)" text-anchor="middle" font-weight="700" transform="rotate(-90 560 166)">LOAD</text>
+        <path d="M560.0,200.0 L560.0,220.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="560.0" y1="220.0" x2="560.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="548.0" y1="228.0" x2="572.0" y2="228.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="552.0" y1="232.0" x2="568.0" y2="232.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="556.0" y1="236.0" x2="564.0" y2="236.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="60.0" y="248.0" width="640.0" height="12.0" rx="4" fill="var(--steel)" stroke="none" stroke-width="0" opacity="0.6"/>
+        <text x="380.0" y="284.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">the metal airframe is the return path (earth)</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The airframe carries the return current.</b> In an <b>earth-return (single-pole)</b> system each load is fed by a single wire from the bus, and its other side is connected — <b>bonded</b> — to the metal airframe, which serves as the return conductor back to the generator and battery negative. This roughly halves the weight of cable, which is why it is standard in metal aircraft. Good <b>bonding</b> of every part is essential, both for the return path and to prevent static build-up, sparks and radio interference. Composite aircraft must provide a return network instead.</p>
+  </section>
+
+  <!-- 28 ─ REVERSE-CURRENT CUT-OUT -->
+  <section class="card">
+    <h2>Reverse-Current Cut-Out</h2>
+    <div class="meta"><span class="tag">ch08_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A relay between the generator and the bus with a voltage coil closing the contacts and a current coil opening them if current flows back into the generator">
+        <circle cx="90.0" cy="170.0" r="32" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="90.0" y="175.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">G</text>
+        <path d="M90.0,138.0 L90.0,80.0 L260.0,80.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="260.0" y="60.0" width="220.0" height="180.0" rx="8" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="370.0" y="258.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">REVERSE-CURRENT CUT-OUT</text>
+        <path d="M290,80 a9.2,9.2 0 0 1 18.3,0 a9.2,9.2 0 0 1 18.3,0 a9.2,9.2 0 0 1 18.3,0 a9.2,9.2 0 0 1 18.3,0 a9.2,9.2 0 0 1 18.3,0 a9.2,9.2 0 0 1 18.3,0" stroke="var(--gold)" stroke-width="2" fill="none"/>
+        <text x="345.0" y="106.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">current (series) coil</text>
+        <path d="M300,130 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0 a8.0,8.0 0 0 1 0,16.0" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <text x="318.0" y="176.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)">voltage (shunt) coil</text>
+        <line x1="400.0" y1="80.0" x2="430.0" y2="80.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <circle cx="430.0" cy="80.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="470.0" cy="80.0" r="3" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="433.0" y1="80.0" x2="467.0" y2="80.0" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <path d="M470.0,80.0 L560.0,80.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="560.0" y="66.0" width="160.0" height="28.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="640.0" y="85.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">BUS (+ battery)</text>
+        <text x="450.0" y="60.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">contacts</text>
+        <text x="520.0" y="140.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">Generator volts &gt; battery:</text>
+        <text x="520.0" y="154.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">contacts CLOSE.</text>
+        <text x="520.0" y="200.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Current flows backwards:</text>
+        <text x="520.0" y="214.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">coils oppose, contacts OPEN.</text>
+        <text x="380.0" y="306.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Prevents the battery discharging into the generator at low rpm or shutdown.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Stopping the battery motoring the generator.</b> When generator voltage is below battery voltage — at low engine speed or on shutdown — current would flow <b>backwards</b> from the battery into the generator, discharging the battery and trying to drive the generator as a motor. The <b>reverse-current cut-out</b> prevents this. A <b>voltage (shunt) coil</b> closes the contacts once the generator voltage exceeds the battery’s; the load current then flows through a <b>current (series) coil</b> that helps hold them closed. If the current <b>reverses</b>, the series coil’s field opposes the shunt coil’s, the contacts spring <b>open</b>, and the generator is disconnected from the bus.</p>
+  </section>
+
+  <!-- 29 ─ MOVING-COIL METER MOVEMENT -->
+  <section class="card">
+    <h2>Moving-Coil Meter Movement</h2>
+    <div class="meta"><span class="tag">ch08_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A coil pivoted between the curved poles of a permanent magnet with a soft-iron core, hairsprings and a pointer over a scale">
+        <path d="M130,90 L180,90 A70,70 0 0 0 180,250 L130,250 Z" stroke="var(--chart-ink)" stroke-width="1.6" fill="var(--hot)"/>
+        <text x="148.0" y="174.0" font-family="Overpass,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+        <path d="M350,90 L300,90 A70,70 0 0 1 300,250 L350,250 Z" stroke="var(--chart-ink)" stroke-width="1.6" fill="var(--cool)"/>
+        <text x="332.0" y="174.0" font-family="Overpass,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+        <circle cx="240.0" cy="170.0" r="34" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="240.0" y="174.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle">core</text>
+        <rect x="186.0" y="124.0" width="108.0" height="92.0" rx="6" fill="none" stroke="var(--warm)" stroke-width="3"/>
+        <line x1="240.0" y1="170.0" x2="270.0" y2="20.0" stroke="#ffffff" stroke-width="2.4"/>
+        <path d="M120,20 A170,170 0 0 1 360,20" stroke="var(--chart-ink)" stroke-width="1.4" fill="none"/>
+        <text x="390.0" y="70.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">pointer over a linear scale</text>
+        <path d="M230,222 q-6,6 0,12 q6,6 0,12 q-6,6 0,12" stroke="var(--gold)" stroke-width="1.6" fill="none"/>
+        <text x="250.0" y="254.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">hairspring</text>
+        <text x="390.0" y="140.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--warm)" font-weight="700">moving coil</text>
+        <line x1="386.0" y1="136.0" x2="294.0" y2="140.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="470.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Radial field from the</text>
+        <text x="470.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">curved poles and core:</text>
+        <text x="470.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">deflection proportional</text>
+        <text x="470.0" y="192.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">to current; linear scale.</text>
+        <text x="470.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">DC only. Add a series</text>
+        <text x="470.0" y="254.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">multiplier for a voltmeter,</text>
+        <text x="470.0" y="268.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">a shunt for large currents.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The basis of most analogue electrical meters.</b> A light <b>coil</b> on a pivot sits in the gap between the curved pole pieces of a <b>permanent magnet</b>, around a fixed soft-iron <b>core</b> that makes the field <b>radial</b> and uniform. Current through the coil produces a torque (motor principle) that turns it against two <b>hairsprings</b>, which also carry the current in and out. The deflection is proportional to the current, so the <b>scale is linear</b>. It responds only to DC; with a series resistor (multiplier) it becomes a voltmeter, and with a shunt it measures large currents.</p>
+  </section>
+
+  <!-- 30 ─ LEFT-ZERO VS CENTRE-ZERO AMMETER -->
+  <section class="card">
+    <h2>Left-Zero vs Centre-Zero Ammeter</h2>
+    <div class="meta"><span class="tag">ch08_05</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Two ammeter dials: a left zero meter reading generator load, and a centre zero meter showing battery charge or discharge">
+        <circle cx="200.0" cy="170.0" r="100" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="130.7" y1="130.0" x2="120.3" y2="124.0" stroke="#ffffff" stroke-width="1.6"/>
+        <line x1="140.5" y1="116.5" x2="131.6" y2="108.4" stroke="#ffffff" stroke-width="1"/>
+        <line x1="153.0" y1="105.3" x2="145.9" y2="95.6" stroke="#ffffff" stroke-width="1"/>
+        <line x1="167.5" y1="96.9" x2="162.6" y2="86.0" stroke="#ffffff" stroke-width="1"/>
+        <line x1="183.4" y1="91.7" x2="180.9" y2="80.0" stroke="#ffffff" stroke-width="1"/>
+        <line x1="200.0" y1="90.0" x2="200.0" y2="78.0" stroke="#ffffff" stroke-width="1.6"/>
+        <line x1="216.6" y1="91.7" x2="219.1" y2="80.0" stroke="#ffffff" stroke-width="1"/>
+        <line x1="232.5" y1="96.9" x2="237.4" y2="86.0" stroke="#ffffff" stroke-width="1"/>
+        <line x1="247.0" y1="105.3" x2="254.1" y2="95.6" stroke="#ffffff" stroke-width="1"/>
+        <line x1="259.5" y1="116.5" x2="268.4" y2="108.4" stroke="#ffffff" stroke-width="1"/>
+        <line x1="269.3" y1="130.0" x2="279.7" y2="124.0" stroke="#ffffff" stroke-width="1.6"/>
+        <text x="142.8" y="142.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">0</text>
+        <text x="200.0" y="109.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">50</text>
+        <text x="257.2" y="142.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">100</text>
+        <line x1="200.0" y1="170.0" x2="172.6" y2="94.8" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="200.0" cy="170.0" r="6" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="200.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LEFT-ZERO (loadmeter)</text>
+        <text x="200.0" y="290.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">in the generator lead</text>
+        <circle cx="560.0" cy="170.0" r="100" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="490.7" y1="130.0" x2="480.3" y2="124.0" stroke="#ffffff" stroke-width="1.6"/>
+        <line x1="500.5" y1="116.5" x2="491.6" y2="108.4" stroke="#ffffff" stroke-width="1"/>
+        <line x1="513.0" y1="105.3" x2="505.9" y2="95.6" stroke="#ffffff" stroke-width="1"/>
+        <line x1="527.5" y1="96.9" x2="522.6" y2="86.0" stroke="#ffffff" stroke-width="1"/>
+        <line x1="543.4" y1="91.7" x2="540.9" y2="80.0" stroke="#ffffff" stroke-width="1"/>
+        <line x1="560.0" y1="90.0" x2="560.0" y2="78.0" stroke="#ffffff" stroke-width="1.6"/>
+        <line x1="576.6" y1="91.7" x2="579.1" y2="80.0" stroke="#ffffff" stroke-width="1"/>
+        <line x1="592.5" y1="96.9" x2="597.4" y2="86.0" stroke="#ffffff" stroke-width="1"/>
+        <line x1="607.0" y1="105.3" x2="614.1" y2="95.6" stroke="#ffffff" stroke-width="1"/>
+        <line x1="619.5" y1="116.5" x2="628.4" y2="108.4" stroke="#ffffff" stroke-width="1"/>
+        <line x1="629.3" y1="130.0" x2="639.7" y2="124.0" stroke="#ffffff" stroke-width="1.6"/>
+        <text x="502.8" y="142.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">−</text>
+        <text x="560.0" y="109.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">0</text>
+        <text x="617.2" y="142.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">+</text>
+        <line x1="560.0" y1="170.0" x2="592.5" y2="96.9" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="560.0" cy="170.0" r="6" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="560.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">CENTRE-ZERO</text>
+        <text x="560.0" y="290.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">in the battery lead</text>
+        <text x="640.0" y="230.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" font-weight="700">charging</text>
+        <text x="480.0" y="230.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)" text-anchor="end" font-weight="700">discharging</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Two ways of showing current.</b> A <b>left-zero</b> ammeter (loadmeter) reads from zero upwards and is fitted in the <b>generator</b> lead to show how much current — or what fraction of rated load — the generator is supplying. A <b>centre-zero</b> ammeter is fitted in the <b>battery</b> lead: a needle to the right (+) shows the battery is <b>charging</b>; to the left (−) shows it is <b>discharging</b>, meaning the generator is not carrying the load. A steady discharge reading in flight is a generator failure warning.</p>
+  </section>
+
+  <!-- 31 ─ AIRCRAFT BATTERY INSTALLATION -->
+  <section class="card">
+    <h2>Aircraft Battery Installation</h2>
+    <div class="meta"><span class="tag">ch08_07</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A battery in a sealed container with a vent tube inlet and overboard outlet, a quick-disconnect plug and a sump jar">
+        <rect x="200.0" y="90.0" width="300.0" height="150.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <text x="350.0" y="170.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">BATTERY</text>
+        <rect x="220.0" y="104.0" width="36.0" height="20.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="266.0" y="104.0" width="36.0" height="20.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="312.0" y="104.0" width="36.0" height="20.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="358.0" y="104.0" width="36.0" height="20.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="404.0" y="104.0" width="36.0" height="20.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="450.0" y="104.0" width="36.0" height="20.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="200.0" y1="120.0" x2="90.0" y2="120.0" stroke="var(--cool)" stroke-width="6"/>
+        <line x1="90.0" y1="120.0" x2="90.0" y2="60.0" stroke="var(--cool)" stroke-width="6"/>
+        <text x="90.0" y="50.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">air in</text>
+        <line x1="76.0" y1="70.0" x2="76.0" y2="100.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <line x1="500.0" y1="120.0" x2="620.0" y2="120.0" stroke="var(--gold)" stroke-width="6"/>
+        <rect x="620.0" y="100.0" width="50.0" height="60.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="645.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">sump jar</text>
+        <line x1="670.0" y1="130.0" x2="720.0" y2="130.0" stroke="var(--gold)" stroke-width="6"/>
+        <line x1="706.0" y1="112.0" x2="740.0" y2="112.0" stroke="var(--gold)" stroke-width="2" marker-end="url(#m-gold)"/>
+        <text x="720.0" y="100.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">overboard</text>
+        <rect x="320.0" y="240.0" width="60.0" height="30.0" rx="4" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="390.0" y="260.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">quick-disconnect plug</text>
+        <circle cx="470.0" cy="220.0" r="8" fill="var(--hot)" stroke="var(--hot)" stroke-width="1.4"/>
+        <text x="512.0" y="224.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)">temperature sensor (Ni-Cd)</text>
+        <line x1="480.0" y1="220.0" x2="508.0" y2="220.0" stroke="var(--hot)" stroke-width="1"/>
+        <text x="380.0" y="294.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Venting removes hydrogen (explosive) and corrosive fumes.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Containing the hazards.</b> The aircraft battery sits in a box or compartment that is <b>vented</b>: air enters through one tube and leaves overboard through another, carrying away the <b>hydrogen</b> given off during charging (explosive in air) and any acid or alkali fumes. On lead-acid installations the outlet often passes through a <b>sump jar</b> of neutralising agent. A <b>quick-disconnect</b> plug allows fast removal without loose terminals. The battery must be secured against crash loads, and on Ni-Cd installations a <b>temperature sensor</b> warns of thermal runaway.</p>
+  </section>
+
+  <!-- 32 ─ LIGHT-AIRCRAFT DC SYSTEM -->
+  <section class="card">
+    <h2>Light-Aircraft DC System</h2>
+    <div class="meta"><span class="tag">ch08_08</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A complete single-engine DC system with battery, master contactor, alternator, regulator, starter and bus-bar with circuit breakers">
+        <line x1="66.0" y1="169.0" x2="94.0" y2="169.0" stroke="var(--chart-ink)" stroke-width="2.4"/>
+        <line x1="73.0" y1="177.0" x2="87.0" y2="177.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="66.0" y1="183.0" x2="94.0" y2="183.0" stroke="var(--chart-ink)" stroke-width="2.4"/>
+        <line x1="73.0" y1="191.0" x2="87.0" y2="191.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <text x="100.0" y="184.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">BATT</text>
+        <path d="M80.0,166.0 L80.0,90.0 L140.0,90.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M80.0,194.0 L80.0,270.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <line x1="80.0" y1="270.0" x2="80.0" y2="278.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="68.0" y1="278.0" x2="92.0" y2="278.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="72.0" y1="282.0" x2="88.0" y2="282.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="76.0" y1="286.0" x2="84.0" y2="286.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="140.0" y="66.0" width="110.0" height="48.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="195.0" y="86.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">master</text>
+        <text x="195.0" y="100.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">contactor</text>
+        <path d="M250.0,90.0 L300.0,90.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="300.0" y="70.0" width="300.0" height="40.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="450.0" y="95.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">BUS-BAR</text>
+        <path d="M110.0,90.0 L110.0,160.0 L150.0,160.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="150.0" y="140.0" width="100.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="200.0" y="156.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">starter</text>
+        <text x="200.0" y="170.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">contactor</text>
+        <path d="M250.0,160.0 L290.0,160.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="310.0" cy="160.0" r="20" fill="var(--chart-ground-3)" stroke="var(--hot)" stroke-width="2"/>
+        <text x="310.0" y="164.3" font-family="Overpass,sans-serif" font-size="12" fill="var(--hot)" text-anchor="middle" font-weight="700">M</text>
+        <text x="310.0" y="196.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)" text-anchor="middle">starter</text>
+        <circle cx="640.0" cy="210.0" r="30" fill="var(--chart-ground-3)" stroke="var(--green)" stroke-width="2"/>
+        <text x="640.0" y="214.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="middle" font-weight="700">ALT</text>
+        <path d="M640.0,180.0 L640.0,90.0 L600.0,90.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <text x="660.0" y="140.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)">alternator</text>
+        <rect x="500.0" y="250.0" width="120.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="560.0" y="273.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">voltage regulator</text>
+        <path d="M620.0,270.0 L640.0,270.0 L640.0,240.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <rect x="332.0" y="110.0" width="16.0" height="14.0" rx="2" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M340.0,124.0 L340.0,200.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="340.0" cy="214.0" r="10" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="333.0" y1="207.0" x2="347.0" y2="221.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="333.0" y1="221.0" x2="347.0" y2="207.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <rect x="392.0" y="110.0" width="16.0" height="14.0" rx="2" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M400.0,124.0 L400.0,200.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="400.0" cy="214.0" r="10" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="393.0" y1="207.0" x2="407.0" y2="221.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="393.0" y1="221.0" x2="407.0" y2="207.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <rect x="452.0" y="110.0" width="16.0" height="14.0" rx="2" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M460.0,124.0 L460.0,200.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="460.0" cy="214.0" r="10" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="453.0" y1="207.0" x2="467.0" y2="221.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="453.0" y1="221.0" x2="467.0" y2="207.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <rect x="512.0" y="110.0" width="16.0" height="14.0" rx="2" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M520.0,124.0 L520.0,200.0" stroke="var(--chart-ink)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <circle cx="520.0" cy="214.0" r="10" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="513.0" y1="207.0" x2="527.0" y2="221.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="513.0" y1="221.0" x2="527.0" y2="207.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="430.0" y="250.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">loads via circuit breakers</text>
+        <circle cx="275.0" cy="90.0" r="12" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="275.0" y="94.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">A</text>
+        <text x="275.0" y="60.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">ammeter</text>
+        <text x="380.0" y="324.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Master switch → battery contactor; key → starter contactor; alternator field via the regulator.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Putting it together.</b> The <b>battery</b> is connected to the bus through the <b>battery master contactor</b>, a solenoid operated by the master switch. The <b>starter</b> is fed straight from the battery side through its own heavy contactor, operated by the ignition key. The <b>alternator</b> charges the bus through its output circuit breaker; its field is supplied, via the alternator side of the master switch, through the <b>voltage regulator</b>, with an <b>over-voltage relay</b> to trip the field if the regulator fails. Loads are fed from the bus through <b>circuit breakers</b>, and the <b>ammeter</b> shows battery charge/discharge.</p>
+  </section>
+
+  <!-- 33 ─ SINGLE-ALTERNATOR SYSTEM — SPLIT MASTER SWITCH -->
+  <section class="card">
+    <h2>Single-Alternator System — Split Master Switch</h2>
+    <div class="meta"><span class="tag">ch08_09</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="The split master switch with BAT and ALT halves, the alternator field fed through the ALT side and the regulator, and an over-voltage protector">
+        <rect x="60.0" y="80.0" width="140.0" height="120.0" rx="8" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="70.0" y="90.0" width="56.0" height="100.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--hot)" stroke-width="1.4"/>
+        <rect x="134.0" y="90.0" width="56.0" height="100.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--green)" stroke-width="1.4"/>
+        <text x="98.0" y="146.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--hot)" text-anchor="middle" font-weight="700">BAT</text>
+        <text x="162.0" y="146.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--green)" text-anchor="middle" font-weight="700">ALT</text>
+        <text x="130.0" y="222.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">split master switch</text>
+        <rect x="270.0" y="60.0" width="140.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="340.0" y="85.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">battery contactor</text>
+        <line x1="126.0" y1="110.0" x2="270.0" y2="82.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <rect x="270.0" y="150.0" width="140.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="340.0" y="168.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">over-voltage</text>
+        <text x="340.0" y="182.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">protector</text>
+        <line x1="190.0" y1="160.0" x2="270.0" y2="170.0" stroke="var(--green)" stroke-width="1.6" marker-end="url(#m-green)"/>
+        <rect x="450.0" y="150.0" width="120.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="510.0" y="168.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">voltage</text>
+        <text x="510.0" y="182.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">regulator</text>
+        <line x1="410.0" y1="172.0" x2="450.0" y2="172.0" stroke="var(--green)" stroke-width="1.6" marker-end="url(#m-green)"/>
+        <circle cx="650.0" cy="172.0" r="32" fill="var(--chart-ground-3)" stroke="var(--green)" stroke-width="2"/>
+        <text x="650.0" y="176.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="middle" font-weight="700">ALT</text>
+        <line x1="570.0" y1="172.0" x2="618.0" y2="172.0" stroke="var(--green)" stroke-width="1.6" marker-end="url(#m-green)"/>
+        <text x="650.0" y="220.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" text-anchor="middle">field</text>
+        <text x="380.0" y="262.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ALT can be switched off alone; it cannot be on without BAT (the field needs battery power).</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Why the master switch is split.</b> On most light aircraft the master is a <b>split rocker</b>: the <b>BAT</b> half operates the battery contactor; the <b>ALT</b> half supplies the alternator <b>field</b> through the voltage regulator. ALT can be switched off on its own — to isolate a faulty alternator or a runaway over-voltage — but it cannot be switched on without BAT, because an alternator needs battery power to excite its field. An <b>over-voltage protector</b> opens the field circuit automatically if the bus voltage rises too high, and a low-voltage light warns the pilot.</p>
+  </section>
+
+  <footer>
+    Electrics — Generation, Motors & Distribution: 33 original figures.
+  </footer>
+</div>
+</body></html>
