@@ -1,6 +1,8 @@
 import "./globals.css";
 import ContentShield from "./components/ContentShield";
-import { Overpass, Overpass_Mono, Spectral } from "next/font/google";
+import { Overpass, Overpass_Mono, Spectral, Barlow_Condensed } from "next/font/google";
+
+const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-barlow", display: "swap" });
 
 const overpass = Overpass({
   subsets: ["latin"],
@@ -33,7 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${overpass.variable} ${overpassMono.variable} ${spectral.variable}`}>
+    <html lang="en" className={`${overpass.variable} ${overpassMono.variable} ${spectral.variable} ${barlow.variable}`} suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("night")==="1")document.documentElement.classList.add("night")}catch(e){}` }} /></head>
       <body className="bg-chart-ground text-chart-ink">
         {children}
         <ContentShield />

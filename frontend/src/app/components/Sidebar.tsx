@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { COURSES, type CourseId } from "@/app/lib/course";
 import { useCourse } from "@/app/hooks/useCourse";
 import { ownsCourse } from "@/app/lib/entitlement";
@@ -131,6 +131,7 @@ export function Sidebar({
         })}
       </nav>
       {children}
+      <NightToggle />
       <div className="p-4 border-t border-chart-line">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full border border-gold/40 bg-gold/15 flex items-center justify-center text-gold text-sm font-semibold font-display">
@@ -152,5 +153,23 @@ export function Sidebar({
       </div>
     </aside>
     </>
+  );
+}
+
+// Night mode: dim, warm lighting for low-light study (persisted per browser).
+function NightToggle() {
+  const [on, setOn] = useState(false);
+  useEffect(() => { setOn(document.documentElement.classList.contains("night")); }, []);
+  const flip = () => {
+    const v = !on; setOn(v);
+    document.documentElement.classList.toggle("night", v);
+    try { localStorage.setItem("night", v ? "1" : "0"); } catch {}
+  };
+  return (
+    <button onClick={flip} aria-pressed={on} className="mx-4 mb-3 flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-chart-ink-dim hover:text-chart-ink hover:bg-chart-ground-2 border border-chart-line transition-colors">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
+      Night mode
+      <span className={`ml-auto w-8 h-4 rounded-full relative transition-colors ${on ? "bg-gold" : "bg-chart-line-2"}`}><span className={`absolute top-0.5 w-3 h-3 rounded-full bg-chart-ground transition-all ${on ? "left-[18px]" : "left-0.5"}`} /></span>
+    </button>
   );
 }
