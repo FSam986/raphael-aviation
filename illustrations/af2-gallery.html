@@ -1,0 +1,1113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Airframes Gallery 2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>Airframes — Hydraulic Components, Landing Gear, Wheels & Tyres</h1>
+    <p class="lede">Original figures for hydraulic components, landing gear, wheels, tyres and brakes.</p>
+    <div class="prog"><span class="pct">32 / 32 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ DOUBLE-ACTING HAND PUMP -->
+  <section class="card">
+    <h2>Double-Acting Hand Pump</h2>
+    <div class="meta"><span class="tag">ch02_fig_10</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Hand pump with handle, piston containing a transfer valve, inlet and outlet non-return valves and a relief valve">
+        <rect x="300.0" y="90.0" width="120.0" height="200.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <rect x="306.0" y="96.0" width="108.0" height="188.0" rx="2" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.85"/>
+        <rect x="306.0" y="170.0" width="108.0" height="26.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="360.0" cy="183.0" r="6" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="354.0" y="40.0" width="12.0" height="130.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <line x1="360.0" y1="40.0" x2="560.0" y2="10.0" stroke="var(--chart-ink)" stroke-width="6"/>
+        <circle cx="360.0" cy="40.0" r="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="560.0" y="34.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Handle</text>
+        <path d="M360.0,290.0 L360.0,340.0" stroke="var(--hot)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <path d="M352,306 L360,294 L368,306 Z" stroke="var(--chart-ink)" stroke-width="1.4" fill="var(--gold)"/>
+        <text x="372.0" y="330.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Inlet NRV</text>
+        <text x="380.0" y="352.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">from reservoir</text>
+        <path d="M300.0,120.0 L150.0,120.0" stroke="var(--hot)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <path d="M226,112 L214,120 L226,128 Z" stroke="var(--chart-ink)" stroke-width="1.4" fill="var(--gold)"/>
+        <text x="220.0" y="106.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Outlet NRV</text>
+        <text x="140.0" y="124.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="end" font-weight="700">OUTLET</text>
+        <path d="M180.0,120.0 L180.0,250.0" stroke="var(--gold)" stroke-width="2" fill="none" stroke-dasharray="4 3" stroke-linejoin="round"/>
+        <rect x="165.0" y="251.0" width="30.0" height="22.0" rx="3" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="159.0" y="266.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Relief valve</text>
+        <text x="430.0" y="186.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Transfer valve (in piston)</text>
+        <text x="430.0" y="210.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Piston</text>
+      </svg>
+    </div>
+    <p class="cap">On each stroke of the handle the pump delivers fluid. Pulling the piston up draws fluid in through the inlet NRV below while fluid above is pushed out; pushing down, the transfer valve in the piston opens and fluid passes to the upper side, the rod displacement delivering more. Used for ground servicing and emergency.</p>
+  </section>
+
+  <!-- 2 ─ GEAR-TYPE HYDRAULIC PUMP -->
+  <section class="card">
+    <h2>Gear-Type Hydraulic Pump</h2>
+    <div class="meta"><span class="tag">ch02_fig_11</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Two meshing gears in a close-fitting housing carrying fluid round the outside from the inlet to the outlet">
+        <rect x="250.0" y="60.0" width="260.0" height="200.0" rx="90" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <path d="M399.9,155.4 L399.9,164.6 L388.8,171.7 L386.8,179.3 L392.8,191.0 L388.2,198.9 L375.1,199.6 L369.6,205.1 L368.9,218.2 L361.0,222.8 L349.3,216.8 L341.7,218.8 L334.6,229.9 L325.4,229.9 L318.3,218.8 L310.7,216.8 L299.0,222.8 L291.1,218.2 L290.4,205.1 L284.9,199.6 L271.8,198.9 L267.2,191.0 L273.2,179.3 L271.2,171.7 L260.1,164.6 L260.1,155.4 L271.2,148.3 L273.2,140.7 L267.2,129.0 L271.8,121.1 L284.9,120.4 L290.4,114.9 L291.1,101.8 L299.0,97.2 L310.7,103.2 L318.3,101.2 L325.4,90.1 L334.6,90.1 L341.7,101.2 L349.3,103.2 L361.0,97.2 L368.9,101.8 L369.6,114.9 L375.1,120.4 L388.2,121.1 L392.8,129.0 L386.8,140.7 L388.8,148.3 Z" stroke="var(--chart-ink)" stroke-width="1.4" fill="#a9bac1"/>
+        <circle cx="330.0" cy="160.0" r="8" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <path d="M509.9,155.4 L509.9,164.6 L498.8,171.7 L496.8,179.3 L502.8,191.0 L498.2,198.9 L485.1,199.6 L479.6,205.1 L478.9,218.2 L471.0,222.8 L459.3,216.8 L451.7,218.8 L444.6,229.9 L435.4,229.9 L428.3,218.8 L420.7,216.8 L409.0,222.8 L401.1,218.2 L400.4,205.1 L394.9,199.6 L381.8,198.9 L377.2,191.0 L383.2,179.3 L381.2,171.7 L370.1,164.6 L370.1,155.4 L381.2,148.3 L383.2,140.7 L377.2,129.0 L381.8,121.1 L394.9,120.4 L400.4,114.9 L401.1,101.8 L409.0,97.2 L420.7,103.2 L428.3,101.2 L435.4,90.1 L444.6,90.1 L451.7,101.2 L459.3,103.2 L471.0,97.2 L478.9,101.8 L479.6,114.9 L485.1,120.4 L498.2,121.1 L502.8,129.0 L496.8,140.7 L498.8,148.3 Z" stroke="var(--chart-ink)" stroke-width="1.4" fill="var(--steel)"/>
+        <circle cx="440.0" cy="160.0" r="8" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <line x1="130.0" y1="160.0" x2="250.0" y2="160.0" stroke="var(--cool)" stroke-width="6" marker-end="url(#m-cool)"/>
+        <line x1="510.0" y1="160.0" x2="640.0" y2="160.0" stroke="var(--hot)" stroke-width="6" marker-end="url(#m-hot)"/>
+        <text x="140.0" y="146.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" font-weight="700">INLET</text>
+        <text x="630.0" y="146.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="end" font-weight="700">OUTLET</text>
+        <path d="M330,82 A78,78 0 0 0 262,180" stroke="var(--gold)" stroke-width="2" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M440,238 A78,78 0 0 0 508,140" stroke="var(--gold)" stroke-width="2" fill="none" marker-end="url(#m-gold)"/>
+        <text x="380.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">fluid carried round the outside, between teeth and casing</text>
+      </svg>
+    </div>
+    <p class="cap">Fluid is trapped between the gear teeth and the housing and carried round the outside from inlet to outlet; the meshing teeth stop it returning through the middle. Delivery is proportional to speed (a constant-delivery pump), so the system needs a cut-out or relief valve.</p>
+  </section>
+
+  <!-- 3 ─ CONSTANT PRESSURE PUMP AT MAXIMUM STROKE -->
+  <section class="card">
+    <h2>Constant Pressure Pump at Maximum Stroke</h2>
+    <div class="meta"><span class="tag">ch02_fig_13</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Swash-plate pump with the yoke at a large angle giving maximum piston stroke">
+        <rect x="360.0" y="100.0" width="200.0" height="140.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <text x="460.0" y="260.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Cylinder block (rotating)</text>
+        <rect x="311.3" y="113.0" width="148.7" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="292.9" y="143.0" width="167.1" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="305.1" y="183.0" width="154.9" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="327.6" y="213.0" width="132.4" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <line x1="208.4" y1="72.9" x2="311.6" y2="267.1" stroke="var(--hot)" stroke-width="10"/>
+        <text x="150.0" y="320.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Yoke / swash plate</text>
+        <line x1="560.0" y1="170.0" x2="660.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="6"/>
+        <text x="668.0" y="174.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Drive shaft</text>
+        <line x1="640.0" y1="120.0" x2="562.0" y2="120.0" stroke="var(--gold)" stroke-width="3" marker-end="url(#m-gold)"/>
+        <text x="648.0" y="124.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Inlet</text>
+        <line x1="562.0" y1="220.0" x2="640.0" y2="220.0" stroke="var(--hot)" stroke-width="3" marker-end="url(#m-hot)"/>
+        <text x="648.0" y="224.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Outlet</text>
+        <rect x="140.0" y="40.0" width="120.0" height="40.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <rect x="150.0" y="46.0" width="50.0" height="28.0" rx="2" fill="#d94fa0" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="200.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="#d94fa0" text-anchor="middle" font-weight="700">Control piston</text>
+        <line x1="200.0" y1="80.0" x2="241.2" y2="84.7" stroke="#d94fa0" stroke-width="2"/>
+        <text x="380.0" y="345.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">Low system pressure: yoke at maximum angle, full stroke, maximum delivery</text>
+      </svg>
+    </div>
+    <p class="cap">When system pressure is low, the control piston lets the spring hold the yoke at its maximum angle: the pistons move through their full stroke and the pump delivers maximum flow.</p>
+  </section>
+
+  <!-- 4 ─ CONSTANT PRESSURE PUMP AT MINIMUM STROKE -->
+  <section class="card">
+    <h2>Constant Pressure Pump at Minimum Stroke</h2>
+    <div class="meta"><span class="tag">ch02_fig_14</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Swash-plate pump with the yoke nearly upright giving almost no piston stroke">
+        <rect x="360.0" y="100.0" width="200.0" height="140.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <text x="460.0" y="260.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Cylinder block (rotating)</text>
+        <rect x="328.0" y="113.0" width="132.0" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="326.0" y="143.0" width="134.0" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="327.3" y="183.0" width="132.7" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="329.7" y="213.0" width="130.3" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <line x1="254.2" y1="60.2" x2="265.8" y2="279.8" stroke="var(--hot)" stroke-width="10"/>
+        <text x="150.0" y="320.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Yoke / swash plate</text>
+        <line x1="560.0" y1="170.0" x2="660.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="6"/>
+        <text x="668.0" y="174.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Drive shaft</text>
+        <line x1="640.0" y1="120.0" x2="562.0" y2="120.0" stroke="var(--gold)" stroke-width="3" marker-end="url(#m-gold)"/>
+        <text x="648.0" y="124.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Inlet</text>
+        <line x1="562.0" y1="220.0" x2="640.0" y2="220.0" stroke="var(--hot)" stroke-width="3" marker-end="url(#m-hot)"/>
+        <text x="648.0" y="224.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Outlet</text>
+        <rect x="140.0" y="40.0" width="120.0" height="40.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <rect x="150.0" y="46.0" width="50.0" height="28.0" rx="2" fill="#d94fa0" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="200.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="#d94fa0" text-anchor="middle" font-weight="700">Control piston</text>
+        <line x1="200.0" y1="80.0" x2="257.9" y2="80.1" stroke="#d94fa0" stroke-width="2"/>
+        <text x="380.0" y="345.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">System pressure reached: yoke almost upright, minimum stroke (just enough for leakage and cooling)</text>
+      </svg>
+    </div>
+    <p class="cap">As system pressure reaches its maximum, pressure on the control piston moves the yoke towards upright, reducing the stroke until the pump delivers only enough to make up leakage and keep itself lubricated and cool.</p>
+  </section>
+
+  <!-- 5 ─ AUTOMATIC CUT-OUT VALVE (ACOV) -->
+  <section class="card">
+    <h2>Automatic Cut-Out Valve (ACOV)</h2>
+    <div class="meta"><span class="tag">ch02_fig_15</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Cut-out valve with a piston sensing system pressure that opens a poppet valve to return pump flow to the reservoir, while a non-return valve holds system pressure">
+        <rect x="220.0" y="80.0" width="260.0" height="180.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <rect x="230.0" y="100.0" width="240.0" height="40.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="230.0" y="150.0" width="240.0" height="40.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0" opacity="0.8"/>
+        <rect x="230.0" y="200.0" width="240.0" height="24.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="340.0" y="90.0" width="20.0" height="140.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <path d="M80.0,300.0 L560.0,300.0" stroke="var(--hot)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <path d="M394,292 L406,300 L394,308 Z" stroke="var(--chart-ink)" stroke-width="1.4" fill="var(--gold)"/>
+        <text x="400.0" y="326.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">NRV</text>
+        <path d="M160.0,300.0 L160.0,120.0 L230.0,120.0" stroke="var(--hot)" stroke-width="3" fill="none" stroke-linejoin="round"/>
+        <path d="M470.0,120.0 L640.0,120.0" stroke="var(--cool)" stroke-width="3" fill="none" stroke-linejoin="round"/>
+        <path d="M520.0,300.0 L520.0,212.0 L480.0,212.0" stroke="var(--hot)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <text x="80.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">from pump</text>
+        <text x="560.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">to system</text>
+        <text x="650.0" y="124.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">to reservoir</text>
+        <text x="500.0" y="70.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Poppet valve</text>
+        <line x1="496.0" y1="74.0" x2="360.0" y2="110.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="560.0" y="232.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Piston (system P)</text>
+        <line x1="556.0" y1="228.0" x2="470.0" y2="212.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="160.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">idling flow when cut out</text>
+      </svg>
+    </div>
+    <p class="cap">With a constant-delivery pump, when system pressure reaches the cut-out value the piston lifts the poppet valve and pump output flows back to the reservoir at low pressure (the pump idles). The NRV keeps the system and accumulator charged. When pressure falls to the cut-in value, the poppet closes and the pump charges the system again.</p>
+  </section>
+
+  <!-- 6 ─ HYDRAULIC ACCUMULATORS -->
+  <section class="card">
+    <h2>Hydraulic Accumulators</h2>
+    <div class="meta"><span class="tag">ch02_fig_16</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Piston-type accumulator with gas above a floating piston and liquid below, and a spherical accumulator with a flexible diaphragm, each with a charging point and gauge">
+        <rect x="150.0" y="80.0" width="100.0" height="220.0" rx="30" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="152.0" y="82.0" width="96.0" height="120.0" rx="28" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.6"/>
+        <rect x="152.0" y="214.0" width="96.0" height="84.0" rx="20" fill="var(--gold)" stroke="none" stroke-width="0" opacity="0.8"/>
+        <rect x="152.0" y="200.0" width="96.0" height="14.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="200.0" y="140.0" font-family="Overpass,sans-serif" font-size="11" fill="#0b0f11" text-anchor="middle" font-weight="700">GAS</text>
+        <text x="200.0" y="260.0" font-family="Overpass,sans-serif" font-size="11" fill="#0b0f11" text-anchor="middle" font-weight="700">LIQUID</text>
+        <text x="200.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Floating piston type</text>
+        <line x1="200.0" y1="80.0" x2="200.0" y2="50.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <circle cx="200.0" cy="36.0" r="14" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="200.0" y1="36.0" x2="205.0" y2="26.2" stroke="var(--gold)" stroke-width="1.8"/>
+        <circle cx="520.0" cy="190.0" r="100" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <path d="M420,190 Q520,240 620,190 A100,100 0 0 1 420,190 Z" stroke="none" stroke-width="0" fill="var(--gold)" opacity="0.8"/>
+        <path d="M420,190 A100,100 0 0 1 620,190 Q520,240 420,190 Z" stroke="none" stroke-width="0" fill="var(--cool)" opacity="0.6"/>
+        <path d="M424,192 Q520,240 616,192" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <text x="520.0" y="160.0" font-family="Overpass,sans-serif" font-size="11" fill="#0b0f11" text-anchor="middle" font-weight="700">GAS</text>
+        <text x="520.0" y="256.0" font-family="Overpass,sans-serif" font-size="11" fill="#0b0f11" text-anchor="middle" font-weight="700">LIQUID</text>
+        <text x="520.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Spherical, flexible diaphragm</text>
+        <line x1="520.0" y1="90.0" x2="520.0" y2="50.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <circle cx="520.0" cy="36.0" r="14" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="520.0" y1="36.0" x2="525.0" y2="26.2" stroke="var(--gold)" stroke-width="1.8"/>
+        <text x="360.0" y="40.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">gas charging point + gauge</text>
+      </svg>
+    </div>
+    <p class="cap">An accumulator stores fluid under pressure using a compressed gas (nitrogen) charge separated from the fluid by a floating piston or flexible diaphragm. It damps pressure surges, supplies peak demands, provides emergency pressure and allows for thermal expansion. The gas pre-charge is checked with the system depressurised.</p>
+  </section>
+
+  <!-- 7 ─ HYDRAULIC ACTUATORS -->
+  <section class="card">
+    <h2>Hydraulic Actuators</h2>
+    <div class="meta"><span class="tag">ch02_fig_17</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Single-acting actuator with spring return, balanced actuator with rod both sides, and double-acting unbalanced actuator">
+        <rect x="100.0" y="70.0" width="80.0" height="180.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="102.0" y="72.0" width="76.0" height="78.0" rx="0" fill="var(--steel)" stroke="none" stroke-width="0"/>
+        <path d="M110,80 L170,86" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M110,92 L170,98" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M110,104 L170,110" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M110,116 L170,122" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M110,128 L170,134" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M110,140 L170,146" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <rect x="102.0" y="160.0" width="76.0" height="88.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="102.0" y="150.0" width="76.0" height="10.0" rx="1" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="135.0" y="160.0" width="10.0" height="140.0" rx="1" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="140.0" y="320.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">SINGLE ACTING</text>
+        <rect x="340.0" y="70.0" width="80.0" height="180.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="342.0" y="72.0" width="76.0" height="78.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.9"/>
+        <rect x="342.0" y="160.0" width="76.0" height="88.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.9"/>
+        <rect x="342.0" y="150.0" width="76.0" height="10.0" rx="1" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="375.0" y="160.0" width="10.0" height="140.0" rx="1" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="375.0" y="20.0" width="10.0" height="130.0" rx="1" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="380.0" y="320.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">BALANCED</text>
+        <rect x="580.0" y="70.0" width="80.0" height="180.0" rx="2" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="582.0" y="72.0" width="76.0" height="78.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.9"/>
+        <rect x="582.0" y="160.0" width="76.0" height="88.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0" opacity="0.9"/>
+        <rect x="582.0" y="150.0" width="76.0" height="10.0" rx="1" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="615.0" y="160.0" width="10.0" height="140.0" rx="1" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="620.0" y="320.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">DOUBLE ACTING</text>
+        <text x="200.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">spring</text>
+        <text x="200.0" y="200.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">pressure</text>
+        <text x="680.0" y="200.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">smaller</text>
+        <text x="680.0" y="214.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">area side</text>
+      </svg>
+    </div>
+    <p class="cap">Single-acting: pressure moves the piston one way, a spring returns it. Balanced (double-ended rod): equal areas, so equal force and speed both ways. Double-acting unbalanced: pressure either side; the rod reduces the area on one side, so it is stronger extending than retracting.</p>
+  </section>
+
+  <!-- 8 ─ PRESSURE MAINTAINING VALVE -->
+  <section class="card">
+    <h2>Pressure Maintaining Valve</h2>
+    <div class="meta"><span class="tag">ch02_fig_18</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Valve feeding primary services directly and opening to secondary services only when pressure exceeds its spring setting">
+        <rect x="280.0" y="60.0" width="140.0" height="200.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <rect x="330.0" y="70.0" width="40.0" height="60.0" rx="0" fill="none" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M332,72 L368,78" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M332,82 L368,88" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M332,92 L368,98" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M332,102 L368,108" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M332,112 L368,118" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M332,122 L368,128" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <rect x="320.0" y="130.0" width="60.0" height="30.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <path d="M120.0,210.0 L280.0,210.0" stroke="var(--hot)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <path d="M420.0,210.0 L600.0,210.0" stroke="var(--hot)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <path d="M420.0,150.0 L600.0,150.0" stroke="var(--gold)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <text x="110.0" y="214.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Pressure inlet</text>
+        <text x="610.0" y="214.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Primary services (always)</text>
+        <text x="610.0" y="154.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Secondary services</text>
+        <text x="610.0" y="170.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">(only above set pressure)</text>
+      </svg>
+    </div>
+    <p class="cap">If pump output falls (e.g. one pump failed), the pressure maintaining valve closes the supply to secondary services so that the primary services (e.g. flying controls, brakes) keep sufficient pressure.</p>
+  </section>
+
+  <!-- 9 ─ PRESSURE REDUCING VALVE -->
+  <section class="card">
+    <h2>Pressure Reducing Valve</h2>
+    <div class="meta"><span class="tag">ch02_fig_19</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Spring-loaded valve supplying a sub-system at a reduced pressure, with inlet, outlet and return ports">
+        <rect x="280.0" y="50.0" width="120.0" height="230.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <rect x="320.0" y="60.0" width="40.0" height="60.0" rx="0" fill="none" stroke="var(--chart-ink)" stroke-width="1"/>
+        <path d="M322,62 L358,68" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M322,72 L358,78" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M322,82 L358,88" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M322,92 L358,98" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M322,102 L358,108" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M322,112 L358,118" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <rect x="320.0" y="120.0" width="40.0" height="120.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <path d="M400.0,150.0 L560.0,150.0" stroke="var(--cool)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <text x="570.0" y="154.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">Return</text>
+        <path d="M400.0,190.0 L560.0,190.0" stroke="var(--hot)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <text x="570.0" y="194.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Inlet (system pressure)</text>
+        <path d="M400.0,240.0 L560.0,240.0" stroke="var(--gold)" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <text x="570.0" y="244.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Low-pressure sub-system</text>
+        <text x="250.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">spring sets</text>
+        <text x="250.0" y="174.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">the reduced pressure</text>
+      </svg>
+    </div>
+    <p class="cap">A pressure reducing valve supplies a sub-system (e.g. wheel brakes) at a lower pressure than the main system. The valve throttles the inlet as outlet pressure approaches the spring setting, and vents to return if it is exceeded.</p>
+  </section>
+
+  <!-- 10 ─ A SIMPLE NON-RETURN VALVE -->
+  <section class="card">
+    <h2>A Simple Non-Return Valve</h2>
+    <div class="meta"><span class="tag">ch02_fig_20</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Ball-type non-return valve with a spring holding the ball on its seat, inlet and outlet ports">
+        <rect x="80.0" y="110.0" width="600.0" height="100.0" rx="10" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="90.0" y="130.0" width="580.0" height="60.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.9"/>
+        <rect x="280.0" y="120.0" width="180.0" height="80.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <path d="M300,126 L308,194" stroke="var(--cool)" stroke-width="2.4" fill="none"/>
+        <path d="M318,126 L326,194" stroke="var(--cool)" stroke-width="2.4" fill="none"/>
+        <path d="M336,126 L344,194" stroke="var(--cool)" stroke-width="2.4" fill="none"/>
+        <path d="M354,126 L362,194" stroke="var(--cool)" stroke-width="2.4" fill="none"/>
+        <path d="M372,126 L380,194" stroke="var(--cool)" stroke-width="2.4" fill="none"/>
+        <path d="M390,126 L398,194" stroke="var(--cool)" stroke-width="2.4" fill="none"/>
+        <rect x="410.0" y="140.0" width="20.0" height="40.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <circle cx="470.0" cy="160.0" r="30" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="500.0" y="130.0" width="170.0" height="60.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0" opacity="0.85"/>
+        <text x="120.0" y="250.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">OUTLET PORT</text>
+        <text x="640.0" y="250.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="end" font-weight="700">INLET PORT</text>
+        <line x1="680.0" y1="90.0" x2="560.0" y2="90.0" stroke="var(--gold)" stroke-width="2.4" marker-end="url(#m-gold)"/>
+        <text x="700.0" y="76.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="end" font-weight="700">flow from inlet lifts ball against spring</text>
+        <text x="380.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">reverse flow seats the ball: no flow back</text>
+      </svg>
+    </div>
+    <p class="cap">A non-return (check) valve allows flow in one direction only. Inlet pressure lifts the ball off its seat against a light spring; flow in the reverse direction pushes the ball onto the seat and stops it.</p>
+  </section>
+
+  <!-- 11 ─ ONE-WAY RESTRICTOR VALVE -->
+  <section class="card">
+    <h2>One-Way Restrictor Valve</h2>
+    <div class="meta"><span class="tag">ch02_fig_21</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Restrictor valve allowing full flow in one direction through a plate with many holes, and restricted flow in the other through a single small orifice">
+        <rect x="160.0" y="60.0" width="480.0" height="80.0" rx="10" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="170.0" y="74.0" width="460.0" height="52.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.9"/>
+        <rect x="320.0" y="74.0" width="26.0" height="52.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="346.0" y="74.0" width="0.0" height="0.0" rx="6" fill="var(--chart-ground-2)" stroke="none" stroke-width="0"/>
+        <line x1="220.0" y1="100.0" x2="250.0" y2="100.0" stroke="var(--chart-ink)" stroke-width="2.4" marker-end="url(#m-ink)"/>
+        <line x1="270.0" y1="100.0" x2="300.0" y2="100.0" stroke="var(--chart-ink)" stroke-width="2.4" marker-end="url(#m-ink)"/>
+        <line x1="320.0" y1="100.0" x2="350.0" y2="100.0" stroke="var(--chart-ink)" stroke-width="2.4" marker-end="url(#m-ink)"/>
+        <text x="500.0" y="104.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">FULL FLOW</text>
+        <circle cx="80.0" cy="100.0" r="34" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <circle cx="80.0" cy="80.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="97.3" cy="90.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="97.3" cy="110.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="80.0" cy="120.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="62.7" cy="110.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="62.7" cy="90.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="80.0" cy="100.0" r="5" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="160.0" y="190.0" width="480.0" height="80.0" rx="10" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="170.0" y="204.0" width="460.0" height="52.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.9"/>
+        <rect x="320.0" y="204.0" width="26.0" height="52.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="300.0" y1="230.0" x2="270.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="2.4" marker-end="url(#m-ink)"/>
+        <line x1="250.0" y1="230.0" x2="220.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="2.4" marker-end="url(#m-ink)"/>
+        <line x1="200.0" y1="230.0" x2="170.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="2.4" marker-end="url(#m-ink)"/>
+        <text x="500.0" y="234.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">RESTRICTED FLOW</text>
+        <circle cx="80.0" cy="230.0" r="34" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <circle cx="80.0" cy="210.0" r="0.1" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="97.3" cy="220.0" r="0.1" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="97.3" cy="240.0" r="0.1" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="80.0" cy="250.0" r="0.1" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="62.7" cy="240.0" r="0.1" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="62.7" cy="220.0" r="0.1" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="80.0" cy="230.0" r="5" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="154.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">plate: many holes</text>
+        <text x="80.0" y="284.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">plate: one small hole</text>
+      </svg>
+    </div>
+    <p class="cap">A one-way restrictor allows free flow one way and slows the flow the other way, e.g. to slow the extension of the landing gear or flaps under gravity and air loads.</p>
+  </section>
+
+  <!-- 12 ─ TYPICAL FOUR-PORT ROTARY SELECTOR -->
+  <section class="card">
+    <h2>Typical Four-Port Rotary Selector</h2>
+    <div class="meta"><span class="tag">ch02_fig_22</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Rotary selector valve with pressure, return and two actuator ports connected through passages in a rotating plug">
+        <circle cx="400.0" cy="160.0" r="70" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <path d="M400,92 Q400,160 332,160" stroke="var(--hot)" stroke-width="14" fill="none"/>
+        <path d="M400,228 Q400,160 468,160" stroke="var(--cool)" stroke-width="14" fill="none"/>
+        <path d="M400.0,70.0 L400.0,90.0" stroke="var(--hot)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <text x="400.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">Pressure</text>
+        <path d="M400.0,250.0 L400.0,230.0" stroke="var(--cool)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <text x="400.0" y="268.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="middle" font-weight="700">Return</text>
+        <path d="M330.0,160.0 L200.0,160.0" stroke="var(--hot)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <path d="M470.0,160.0 L600.0,160.0" stroke="var(--cool)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <text x="200.0" y="146.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">to actuator (extend)</text>
+        <text x="600.0" y="146.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="end" font-weight="700">from actuator</text>
+        <text x="400.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">rotating the plug 90° reverses the connections</text>
+      </svg>
+    </div>
+    <p class="cap">A four-port selector connects pressure to one side of the actuator and return to the other. Turning the selector reverses the connections; in the neutral position all ports may be blocked (hydraulic lock).</p>
+  </section>
+
+  <!-- 13 ─ LINEAR (SPOOL) SELECTOR VALVE -->
+  <section class="card">
+    <h2>Linear (Spool) Selector Valve</h2>
+    <div class="meta"><span class="tag">ch02_fig_23</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Spool selector valve with lands controlling pressure and return ports to two actuator lines">
+        <rect x="120.0" y="120.0" width="520.0" height="80.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="130.0" y="140.0" width="500.0" height="40.0" rx="0" fill="var(--chart-ground)" stroke="none" stroke-width="0"/>
+        <rect x="218.0" y="136.0" width="44.0" height="48.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="378.0" y="136.0" width="44.0" height="48.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="498.0" y="136.0" width="44.0" height="48.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="130.0" y1="160.0" x2="640.0" y2="160.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <path d="M320.0,40.0 L320.0,120.0" stroke="var(--hot)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <text x="320.0" y="32.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">Pressure</text>
+        <path d="M470.0,40.0 L470.0,120.0" stroke="var(--cool)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <text x="470.0" y="32.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="middle" font-weight="700">Return</text>
+        <path d="M240.0,200.0 L240.0,280.0" stroke="var(--chart-ink-dim)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <text x="240.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">to actuator A</text>
+        <path d="M400.0,200.0 L400.0,280.0" stroke="var(--chart-ink-dim)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <text x="400.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">to actuator B</text>
+        <text x="660.0" y="156.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Pilot / mechanical</text>
+        <text x="660.0" y="170.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">input</text>
+        <text x="560.0" y="300.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Neutral: lands block both</text>
+        <text x="560.0" y="314.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">lines = hydraulic lock</text>
+      </svg>
+    </div>
+    <p class="cap">Moving the spool connects pressure to one actuator line and return to the other. In neutral the lands block both actuator lines, trapping the fluid (hydraulic lock) so the actuator holds its position.</p>
+  </section>
+
+  <!-- 14 ─ SHUTTLE VALVE -->
+  <section class="card">
+    <h2>Shuttle Valve</h2>
+    <div class="meta"><span class="tag">ch02_fig_24</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Shuttle valve with normal and alternate supply ports either end and a service port, the shuttle held against the alternate port">
+        <rect x="140.0" y="120.0" width="480.0" height="100.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="150.0" y="130.0" width="460.0" height="80.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.85"/>
+        <rect x="160.0" y="128.0" width="60.0" height="84.0" rx="4" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <path d="M40.0,170.0 L140.0,170.0" stroke="var(--gold)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <path d="M720.0,170.0 L620.0,170.0" stroke="var(--hot)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <path d="M380.0,120.0 L380.0,30.0" stroke="var(--hot)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+        <text x="40.0" y="156.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Alternate supply</text>
+        <text x="720.0" y="156.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="end" font-weight="700">Normal supply</text>
+        <text x="392.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Service</text>
+        <text x="190.0" y="250.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Shuttle</text>
+        <text x="380.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">normal pressure holds the shuttle over the alternate port</text>
+      </svg>
+    </div>
+    <p class="cap">A shuttle valve lets a service be supplied from either the normal or the alternate (emergency) system. Whichever supply has the higher pressure pushes the shuttle across and closes the other port, keeping the two systems separate.</p>
+  </section>
+
+  <!-- 15 ─ HYDRAULIC SYSTEM CONTROL PANEL -->
+  <section class="card">
+    <h2>Hydraulic System Control Panel</h2>
+    <div class="meta"><span class="tag">ch02_fig_26</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 390" role="img" aria-label="Overhead panel for three hydraulic systems with engine pump and electric pump switches, fault lights, PTU and RAT controls">
+        <rect x="40.0" y="30.0" width="680.0" height="340.0" rx="10" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="160.0" y="60.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--green)" text-anchor="middle" font-weight="700">GREEN</text>
+        <rect x="120.0" y="90.0" width="80.0" height="70.0" rx="6" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="160.0" y="118.0" font-family="Overpass,sans-serif" font-size="10" fill="#f0a830" text-anchor="middle" font-weight="700">FAULT</text>
+        <text x="160.0" y="142.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">OFF</text>
+        <text x="160.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ENG PUMP</text>
+        <rect x="120.0" y="200.0" width="80.0" height="70.0" rx="6" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="160.0" y="228.0" font-family="Overpass,sans-serif" font-size="10" fill="#f0a830" text-anchor="middle" font-weight="700">FAULT</text>
+        <text x="160.0" y="252.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">OFF</text>
+        <text x="160.0" y="288.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">PTU</text>
+        <text x="380.0" y="60.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--cool)" text-anchor="middle" font-weight="700">BLUE</text>
+        <rect x="340.0" y="90.0" width="80.0" height="70.0" rx="6" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="380.0" y="118.0" font-family="Overpass,sans-serif" font-size="10" fill="#f0a830" text-anchor="middle" font-weight="700">FAULT</text>
+        <text x="380.0" y="142.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">OFF</text>
+        <text x="380.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ENG PUMP</text>
+        <rect x="340.0" y="200.0" width="80.0" height="70.0" rx="6" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="380.0" y="228.0" font-family="Overpass,sans-serif" font-size="10" fill="#f0a830" text-anchor="middle" font-weight="700">FAULT</text>
+        <text x="380.0" y="252.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">OFF</text>
+        <text x="380.0" y="288.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ELEC PUMP</text>
+        <text x="600.0" y="60.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--gold)" text-anchor="middle" font-weight="700">YELLOW</text>
+        <rect x="560.0" y="90.0" width="80.0" height="70.0" rx="6" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="600.0" y="118.0" font-family="Overpass,sans-serif" font-size="10" fill="#f0a830" text-anchor="middle" font-weight="700">FAULT</text>
+        <text x="600.0" y="142.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">OFF</text>
+        <text x="600.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ENG PUMP</text>
+        <rect x="560.0" y="200.0" width="80.0" height="70.0" rx="6" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="600.0" y="228.0" font-family="Overpass,sans-serif" font-size="10" fill="#f0a830" text-anchor="middle" font-weight="700">FAULT</text>
+        <text x="600.0" y="252.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">OFF</text>
+        <text x="600.0" y="288.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ELEC PUMP</text>
+        <rect x="560.0" y="322.0" width="140.0" height="30.0" rx="4" fill="#0b0f11" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="630.0" y="342.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">RAT MAN ON</text>
+      </svg>
+    </div>
+    <p class="cap">A typical overhead hydraulic panel: engine-driven pump (EDP) switches with fault lights for each system, electric pump switches, the power transfer unit (PTU) and RAT manual deployment. A FAULT light indicates low pressure, overheat or low reservoir level.</p>
+  </section>
+
+  <!-- 16 ─ ECAM HYDRAULIC SYSTEM PAGE -->
+  <section class="card">
+    <h2>ECAM Hydraulic System Page</h2>
+    <div class="meta"><span class="tag">ch02_fig_27</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="ECAM hydraulic page showing green, blue and yellow systems at 3000 psi with pumps, PTU, RAT, electric pump and fire shut-off valves">
+        <rect x="40.0" y="20.0" width="680.0" height="340.0" rx="8" fill="#0b0f11" stroke="var(--chart-line-2)" stroke-width="2"/>
+        <text x="380.0" y="46.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">HYD</text>
+        <text x="150.0" y="80.0" font-family="Overpass,sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">GREEN</text>
+        <text x="150.0" y="104.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--green)" text-anchor="middle" font-weight="700">3000</text>
+        <line x1="150.0" y1="112.0" x2="150.0" y2="300.0" stroke="var(--green)" stroke-width="3"/>
+        <rect x="132.0" y="180.0" width="36.0" height="30.0" rx="2" fill="#0b0f11" stroke="var(--green)" stroke-width="2"/>
+        <text x="174.0" y="200.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#ffffff">ENG 1 PUMP</text>
+        <rect x="140.0" y="300.0" width="20.0" height="40.0" rx="0" fill="#0b0f11" stroke="#ffffff" stroke-width="1.4"/>
+        <rect x="142.0" y="312.0" width="16.0" height="26.0" rx="0" fill="var(--green)" stroke="none" stroke-width="0"/>
+        <text x="380.0" y="80.0" font-family="Overpass,sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">BLUE</text>
+        <text x="380.0" y="104.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--green)" text-anchor="middle" font-weight="700">3000</text>
+        <line x1="380.0" y1="112.0" x2="380.0" y2="300.0" stroke="var(--green)" stroke-width="3"/>
+        <rect x="362.0" y="180.0" width="36.0" height="30.0" rx="2" fill="#0b0f11" stroke="var(--green)" stroke-width="2"/>
+        <text x="404.0" y="200.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#ffffff">ELEC PUMP</text>
+        <rect x="370.0" y="300.0" width="20.0" height="40.0" rx="0" fill="#0b0f11" stroke="#ffffff" stroke-width="1.4"/>
+        <rect x="372.0" y="312.0" width="16.0" height="26.0" rx="0" fill="var(--green)" stroke="none" stroke-width="0"/>
+        <text x="610.0" y="80.0" font-family="Overpass,sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">YELLOW</text>
+        <text x="610.0" y="104.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--green)" text-anchor="middle" font-weight="700">3000</text>
+        <line x1="610.0" y1="112.0" x2="610.0" y2="300.0" stroke="var(--green)" stroke-width="3"/>
+        <rect x="592.0" y="180.0" width="36.0" height="30.0" rx="2" fill="#0b0f11" stroke="var(--green)" stroke-width="2"/>
+        <text x="634.0" y="200.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#ffffff">ENG 2 PUMP</text>
+        <rect x="600.0" y="300.0" width="20.0" height="40.0" rx="0" fill="#0b0f11" stroke="#ffffff" stroke-width="1.4"/>
+        <rect x="602.0" y="312.0" width="16.0" height="26.0" rx="0" fill="var(--green)" stroke="none" stroke-width="0"/>
+        <line x1="150.0" y1="150.0" x2="610.0" y2="150.0" stroke="var(--green)" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="265.0" y="142.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="middle" font-weight="700">PTU</text>
+        <text x="320.0" y="186.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="end" font-weight="700">RAT</text>
+        <text x="470.0" y="326.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">reservoir levels</text>
+      </svg>
+    </div>
+    <p class="cap">The ECAM HYD page shows each system pressure, pump status, the PTU between green and yellow, the RAT and electric pump on blue, the fire shut-off valves and reservoir quantities. Amber indicates an abnormal state.</p>
+  </section>
+
+  <!-- 17 ─ PRESSURE RELAY (TRANSMITTER) -->
+  <section class="card">
+    <h2>Pressure Relay (Transmitter)</h2>
+    <div class="meta"><span class="tag">ch02_fig_28</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A pressure relay with a floating piston separating system hydraulic fluid from the instrument fluid that operates a remote gauge">
+        <rect x="300.0" y="60.0" width="100.0" height="200.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <rect x="306.0" y="160.0" width="88.0" height="94.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.9"/>
+        <rect x="306.0" y="66.0" width="88.0" height="84.0" rx="0" fill="#d94fa0" stroke="none" stroke-width="0" opacity="0.7"/>
+        <rect x="306.0" y="148.0" width="88.0" height="14.0" rx="1" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <path d="M350.0,260.0 L350.0,310.0" stroke="var(--hot)" stroke-width="8" fill="none" stroke-linejoin="round"/>
+        <text x="362.0" y="304.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">system pressure</text>
+        <path d="M400.0,100.0 L560.0,100.0" stroke="#d94fa0" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <circle cx="620.0" cy="100.0" r="52" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="596.0" y1="124.0" x2="588.9" y2="131.1" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="582.9" y1="112.1" x2="578.2" y2="113.6" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="581.5" y1="93.9" x2="576.5" y2="93.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="588.4" y1="77.1" x2="584.4" y2="74.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="602.3" y1="65.3" x2="600.0" y2="60.8" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="620.0" y1="66.0" x2="620.0" y2="56.0" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="637.7" y1="65.3" x2="640.0" y2="60.8" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="651.6" y1="77.1" x2="655.6" y2="74.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="658.5" y1="93.9" x2="663.5" y2="93.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="657.1" y1="112.1" x2="661.8" y2="113.6" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="644.0" y1="124.0" x2="651.1" y2="131.1" stroke="#ffffff" stroke-width="1.8"/>
+        <text x="604.4" y="118.8" font-family="Overpass,sans-serif" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="700">0</text>
+        <text x="620.0" y="81.2" font-family="Overpass,sans-serif" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="700">2</text>
+        <text x="635.6" y="118.8" font-family="Overpass,sans-serif" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="700">4</text>
+        <line x1="620.0" y1="100.0" x2="655.1" y2="85.5" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="620.0" cy="100.0" r="5" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="620.0" y="172.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">psi ×1000</text>
+        <text x="240.0" y="110.0" font-family="Overpass,sans-serif" font-size="10" fill="#d94fa0" text-anchor="end" font-weight="700">instrument fluid</text>
+        <text x="240.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="end" font-weight="700">free piston</text>
+        <text x="240.0" y="210.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="end" font-weight="700">hydraulic fluid</text>
+      </svg>
+    </div>
+    <p class="cap">A pressure relay keeps high-pressure hydraulic fluid out of the cockpit. System pressure acts on one side of a free piston; the other side transmits the same pressure through a low-volume instrument line (or a transmitter converts it electrically) to the gauge.</p>
+  </section>
+
+  <!-- 18 ─ A TYPICAL AIRCRAFT HYDRAULIC SYSTEM -->
+  <section class="card">
+    <h2>A Typical Aircraft Hydraulic System</h2>
+    <div class="meta"><span class="tag">ch02_fig_30</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 400" role="img" aria-label="Hydraulic system with engine-driven pump, reservoir, filter, accumulator and selector valves for the landing gear, flaps and brakes, plus a hand pump for emergency">
+        <rect x="30.0" y="30.0" width="140.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="58.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Reservoir</text>
+        <rect x="30.0" y="130.0" width="140.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="100.0" y="158.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Engine-driven pump</text>
+        <rect x="220.0" y="130.0" width="120.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="280.0" y="151.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Hand pump</text>
+        <text x="280.0" y="164.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">(emergency)</text>
+        <rect x="30.0" y="230.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="100.0" y="253.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Filter + relief</text>
+        <rect x="220.0" y="230.0" width="120.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="280.0" y="253.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Accumulator</text>
+        <rect x="420.0" y="40.0" width="160.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="500.0" y="65.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Landing gear selector</text>
+        <rect x="620.0" y="40.0" width="120.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="680.0" y="65.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Gear jacks</text>
+        <line x1="580.0" y1="62.0" x2="620.0" y2="62.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <rect x="420.0" y="150.0" width="160.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="500.0" y="175.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Flap selector</text>
+        <rect x="620.0" y="150.0" width="120.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="680.0" y="175.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Flap motor</text>
+        <line x1="580.0" y1="172.0" x2="620.0" y2="172.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <rect x="420.0" y="260.0" width="160.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="500.0" y="285.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Brake valves</text>
+        <rect x="620.0" y="260.0" width="120.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="680.0" y="285.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Brakes</text>
+        <line x1="580.0" y1="282.0" x2="620.0" y2="282.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="100.0" y1="80.0" x2="100.0" y2="130.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="100.0" y1="180.0" x2="100.0" y2="230.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="170.0" y1="250.0" x2="220.0" y2="250.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="145.0" y1="80.0" x2="235.0" y2="130.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="340.0" y1="250.0" x2="400.0" y2="250.0" stroke="var(--hot)" stroke-width="2.4"/>
+        <line x1="400.0" y1="62.0" x2="400.0" y2="300.0" stroke="var(--hot)" stroke-width="2.4"/>
+        <line x1="400.0" y1="62.0" x2="418.0" y2="62.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <line x1="400.0" y1="172.0" x2="418.0" y2="172.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <line x1="400.0" y1="282.0" x2="418.0" y2="282.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <path d="M280,180 L280,210 L400,210" stroke="var(--gold)" stroke-width="1.8" fill="none" stroke-dasharray="4 3"/>
+        <text x="30.0" y="330.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">red: pressure   blue: return / suction   gold dashed: emergency</text>
+      </svg>
+    </div>
+    <p class="cap">A complete system: the engine-driven pump supplies the main services through a filter, with an accumulator to store pressure and damp surges. A hand pump (or electric pump) drawing from a reserve in the reservoir provides emergency operation.</p>
+  </section>
+
+  <!-- 19 ─ HIGH-PRESSURE PNEUMATIC SYSTEM (F27 TYPE) -->
+  <section class="card">
+    <h2>High-Pressure Pneumatic System (F27 type)</h2>
+    <div class="meta"><span class="tag">ch02_fig_31</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Engine-driven compressors charging storage bottles through a moisture separator, chemical dryer and filter, supplying landing gear, brakes and nosewheel steering through a pressure reducing valve, with an emergency bottle">
+        <rect x="20.0" y="40.0" width="150.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="95.0" y="61.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Engine-driven</text>
+        <text x="95.0" y="74.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">compressors</text>
+        <rect x="20.0" y="130.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="95.0" y="153.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Moisture separator</text>
+        <rect x="20.0" y="210.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="95.0" y="233.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Chemical dryer</text>
+        <rect x="20.0" y="290.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="95.0" y="313.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Filter</text>
+        <rect x="240.0" y="280.0" width="150.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="315.0" y="306.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Storage bottles</text>
+        <text x="315.0" y="319.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">≈ 3300 psi</text>
+        <rect x="240.0" y="160.0" width="150.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="315.0" y="181.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure reducing</text>
+        <text x="315.0" y="194.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">valve</text>
+        <rect x="470.0" y="40.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="545.0" y="63.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Landing gear</text>
+        <line x1="361.0" y1="160.0" x2="508.2" y2="80.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <rect x="470.0" y="120.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="545.0" y="143.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Wheel brakes</text>
+        <line x1="390.0" y1="170.3" x2="470.0" y2="154.7" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <rect x="470.0" y="200.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="545.0" y="223.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Nosewheel steering</text>
+        <line x1="390.0" y1="196.4" x2="470.0" y2="208.6" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <rect x="470.0" y="300.0" width="150.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="545.0" y="321.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Emergency bottle</text>
+        <text x="545.0" y="334.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">gear down, brakes</text>
+        <line x1="95.0" y1="90.0" x2="95.0" y2="130.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="95.0" y1="170.0" x2="95.0" y2="210.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="95.0" y1="250.0" x2="95.0" y2="290.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="170.0" y1="310.0" x2="240.0" y2="310.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="315.0" y1="280.0" x2="315.0" y2="210.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <path d="M620,325 L680,325 L680,60 L622,60" stroke="var(--hot)" stroke-width="1.8" fill="none" stroke-dasharray="5 3" marker-end="url(#m-hot)"/>
+      </svg>
+    </div>
+    <p class="cap">Some aircraft (e.g. the F27) use high-pressure compressed air instead of hydraulics. Engine-driven compressors charge storage bottles to about 3300 psi; the air passes a moisture separator, chemical dryer and filter because water would freeze. Pressure reducing valves supply the services; a separate emergency bottle lowers the gear and applies the brakes.</p>
+  </section>
+
+  <!-- 20 ─ AN OLEO-PNEUMATIC SHOCK ABSORBER -->
+  <section class="card">
+    <h2>An Oleo-Pneumatic Shock Absorber</h2>
+    <div class="meta"><span class="tag">ch03_fig_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 440" role="img" aria-label="Oleo strut with an upper cylinder containing nitrogen and hydraulic fluid, a piston with orifice and recoil valve, a sliding lower cylinder, torque links and axle">
+        <rect x="300.0" y="40.0" width="80.0" height="220.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="304.0" y="44.0" width="72.0" height="90.0" rx="4" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.6"/>
+        <rect x="304.0" y="134.0" width="72.0" height="122.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.85"/>
+        <text x="340.0" y="90.0" font-family="Overpass,sans-serif" font-size="10" fill="#0b0f11" text-anchor="middle" font-weight="700">nitrogen</text>
+        <rect x="310.0" y="190.0" width="60.0" height="12.0" rx="1" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="340.0" cy="196.0" r="3" fill="var(--gold)" stroke="var(--gold)" stroke-width="1"/>
+        <rect x="316.0" y="200.0" width="48.0" height="160.0" rx="4" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <path d="M300,230 L250,280 L316,320" stroke="var(--chart-ink)" stroke-width="3" fill="none"/>
+        <circle cx="250.0" cy="280.0" r="5" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <line x1="300.0" y1="370.0" x2="380.0" y2="370.0" stroke="var(--chart-ink)" stroke-width="8"/>
+        <circle cx="340.0" cy="370.0" r="46" fill="none" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="340.0" cy="370.0" r="8" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="334.0" y="26.0" width="12.0" height="14.0" rx="1" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="346.0" y1="32.0" x2="470.0" y2="32.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="36.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Charging valve</text>
+        <line x1="376.0" y1="90.0" x2="470.0" y2="90.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="94.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Upper cylinder (gas)</text>
+        <line x1="376.0" y1="160.0" x2="470.0" y2="160.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="164.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Hydraulic fluid</text>
+        <line x1="370.0" y1="196.0" x2="470.0" y2="196.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="200.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Orifice + recoil (flutter) valve</text>
+        <line x1="364.0" y1="300.0" x2="470.0" y2="300.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="304.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Lower cylinder (piston)</text>
+        <line x1="386.0" y1="372.0" x2="470.0" y2="372.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="376.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Axle</text>
+        <text x="240.0" y="270.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Torque links</text>
+      </svg>
+    </div>
+    <p class="cap">On landing the lower cylinder slides up, forcing fluid through the orifice (absorbing energy as heat) and compressing the nitrogen, which acts as the spring. On extension the recoil (flutter) valve restricts the return flow to prevent bounce. Torque links keep the wheel aligned; the strut is serviced through the charging valve.</p>
+  </section>
+
+  <!-- 21 ─ A WING-MOUNTED MAIN LANDING GEAR -->
+  <section class="card">
+    <h2>A Wing-Mounted Main Landing Gear</h2>
+    <div class="meta"><span class="tag">ch03_fig_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 400" role="img" aria-label="Main landing gear leg with side stay, lock stay, downlock actuator, retraction actuator, torque links, bogie beam, pitch trimmer and brake rods">
+        <line x1="380.0" y1="40.0" x2="380.0" y2="300.0" stroke="var(--chart-ink)" stroke-width="14"/>
+        <line x1="380.0" y1="40.0" x2="380.0" y2="300.0" stroke="#a9bac1" stroke-width="10"/>
+        <line x1="380.0" y1="80.0" x2="600.0" y2="60.0" stroke="var(--gold)" stroke-width="6"/>
+        <line x1="500.0" y1="70.0" x2="540.0" y2="120.0" stroke="var(--cool)" stroke-width="4"/>
+        <line x1="380.0" y1="90.0" x2="200.0" y2="60.0" stroke="var(--hot)" stroke-width="6"/>
+        <line x1="220.0" y1="300.0" x2="540.0" y2="300.0" stroke="var(--chart-ink)" stroke-width="8"/>
+        <circle cx="250.0" cy="330.0" r="34" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="510.0" cy="330.0" r="34" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <path d="M380,230 L350,260 L380,290" stroke="var(--chart-ink)" stroke-width="3" fill="none"/>
+        <line x1="380.0" y1="300.0" x2="300.0" y2="330.0" stroke="var(--chart-ink-dim)" stroke-width="2"/>
+        <line x1="380.0" y1="260.0" x2="470.0" y2="290.0" stroke="#d94fa0" stroke-width="4"/>
+        <text x="608.0" y="54.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Side stay (folding)</text>
+        <text x="548.0" y="114.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Lock stay + downlock actuator</text>
+        <text x="192.0" y="54.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Retraction actuator</text>
+        <text x="388.0" y="144.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Main oleo leg</text>
+        <text x="342.0" y="276.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Torque links</text>
+        <text x="480.0" y="280.0" font-family="Overpass,sans-serif" font-size="10.5" fill="#d94fa0" font-weight="700">Pitch trimmer</text>
+        <text x="548.0" y="318.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Bogie beam</text>
+        <text x="190.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Brake rod</text>
+        <line x1="194.0" y1="296.0" x2="300.0" y2="330.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+      </svg>
+    </div>
+    <p class="cap">The main oleo leg is braced by a folding side stay held over-centre by the lock stay (and downlock springs and actuator). The retraction actuator swings the leg up into the wing. On a bogie gear the pitch trimmer positions the bogie for stowage, and brake torque rods react brake torque.</p>
+  </section>
+
+  <!-- 22 ─ A NOSE LANDING GEAR -->
+  <section class="card">
+    <h2>A Nose Landing Gear</h2>
+    <div class="meta"><span class="tag">ch03_fig_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Nose gear leg with drag stay, lock stay, retraction actuator, downlock actuator, steering mechanism and torque links">
+        <line x1="380.0" y1="40.0" x2="380.0" y2="290.0" stroke="var(--chart-ink)" stroke-width="14"/>
+        <line x1="380.0" y1="40.0" x2="380.0" y2="290.0" stroke="#a9bac1" stroke-width="10"/>
+        <line x1="380.0" y1="120.0" x2="200.0" y2="40.0" stroke="var(--gold)" stroke-width="6"/>
+        <line x1="290.0" y1="80.0" x2="260.0" y2="140.0" stroke="var(--cool)" stroke-width="4"/>
+        <line x1="380.0" y1="60.0" x2="560.0" y2="40.0" stroke="var(--hot)" stroke-width="6"/>
+        <rect x="366.0" y="150.0" width="28.0" height="30.0" rx="3" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <path d="M380,230 L350,255 L380,280" stroke="var(--chart-ink)" stroke-width="3" fill="none"/>
+        <circle cx="380.0" cy="310.0" r="46" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="380.0" cy="310.0" r="8" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="192.0" y="44.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Drag stay</text>
+        <text x="252.0" y="144.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Lock stay + downlock actuator</text>
+        <text x="568.0" y="44.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Retraction actuator</text>
+        <text x="402.0" y="169.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Steering mechanism</text>
+        <text x="342.0" y="259.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">Torque links</text>
+        <line x1="600.0" y1="200.0" x2="660.0" y2="200.0" stroke="var(--chart-ink-dim)" stroke-width="2" marker-end="url(#m-dim)"/>
+        <text x="630.0" y="220.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">forward</text>
+      </svg>
+    </div>
+    <p class="cap">The nose leg is braced fore-and-aft by a folding drag stay locked over-centre by the lock stay. It usually retracts forward so that air loads help it to extend in an emergency. The steering mechanism at the top of the leg turns the lower leg; torque links connect it to the wheel axle.</p>
+  </section>
+
+  <!-- 23 ─ NOSEWHEEL STEERING — HYDRAULIC LAYOUT -->
+  <section class="card">
+    <h2>Nosewheel Steering — Hydraulic Layout</h2>
+    <div class="meta"><span class="tag">ch03_fig_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Steering control valve fed from the hydraulic system through a shuttle valve, driving two steering jacks, with a centring cam and accumulator">
+        <rect x="20.0" y="40.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="95.0" y="63.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Normal pressure</text>
+        <rect x="20.0" y="120.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="95.0" y="143.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Alternate / accumulator</text>
+        <rect x="230.0" y="80.0" width="110.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="285.0" y="103.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Shuttle valve</text>
+        <rect x="400.0" y="70.0" width="160.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="480.0" y="96.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Steering control</text>
+        <text x="480.0" y="109.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">valve</text>
+        <rect x="400.0" y="8.0" width="160.0" height="34.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="480.0" y="28.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Tiller / pedals</text>
+        <rect x="400.0" y="200.0" width="160.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="480.0" y="221.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Steering jacks</text>
+        <text x="480.0" y="234.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">(push-pull)</text>
+        <rect x="620.0" y="200.0" width="120.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="680.0" y="228.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Nose leg</text>
+        <rect x="620.0" y="290.0" width="120.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="680.0" y="318.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Centring cam</text>
+        <line x1="170.0" y1="75.8" x2="230.0" y2="88.4" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="170.0" y1="124.2" x2="230.0" y2="111.6" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="340.0" y1="100.0" x2="400.0" y2="100.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="480.0" y1="42.0" x2="480.0" y2="70.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="480.0" y1="130.0" x2="480.0" y2="200.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="560.0" y1="225.0" x2="620.0" y2="225.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="680.0" y1="290.0" x2="680.0" y2="250.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <path d="M680,200 L680,100 L560,100" stroke="var(--chart-ink-dim)" stroke-width="1.4" fill="none" stroke-dasharray="4 3" marker-end="url(#m-dim)"/>
+        <text x="690.0" y="150.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">follow-up</text>
+        <text x="400.0" y="290.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">restrictors in the jack lines damp shimmy</text>
+      </svg>
+    </div>
+    <p class="cap">The tiller (or rudder pedals) moves the steering control valve, which sends pressure to the steering jacks to turn the nose leg; the follow-up linkage closes the valve when the selected angle is reached. A shuttle valve allows an alternate supply, restrictors damp shimmy, and a centring cam straightens the wheel as the leg extends after take-off.</p>
+  </section>
+
+  <!-- 24 ─ LANDING GEAR RETRACTION AND LOCKING — HYDRAULIC SEQUENCE -->
+  <section class="card">
+    <h2>Landing Gear Retraction and Locking — Hydraulic Sequence</h2>
+    <div class="meta"><span class="tag">ch03_fig_06</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Gear selector valve sending pressure through up and down lines to the main gear jacks, uplock and downlock jacks, door jacks and sequence valves">
+        <rect x="290.0" y="20.0" width="180.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="48.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Gear selector valve</text>
+        <rect x="60.0" y="120.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="140.0" y="143.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">UP line</text>
+        <rect x="540.0" y="120.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="620.0" y="143.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">DOWN line</text>
+        <rect x="40.0" y="210.0" width="180.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="130.0" y="228.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Downlock jack</text>
+        <text x="130.0" y="241.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">(unlocks first)</text>
+        <rect x="290.0" y="210.0" width="180.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="235.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Main gear jack</text>
+        <rect x="290.0" y="300.0" width="180.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="325.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Sequence valve</text>
+        <rect x="540.0" y="300.0" width="180.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="630.0" y="325.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Door jack</text>
+        <rect x="540.0" y="210.0" width="180.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="630.0" y="235.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Uplock jack</text>
+        <line x1="316.8" y1="70.0" x2="190.5" y2="120.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="443.2" y1="70.0" x2="569.5" y2="120.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="137.8" y1="160.0" x2="132.4" y2="210.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="192.2" y1="160.0" x2="322.6" y2="210.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="380.0" y1="254.0" x2="380.0" y2="300.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="470.0" y1="322.0" x2="540.0" y2="322.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="622.2" y1="160.0" x2="627.6" y2="210.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="567.8" y1="160.0" x2="437.4" y2="210.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+      </svg>
+    </div>
+    <p class="cap">Selecting UP: pressure first unlocks the downlock, then retracts the gear; a sequence valve then closes the doors and the uplock engages. Selecting DOWN: doors open, the uplock releases, the gear extends and the downlock engages. Restrictors slow the extension and sequence valves ensure the order.</p>
+  </section>
+
+  <!-- 25 ─ ELECTRIC GEAR RETRACTION (LIGHT AIRCRAFT) -->
+  <section class="card">
+    <h2>Electric Gear Retraction (Light Aircraft)</h2>
+    <div class="meta"><span class="tag">ch03_fig_10</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Electric motor driving through a clutch and gearbox to a torque tube and push-pull links retracting the gear, with a manual operating lever and lock-assist spring">
+        <rect x="300.0" y="20.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="43.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Selector switch</text>
+        <rect x="300.0" y="100.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="123.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Electric motor</text>
+        <rect x="300.0" y="170.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="380.0" y="193.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Clutch + gearbox</text>
+        <rect x="300.0" y="240.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="380.0" y="263.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Torque tube / screw</text>
+        <rect x="520.0" y="170.0" width="200.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="620.0" y="193.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Manual operating lever</text>
+        <rect x="40.0" y="300.0" width="200.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="140.0" y="318.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Main gear: side stay</text>
+        <text x="140.0" y="331.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">+ lock-assist spring</text>
+        <rect x="520.0" y="300.0" width="200.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="620.0" y="325.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Nose gear: drag strut</text>
+        <line x1="380.0" y1="60.0" x2="380.0" y2="100.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="380.0" y1="140.0" x2="380.0" y2="170.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="380.0" y1="210.0" x2="380.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="520.0" y1="190.0" x2="460.0" y2="190.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="302.6" y1="280.0" x2="225.2" y2="300.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="457.4" y1="280.0" x2="534.8" y2="300.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="40.0" y="270.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">flexible cables / push-pull rods</text>
+      </svg>
+    </div>
+    <p class="cap">On some light aircraft an electric motor drives a gearbox and screw jack (or torque tube); push-pull rods or flexible cables move each leg, and a slip clutch protects the motor. Limit and selector switches stop the motor at each end; a lock-assist spring holds the side stay over-centre, and a manual lever or hand crank allows emergency extension.</p>
+  </section>
+
+  <!-- 26 ─ ECAM WHEEL PAGE — GEAR AND DOOR INDICATIONS -->
+  <section class="card">
+    <h2>ECAM Wheel Page — Gear and Door Indications</h2>
+    <div class="meta"><span class="tag">ch03_fig_12</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="ECAM wheel page with three gear position triangles, door indications, brake temperatures and anti-skid status">
+        <rect x="40.0" y="20.0" width="680.0" height="340.0" rx="8" fill="#0b0f11" stroke="var(--chart-line-2)" stroke-width="2"/>
+        <text x="380.0" y="46.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">WHEEL</text>
+        <path d="M158,90 L186,90 L172,112 Z" stroke="var(--green)" stroke-width="1.6" fill="var(--green)"/>
+        <path d="M194,90 L222,90 L208,112 Z" stroke="var(--green)" stroke-width="1.6" fill="var(--green)"/>
+        <line x1="150.0" y1="80.0" x2="230.0" y2="80.0" stroke="var(--green)" stroke-width="2"/>
+        <path d="M348,90 L376,90 L362,112 Z" stroke="var(--green)" stroke-width="1.6" fill="var(--green)"/>
+        <path d="M384,90 L412,90 L398,112 Z" stroke="var(--green)" stroke-width="1.6" fill="var(--green)"/>
+        <line x1="340.0" y1="80.0" x2="420.0" y2="80.0" stroke="var(--green)" stroke-width="2"/>
+        <path d="M538,90 L566,90 L552,112 Z" stroke="var(--green)" stroke-width="1.6" fill="var(--green)"/>
+        <path d="M574,90 L602,90 L588,112 Z" stroke="var(--green)" stroke-width="1.6" fill="var(--green)"/>
+        <line x1="530.0" y1="80.0" x2="610.0" y2="80.0" stroke="var(--green)" stroke-width="2"/>
+        <text x="190.0" y="136.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">LH gear</text>
+        <text x="380.0" y="136.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">nose gear</text>
+        <text x="570.0" y="136.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">RH gear</text>
+        <text x="130.0" y="220.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--green)" text-anchor="middle" font-weight="700">120 °C</text>
+        <rect x="108.0" y="230.0" width="44.0" height="30.0" rx="4" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+        <text x="130.0" y="250.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">1</text>
+        <text x="230.0" y="220.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--green)" text-anchor="middle" font-weight="700">130 °C</text>
+        <rect x="208.0" y="230.0" width="44.0" height="30.0" rx="4" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+        <text x="230.0" y="250.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">2</text>
+        <text x="530.0" y="220.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--green)" text-anchor="middle" font-weight="700">115 °C</text>
+        <rect x="508.0" y="230.0" width="44.0" height="30.0" rx="4" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+        <text x="530.0" y="250.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">3</text>
+        <text x="630.0" y="220.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--green)" text-anchor="middle" font-weight="700">125 °C</text>
+        <rect x="608.0" y="230.0" width="44.0" height="30.0" rx="4" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+        <text x="630.0" y="250.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">4</text>
+        <text x="380.0" y="230.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="middle" font-weight="700">ANTI SKID</text>
+        <text x="380.0" y="260.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="middle" font-weight="700">AUTO BRK  LO</text>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">two green triangles per gear = down and locked</text>
+      </svg>
+    </div>
+    <p class="cap">Each gear shows two green triangles when down and locked (from two independent detection channels), red when in transit or not locked, and nothing when up and locked. Door symbols turn amber if not closed. Brake temperatures and anti-skid / autobrake status are also shown.</p>
+  </section>
+
+  <!-- 27 ─ LOOSE-FLANGE WHEEL -->
+  <section class="card">
+    <h2>Loose-Flange Wheel</h2>
+    <div class="meta"><span class="tag">ch04_fig_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Section of a wheel with a detachable outer flange held by a lock ring, inflation valve, bearings and brake drive blocks">
+        <path d="M180,50 Q140,190 180,330 L420,330 Q460,190 420,50 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--steel)"/>
+        <rect x="190.0" y="80.0" width="220.0" height="220.0" rx="8" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="260.0" y="160.0" width="80.0" height="60.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="390.0" y="74.0" width="24.0" height="232.0" rx="4" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="412.0" y="74.0" width="8.0" height="232.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="220.0" cy="80.0" r="6" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <line x1="402.0" y1="90.0" x2="500.0" y2="46.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="402.0" cy="90.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="50.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Loose (detachable) flange</text>
+        <line x1="416.0" y1="150.0" x2="500.0" y2="100.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="416.0" cy="150.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="104.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Lock ring</text>
+        <line x1="220.0" y1="80.0" x2="500.0" y2="154.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="220.0" cy="80.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="158.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Inflation valve</text>
+        <line x1="300.0" y1="170.0" x2="500.0" y2="208.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="300.0" cy="170.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="212.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Bearing</text>
+        <line x1="190.0" y1="250.0" x2="500.0" y2="262.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="190.0" cy="250.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="266.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Body / hub</text>
+        <line x1="240.0" y1="290.0" x2="500.0" y2="316.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="240.0" cy="290.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="320.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Drive blocks (brake keys)</text>
+        <text x="300.0" y="362.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">tyre (section)</text>
+      </svg>
+    </div>
+    <p class="cap">The outer flange is removed (after deflation) by releasing the lock ring, so the tyre can be slid off the one-piece hub. Drive blocks transmit brake torque from the rotating brake discs.</p>
+  </section>
+
+  <!-- 28 ─ DIVIDED WHEEL WITH FUSIBLE PLUG -->
+  <section class="card">
+    <h2>Divided Wheel with Fusible Plug</h2>
+    <div class="meta"><span class="tag">ch04_fig_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Section of a two-piece wheel bolted together, with an inflation valve, seal and fusible plug">
+        <path d="M180,50 Q140,190 180,330 L420,330 Q460,190 420,50 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--steel)"/>
+        <rect x="190.0" y="80.0" width="220.0" height="220.0" rx="8" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="260.0" y="160.0" width="80.0" height="60.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="300.0" y1="80.0" x2="300.0" y2="300.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <rect x="274.0" y="106.0" width="52.0" height="8.0" rx="2" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="274.0" y="146.0" width="52.0" height="8.0" rx="2" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="274.0" y="226.0" width="52.0" height="8.0" rx="2" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="274.0" y="266.0" width="52.0" height="8.0" rx="2" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="220.0" cy="270.0" r="8" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="220.0" cy="80.0" r="6" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <line x1="320.0" y1="110.0" x2="500.0" y2="46.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="320.0" cy="110.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="50.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Tie bolts join the two halves</text>
+        <line x1="220.0" y1="270.0" x2="500.0" y2="100.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="220.0" cy="270.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="104.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Fusible plug (melts if overheated)</text>
+        <line x1="220.0" y1="80.0" x2="500.0" y2="154.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="220.0" cy="80.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="158.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Inflation valve</text>
+        <line x1="300.0" y1="170.0" x2="500.0" y2="208.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="300.0" cy="170.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="212.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Bearing</text>
+        <line x1="410.0" y1="190.0" x2="500.0" y2="262.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <circle cx="410.0" cy="190.0" r="2.4" fill="var(--chart-ink-dim)" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="506.0" y="266.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Seal between halves</text>
+        <text x="300.0" y="362.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">tyre (section)</text>
+      </svg>
+    </div>
+    <p class="cap">A divided (split) wheel is made of two halves bolted together with a seal between them; the tyre is changed by unbolting the halves, only after full deflation. Fusible plugs melt at a set temperature to deflate the tyre before overheated brakes can cause it to burst.</p>
+  </section>
+
+  <!-- 29 ─ TYRE CONSTRUCTION — BIAS AND RADIAL -->
+  <section class="card">
+    <h2>Tyre Construction — Bias and Radial</h2>
+    <div class="meta"><span class="tag">ch05_fig_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Tyre sections showing plies crossing at an angle in a bias tyre and running radially with a belt in a radial tyre, with tread, breaker, sidewall, bead and bead wire">
+        <path d="M100,300 L100,140 Q100,60 200,60 Q300,60 300,140 L300,300" stroke="var(--chart-ink)" stroke-width="18" fill="none"/>
+        <path d="M100,300 L100,140 Q100,60 200,60 Q300,60 300,140 L300,300" stroke="var(--steel)" stroke-width="14" fill="none"/>
+        <rect x="130.0" y="40.0" width="140.0" height="14.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="130.0" y1="58.0" x2="140.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="140.0" y1="58.0" x2="130.0" y2="68.0" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="148.0" y1="58.0" x2="158.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="158.0" y1="58.0" x2="148.0" y2="68.0" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="166.0" y1="58.0" x2="176.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="176.0" y1="58.0" x2="166.0" y2="68.0" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="184.0" y1="58.0" x2="194.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="194.0" y1="58.0" x2="184.0" y2="68.0" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="202.0" y1="58.0" x2="212.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="212.0" y1="58.0" x2="202.0" y2="68.0" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="220.0" y1="58.0" x2="230.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="230.0" y1="58.0" x2="220.0" y2="68.0" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="238.0" y1="58.0" x2="248.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="248.0" y1="58.0" x2="238.0" y2="68.0" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="256.0" y1="58.0" x2="266.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="266.0" y1="58.0" x2="256.0" y2="68.0" stroke="var(--hot)" stroke-width="2"/>
+        <circle cx="100.0" cy="300.0" r="10" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="300.0" cy="300.0" r="10" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="200.0" y="340.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--gold)" text-anchor="middle" font-weight="700">BIAS (cross-ply)</text>
+        <path d="M460,300 L460,140 Q460,60 560,60 Q660,60 660,140 L660,300" stroke="var(--chart-ink)" stroke-width="18" fill="none"/>
+        <path d="M460,300 L460,140 Q460,60 560,60 Q660,60 660,140 L660,300" stroke="var(--steel)" stroke-width="14" fill="none"/>
+        <rect x="490.0" y="40.0" width="140.0" height="14.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="490.0" y1="58.0" x2="490.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="508.0" y1="58.0" x2="508.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="526.0" y1="58.0" x2="526.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="544.0" y1="58.0" x2="544.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="562.0" y1="58.0" x2="562.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="580.0" y1="58.0" x2="580.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="598.0" y1="58.0" x2="598.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="616.0" y1="58.0" x2="616.0" y2="68.0" stroke="var(--cool)" stroke-width="2"/>
+        <rect x="496.0" y="68.0" width="128.0" height="6.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <circle cx="460.0" cy="300.0" r="10" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="660.0" cy="300.0" r="10" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="560.0" y="340.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--gold)" text-anchor="middle" font-weight="700">RADIAL</text>
+        <text x="380.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">tread</text>
+        <text x="380.0" y="190.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">sidewall</text>
+        <text x="380.0" y="304.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">bead wires</text>
+        <text x="660.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">belt</text>
+      </svg>
+    </div>
+    <p class="cap">Bias (cross-ply) tyres have plies laid at alternating angles from bead to bead with breaker strips under the tread. Radial tyres have plies running at 90° to the tread and a stiff belt under the tread, giving lower weight, less heat build-up and longer tread life.</p>
+  </section>
+
+  <!-- 30 ─ REGIONS OF THE TYRE -->
+  <section class="card">
+    <h2>Regions of the Tyre</h2>
+    <div class="meta"><span class="tag">ch05_fig_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Half section of a tyre labelled crown, shoulder, sidewall and bead">
+        <path d="M200,300 L200,140 Q200,60 320,60 Q440,60 440,140 L440,300" stroke="var(--chart-ink)" stroke-width="30" fill="none"/>
+        <path d="M200,300 L200,140 Q200,60 320,60 Q440,60 440,140 L440,300" stroke="var(--steel)" stroke-width="24" fill="none"/>
+        <line x1="460.0" y1="60.0" x2="560.0" y2="60.0" stroke="var(--chart-ink-dim)" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="570.0" y="64.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">CROWN</text>
+        <line x1="460.0" y1="100.0" x2="560.0" y2="100.0" stroke="var(--chart-ink-dim)" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="570.0" y="104.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">SHOULDER</text>
+        <line x1="460.0" y1="200.0" x2="560.0" y2="200.0" stroke="var(--chart-ink-dim)" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="570.0" y="204.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">SIDEWALL</text>
+        <line x1="460.0" y1="290.0" x2="560.0" y2="290.0" stroke="var(--chart-ink-dim)" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="570.0" y="294.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">BEAD</text>
+      </svg>
+    </div>
+    <p class="cap">The crown carries the tread in contact with the runway; the shoulder joins the crown to the sidewall and is where heat build-up is greatest; the sidewall flexes and protects the plies; the bead seats the tyre on the wheel rim and contains the bead wires.</p>
+  </section>
+
+  <!-- 31 ─ TREAD WEAR INDICATORS -->
+  <section class="card">
+    <h2>Tread Wear Indicators</h2>
+    <div class="meta"><span class="tag">ch05_fig_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Tyre tread section with circumferential grooves and a wear indicator groove or tie bar showing the minimum tread depth">
+        <path d="M80,140 L680,140 L680,240 L80,240 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--steel)"/>
+        <rect x="180.0" y="140.0" width="30.0" height="60.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="300.0" y="140.0" width="30.0" height="60.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="420.0" y="140.0" width="30.0" height="60.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="540.0" y="140.0" width="30.0" height="60.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="300.0" y="186.0" width="30.0" height="14.0" rx="0" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="315.0" y="120.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">tie bar / wear indicator</text>
+        <line x1="560.0" y1="140.0" x2="560.0" y2="200.0" stroke="var(--chart-ink-dim)" stroke-width="1.4" marker-end="url(#m-dim)" marker-start="url(#m-dim)"/>
+        <text x="600.0" y="176.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">groove depth</text>
+        <text x="380.0" y="280.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">replace when the tread is worn down to the indicator</text>
+      </svg>
+    </div>
+    <p class="cap">Tread wear is judged from the remaining groove depth or from wear indicators (a groove, tie bars or a different-coloured layer). A tyre is replaced when worn to the indicator or the limit in the maintenance manual, or if cords are exposed.</p>
+  </section>
+
+  <!-- 32 ─ MULTI-DISC BRAKE ASSEMBLY -->
+  <section class="card">
+    <h2>Multi-Disc Brake Assembly</h2>
+    <div class="meta"><span class="tag">ch06_fig_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Section of a multi-disc brake with alternate rotor discs keyed to the wheel and stator discs keyed to the torque tube, hydraulic pistons, pressure plate and thrust plate">
+        <rect x="140.0" y="120.0" width="400.0" height="30.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="340.0" y="112.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Torque tube (stationary)</text>
+        <rect x="200.0" y="170.0" width="16.0" height="150.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="234.0" y="150.0" width="16.0" height="150.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="268.0" y="170.0" width="16.0" height="150.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="302.0" y="150.0" width="16.0" height="150.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="336.0" y="170.0" width="16.0" height="150.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="370.0" y="150.0" width="16.0" height="150.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="404.0" y="170.0" width="16.0" height="150.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="438.0" y="150.0" width="16.0" height="150.0" rx="2" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="472.0" y="170.0" width="16.0" height="150.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="160.0" y="150.0" width="30.0" height="150.0" rx="2" fill="var(--gold-deep)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="510.0" y="150.0" width="30.0" height="150.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="100.0" y="180.0" width="60.0" height="30.0" rx="4" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="100.0" y="240.0" width="60.0" height="30.0" rx="4" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="140.0" y="320.0" width="400.0" height="20.0" rx="2" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="340.0" y="360.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Wheel (rotor keys)</text>
+        <text x="90.0" y="280.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="end" font-weight="700">Pistons</text>
+        <text x="120.0" y="80.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Pressure plate</text>
+        <line x1="160.0" y1="84.0" x2="174.0" y2="148.0" stroke="var(--gold)" stroke-width="1"/>
+        <text x="560.0" y="230.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Thrust plate</text>
+        <text x="600.0" y="170.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">rotors (red)</text>
+        <text x="600.0" y="190.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">stators (grey)</text>
+      </svg>
+    </div>
+    <p class="cap">Rotor discs are keyed to the wheel and turn with it; stator discs are keyed to the stationary torque tube. Hydraulic pistons push the pressure plate, squeezing the stack against the thrust plate. Carbon discs are lighter and absorb more heat than steel.</p>
+  </section>
+
+  <footer>
+    Airframes — Hydraulic Components, Landing Gear, Wheels & Tyres: 32 original figures.
+  </footer>
+</div>
+</body></html>

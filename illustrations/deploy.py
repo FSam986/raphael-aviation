@@ -31,6 +31,17 @@ SETS = {
     'ins5':        ('ins5-gallery.html', 'instruments', lambda t: t + '.png'),
     'ins6':        ('ins6-gallery.html', 'instruments', lambda t: t + '.png'),
     'ins7':        ('ins7-gallery.html', 'instruments', lambda t: t + '.png'),
+    'af1':         ('af1-gallery.html', 'airframes', lambda t: t + '.png'),
+    'af2':         ('af2-gallery.html', 'airframes', lambda t: t + '.png'),
+    'af3':         ('af3-gallery.html', 'airframes', lambda t: t + '.png'),
+    'af4':         ('af4-gallery.html', 'airframes', lambda t: t + '.png'),
+    'af5':         ('af5-gallery.html', 'airframes', lambda t: t + '.png'),
+    'af6':         ('af6-gallery.html', 'airframes', lambda t: t + '.png'),
+    'pp1':         ('pp1-gallery.html', 'powerplant', lambda t: t + '.png'),
+    'pp2':         ('pp2-gallery.html', 'powerplant', lambda t: t + '.png'),
+    'pp3':         ('pp3-gallery.html', 'powerplant', lambda t: t + '.png'),
+    'pp4':         ('pp4-gallery.html', 'powerplant', lambda t: t + '.png'),
+    'pp5':         ('pp5-gallery.html', 'powerplant', lambda t: t + '.png'),
 }
 NEW_OK = {'fpp-b', 'airlaw', 'radionav', 'hp1', 'hp2', 'nav1', 'nav2', 'el1', 'el2', 'el3', 'ins5', 'ins6', 'ins7'}   # sets allowed to create files that do not exist yet
 
