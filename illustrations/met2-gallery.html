@@ -1,0 +1,536 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meteorology Gallery 2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>Meteorology — Additional Figures</h1>
+    <p class="lede">Original figures for the atmosphere, pressure, wind, stability, cloud, thunderstorms, icing, fog, fronts, circulation and met information.</p>
+    <div class="prog"><span class="pct">18 / 18 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ LAYERS OF THE ATMOSPHERE -->
+  <section class="card">
+    <h2>Layers of the Atmosphere</h2>
+    <div class="meta"><span class="tag">mx_layers</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Atmosphere layers from the troposphere to the thermosphere with the tropopause higher over the equator than over the poles">
+        <rect x="60.0" y="210.0" width="640.0" height="90.0" rx="0" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.12"/>
+        <text x="380.0" y="259.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">TROPOSPHERE — weather, temperature falls</text>
+        <rect x="60.0" y="120.0" width="640.0" height="90.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0" opacity="0.12"/>
+        <text x="380.0" y="145.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">STRATOSPHERE — isothermal, then warming (ozone)</text>
+        <rect x="60.0" y="60.0" width="640.0" height="60.0" rx="0" fill="var(--chart-ink-dim)" stroke="none" stroke-width="0" opacity="0.12"/>
+        <text x="380.0" y="94.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink-dim)" text-anchor="middle" font-weight="700">MESOSPHERE</text>
+        <rect x="60.0" y="20.0" width="640.0" height="40.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.12"/>
+        <text x="380.0" y="44.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">THERMOSPHERE</text>
+        <path d="M60,260 Q380,190 700,260" stroke="var(--hot)" stroke-width="2.6" fill="none"/>
+        <text x="70.0" y="280.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">pole ≈ 8–9 km</text>
+        <text x="380.0" y="204.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">equator ≈ 16–18 km</text>
+        <text x="690.0" y="280.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="end" font-weight="700">pole</text>
+        <text x="600.0" y="236.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">tropopause</text>
+        <line x1="60.0" y1="300.0" x2="700.0" y2="300.0" stroke="#7a5a34" stroke-width="3"/>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ISA tropopause 11 km (36 090 ft), −56.5°C</text>
+      </svg>
+    </div>
+    <p class="cap">The troposphere contains nearly all the weather; temperature falls with height (ISA 1.98°C per 1000 ft). Its top, the tropopause, is about 16–18 km over the equator and about 8–9 km over the poles (ISA 11 km / 36 090 ft). Above, in the stratosphere, temperature is constant then rises (ozone).</p>
+  </section>
+
+  <!-- 2 ─ PRESSURE SYSTEMS ON A SYNOPTIC CHART -->
+  <section class="card">
+    <h2>Pressure Systems on a Synoptic Chart</h2>
+    <div class="meta"><span class="tag">mx_isobars</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Isobars showing a high, a low, a ridge of high pressure, a trough of low pressure and a col between two highs and two lows">
+        <ellipse cx="160.0" cy="140.0" rx="30" ry="24" fill="none" stroke="var(--cool)" stroke-width="1.4"/>
+        <ellipse cx="160.0" cy="140.0" rx="56" ry="44" fill="none" stroke="var(--cool)" stroke-width="1.4"/>
+        <ellipse cx="160.0" cy="140.0" rx="82" ry="64" fill="none" stroke="var(--cool)" stroke-width="1.4"/>
+        <ellipse cx="160.0" cy="140.0" rx="108" ry="84" fill="none" stroke="var(--cool)" stroke-width="1.4"/>
+        <text x="160.0" y="145.0" font-family="Overpass,sans-serif" font-size="18" fill="var(--cool)" text-anchor="middle" font-weight="700">H</text>
+        <ellipse cx="560.0" cy="140.0" rx="30" ry="24" fill="none" stroke="var(--hot)" stroke-width="1.4"/>
+        <ellipse cx="560.0" cy="140.0" rx="56" ry="44" fill="none" stroke="var(--hot)" stroke-width="1.4"/>
+        <ellipse cx="560.0" cy="140.0" rx="82" ry="64" fill="none" stroke="var(--hot)" stroke-width="1.4"/>
+        <ellipse cx="560.0" cy="140.0" rx="108" ry="84" fill="none" stroke="var(--hot)" stroke-width="1.4"/>
+        <text x="560.0" y="145.0" font-family="Overpass,sans-serif" font-size="18" fill="var(--hot)" text-anchor="middle" font-weight="700">L</text>
+        <path d="M90,300 Q160,190 230,300" stroke="var(--cool)" stroke-width="1.4" fill="none"/>
+        <path d="M60,320 Q160,160 260,320" stroke="var(--cool)" stroke-width="1.4" fill="none"/>
+        <text x="160.0" y="340.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="middle" font-weight="700">ridge</text>
+        <path d="M490,300 Q560,200 630,300" stroke="var(--hot)" stroke-width="1.4" fill="none"/>
+        <path d="M470,320 Q560,180 650,320" stroke="var(--hot)" stroke-width="1.4" fill="none"/>
+        <text x="560.0" y="340.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">trough</text>
+        <text x="360.0" y="220.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--gold)" text-anchor="middle" font-weight="700">COL</text>
+        <text x="360.0" y="240.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">between two highs and two lows</text>
+      </svg>
+    </div>
+    <p class="cap">Closed isobars form highs (anticyclones) and lows (depressions); a ridge is an extension of high pressure and a trough an extension of low pressure; a col is the area between two highs and two lows. Close isobars mean a steep pressure gradient and strong wind.</p>
+  </section>
+
+  <!-- 3 ─ GEOSTROPHIC WIND AND BUYS BALLOT’S LAW (SOUTHERN HEMISPHERE) -->
+  <section class="card">
+    <h2>Geostrophic Wind and Buys Ballot’s Law (Southern Hemisphere)</h2>
+    <div class="meta"><span class="tag">mx_bb</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Straight isobars with the pressure gradient force towards low pressure balanced by Coriolis force, giving a geostrophic wind parallel to the isobars with low pressure on the right">
+        <line x1="80.0" y1="80.0" x2="680.0" y2="80.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="690.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">1012 hPa</text>
+        <line x1="80.0" y1="180.0" x2="680.0" y2="180.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="690.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">1016</text>
+        <line x1="80.0" y1="280.0" x2="680.0" y2="280.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="690.0" y="284.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">1020 hPa</text>
+        <text x="80.0" y="66.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" font-weight="700">LOW</text>
+        <text x="80.0" y="304.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" font-weight="700">HIGH</text>
+        <line x1="380.0" y1="180.0" x2="380.0" y2="110.0" stroke="var(--hot)" stroke-width="2.6" marker-end="url(#m-hot)"/>
+        <text x="392.0" y="120.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">pressure gradient force</text>
+        <line x1="380.0" y1="180.0" x2="380.0" y2="250.0" stroke="var(--cool)" stroke-width="2.6" marker-end="url(#m-cool)"/>
+        <text x="392.0" y="246.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">Coriolis (left of motion, SH)</text>
+        <line x1="200.0" y1="180.0" x2="360.0" y2="180.0" stroke="var(--gold)" stroke-width="3.4" marker-end="url(#m-gold)"/>
+        <text x="240.0" y="170.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">geostrophic wind</text>
+        <text x="380.0" y="340.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">SH: back to the wind, low pressure on the right</text>
+      </svg>
+    </div>
+    <p class="cap">Air starts to move from high to low pressure; Coriolis force (to the LEFT of the motion in the Southern Hemisphere) turns it until the two forces balance and the wind blows parallel to the isobars — the geostrophic wind. Buys Ballot (SH): stand with your back to the wind and LOW pressure is on your RIGHT. Winds blow clockwise round a low and anticlockwise round a high in the SH.</p>
+  </section>
+
+  <!-- 4 ─ SURFACE FRICTION — SURFACE WIND VEERS AND SLOWS (SH) -->
+  <section class="card">
+    <h2>Surface Friction — Surface Wind Veers and Slows (SH)</h2>
+    <div class="meta"><span class="tag">mx_friction</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Wind at 2000 ft parallel to the isobars and the surface wind slower and turned across the isobars towards low pressure">
+        <line x1="80.0" y1="80.0" x2="680.0" y2="80.0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="80.0" y1="240.0" x2="680.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="80.0" y="66.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">low pressure</text>
+        <text x="80.0" y="264.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">high pressure</text>
+        <line x1="200.0" y1="160.0" x2="560.0" y2="160.0" stroke="var(--gold)" stroke-width="3" marker-end="url(#m-gold)"/>
+        <text x="380.0" y="150.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">2000 ft wind (geostrophic)</text>
+        <line x1="250.0" y1="200.0" x2="420.0" y2="130.0" stroke="var(--hot)" stroke-width="2.6" marker-end="url(#m-hot)"/>
+        <text x="430.0" y="128.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">surface wind: slower, turned towards the low</text>
+        <text x="380.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">≈ 30° over land, 10° over sea</text>
+      </svg>
+    </div>
+    <p class="cap">Friction slows the wind near the surface, reducing Coriolis force, so the pressure gradient turns the wind across the isobars towards low pressure. In the Southern Hemisphere the surface wind is therefore VEERED (and in the NH backed) from the 2000 ft wind by about 30° over land (10° over sea) and roughly half to two-thirds the speed.</p>
+  </section>
+
+  <!-- 5 ─ SEA BREEZE AND LAND BREEZE -->
+  <section class="card">
+    <h2>Sea Breeze and Land Breeze</h2>
+    <div class="meta"><span class="tag">mx_breeze</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="By day air rises over the warm land and the sea breeze blows onshore at low level; by night the land cools and the land breeze blows offshore">
+        <text x="380.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">DAY — SEA BREEZE</text>
+        <rect x="60.0" y="150.0" width="300.0" height="20.0" rx="0" fill="var(--fluid)" stroke="none" stroke-width="0"/>
+        <rect x="360.0" y="140.0" width="340.0" height="30.0" rx="0" fill="#7a5a34" stroke="none" stroke-width="0"/>
+        <text x="210.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">sea</text>
+        <text x="530.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">land</text>
+        <line x1="200.0" y1="136.0" x2="470.0" y2="132.0" stroke="var(--cool)" stroke-width="2.6" marker-end="url(#m-cool)"/>
+        <line x1="520.0" y1="120.0" x2="520.0" y2="60.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <line x1="500.0" y1="64.0" x2="220.0" y2="68.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="380.0" y="190.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">NIGHT — LAND BREEZE</text>
+        <rect x="60.0" y="300.0" width="300.0" height="20.0" rx="0" fill="var(--fluid)" stroke="none" stroke-width="0"/>
+        <rect x="360.0" y="290.0" width="340.0" height="30.0" rx="0" fill="#7a5a34" stroke="none" stroke-width="0"/>
+        <text x="210.0" y="314.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">sea</text>
+        <text x="530.0" y="310.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">land</text>
+        <line x1="470.0" y1="282.0" x2="200.0" y2="286.0" stroke="var(--cool)" stroke-width="2.6" marker-end="url(#m-cool)"/>
+        <line x1="200.0" y1="240.0" x2="470.0" y2="236.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+      </svg>
+    </div>
+    <p class="cap">By day the land heats faster than the sea; air rises over the land and a sea breeze (typically 10–15 kt, up to about 1000–2000 ft deep) blows onshore, with a return flow aloft. At night the land cools faster and a weaker land breeze blows offshore.</p>
+  </section>
+
+  <!-- 6 ─ KATABATIC AND ANABATIC WINDS -->
+  <section class="card">
+    <h2>Katabatic and Anabatic Winds</h2>
+    <div class="meta"><span class="tag">mx_katabatic</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A valley slope with cold air draining downhill at night (katabatic) and warm air flowing upslope by day (anabatic)">
+        <path d="M40,280 L180,120 L360,280 Z" stroke="none" stroke-width="0" fill="#7a5a34" opacity="0.8"/>
+        <text x="200.0" y="50.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">NIGHT — KATABATIC (downslope)</text>
+        <line x1="96.0" y1="220.0" x2="70.0" y2="250.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="126.0" y1="184.0" x2="100.0" y2="214.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="156.0" y1="148.0" x2="130.0" y2="178.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <path d="M400,280 L540,120 L720,280 Z" stroke="none" stroke-width="0" fill="#7a5a34" opacity="0.8"/>
+        <text x="560.0" y="50.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">DAY — ANABATIC (upslope)</text>
+        <line x1="430.0" y1="250.0" x2="456.0" y2="220.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <line x1="460.0" y1="214.0" x2="486.0" y2="184.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <line x1="490.0" y1="178.0" x2="516.0" y2="148.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+      </svg>
+    </div>
+    <p class="cap">At night, air in contact with a cooling slope becomes dense and drains downhill — a katabatic wind, which can be strong in mountain valleys and causes frost and fog in hollows. By day, heated slopes produce a weaker upslope anabatic wind.</p>
+  </section>
+
+  <!-- 7 ─ LAPSE RATES AND STABILITY -->
+  <section class="card">
+    <h2>Lapse Rates and Stability</h2>
+    <div class="meta"><span class="tag">mx_lapse</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 390" role="img" aria-label="Temperature against height with the dry adiabatic lapse rate, saturated adiabatic lapse rate and three environmental lapse rates showing absolute stability, conditional instability and absolute instability">
+        <line x1="100.0" y1="320.0" x2="700.0" y2="320.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <line x1="100.0" y1="320.0" x2="100.0" y2="40.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="400.0" y="354.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">TEMPERATURE →</text>
+        <text x="56.0" y="180.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700" transform="rotate(-90 56 180.0)">HEIGHT</text>
+        <line x1="560.0" y1="320.0" x2="320.0" y2="60.0" stroke="var(--hot)" stroke-width="2.6"/>
+        <text x="314.0" y="56.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="end" font-weight="700">DALR 3°C/1000 ft</text>
+        <line x1="560.0" y1="320.0" x2="440.0" y2="60.0" stroke="var(--cool)" stroke-width="2.6"/>
+        <text x="434.0" y="56.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">SALR ≈ 1.5°C/1000 ft</text>
+        <line x1="560.0" y1="320.0" x2="496.0" y2="60.0" stroke="var(--green)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="510.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">ELR &lt; SALR: stable</text>
+        <line x1="560.0" y1="320.0" x2="280.0" y2="100.0" stroke="var(--gold)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="150.0" y="110.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">ELR &gt; DALR: absolutely unstable</text>
+        <text x="380.0" y="378.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ELR between SALR and DALR: conditionally unstable</text>
+      </svg>
+    </div>
+    <p class="cap">DALR ≈ 3°C/1000 ft; SALR ≈ 1.5°C/1000 ft (varies); ISA ELR 1.98°C/1000 ft. If the ELR is less than the SALR the air is absolutely stable; between SALR and DALR it is conditionally unstable (unstable only if saturated); greater than the DALR it is absolutely unstable.</p>
+  </section>
+
+  <!-- 8 ─ HOW AIR IS LIFTED TO FORM CLOUD -->
+  <section class="card">
+    <h2>How Air Is Lifted to Form Cloud</h2>
+    <div class="meta"><span class="tag">mx_lifting</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Four panels: convection over heated ground, orographic lifting over a mountain, frontal lifting of warm air over cold, and convergence">
+        <text x="110.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">CONVECTION</text>
+        <line x1="30.0" y1="260.0" x2="190.0" y2="260.0" stroke="#7a5a34" stroke-width="3"/>
+        <line x1="110.0" y1="250.0" x2="110.0" y2="140.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <g fill="#b9c8ce"><rect x="75.0" y="111.8" width="70.0" height="15.1" rx="7.6"/><ellipse cx="93.2" cy="111.8" rx="16.8" ry="13.0"/><ellipse cx="112.8" cy="105.0" rx="18.9" ry="17.3"/><ellipse cx="130.3" cy="112.9" rx="14.0" ry="11.5"/></g>
+        <text x="290.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">OROGRAPHIC</text>
+        <line x1="210.0" y1="260.0" x2="370.0" y2="260.0" stroke="#7a5a34" stroke-width="3"/>
+        <path d="M210,260 L300,150 L370,260 Z" stroke="none" stroke-width="0" fill="#7a5a34" opacity="0.8"/>
+        <line x1="220.0" y1="240.0" x2="290.0" y2="150.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <g fill="#b9c8ce"><rect x="265.0" y="121.5" width="70.0" height="12.6" rx="6.3"/><ellipse cx="283.2" cy="121.5" rx="16.8" ry="10.8"/><ellipse cx="302.8" cy="115.8" rx="18.9" ry="14.4"/><ellipse cx="320.3" cy="122.4" rx="14.0" ry="9.6"/></g>
+        <text x="470.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">FRONTAL</text>
+        <line x1="390.0" y1="260.0" x2="550.0" y2="260.0" stroke="#7a5a34" stroke-width="3"/>
+        <path d="M390,260 L550,200" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <line x1="430.0" y1="230.0" x2="530.0" y2="150.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <g fill="#b9c8ce"><rect x="475.0" y="121.5" width="70.0" height="12.6" rx="6.3"/><ellipse cx="493.2" cy="121.5" rx="16.8" ry="10.8"/><ellipse cx="512.8" cy="115.8" rx="18.9" ry="14.4"/><ellipse cx="530.3" cy="122.4" rx="14.0" ry="9.6"/></g>
+        <text x="650.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">CONVERGENCE</text>
+        <line x1="570.0" y1="260.0" x2="730.0" y2="260.0" stroke="#7a5a34" stroke-width="3"/>
+        <line x1="580.0" y1="240.0" x2="640.0" y2="240.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="720.0" y1="240.0" x2="660.0" y2="240.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="650.0" y1="230.0" x2="650.0" y2="150.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <g fill="#b9c8ce"><rect x="615.0" y="121.5" width="70.0" height="12.6" rx="6.3"/><ellipse cx="633.2" cy="121.5" rx="16.8" ry="10.8"/><ellipse cx="652.8" cy="115.8" rx="18.9" ry="14.4"/><ellipse cx="670.3" cy="122.4" rx="14.0" ry="9.6"/></g>
+      </svg>
+    </div>
+    <p class="cap">Cloud forms when air is cooled to its dew point, almost always by being lifted and cooling adiabatically. Lifting is by convection (thermals over heated ground), orography (forced over high ground), fronts (warm air lifted over cold) and convergence (air flowing together and rising, e.g. in a low or the ITCZ).</p>
+  </section>
+
+  <!-- 9 ─ THUNDERSTORM LIFE CYCLE -->
+  <section class="card">
+    <h2>Thunderstorm Life Cycle</h2>
+    <div class="meta"><span class="tag">mx_cbstages</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Three stages of a thunderstorm cell: cumulus with updraughts, mature with updraughts and downdraughts and precipitation, and dissipating with downdraughts">
+        <g fill="#b9c8ce"><rect x="80.0" y="184.0" width="100" height="136.0" rx="16"/><circle cx="96.7" cy="192.0" r="25.0"/><circle cx="130.0" cy="182.0" r="31.2"/><circle cx="163.3" cy="194.0" r="23.8"/><circle cx="80.0" cy="233.0" r="15"/><circle cx="180.0" cy="253.0" r="15"/><circle cx="80.0" cy="285.0" r="15"/><circle cx="180.0" cy="205.0" r="15"/></g><rect x="80.0" y="308.0" width="100" height="12" rx="6" fill="#7f9199"/>
+        <line x1="105.0" y1="300.0" x2="105.0" y2="200.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <line x1="155.0" y1="300.0" x2="155.0" y2="200.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <text x="130.0" y="372.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">CUMULUS</text>
+        <g fill="#b9c8ce"><ellipse cx="380" cy="96" rx="80" ry="13"/><rect x="330.0" y="104.0" width="100" height="216.0" rx="16"/><circle cx="346.7" cy="112.0" r="25.0"/><circle cx="380.0" cy="102.0" r="31.2"/><circle cx="413.3" cy="114.0" r="23.8"/><circle cx="330.0" cy="193.0" r="15"/><circle cx="430.0" cy="213.0" r="15"/><circle cx="330.0" cy="245.0" r="15"/><circle cx="430.0" cy="165.0" r="15"/></g><rect x="330.0" y="308.0" width="100" height="12" rx="6" fill="#7f9199"/>
+        <line x1="355.0" y1="300.0" x2="355.0" y2="140.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <line x1="405.0" y1="140.0" x2="405.0" y2="300.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="380.0" y1="320.0" x2="376.0" y2="350.0" stroke="var(--cool)" stroke-width="1.2" stroke-dasharray="5 5"/>
+        <line x1="392.0" y1="320.0" x2="388.0" y2="350.0" stroke="var(--cool)" stroke-width="1.2" stroke-dasharray="5 5"/>
+        <line x1="404.0" y1="320.0" x2="400.0" y2="350.0" stroke="var(--cool)" stroke-width="1.2" stroke-dasharray="5 5"/>
+        <line x1="416.0" y1="320.0" x2="412.0" y2="350.0" stroke="var(--cool)" stroke-width="1.2" stroke-dasharray="5 5"/>
+        <line x1="428.0" y1="320.0" x2="424.0" y2="350.0" stroke="var(--cool)" stroke-width="1.2" stroke-dasharray="5 5"/>
+        <text x="380.0" y="372.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">MATURE</text>
+        <g fill="#b9c8ce"><ellipse cx="630" cy="126" rx="80" ry="13"/><rect x="580.0" y="134.0" width="100" height="186.0" rx="16"/><circle cx="596.7" cy="142.0" r="25.0"/><circle cx="630.0" cy="132.0" r="31.2"/><circle cx="663.3" cy="144.0" r="23.8"/><circle cx="580.0" cy="208.0" r="15"/><circle cx="680.0" cy="228.0" r="15"/><circle cx="580.0" cy="260.0" r="15"/><circle cx="680.0" cy="180.0" r="15"/></g><rect x="580.0" y="308.0" width="100" height="12" rx="6" fill="#7f9199"/>
+        <line x1="605.0" y1="180.0" x2="605.0" y2="300.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="655.0" y1="180.0" x2="655.0" y2="300.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <text x="630.0" y="372.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">DISSIPATING</text>
+      </svg>
+    </div>
+    <p class="cap">Cumulus stage: updraughts throughout, the cloud builds rapidly. Mature stage: begins when precipitation falls from the base; strong updraughts and downdraughts side by side, lightning, hail, severe turbulence, gust front and microbursts — the most dangerous stage. Dissipating stage: downdraughts dominate and the cloud decays. Each cell lasts roughly 1–2 hours in total.</p>
+  </section>
+
+  <!-- 10 ─ AIRFRAME ICE TYPES AND TEMPERATURES -->
+  <section class="card">
+    <h2>Airframe Ice Types and Temperatures</h2>
+    <div class="meta"><span class="tag">mx_icetypes</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Temperature scale from 0 to −40 °C with clear ice from large supercooled drops near 0 to −15, mixed ice around −10 to −15, and rime from small drops at colder temperatures">
+        <line x1="80.0" y1="260.0" x2="680.0" y2="260.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="80.0" y1="254.0" x2="80.0" y2="266.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="80.0" y="286.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">0°C</text>
+        <line x1="230.0" y1="254.0" x2="230.0" y2="266.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="230.0" y="286.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">-10°C</text>
+        <line x1="380.0" y1="254.0" x2="380.0" y2="266.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="380.0" y="286.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">-20°C</text>
+        <line x1="530.0" y1="254.0" x2="530.0" y2="266.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="530.0" y="286.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">-30°C</text>
+        <line x1="680.0" y1="254.0" x2="680.0" y2="266.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="680.0" y="286.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">-40°C</text>
+        <rect x="80.0" y="100.0" width="225.0" height="30.0" rx="4" fill="var(--cool)" stroke="var(--cool)" stroke-width="1.4" opacity="0.35"/>
+        <text x="86.0" y="94.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">CLEAR ICE — large drops (Cu, freezing rain)</text>
+        <rect x="230.0" y="150.0" width="75.0" height="30.0" rx="4" fill="var(--gold)" stroke="var(--gold)" stroke-width="1.4" opacity="0.35"/>
+        <text x="236.0" y="144.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">MIXED</text>
+        <rect x="230.0" y="200.0" width="450.0" height="30.0" rx="4" fill="#ffffff" stroke="#ffffff" stroke-width="1.4" opacity="0.35"/>
+        <text x="236.0" y="194.0" font-family="Overpass,sans-serif" font-size="10.5" fill="#ffffff" font-weight="700">RIME — small drops (St, layer cloud)</text>
+        <text x="380.0" y="320.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">icing risk greatest between 0 and −15°C</text>
+      </svg>
+    </div>
+    <p class="cap">Clear (glaze) ice: large supercooled droplets freeze slowly, spreading back before freezing — heavy, hard to remove; most likely 0 to −15°C, especially in cumuliform cloud and freezing rain. Rime: small droplets freeze instantly, trapping air — white, brittle, on leading edges; most likely −10 to −40°C in layer cloud. Mixed ice in between. Hoar frost forms in clear air when a cold aircraft enters warm moist air.</p>
+  </section>
+
+  <!-- 11 ─ RADIATION FOG AND ADVECTION FOG -->
+  <section class="card">
+    <h2>Radiation Fog and Advection Fog</h2>
+    <div class="meta"><span class="tag">mx_fogs</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Radiation fog forming over land on a clear calm night, and advection fog forming as warm moist air flows over a cold surface">
+        <text x="190.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">RADIATION FOG</text>
+        <line x1="40.0" y1="260.0" x2="340.0" y2="260.0" stroke="#7a5a34" stroke-width="4"/>
+        <line x1="80.0" y1="250.0" x2="70.0" y2="120.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="130.0" y1="250.0" x2="120.0" y2="120.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="180.0" y1="250.0" x2="170.0" y2="120.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="230.0" y1="250.0" x2="220.0" y2="120.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="280.0" y1="250.0" x2="270.0" y2="120.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <rect x="40.0" y="200.0" width="300.0" height="56.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.3"/>
+        <text x="190.0" y="98.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">clear sky, calm, night</text>
+        <text x="570.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">ADVECTION FOG</text>
+        <rect x="420.0" y="252.0" width="150.0" height="16.0" rx="0" fill="#7a5a34" stroke="none" stroke-width="0"/>
+        <rect x="570.0" y="252.0" width="150.0" height="16.0" rx="0" fill="var(--fluid)" stroke="none" stroke-width="0"/>
+        <line x1="440.0" y1="200.0" x2="640.0" y2="200.0" stroke="var(--hot)" stroke-width="2.6" marker-end="url(#m-hot)"/>
+        <text x="500.0" y="190.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">warm moist air</text>
+        <rect x="570.0" y="210.0" width="150.0" height="40.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.3"/>
+        <text x="645.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="middle" font-weight="700">cold sea or ground</text>
+        <text x="380.0" y="320.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">radiation fog clears with heating; advection fog persists in wind</text>
+      </svg>
+    </div>
+    <p class="cap">Radiation fog: clear skies at night, light wind (about 2–8 kt), high humidity — the ground cools by radiation and cools the air above to its dew point; it usually clears after sunrise. Advection fog: warm, moist air moves over a colder surface (e.g. sea fog onto the West Coast); it can form by day or night and persists in winds up to about 15 kt or more.</p>
+  </section>
+
+  <!-- 12 ─ COLD FRONT — CROSS-SECTION -->
+  <section class="card">
+    <h2>Cold Front — Cross-Section</h2>
+    <div class="meta"><span class="tag">mx_coldfront</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Cross-section of a cold front with cold air undercutting warm air, a steep frontal slope and cumulonimbus along it">
+        <line x1="40.0" y1="290.0" x2="720.0" y2="290.0" stroke="#7a5a34" stroke-width="3"/>
+        <g fill="#b9c8ce"><ellipse cx="360" cy="66" rx="80" ry="13"/><rect x="305.0" y="74.0" width="110" height="216.0" rx="16"/><circle cx="323.3" cy="82.0" r="27.5"/><circle cx="360.0" cy="72.0" r="34.4"/><circle cx="396.7" cy="84.0" r="26.2"/><circle cx="305.0" cy="163.0" r="15"/><circle cx="415.0" cy="183.0" r="15"/><circle cx="305.0" cy="215.0" r="15"/><circle cx="415.0" cy="135.0" r="15"/></g><rect x="305.0" y="278.0" width="110" height="12" rx="6" fill="#7f9199"/>
+        <path d="M380,290 Q440,250 480,170 Q520,100 560,60" stroke="var(--cool)" stroke-width="3" fill="none"/>
+        <text x="620.0" y="250.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">← COLD AIR</text>
+        <text x="160.0" y="250.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">warm air (lifted)</text>
+        <text x="420.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Cb, heavy showers, squalls along the front</text>
+        <text x="380.0" y="324.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">steep slope (≈ 1:50 – 1:100), narrow band of weather</text>
+      </svg>
+    </div>
+    <p class="cap">Cold air undercuts the warm air and forces it up sharply: a narrow band of cumuliform cloud and Cb, heavy showers, squalls, possible thunder; behind the front the temperature and dew point fall, the wind veers (SH: backs) and pressure rises; visibility improves.</p>
+  </section>
+
+  <!-- 13 ─ WARM FRONT — CROSS-SECTION -->
+  <section class="card">
+    <h2>Warm Front — Cross-Section</h2>
+    <div class="meta"><span class="tag">mx_warmfront</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Cross-section of a warm front with warm air rising gently over cold air and the cloud sequence cirrus, cirrostratus, altostratus and nimbostratus">
+        <line x1="40.0" y1="290.0" x2="720.0" y2="290.0" stroke="#7a5a34" stroke-width="3"/>
+        <path d="M620,290 Q340,250 60,100" stroke="var(--hot)" stroke-width="3" fill="none"/>
+        <text x="160.0" y="270.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">cold air (retreating)</text>
+        <text x="620.0" y="150.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">← WARM AIR</text>
+        <g fill="#b9c8ce"><rect x="70.0" y="71.1" width="80.0" height="9.2" rx="4.6"/><ellipse cx="90.8" cy="71.1" rx="19.2" ry="7.9"/><ellipse cx="113.2" cy="66.9" rx="21.6" ry="10.6"/><ellipse cx="133.2" cy="71.8" rx="16.0" ry="7.0"/></g>
+        <text x="110.0" y="98.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Ci</text>
+        <g fill="#b9c8ce"><rect x="190.0" y="121.1" width="80.0" height="9.2" rx="4.6"/><ellipse cx="210.8" cy="121.1" rx="19.2" ry="7.9"/><ellipse cx="233.2" cy="116.9" rx="21.6" ry="10.6"/><ellipse cx="253.2" cy="121.8" rx="16.0" ry="7.0"/></g>
+        <text x="230.0" y="148.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Cs</text>
+        <g fill="#b9c8ce"><rect x="320.0" y="171.1" width="80.0" height="9.2" rx="4.6"/><ellipse cx="340.8" cy="171.1" rx="19.2" ry="7.9"/><ellipse cx="363.2" cy="166.9" rx="21.6" ry="10.6"/><ellipse cx="383.2" cy="171.8" rx="16.0" ry="7.0"/></g>
+        <text x="360.0" y="198.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">As</text>
+        <g fill="#b9c8ce"><rect x="460.0" y="221.1" width="80.0" height="9.2" rx="4.6"/><ellipse cx="480.8" cy="221.1" rx="19.2" ry="7.9"/><ellipse cx="503.2" cy="216.9" rx="21.6" ry="10.6"/><ellipse cx="523.2" cy="221.8" rx="16.0" ry="7.0"/></g>
+        <text x="500.0" y="248.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Ns, rain</text>
+        <text x="380.0" y="324.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">shallow slope (≈ 1:150), wide band of cloud and rain ahead</text>
+      </svg>
+    </div>
+    <p class="cap">Warm air rides slowly up over the cold air on a gentle slope: cloud thickens and lowers ahead of the front (Ci, Cs, As, Ns) with a wide belt of continuous rain and poor visibility; freezing rain is possible in winter where rain falls into sub-zero air.</p>
+  </section>
+
+  <!-- 14 ─ FRONTAL DEPRESSION IN THE SOUTHERN HEMISPHERE -->
+  <section class="card">
+    <h2>Frontal Depression in the Southern Hemisphere</h2>
+    <div class="meta"><span class="tag">mx_shlow</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Plan view of a Southern Hemisphere frontal depression with clockwise circulation, the warm sector to the north, the warm front ahead and the cold front trailing to the north-west">
+        <ellipse cx="300.0" cy="250.0" rx="40" ry="30" fill="none" stroke="var(--chart-line-2)" stroke-width="1.2"/>
+        <ellipse cx="300.0" cy="250.0" rx="68" ry="52" fill="none" stroke="var(--chart-line-2)" stroke-width="1.2"/>
+        <ellipse cx="300.0" cy="250.0" rx="96" ry="74" fill="none" stroke="var(--chart-line-2)" stroke-width="1.2"/>
+        <ellipse cx="300.0" cy="250.0" rx="124" ry="96" fill="none" stroke="var(--chart-line-2)" stroke-width="1.2"/>
+        <text x="300.0" y="256.0" font-family="Overpass,sans-serif" font-size="18" fill="var(--hot)" text-anchor="middle" font-weight="700">L</text>
+        <path d="M300,250 Q430,220 580,150" stroke="var(--hot)" stroke-width="3" fill="none"/>
+        <path d="M300,250 Q220,170 140,60" stroke="var(--cool)" stroke-width="3" fill="none"/>
+        <circle cx="360.0" cy="222.0" r="6" fill="var(--hot)" stroke="var(--hot)" stroke-width="0"/>
+        <circle cx="416.0" cy="202.0" r="6" fill="var(--hot)" stroke="var(--hot)" stroke-width="0"/>
+        <circle cx="472.0" cy="182.0" r="6" fill="var(--hot)" stroke="var(--hot)" stroke-width="0"/>
+        <circle cx="528.0" cy="162.0" r="6" fill="var(--hot)" stroke="var(--hot)" stroke-width="0"/>
+        <path d="M262.0,212.0 L278.0,208.0 L268.0,220.0 Z" stroke="none" stroke-width="0" fill="var(--cool)"/>
+        <path d="M230.0,174.0 L246.0,170.0 L236.0,182.0 Z" stroke="none" stroke-width="0" fill="var(--cool)"/>
+        <path d="M198.0,136.0 L214.0,132.0 L204.0,144.0 Z" stroke="none" stroke-width="0" fill="var(--cool)"/>
+        <path d="M166.0,98.0 L182.0,94.0 L172.0,106.0 Z" stroke="none" stroke-width="0" fill="var(--cool)"/>
+        <text x="380.0" y="110.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">WARM SECTOR (north side)</text>
+        <path d="M230,330 A90,70 0 0 1 400,320" stroke="var(--gold)" stroke-width="2" fill="none" marker-end="url(#m-gold)"/>
+        <text x="300.0" y="360.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">clockwise (SH)</text>
+        <text x="600.0" y="140.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">warm front</text>
+        <text x="150.0" y="50.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">cold front</text>
+        <line x1="700.0" y1="70.0" x2="700.0" y2="30.0" stroke="var(--chart-ink)" stroke-width="2" marker-end="url(#m-ink)"/>
+        <text x="710.0" y="50.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">N</text>
+        <line x1="560.0" y1="330.0" x2="660.0" y2="330.0" stroke="var(--chart-ink-dim)" stroke-width="2" marker-end="url(#m-dim)"/>
+        <text x="560.0" y="320.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">movement: east</text>
+      </svg>
+    </div>
+    <p class="cap">In the Southern Hemisphere a frontal depression has CLOCKWISE circulation. The warm sector lies on the equator (north) side; the warm front lies ahead (east) and the cold front trails to the north-west. The system moves generally eastward; these cold fronts bring the Cape winter rain.</p>
+  </section>
+
+  <!-- 15 ─ GENERAL CIRCULATION — CELLS AND PRESSURE BELTS -->
+  <section class="card">
+    <h2>General Circulation — Cells and Pressure Belts</h2>
+    <div class="meta"><span class="tag">mx_cells</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 400" role="img" aria-label="Southern Hemisphere cross-section from equator to pole showing the Hadley, Ferrel and polar cells, the equatorial trough, subtropical high, subpolar low and polar high, and the surface winds">
+        <line x1="60.0" y1="320.0" x2="700.0" y2="320.0" stroke="#7a5a34" stroke-width="3"/>
+        <ellipse cx="166.7" cy="230.0" rx="96.66666666666666" ry="70" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="166.7" y="234.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">HADLEY</text>
+        <ellipse cx="380.0" cy="230.0" rx="96.66666666666666" ry="70" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="380.0" y="234.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">FERREL</text>
+        <ellipse cx="593.3" cy="230.0" rx="96.66666666666669" ry="70" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="593.3" y="234.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">POLAR</text>
+        <text x="60.0" y="346.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">ITCZ low</text>
+        <text x="60.0" y="366.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">0°S</text>
+        <text x="273.3" y="346.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">subtropical high</text>
+        <text x="273.3" y="366.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">30°S</text>
+        <text x="486.7" y="346.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">subpolar low</text>
+        <text x="486.7" y="366.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">60°S</text>
+        <text x="700.0" y="346.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">polar high</text>
+        <text x="700.0" y="366.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">90°S</text>
+        <line x1="237.8" y1="300.0" x2="95.6" y2="300.0" stroke="var(--gold)" stroke-width="2.2" marker-end="url(#m-gold)"/>
+        <text x="166.7" y="292.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">SE trades</text>
+        <line x1="308.9" y1="300.0" x2="451.1" y2="300.0" stroke="var(--gold)" stroke-width="2.2" marker-end="url(#m-gold)"/>
+        <text x="380.0" y="292.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">westerlies</text>
+        <line x1="664.4" y1="300.0" x2="522.2" y2="300.0" stroke="var(--gold)" stroke-width="2.2" marker-end="url(#m-gold)"/>
+        <text x="593.3" y="292.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">polar easterlies</text>
+        <text x="380.0" y="50.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">equator → South Pole</text>
+      </svg>
+    </div>
+    <p class="cap">Three cells in each hemisphere: Hadley (equator to about 30°), Ferrel (30–60°) and Polar (60–90°). Surface pressure belts: equatorial trough (ITCZ, low) at the equator, subtropical highs near 30° (South Atlantic and Indian Ocean highs that dominate SA weather), subpolar lows near 60° and the polar high. Surface winds: SE trades from 30° to the equator, westerlies 30–60°, polar easterlies.</p>
+  </section>
+
+  <!-- 16 ─ TROPICAL REVOLVING STORM — STRUCTURE -->
+  <section class="card">
+    <h2>Tropical Revolving Storm — Structure</h2>
+    <div class="meta"><span class="tag">mx_trs</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Cross-section of a tropical cyclone with a clear calm eye, a towering eyewall of cumulonimbus with the strongest winds, spiral rain bands and outflow aloft">
+        <line x1="40.0" y1="300.0" x2="720.0" y2="300.0" stroke="var(--fluid)" stroke-width="6"/>
+        <g fill="#b9c8ce"><rect x="265.0" y="84.0" width="90" height="216.0" rx="16"/><circle cx="280.0" cy="92.0" r="22.5"/><circle cx="310.0" cy="82.0" r="28.1"/><circle cx="340.0" cy="94.0" r="21.4"/><circle cx="265.0" cy="173.0" r="15"/><circle cx="355.0" cy="193.0" r="15"/><circle cx="265.0" cy="225.0" r="15"/><circle cx="355.0" cy="145.0" r="15"/></g><rect x="265.0" y="288.0" width="90" height="12" rx="6" fill="#7f9199"/>
+        <g fill="#b9c8ce"><rect x="195.0" y="174.0" width="50" height="126.0" rx="16"/><circle cx="203.3" cy="182.0" r="12.5"/><circle cx="220.0" cy="172.0" r="15.6"/><circle cx="236.7" cy="184.0" r="11.9"/><circle cx="195.0" cy="218.0" r="15"/><circle cx="245.0" cy="238.0" r="15"/><circle cx="195.0" cy="270.0" r="15"/></g><rect x="195.0" y="288.0" width="50" height="12" rx="6" fill="#7f9199"/>
+        <g fill="#b9c8ce"><rect x="125.0" y="204.0" width="50" height="96.0" rx="16"/><circle cx="133.3" cy="212.0" r="12.5"/><circle cx="150.0" cy="202.0" r="15.6"/><circle cx="166.7" cy="214.0" r="11.9"/><circle cx="125.0" cy="233.0" r="15"/><circle cx="175.0" cy="253.0" r="15"/></g><rect x="125.0" y="288.0" width="50" height="12" rx="6" fill="#7f9199"/>
+        <g fill="#b9c8ce"><rect x="55.0" y="234.0" width="50" height="66.0" rx="16"/><circle cx="63.3" cy="242.0" r="12.5"/><circle cx="80.0" cy="232.0" r="15.6"/><circle cx="96.7" cy="244.0" r="11.9"/><circle cx="105.0" cy="268.0" r="15"/></g><rect x="55.0" y="288.0" width="50" height="12" rx="6" fill="#7f9199"/>
+        <g fill="#b9c8ce"><rect x="405.0" y="84.0" width="90" height="216.0" rx="16"/><circle cx="420.0" cy="92.0" r="22.5"/><circle cx="450.0" cy="82.0" r="28.1"/><circle cx="480.0" cy="94.0" r="21.4"/><circle cx="405.0" cy="173.0" r="15"/><circle cx="495.0" cy="193.0" r="15"/><circle cx="405.0" cy="225.0" r="15"/><circle cx="495.0" cy="145.0" r="15"/></g><rect x="405.0" y="288.0" width="90" height="12" rx="6" fill="#7f9199"/>
+        <g fill="#b9c8ce"><rect x="515.0" y="174.0" width="50" height="126.0" rx="16"/><circle cx="523.3" cy="182.0" r="12.5"/><circle cx="540.0" cy="172.0" r="15.6"/><circle cx="556.7" cy="184.0" r="11.9"/><circle cx="515.0" cy="218.0" r="15"/><circle cx="565.0" cy="238.0" r="15"/><circle cx="515.0" cy="270.0" r="15"/></g><rect x="515.0" y="288.0" width="50" height="12" rx="6" fill="#7f9199"/>
+        <g fill="#b9c8ce"><rect x="585.0" y="204.0" width="50" height="96.0" rx="16"/><circle cx="593.3" cy="212.0" r="12.5"/><circle cx="610.0" cy="202.0" r="15.6"/><circle cx="626.7" cy="214.0" r="11.9"/><circle cx="585.0" cy="233.0" r="15"/><circle cx="635.0" cy="253.0" r="15"/></g><rect x="585.0" y="288.0" width="50" height="12" rx="6" fill="#7f9199"/>
+        <g fill="#b9c8ce"><rect x="655.0" y="234.0" width="50" height="66.0" rx="16"/><circle cx="663.3" cy="242.0" r="12.5"/><circle cx="680.0" cy="232.0" r="15.6"/><circle cx="696.7" cy="244.0" r="11.9"/><circle cx="705.0" cy="268.0" r="15"/></g><rect x="655.0" y="288.0" width="50" height="12" rx="6" fill="#7f9199"/>
+        <rect x="350.0" y="70.0" width="60.0" height="230.0" rx="0" fill="var(--chart-ground)" stroke="none" stroke-width="0"/>
+        <text x="380.0" y="200.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--gold)" text-anchor="middle" font-weight="700">EYE</text>
+        <line x1="380.0" y1="90.0" x2="380.0" y2="180.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <text x="380.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">outflow aloft</text>
+        <line x1="400.0" y1="50.0" x2="600.0" y2="50.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <line x1="360.0" y1="50.0" x2="160.0" y2="50.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="240.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">eyewall: strongest wind</text>
+        <text x="560.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">spiral rain bands</text>
+      </svg>
+    </div>
+    <p class="cap">A tropical revolving storm forms over warm sea (≥ about 26–27°C) away from the equator (Coriolis needed), typically 5–20° latitude. The eye (20–50 km) is calm with descending air; the surrounding eyewall of Cb has the strongest winds and heaviest rain; spiral bands extend outwards. In the South-West Indian Ocean (affecting Mozambique and SA) the season is about November to April; circulation is clockwise in the SH.</p>
+  </section>
+
+  <!-- 17 ─ DECODING A METAR -->
+  <section class="card">
+    <h2>Decoding a METAR</h2>
+    <div class="meta"><span class="tag">mx_metar</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="A METAR for FAOR broken into its groups with the meaning of each: station, time, wind, visibility, cloud, temperature and dew point, QNH and trend">
+        <rect x="14.0" y="80.0" width="44.4" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="36.2" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">FAOR</text>
+        <line x1="36.2" y1="122.0" x2="36.2" y2="146.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="36.2" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">O. R. Tambo</text>
+        <rect x="63.4" y="80.0" width="70.2" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="98.5" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">121200Z</text>
+        <line x1="98.5" y1="122.0" x2="98.5" y2="196.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="98.5" y="210.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">12th, 1200 UTC</text>
+        <rect x="138.6" y="80.0" width="70.2" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="173.7" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">34012KT</text>
+        <line x1="173.7" y1="122.0" x2="173.7" y2="246.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="173.7" y="260.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">340° true, 12 kt</text>
+        <rect x="213.8" y="80.0" width="44.4" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="236.0" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">9999</text>
+        <line x1="236.0" y1="122.0" x2="236.0" y2="146.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="236.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">≥ 10 km</text>
+        <rect x="263.2" y="80.0" width="61.6" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="294.0" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">FEW030</text>
+        <line x1="294.0" y1="122.0" x2="294.0" y2="196.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="294.0" y="210.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">1–2 oktas at 3000 ft</text>
+        <rect x="329.8" y="80.0" width="61.6" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="360.6" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">SCT250</text>
+        <line x1="360.6" y1="122.0" x2="360.6" y2="246.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="360.6" y="260.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">3–4 oktas at 25 000 ft</text>
+        <rect x="396.4" y="80.0" width="53.0" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="422.9" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">24/08</text>
+        <line x1="422.9" y1="122.0" x2="422.9" y2="146.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="422.9" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">temp 24, dew pt 8</text>
+        <rect x="454.4" y="80.0" width="53.0" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="480.9" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">Q1022</text>
+        <line x1="480.9" y1="122.0" x2="480.9" y2="196.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="480.9" y="210.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">QNH 1022 hPa</text>
+        <rect x="512.4" y="80.0" width="53.0" height="40.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="538.9" y="106.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">NOSIG</text>
+        <line x1="538.9" y1="122.0" x2="538.9" y2="246.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="538.9" y="260.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">no change 2 h</text>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">FEW 1–2, SCT 3–4, BKN 5–7, OVC 8 oktas</text>
+      </svg>
+    </div>
+    <p class="cap">METAR groups in order: station (ICAO), day and time (UTC), wind (direction true / speed kt, gusts), visibility (m, 9999 = 10 km or more), weather, cloud (amount in oktas: FEW 1–2, SCT 3–4, BKN 5–7, OVC 8; base in hundreds of ft), temperature/dew point (°C), QNH (hPa) and trend (NOSIG = no significant change in the next 2 h).</p>
+  </section>
+
+  <!-- 18 ─ ALTIMETER ERRORS — HIGH TO LOW, LOOK OUT BELOW -->
+  <section class="card">
+    <h2>Altimeter Errors — High to Low, Look Out Below</h2>
+    <div class="meta"><span class="tag">mx_altim</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="An aircraft flying from high pressure to low pressure with a constant altimeter setting, descending gradually while the altimeter still reads the same altitude">
+        <line x1="40.0" y1="300.0" x2="720.0" y2="300.0" stroke="#7a5a34" stroke-width="3"/>
+        <path d="M60,110 Q380,120 700,190" stroke="var(--chart-line-2)" stroke-width="1.4" fill="none" stroke-dasharray="6 4"/>
+        <text x="380.0" y="96.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle" font-weight="700">constant pressure level (indicated 5000 ft)</text>
+        <g transform="translate(120 104) rotate(0) scale(-0.4 0.4)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <g transform="translate(640 178) rotate(0) scale(-0.4 0.4)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <text x="120.0" y="260.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">HIGH pressure / warm</text>
+        <text x="640.0" y="260.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">LOW pressure / cold</text>
+        <line x1="640.0" y1="120.0" x2="640.0" y2="172.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <text x="560.0" y="140.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="end" font-weight="700">actually lower</text>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">altimeter over-reads: aircraft is lower than indicated</text>
+      </svg>
+    </div>
+    <p class="cap">Flying from high to low pressure (or into colder air) with the subscale unchanged, the altimeter over-reads: the aircraft is lower than indicated. "High to low (or hot to cold), look out below." The reverse is safe-side. Updating the QNH en route removes the pressure error; cold-temperature corrections are applied to minimum altitudes.</p>
+  </section>
+
+  <footer>
+    Meteorology — Additional Figures: 18 original figures.
+  </footer>
+</div>
+</body></html>

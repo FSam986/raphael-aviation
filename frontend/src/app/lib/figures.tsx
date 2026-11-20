@@ -45,6 +45,7 @@ import { INSTRUMENTS_FIGURES } from "@/app/data/instruments-figures";
 import { FPP_FIGURES } from "@/app/data/fpp-figures";
 import { NAV_FIGURES } from "@/app/data/nav-figures";
 import { AIRLAW_FIGURES } from "@/app/data/airlaw-figures";
+import { RADIONAV_FIGURES } from "@/app/data/radionav-figures";
 import { PPL_MET_FIGURE_KEY } from "@/app/data/ppl-met-content";
 import { PPL_NAV_FIGURE_KEY } from "@/app/data/ppl-nav-content";
 import { PPL_FPP_FIGURE_KEY } from "@/app/data/ppl-fpp-content";
@@ -346,6 +347,30 @@ const FIGURES: Record<string, FigureDef[]> = {
   ],
 };
 
+// Additional original Meteorology figures (illustrations/gen_met2.py), appended per section.
+const MET_EXTRA: [string, string, string][] = [
+  ["A.8.1", "mx_layers", "Layers of the Atmosphere"],
+  ["A.8.3", "mx_isobars", "Pressure Systems on a Synoptic Chart"],
+  ["A.8.8", "mx_bb", "Geostrophic Wind and Buys Ballot’s Law (Southern Hemisphere)"],
+  ["A.8.8", "mx_friction", "Surface Friction — Surface Wind Veers and Slows (SH)"],
+  ["A.8.8", "mx_breeze", "Sea Breeze and Land Breeze"],
+  ["A.8.8", "mx_katabatic", "Katabatic and Anabatic Winds"],
+  ["A.8.9", "mx_lapse", "Lapse Rates and Stability"],
+  ["A.8.10", "mx_lifting", "How Air Is Lifted to Form Cloud"],
+  ["A.8.12", "mx_cbstages", "Thunderstorm Life Cycle"],
+  ["A.8.13", "mx_icetypes", "Airframe Ice Types and Temperatures"],
+  ["A.8.15", "mx_fogs", "Radiation Fog and Advection Fog"],
+  ["A.8.17", "mx_coldfront", "Cold Front — Cross-Section"],
+  ["A.8.17", "mx_warmfront", "Warm Front — Cross-Section"],
+  ["A.8.18", "mx_shlow", "Frontal Depression in the Southern Hemisphere"],
+  ["A.8.19", "mx_cells", "General Circulation — Cells and Pressure Belts"],
+  ["A.8.20", "mx_trs", "Tropical Revolving Storm — Structure"],
+  ["A.8.21", "mx_metar", "Decoding a METAR"],
+  ["A.8.7", "mx_altim", "Altimeter Errors — High to Low, Look Out Below"],
+];
+for (const [sec, tag, title] of MET_EXTRA) FIGURES[sec] = [...(FIGURES[sec] ?? []), imageFigure(tag, title, title, `${tag}.png`, "met")];
+
+
 // The 206 recreated Airframes & Systems illustrations (textbook-numbered) are
 // shown INLINE in the study notes next to the relevant topic, not in the
 // Illustrations gallery — so these helpers resolve image FigureDefs on demand.
@@ -359,6 +384,7 @@ const ATG_IMAGE_FIGURES: { section: string; topic: string; title: string; captio
   ...FPP_FIGURES,
   ...NAV_FIGURES,
   ...AIRLAW_FIGURES,
+  ...RADIONAV_FIGURES,
 ];
 
 // Radio Nav figures are ORIGINAL inline SVGs (the old rn_*.png scans were mostly

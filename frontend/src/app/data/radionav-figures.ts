@@ -20,11 +20,11 @@ const R = (section: string, topic: string, n: string, title: string): RnFigureMe
 
 export const RADIONAV_FIGURES: RnFigureMeta[] = [
   // A.10.1 — radio waves & modulation
-  R("A.10.1", "Radio waves", "1964", "Wave period & wavelength"),
-  R("A.10.1", "Modulation", "12037", "Amplitude vs frequency modulation"),
+  R("A.10.1", "Radio waves & propagation", "1964", "Wave period & wavelength"),
+  R("A.10.1", "Frequency bands", "12037", "Amplitude vs frequency modulation"),
   // A.10.2 — ADF/NDB & bearings
   R("A.10.2", "ADF / NDB", "13186", "Radio magnetic indicator (RMI)"),
-  R("A.10.2", "Radio bearings (Q-codes)", "12044", "QDM, QDR & QTE (VDF)"),
+  R("A.10.2", "ADF / NDB", "12044", "QDM, QDR & QTE (VDF)"),
   // A.10.3 — VOR
   R("A.10.3", "VOR", "1965", "Phase comparison — reference & variable"),
   R("A.10.3", "VOR", "13192", "Cone of confusion over the VOR"),
@@ -36,7 +36,26 @@ export const RADIONAV_FIGURES: RnFigureMeta[] = [
   R("A.10.3", "ILS", "13216", "Marker-beacon patterns"),
   R("A.10.3", "ILS", "13217", "ILS approach profile"),
   // A.10.6 — radar
-  R("A.10.6", "Radar", "12041", "Radar beam illuminating the ground"),
-  R("A.10.6", "Radar", "13234", "Antenna feed types"),
+  R("A.10.5", "Primary radar & SSR", "12041", "Radar beam illuminating the ground"),
+  R("A.10.5", "Primary radar & SSR", "13234", "Antenna feed types"),
+  // Added original figures (illustrations/gen_rn2.py)
+  R("A.10.1", "Radio waves & propagation", "x01", "Frequency and wavelength"),
+  R("A.10.1", "Frequency bands", "x02", "Radio frequency bands and their navigation aids"),
+  R("A.10.1", "Radio waves & propagation", "x03", "Ground wave, sky wave and space wave"),
+  R("A.10.1", "Radio waves & propagation", "x04", "VHF line-of-sight range"),
+  R("A.10.2", "ADF / NDB", "x05", "ADF bearings — relative bearing to QDM"),
+  R("A.10.2", "ADF / NDB", "x06", "ADF errors"),
+  R("A.10.3", "VOR", "x07", "VOR TO / FROM indication"),
+  R("A.10.3", "ILS", "x08", "ILS coverage"),
+  R("A.10.3", "ILS", "x09", "Glide path — height and rate of descent"),
+  R("A.10.4", "DME", "x10", "DME slant range"),
+  R("A.10.5", "Primary radar & SSR", "x11", "Primary radar — range and PRF"),
+  R("A.10.7", "SSR", "x12", "SSR — interrogation and reply"),
+  R("A.10.8", "Weather radar", "x13", "Weather radar tilt"),
+  R("A.10.9", "Radio altimeter", "x14", "Radio altimeter principle"),
+  R("A.10.12", "GNSS / GPS", "x15", "GNSS position fix"),
+  R("A.10.11", "RNAV", "x16", "RNAV waypoint from VOR/DME (rho-theta)"),
+  R("A.10.11", "RNAV", "x17", "RNP — navigation accuracy"),
+  R("A.10.10", "ELT", "x18", "ELT and Cospas-Sarsat"),
 ];
 void R;
