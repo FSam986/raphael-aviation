@@ -36,26 +36,61 @@ f.P('M440,238 A78,78 0 0 0 508,140', 'gold', 2, me='gold')
 f.T(380, 290, 'fluid carried round the outside, between teeth and casing', 10.5, 'gold', 'middle', bold=True)
 AFS.append(f)
 
-# swash plate pumps
+# swash plate pumps (sectional view)
+def zig(f, x0, y0, x1, y1, n=8, w=9, c='cool', sw=2.2):
+    dx, dy = x1 - x0, y1 - y0; L = math.hypot(dx, dy); ux, uy = dx / L, dy / L; px, py = -uy, ux
+    pts = [(x0, y0)] + [(x0 + ux * L * (k + .5) / n + px * w * (1 if k % 2 else -1), y0 + uy * L * (k + .5) / n + py * w * (1 if k % 2 else -1)) for k in range(n)] + [(x1, y1)]
+    f.P('M' + ' L'.join(f'{x:.1f},{y:.1f}' for x, y in pts), c, sw, join='round')
 def swash(tag, title, ang, which, aria, cap):
-    f = AF(tag, title, 760, 360, aria, cap)
-    body(f, 360, 100, 200, 140); f.T(460, 260, 'Cylinder block (rotating)', 10.5, 'ink', 'middle', bold=True)
-    for k, y in enumerate((120, 150, 190, 220)):
-        ext = 30 + (ang / 30) * 40 * (0.5 + 0.5 * math.sin(k * 1.4)); f.R(360 - ext, y - 7, ext + 100, 14, c='ink', sw=1.2, fill='#a9bac1', rx=3)
-    a = math.radians(ang); cx, cy = 260, 170
-    f.L(cx - 110 * math.sin(a), cy - 110 * math.cos(a), cx + 110 * math.sin(a), cy + 110 * math.cos(a), 'hot', 10)
-    f.T(cx - 110, 320, 'Yoke / swash plate', 10.5, 'hot', bold=True)
-    f.L(560, 170, 660, 170, 'ink', 6); f.T(668, 174, 'Drive shaft', 10.5, 'ink', bold=True)
-    f.L(640, 120, 562, 120, 'gold', 3, me='gold'); f.T(648, 124, 'Inlet', 10.5, 'gold', bold=True)
-    f.L(562, 220, 640, 220, 'hot', 3, me='hot'); f.T(648, 224, 'Outlet', 10.5, 'hot', bold=True)
-    body(f, 140, 40, 120, 40, 'g2'); f.R(150, 46, 50, 28, c='ink', sw=1.2, fill='mag', rx=2); f.T(200, 30, 'Control piston', 10.5, 'mag', 'middle', bold=True)
-    f.L(200, 80, cx - 40 * math.sin(a), cy - 40 * math.cos(a) - 50, 'mag', 2)
-    f.T(380, 345, which, 11, 'gold', 'middle', bold=True)
+    f = AF(tag, title, 760, 410, aria, cap)
+    t = math.tan(math.radians(ang)); X = lambda y: 250 + (y - 190) * t
+    f.R(120, 50, 480, 300, c='ink', sw=2, fill='g2', rx=6); f.R(170, 85, 330, 245, c='ink', sw=1.2, fill='bg', rx=2)
+    f.T(140, 72, 'Pump casing', 9.5, 'dim', check=False)
+    # drive shaft + bearing
+    f.R(20, 184, 360, 12, c='ink', sw=1.2, fill='steel', rx=2)
+    for y in (172, 208): f.Ci(150, y, 7, 'ink', 1.2, 'steel')
+    # cylinder block (splined to shaft) with two bores in section
+    f.R(330, 105, 150, 170, c='ink', sw=1.8, fill='sky', rx=4)
+    ends = {}
+    for y, fl in ((140, 'gold'), (240, 'hot')):
+        f.R(330, y - 11, 150, 22, c='ink', sw=1, fill='bg', rx=0)
+        xs = X(y); pe = xs + 130; ends[y] = pe
+        f.R(pe, y - 10, 480 - pe, 20, c='none', sw=0, fill=fl, rx=0, op=0.9)
+        f.L(xs, y, xs + 22, y, 'ink', 5); f.Ci(xs + 4, y, 7, 'ink', 1.2, 'amber')
+        f.R(xs + 22, y - 10, 108, 20, c='ink', sw=1.2, fill='#c3d0d6', rx=3)
+    # valve (port) plate with kidney ports
+    f.R(480, 100, 14, 170, c='ink', sw=1.4, fill='steel', rx=1)
+    f.R(480, 131, 14, 18, c='none', sw=0, fill='gold', rx=0); f.R(480, 231, 14, 18, c='none', sw=0, fill='hot', rx=0)
+    f.R(494, 133, 166, 14, c='none', sw=0, fill='gold', rx=0); f.R(494, 233, 166, 14, c='none', sw=0, fill='hot', rx=0)
+    f.L(700, 140, 640, 140, 'gold', 3, me='gold'); f.L(640, 240, 700, 240, 'hot', 3, me='hot')
+    f.T(706, 144, 'INLET', 11, 'gold', bold=True); f.T(706, 244, 'OUTLET', 11, 'hot', bold=True)
+    # swash plate (yoke) on its pivot
+    h = 112; c_, s_ = math.cos(math.radians(ang)), math.sin(math.radians(ang))
+    xt, yt, xb, yb = 250 - h * s_, 190 - h * c_, 250 + h * s_, 190 + h * c_
+    f.L(xt, yt, xb, yb, 'amber', 14, cap='round'); f.Ci(250, 190, 20, 'ink', 1.4, 'amber'); f.Ci(250, 190, 6, 'ink', 1, 'steel')
+    # spring pushes the yoke to max angle; control piston (outlet pressure) pushes it upright
+    f.Ci(xb, yb, 8, 'ink', 1.2, 'amber'); zig(f, 172, yb, xb - 8, yb, n=7)
+    cp = xb + 150; f.R(400, yb - 15, 92, 30, c='ink', sw=1.6, fill='g3', rx=2)
+    f.R(cp + 12, yb - 13, 492 - cp - 14, 26, c='none', sw=0, fill='hot', op=0.9, rx=0)
+    f.L(xb + 8, yb, cp, yb, 'ink', 4); f.R(cp, yb - 13, 12, 26, c='ink', sw=1.2, fill='#c3d0d6', rx=2)
+    f.P(f'M600,240 L620,240 L620,{yb} L492,{yb}', 'hot', 6, join='round')
+    # case drain
+    f.L(220, 330, 220, 380, 'cool', 3, me='cool'); f.T(232, 376, 'Case drain', 10, 'cool', bold=True)
+    # labels
+    f.T(20, 176, 'Drive shaft', 10.5, 'ink', bold=True)
+    lab(f, 360, 140 - 4, 330, 34, 'Piston', 'middle')
+    lab(f, 440, 112, 470, 34, 'Cylinder block (rotates)', 'middle')
+    lab(f, 492, 108, 560, 70, 'Valve plate')
+    lab(f, X(240) + 4, 244, 108, 270, 'Shoe', 'end')
+    lab(f, xt + 4, yt + 6, 114, 104, 'Yoke / swash plate', 'end')
+    lab(f, 200, yb - 6, 108, 310, 'Spring', 'end')
+    lab(f, cp + 6, yb + 13, 560, 372, 'Control piston (outlet pressure)')
+    f.T(380, 402, which, 11, 'gold', 'middle', bold=True)
     return f
-AFS.append(swash('02_13', 'Constant Pressure Pump at Maximum Stroke', 28, 'Low system pressure: yoke at maximum angle, full stroke, maximum delivery', 'Swash-plate pump with the yoke at a large angle giving maximum piston stroke',
-    'When system pressure is low, the control piston lets the spring hold the yoke at its maximum angle: the pistons move through their full stroke and the pump delivers maximum flow.'))
-AFS.append(swash('02_14', 'Constant Pressure Pump at Minimum Stroke', 3, 'System pressure reached: yoke almost upright, minimum stroke (just enough for leakage and cooling)', 'Swash-plate pump with the yoke nearly upright giving almost no piston stroke',
-    'As system pressure reaches its maximum, pressure on the control piston moves the yoke towards upright, reducing the stroke until the pump delivers only enough to make up leakage and keep itself lubricated and cool.'))
+AFS.append(swash('02_13', 'Constant Pressure Pump at Maximum Stroke', 26, 'Low system pressure: spring holds yoke at maximum angle → full stroke, maximum delivery', 'Sectional view of a swash-plate pump: drive shaft turning a cylinder block whose pistons ride on an angled yoke via shoes, valve plate with inlet and outlet ports, spring and control piston setting the yoke angle',
+    'The shaft turns the cylinder block; each piston\'s shoe slides on the stationary yoke, so the pistons draw fluid in through the inlet kidney port on one half-turn and push it out through the outlet port on the other. When system pressure is low the spring holds the yoke at its maximum angle: full stroke, maximum flow.'))
+AFS.append(swash('02_14', 'Constant Pressure Pump at Minimum Stroke', 3, 'System pressure reached: control piston pushes yoke almost upright → near-zero stroke', 'Same swash-plate pump with the yoke pushed almost upright by the control piston, so the pistons barely move',
+    'As system pressure rises, outlet pressure on the control piston overcomes the spring and moves the yoke towards upright. Piston stroke falls until the pump delivers only enough to make up internal leakage and keep itself lubricated and cooled (via the case drain).'))
 
 # 02_15 ACOV
 f = AF('02_15', 'Automatic Cut-Out Valve (ACOV)', 760, 360, 'Cut-out valve with a piston sensing system pressure that opens a poppet valve to return pump flow to the reservoir, while a non-return valve holds system pressure',
@@ -107,24 +142,46 @@ AFS.append(f)
 
 # valve figures (compact schematic)
 def valve_fig(tag, title, aria, cap, draw):
-    f = AF(tag, title, 760, 320, aria, cap); draw(f); AFS.append(f)
+    f = AF(tag, title, 760, 340, aria, cap); draw(f); AFS.append(f)
+def vbody(f, x, w, y0, y1):
+    f.R(x, y0, w, y1 - y0, c='ink', sw=2, fill='g2', rx=4)
+    f.R(x - 14, y0 - 22, w + 28, 26, c='ink', sw=1.6, fill='black', rx=3); f.T(x + w + 22, y0 - 6, 'Adjusting cap', 10, 'dim', check=False)
 def pmv(f):
-    body(f, 280, 60, 140, 200); f.R(330, 70, 40, 60, c='ink', sw=1, fill='none', rx=0)
-    for k in range(6): f.P(f'M332,{72 + k * 10} L368,{78 + k * 10}', 'cool', 2)
-    f.R(320, 130, 60, 30, c='ink', sw=1.4, fill='#a9bac1', rx=2)
-    line(f, [(120, 210), (280, 210)], 'hot', 4); line(f, [(420, 210), (600, 210)], 'hot', 4); line(f, [(420, 150), (600, 150)], 'gold', 4)
-    f.T(110, 214, 'Pressure inlet', 10.5, 'ink', 'end', bold=True); f.T(610, 214, 'Primary services (always)', 10.5, 'hot', bold=True)
-    f.T(610, 154, 'Secondary services', 10.5, 'gold', bold=True); f.T(610, 170, '(only above set pressure)', 9.5, 'dim')
-valve_fig('02_18', 'Pressure Maintaining Valve', 'Valve feeding primary services directly and opening to secondary services only when pressure exceeds its spring setting',
-          'If pump output falls (e.g. one pump failed), the pressure maintaining valve closes the supply to secondary services so that the primary services (e.g. flying controls, brakes) keep sufficient pressure.', pmv)
+    vbody(f, 300, 160, 50, 300)
+    f.R(350, 50, 60, 70, c='none', sw=0, fill='bg', rx=0); zig(f, 380, 52, 380, 112, n=6, w=20)
+    f.R(344, 112, 72, 12, c='ink', sw=1.2, fill='#c3d0d6', rx=2)                       # spring seat
+    f.R(330, 124, 100, 166, c='none', sw=0, fill='hot', op=0.9, rx=0)                        # inlet chamber
+    f.P('M330,175 L355,175 L370,200 L330,200 Z', 'ink', 1.2, 'g2'); f.P('M430,175 L405,175 L390,200 L430,200 Z', 'ink', 1.2, 'g2')  # seat
+    f.R(372, 124, 16, 60, c='ink', sw=1.2, fill='#c3d0d6', rx=1); f.P('M360,178 L400,178 L392,198 L368,198 Z', 'ink', 1.2, '#c3d0d6')  # poppet
+    f.R(330, 124, 100, 50, c='none', sw=0, fill='gold', op=0.85); f.R(372, 124, 16, 50, c='ink', sw=1.2, fill='#c3d0d6', rx=1)
+    f.R(430, 140, 150, 18, c='none', sw=0, fill='gold', rx=0)
+    f.R(140, 240, 190, 20, c='none', sw=0, fill='hot', rx=0); f.R(430, 260, 150, 20, c='none', sw=0, fill='hot', rx=0)
+    f.L(90, 250, 136, 250, 'hot', 3, me='hot'); f.L(584, 149, 640, 149, 'gold', 3, me='gold'); f.L(584, 270, 640, 270, 'hot', 3, me='hot')
+    f.T(86, 254, 'Pressure inlet', 10.5, 'ink', 'end', bold=True)
+    f.T(646, 145, 'Secondary', 10.5, 'gold', bold=True); f.T(646, 160, 'services', 10.5, 'gold', bold=True)
+    f.T(646, 266, 'Primary', 10.5, 'hot', bold=True); f.T(646, 281, 'services', 10.5, 'hot', bold=True)
+    lab(f, 360, 80, 240, 80, 'Spring (sets opening pressure)', 'end'); lab(f, 380, 190, 240, 190, 'Poppet lifted off seat', 'end')
+    f.T(380, 318, 'Above the set pressure the poppet lifts and secondary services are fed too', 10.5, 'gold', 'middle', bold=True)
+valve_fig('02_18', 'Pressure Maintaining Valve', 'Sectional view of a pressure maintaining valve: inlet chamber always open to primary services, spring-loaded poppet that lifts off its seat to feed secondary services above the set pressure',
+          'Inlet pressure always reaches the primary services. When pressure exceeds the spring setting it lifts the poppet off its seat and secondary services are supplied too. If pump output falls (e.g. one pump failed), the poppet closes so the primary services (flying controls, brakes) keep sufficient pressure.', pmv)
 def prv(f):
-    body(f, 280, 50, 120, 230); f.R(320, 60, 40, 60, c='ink', sw=1, fill='none', rx=0)
-    for k in range(6): f.P(f'M322,{62 + k * 10} L358,{68 + k * 10}', 'cool', 2)
-    f.R(320, 120, 40, 120, c='ink', sw=1.2, fill='#a9bac1', rx=2)
-    for y, t, c_ in ((150, 'Return', 'cool'), (190, 'Inlet (system pressure)', 'hot'), (240, 'Low-pressure sub-system', 'gold')): line(f, [(400, y), (560, y)], c_, 4); f.T(570, y + 4, t, 10.5, c_, bold=True)
-    f.T(250, 160, 'spring sets', 10, 'dim', 'end'); f.T(250, 174, 'the reduced pressure', 10, 'dim', 'end')
-valve_fig('02_19', 'Pressure Reducing Valve', 'Spring-loaded valve supplying a sub-system at a reduced pressure, with inlet, outlet and return ports',
-          'A pressure reducing valve supplies a sub-system (e.g. wheel brakes) at a lower pressure than the main system. The valve throttles the inlet as outlet pressure approaches the spring setting, and vents to return if it is exceeded.', prv)
+    vbody(f, 320, 120, 50, 300)
+    f.R(350, 50, 60, 70, c='none', sw=0, fill='bg', rx=0); zig(f, 380, 52, 380, 112, n=6, w=20)
+    f.R(350, 120, 60, 170, c='none', sw=0, fill='bg', rx=0)
+    f.R(350, 210, 60, 80, c='none', sw=0, fill='gold', op=0.85)                        # reduced pressure under spool
+    f.R(350, 112, 60, 12, c='ink', sw=1.2, fill='#c3d0d6', rx=2); f.R(372, 124, 16, 110, c='ink', sw=1.2, fill='#c3d0d6', rx=1)
+    f.R(352, 140, 56, 26, c='ink', sw=1.2, fill='#c3d0d6', rx=2)                      # upper land (blocks return)
+    f.R(352, 196, 56, 14, c='ink', sw=1.2, fill='#c3d0d6', rx=2)                      # lower land (throttles inlet)
+    f.R(388, 166, 22, 30, c='none', sw=0, fill='hot', op=0.9, rx=0)
+    for y, t, c_, d in ((153, 'Return', 'cool', -1), (186, 'Inlet (system pressure)', 'hot', 1), (262, 'Low-pressure sub-system', 'gold', -1)):
+        f.R(410, y - 9, 150, 18, c='none', sw=0, fill=c_, rx=0); f.T(600, y + 4, t, 10.5, c_, bold=True)
+        if d < 0: f.L(560, y, 592, y, c_, 3, me=c_)
+        else: f.L(592, y, 562, y, c_, 3, me=c_)
+    lab(f, 365, 80, 250, 80, 'Spring (sets reduced pressure)', 'end'); lab(f, 355, 202, 250, 200, 'Spool land throttles inlet', 'end')
+    lab(f, 360, 260, 250, 262, 'Outlet pressure lifts spool', 'end')
+    f.T(380, 324, 'Rising outlet pressure pushes the spool up, closing the inlet; excess vents to return', 10.5, 'gold', 'middle', bold=True)
+valve_fig('02_19', 'Pressure Reducing Valve', 'Sectional view of a pressure reducing valve: spring-loaded spool whose lower land throttles the inlet and upper land uncovers the return port when outlet pressure rises',
+          'A pressure reducing valve supplies a sub-system (e.g. wheel brakes) at a lower pressure than the main system. Outlet pressure acts under the spool against the spring: as it approaches the spring setting the spool rises and throttles the inlet; if it is exceeded the spool rises further and vents to return.', prv)
 def nrvfig(f):
     f.R(80, 110, 600, 100, c='ink', sw=2, fill='g3', rx=10); f.R(90, 130, 580, 60, c='none', sw=0, fill='hot', rx=0, op=0.9)
     f.R(280, 120, 180, 80, c='ink', sw=1.4, fill='g2', rx=4)

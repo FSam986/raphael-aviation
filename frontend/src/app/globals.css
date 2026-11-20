@@ -151,3 +151,6 @@ a { color: inherit; }
 }
 /* Discourage copy/drag of the cram content (deterrent only — not a hard control). */
 .no-copy { user-select: none; -webkit-user-select: none; }
+
+/* Red-letter study notes: words that are exam answers */
+.exam-term { color: #f87171; font-weight: 600; }
