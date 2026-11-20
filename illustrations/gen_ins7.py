@@ -302,13 +302,13 @@ f.L(580, 140, 700, 140, 'cool', 4); f.T(700, 130, 'to the manifold', 10, 'cool',
 note(f, 420, 230, ['Engine stopped: reads ambient (≈ 30 inHg at MSL).'], first='ink')
 IN.append(f)
 
-f = I('38_17', 'Bourdon-Tube Pressure Gauge', 760, 300, 'A curved flattened Bourdon tube that straightens under pressure, moving a quadrant and pinion that turn the pointer',
+f = I('38_17', 'Bourdon-Tube Pressure Gauge', 760, 340, 'A curved flattened Bourdon tube that straightens under pressure, moving a quadrant and pinion that turn the pointer',
     '<b>Measuring high pressures.</b> A <b>Bourdon tube</b> is a curved tube of <b>oval (flattened) section</b>, sealed at the free end. Pressure inside tries to make the section round, which <b>straightens</b> the curve; the free end moves, and a <b>quadrant and pinion</b> magnify the motion to turn the pointer. It is robust and suits higher pressures — oil, hydraulic, oxygen — while capsules suit low pressures (manifold, altimeter). Measured relative to the case (gauge pressure).')
-f.P('M200,240 A120,120 0 1 1 320,120', 'gold', 10); f.P('M200,240 A120,120 0 1 1 320,120', '#10171b', 4)
-f.L(200, 240, 200, 280, 'cool', 6); f.T(210, 290, 'pressure in', 10, 'cool', bold=True)
-f.L(320, 120, 360, 150, 'ink', 2.4); f.P('M360,150 L420,120 L420,180 Z', 'ink', 1.6, 'g3'); f.Ci(430, 150, 8, 'ink', 1.6, 'steel')
-f.L(430, 150, 500, 80, 'white', 3); f.T(176, 100, 'oval-section tube', 10.5, 'gold', 'end', bold=True); f.T(400, 210, 'quadrant and pinion', 10, 'ink', 'middle', bold=True); f.T(510, 76, 'pointer', 10, 'ink', bold=True)
-note(f, 540, 140, ['Pressure straightens the', 'tube; the free end moves.', 'Used for oil and hydraulic', 'pressures.'], first='gold')
+f.P('M200,280 A120,120 0 1 1 320,160', 'gold', 10); f.P('M200,280 A120,120 0 1 1 320,160', '#10171b', 4)
+f.L(200, 280, 200, 316, 'cool', 6); f.T(210, 328, 'pressure in', 10, 'cool', bold=True)
+f.L(320, 160, 360, 190, 'ink', 2.4); f.P('M360,190 L420,160 L420,220 Z', 'ink', 1.6, 'g3'); f.Ci(430, 190, 8, 'ink', 1.6, 'steel')
+f.L(430, 190, 500, 120, 'white', 3); f.T(70, 140, 'oval-section tube', 10.5, 'gold', bold=True); f.T(400, 250, 'quadrant and pinion', 10, 'ink', 'middle', bold=True); f.T(510, 116, 'pointer', 10, 'ink', bold=True)
+note(f, 540, 180, ['Pressure straightens the', 'tube; the free end moves.', 'Used for oil and hydraulic', 'pressures.'], first='gold')
 IN.append(f)
 
 f = I('38_03', 'Torquemeter', 760, 300, 'A hydraulic torquemeter in a turboprop reduction gearbox where helical gear thrust is balanced by oil pressure in pistons, the oil pressure indicating torque',
