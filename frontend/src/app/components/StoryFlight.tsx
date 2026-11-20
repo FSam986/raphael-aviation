@@ -9,6 +9,17 @@ import type { SyllabusSubject } from "@/app/data/sacaa-syllabus";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { figuresForSection } from "@/app/lib/figures";
 import { buildExamTerms, ExamText, examAnswers } from "@/app/lib/examTerms";
+import { STORY_NARRATIVES } from "@/app/data/story-narratives";
+import { PPL_MET_FIGURE_KEY } from "@/app/data/ppl-met-content";
+import { IR_MET_FIGURE_KEY } from "@/app/data/ir-met-content";
+
+// Narrative for a section: its own, or the CPL scene it maps onto (PPL / IR reuse).
+const sceneFor = (id: string) => STORY_NARRATIVES[id] ?? STORY_NARRATIVES[PPL_MET_FIGURE_KEY[id] ?? IR_MET_FIGURE_KEY[id] ?? ""];
+
+// Story text: **marked** facts in red, the rest still auto-highlights exam answers.
+function Story({ text, re }: { text: string; re: RegExp | null }) {
+  return <>{text.split(/\*\*(.+?)\*\*/g).map((part, i) => (i % 2 ? <span key={i} className="exam-term">{part}</span> : <ExamText key={i} text={part} re={re} />))}</>;
+}
 
 const tone = (pct: number, seen: number) =>
   !seen ? "var(--chart-line)" : pct >= 75 ? "var(--success)" : pct >= 50 ? "var(--gold)" : "#ff6b6b";
@@ -19,8 +30,9 @@ export function StoryFlight({ subject, pctOf, seenOf }: { subject: SyllabusSubje
     return subject.sections.map((sec) => {
       const qs = content?.questions(sec.id) ?? [];
       const note = content?.note(sec.id);
-      const story = note?.mustKnow?.[0] ?? note?.intro ?? sec.items[0]?.topic ?? "";
-      return { sec, qs: qs.length, story, answers: examAnswers(qs, 5), re: buildExamTerms(qs), fig: figuresForSection(sec.id)[0] };
+      const scene = sceneFor(sec.id);
+      const story = scene?.story ?? note?.mustKnow?.[0] ?? note?.intro ?? sec.items[0]?.topic ?? "";
+      return { sec, time: scene?.time, qs: qs.length, story, answers: examAnswers(qs, 5), re: buildExamTerms(qs), fig: figuresForSection(sec.id)[0] };
     });
   }, [subject]);
   const href = (id: string) => `/study/${subject.id}/${id}`;
@@ -51,7 +63,7 @@ export function StoryFlight({ subject, pctOf, seenOf }: { subject: SyllabusSubje
             <li key={s.sec.id} id={`stop-${i}`} className="relative pl-8 scroll-mt-20">
               <span className={`absolute left-0 top-3 w-[15px] h-[15px] rotate-45 border-2 ${done ? "bg-success border-success" : i === next ? "bg-gold border-gold" : "bg-chart-ground border-chart-line-2"}`} />
               <div className="flex items-baseline gap-3 mb-2">
-                <span className="font-display font-bold text-gold text-[15px] tracking-wide">STOP {i + 1}</span>
+                <span className="font-display font-bold text-gold text-[15px] tracking-wide">STOP {i + 1}{s.time ? ` · ${s.time.toUpperCase()}` : ""}</span>
                 <span className="mono text-[11px] text-chart-ink-faint">{s.sec.id}</span>
                 {s.qs > 0 && <span className="mono text-[11px] ml-auto" style={{ color: tone(pct, seenOf(s.sec.id)) }}>{s.qs} Q · {pct}%</span>}
               </div>
@@ -61,7 +73,7 @@ export function StoryFlight({ subject, pctOf, seenOf }: { subject: SyllabusSubje
                 </div>
                 <div className="p-4 sm:p-5 space-y-2 min-w-0">
                   <h3 className="font-display font-bold text-2xl text-chart-ink leading-none group-hover:text-gold transition-colors">{s.sec.title}</h3>
-                  {s.story && <p className="text-chart-ink-dim text-[14px] leading-relaxed"><ExamText text={s.story} re={s.re} /></p>}
+                  {s.story && <p className="text-chart-ink-dim text-[14px] leading-relaxed"><Story text={s.story} re={s.re} /></p>}
                   {s.answers.length > 0 && (
                     <div className="flex flex-wrap items-center gap-1.5 pt-1">
                       <span className="mono text-[10px] tracking-wider uppercase text-chart-ink-faint mr-1">Exam answers</span>
