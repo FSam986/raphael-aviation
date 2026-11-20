@@ -81,9 +81,9 @@ export const MET_FLASHCARDS: MetFlashcard[] = [
   { id: "FC-A88-05", sectionId: "A.8.8", front: "Jet stream?", back: "Narrow band of strong winds near the tropopause; polar-front & subtropical jets; ≥60 kt core.", difficulty: "medium" },
   { id: "FC-A88-06", sectionId: "A.8.8", front: "Windshear?", back: "Change of wind speed/direction over a short distance; hazardous on approach (e.g. microburst, inversions).", difficulty: "medium" },
   // A.8.9 THERMODYNAMICS / STABILITY
-  { id: "FC-A89-01", sectionId: "A.8.9", front: "DALR vs SALR?", back: "DALR = 3°C/100 m (dry/unsaturated); SALR ≈1.5°C/100 m (saturated, less due to latent heat).", difficulty: "medium" },
+  { id: "FC-A89-01", sectionId: "A.8.9", front: "DALR vs SALR?", back: "DALR = 3°C/1000 ft ≈ 1°C/100 m (dry/unsaturated); SALR ≈1.5°C/1000 ft (saturated, less due to latent heat).", difficulty: "medium" },
   { id: "FC-A89-02", sectionId: "A.8.9", front: "Stability rule?", back: "ELR < SALR → absolutely stable; ELR > DALR → absolutely unstable; between → conditionally unstable.", difficulty: "hard" },
-  { id: "FC-A89-03", sectionId: "A.8.9", front: "ELR 0.65°C/100 m stability?", back: "Between SALR & DALR → conditionally unstable.", difficulty: "medium" },
+  { id: "FC-A89-03", sectionId: "A.8.9", front: "ELR 2°C/1000 ft (0.65°C/100 m) stability?", back: "Between SALR & DALR → conditionally unstable.", difficulty: "medium" },
   { id: "FC-A89-04", sectionId: "A.8.9", front: "Stable air characteristics?", back: "Layer cloud (St/Sc), poor visibility, steady precip, smooth air.", difficulty: "medium" },
   { id: "FC-A89-05", sectionId: "A.8.9", front: "Unstable air characteristics?", back: "Heap cloud (Cu/Cb), good visibility, showers, turbulence, gusty wind.", difficulty: "medium" },
   // A.8.10 CLOUDS
