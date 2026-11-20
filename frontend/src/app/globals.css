@@ -162,3 +162,8 @@ a { color: inherit; }
    One filter on the root keeps every page (and figure) consistent. */
 html.night { filter: brightness(.78) sepia(.45) saturate(1.15) hue-rotate(-12deg); background: #050807; }
 html.night img { filter: brightness(.9); }
+
+/* Glass Cockpit headings on every page: condensed display face, no faux-black weight. */
+h1 { font-weight: 700 !important; line-height: 1 !important; }
+h1.text-3xl { font-size: 2.6rem; }
+h1.text-2xl { font-size: 2.1rem; }
