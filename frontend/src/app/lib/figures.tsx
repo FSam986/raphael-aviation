@@ -362,9 +362,9 @@ const MET_EXTRA: [string, string, string][] = [
   ["A.8.15", "mx_fogs", "Radiation Fog and Advection Fog"],
   ["A.8.17", "mx_coldfront", "Cold Front — Cross-Section"],
   ["A.8.17", "mx_warmfront", "Warm Front — Cross-Section"],
-  ["A.8.18", "mx_shlow", "Frontal Depression in the Southern Hemisphere"],
+  ["A.8.18", "mx_trs", "Tropical Revolving Storm — Structure"],
   ["A.8.19", "mx_cells", "General Circulation — Cells and Pressure Belts"],
-  ["A.8.20", "mx_trs", "Tropical Revolving Storm — Structure"],
+  ["A.8.20", "mx_shlow", "Frontal Depression in the Southern Hemisphere"],
   ["A.8.21", "mx_metar", "Decoding a METAR"],
   ["A.8.7", "mx_altim", "Altimeter Errors — High to Low, Look Out Below"],
 ];
@@ -419,6 +419,11 @@ export function atgFiguresForSection(sectionId: string): FigureDef[] {
     .filter((f) => f.section === sectionId)
     .map((f) => imageFigure(f.id, `${f.topic} — ${f.title}`, f.caption, f.file, f.folder))
     .filter(figurePresent);
+}
+
+/** The CPL section a PPL / IR section borrows its figures from (if any). */
+export function mappedSection(sectionId: string): string | undefined {
+  return PPL_MET_FIGURE_KEY[sectionId] ?? PPL_NAV_FIGURE_KEY[sectionId] ?? PPL_FPP_FIGURE_KEY[sectionId] ?? PPL_AGK_FIGURE_KEY[sectionId] ?? IR_MET_FIGURE_KEY[sectionId] ?? IR_AWO_FIGURE_KEY[sectionId] ?? IR_FPP_FIGURE_KEY[sectionId] ?? IR_RNV_FIGURE_KEY[sectionId] ?? IR_INS_FIGURE_KEY[sectionId] ?? IR_HPL_FIGURE_KEY[sectionId] ?? PPL_POF_FIGURE_KEY[sectionId];
 }
 
 export function figuresForSection(sectionId: string): FigureDef[] {

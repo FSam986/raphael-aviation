@@ -7,18 +7,33 @@ import Link from "next/link";
 import { useMemo } from "react";
 import type { SyllabusSubject } from "@/app/data/sacaa-syllabus";
 import { subjectContent } from "@/app/lib/subjectContent";
-import { figuresForSection } from "@/app/lib/figures";
+import { figuresForSection, mappedSection } from "@/app/lib/figures";
+import { STORY_THUMBS } from "@/app/data/story-thumbs";
 import { buildExamTerms, ExamText, examAnswers } from "@/app/lib/examTerms";
 import { STORY_NARRATIVES } from "@/app/data/story-narratives";
-import { PPL_MET_FIGURE_KEY } from "@/app/data/ppl-met-content";
-import { IR_MET_FIGURE_KEY } from "@/app/data/ir-met-content";
+import { STORY_SCENE_KEY } from "@/app/data/story-narratives";
 
-// Narrative for a section: its own, or the CPL scene it maps onto (PPL / IR reuse).
-const sceneFor = (id: string) => STORY_NARRATIVES[id] ?? STORY_NARRATIVES[PPL_MET_FIGURE_KEY[id] ?? IR_MET_FIGURE_KEY[id] ?? ""];
+// Scene key: the section's own scene, an explicit override, or the CPL section it maps onto.
+const sceneKey = (id: string) => (STORY_NARRATIVES[id] ? id : STORY_SCENE_KEY[id] ?? mappedSection(id) ?? id);
 
 // Story text: **marked** facts in red, the rest still auto-highlights exam answers.
 function Story({ text, re }: { text: string; re: RegExp | null }) {
   return <>{text.split(/\*\*(.+?)\*\*/g).map((part, i) => (i % 2 ? <span key={i} className="exam-term">{part}</span> : <ExamText key={i} text={part} re={re} />))}</>;
+}
+
+// Best fact for a stop: the unused note line sharing most words with the section
+// title (several PPL / IR sections share one note, so the first line repeats).
+const STOP = new Set(["flight", "aircraft", "aeroplane", "general", "basic", "theory", "system", "systems", "terminology", "with", "from", "into", "their", "they", "procedures", "performance", "altitude", "altitudes"]);
+const words = (t: string) => new Set((t.toLowerCase().match(/[a-z]{4,}/g) ?? []).filter((w) => !STOP.has(w)));
+export function pickFact(title: string, lines: string[], used: Set<string>): string | undefined {
+  const w = words(title);
+  let best: string | undefined, score = 0; // ponytail: require ≥1 shared word; else caller falls back to the syllabus topic
+  for (const l of lines) {
+    if (used.has(l)) continue;
+    const sc = [...words(l)].filter((x) => [...w].some((y) => x === y || (y.length >= 5 && x.startsWith(y.slice(0, 5))))).length;
+    if (sc > score) { best = l; score = sc; }
+  }
+  return best;
 }
 
 const tone = (pct: number, seen: number) =>
@@ -27,12 +42,24 @@ const tone = (pct: number, seen: number) =>
 export function StoryFlight({ subject, pctOf, seenOf }: { subject: SyllabusSubject; pctOf: (id: string) => number; seenOf: (id: string) => number }) {
   const stops = useMemo(() => {
     const content = subjectContent(subject.id);
+    // Never repeat a scene or a picture within one subject (several PPL / IR
+    // sections can map onto the same CPL section).
+    const usedScenes = new Set<string>(), usedPics = new Set<string>(), usedFacts = new Set<string>();
     return subject.sections.map((sec) => {
       const qs = content?.questions(sec.id) ?? [];
       const note = content?.note(sec.id);
-      const scene = sceneFor(sec.id);
-      const story = scene?.story ?? note?.mustKnow?.[0] ?? note?.intro ?? sec.items[0]?.topic ?? "";
-      return { sec, time: scene?.time, qs: qs.length, story, answers: examAnswers(qs, 5), re: buildExamTerms(qs), fig: figuresForSection(sec.id)[0] };
+      const key = sceneKey(sec.id);
+      const scene = !usedScenes.has(key) ? STORY_NARRATIVES[key] : undefined;
+      if (scene) usedScenes.add(key);
+      const fact = scene ? undefined : pickFact(sec.title, [...(note?.mustKnow ?? []), ...(note?.traps ?? [])], usedFacts);
+      if (fact) usedFacts.add(fact);
+      const story = scene?.story ?? fact ?? sec.items.map((it) => it.topic).join(" · ");
+      const mapped = mappedSection(sec.id);
+      const pics = [STORY_THUMBS[sec.id], STORY_THUMBS[key], mapped && STORY_THUMBS[mapped], ...figuresForSection(sec.id).map((f) => f.src)]
+        .filter((x): x is string => !!x);
+      const pic = pics.find((x) => !usedPics.has(x));
+      if (pic) usedPics.add(pic);
+      return { sec, time: scene?.time, qs: qs.length, story, answers: examAnswers(qs, 5), re: buildExamTerms(qs), pic };
     });
   }, [subject]);
   const href = (id: string) => `/study/${subject.id}/${id}`;
@@ -69,7 +96,7 @@ export function StoryFlight({ subject, pctOf, seenOf }: { subject: SyllabusSubje
               </div>
               <Link href={href(s.sec.id)} className="group grid sm:grid-cols-[220px_1fr] rounded-2xl border border-chart-line bg-chart-ground-2 overflow-hidden hover:border-gold/45 transition-colors">
                 <div className="bg-[#10171b] min-h-[120px] max-h-[170px] flex items-center justify-center overflow-hidden p-2 [&_img]:max-h-[150px] [&_img]:w-auto [&_img]:object-contain [&_svg]:max-h-[150px]">
-                  {s.fig ? s.fig.render() : <span className="font-display font-bold text-5xl text-chart-line-2">{String(i + 1).padStart(2, "0")}</span>}
+                  {s.pic ? <img src={`/figures/${s.pic}`} alt="" loading="lazy" /> : <span className="font-display font-bold text-5xl text-chart-line-2">{String(i + 1).padStart(2, "0")}</span>}
                 </div>
                 <div className="p-4 sm:p-5 space-y-2 min-w-0">
                   <h3 className="font-display font-bold text-2xl text-chart-ink leading-none group-hover:text-gold transition-colors">{s.sec.title}</h3>

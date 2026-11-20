@@ -32,4 +32,14 @@ const MET: Record<string, StoryScene> = {
   "A.8.21": { time: "18:00 · Reports", story: "Before landing you read the METAR: **FALA 181600Z 34012KT CAVOK 26/08 Q1019**. **CAVOK** means visibility **10 km or more**, **no cloud below 5000 ft**, and **no Cb or TCU**. For tomorrow's flight the TAF shows **TEMPO** (temporary spells under an hour) and **PROB30** thunderstorms. A **SIGMET** would warn of severe hazards en route." },
 };
 
-export const STORY_NARRATIVES: Record<string, StoryScene> = { ...MET };
+// PPL Meteorology sections whose syllabus differs from their CPL mapping.
+const PPL_MET: Record<string, StoryScene> = {
+  "9.14": { time: "05:50 · Synoptic chart", story: "On the analysis chart, **isobars** close together mean **strong winds**. A **cold front** is drawn with **blue triangles** and a **warm front** with **red semicircles**, both pointing the way the front is moving. The **significant weather (SIGWX) chart** shows the expected **Cb, icing and turbulence** areas along your route." },
+};
+
+export const STORY_NARRATIVES: Record<string, StoryScene> = { ...MET, ...PPL_MET };
+
+// Explicit scene choices where a section's own mapping is a poorer fit.
+export const STORY_SCENE_KEY: Record<string, string> = {
+  "9.12": "A.8.20", // PPL Climatology covers SA weather patterns
+};
