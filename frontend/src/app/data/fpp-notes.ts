@@ -27,6 +27,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Gross vs net, and dispatch",
+        figureTopics: ["Take-off flight path"],
         points: [
           "Gross performance is the average a fleet achieves; NET performance is gross reduced by a safety margin, and is what must clear obstacles.",
           "The take-off is planned so that after an engine failure the net take-off flight path clears obstacles by the required margin.",
@@ -53,6 +54,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Categories & load factors",
+        figureTopics: ["Load factors & V-n"],
         points: [
           "Airworthiness categories (SA-CATS 21 / design standards): Normal, Utility, Acrobatic, Commuter and Transport.",
           "Limit load factors: Normal +3.8g / −1.52g; Utility +4.4g / −1.76g; Acrobatic +6.0g / −3.0g.",
@@ -87,6 +89,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The airspeed chain",
+        figureTopics: ["Airspeeds"],
         points: [
           "IAS (indicated) → CAS (corrected for position/instrument error) → EAS (corrected for compressibility) → TAS (corrected for density).",
           "TAS increases relative to IAS as altitude increases (density falls); at sea level in ISA, CAS ≈ TAS.",
@@ -95,6 +98,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Key V-speeds",
+        figureTopics: ["Take-off speeds"],
         points: [
           "VS / VS0 / VS1 — stall speeds (clean / landing config / specified config); VA — manoeuvring speed (never make full control deflections above it).",
           "VNO — max structural cruising (yellow arc top); VNE — never exceed (red line); VFE — max flap extended; VLO / VLE — max gear operating / extended.",
@@ -123,6 +127,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Atmosphere & altitudes",
+        figureTopics: ["Altitudes"],
         points: [
           "ISA sea level: 1013.25 hPa, +15°C; lapse ~2°C/1000 ft. ISA deviation = actual OAT − ISA temperature.",
           "Pressure altitude = altitude on the 1013.25 hPa setting. Density altitude = pressure altitude corrected for temperature (rises with heat, humidity and altitude).",
@@ -217,6 +222,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The variables",
+        figureTopics: ["Performance factors"],
         points: [
           "Air density (temperature, pressure, altitude, humidity): lower density (hot/high/humid) → less lift, thrust and climb, and longer take-off/landing runs.",
           "Mass: higher mass → higher stall/lift-off speed, longer take-off and landing, lower climb rate/angle.",
@@ -299,6 +305,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. The critical engine & Vmc",
+        figureTopics: ["Critical engine & Vmc"],
         points: [
           "On a conventional twin, both propellers turning clockwise (seen from behind), the descending blade of the RIGHT engine produces more thrust and a longer moment arm — so the LEFT engine is the 'critical' engine (its failure is most adverse). This is asymmetric blade effect (P-factor).",
           "VMCA (minimum control speed, air): the slowest speed at which directional control can be maintained with the critical engine inoperative and take-off power on the other — below it, the aircraft cannot be held straight.",
@@ -307,6 +314,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Engine-inoperative performance",
+        figureTopics: ["Engine-inoperative"],
         points: [
           "With one engine out, climb performance falls dramatically (much more than 50%) because of the extra drag and asymmetry.",
           "Single-engine ceiling and drift-down define how high the aircraft can stay on one engine.",
@@ -342,6 +350,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Weight & wind effects",
+        figureTopics: ["Optimum altitude"],
         points: [
           "Heavier aircraft needs more lift → more drag → higher fuel flow → LESS specific range. As fuel burns off, range improves — hence step climbs / cruise control.",
           "Wind changes RANGE (ground NM per unit fuel) but NOT endurance (time aloft per unit fuel is wind-independent).",
@@ -429,6 +438,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "Key formulas",
+        figureTopics: ["Fuel plan"],
         points: [
           "Point of Equal Time (PET / Critical Point): distance from departure = D × H ÷ (O + H), where O = groundspeed ON (out) and H = groundspeed HOME (back).",
           "Time to the PET = PET distance ÷ O.",

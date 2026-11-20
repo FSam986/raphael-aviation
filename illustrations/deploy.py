@@ -37,13 +37,15 @@ SETS = {
     'af4':         ('af4-gallery.html', 'airframes', lambda t: t + '.png'),
     'af5':         ('af5-gallery.html', 'airframes', lambda t: t + '.png'),
     'af6':         ('af6-gallery.html', 'airframes', lambda t: t + '.png'),
+    'al2':         ('al2-gallery.html', 'airlaw', lambda t: t + '.png'),
+    'fp2':         ('fp2-gallery.html', 'fpp', lambda t: t + '.png'),
     'pp1':         ('pp1-gallery.html', 'powerplant', lambda t: t + '.png'),
     'pp2':         ('pp2-gallery.html', 'powerplant', lambda t: t + '.png'),
     'pp3':         ('pp3-gallery.html', 'powerplant', lambda t: t + '.png'),
     'pp4':         ('pp4-gallery.html', 'powerplant', lambda t: t + '.png'),
     'pp5':         ('pp5-gallery.html', 'powerplant', lambda t: t + '.png'),
 }
-NEW_OK = {'fpp-b', 'airlaw', 'radionav', 'hp1', 'hp2', 'nav1', 'nav2', 'el1', 'el2', 'el3', 'ins5', 'ins6', 'ins7'}   # sets allowed to create files that do not exist yet
+NEW_OK = {'al2', 'fp2', 'fpp-b', 'airlaw', 'radionav', 'hp1', 'hp2', 'nav1', 'nav2', 'el1', 'el2', 'el3', 'ins5', 'ins6', 'ins7'}   # sets allowed to create files that do not exist yet
 
 def run(name):
     gal, folder, fn = SETS[name]
