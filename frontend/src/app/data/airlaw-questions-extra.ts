@@ -78,7 +78,7 @@ export const AIRLAW_EXTRA_QUESTIONS: AirLawQuestion[] = [
 
   // ── A.3.10 Air Transport — Large (Part 121) ──
   { id: "LAWX-310-01", sectionId: "A.3.10", question: "Part 121 applies to commercial air transport by aeroplanes carrying:", optionA: "19 or fewer passengers", optionB: "Any number", optionC: "Cargo only", optionD: "More than 19 passengers", correctAnswer: "d", explanation: "Part 121 = commercial air transport, more than 19 passengers.", difficulty: "easy" },
-  { id: "LAWX-310-02", sectionId: "A.3.10", question: "The dividing line between Part 135 and Part 121 is:", optionA: "19 passengers", optionB: "9 passengers", optionC: "50 passengers", optionD: "5700 kg", correctAnswer: "a", explanation: "≤19 = Part 135; >19 = Part 121.", difficulty: "medium" },
+  { id: "LAWX-310-02", sectionId: "A.3.10", question: "The dividing line between Part 135 and Part 121 is:", optionA: "19 passengers", optionB: "9 passengers", optionC: "50 passengers", optionD: "5700 kg", correctAnswer: "a", explanation: "SA CAR: Part 121 applies to aeroplanes with a certificated passenger seating capacity of 20 or more (or all-cargo above 8 618 kg); Part 135 to 19 seats or fewer (or all-cargo 8 618 kg or less).", difficulty: "medium" },
   { id: "LAWX-310-03", sectionId: "A.3.10", question: "Part 121 operations require:", optionA: "Only a PPL", optionB: "An Air Operator Certificate + approved operations manual", optionC: "No certificate", optionD: "A corporate certificate", correctAnswer: "b", explanation: "An AOC and approved ops manual with airline-standard procedures.", difficulty: "medium" },
 
   // ── A.3.12 Air Transport — Small (Part 135) ──

@@ -6,6 +6,7 @@
 import { MET_QUESTIONS, getQuestionsBySection, type MetQuestion } from "@/app/data/met-questions";
 import { getFlashcardsBySection, type MetFlashcard } from "@/app/data/met-flashcards";
 import { getNoteBySection, type SectionNote } from "@/app/data/met-notes";
+import { mergePplNotes, pplQuestionDepth, pplFlashcardDepth } from "@/app/data/ppl-depth";
 
 // PPL section id → the CPL met content section(s) that cover it.
 // (Content keys follow met-notes numbering: A.8.1 = Atmosphere, A.8.2 = ISA …)
@@ -21,7 +22,7 @@ const MAP: Record<string, string[]> = {
   "9.9": ["A.8.13"], // Ice Accretion
   "9.10": ["A.8.12"], // Thunderstorms
   "9.11": ["A.8.14"], // Flight over mountainous areas (turbulence)
-  "9.12": ["A.8.19", "A.8.20"], // Climatology
+  "9.12": ["A.8.19"], // Climatology (A.8.20 Tropical Revolving Storms is CPL-only — not in PPL syllabus)
   "9.13": ["A.8.7"], // Altimetry
   "9.14": ["A.8.21"], // Weather analysis & forecasting
   "9.15": ["A.8.21"], // Weather information for flight planning
@@ -30,32 +31,26 @@ const MAP: Record<string, string[]> = {
 // PPL depth filter: PPL candidates sit an easier paper than the CPL, so the
 // hardest CPL questions (which probe beyond the PPL syllabus depth) are excluded.
 export function getPPLMetQuestionsBySection(pplSection: string): MetQuestion[] {
-  return (MAP[pplSection] ?? []).flatMap((cpl) => getQuestionsBySection(cpl)).filter((q) => q.difficulty !== "hard");
+  return pplQuestionDepth((MAP[pplSection] ?? []).flatMap((cpl) => getQuestionsBySection(cpl)));
 }
 
-// Full PPL Met exam bank = the CPL met questions for every mapped topic (deduped).
+// Full PPL Met exam bank = a reduced, PPL-depth subset of the CPL met questions
+// for the mapped topics (not the whole CPL bank).
 const PPL_MET_SECTIONS = [...new Set(Object.values(MAP).flat())];
-export const PPL_MET_QUESTIONS: MetQuestion[] = MET_QUESTIONS.filter((q) => PPL_MET_SECTIONS.includes(q.sectionId) && q.difficulty !== "hard");
+export const PPL_MET_QUESTIONS: MetQuestion[] = pplQuestionDepth(
+  MET_QUESTIONS.filter((q) => PPL_MET_SECTIONS.includes(q.sectionId)),
+  Number.MAX_SAFE_INTEGER,
+);
 export const PPL_MET_QUESTION_COUNT = PPL_MET_QUESTIONS.length;
 
 export function getPPLMetFlashcardsBySection(pplSection: string): MetFlashcard[] {
-  return (MAP[pplSection] ?? []).flatMap((cpl) => getFlashcardsBySection(cpl));
+  return pplFlashcardDepth((MAP[pplSection] ?? []).flatMap((cpl) => getFlashcardsBySection(cpl)));
 }
 
 // Merge the mapped CPL notes into one PPL note (intro from the first; blocks,
 // mustKnow and traps concatenated).
 export function getPPLMetNoteBySection(pplSection: string): SectionNote | undefined {
-  const notes = (MAP[pplSection] ?? []).map(getNoteBySection).filter((n): n is SectionNote => !!n);
-  if (notes.length === 0) return undefined;
-  if (notes.length === 1) return notes[0];
-  return {
-    sectionId: pplSection,
-    title: notes[0].title,
-    intro: notes[0].intro,
-    blocks: notes.flatMap((n) => n.blocks),
-    mustKnow: notes.flatMap((n) => n.mustKnow),
-    traps: notes.flatMap((n) => n.traps),
-  };
+  return mergePplNotes(pplSection, (MAP[pplSection] ?? []).map(getNoteBySection).filter((n): n is SectionNote => !!n));
 }
 
 // PPL section id → the figures.tsx key whose illustration covers it.

@@ -1,0 +1,766 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Air Law Gallery 2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>Air Law — Additional Figures</h1>
+    <p class="lede">Original figures for rules of the air, signals, aerodromes, airspace, altimetry and dangerous goods.</p>
+    <div class="prog"><span class="pct">18 / 18 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ RIGHT OF WAY — CONVERGING, HEAD-ON AND OVERTAKING -->
+  <section class="card">
+    <h2>Right of Way — Converging, Head-On and Overtaking</h2>
+    <div class="meta"><span class="tag">al_x01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Three plan-view encounters: converging aircraft where the one with the other on its right gives way, head-on aircraft both turning right, and an overtaking aircraft passing to the right">
+        <g transform="translate(90 220) rotate(90) scale(0.55)"><path d="M0,-60 C5,-56 6,-48 6,-40 L6,-8 L58,14 L58,22 L6,10 L5,38 L22,50 L22,56 L0,52 L-22,56 L-22,50 L-5,38 L-6,10 L-58,22 L-58,14 L-6,-8 L-6,-40 C-6,-48 -5,-56 0,-60 Z" fill="var(--hot)" stroke="#dfeef2" stroke-width="2.9"/></g>
+        <g transform="translate(200 300) rotate(0) scale(0.55)"><path d="M0,-60 C5,-56 6,-48 6,-40 L6,-8 L58,14 L58,22 L6,10 L5,38 L22,50 L22,56 L0,52 L-22,56 L-22,50 L-5,38 L-6,10 L-58,22 L-58,14 L-6,-8 L-6,-40 C-6,-48 -5,-56 0,-60 Z" fill="#c4d1d6" stroke="#dfeef2" stroke-width="2.9"/></g>
+        <path d="M110,226 Q150,250 160,320" stroke="var(--hot)" stroke-width="2" fill="none" stroke-dasharray="5 3" marker-end="url(#m-hot)"/>
+        <text x="130.0" y="70.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">CONVERGING</text>
+        <text x="130.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">red has the other on its right:</text>
+        <text x="130.0" y="114.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">red gives way (turns right, behind)</text>
+        <g transform="translate(380 130) rotate(180) scale(0.55)"><path d="M0,-60 C5,-56 6,-48 6,-40 L6,-8 L58,14 L58,22 L6,10 L5,38 L22,50 L22,56 L0,52 L-22,56 L-22,50 L-5,38 L-6,10 L-58,22 L-58,14 L-6,-8 L-6,-40 C-6,-48 -5,-56 0,-60 Z" fill="#c4d1d6" stroke="#dfeef2" stroke-width="2.9"/></g>
+        <g transform="translate(380 290) rotate(0) scale(0.55)"><path d="M0,-60 C5,-56 6,-48 6,-40 L6,-8 L58,14 L58,22 L6,10 L5,38 L22,50 L22,56 L0,52 L-22,56 L-22,50 L-5,38 L-6,10 L-58,22 L-58,14 L-6,-8 L-6,-40 C-6,-48 -5,-56 0,-60 Z" fill="#c4d1d6" stroke="#dfeef2" stroke-width="2.9"/></g>
+        <path d="M380,160 Q370,190 350,200" stroke="var(--gold)" stroke-width="2" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M380,260 Q390,230 410,220" stroke="var(--gold)" stroke-width="2" fill="none" marker-end="url(#m-gold)"/>
+        <text x="380.0" y="70.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">HEAD-ON</text>
+        <text x="380.0" y="340.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">both turn right</text>
+        <g transform="translate(620 130) rotate(0) scale(0.55)"><path d="M0,-60 C5,-56 6,-48 6,-40 L6,-8 L58,14 L58,22 L6,10 L5,38 L22,50 L22,56 L0,52 L-22,56 L-22,50 L-5,38 L-6,10 L-58,22 L-58,14 L-6,-8 L-6,-40 C-6,-48 -5,-56 0,-60 Z" fill="#c4d1d6" stroke="#dfeef2" stroke-width="2.9"/></g>
+        <g transform="translate(620 290) rotate(0) scale(0.55)"><path d="M0,-60 C5,-56 6,-48 6,-40 L6,-8 L58,14 L58,22 L6,10 L5,38 L22,50 L22,56 L0,52 L-22,56 L-22,50 L-5,38 L-6,10 L-58,22 L-58,14 L-6,-8 L-6,-40 C-6,-48 -5,-56 0,-60 Z" fill="var(--hot)" stroke="#dfeef2" stroke-width="2.9"/></g>
+        <path d="M620,260 Q660,230 660,170" stroke="var(--hot)" stroke-width="2" fill="none" stroke-dasharray="5 3" marker-end="url(#m-hot)"/>
+        <text x="620.0" y="70.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">OVERTAKING</text>
+        <text x="620.0" y="340.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">overtaker (red) passes to the right</text>
+      </svg>
+    </div>
+    <p class="cap">Converging at about the same level: the aircraft that has the other on its RIGHT gives way. Head-on: both alter heading to the RIGHT. Overtaking (approaching from within 70° of the other’s tail): the aircraft being overtaken has right of way and the overtaking aircraft alters heading to the RIGHT to pass.</p>
+  </section>
+
+  <!-- 2 ─ RIGHT OF WAY — ORDER OF PRECEDENCE -->
+  <section class="card">
+    <h2>Right of Way — Order of Precedence</h2>
+    <div class="meta"><span class="tag">al_x02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Ladder showing that power-driven aeroplanes give way to airships, which give way to gliders, which give way to balloons, and that all give way to aircraft towing or landing">
+        <rect x="200.0" y="220.0" width="360.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="380.0" y="243.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Power-driven aeroplanes / helicopters</text>
+        <line x1="380.0" y1="220.0" x2="380.0" y2="212.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <rect x="200.0" y="170.0" width="360.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="380.0" y="193.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Airships</text>
+        <line x1="380.0" y1="170.0" x2="380.0" y2="162.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <rect x="200.0" y="120.0" width="360.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="143.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Gliders</text>
+        <line x1="380.0" y1="120.0" x2="380.0" y2="112.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <rect x="200.0" y="70.0" width="360.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="93.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Balloons</text>
+        <text x="580.0" y="244.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">gives way to</text>
+        <text x="580.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">right of way</text>
+        <text x="380.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">all give way to aircraft landing or on final approach</text>
+      </svg>
+    </div>
+    <p class="cap">Converging aircraft of different categories: power-driven heavier-than-air aircraft give way to airships, gliders and balloons; airships give way to gliders and balloons; gliders give way to balloons. Power-driven aircraft also give way to aircraft seen to be towing other aircraft or objects. An aircraft in flight or on the ground gives way to an aircraft landing or on final approach.</p>
+  </section>
+
+  <!-- 3 ─ ATC LIGHT SIGNALS — AIRCRAFT IN FLIGHT -->
+  <section class="card">
+    <h2>ATC Light Signals — Aircraft in Flight</h2>
+    <div class="meta"><span class="tag">al_x03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Table of light signals to aircraft in flight: steady green, steady red, flashing green, flashing red and flashing white with their meanings">
+        <rect x="40.0" y="40.0" width="680.0" height="34.0" rx="3" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="60.0" y="62.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" font-weight="700">Light signal from ATC</text>
+        <text x="330.0" y="62.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" font-weight="700">Meaning</text>
+        <rect x="40.0" y="80.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="84.0" cy="102.0" r="13" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="106.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">steady</text>
+        <text x="330.0" y="106.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Cleared to land</text>
+        <rect x="40.0" y="128.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="84.0" cy="150.0" r="13" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="154.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">steady</text>
+        <text x="330.0" y="154.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Give way to other aircraft and continue circling</text>
+        <rect x="40.0" y="176.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="70.0" cy="198.0" r="8" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="96.0" cy="198.0" r="8" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="122.0" cy="198.0" r="8" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="202.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">flashing</text>
+        <text x="330.0" y="202.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Return for landing (landing clearance to follow)</text>
+        <rect x="40.0" y="224.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="70.0" cy="246.0" r="8" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="96.0" cy="246.0" r="8" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="122.0" cy="246.0" r="8" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="250.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">flashing</text>
+        <text x="330.0" y="250.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Aerodrome unsafe, do not land</text>
+        <rect x="40.0" y="272.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="70.0" cy="294.0" r="8" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="96.0" cy="294.0" r="8" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="122.0" cy="294.0" r="8" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="298.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">flashing</text>
+        <text x="330.0" y="298.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Land at this aerodrome and proceed to the apron</text>
+      </svg>
+    </div>
+    <p class="cap">Light signals from the control tower (ICAO Annex 2, applied in SA). A red pyrotechnic means: notwithstanding any previous instructions, do not land for the time being. Acknowledge in flight by rocking the wings (daytime) or flashing the landing lights (night).</p>
+  </section>
+
+  <!-- 4 ─ ATC LIGHT SIGNALS — AIRCRAFT ON THE GROUND -->
+  <section class="card">
+    <h2>ATC Light Signals — Aircraft on the Ground</h2>
+    <div class="meta"><span class="tag">al_x04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Table of light signals to aircraft on the ground: steady green, steady red, flashing green, flashing red and flashing white with their meanings">
+        <rect x="40.0" y="40.0" width="680.0" height="34.0" rx="3" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="60.0" y="62.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" font-weight="700">Light signal from ATC</text>
+        <text x="330.0" y="62.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" font-weight="700">Meaning</text>
+        <rect x="40.0" y="80.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="84.0" cy="102.0" r="13" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="106.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">steady</text>
+        <text x="330.0" y="106.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Cleared for take-off</text>
+        <rect x="40.0" y="128.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="84.0" cy="150.0" r="13" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="154.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">steady</text>
+        <text x="330.0" y="154.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Stop</text>
+        <rect x="40.0" y="176.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="70.0" cy="198.0" r="8" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="96.0" cy="198.0" r="8" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="122.0" cy="198.0" r="8" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="202.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">flashing</text>
+        <text x="330.0" y="202.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Cleared to taxi</text>
+        <rect x="40.0" y="224.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="70.0" cy="246.0" r="8" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="96.0" cy="246.0" r="8" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="122.0" cy="246.0" r="8" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="250.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">flashing</text>
+        <text x="330.0" y="250.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Taxi clear of the landing area in use</text>
+        <rect x="40.0" y="272.0" width="680.0" height="44.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <circle cx="70.0" cy="294.0" r="8" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="96.0" cy="294.0" r="8" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="122.0" cy="294.0" r="8" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="160.0" y="298.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">flashing</text>
+        <text x="330.0" y="298.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Return to starting point on the aerodrome</text>
+      </svg>
+    </div>
+    <p class="cap">On the ground the same colours mean different things. Acknowledge by moving the ailerons or rudder (daytime) or flashing the landing or navigation lights (night). Flashing runway or taxiway lights mean vacate the landing area and watch the tower for signals.</p>
+  </section>
+
+  <!-- 5 ─ TRANSPONDER EMERGENCY CODES -->
+  <section class="card">
+    <h2>Transponder Emergency Codes</h2>
+    <div class="meta"><span class="tag">al_x05</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 260" role="img" aria-label="Three transponder code boxes: 7500 unlawful interference, 7600 radio communication failure and 7700 emergency">
+        <rect x="60.0" y="60.0" width="180.0" height="90.0" rx="8" fill="#0b0f11" stroke="var(--hot)" stroke-width="2"/>
+        <text x="150.0" y="118.0" font-family="Overpass,sans-serif" font-size="30" fill="var(--hot)" text-anchor="middle" font-weight="700">7500</text>
+        <text x="150.0" y="180.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Unlawful interference</text>
+        <rect x="290.0" y="60.0" width="180.0" height="90.0" rx="8" fill="#0b0f11" stroke="var(--gold)" stroke-width="2"/>
+        <text x="380.0" y="118.0" font-family="Overpass,sans-serif" font-size="30" fill="var(--gold)" text-anchor="middle" font-weight="700">7600</text>
+        <text x="380.0" y="180.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Radio failure</text>
+        <rect x="520.0" y="60.0" width="180.0" height="90.0" rx="8" fill="#0b0f11" stroke="var(--hot)" stroke-width="2"/>
+        <text x="610.0" y="118.0" font-family="Overpass,sans-serif" font-size="30" fill="var(--hot)" text-anchor="middle" font-weight="700">7700</text>
+        <text x="610.0" y="180.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Emergency</text>
+        <text x="380.0" y="230.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">mode C / S: select ALT so pressure altitude is transmitted</text>
+      </svg>
+    </div>
+    <p class="cap">Special SSR codes: 7500 — unlawful interference (hijack); 7600 — radio communication failure; 7700 — emergency. Avoid passing through these codes when changing the code, and select ALT so that pressure altitude is reported.</p>
+  </section>
+
+  <!-- 6 ─ MINIMUM HEIGHTS -->
+  <section class="card">
+    <h2>Minimum Heights</h2>
+    <div class="meta"><span class="tag">al_x06</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A congested area with an aircraft at least 1000 ft above the highest obstacle within 600 metres, and open country with an aircraft at least 500 ft above the surface">
+        <line x1="20.0" y1="280.0" x2="740.0" y2="280.0" stroke="#7a5a34" stroke-width="3"/>
+        <rect x="80.0" y="220.0" width="24.0" height="60.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="110.0" y="190.0" width="24.0" height="90.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="140.0" y="210.0" width="24.0" height="70.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="170.0" y="160.0" width="24.0" height="120.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="200.0" y="200.0" width="24.0" height="80.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="230.0" y="180.0" width="24.0" height="100.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="260.0" y="220.0" width="24.0" height="60.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <g transform="translate(180 60) rotate(0) scale(-0.5 0.5)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <line x1="182.0" y1="70.0" x2="182.0" y2="158.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="192.0" y="118.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">≥ 1000 ft above highest obstacle</text>
+        <path d="M40,90 L320,90" stroke="var(--cool)" stroke-width="1.2" fill="none" stroke-dasharray="4 3"/>
+        <text x="180.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="middle" font-weight="700">within 600 m radius</text>
+        <text x="170.0" y="310.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">CONGESTED AREA</text>
+        <g transform="translate(560 180) rotate(0) scale(-0.5 0.5)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <line x1="562.0" y1="190.0" x2="562.0" y2="276.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="572.0" y="236.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">≥ 500 ft AGL</text>
+        <text x="560.0" y="310.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ELSEWHERE</text>
+      </svg>
+    </div>
+    <p class="cap">Except for take-off and landing or with approval: over congested areas of cities, towns or settlements or an open-air assembly of people, at least 1000 ft above the highest obstacle within a radius of 600 m of the aircraft; elsewhere at least 500 ft above the ground or water. Always high enough to land without undue hazard if a power unit fails. Check CAR Part 91 for the current text.</p>
+  </section>
+
+  <!-- 7 ─ ALTIMETER SETTINGS — QFE, QNH AND STANDARD -->
+  <section class="card">
+    <h2>Altimeter Settings — QFE, QNH and Standard</h2>
+    <div class="meta"><span class="tag">al_x07</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="An aircraft over an aerodrome with QFE reading height above the aerodrome, QNH reading altitude above mean sea level and 1013.25 hPa reading flight level">
+        <line x1="40.0" y1="300.0" x2="720.0" y2="300.0" stroke="var(--cool)" stroke-width="2"/>
+        <text x="700.0" y="292.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="end">mean sea level</text>
+        <path d="M200,220 L560,220 L600,300 L160,300 Z" stroke="none" stroke-width="0" fill="#7a5a34" opacity="0.6"/>
+        <line x1="220.0" y1="220.0" x2="540.0" y2="220.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <text x="380.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">aerodrome</text>
+        <g transform="translate(380 90) rotate(0) scale(-0.5 0.5)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <line x1="330.0" y1="100.0" x2="330.0" y2="218.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="320.0" y="160.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="end" font-weight="700">QFE: height</text>
+        <line x1="430.0" y1="100.0" x2="430.0" y2="298.0" stroke="var(--green)" stroke-width="1.6" marker-end="url(#m-green)" marker-start="url(#m-green)"/>
+        <text x="440.0" y="200.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" font-weight="700">QNH: altitude</text>
+        <line x1="560.0" y1="100.0" x2="560.0" y2="30.0" stroke="var(--chart-line-2)" stroke-width="1" stroke-dasharray="3 3"/>
+        <line x1="40.0" y1="30.0" x2="720.0" y2="30.0" stroke="var(--hot)" stroke-width="1.4" stroke-dasharray="6 4"/>
+        <text x="60.0" y="24.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">1013.25 hPa pressure datum (may be above or below MSL)</text>
+        <text x="570.0" y="70.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">1013: flight level</text>
+      </svg>
+    </div>
+    <p class="cap">QFE: the altimeter reads height above the aerodrome (zero on the runway). QNH: it reads altitude above mean sea level (aerodrome elevation on the runway). Standard setting 1013.25 hPa: it reads pressure altitude, used as flight levels above the transition altitude.</p>
+  </section>
+
+  <!-- 8 ─ CONTROLLED AIRSPACE STRUCTURE -->
+  <section class="card">
+    <h2>Controlled Airspace Structure</h2>
+    <div class="meta"><span class="tag">al_x08</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Cross-section of an aerodrome with its control zone from the surface, a terminal control area above with a base and upper limit, and an airway joining it">
+        <line x1="20.0" y1="310.0" x2="740.0" y2="310.0" stroke="#7a5a34" stroke-width="3"/>
+        <rect x="340.0" y="300.0" width="80.0" height="10.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="380.0" y="334.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">aerodrome</text>
+        <rect x="280.0" y="200.0" width="200.0" height="110.0" rx="0" fill="var(--cool)" stroke="var(--cool)" stroke-width="2" opacity="0.25"/>
+        <text x="380.0" y="260.0" font-family="Overpass,sans-serif" font-size="13" fill="var(--cool)" text-anchor="middle" font-weight="700">CTR</text>
+        <text x="380.0" y="280.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">surface → upper limit</text>
+        <path d="M120,200 L640,200 L640,70 L120,70 Z" stroke="var(--gold)" stroke-width="2" fill="var(--gold)" opacity="0.12"/>
+        <text x="380.0" y="130.0" font-family="Overpass,sans-serif" font-size="13" fill="var(--gold)" text-anchor="middle" font-weight="700">TMA</text>
+        <text x="380.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">base above the surface</text>
+        <rect x="640.0" y="110.0" width="120.0" height="50.0" rx="0" fill="var(--hot)" stroke="var(--hot)" stroke-width="1.6" opacity="0.2"/>
+        <text x="700.0" y="104.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">airway</text>
+        <text x="60.0" y="300.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">uncontrolled (class G) below the TMA, outside the CTR</text>
+      </svg>
+    </div>
+    <p class="cap">The control zone (CTR) extends from the surface to protect arrivals and departures; the terminal control area (TMA) above it has a defined base and upper limit; airways and control areas (CTA) link them. Limits and classes are published in the SA AIP (ENR section).</p>
+  </section>
+
+  <!-- 9 ─ ICAO AIRSPACE CLASSES AND SERVICES -->
+  <section class="card">
+    <h2>ICAO Airspace Classes and Services</h2>
+    <div class="meta"><span class="tag">al_x09</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 260" role="img" aria-label="Table of airspace classes A to G showing flights permitted, separation provided and whether clearance is required">
+        <rect x="40.0" y="30.0" width="680.0" height="22.0" rx="3" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="48.0" y="45.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Class</text>
+        <text x="118.0" y="45.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Flights</text>
+        <text x="278.0" y="45.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Separation provided</text>
+        <text x="578.0" y="45.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">ATC clearance</text>
+        <rect x="40.0" y="52.0" width="680.0" height="20.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="48.0" y="66.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">A</text>
+        <text x="118.0" y="66.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR only</text>
+        <text x="278.0" y="66.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">all flights</text>
+        <text x="578.0" y="66.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">yes</text>
+        <rect x="40.0" y="72.0" width="680.0" height="20.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="48.0" y="86.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">B</text>
+        <text x="118.0" y="86.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR and VFR</text>
+        <text x="278.0" y="86.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">all flights</text>
+        <text x="578.0" y="86.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">yes</text>
+        <rect x="40.0" y="92.0" width="680.0" height="20.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="48.0" y="106.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">C</text>
+        <text x="118.0" y="106.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR and VFR</text>
+        <text x="278.0" y="106.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR from IFR and VFR</text>
+        <text x="578.0" y="106.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">yes</text>
+        <rect x="40.0" y="112.0" width="680.0" height="20.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="48.0" y="126.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">D</text>
+        <text x="118.0" y="126.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR and VFR</text>
+        <text x="278.0" y="126.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR from IFR</text>
+        <text x="578.0" y="126.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">yes</text>
+        <rect x="40.0" y="132.0" width="680.0" height="20.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="48.0" y="146.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">E</text>
+        <text x="118.0" y="146.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR and VFR</text>
+        <text x="278.0" y="146.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR from IFR</text>
+        <text x="578.0" y="146.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR only</text>
+        <rect x="40.0" y="152.0" width="680.0" height="20.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="48.0" y="166.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">F</text>
+        <text x="118.0" y="166.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR and VFR</text>
+        <text x="278.0" y="166.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR from IFR as far as practical</text>
+        <text x="578.0" y="166.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">no</text>
+        <rect x="40.0" y="172.0" width="680.0" height="20.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="48.0" y="186.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">G</text>
+        <text x="118.0" y="186.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">IFR and VFR</text>
+        <text x="278.0" y="186.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">none (FIS only)</text>
+        <text x="578.0" y="186.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">no</text>
+        <line x1="110.0" y1="30.0" x2="110.0" y2="192.0" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <line x1="270.0" y1="30.0" x2="270.0" y2="192.0" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <line x1="570.0" y1="30.0" x2="570.0" y2="192.0" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="380.0" y="240.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">South Africa: mainly classes A, C, F and G (check the AIP)</text>
+      </svg>
+    </div>
+    <p class="cap">ICAO airspace classes. A: IFR only, all separated. C: IFR separated from IFR and VFR; VFR gets traffic information on other VFR. F: advisory service to IFR. G: flight information service only. South Africa uses mainly classes A, C, F and G — always check the AIP for current classification.</p>
+  </section>
+
+  <!-- 10 ─ ACCIDENT, SERIOUS INCIDENT OR INCIDENT? -->
+  <section class="card">
+    <h2>Accident, Serious Incident or Incident?</h2>
+    <div class="meta"><span class="tag">al_x10</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Decision flow: death or serious injury, substantial damage or missing aircraft means accident; an occurrence where an accident nearly happened is a serious incident; otherwise an incident">
+        <rect x="40.0" y="30.0" width="300.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="190.0" y="56.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Fatal or serious injury?</text>
+        <text x="190.0" y="70.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">Substantial damage? Missing?</text>
+        <rect x="460.0" y="30.0" width="260.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="590.0" y="64.2" font-family="Overpass,sans-serif" font-size="12" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ACCIDENT</text>
+        <rect x="40.0" y="150.0" width="300.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="190.0" y="183.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Did an accident nearly occur?</text>
+        <rect x="460.0" y="150.0" width="260.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="590.0" y="184.2" font-family="Overpass,sans-serif" font-size="12" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">SERIOUS INCIDENT</text>
+        <rect x="40.0" y="270.0" width="300.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="190.0" y="296.6" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">INCIDENT</text>
+        <text x="190.0" y="311.1" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">other safety occurrence</text>
+        <line x1="340.0" y1="60.0" x2="460.0" y2="60.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <text x="404.0" y="56.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)">yes</text>
+        <line x1="190.0" y1="90.0" x2="190.0" y2="150.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="194.0" y="116.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">no</text>
+        <line x1="340.0" y1="180.0" x2="460.0" y2="180.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <text x="404.0" y="176.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">yes</text>
+        <line x1="190.0" y1="210.0" x2="190.0" y2="270.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="194.0" y="236.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">no</text>
+        <text x="460.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">report to the SACAA (CAR Part 12)</text>
+      </svg>
+    </div>
+    <p class="cap">Accident: between boarding with intention of flight and disembarking, a person is fatally or seriously injured, the aircraft sustains damage or structural failure that adversely affects it and would normally need major repair, or it is missing. Serious incident: circumstances indicating an accident nearly occurred. Incident: any other occurrence affecting the safety of operation. Report to the SACAA as required by CAR Part 12.</p>
+  </section>
+
+  <!-- 11 ─ RUNWAY MARKINGS -->
+  <section class="card">
+    <h2>Runway Markings</h2>
+    <div class="meta"><span class="tag">al_x11</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Plan view of an instrument runway end with threshold stripes, runway designation, centreline, touchdown zone and aiming point markings and edge lines">
+        <rect x="40.0" y="120.0" width="680.0" height="140.0" rx="0" fill="#3b4246" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="54.0" y="128.0" width="60.0" height="10.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="54.0" y="144.0" width="60.0" height="10.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="54.0" y="160.0" width="60.0" height="10.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="54.0" y="176.0" width="60.0" height="10.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="54.0" y="192.0" width="60.0" height="10.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="54.0" y="208.0" width="60.0" height="10.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="54.0" y="224.0" width="60.0" height="10.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="54.0" y="240.0" width="60.0" height="10.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <text x="160" y="190" font-family="Overpass,sans-serif" font-size="40" font-weight="700" fill="#fff" transform="rotate(90 160 190)" text-anchor="middle">05</text>
+        <rect x="220.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="270.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="320.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="370.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="420.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="470.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="520.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="570.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="620.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="670.0" y="188.0" width="28.0" height="4.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="300.0" y="140.0" width="50.0" height="8.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="300.0" y="230.0" width="50.0" height="8.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="420.0" y="140.0" width="50.0" height="8.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="420.0" y="230.0" width="50.0" height="8.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="500.0" y="150.0" width="110.0" height="14.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="500.0" y="218.0" width="110.0" height="14.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <line x1="40.0" y1="124.0" x2="720.0" y2="124.0" stroke="#ffffff" stroke-width="2"/>
+        <line x1="40.0" y1="256.0" x2="720.0" y2="256.0" stroke="#ffffff" stroke-width="2"/>
+        <text x="84.0" y="100.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">threshold</text>
+        <line x1="84.0" y1="106.0" x2="84.0" y2="122.0" stroke="var(--gold)" stroke-width="1"/>
+        <text x="160.0" y="100.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">designation</text>
+        <line x1="160.0" y1="106.0" x2="160.0" y2="122.0" stroke="var(--gold)" stroke-width="1"/>
+        <text x="330.0" y="100.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">touchdown zone</text>
+        <line x1="330.0" y1="106.0" x2="330.0" y2="122.0" stroke="var(--gold)" stroke-width="1"/>
+        <text x="555.0" y="100.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">aiming point</text>
+        <line x1="555.0" y1="106.0" x2="555.0" y2="122.0" stroke="var(--gold)" stroke-width="1"/>
+        <text x="660.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">centreline (dashed)</text>
+        <text x="240.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">side stripes</text>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">all runway markings white; taxiway markings yellow</text>
+      </svg>
+    </div>
+    <p class="cap">Runway markings are white. From the threshold: threshold stripes (number depends on runway width), the designation number (magnetic heading to the nearest 10°, e.g. 047° → 05, with L/C/R for parallels), the dashed centreline, touchdown zone markings in pairs and the large aiming point markings, plus side stripes along the edges.</p>
+  </section>
+
+  <!-- 12 ─ RUNWAY AND TAXIWAY LIGHTING COLOURS -->
+  <section class="card">
+    <h2>Runway and Taxiway Lighting Colours</h2>
+    <div class="meta"><span class="tag">al_x12</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Plan view of a runway with green threshold lights, white edge lights turning yellow in the last 600 metres, red runway end lights, centreline lights becoming red and white then red, and blue taxiway edge and green taxiway centreline lights">
+        <rect x="60.0" y="120.0" width="640.0" height="100.0" rx="0" fill="#3b4246" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="64.0" cy="128.0" r="4" fill="var(--green)" stroke="var(--green)" stroke-width="0.8"/>
+        <circle cx="696.0" cy="128.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="0.8"/>
+        <circle cx="64.0" cy="142.0" r="4" fill="var(--green)" stroke="var(--green)" stroke-width="0.8"/>
+        <circle cx="696.0" cy="142.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="0.8"/>
+        <circle cx="64.0" cy="156.0" r="4" fill="var(--green)" stroke="var(--green)" stroke-width="0.8"/>
+        <circle cx="696.0" cy="156.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="0.8"/>
+        <circle cx="64.0" cy="170.0" r="4" fill="var(--green)" stroke="var(--green)" stroke-width="0.8"/>
+        <circle cx="696.0" cy="170.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="0.8"/>
+        <circle cx="64.0" cy="184.0" r="4" fill="var(--green)" stroke="var(--green)" stroke-width="0.8"/>
+        <circle cx="696.0" cy="184.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="0.8"/>
+        <circle cx="64.0" cy="198.0" r="4" fill="var(--green)" stroke="var(--green)" stroke-width="0.8"/>
+        <circle cx="696.0" cy="198.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="0.8"/>
+        <circle cx="64.0" cy="212.0" r="4" fill="var(--green)" stroke="var(--green)" stroke-width="0.8"/>
+        <circle cx="696.0" cy="212.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="0.8"/>
+        <circle cx="90.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="90.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="120.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="120.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="150.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="150.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="180.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="180.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="210.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="210.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="240.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="240.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="270.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="270.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="300.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="300.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="330.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="330.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="360.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="360.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="390.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="390.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="420.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="420.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="450.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="450.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="480.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="480.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="510.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="510.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="540.0" cy="120.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="540.0" cy="220.0" r="3.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="570.0" cy="120.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="570.0" cy="220.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="600.0" cy="120.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="600.0" cy="220.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="630.0" cy="120.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="630.0" cy="220.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="660.0" cy="120.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="660.0" cy="220.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="690.0" cy="120.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="690.0" cy="220.0" r="3.5" fill="#f0a830" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="80.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="95.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="110.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="125.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="140.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="155.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="170.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="185.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="200.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="215.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="230.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="245.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="260.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="275.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="290.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="305.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="320.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="335.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="350.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="365.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="380.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="395.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="410.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="425.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="440.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="455.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="470.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="485.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="500.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="515.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="530.0" cy="170.0" r="2.5" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="545.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="560.0" cy="170.0" r="2.5" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="575.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="590.0" cy="170.0" r="2.5" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="605.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="620.0" cy="170.0" r="2.5" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="635.0" cy="170.0" r="2.5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="650.0" cy="170.0" r="2.5" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="665.0" cy="170.0" r="2.5" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="680.0" cy="170.0" r="2.5" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="695.0" cy="170.0" r="2.5" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <line x1="300.0" y1="220.0" x2="300.0" y2="330.0" stroke="var(--chart-line-2)" stroke-width="0.1"/>
+        <rect x="290.0" y="220.0" width="20.0" height="110.0" rx="0" fill="#3b4246" stroke="none" stroke-width="0"/>
+        <circle cx="286.0" cy="236.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="314.0" cy="236.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="300.0" cy="245.0" r="2.5" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="286.0" cy="254.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="314.0" cy="254.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="300.0" cy="263.0" r="2.5" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="286.0" cy="272.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="314.0" cy="272.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="300.0" cy="281.0" r="2.5" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="286.0" cy="290.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="314.0" cy="290.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="300.0" cy="299.0" r="2.5" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="286.0" cy="308.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="314.0" cy="308.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="300.0" cy="317.0" r="2.5" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <circle cx="286.0" cy="326.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="314.0" cy="326.0" r="3.5" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="0.6"/>
+        <circle cx="300.0" cy="335.0" r="2.5" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="0.4"/>
+        <line x1="282.0" y1="240.0" x2="318.0" y2="240.0" stroke="var(--hot)" stroke-width="3"/>
+        <text x="64.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">threshold: green</text>
+        <text x="700.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">end: red</text>
+        <text x="560.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="#f0a830" text-anchor="middle" font-weight="700">edge: yellow last 600 m</text>
+        <text x="300.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">edge: white</text>
+        <text x="570.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">centreline: red/white 900–300 m, red last 300 m</text>
+        <text x="330.0" y="300.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">taxiway: blue edge, green centreline</text>
+        <text x="330.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">stop bar: red</text>
+        <text x="380.0" y="365.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">landing direction →</text>
+      </svg>
+    </div>
+    <p class="cap">Threshold: green (towards the approaching aircraft). Runway end: red. Edge lights: white, but yellow over the last 600 m (or third) on instrument runways. Centreline: white, then alternate red and white from 900 m to 300 m from the end, then red for the last 300 m. Taxiway: blue edge lights, green centreline lights; stop bars red.</p>
+  </section>
+
+  <!-- 13 ─ GROUND SIGNALS IN THE SIGNALS AREA -->
+  <section class="card">
+    <h2>Ground Signals in the Signals Area</h2>
+    <div class="meta"><span class="tag">al_x13</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Signals-area panels: red square with yellow diagonals, red square with one yellow diagonal, white dumb-bell, dumb-bell with black stripes, white landing T, double white cross and right-hand traffic arrow">
+        <rect x="10.0" y="70.0" width="140.0" height="90.0" rx="4" fill="#3a6b2f" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="46.0" y="76.0" width="68.0" height="68.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <line x1="46.0" y1="76.0" x2="114.0" y2="144.0" stroke="var(--gold)" stroke-width="6"/>
+        <line x1="46.0" y1="144.0" x2="114.0" y2="76.0" stroke="var(--gold)" stroke-width="6"/>
+        <text x="80.0" y="180.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">landing prohibited</text>
+        <rect x="190.0" y="70.0" width="140.0" height="90.0" rx="4" fill="#3a6b2f" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="226.0" y="76.0" width="68.0" height="68.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <line x1="226.0" y1="76.0" x2="294.0" y2="144.0" stroke="var(--gold)" stroke-width="6"/>
+        <text x="260.0" y="180.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">special precautions</text>
+        <rect x="370.0" y="70.0" width="140.0" height="90.0" rx="4" fill="#3a6b2f" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="400.0" y="104.0" width="80.0" height="12.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <circle cx="400.0" cy="110.0" r="16" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <circle cx="480.0" cy="110.0" r="16" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <text x="440.0" y="180.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">hard surfaces only</text>
+        <rect x="550.0" y="70.0" width="140.0" height="90.0" rx="4" fill="#3a6b2f" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="580.0" y="104.0" width="80.0" height="12.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <circle cx="580.0" cy="110.0" r="16" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <circle cx="660.0" cy="110.0" r="16" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <line x1="580.0" y1="96.0" x2="580.0" y2="124.0" stroke="#0b0f11" stroke-width="4"/>
+        <line x1="660.0" y1="96.0" x2="660.0" y2="124.0" stroke="#0b0f11" stroke-width="4"/>
+        <text x="620.0" y="180.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">runways only (land / T-O)</text>
+        <rect x="10.0" y="230.0" width="140.0" height="90.0" rx="4" fill="#3a6b2f" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="40.0" y="236.0" width="80.0" height="12.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <rect x="74.0" y="248.0" width="12.0" height="56.0" rx="0" fill="#ffffff" stroke="none" stroke-width="0"/>
+        <text x="80.0" y="340.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">land towards cross-bar</text>
+        <rect x="190.0" y="230.0" width="140.0" height="90.0" rx="4" fill="#3a6b2f" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="222.0" y1="254.0" x2="254.0" y2="286.0" stroke="#ffffff" stroke-width="6"/>
+        <line x1="222.0" y1="286.0" x2="254.0" y2="254.0" stroke="#ffffff" stroke-width="6"/>
+        <line x1="266.0" y1="254.0" x2="298.0" y2="286.0" stroke="#ffffff" stroke-width="6"/>
+        <line x1="266.0" y1="286.0" x2="298.0" y2="254.0" stroke="#ffffff" stroke-width="6"/>
+        <text x="260.0" y="340.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">glider flying</text>
+        <rect x="370.0" y="230.0" width="140.0" height="90.0" rx="4" fill="#3a6b2f" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <path d="M404,290 L404,260 L450,260 L450,246 L476,270 L450,294 L450,280 L422,280 L422,290 Z" stroke="none" stroke-width="0" fill="var(--hot)"/>
+        <text x="440.0" y="340.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">right-hand circuit</text>
+        <rect x="550.0" y="230.0" width="140.0" height="90.0" rx="4" fill="#3a6b2f" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <rect x="588.0" y="238.0" width="16.0" height="16.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="604.0" y="238.0" width="16.0" height="16.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="620.0" y="238.0" width="16.0" height="16.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="636.0" y="238.0" width="16.0" height="16.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="588.0" y="254.0" width="16.0" height="16.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="604.0" y="254.0" width="16.0" height="16.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="620.0" y="254.0" width="16.0" height="16.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="636.0" y="254.0" width="16.0" height="16.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="588.0" y="270.0" width="16.0" height="16.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="604.0" y="270.0" width="16.0" height="16.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="620.0" y="270.0" width="16.0" height="16.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="636.0" y="270.0" width="16.0" height="16.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="588.0" y="286.0" width="16.0" height="16.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="604.0" y="286.0" width="16.0" height="16.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <rect x="620.0" y="286.0" width="16.0" height="16.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="636.0" y="286.0" width="16.0" height="16.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0"/>
+        <text x="620.0" y="340.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ATC reporting point</text>
+      </svg>
+    </div>
+    <p class="cap">Ground signals displayed in the signals area (ICAO Annex 2): red square with yellow diagonals — landing prohibited; one yellow diagonal — special precautions in approach and landing; white dumb-bell — use hard surfaces only; dumb-bell with black bars — take-off and land on runways only, other manoeuvres need not be on hard surfaces; landing T — land and take off towards the cross-bar; double white cross — glider flying in progress; right-turn arrow — right-hand circuit.</p>
+  </section>
+
+  <!-- 14 ─ MARSHALLING SIGNALS (SELECTED) -->
+  <section class="card">
+    <h2>Marshalling Signals (Selected)</h2>
+    <div class="meta"><span class="tag">al_x14</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Four marshaller figures with illuminated wands: identify gate, straight ahead, stop and slow down">
+        <circle cx="110.0" cy="90.0" r="14" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="110.0" y1="104.0" x2="110.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="110.0" y1="170.0" x2="90.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="110.0" y1="170.0" x2="130.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="110.0" y1="120.0" x2="100.0" y2="50.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="100.0" y1="50.0" x2="96.0" y2="22.0" stroke="#f0a830" stroke-width="6" stroke-linecap="round"/>
+        <line x1="110.0" y1="120.0" x2="120.0" y2="50.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="120.0" y1="50.0" x2="124.0" y2="22.0" stroke="#f0a830" stroke-width="6" stroke-linecap="round"/>
+        <text x="110.0" y="270.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">IDENTIFY GATE</text>
+        <text x="110.0" y="286.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">arms straight up</text>
+        <circle cx="290.0" cy="90.0" r="14" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="290.0" y1="104.0" x2="290.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="290.0" y1="170.0" x2="270.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="290.0" y1="170.0" x2="310.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="290.0" y1="120.0" x2="260.0" y2="90.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="260.0" y1="90.0" x2="248.0" y2="70.0" stroke="#f0a830" stroke-width="6" stroke-linecap="round"/>
+        <line x1="290.0" y1="120.0" x2="320.0" y2="90.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="320.0" y1="90.0" x2="332.0" y2="70.0" stroke="#f0a830" stroke-width="6" stroke-linecap="round"/>
+        <line x1="340.0" y1="80.0" x2="340.0" y2="130.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="290.0" y="270.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">STRAIGHT AHEAD</text>
+        <text x="290.0" y="286.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">wands up and down at chest</text>
+        <circle cx="470.0" cy="90.0" r="14" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="470.0" y1="104.0" x2="470.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="470.0" y1="170.0" x2="450.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="470.0" y1="170.0" x2="490.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="470.0" y1="120.0" x2="500.0" y2="50.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="500.0" y1="50.0" x2="512.0" y2="22.0" stroke="#f0a830" stroke-width="6" stroke-linecap="round"/>
+        <line x1="470.0" y1="120.0" x2="440.0" y2="50.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="440.0" y1="50.0" x2="428.0" y2="22.0" stroke="#f0a830" stroke-width="6" stroke-linecap="round"/>
+        <text x="470.0" y="270.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">STOP</text>
+        <text x="470.0" y="286.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">wands crossed above head</text>
+        <circle cx="650.0" cy="90.0" r="14" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="650.0" y1="104.0" x2="650.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="650.0" y1="170.0" x2="630.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="650.0" y1="170.0" x2="670.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="650.0" y1="120.0" x2="610.0" y2="160.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="610.0" y1="160.0" x2="594.0" y2="176.0" stroke="#f0a830" stroke-width="6" stroke-linecap="round"/>
+        <line x1="650.0" y1="120.0" x2="690.0" y2="160.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <line x1="690.0" y1="160.0" x2="706.0" y2="176.0" stroke="#f0a830" stroke-width="6" stroke-linecap="round"/>
+        <line x1="710.0" y1="140.0" x2="710.0" y2="180.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="650.0" y="270.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">SLOW DOWN</text>
+        <text x="650.0" y="286.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">wands patting at knee level</text>
+      </svg>
+    </div>
+    <p class="cap">Selected ICAO marshalling signals, given facing the aircraft. Identify gate: both arms straight up, wands vertical. Straight ahead: arms bent at the elbows, wands moved up and down from chest to head. Stop: wands crossed above the head. Slow down: arms down, wands moved up and down between waist and knees.</p>
+  </section>
+
+  <!-- 15 ─ RUNWAY DESIGNATION -->
+  <section class="card">
+    <h2>Runway Designation</h2>
+    <div class="meta"><span class="tag">al_x15</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A runway oriented 047 degrees magnetic numbered 05 at one end and 23 at the other, and three parallel runways labelled L, C and R">
+        <g transform="rotate(-43 230 150)"><rect x="80" y="130" width="300" height="40" fill="#3b4246" stroke="#dfeef2" stroke-width="1.4"/><text x="110" y="157" font-family="Overpass,sans-serif" font-size="18" font-weight="700" fill="#fff" transform="rotate(90 110 150)" text-anchor="middle">05</text><text x="350" y="157" font-family="Overpass,sans-serif" font-size="18" font-weight="700" fill="#fff" transform="rotate(-90 350 150)" text-anchor="middle">23</text></g>
+        <text x="230.0" y="290.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">047°M → 05,  227°M → 23</text>
+        <rect x="480.0" y="60.0" width="40.0" height="200.0" rx="0" fill="#3b4246" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="500.0" y="240.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">36L</text>
+        <rect x="560.0" y="60.0" width="40.0" height="200.0" rx="0" fill="#3b4246" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="580.0" y="240.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">36C</text>
+        <rect x="640.0" y="60.0" width="40.0" height="200.0" rx="0" fill="#3b4246" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="660.0" y="240.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">36R</text>
+        <text x="600.0" y="290.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">parallel runways: L, C, R</text>
+      </svg>
+    </div>
+    <p class="cap">Runway numbers are the magnetic direction of the runway rounded to the nearest 10° and divided by ten: 047°M is runway 05, and the reciprocal 227°M is 23. Parallel runways add L, C, R (left, centre, right) as seen from the approach.</p>
+  </section>
+
+  <!-- 16 ─ RUNWAY STRIP, RESA, STOPWAY AND CLEARWAY -->
+  <section class="card">
+    <h2>Runway Strip, RESA, Stopway and Clearway</h2>
+    <div class="meta"><span class="tag">al_x16</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Plan view of a runway within its strip, with a stopway beyond the end, a runway end safety area and a clearway over which the aircraft may climb">
+        <rect x="40.0" y="90.0" width="640.0" height="120.0" rx="0" fill="var(--green)" stroke="var(--green)" stroke-width="1.4" opacity="0.15"/>
+        <text x="360.0" y="82.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" text-anchor="middle" font-weight="700">runway strip</text>
+        <rect x="80.0" y="130.0" width="460.0" height="40.0" rx="0" fill="#3b4246" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="310.0" y="155.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="700">RUNWAY (TORA)</text>
+        <rect x="540.0" y="130.0" width="70.0" height="40.0" rx="0" fill="var(--gold)" stroke="var(--gold)" stroke-width="1.4" opacity="0.6"/>
+        <text x="575.0" y="206.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">stopway</text>
+        <rect x="540.0" y="112.0" width="200.0" height="76.0" rx="0" fill="none" stroke="var(--cool)" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="690.0" y="106.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="middle" font-weight="700">clearway</text>
+        <rect x="680.0" y="120.0" width="60.0" height="60.0" rx="0" fill="var(--hot)" stroke="var(--hot)" stroke-width="1.4" opacity="0.25"/>
+        <text x="710.0" y="226.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">RESA</text>
+        <text x="380.0" y="260.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ASDA = TORA + stopway      TODA = TORA + clearway</text>
+      </svg>
+    </div>
+    <p class="cap">The runway strip surrounds the runway to reduce damage to an aircraft running off it. A stopway (beyond the end, able to support the aircraft) may be used for a rejected take-off and adds to ASDA. A clearway (an area under the control of the aerodrome, free of obstacles, which the aircraft may climb over) adds to TODA. The runway end safety area (RESA) beyond the strip protects against undershoots and overruns.</p>
+  </section>
+
+  <!-- 17 ─ MINIMUM ALTITUDES ON ENROUTE CHARTS -->
+  <section class="card">
+    <h2>Minimum Altitudes on Enroute Charts</h2>
+    <div class="meta"><span class="tag">al_x17</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Airway profile with terrain showing the minimum obstacle clearance altitude, the higher minimum enroute altitude, and a grid square with its grid MORA">
+        <path d="M40,300 L120,250 L200,280 L280,200 L340,240 L420,170 L500,250 L600,220 L720,300 Z" stroke="none" stroke-width="0" fill="#7a5a34" opacity="0.7"/>
+        <line x1="40.0" y1="120.0" x2="720.0" y2="120.0" stroke="var(--hot)" stroke-width="2.4"/>
+        <text x="60.0" y="112.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">MEA: obstacles + navaid reception + comms</text>
+        <line x1="40.0" y1="140.0" x2="720.0" y2="140.0" stroke="var(--gold)" stroke-width="2" stroke-dasharray="8 4"/>
+        <text x="60.0" y="160.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">MOCA: obstacle clearance only</text>
+        <line x1="420.0" y1="170.0" x2="420.0" y2="142.0" stroke="var(--gold)" stroke-width="1.4" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="430.0" y="194.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)">clearance</text>
+        <rect x="560.0" y="30.0" width="160.0" height="70.0" rx="0" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="640.0" y="60.0" font-family="Overpass,sans-serif" font-size="22" fill="var(--cool)" text-anchor="middle" font-weight="700">125</text>
+        <text x="640.0" y="88.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">grid MORA 12 500 ft</text>
+      </svg>
+    </div>
+    <p class="cap">MEA (minimum enroute altitude): guarantees obstacle clearance, navigation-aid reception and (normally) communications along the segment. MOCA (minimum obstacle clearance altitude): obstacle clearance only, but navaid reception is guaranteed only near the facility. Grid MORA (Jeppesen): clears the highest terrain or obstacle in the grid square by 1000 ft (where that is 5000 ft or lower) or 2000 ft (higher).</p>
+  </section>
+
+  <!-- 18 ─ DANGEROUS GOODS — THE NINE CLASSES -->
+  <section class="card">
+    <h2>Dangerous Goods — The Nine Classes</h2>
+    <div class="meta"><span class="tag">al_x18</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 400" role="img" aria-label="Nine hazard classes of dangerous goods: explosives, gases, flammable liquids, flammable solids, oxidisers and organic peroxides, toxic and infectious substances, radioactive material, corrosives and miscellaneous">
+        <path d="M100,60 L150,110 L100,160 L50,110 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--warm)" opacity="0.85"/>
+        <text x="100.0" y="144.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">1</text>
+        <text x="100.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Explosives</text>
+        <path d="M240,60 L290,110 L240,160 L190,110 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--green)" opacity="0.85"/>
+        <text x="240.0" y="144.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">2</text>
+        <text x="240.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Gases</text>
+        <path d="M380,60 L430,110 L380,160 L330,110 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--hot)" opacity="0.85"/>
+        <text x="380.0" y="144.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">3</text>
+        <text x="380.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Flammable liquids</text>
+        <path d="M520,60 L570,110 L520,160 L470,110 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--hot)" opacity="0.85"/>
+        <text x="520.0" y="144.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">4</text>
+        <text x="520.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Flammable solids</text>
+        <path d="M660,60 L710,110 L660,160 L610,110 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--gold)" opacity="0.85"/>
+        <text x="660.0" y="144.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">5</text>
+        <text x="660.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oxidisers, organic peroxides</text>
+        <path d="M100,230 L150,280 L100,330 L50,280 Z" stroke="var(--chart-ink)" stroke-width="2" fill="#ffffff" opacity="0.85"/>
+        <text x="100.0" y="314.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">6</text>
+        <text x="100.0" y="354.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Toxic and infectious</text>
+        <path d="M240,230 L290,280 L240,330 L190,280 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--gold)" opacity="0.85"/>
+        <text x="240.0" y="314.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">7</text>
+        <text x="240.0" y="354.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Radioactive</text>
+        <path d="M380,230 L430,280 L380,330 L330,280 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--chart-ink-dim)" opacity="0.85"/>
+        <text x="380.0" y="314.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">8</text>
+        <text x="380.0" y="354.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Corrosives</text>
+        <path d="M520,230 L570,280 L520,330 L470,280 Z" stroke="var(--chart-ink)" stroke-width="2" fill="#ffffff" opacity="0.85"/>
+        <text x="520.0" y="314.0" font-family="Overpass,sans-serif" font-size="16" fill="#0b0f11" text-anchor="middle" font-weight="700">9</text>
+        <text x="520.0" y="354.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Miscellaneous</text>
+        <text x="380.0" y="390.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">PIC informed in writing (NOTOC); CAR Part 92</text>
+      </svg>
+    </div>
+    <p class="cap">Dangerous goods are divided into nine classes (ICAO Technical Instructions, applied by CAR Part 92). Each package carries a diamond-shaped hazard label; the pilot-in-command must be told in writing (NOTOC) what dangerous goods are on board and where.</p>
+  </section>
+
+  <footer>
+    Air Law — Additional Figures: 18 original figures.
+  </footer>
+</div>
+</body></html>

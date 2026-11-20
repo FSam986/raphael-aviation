@@ -8,13 +8,20 @@ import { subjectContent } from "@/app/lib/subjectContent";
 import { subjectReadiness, type SubjectReadiness } from "@/app/lib/readiness";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
+import { useCourseGuard } from "@/app/hooks/useCourseGuard";
+import { LockedCourse } from "@/app/components/LockedCourse";
 import { Icon } from "@/app/components/Icon";
+import { StoryFlight } from "@/app/components/StoryFlight";
 
 export default function SubjectPage() {
   const params = useParams();
   const subjectId = params.subject as string;
   const { userName, loading } = useAuthGuard();
+  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [view, setView] = useState<"story" | "list">("story");
+  useEffect(() => { try { if (localStorage.getItem("subjectView") === "list") setView("list"); } catch {} }, []);
+  const pickView = (v: "story" | "list") => { setView(v); try { localStorage.setItem("subjectView", v); } catch {} };
 
   // Real syllabus progress from the adaptive-mastery localStorage (client only).
   const [readiness, setReadiness] = useState<SubjectReadiness | null>(null);
@@ -26,7 +33,9 @@ export default function SubjectPage() {
 
   const subject = findSubject(subjectId);
 
-  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+  if (loading || !accessReady) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+
+  if (locked) return <LockedCourse course={course} />;
 
   if (!subject) {
     return (
@@ -96,8 +105,24 @@ export default function SubjectPage() {
           )}
         </div>
 
+        {/* View switch */}
+        <div className="px-5 sm:px-10 pt-6 flex gap-2" role="tablist" aria-label="Subject view">
+          {(["story", "list"] as const).map((v) => (
+            <button key={v} role="tab" aria-selected={view === v} onClick={() => pickView(v)}
+              className={`px-4 py-2 rounded-xl text-sm transition-colors ${view === v ? "bg-gold text-gold-ink font-semibold" : "bg-chart-ground-2 border border-chart-line text-chart-ink-dim hover:text-chart-ink"}`}>
+              {v === "story" ? "Story flight" : "Section list"}
+            </button>
+          ))}
+        </div>
+
+        {view === "story" && (
+          <div className="px-5 sm:px-10 py-8 pb-16 max-w-5xl">
+            <StoryFlight subject={subject} pctOf={sectionPct} seenOf={(id) => sectionSeen(id)?.seen ?? 0} />
+          </div>
+        )}
+
         {/* Sections */}
-        <div className="px-5 sm:px-10 py-8 space-y-3 pb-16">
+        <div className={`px-5 sm:px-10 py-8 space-y-3 pb-16 ${view === "story" ? "hidden" : ""}`}>
           {subject.sections.map((section, idx) => {
             const isOpen = expandedSection === section.id;
             return (

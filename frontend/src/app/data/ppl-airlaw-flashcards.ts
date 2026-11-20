@@ -19,7 +19,7 @@ export const PPL_AIRLAW_FLASHCARDS: AirLawFlashcard[] = [
   { id: "PFC-4-03", sectionId: "4", front: "Red square with yellow diagonals?", back: "Aerodrome unsafe — do NOT land.", difficulty: "medium" },
   { id: "PFC-4-04", sectionId: "4", front: "Aerodrome sign colours?", back: "Red/white = mandatory instruction (e.g. holding position); yellow/black = information/location.", difficulty: "medium" },
   // 5.1 Definitions
-  { id: "PFC-51-01", sectionId: "5.1", front: "Definition of 'night'?", back: "End of evening civil twilight to start of morning civil twilight (sun 6° below the horizon).", difficulty: "medium" },
+  { id: "PFC-51-01", sectionId: "5.1", front: "Definition of 'night'?", back: "15 minutes after sunset to 15 minutes before sunrise (SA CAR Part 1).", difficulty: "medium" },
   { id: "PFC-51-02", sectionId: "5.1", front: "Accident vs incident?", back: "Accident = fatal/serious injury, aircraft damage/structural failure, or aircraft missing. Incident = affects/could affect safety but isn't an accident.", difficulty: "medium" },
   { id: "PFC-51-03", sectionId: "5.1", front: "Which injuries are NOT 'serious'?", back: "Simple fractures of fingers, toes or the nose.", difficulty: "medium" },
   // 5.2 Part 12
@@ -51,7 +51,7 @@ export const PPL_AIRLAW_FLASHCARDS: AirLawFlashcard[] = [
   { id: "PFC-NUM-04", sectionId: "5.3", front: "PPL(A) key numbers", back: "Age 17 (solo 16), Class 2 medical, English Level 4. 45 h total (≤5 h FSTD); ≥25 h dual; ≥15 h PIC incl ≥5 h solo X-C with one ≥150 NM landing at 2 other aerodromes. No flying for reward.", difficulty: "hard" },
   { id: "PFC-NUM-05", sectionId: "5.4", front: "Class 2 medical validity (table)", back: "Valid 60 months if <40 yr · 24 months 40–<50 · 12 months 50+. Self-ground when unfit; report illness/injury expected to last >21 days. Issued by a DAME.", difficulty: "medium" },
   { id: "PFC-NUM-06", sectionId: "5.5", front: "VFR VMC minima (table)", back: "CTR/ATZ: 5 km vis, 600 m/500 ft from cloud, ceiling ≥1500 ft. ≤3000 ft Class F/G: 5 km, clear of cloud, surface in sight. Not above 3/8 cloud within 5 NM. Special VFR (CTR): DAY, ceiling ≥600 ft, vis ≥1500 m.", difficulty: "hard" },
-  { id: "PFC-NUM-07", sectionId: "5.5", front: "Semi-circular rule & fuel/recency", back: "Magnetic track 000–179° odd thousands; 180–359° even (IFR); VFR +500 ft. Passenger recency: 3 T/O + 3 landings in 90 days (3 by night for night pax). Piston final reserve 30 min.", difficulty: "medium" },
+  { id: "PFC-NUM-07", sectionId: "5.5", front: "Semi-circular rule & fuel/recency", back: "Magnetic track 000–179° odd thousands; 180–359° even (IFR); VFR +500 ft. Passenger recency: 3 T/O + 3 landings in 90 days (3 by night for night pax). Piston final reserve 45 min.", difficulty: "medium" },
   { id: "PFC-NUM-08", sectionId: "5.5", front: "RCF squawk & VFR join", back: "Radio-comms failure: squawk 7600. VFR: continue in VMC, blind-broadcast intentions, lights on, join OVERHEAD 1000 ft above circuit, land, log it. (7500 hijack, 7700 emergency.)", difficulty: "medium" },
 ];
 

@@ -7,6 +7,7 @@ import { useCourse } from "@/app/hooks/useCourse";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { getBriefReference } from "@/app/data/exam-brief-reference";
 import { Icon } from "@/app/components/Icon";
+import { buildExamTerms, ExamText, examAnswers } from "@/app/lib/examTerms";
 
 // Exam-Day Brief — a last-minute cram summary per subject, assembled from the
 // mustKnow + traps already written in every section note. No new content to
@@ -32,13 +33,18 @@ export default function ExamBrief() {
     return subject.sections
       .map((sec) => {
         const note = content.note(sec.id);
+        const qs = content.questions(sec.id);
         return note && (note.mustKnow.length || note.traps.length)
-          ? { id: sec.id, title: sec.title, mustKnow: note.mustKnow, traps: note.traps }
+          ? { id: sec.id, title: sec.title, mustKnow: note.mustKnow, traps: note.traps, qCount: qs.length, answers: examAnswers(qs, 8) }
           : null;
       })
       .filter((x): x is NonNullable<typeof x> => x !== null);
   }, [subject]);
 
+  const examRe = useMemo(() => {
+    const content = subject && subjectContent(subject.id);
+    return content ? buildExamTerms(subject.sections.flatMap((sec) => content.questions(sec.id))) : null;
+  }, [subject]);
   const totalPoints = brief.reduce((n, b) => n + b.mustKnow.length + b.traps.length, 0);
 
   if (loading)
@@ -120,7 +126,7 @@ export default function ExamBrief() {
                     <div className="flex items-baseline gap-2 mb-3">
                       <span className="text-yellow-400/60 font-mono text-xs">{i + 1}.</span>
                       <h2 className="text-white font-bold">{b.title}</h2>
-                      <span className="text-zinc-700 font-mono text-[11px] ml-auto">{b.id}</span>
+                      <span className="text-zinc-600 font-mono text-[11px] ml-auto">{b.id} · {b.qCount} exam Q</span>
                     </div>
                     <div className="grid md:grid-cols-2 gap-3">
                       {b.mustKnow.length > 0 && (
@@ -128,7 +134,7 @@ export default function ExamBrief() {
                           <div className="text-green-400 text-[11px] font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5"><Icon name="check" size={12} className="shrink-0" />Must know</div>
                           <ul className="space-y-1">
                             {b.mustKnow.map((p, j) => (
-                              <li key={j} className="text-zinc-300 text-[12.5px] leading-snug flex gap-1.5"><span className="text-green-400/70">•</span><span>{p}</span></li>
+                              <li key={j} className="text-zinc-300 text-[12.5px] leading-snug flex gap-1.5"><span className="text-green-400/70">•</span><span><ExamText text={p} re={examRe} /></span></li>
                             ))}
                           </ul>
                         </div>
@@ -138,12 +144,18 @@ export default function ExamBrief() {
                           <div className="text-red-400 text-[11px] font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5"><Icon name="warn" size={12} className="shrink-0" />Traps</div>
                           <ul className="space-y-1">
                             {b.traps.map((p, j) => (
-                              <li key={j} className="text-zinc-300 text-[12.5px] leading-snug flex gap-1.5"><span className="text-red-400/70">•</span><span>{p}</span></li>
+                              <li key={j} className="text-zinc-300 text-[12.5px] leading-snug flex gap-1.5"><span className="text-red-400/70">•</span><span><ExamText text={p} re={examRe} /></span></li>
                             ))}
                           </ul>
                         </div>
                       )}
                     </div>
+                    {b.answers.length > 0 && (
+                      <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mr-1">Tested as</span>
+                        {b.answers.map((a) => <span key={a} className="exam-term text-[11.5px] px-2 py-0.5 rounded-md bg-red-500/10 border border-red-500/20">{a}</span>)}
+                      </div>
+                    )}
                   </section>
                 ))}
               </div>

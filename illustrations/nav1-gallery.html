@@ -1,0 +1,1206 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navigation Gallery 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>General Navigation — The Earth, Direction & Time</h1>
+    <p class="lede">Original figures for latitude and longitude, great circles and rhumb lines, convergency, magnetism and time.</p>
+    <div class="prog"><span class="pct">26 / 26 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ LATITUDE — ANGLE FROM THE EQUATOR -->
+  <section class="card">
+    <h2>Latitude — Angle from the Equator</h2>
+    <div class="meta"><span class="tag">nav_016_figure_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A section of the Earth with the angle at the centre between the equator and a point at forty degrees north">
+        <circle cx="240.0" cy="170.0" r="130" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="90.0" y1="170.0" x2="390.0" y2="170.0" stroke="var(--cool)" stroke-width="1.8"/>
+        <line x1="240.0" y1="24.0" x2="240.0" y2="316.0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="240.0" y1="170.0" x2="339.6" y2="86.4" stroke="var(--hot)" stroke-width="2.4"/>
+        <line x1="240.0" y1="170.0" x2="370.0" y2="170.0" stroke="var(--hot)" stroke-width="2.4"/>
+        <circle cx="339.6" cy="86.4" r="5" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <path d="M284.0,170.0 A44,44 0 0 0 273.7,141.7" stroke="var(--gold)" stroke-width="2" fill="none"/>
+        <text x="292.0" y="152.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" font-weight="700">40°</text>
+        <path d="M382.0,170.0 A142,142 0 0 0 351.9,82.6" stroke="var(--gold)" stroke-width="1.8" fill="none" marker-end="url(#m-gold)"/>
+        <text x="351.6" y="80.4" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">A: latitude 40°N</text>
+        <text x="240.0" y="18.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">N</text>
+        <text x="240.0" y="330.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">S</text>
+        <text x="84.0" y="174.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="end" font-weight="700">W</text>
+        <text x="396.0" y="174.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">E</text>
+        <text x="170.0" y="188.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)">equator (0°)</text>
+        <text x="480.0" y="80.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Measured at the centre of the Earth,</text>
+        <text x="480.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">along the meridian, from the equator.</text>
+        <text x="480.0" y="140.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">0° at the equator</text>
+        <text x="480.0" y="154.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">90° at the poles</text>
+        <text x="480.0" y="200.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">1° of latitude = 60 nm</text>
+        <text x="480.0" y="214.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">1&#x27; of latitude = 1 nm</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Latitude</b> is the angular distance of a place <b>north or south of the equator</b>, measured at the centre of the Earth along the meridian through the place, from <b>0° at the equator to 90° at the poles</b>. All points with the same latitude lie on a <b>parallel of latitude</b>, a small circle parallel to the equator (the equator itself is the only parallel that is a great circle). One degree of latitude is <b>60 nautical miles</b> everywhere, and one minute is one nautical mile — which is why distance is always measured on the latitude scale at the side of a chart.</p>
+  </section>
+
+  <!-- 2 ─ MAP PROJECTION — THE LIGHT-SOURCE PRINCIPLE -->
+  <section class="card">
+    <h2>Map Projection — The Light-Source Principle</h2>
+    <div class="meta"><span class="tag">nav_290_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A model globe with a light inside casting points on its surface onto a flat sheet of paper">
+        <circle cx="250.0" cy="150.0" r="96" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <ellipse cx="250.0" cy="233.1" rx="48.000000000000014" ry="7.680000000000002" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="198.0" rx="83.13843876330611" ry="13.302150202128978" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="150.0" rx="96.0" ry="15.36" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <ellipse cx="250.0" cy="102.0" rx="83.13843876330611" ry="13.302150202128978" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="66.9" rx="48.000000000000014" ry="7.680000000000002" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="150.0" rx="31.68" ry="96" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="150.0" rx="63.36" ry="96" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="150.0" rx="96.0" ry="96" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="54.0" x2="250.0" y2="246.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <polygon points="60.0,300.0 460.0,300.0 520.0,252.0 120.0,252.0" fill="var(--cool)" stroke="var(--cool)" stroke-width="1.2" opacity="0.2"/>
+        <text x="470.0" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)">flat sheet of paper (the chart)</text>
+        <circle cx="250.0" cy="62.0" r="7" fill="var(--gold)" stroke="var(--gold)" stroke-width="1"/>
+        <text x="264.0" y="50.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">light source</text>
+        <circle cx="200.0" cy="186.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <text x="192.0" y="180.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="end" font-weight="700">A</text>
+        <line x1="250.0" y1="62.0" x2="163.7" y2="276.0" stroke="var(--gold)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <circle cx="163.7" cy="276.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <text x="163.7" y="294.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">A&#x27;</text>
+        <circle cx="294.0" cy="170.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <text x="286.0" y="164.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="end" font-weight="700">B</text>
+        <line x1="250.0" y1="62.0" x2="337.2" y2="276.0" stroke="var(--gold)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <circle cx="337.2" cy="276.0" r="4" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <text x="337.2" y="294.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">B&#x27;</text>
+        <text x="144.0" y="110.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="end">reduced Earth</text>
+        <text x="540.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Three families</text>
+        <text x="540.0" y="74.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">azimuthal: flat sheet</text>
+        <text x="540.0" y="88.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">cylindrical: Mercator</text>
+        <text x="540.0" y="102.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">conical: Lambert</text>
+        <text x="540.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">No chart is perfect</text>
+        <text x="540.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">a sphere cannot be</text>
+        <text x="540.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">flattened without</text>
+        <text x="540.0" y="192.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">distortion.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>A chart is a projection of the curved Earth onto a flat surface.</b> Imagine a transparent model of the Earth — the <b>reduced Earth</b> — with a light inside it. Features on the globe cast shadows onto a sheet of paper, and where they fall becomes the chart. The paper may be flat (<b>azimuthal</b>, as here), rolled into a <b>cylinder</b> (Mercator) or a <b>cone</b> (Lambert). No projection can be perfect: a sphere cannot be flattened without distortion, so each chart preserves some properties — shape (<b>conformality</b>), bearing, scale, area — at the expense of others. Navigation charts are chosen to be <b>conformal</b>: angles on the chart equal angles on the Earth.</p>
+  </section>
+
+  <!-- 3 ─ LAMBERT CONFORMAL CHART — STANDARD PARALLELS -->
+  <section class="card">
+    <h2>Lambert Conformal Chart — Standard Parallels</h2>
+    <div class="meta"><span class="tag">nav_357_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="A fan-shaped Lambert chart with two standard parallels and the parallel of origin between them">
+        <path d="M534.9,31.4 A330,330 0 0 1 225.1,31.4" stroke="var(--chart-ink)" stroke-width="1.6" fill="none"/>
+        <path d="M558.4,75.5 A380,380 0 0 1 201.6,75.5" stroke="var(--hot)" stroke-width="2.6" fill="none"/>
+        <path d="M586.6,128.5 A440,440 0 0 1 173.4,128.5" stroke="var(--gold)" stroke-width="1.6" fill="none" stroke-dasharray="6 4"/>
+        <path d="M614.7,181.5 A500,500 0 0 1 145.3,181.5" stroke="var(--hot)" stroke-width="2.6" fill="none"/>
+        <path d="M638.2,225.6 A550,550 0 0 1 121.8,225.6" stroke="var(--chart-ink)" stroke-width="1.6" fill="none"/>
+        <line x1="534.9" y1="31.4" x2="638.2" y2="225.6" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="459.8" y1="60.2" x2="513.1" y2="273.7" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="380.0" y1="70.0" x2="380.0" y2="290.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="300.2" y1="60.2" x2="246.9" y2="273.7" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="225.1" y1="31.4" x2="121.8" y2="225.6" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <text x="600.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">standard parallel:</text>
+        <text x="600.0" y="98.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">scale correct</text>
+        <text x="630.0" y="196.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">standard parallel:</text>
+        <text x="630.0" y="210.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">scale correct</text>
+        <text x="380.0" y="174.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">parallel of origin: scale least</text>
+        <text x="380.0" y="110.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">scale contracted between</text>
+        <text x="380.0" y="60.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">scale expanded outside</text>
+        <text x="380.0" y="276.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">scale expanded outside</text>
+        <text x="380.0" y="314.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Standard parallels at 1/6 and 5/6 of the latitude spread keep scale error below about 1%.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The Lambert chart is a cone that cuts the Earth along two parallels.</b> Those two are the <b>standard parallels</b>, where the scale is <b>exactly correct</b>. <b>Between</b> them the scale is slightly <b>too small</b> (contracted), least of all at the <b>parallel of origin</b> midway between; <b>outside</b> them it is slightly too large (expanded). The rule of thumb is to place the standard parallels at <b>one-sixth and five-sixths</b> of the chart’s latitude spread, which keeps the scale error under about 1%. Meridians are straight lines converging on the pole; parallels are arcs of concentric circles.</p>
+  </section>
+
+  <!-- 4 ─ RELATIVE MOTION — CROSSING A CURRENT -->
+  <section class="card">
+    <h2>Relative Motion — Crossing a Current</h2>
+    <div class="meta"><span class="tag">nav_132_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="A boat aiming straight across a river from A to B while the current flows across its path">
+        <rect x="120.0" y="70.0" width="420.0" height="200.0" rx="0" fill="#1f4c5e" stroke="none" stroke-width="0"/>
+        <line x1="100.0" y1="70.0" x2="560.0" y2="70.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <line x1="100.0" y1="270.0" x2="560.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <circle cx="330.0" cy="270.0" r="6" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="330.0" y="296.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">A (start)</text>
+        <circle cx="330.0" cy="70.0" r="6" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="330.0" y="56.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">B (destination)</text>
+        <line x1="330.0" y1="264.0" x2="330.0" y2="78.0" stroke="var(--gold)" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#m-gold)"/>
+        <text x="340.0" y="170.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" font-weight="700">10 nm</text>
+        <path d="M150,110 q14,-8 28,0 t28,0 t28,0 t28,0" stroke="#ffffff" stroke-width="1.6" fill="none" opacity="0.5"/>
+        <path d="M150,150 q14,-8 28,0 t28,0 t28,0 t28,0" stroke="#ffffff" stroke-width="1.6" fill="none" opacity="0.5"/>
+        <path d="M150,190 q14,-8 28,0 t28,0 t28,0 t28,0" stroke="#ffffff" stroke-width="1.6" fill="none" opacity="0.5"/>
+        <path d="M150,230 q14,-8 28,0 t28,0 t28,0 t28,0" stroke="#ffffff" stroke-width="1.6" fill="none" opacity="0.5"/>
+        <line x1="160.0" y1="250.0" x2="250.0" y2="250.0" stroke="var(--cool)" stroke-width="2.6" marker-end="url(#m-cool)"/>
+        <text x="205.0" y="240.0" font-family="Overpass,sans-serif" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="700">current 5 kt</text>
+        <path d="M330,264 L440,78" stroke="var(--hot)" stroke-width="2.2" fill="none" marker-end="url(#m-hot)"/>
+        <text x="452.0" y="120.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">where the boat goes</text>
+        <text x="452.0" y="134.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)">if it points at B</text>
+        <text x="590.0" y="90.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Like an aircraft:</text>
+        <text x="590.0" y="104.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">boat speed = TAS</text>
+        <text x="590.0" y="118.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">current = wind</text>
+        <text x="590.0" y="132.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">path = track</text>
+        <text x="380.0" y="320.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Movement through the water plus movement of the water = movement over the ground.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The classic relative-velocity problem.</b> A boat must cross a river 10 nm wide from A to B, directly opposite, and the water is flowing sideways at 5 kt. If the boat simply points at B, the moving water carries it downstream and it lands somewhere else. The boat’s motion <b>through the water</b> and the water’s motion <b>over the ground</b> add together as vectors — exactly as an aircraft’s heading and true airspeed combine with the wind to give its track and ground speed. To arrive at B the boat must point <b>upstream</b>, into the current, just as an aircraft heads into wind to hold a track.</p>
+  </section>
+
+  <!-- 5 ─ THE NAVIGATION COMPUTER — CIRCULAR SLIDE RULE -->
+  <section class="card">
+    <h2>The Navigation Computer — Circular Slide Rule</h2>
+    <div class="meta"><span class="tag">nav_085_figure_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="A generic circular slide rule with a fixed outer scale, a rotating inner scale and the unit index marks">
+        <circle cx="230.0" cy="175.0" r="150" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <circle cx="230.0" cy="175.0" r="118" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <circle cx="230.0" cy="175.0" r="70" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="1.4"/>
+        <line x1="230.0" y1="25.0" x2="230.0" y2="37.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="299.4" y1="79.5" x2="293.5" y2="87.6" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="268.6" y1="30.0" x2="267.0" y2="35.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="321.6" y1="100.6" x2="317.7" y2="103.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="301.6" y1="43.2" x2="295.9" y2="53.7" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="336.5" y1="124.2" x2="327.5" y2="128.5" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="328.4" y1="61.8" x2="324.5" y2="66.4" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="345.0" y1="148.5" x2="340.1" y2="149.6" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="349.2" y1="83.9" x2="344.4" y2="87.6" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="348.0" y1="172.1" x2="343.0" y2="172.3" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="364.1" y1="107.8" x2="353.4" y2="113.2" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="346.4" y1="194.3" x2="336.6" y2="192.6" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="373.8" y1="132.4" x2="368.1" y2="134.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="341.2" y1="214.4" x2="336.5" y2="212.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="378.9" y1="156.6" x2="372.9" y2="157.4" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="333.2" y1="232.1" x2="328.9" y2="229.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="379.9" y1="180.0" x2="373.9" y2="179.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="323.1" y1="247.5" x2="319.2" y2="244.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="377.6" y1="202.0" x2="371.7" y2="200.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="311.4" y1="260.4" x2="308.0" y2="256.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="372.4" y1="222.3" x2="361.0" y2="218.5" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="298.7" y1="270.9" x2="292.9" y2="262.8" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="364.8" y1="240.8" x2="359.4" y2="238.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="285.4" y1="279.2" x2="283.1" y2="274.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="355.4" y1="257.3" x2="350.4" y2="254.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="271.8" y1="285.4" x2="270.0" y2="280.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="344.5" y1="271.9" x2="340.0" y2="268.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="258.1" y1="289.6" x2="256.9" y2="284.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="332.5" y1="284.5" x2="328.4" y2="280.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="244.6" y1="292.1" x2="244.0" y2="287.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="319.7" y1="295.2" x2="312.6" y2="285.6" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="231.5" y1="293.0" x2="231.4" y2="283.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="306.4" y1="304.1" x2="303.3" y2="298.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="218.9" y1="292.5" x2="219.4" y2="287.5" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="292.7" y1="311.3" x2="290.2" y2="305.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="206.9" y1="290.7" x2="207.9" y2="285.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="278.9" y1="316.8" x2="276.9" y2="311.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="195.5" y1="287.9" x2="197.0" y2="283.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="265.1" y1="320.8" x2="263.7" y2="315.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="184.9" y1="284.0" x2="186.8" y2="279.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="251.5" y1="323.5" x2="249.8" y2="311.6" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="175.0" y1="279.4" x2="179.7" y2="270.6" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="238.1" y1="324.8" x2="237.8" y2="318.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="165.9" y1="274.1" x2="168.6" y2="269.9" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="225.1" y1="324.9" x2="225.3" y2="318.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="157.6" y1="268.2" x2="160.7" y2="264.2" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="212.6" y1="324.0" x2="213.3" y2="318.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="150.0" y1="261.8" x2="153.4" y2="258.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="200.5" y1="322.1" x2="201.7" y2="316.2" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="143.2" y1="255.0" x2="146.9" y2="251.6" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="189.0" y1="319.3" x2="190.6" y2="313.5" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="137.2" y1="247.9" x2="141.1" y2="244.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="178.0" y1="315.7" x2="180.1" y2="310.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="131.9" y1="240.5" x2="136.0" y2="237.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="167.7" y1="311.4" x2="170.2" y2="306.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="127.2" y1="233.0" x2="131.6" y2="230.6" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="157.9" y1="306.5" x2="160.8" y2="301.3" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="123.3" y1="225.4" x2="127.8" y2="223.3" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="148.8" y1="301.1" x2="152.0" y2="296.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="120.0" y1="217.7" x2="124.7" y2="215.9" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="140.3" y1="295.2" x2="147.4" y2="285.6" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="117.3" y1="210.0" x2="126.9" y2="207.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="132.4" y1="288.9" x2="136.3" y2="284.3" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="115.2" y1="202.3" x2="120.1" y2="201.2" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="125.1" y1="282.2" x2="129.3" y2="277.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="113.7" y1="194.7" x2="118.6" y2="193.9" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="118.4" y1="275.3" x2="122.9" y2="271.3" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="112.6" y1="187.2" x2="117.6" y2="186.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="112.4" y1="268.1" x2="117.1" y2="264.4" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="112.1" y1="179.9" x2="117.1" y2="179.6" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="106.9" y1="260.7" x2="111.8" y2="257.3" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="112.0" y1="172.6" x2="117.0" y2="172.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="102.0" y1="253.2" x2="107.1" y2="250.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="112.4" y1="165.6" x2="117.4" y2="166.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="97.6" y1="245.5" x2="102.9" y2="242.7" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="113.1" y1="158.7" x2="118.1" y2="159.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="93.8" y1="237.8" x2="99.2" y2="235.3" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="114.3" y1="152.0" x2="119.2" y2="153.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="90.5" y1="230.0" x2="96.0" y2="227.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="115.7" y1="145.5" x2="120.6" y2="146.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="87.6" y1="222.3" x2="99.0" y2="218.5" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="117.5" y1="139.3" x2="127.1" y2="142.3" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="85.3" y1="214.5" x2="91.1" y2="212.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="119.6" y1="133.2" x2="124.3" y2="135.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="83.4" y1="206.8" x2="89.3" y2="205.5" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="122.0" y1="127.5" x2="126.6" y2="129.5" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="82.0" y1="199.1" x2="87.9" y2="198.2" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="124.6" y1="121.9" x2="129.1" y2="124.2" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="80.9" y1="191.6" x2="86.9" y2="190.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="127.5" y1="116.6" x2="131.8" y2="119.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="80.3" y1="184.1" x2="86.3" y2="183.7" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="130.5" y1="111.5" x2="134.7" y2="114.2" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="80.0" y1="176.7" x2="86.0" y2="176.6" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="133.8" y1="106.7" x2="137.8" y2="109.6" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="80.1" y1="169.5" x2="86.1" y2="169.7" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="137.2" y1="102.2" x2="141.1" y2="105.3" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="80.5" y1="162.4" x2="86.5" y2="162.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="140.7" y1="97.8" x2="144.5" y2="101.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="81.3" y1="155.4" x2="87.2" y2="156.2" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="144.4" y1="93.8" x2="148.0" y2="97.2" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="82.3" y1="148.6" x2="94.2" y2="150.7" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="148.2" y1="89.9" x2="155.2" y2="97.1" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="83.7" y1="142.0" x2="89.5" y2="143.3" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="152.1" y1="86.3" x2="155.4" y2="90.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="85.3" y1="135.5" x2="91.1" y2="137.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="156.2" y1="83.0" x2="159.3" y2="86.9" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="87.2" y1="129.2" x2="92.9" y2="131.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="160.2" y1="79.8" x2="163.2" y2="83.9" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="89.2" y1="123.1" x2="94.9" y2="125.2" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="164.4" y1="76.9" x2="167.2" y2="81.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="91.6" y1="117.2" x2="97.1" y2="119.5" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="168.6" y1="74.2" x2="171.2" y2="78.5" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="94.1" y1="111.5" x2="99.5" y2="114.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="172.9" y1="71.8" x2="175.3" y2="76.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="96.8" y1="106.0" x2="102.1" y2="108.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="177.1" y1="69.5" x2="179.4" y2="74.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="99.7" y1="100.7" x2="104.9" y2="103.6" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="181.4" y1="67.5" x2="183.5" y2="72.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="102.8" y1="95.5" x2="107.9" y2="98.7" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="185.8" y1="65.6" x2="187.6" y2="70.2" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="106.0" y1="90.6" x2="115.9" y2="97.4" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="190.1" y1="64.0" x2="193.5" y2="73.4" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="109.3" y1="85.9" x2="114.2" y2="89.4" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="194.4" y1="62.5" x2="195.9" y2="67.3" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="112.8" y1="81.3" x2="117.5" y2="85.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="198.7" y1="61.2" x2="200.1" y2="66.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="116.4" y1="77.0" x2="121.0" y2="80.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="203.0" y1="60.1" x2="204.2" y2="65.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="120.2" y1="72.8" x2="124.6" y2="76.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="207.3" y1="59.2" x2="208.3" y2="64.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="124.0" y1="68.9" x2="128.2" y2="73.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="211.6" y1="58.4" x2="212.4" y2="63.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="127.9" y1="65.1" x2="132.0" y2="69.5" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="215.8" y1="57.9" x2="216.4" y2="62.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="131.9" y1="61.6" x2="135.8" y2="66.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="220.0" y1="57.4" x2="220.4" y2="62.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="135.9" y1="58.2" x2="139.7" y2="62.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="224.1" y1="57.1" x2="224.4" y2="62.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="140.0" y1="55.0" x2="143.6" y2="59.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="228.2" y1="57.0" x2="228.3" y2="62.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="144.2" y1="52.0" x2="151.1" y2="61.8" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="232.3" y1="57.0" x2="232.1" y2="67.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="148.4" y1="49.1" x2="151.7" y2="54.2" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="236.3" y1="57.2" x2="236.0" y2="62.2" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="152.7" y1="46.5" x2="155.8" y2="51.6" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="240.2" y1="57.4" x2="239.8" y2="62.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="157.0" y1="44.0" x2="159.9" y2="49.2" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="244.1" y1="57.8" x2="243.5" y2="62.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="161.3" y1="41.7" x2="164.0" y2="47.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="247.9" y1="58.4" x2="247.2" y2="63.3" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="165.6" y1="39.5" x2="168.2" y2="44.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="251.7" y1="59.0" x2="250.8" y2="63.9" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="170.0" y1="37.5" x2="172.4" y2="43.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="255.4" y1="59.8" x2="254.3" y2="64.6" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="174.4" y1="35.7" x2="176.6" y2="41.3" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="259.0" y1="60.6" x2="257.8" y2="65.5" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="178.7" y1="34.0" x2="180.8" y2="39.7" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="262.6" y1="61.6" x2="261.2" y2="66.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="183.1" y1="32.5" x2="185.0" y2="38.2" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="266.0" y1="62.6" x2="264.5" y2="67.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="187.5" y1="31.2" x2="190.9" y2="42.7" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="269.4" y1="63.8" x2="266.1" y2="73.2" stroke="var(--gold)" stroke-width="1.6"/>
+        <line x1="191.8" y1="29.9" x2="193.3" y2="35.7" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="272.8" y1="65.0" x2="271.0" y2="69.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="196.2" y1="28.9" x2="197.5" y2="34.7" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="276.0" y1="66.4" x2="274.1" y2="71.0" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="200.5" y1="27.9" x2="201.7" y2="33.8" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="279.2" y1="67.8" x2="277.1" y2="72.3" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="204.8" y1="27.1" x2="205.8" y2="33.0" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="282.3" y1="69.2" x2="280.1" y2="73.7" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="209.1" y1="26.5" x2="209.9" y2="32.4" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="285.4" y1="70.8" x2="283.0" y2="75.2" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="213.3" y1="25.9" x2="214.0" y2="31.9" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="288.3" y1="72.4" x2="285.8" y2="76.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="217.5" y1="25.5" x2="218.0" y2="31.5" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="291.2" y1="74.1" x2="288.6" y2="78.4" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="221.7" y1="25.2" x2="222.1" y2="31.2" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="294.0" y1="75.9" x2="291.3" y2="80.1" stroke="var(--gold)" stroke-width="0.7"/>
+        <line x1="225.9" y1="25.1" x2="226.1" y2="31.1" stroke="var(--chart-ink)" stroke-width="0.7"/>
+        <line x1="296.7" y1="77.7" x2="293.9" y2="81.8" stroke="var(--gold)" stroke-width="0.7"/>
+        <text x="230.0" y="48.5" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">10</text>
+        <text x="287.6" y="99.2" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">10</text>
+        <text x="292.0" y="64.3" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">12</text>
+        <text x="318.5" y="136.3" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">12</text>
+        <text x="346.2" y="120.3" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">15</text>
+        <text x="326.7" y="194.5" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">15</text>
+        <text x="353.4" y="219.5" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">20</text>
+        <text x="287.1" y="258.2" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">20</text>
+        <text x="307.8" y="282.7" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">25</text>
+        <text x="231.3" y="276.5" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">25</text>
+        <text x="248.6" y="307.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">30</text>
+        <text x="184.3" y="265.2" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">30</text>
+        <text x="152.2" y="282.7" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">40</text>
+        <text x="136.4" y="207.6" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">40</text>
+        <text x="106.6" y="219.5" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">50</text>
+        <text x="136.6" y="148.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">50</text>
+        <text x="102.0" y="155.6" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">60</text>
+        <text x="162.1" y="107.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">60</text>
+        <text x="122.5" y="105.4" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">70</text>
+        <text x="196.9" y="86.3" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">70</text>
+        <text x="155.6" y="71.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">80</text>
+        <text x="231.9" y="80.5" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">80</text>
+        <text x="193.1" y="53.8" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">90</text>
+        <text x="262.8" y="86.1" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--gold)" text-anchor="middle">90</text>
+        <path d="M148.2,89.9 L151.7,106.6 L164.7,94.0 Z" stroke="var(--chart-ink)" stroke-width="1" fill="#ffffff"/>
+        <text x="230.0" y="169.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">windows:</text>
+        <text x="230.0" y="183.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">TAS, altitude</text>
+        <circle cx="418.0" cy="70.0" r="9" fill="var(--gold)"/>
+        <text x="418.0" y="73.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">1</text>
+        <circle cx="418.0" cy="130.0" r="9" fill="var(--gold)"/>
+        <text x="418.0" y="133.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">2</text>
+        <circle cx="418.0" cy="190.0" r="9" fill="var(--gold)"/>
+        <text x="418.0" y="193.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">3</text>
+        <text x="436.0" y="69.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Outer scale (fixed)</text>
+        <text x="436.0" y="83.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">distance, fuel, speed</text>
+        <text x="436.0" y="129.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Inner scale (rotates)</text>
+        <text x="436.0" y="143.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">time, in minutes</text>
+        <text x="436.0" y="189.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">60 index (triangle)</text>
+        <text x="436.0" y="203.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">the “per hour” mark: set it against the speed</text>
+        <rect x="410.0" y="230.0" width="320.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="570.0" y="254.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">Example: 120 kt</text>
+        <text x="570.0" y="272.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">set the 60 index against 12 (= 120 kt);</text>
+        <text x="570.0" y="286.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">opposite 25 min read 50 nm</text>
+        <text x="570.0" y="326.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">No decimal points: estimate the answer first.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The calculator side of the navigation computer.</b> It is a circular slide rule: a <b>fixed outer scale</b> and a <b>rotating inner scale</b>, both logarithmic, so setting one number against another performs multiplication or division. By convention <b>distance or fuel goes on the outer scale and time on the inner</b>. The black triangular <b>60 index</b> on the inner scale is the “per hour” mark: put it against the speed on the outer scale and every time on the inner scale lies opposite the distance flown. The scales carry no decimal point — the user supplies it — so always make a rough mental estimate first. Extra windows convert units and solve true airspeed and density altitude.</p>
+  </section>
+
+  <!-- 6 ─ THE 1-IN-60 RULE -->
+  <section class="card">
+    <h2>The 1-in-60 Rule</h2>
+    <div class="meta"><span class="tag">nav_198_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A long thin right-angled triangle sixty units long and eight units high with the small angle marked">
+        <path d="M80,230 L620,230 L620,158 Z" stroke="var(--gold)" stroke-width="2.4" fill="var(--chart-ground-3)"/>
+        <rect x="606.0" y="216.0" width="14.0" height="14.0" rx="0" fill="none" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="350.0" y="256.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">distance gone: 60 nm</text>
+        <text x="632.0" y="198.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">off track:</text>
+        <text x="632.0" y="213.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" font-weight="700">8 nm</text>
+        <path d="M190.0,230.0 A110,110 0 0 0 189.0,215.5" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <text x="200.0" y="222.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--cool)" font-weight="700">8°</text>
+        <text x="330.0" y="180.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">track made good</text>
+        <text x="80.0" y="250.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">start</text>
+        <rect x="150.0" y="40.0" width="460.0" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="64.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--gold)" text-anchor="middle" font-weight="700">track error (°) = distance off × 60 / distance gone</text>
+        <text x="380.0" y="84.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">8 × 60 / 60 = 8°</text>
+        <text x="380.0" y="296.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">1 nm off track in 60 nm = 1°.  Good to about 20°.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>A quick way to turn distance off track into an angle.</b> In a long, thin triangle, <b>1 nm off track after 60 nm is 1° of track error</b> (because the tangent of a small angle is close to the angle divided by 60). So: <b>track error (°) = distance off track × 60 ÷ distance gone</b>. In the figure, 8 nm off track after 60 nm is 8°; 4 nm off after 30 nm is also 8°. The rule is accurate enough for practical navigation up to about 20°. It is used for track corrections, for judging VOR and NDB off-track distances, and for descent gradients.</p>
+  </section>
+
+  <!-- 7 ─ DIRECTION ON THE EARTH -->
+  <section class="card">
+    <h2>Direction on the Earth</h2>
+    <div class="meta"><span class="tag">nav_010_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A globe turning from west to east about its polar axis, and a compass rose with cardinal and intercardinal points">
+        <circle cx="190.0" cy="165.0" r="110" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <ellipse cx="190.0" cy="260.3" rx="55.000000000000014" ry="8.800000000000002" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="190.0" cy="220.0" rx="95.26279441628826" ry="15.242047106606122" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="190.0" cy="165.0" rx="110.0" ry="17.6" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <ellipse cx="190.0" cy="110.0" rx="95.26279441628826" ry="15.242047106606122" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="190.0" cy="69.7" rx="55.000000000000014" ry="8.800000000000002" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="190.0" cy="165.0" rx="36.300000000000004" ry="110" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="190.0" cy="165.0" rx="72.60000000000001" ry="110" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="190.0" cy="165.0" rx="110.0" ry="110" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="190.0" y1="55.0" x2="190.0" y2="275.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="190.0" y1="30.0" x2="190.0" y2="300.0" stroke="var(--hot)" stroke-width="1.6" stroke-dasharray="8 4"/>
+        <text x="190.0" y="22.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">North Pole</text>
+        <text x="190.0" y="318.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">South Pole</text>
+        <path d="M110,196 Q190,226 270,196" stroke="var(--gold)" stroke-width="2.4" fill="none" marker-end="url(#m-gold)"/>
+        <text x="190.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">rotation: west to east</text>
+        <text x="68.0" y="170.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end">West</text>
+        <text x="312.0" y="170.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)">East</text>
+        <circle cx="560.0" cy="165.0" r="108" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <path d="M560.0,87.0 L548.0,165.0 L572.0,165.0 Z" stroke="var(--chart-ink)" stroke-width="1" fill="var(--gold)"/>
+        <text x="560.0" y="77.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">N</text>
+        <text x="560.0" y="43.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">360°</text>
+        <path d="M598.2,126.8 L551.5,156.5 L568.5,173.5 Z" stroke="var(--chart-ink)" stroke-width="1" fill="var(--steel)"/>
+        <text x="625.1" y="103.9" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">NE</text>
+        <text x="649.1" y="79.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">045°</text>
+        <path d="M638.0,165.0 L560.0,153.0 L560.0,177.0 Z" stroke="var(--chart-ink)" stroke-width="1" fill="var(--gold)"/>
+        <text x="652.0" y="169.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">E</text>
+        <text x="686.0" y="169.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">090°</text>
+        <path d="M598.2,203.2 L568.5,156.5 L551.5,173.5 Z" stroke="var(--chart-ink)" stroke-width="1" fill="var(--steel)"/>
+        <text x="625.1" y="234.1" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">SE</text>
+        <text x="649.1" y="258.1" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">135°</text>
+        <path d="M560.0,243.0 L572.0,165.0 L548.0,165.0 Z" stroke="var(--chart-ink)" stroke-width="1" fill="var(--gold)"/>
+        <text x="560.0" y="261.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">S</text>
+        <text x="560.0" y="295.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">180°</text>
+        <path d="M521.8,203.2 L568.5,173.5 L551.5,156.5 Z" stroke="var(--chart-ink)" stroke-width="1" fill="var(--steel)"/>
+        <text x="494.9" y="234.1" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">SW</text>
+        <text x="470.9" y="258.1" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">225°</text>
+        <path d="M482.0,165.0 L560.0,177.0 L560.0,153.0 Z" stroke="var(--chart-ink)" stroke-width="1" fill="var(--gold)"/>
+        <text x="468.0" y="169.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">W</text>
+        <text x="434.0" y="169.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">270°</text>
+        <path d="M521.8,126.8 L551.5,173.5 L568.5,156.5 Z" stroke="var(--chart-ink)" stroke-width="1" fill="var(--steel)"/>
+        <text x="494.9" y="103.9" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">NW</text>
+        <text x="470.9" y="79.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">315°</text>
+        <text x="380.0" y="334.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Direction is measured clockwise from north, 000° to 360°, always as three figures.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Direction is defined by the Earth’s rotation.</b> The Earth spins about an axis through the <b>geographic (true) poles</b>. The direction in which it turns is <b>east</b>; the opposite is west; towards the North Pole along a meridian is <b>true north</b>. Direction is measured <b>clockwise from north</b> through 360° and always given as three figures: east is 090°, south 180°, west 270°, north 360° (or 000°). The four cardinal points are N, E, S and W; the intercardinal (quadrantal) points are NE 045°, SE 135°, SW 225° and NW 315°.</p>
+  </section>
+
+  <!-- 8 ─ THE GRATICULE — PARALLELS & MERIDIANS -->
+  <section class="card">
+    <h2>The Graticule — Parallels &amp; Meridians</h2>
+    <div class="meta"><span class="tag">nav_015_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A globe with parallels of latitude running east to west and meridians running pole to pole">
+        <circle cx="250.0" cy="170.0" r="130" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <ellipse cx="250.0" cy="282.6" rx="65.00000000000001" ry="10.400000000000002" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="235.0" rx="112.58330249197704" ry="18.013328398716325" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="170.0" rx="130.0" ry="20.8" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <ellipse cx="250.0" cy="105.0" rx="112.58330249197704" ry="18.013328398716325" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="57.4" rx="65.00000000000001" ry="10.400000000000002" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="170.0" rx="39.0" ry="130" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="170.0" rx="78.0" ry="130" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250.0" cy="170.0" rx="111.8" ry="130" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="40.0" x2="250.0" y2="300.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <text x="250.0" y="28.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">North Pole</text>
+        <text x="250.0" y="322.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">South Pole</text>
+        <line x1="470.0" y1="80.0" x2="340.0" y2="104.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <line x1="470.0" y1="80.0" x2="362.0" y2="140.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="76.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">parallels of latitude</text>
+        <text x="476.0" y="91.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">small circles, east–west</text>
+        <line x1="470.0" y1="170.0" x2="381.0" y2="170.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="166.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">equator</text>
+        <text x="476.0" y="181.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">the only parallel that is a great circle</text>
+        <line x1="470.0" y1="250.0" x2="330.0" y2="230.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <line x1="470.0" y1="250.0" x2="290.0" y2="250.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="246.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">meridians</text>
+        <text x="476.0" y="261.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">semi-great circles, pole to pole</text>
+        <ellipse cx="250.0" cy="170.0" rx="78" ry="130" fill="none" stroke="var(--gold)" stroke-width="2"/>
+        <text x="580.0" y="316.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Position: latitude first, then longitude.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The grid that fixes position.</b> <b>Meridians</b> are semi-great circles joining the poles; they run true north–south and are used to measure <b>longitude</b>. A meridian and its <b>anti-meridian</b> on the far side together make a complete great circle. <b>Parallels of latitude</b> are circles parallel to the equator; they run true east–west and are used to measure <b>latitude</b>. Parallels are <b>small circles</b>, except the <b>equator</b>, which is a great circle. Meridians and parallels cross at right angles everywhere. Together the network is the <b>graticule</b>, and a position is given as latitude first, then longitude.</p>
+  </section>
+
+  <!-- 9 ─ GEOCENTRIC VS GEODETIC LATITUDE -->
+  <section class="card">
+    <h2>Geocentric vs Geodetic Latitude</h2>
+    <div class="meta"><span class="tag">nav_017_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A flattened ellipse representing the Earth with one line from a surface point to the centre and another perpendicular to the surface">
+        <ellipse cx="280.0" cy="180.0" rx="200" ry="130" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="60.0" y1="180.0" x2="500.0" y2="180.0" stroke="var(--cool)" stroke-width="1.6"/>
+        <line x1="280.0" y1="34.0" x2="280.0" y2="326.0" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <line x1="280.0" y1="180.0" x2="403.1" y2="77.6" stroke="var(--hot)" stroke-width="2.2"/>
+        <line x1="455.2" y1="180.0" x2="421.2" y2="41.9" stroke="var(--gold)" stroke-width="2.2"/>
+        <circle cx="403.1" cy="77.6" r="5" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="362.1" y1="56.7" x2="444.1" y2="98.4" stroke="var(--chart-ink-dim)" stroke-width="1.4"/>
+        <text x="272.0" y="28.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">NP</text>
+        <text x="272.0" y="324.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">SP</text>
+        <text x="94.0" y="172.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)">equator</text>
+        <text x="451.1" y="47.6" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">tangent to the surface</text>
+        <text x="264.0" y="202.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">centre</text>
+        <text x="540.0" y="70.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">GEOCENTRIC latitude</text>
+        <text x="540.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">angle at the centre</text>
+        <text x="540.0" y="98.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">of the Earth</text>
+        <text x="540.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">GEODETIC latitude</text>
+        <text x="540.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">angle of the normal</text>
+        <text x="540.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">(perpendicular to the</text>
+        <text x="540.0" y="192.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">surface): used on charts</text>
+        <text x="540.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Maximum difference</text>
+        <text x="540.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">about 11.6&#x27; at 45°</text>
+        <text x="420.0" y="334.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-faint)" text-anchor="middle">flattening exaggerated</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The Earth is slightly flattened</b> — an <b>oblate spheroid</b>, with the polar diameter about 43 km (23 nm) shorter than the equatorial, a compression of about 1/298. This gives two ways to define latitude. <b>Geocentric</b> latitude is the angle at the <b>centre</b> of the Earth between the equatorial plane and the line to the point. <b>Geodetic (geographic)</b> latitude is the angle between the equatorial plane and the <b>normal</b> — the line perpendicular to the surface at the point — and is the one used on charts. They agree at the equator and the poles and differ most, by about <b>11.6 minutes</b>, at <b>45°</b> latitude. For most navigation the Earth is treated as a perfect sphere.</p>
+  </section>
+
+  <!-- 10 ─ LONGITUDE — EAST & WEST OF GREENWICH -->
+  <section class="card">
+    <h2>Longitude — East &amp; West of Greenwich</h2>
+    <div class="meta"><span class="tag">nav_018_figure_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A view from above the North Pole with the Greenwich meridian, the 180 degree meridian and a point B measured east of Greenwich">
+        <circle cx="240.0" cy="172.0" r="130" fill="var(--chart-ground-3)" stroke="var(--cool)" stroke-width="2"/>
+        <text x="240.0" y="34.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">equator (seen from above the pole)</text>
+        <line x1="240.0" y1="172.0" x2="240.0" y2="302.0" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="240.0" y1="172.0" x2="240.0" y2="42.0" stroke="var(--hot)" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="240.0" y1="172.0" x2="339.6" y2="255.6" stroke="var(--hot)" stroke-width="2.2"/>
+        <circle cx="294.8" cy="218.0" r="5" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <path d="M240.0,222.0 A50,50 0 0 0 278.3,204.1" stroke="var(--gold)" stroke-width="2" fill="none" marker-end="url(#m-gold)"/>
+        <text x="228.0" y="234.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="end" font-weight="700">longitude of B</text>
+        <circle cx="240.0" cy="172.0" r="5" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="230.0" y="164.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">N Pole</text>
+        <text x="240.0" y="320.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">0° Greenwich</text>
+        <text x="250.0" y="66.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)">180° meridian</text>
+        <text x="351.6" y="273.6" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">meridian of B</text>
+        <path d="M189.4,311.1 A148,148 0 0 1 111.8,246.0" stroke="var(--chart-ink)" stroke-width="1.6" fill="none" marker-end="url(#m-ink)"/>
+        <text x="80.0" y="256.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">WEST</text>
+        <path d="M290.6,311.1 A148,148 0 0 0 368.2,246.0" stroke="var(--chart-ink)" stroke-width="1.6" fill="none" marker-end="url(#m-ink)"/>
+        <text x="400.0" y="256.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">EAST</text>
+        <text x="500.0" y="80.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Measured east or west of</text>
+        <text x="500.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">Greenwich, 0° to 180°.</text>
+        <text x="500.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">1° of longitude</text>
+        <text x="500.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">= 60 nm at the equator,</text>
+        <text x="500.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">less towards the poles.</text>
+        <text x="500.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">Departure (nm) =</text>
+        <text x="500.0" y="254.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">ch.long (&#x27;) × cos latitude</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Longitude</b> is the angular distance <b>east or west of the Prime (Greenwich) Meridian</b>, measured along the equator — or, equivalently, as the angle at the pole between the Greenwich meridian and the meridian through the place — from <b>0° to 180°</b> east or west. The <b>180° meridian</b> is the anti-meridian of Greenwich. Unlike latitude, a degree of longitude is <b>not a constant distance</b>: it is 60 nm at the equator but shrinks towards the poles, in proportion to the cosine of the latitude. That shrinking distance is the <b>departure</b>: departure (nm) = change of longitude (minutes) × cos latitude.</p>
+  </section>
+
+  <!-- 11 ─ GREAT CIRCLE — THE SHORTEST DISTANCE -->
+  <section class="card">
+    <h2>Great Circle — The Shortest Distance</h2>
+    <div class="meta"><span class="tag">nav_013_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A globe cut by a plane through its centre, giving a great circle, with the shorter arc between two points marked">
+        <circle cx="240.0" cy="170.0" r="130" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <ellipse cx="240.0" cy="170.0" rx="130.0" ry="20.8" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <ellipse cx="240.0" cy="170.0" rx="65.0" ry="130" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="240.0" y1="40.0" x2="240.0" y2="300.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="240" cy="170" rx="130" ry="42" transform="rotate(-28 240 170)" fill="var(--hot)" opacity=".28" stroke="var(--hot)" stroke-width="2.4"/>
+        <circle cx="240.0" cy="170.0" r="4" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="248.0" y="186.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">centre of the Earth</text>
+        <circle cx="254.0" cy="198.0" r="5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="324.0" cy="164.0" r="5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="246.0" y="214.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="end" font-weight="700">A</text>
+        <text x="332.0" y="156.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">B</text>
+        <line x1="470.0" y1="110.0" x2="304.0" y2="178.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="476.0" y="106.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">shortest distance A to B:</text>
+        <text x="476.0" y="121.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">the shorter arc of the great circle</text>
+        <text x="476.0" y="170.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Great circle</text>
+        <text x="476.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">plane passes through the</text>
+        <text x="476.0" y="198.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">centre of the Earth</text>
+        <text x="476.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">Small circle</text>
+        <text x="476.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">plane does NOT pass</text>
+        <text x="476.0" y="278.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">through the centre</text>
+        <text x="240.0" y="326.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">the great-circle plane cuts the globe in half</text>
+      </svg>
+    </div>
+    <p class="cap"><b>A great circle is a circle on the surface whose plane passes through the centre of the Earth.</b> It is the largest circle that can be drawn on a sphere, and it divides it into two equal halves. Only <b>one</b> great circle can be drawn through any two points (unless they are exactly opposite each other), and the <b>shorter arc of it is the shortest distance</b> between them. The equator and all meridians are great circles. A <b>small circle</b> is any circle whose plane does <b>not</b> pass through the centre — every parallel of latitude except the equator. A great circle generally crosses successive meridians at a <b>changing angle</b>, so its track direction changes along the route.</p>
+  </section>
+
+  <!-- 12 ─ GREAT-CIRCLE VERTEX -->
+  <section class="card">
+    <h2>Great-Circle Vertex</h2>
+    <div class="meta"><span class="tag">nav_022_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A globe with an inclined great circle, its northern and southern vertices and the two points where it crosses the equator">
+        <circle cx="250.0" cy="172.0" r="130" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <ellipse cx="250.0" cy="172.0" rx="130.0" ry="20.8" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <line x1="250.0" y1="42.0" x2="250.0" y2="302.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="250" cy="172" rx="130" ry="52" transform="rotate(-38 250 172)" fill="var(--hot)" opacity=".22" stroke="var(--hot)" stroke-width="2.4"/>
+        <circle cx="352.4" cy="92.0" r="5" fill="var(--gold)" stroke="var(--gold)" stroke-width="1"/>
+        <text x="366.4" y="84.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">northern vertex: 63°N</text>
+        <circle cx="147.6" cy="252.0" r="5" fill="var(--gold)" stroke="var(--gold)" stroke-width="1"/>
+        <text x="133.6" y="272.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="end" font-weight="700">southern vertex: 63°S</text>
+        <circle cx="184.0" cy="172.0" r="5" fill="var(--cool)" stroke="var(--cool)" stroke-width="1"/>
+        <circle cx="316.0" cy="172.0" r="5" fill="var(--cool)" stroke="var(--cool)" stroke-width="1"/>
+        <text x="184.0" y="194.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">crosses the equator</text>
+        <path d="M346.0,172.0 A30,30 0 0 0 339.6,153.5" stroke="var(--chart-ink)" stroke-width="1.4" fill="none"/>
+        <text x="354.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">63°</text>
+        <text x="520.0" y="90.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">At the vertex</text>
+        <text x="520.0" y="104.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">track is 090° or 270°:</text>
+        <text x="520.0" y="118.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">highest latitude reached</text>
+        <text x="520.0" y="180.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">At the equator</text>
+        <text x="520.0" y="194.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">crossing angle =</text>
+        <text x="520.0" y="208.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">latitude of the vertex</text>
+        <text x="520.0" y="270.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Vertices are 180° of</text>
+        <text x="520.0" y="284.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">longitude apart.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The vertex is the highest latitude a great circle reaches.</b> Every great circle (other than the equator and the meridians) has a <b>northern vertex</b> and a <b>southern vertex</b>, at equal and opposite latitudes and exactly 180° of longitude apart. At the vertex the great circle is travelling due <b>east or west</b> (090° or 270°): it has stopped climbing in latitude and is about to descend. It <b>crosses the equator</b> at two points 90° of longitude from the vertices, and the angle at which it crosses the equator equals the latitude of the vertex. Here the vertices are at 63°N and 63°S, so the track cuts the equator at 63°.</p>
+  </section>
+
+  <!-- 13 ─ GREAT CIRCLE VS RHUMB LINE — POLAR VIEW -->
+  <section class="card">
+    <h2>Great Circle vs Rhumb Line — Polar View</h2>
+    <div class="meta"><span class="tag">nav_030_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A view from above the North Pole with two places at the same latitude, the rhumb line following the parallel and the great circle cutting closer to the pole">
+        <circle cx="250.0" cy="170.0" r="140" fill="var(--chart-ground-3)" stroke="var(--cool)" stroke-width="1.8"/>
+        <circle cx="250.0" cy="170.0" r="46" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <circle cx="250.0" cy="170.0" r="93" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="250.0" y2="30.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="320.0" y2="48.8" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="371.2" y2="100.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="390.0" y2="170.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="371.2" y2="240.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="320.0" y2="291.2" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="250.0" y2="310.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="180.0" y2="291.2" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="128.8" y2="240.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="110.0" y2="170.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="128.8" y2="100.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="250.0" y1="170.0" x2="180.0" y2="48.8" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <path d="M162.6,201.8 A93,93 0 0 0 337.4,201.8" stroke="var(--hot)" stroke-width="2.8" fill="none"/>
+        <line x1="162.6" y1="201.8" x2="337.4" y2="201.8" stroke="var(--gold)" stroke-width="2.8"/>
+        <circle cx="162.6" cy="201.8" r="5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="152.6" y="217.8" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="end" font-weight="700">A</text>
+        <circle cx="337.4" cy="201.8" r="5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="347.4" y="217.8" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">B</text>
+        <circle cx="250.0" cy="170.0" r="4" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="250.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">N Pole</text>
+        <text x="250.0" y="220.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">great circle (straight)</text>
+        <text x="250.0" y="288.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">rhumb line (along the parallel)</text>
+        <text x="500.0" y="80.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Rhumb line</text>
+        <text x="500.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">constant true direction;</text>
+        <text x="500.0" y="108.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">longer</text>
+        <text x="500.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Great circle</text>
+        <text x="500.0" y="174.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">shortest distance;</text>
+        <text x="500.0" y="188.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">direction keeps changing;</text>
+        <text x="500.0" y="202.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">lies on the polar side</text>
+        <text x="250.0" y="330.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-faint)" text-anchor="middle">viewed from above the North Pole</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Two ways to fly between the same two places.</b> A <b>rhumb line</b> crosses every meridian at the <b>same angle</b>, so it has a <b>constant true direction</b> — easy to fly, but it is not the shortest route. Between two places on the same parallel it simply follows the parallel. The <b>great circle</b> is the <b>shortest</b> route, but its direction <b>changes continuously</b>, and it always lies on the <b>polar side</b> of the rhumb line. The difference in distance is small at low latitudes and over short legs, and largest at high latitudes over long east–west legs — which is why long-haul routes between northern cities arc up over the Arctic.</p>
+  </section>
+
+  <!-- 14 ─ THE GREAT CIRCLE LIES ON THE POLAR SIDE OF THE RHUMB LINE -->
+  <section class="card">
+    <h2>The Great Circle Lies on the Polar Side of the Rhumb Line</h2>
+    <div class="meta"><span class="tag">nav_034_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Two diagrams, one for each hemisphere, with a straight rhumb line and a great circle curving towards the nearer pole">
+        <line x1="60.0" y1="170.0" x2="520.0" y2="170.0" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="290.0" y="164.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">equator</text>
+        <line x1="130.0" y1="110.0" x2="450.0" y2="110.0" stroke="var(--hot)" stroke-width="3"/>
+        <path d="M130,110 Q290,0 450,110" stroke="var(--green)" stroke-width="3" fill="none"/>
+        <text x="290.0" y="130.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">rhumb line</text>
+        <text x="290.0" y="48.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">great circle</text>
+        <text x="560.0" y="80.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">NORTHERN HEMISPHERE</text>
+        <text x="560.0" y="95.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">great circle on the north side</text>
+        <text x="118.0" y="92.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" text-anchor="end">060°</text>
+        <text x="462.0" y="92.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)">120°</text>
+        <text x="118.0" y="126.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)" text-anchor="end">090°</text>
+        <line x1="130.0" y1="230.0" x2="450.0" y2="230.0" stroke="var(--hot)" stroke-width="3"/>
+        <path d="M130,230 Q290,340 450,230" stroke="var(--green)" stroke-width="3" fill="none"/>
+        <text x="290.0" y="218.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">rhumb line</text>
+        <text x="290.0" y="300.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">great circle</text>
+        <text x="560.0" y="260.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">SOUTHERN HEMISPHERE</text>
+        <text x="560.0" y="275.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">great circle on the south side</text>
+        <text x="118.0" y="256.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" text-anchor="end">120°</text>
+        <text x="462.0" y="256.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)">060°</text>
+        <text x="118.0" y="222.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)" text-anchor="end">090°</text>
+        <text x="380.0" y="326.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Eastbound: great-circle track increases in the Northern Hemisphere and decreases in the Southern.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>On a chart where the rhumb line is straight, the great circle curves towards the nearer pole.</b> In the <b>Northern Hemisphere</b> the great circle bows <b>north</b> of the rhumb line; flying east along it the track starts <b>less than 090°</b> (about 060° here), reaches 090° at the mid-point and ends more than 090° — the track <b>increases</b> eastbound. In the <b>Southern Hemisphere</b> the great circle bows <b>south</b>, and eastbound the track <b>decreases</b>. The initial and final great-circle tracks differ from the rhumb line by the <b>conversion angle</b>. Memory aid: the great circle is always nearer the pole; the rhumb line nearer the equator.</p>
+  </section>
+
+  <!-- 15 ─ MERIDIANS CONVERGE TOWARDS THE POLE -->
+  <section class="card">
+    <h2>Meridians Converge Towards the Pole</h2>
+    <div class="meta"><span class="tag">nav_246_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A globe with two meridians that are parallel at the equator and meet at the North Pole">
+        <circle cx="240.0" cy="180.0" r="130" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <ellipse cx="240.0" cy="180.0" rx="130.0" ry="20.8" fill="none" stroke="var(--cool)" stroke-width="1.6"/>
+        <ellipse cx="240.0" cy="115.0" rx="112.58330249197704" ry="18.013328398716325" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <ellipse cx="240.0" cy="67.4" rx="65.00000000000001" ry="10.400000000000002" fill="none" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="240.0" y1="50.0" x2="240.0" y2="310.0" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <path d="M188,180 Q188,90 240,50" stroke="var(--gold)" stroke-width="3" fill="none"/>
+        <path d="M292,180 Q292,90 240,50" stroke="var(--gold)" stroke-width="3" fill="none"/>
+        <circle cx="240.0" cy="50.0" r="5" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="240.0" y="38.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">North Pole</text>
+        <line x1="188.0" y1="184.0" x2="188.0" y2="210.0" stroke="var(--gold)" stroke-width="1.4"/>
+        <line x1="292.0" y1="184.0" x2="292.0" y2="210.0" stroke="var(--gold)" stroke-width="1.4"/>
+        <line x1="188.0" y1="202.0" x2="292.0" y2="202.0" stroke="var(--gold)" stroke-width="1.4" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="240.0" y="222.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">parallel at the equator</text>
+        <text x="430.0" y="70.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">At the pole</text>
+        <text x="430.0" y="86.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">convergency = change of longitude (maximum)</text>
+        <text x="430.0" y="150.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">At 60° latitude</text>
+        <text x="430.0" y="166.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">convergency = 0.87 × change of longitude</text>
+        <text x="430.0" y="230.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">At the equator</text>
+        <text x="430.0" y="246.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">convergency = zero</text>
+        <rect x="420.0" y="270.0" width="320.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="580.0" y="297.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--gold)" text-anchor="middle" font-weight="700">convergency = ch.long × sin latitude</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Two meridians are parallel at the equator and meet at the pole.</b> The angle between them — their inclination to one another — is the <b>convergency</b>. It is <b>zero at the equator</b>, where the meridians are parallel, and reaches its <b>maximum, equal to the change of longitude</b>, at the poles. In between it grows with the sine of the latitude: <b>convergency = change of longitude × sin(latitude)</b>. Convergency is why a great circle’s direction changes along its length — it crosses each successive meridian at a different angle — and why straight lines on most charts are not lines of constant direction.</p>
+  </section>
+
+  <!-- 16 ─ CONVERGENCY BETWEEN TWO POSITIONS -->
+  <section class="card">
+    <h2>Convergency Between Two Positions</h2>
+    <div class="meta"><span class="tag">nav_248_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Two meridians forty degrees apart with tangents drawn at thirty degrees north showing the angle of convergency between them">
+        <circle cx="240.0" cy="190.0" r="140" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="100.0" y1="190.0" x2="380.0" y2="190.0" stroke="var(--cool)" stroke-width="1.6"/>
+        <line x1="118.8" y1="120.0" x2="361.2" y2="120.0" stroke="var(--chart-line-2)" stroke-width="1.2"/>
+        <path d="M180,316.0 Q162,160 240,50" stroke="var(--gold)" stroke-width="2.4" fill="none"/>
+        <path d="M300,316.0 Q318,160 240,50" stroke="var(--gold)" stroke-width="2.4" fill="none"/>
+        <line x1="172.0" y1="160.0" x2="208.0" y2="60.0" stroke="var(--hot)" stroke-width="1.8"/>
+        <line x1="308.0" y1="160.0" x2="272.0" y2="60.0" stroke="var(--hot)" stroke-width="1.8"/>
+        <text x="240.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">North Pole</text>
+        <text x="110.8" y="124.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="end">30°N</text>
+        <text x="92.0" y="194.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="end">equator</text>
+        <line x1="186.0" y1="134.0" x2="294.0" y2="134.0" stroke="var(--gold)" stroke-width="1.4" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="240.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">ch.long 40°</text>
+        <text x="306.0" y="50.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">convergency 20°</text>
+        <line x1="304.0" y1="46.0" x2="248.0" y2="36.0" stroke="var(--hot)" stroke-width="1"/>
+        <rect x="430.0" y="70.0" width="310.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="585.0" y="94.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">convergency =</text>
+        <text x="585.0" y="114.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">ch.long × sin (mean latitude)</text>
+        <text x="440.0" y="170.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Example</text>
+        <text x="440.0" y="187.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">ch.long 40°, latitude 30°N</text>
+        <text x="440.0" y="204.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">40 × sin 30° = 40 × 0.5</text>
+        <text x="440.0" y="221.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">= 20°</text>
+        <text x="440.0" y="270.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">Red lines: tangents to the two meridians.</text>
+        <text x="440.0" y="284.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">The angle between them is the convergency.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Calculating convergency.</b> For two positions, <b>convergency (°) = change of longitude (°) × sin(mean latitude)</b>. In the example the meridians are 40° of longitude apart and both positions are at 30°N: convergency = 40 × sin 30° = 40 × 0.5 = <b>20°</b>. That is the amount by which the great-circle track between the two positions changes direction from one end to the other. If the two positions are at different latitudes, use the <b>mean</b> (middle) latitude. Convergency is always measured as an angle, never as a distance.</p>
+  </section>
+
+  <!-- 17 ─ CONVERGENCY & THE CHANGE OF GREAT-CIRCLE DIRECTION -->
+  <section class="card">
+    <h2>Convergency &amp; the Change of Great-Circle Direction</h2>
+    <div class="meta"><span class="tag">nav_249_figure_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A great circle crossing two meridians, with the track angle measured at each and the difference equal to the convergency">
+        <circle cx="240.0" cy="190.0" r="140" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="100.0" y1="220.0" x2="380.0" y2="220.0" stroke="var(--cool)" stroke-width="1.6"/>
+        <path d="M180,316.0 Q162,160 240,50" stroke="var(--gold)" stroke-width="2.4" fill="none"/>
+        <path d="M300,316.0 Q318,160 240,50" stroke="var(--gold)" stroke-width="2.4" fill="none"/>
+        <line x1="124.0" y1="207.0" x2="362.0" y2="144.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <text x="238.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">great circle</text>
+        <line x1="176.0" y1="194.0" x2="186.0" y2="134.0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="300.0" y1="160.0" x2="286.0" y2="100.0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="174.0" cy="194.0" r="4" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="302.0" cy="160.0" r="4" fill="var(--chart-ink)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="196.0" y="176.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--cool)" font-weight="700">a</text>
+        <text x="312.0" y="138.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--cool)" font-weight="700">b</text>
+        <text x="240.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">North Pole</text>
+        <text x="92.0" y="224.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="end">equator</text>
+        <rect x="430.0" y="60.0" width="310.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="585.0" y="90.0" font-family="Overpass,sans-serif" font-size="12.5" fill="var(--gold)" text-anchor="middle" font-weight="700">b − a = convergency</text>
+        <text x="440.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Northern Hemisphere</text>
+        <text x="440.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">eastbound: track increases</text>
+        <text x="440.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">westbound: track decreases</text>
+        <text x="440.0" y="230.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Southern Hemisphere</text>
+        <text x="440.0" y="244.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">eastbound: track decreases</text>
+        <text x="440.0" y="258.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">westbound: track increases</text>
+        <text x="240.0" y="334.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-faint)" text-anchor="middle">a and b: track measured from the local meridian</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The change in great-circle track equals the convergency.</b> A great circle is “straight” on the globe, but it is measured against meridians that are converging. So the track angle <b>a</b> measured at the first meridian differs from the angle <b>b</b> at the second, and <b>b − a = convergency</b> between the two meridians. In the <b>Northern Hemisphere</b> the track <b>increases when flying east</b> and decreases when flying west; in the <b>Southern Hemisphere</b> it is the opposite. Knowing this, the initial great-circle track can be found from the final, or either from the rhumb-line track using the conversion angle.</p>
+  </section>
+
+  <!-- 18 ─ CONVERSION ANGLE -->
+  <section class="card">
+    <h2>Conversion Angle</h2>
+    <div class="meta"><span class="tag">nav_257_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="A straight rhumb line and a curved great circle between two positions, with the angle between them at each end marked">
+        <line x1="140.0" y1="40.0" x2="140.0" y2="250.0" stroke="var(--chart-line-2)" stroke-width="1.4"/>
+        <line x1="620.0" y1="40.0" x2="620.0" y2="250.0" stroke="var(--chart-line-2)" stroke-width="1.4"/>
+        <text x="140.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle">020°W</text>
+        <text x="620.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle">020°E</text>
+        <line x1="100.0" y1="180.0" x2="660.0" y2="180.0" stroke="var(--hot)" stroke-width="2.6"/>
+        <path d="M140,180 Q380,70 620,180" stroke="var(--green)" stroke-width="2.8" fill="none"/>
+        <circle cx="140.0" cy="180.0" r="5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="620.0" cy="180.0" r="5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="128.0" y="200.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">A</text>
+        <text x="632.0" y="200.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" font-weight="700">B</text>
+        <text x="380.0" y="112.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" text-anchor="middle" font-weight="700">great circle</text>
+        <text x="380.0" y="198.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">rhumb line 090°</text>
+        <text x="672.0" y="176.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">30°N</text>
+        <path d="M210.0,180.0 A70,70 0 0 0 203.6,150.9" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <path d="M550.0,180.0 A70,70 0 0 1 556.4,150.9" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <text x="218.0" y="158.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">10°</text>
+        <text x="542.0" y="158.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="end" font-weight="700">10°</text>
+        <text x="380.0" y="250.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--gold)" text-anchor="middle" font-weight="700">conversion angle = ½ convergency = ½ × ch.long × sin (mean latitude)</text>
+        <text x="380.0" y="274.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">½ × 40° × sin 30° = 10°</text>
+        <text x="380.0" y="306.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Great-circle track: 080° leaving A, 100° arriving at B.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The conversion angle is the angle between the great circle and the rhumb line at either end.</b> It is exactly <b>half the convergency</b>: <b>conversion angle = ½ × change of longitude × sin(mean latitude)</b>. In the example A is at 30°N 020°W and B at 30°N 020°E: change of longitude 40°, so convergency = 40 × sin 30° = 20° and the conversion angle is <b>10°</b>. The rhumb-line track A to B is 090°, so the great-circle track is 080° leaving A and 100° arriving at B. It is used to convert a radio (great-circle) bearing into a rhumb-line bearing for plotting on a Mercator chart.</p>
+  </section>
+
+  <!-- 19 ─ THE EARTH'S MAGNETIC FIELD -->
+  <section class="card">
+    <h2>The Earth&#x27;s Magnetic Field</h2>
+    <div class="meta"><span class="tag">nav_051_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="The Earth with a bar magnet inside tilted from the spin axis and field lines looping from one magnetic pole to the other">
+        <circle cx="250.0" cy="170.0" r="96" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="250.0" y1="48.0" x2="250.0" y2="292.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <g transform="rotate(-14 250 170)"><rect x="240" y="114" width="20" height="56" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1"/><rect x="240" y="170" width="20" height="56" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="204" cy="170" rx="46" ry="78" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-dasharray="5 4"/><ellipse cx="166" cy="170" rx="84" ry="118" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-dasharray="5 4"/><ellipse cx="296" cy="170" rx="46" ry="78" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-dasharray="5 4"/><ellipse cx="334" cy="170" rx="84" ry="118" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-dasharray="5 4"/><line x1="250" y1="40" x2="250" y2="300" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="3 4"/></g>
+        <text x="260.0" y="44.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">True N</text>
+        <text x="206.0" y="44.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="end" font-weight="700">Magnetic N</text>
+        <text x="260.0" y="306.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">True S</text>
+        <text x="480.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Horizontal component (H)</text>
+        <text x="480.0" y="74.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">directs the compass; greatest</text>
+        <text x="480.0" y="88.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">at the magnetic equator,</text>
+        <text x="480.0" y="102.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">zero at the magnetic poles</text>
+        <text x="480.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">Vertical component (Z)</text>
+        <text x="480.0" y="174.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">causes dip; zero at the</text>
+        <text x="480.0" y="188.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">magnetic equator, greatest</text>
+        <text x="480.0" y="202.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">at the magnetic poles</text>
+        <text x="480.0" y="260.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Dip angle</text>
+        <text x="480.0" y="274.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">0° at the aclinic line,</text>
+        <text x="480.0" y="288.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">90° at the magnetic poles</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The Earth behaves as if it had a bar magnet inside it</b>, tilted about 11° from the spin axis, so the <b>magnetic poles</b> are not at the geographic poles — and they wander slowly. Lines of force leave near the south magnetic pole and re-enter near the north. A compass needle aligns with the local field: its <b>horizontal component (H)</b> gives direction and is strongest at the <b>magnetic equator</b>; its <b>vertical component (Z)</b> pulls the needle downwards — the <b>dip</b> — and is greatest at the magnetic poles, where H falls to zero and the compass is useless. Lines joining places of equal dip are <b>isoclinals</b>; the line of zero dip is the <b>aclinic line</b> (magnetic equator).</p>
+  </section>
+
+  <!-- 20 ─ VARIATION & THE AGONIC LINE -->
+  <section class="card">
+    <h2>Variation &amp; the Agonic Line</h2>
+    <div class="meta"><span class="tag">nav_052_figure_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A globe with the true and magnetic north poles, observers with easterly and westerly variation and the agonic line of zero variation">
+        <circle cx="250.0" cy="180.0" r="130" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="250.0" cy="76.0" r="5" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="260.0" y="68.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">True Pole</text>
+        <circle cx="220.0" cy="102.0" r="5" fill="var(--gold)" stroke="var(--gold)" stroke-width="1"/>
+        <text x="210.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="end" font-weight="700">Magnetic Pole</text>
+        <path d="M250,76 L220,102 Q180,210 190,298" stroke="var(--hot)" stroke-width="2.4" fill="none"/>
+        <text x="190.0" y="326.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">agonic line: zero variation</text>
+        <line x1="146.0" y1="170.0" x2="250.0" y2="76.0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="146.0" y1="170.0" x2="220.0" y2="102.0" stroke="var(--gold)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <circle cx="146.0" cy="170.0" r="5" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <text x="146.0" y="190.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">A: variation easterly</text>
+        <line x1="326.0" y1="190.0" x2="250.0" y2="76.0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="326.0" y1="190.0" x2="220.0" y2="102.0" stroke="var(--gold)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <circle cx="326.0" cy="190.0" r="5" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <text x="326.0" y="210.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">B: variation westerly</text>
+        <text x="480.0" y="70.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Variation</text>
+        <text x="480.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">angle between true north</text>
+        <text x="480.0" y="98.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">and magnetic north</text>
+        <text x="480.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Isogonal</text>
+        <text x="480.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">line joining places of</text>
+        <text x="480.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">equal variation</text>
+        <text x="480.0" y="230.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">Variation west, magnetic best</text>
+        <text x="480.0" y="244.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">Variation east, magnetic least</text>
+        <line x1="480.0" y1="296.0" x2="506.0" y2="296.0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="512.0" y="300.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">to true north</text>
+        <line x1="600.0" y1="296.0" x2="626.0" y2="296.0" stroke="var(--gold)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <text x="632.0" y="300.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">to magnetic north</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Variation is the angle between true north and magnetic north</b> at a given place. If magnetic north lies to the <b>east</b> of true north the variation is <b>easterly</b> (positive); if to the <b>west</b>, <b>westerly</b> (negative). To convert: <b>“variation west, magnetic best; variation east, magnetic least”</b> — with westerly variation the magnetic heading is greater than the true. Lines on a chart joining places of equal variation are <b>isogonals</b>; the line of <b>zero variation</b>, where true and magnetic north are in line, is the <b>agonic line</b>. Variation changes slowly over the years as the magnetic poles move, so charts carry the year and the annual change.</p>
+  </section>
+
+  <!-- 21 ─ VARIATION NEAR THE POLES — UP TO 180° -->
+  <section class="card">
+    <h2>Variation Near the Poles — Up to 180°</h2>
+    <div class="meta"><span class="tag">nav_053_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="The true pole and the magnetic pole with a point on the line between them, where true north and magnetic north are in opposite directions">
+        <line x1="60.0" y1="170.0" x2="700.0" y2="170.0" stroke="var(--gold)" stroke-width="1.6" stroke-dasharray="7 5"/>
+        <circle cx="250.0" cy="170.0" r="7" fill="var(--gold)" stroke="var(--gold)" stroke-width="1"/>
+        <text x="250.0" y="206.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">MAGNETIC POLE</text>
+        <circle cx="510.0" cy="170.0" r="7" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="510.0" y="206.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">TRUE POLE</text>
+        <circle cx="380.0" cy="170.0" r="6" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <text x="380.0" y="150.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--hot)" text-anchor="middle" font-weight="700">A</text>
+        <line x1="374.0" y1="130.0" x2="284.0" y2="130.0" stroke="var(--gold)" stroke-width="2.2" marker-end="url(#m-gold)"/>
+        <text x="330.0" y="120.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">magnetic north</text>
+        <line x1="386.0" y1="130.0" x2="476.0" y2="130.0" stroke="var(--chart-ink)" stroke-width="2.2" marker-end="url(#m-ink)"/>
+        <text x="430.0" y="120.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle">true north</text>
+        <text x="380.0" y="240.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">at A, between the poles: variation 180°</text>
+        <text x="130.0" y="150.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" text-anchor="middle" font-weight="700">variation zero</text>
+        <text x="630.0" y="150.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" text-anchor="middle" font-weight="700">variation zero</text>
+        <text x="130.0" y="196.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">both poles in the</text>
+        <text x="130.0" y="209.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">same direction</text>
+        <text x="630.0" y="196.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">both poles in the</text>
+        <text x="630.0" y="209.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">same direction</text>
+        <text x="380.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Near the poles variation changes rapidly and the compass is unreliable: use true or grid navigation.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Variation can reach 180°.</b> On the line joining the true and magnetic poles, at any point <b>between</b> the two poles, true north lies in one direction and magnetic north in exactly the opposite direction: the variation is <b>180°</b>. On the extensions of that line <b>beyond</b> either pole, both norths lie the same way and the variation is <b>zero</b>. So close to the poles variation changes very rapidly over short distances, the horizontal field strength is too weak to drive a compass reliably, and magnetic references are abandoned in favour of <b>true</b> or <b>grid</b> navigation with gyro or inertial heading.</p>
+  </section>
+
+  <!-- 22 ─ TRUE, MAGNETIC & COMPASS HEADING -->
+  <section class="card">
+    <h2>True, Magnetic &amp; Compass Heading</h2>
+    <div class="meta"><span class="tag">nav_066_figure_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="An aircraft with three north references, true, magnetic and compass, and the heading measured from each">
+        <line x1="200.0" y1="250.0" x2="200.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="2" marker-end="url(#m-ink)"/>
+        <line x1="200.0" y1="250.0" x2="125.6" y2="90.5" stroke="var(--gold)" stroke-width="2" marker-end="url(#m-gold)"/>
+        <line x1="200.0" y1="250.0" x2="108.2" y2="118.9" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <text x="206.0" y="50.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">TRUE N</text>
+        <text x="118.0" y="82.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="end" font-weight="700">MAG N</text>
+        <text x="100.0" y="122.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="end" font-weight="700">COMPASS N</text>
+        <line x1="200.0" y1="250.0" x2="367.4" y2="279.5" stroke="var(--hot)" stroke-width="2.6" marker-end="url(#m-hot)"/>
+        <g transform="translate(317.4173180120754 271.52019020337815) rotate(10) scale(-0.3 0.3)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <text x="337.4" y="309.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">aircraft heading</text>
+        <path d="M200.0,200.0 A50,50 0 0 1 249.2,258.7" stroke="var(--chart-ink)" stroke-width="1.8" fill="none"/>
+        <path d="M168.7,182.9 A74,74 0 0 1 272.9,262.8" stroke="var(--gold)" stroke-width="1.8" fill="none"/>
+        <path d="M143.8,169.7 A98,98 0 0 1 296.5,267.0" stroke="var(--cool)" stroke-width="1.8" fill="none"/>
+        <rect x="440.0" y="50.0" width="300.0" height="22.0" rx="3" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.4"/>
+        <text x="448.0" y="65.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">step</text>
+        <text x="544.0" y="65.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">apply</text>
+        <text x="644.0" y="65.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">result</text>
+        <rect x="440.0" y="72.0" width="300.0" height="20.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="448.0" y="86.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">True</text>
+        <text x="544.0" y="86.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)"></text>
+        <text x="644.0" y="86.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">100° (T)</text>
+        <rect x="440.0" y="92.0" width="300.0" height="20.0" rx="0" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="448.0" y="106.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">Variation</text>
+        <text x="544.0" y="106.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">25°W: add</text>
+        <text x="644.0" y="106.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">125° (M)</text>
+        <rect x="440.0" y="112.0" width="300.0" height="20.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="448.0" y="126.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">Deviation</text>
+        <text x="544.0" y="126.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">10°W: add</text>
+        <text x="644.0" y="126.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">135° (C)</text>
+        <line x1="536.0" y1="50.0" x2="536.0" y2="132.0" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <line x1="636.0" y1="50.0" x2="636.0" y2="132.0" stroke="var(--chart-line-2)" stroke-width="0.8"/>
+        <text x="440.0" y="170.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">True to compass:</text>
+        <text x="440.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">add WEST, subtract EAST</text>
+        <text x="440.0" y="220.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Compass to true:</text>
+        <text x="440.0" y="234.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">subtract WEST, add EAST</text>
+        <text x="590.0" y="290.0" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="var(--gold)" text-anchor="middle" font-weight="700">C  D  M  V  T</text>
+        <text x="590.0" y="308.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">compass, deviation, magnetic, variation, true</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Three norths, three headings.</b> <b>True heading</b> is measured from true north. Apply <b>variation</b> to get <b>magnetic heading</b>, measured from magnetic north. Apply <b>deviation</b> — the error caused by the aircraft’s own magnetism, read from the deviation card — to get <b>compass heading</b>, what the compass actually shows. In the example: true 100°, variation 25°W gives magnetic 125°; deviation 10°W gives compass 135°. Working from true to compass, <b>add westerly</b> and <b>subtract easterly</b>; from compass to true, do the reverse. Memory aid: “<b>C</b>adbury’s <b>D</b>airy <b>M</b>ilk <b>V</b>ery <b>T</b>asty” — Compass, Deviation, Magnetic, Variation, True.</p>
+  </section>
+
+  <!-- 23 ─ TRUE HEADING, RELATIVE BEARING & TRUE BEARING -->
+  <section class="card">
+    <h2>True Heading, Relative Bearing &amp; True Bearing</h2>
+    <div class="meta"><span class="tag">nav_487_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="An aircraft heading 030 degrees with a station 060 degrees to the right of the nose, giving a true bearing of 090 degrees">
+        <line x1="200.0" y1="270.0" x2="200.0" y2="50.0" stroke="var(--chart-ink)" stroke-width="1.8" marker-end="url(#m-ink)"/>
+        <text x="200.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">TN</text>
+        <line x1="200.0" y1="270.0" x2="300.0" y2="96.8" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <text x="308.0" y="98.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">aircraft heading</text>
+        <line x1="200.0" y1="270.0" x2="520.0" y2="270.0" stroke="var(--cool)" stroke-width="1.8" stroke-dasharray="7 5"/>
+        <circle cx="530.0" cy="270.0" r="7" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="544.0" y="274.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">station</text>
+        <g transform="translate(200 270) rotate(-60)"><path d="M58,-12 L82,-44 L96,-44 L90,-7 Z" fill="#9fb2b9" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-92,0 C-90,-9 -75,-12 -60,-12 L55,-12 L95,-6 L95,-2 L50,8 L-65,8 C-80,8 -90,5 -92,0 Z" fill="#c4d1d6" stroke="var(--chart-ink)" stroke-width="2"/><path d="M-22,1 L26,1 L42,9 L-6,9 Z" fill="#8497a0" stroke="var(--chart-ink)" stroke-width="1.6"/><ellipse cx="-8" cy="13" rx="14" ry="5" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/></g>
+        <path d="M200.0,210.0 A60,60 0 0 1 230.0,218.0" stroke="var(--hot)" stroke-width="2" fill="none"/>
+        <path d="M248.0,186.9 A96,96 0 0 1 296.0,270.0" stroke="var(--gold)" stroke-width="2" fill="none"/>
+        <path d="M200.0,138.0 A132,132 0 0 1 332.0,270.0" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <text x="226.0" y="196.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">030°</text>
+        <text x="284.0" y="222.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">060°</text>
+        <text x="322.0" y="172.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">090°</text>
+        <text x="470.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">True heading 030°</text>
+        <text x="470.0" y="74.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">from true north to the nose</text>
+        <text x="470.0" y="110.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Relative bearing 060°</text>
+        <text x="470.0" y="124.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">from the nose to the station</text>
+        <text x="470.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">True bearing 090°</text>
+        <text x="470.0" y="174.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">from true north to the station</text>
+        <text x="380.0" y="316.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">true bearing = true heading + relative bearing        030° + 060° = 090°</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Relative bearing is measured from the nose; true bearing from true north.</b> A <b>relative bearing</b> is the angle, measured clockwise, between the aircraft’s <b>fore-and-aft axis</b> and the line to the object — it is what a fixed-card ADF shows. Add it to the heading to get the bearing from north: <b>true bearing = true heading + relative bearing</b> (subtract 360° if the answer exceeds 360°). In the example: heading 030°(T), relative bearing 060°, so the true bearing <b>to</b> the station is <b>090°</b>, and the bearing <b>from</b> the station to plot is the reciprocal, 270°. Use magnetic heading and the answer is a magnetic bearing (QDM).</p>
+  </section>
+
+  <!-- 24 ─ THE CIRCULAR SLIDE-RULE PRINCIPLE -->
+  <section class="card">
+    <h2>The Circular Slide-Rule Principle</h2>
+    <div class="meta"><span class="tag">nav_080_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="Two logarithmic rings: with one on the inner ring set against two on the outer, three on the inner lies opposite six on the outer">
+        <circle cx="230.0" cy="165.0" r="130" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <circle cx="230.0" cy="165.0" r="98" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <circle cx="230.0" cy="165.0" r="62" fill="var(--chart-ground)" stroke="var(--chart-line-2)" stroke-width="1.2"/>
+        <line x1="230.0" y1="35.0" x2="230.0" y2="47.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="230.0" y="61.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">1</text>
+        <line x1="323.0" y1="195.9" x2="313.5" y2="192.7" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="304.0" y="193.6" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">1</text>
+        <line x1="353.4" y1="206.0" x2="342.0" y2="202.2" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="332.5" y="203.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">2</text>
+        <line x1="171.4" y1="243.5" x2="177.4" y2="235.5" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="183.3" y="231.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">2</text>
+        <line x1="248.6" y1="293.7" x2="246.9" y2="281.8" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="245.5" y="275.9" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">3</text>
+        <line x1="133.5" y1="147.8" x2="143.4" y2="149.5" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="153.2" y="155.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">3</text>
+        <line x1="152.2" y1="269.2" x2="159.4" y2="259.6" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="165.4" y="255.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">4</text>
+        <line x1="173.9" y1="84.6" x2="179.7" y2="92.8" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="185.4" y="105.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">4</text>
+        <line x1="106.6" y1="206.0" x2="118.0" y2="202.2" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="127.5" y="203.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">5</text>
+        <line x1="230.0" y1="67.0" x2="230.0" y2="77.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="230.0" y="91.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">5</text>
+        <line x1="102.0" y1="142.1" x2="113.8" y2="144.2" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="123.7" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">6</text>
+        <line x1="276.8" y1="78.9" x2="272.0" y2="87.7" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="267.2" y="100.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">6</text>
+        <line x1="122.5" y1="91.9" x2="132.4" y2="98.6" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="140.7" y="108.2" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">7</text>
+        <line x1="307.9" y1="105.5" x2="299.9" y2="111.6" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="292.0" y="121.6" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">7</text>
+        <line x1="155.6" y1="58.4" x2="162.5" y2="68.2" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="168.2" y="80.4" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">8</text>
+        <line x1="324.0" y1="137.1" x2="314.4" y2="140.0" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="304.8" y="146.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">8</text>
+        <line x1="193.1" y1="40.3" x2="196.5" y2="51.8" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="199.4" y="65.4" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">9</text>
+        <line x1="327.9" y1="168.2" x2="318.0" y2="167.9" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="308.0" y="171.6" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">9</text>
+        <circle cx="327.8" cy="197.5" r="17" fill="none" stroke="var(--cool)" stroke-width="2.2"/>
+        <circle cx="128.6" cy="146.9" r="17" fill="none" stroke="var(--hot)" stroke-width="2.2"/>
+        <text x="230.0" y="169.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">2 × 3 = 6</text>
+        <circle cx="430.0" cy="80.0" r="9" fill="var(--gold)"/>
+        <text x="430.0" y="83.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">1</text>
+        <text x="448.0" y="79.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" font-weight="700">Set 1 on the inner ring</text>
+        <text x="448.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">against 2 on the outer ring</text>
+        <circle cx="430.0" cy="150.0" r="9" fill="var(--gold)"/>
+        <text x="430.0" y="153.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">2</text>
+        <text x="448.0" y="149.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" font-weight="700">Find 3 on the inner ring</text>
+        <text x="448.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">read 6 opposite it on the outer ring</text>
+        <text x="430.0" y="220.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Outer ring = inner ring × 2</text>
+        <text x="430.0" y="234.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">all the way round: a ratio.</text>
+        <text x="380.0" y="316.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Logarithmic scales: adding lengths multiplies numbers.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>A slide rule multiplies by adding lengths.</b> Both rings are marked <b>logarithmically</b>, so the distance round the ring to a number is proportional to its logarithm; adding two such distances multiplies the numbers. To work out 2 × 3: turn the inner ring until its <b>1 (the index, marked 10)</b> lies against <b>2</b> on the outer ring. Now every number on the inner ring lies opposite <b>twice</b> its value on the outer: opposite <b>3</b> read <b>6</b>. Division is the same setting read the other way. The whole ring is now a <b>ratio</b> — which is why one setting solves speed, distance and time for any time.</p>
+  </section>
+
+  <!-- 25 ─ SIDEREAL DAY VS APPARENT SOLAR DAY -->
+  <section class="card">
+    <h2>Sidereal Day vs Apparent Solar Day</h2>
+    <div class="meta"><span class="tag">nav_390_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="The Earth at two positions on its orbit one day apart, having to turn slightly more than once to bring the Sun back overhead">
+        <circle cx="380.0" cy="190.0" r="30" fill="var(--gold)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="194.0" font-family="Overpass,sans-serif" font-size="10" fill="#10171b" text-anchor="middle" font-weight="700">SUN</text>
+        <path d="M110,120 Q90,190 130,270" stroke="var(--cool)" stroke-width="1.6" fill="none" stroke-dasharray="7 5" marker-end="url(#m-cool)"/>
+        <text x="96.0" y="300.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">Earth&#x27;s orbit</text>
+        <circle cx="120.0" cy="120.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <text x="86.0" y="124.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="end" font-weight="700">day 1</text>
+        <circle cx="118.0" cy="240.0" r="24" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <text x="84.0" y="244.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="end" font-weight="700">day 2</text>
+        <line x1="120.0" y1="120.0" x2="144.0" y2="120.0" stroke="var(--hot)" stroke-width="3"/>
+        <line x1="146.0" y1="122.0" x2="350.0" y2="180.0" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <line x1="118.0" y1="240.0" x2="142.0" y2="240.0" stroke="var(--hot)" stroke-width="3"/>
+        <line x1="144.0" y1="240.0" x2="700.0" y2="240.0" stroke="var(--chart-ink-dim)" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <text x="704.0" y="232.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">to a distant star</text>
+        <line x1="118.0" y1="240.0" x2="141.6" y2="235.4" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="141.6" y1="235.4" x2="352.0" y2="196.0" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <line x1="146.0" y1="120.0" x2="700.0" y2="120.0" stroke="var(--chart-ink-dim)" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <text x="704.0" y="112.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">to a distant star</text>
+        <text x="160.0" y="214.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)">360°: sidereal day</text>
+        <text x="200.0" y="268.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">extra turn to face the Sun: solar day</text>
+        <text x="480.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Sidereal day</text>
+        <text x="480.0" y="74.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">23 h 56 min 4 s:</text>
+        <text x="480.0" y="88.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">one turn against the stars</text>
+        <text x="480.0" y="260.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Apparent solar day</text>
+        <text x="480.0" y="274.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">about 4 minutes longer;</text>
+        <text x="480.0" y="288.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">its length varies through the year</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Two ways to time one rotation.</b> A <b>sidereal day</b> is one complete 360° rotation measured against the <b>distant stars</b>: 23 h 56 min 4 s. But during that day the Earth has also moved about 1° along its orbit, so it must turn a little <b>further</b> — nearly 361° — before the <b>Sun</b> is back on the same meridian. That interval, from one transit of the Sun to the next, is the <b>apparent solar day</b>, about 4 minutes longer. Because the Earth’s orbital speed varies (Kepler’s second law) and its axis is tilted, the apparent solar day is <b>not constant</b> in length through the year — hence the invention of the <b>mean solar day</b> of exactly 24 hours.</p>
+  </section>
+
+  <!-- 26 ─ THE EQUATION OF TIME -->
+  <section class="card">
+    <h2>The Equation of Time</h2>
+    <div class="meta"><span class="tag">nav_391_figure_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A graph through the year of the difference between apparent solar time and mean time, swinging between plus sixteen and minus fourteen minutes">
+        <line x1="90.0" y1="50.0" x2="90.0" y2="290.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="90.0" y1="170.0" x2="716.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <polyline points="90.0,190.5 95.1,199.2 100.2,207.6 105.3,215.7 110.4,223.3 115.5,230.4 120.6,236.9 125.7,242.9 130.8,248.2 135.9,252.8 141.0,256.7 146.1,259.8 151.2,262.2 156.3,263.9 161.4,264.7 166.5,264.9 171.6,264.2 176.7,262.9 181.8,260.9 186.9,258.2 192.0,254.8 197.1,251.0 202.2,246.6 207.3,241.7 212.4,236.5 217.5,230.9 222.6,225.0 227.7,218.9 232.8,212.8 237.9,206.5 243.0,200.2 248.1,194.1 253.2,188.1 258.3,182.2 263.4,176.7 268.5,171.5 273.6,166.6 278.7,162.2 283.8,158.2 288.9,154.7 294.0,151.8 299.1,149.4 304.2,147.6 309.3,146.4 314.4,145.7 319.5,145.6 324.6,146.1 329.7,147.1 334.8,148.6 339.9,150.6 345.0,153.0 350.1,155.9 355.2,159.1 360.3,162.6 365.4,166.3 370.5,170.2 375.6,174.3 380.7,178.4 385.8,182.5 390.9,186.5 396.0,190.4 401.1,194.1 406.2,197.6 411.3,200.7 416.4,203.5 421.5,205.8 426.6,207.7 431.7,209.1 436.8,209.9 441.9,210.2 447.0,209.9 452.1,209.0 457.2,207.4 462.3,205.3 467.4,202.5 472.5,199.2 477.6,195.2 482.7,190.8 487.8,185.8 492.9,180.3 498.0,174.4 503.1,168.1 508.2,161.5 513.3,154.6 518.4,147.6 523.5,140.4 528.6,133.1 533.7,125.8 538.8,118.7 543.9,111.7 549.0,104.9 554.1,98.4 559.2,92.3 564.3,86.6 569.4,81.4 574.5,76.8 579.6,72.7 584.7,69.3 589.8,66.6 594.9,64.7 600.0,63.5 605.1,63.1 610.2,63.4 615.3,64.6 620.4,66.6 625.5,69.3 630.6,72.8 635.7,77.1 640.8,82.1 645.9,87.8 651.0,94.1 656.1,101.0 661.2,108.4 666.3,116.3 671.4,124.6 676.5,133.2 681.6,142.0 686.7,151.1 691.8,160.2 696.9,169.4 702.0,178.6 707.1,187.6" fill="none" stroke="var(--hot)" stroke-width="2.8"/>
+        <line x1="90.0" y1="166.0" x2="90.0" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="115.5" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">J</text>
+        <line x1="141.7" y1="166.0" x2="141.7" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="167.2" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">F</text>
+        <line x1="193.4" y1="166.0" x2="193.4" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="218.9" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">M</text>
+        <line x1="245.0" y1="166.0" x2="245.0" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="270.5" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">A</text>
+        <line x1="296.7" y1="166.0" x2="296.7" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="322.2" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">M</text>
+        <line x1="348.4" y1="166.0" x2="348.4" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="373.9" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">J</text>
+        <line x1="400.1" y1="166.0" x2="400.1" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="425.6" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">J</text>
+        <line x1="451.8" y1="166.0" x2="451.8" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="477.3" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">A</text>
+        <line x1="503.4" y1="166.0" x2="503.4" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="528.9" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">S</text>
+        <line x1="555.1" y1="166.0" x2="555.1" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="580.6" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">O</text>
+        <line x1="606.8" y1="166.0" x2="606.8" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="632.3" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">N</text>
+        <line x1="658.5" y1="166.0" x2="658.5" y2="174.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="684.0" y="306.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">D</text>
+        <line x1="84.0" y1="267.5" x2="90.0" y2="267.5" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="271.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">−15</text>
+        <line x1="84.0" y1="235.0" x2="90.0" y2="235.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="239.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">−10</text>
+        <line x1="84.0" y1="202.5" x2="90.0" y2="202.5" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="206.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">−5</text>
+        <line x1="84.0" y1="137.5" x2="90.0" y2="137.5" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="141.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">+5</text>
+        <line x1="84.0" y1="105.0" x2="90.0" y2="105.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="109.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">+10</text>
+        <line x1="84.0" y1="72.5" x2="90.0" y2="72.5" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="76.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">+15</text>
+        <text x="30.0" y="170.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle" transform="rotate(-90 30 170)">minutes</text>
+        <circle cx="611.9" cy="63.7" r="4.5" fill="var(--gold)" stroke="var(--gold)" stroke-width="1"/>
+        <text x="601.9" y="55.7" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="end" font-weight="700">about +16 min, early November</text>
+        <circle cx="161.4" cy="264.7" r="4.5" fill="var(--cool)" stroke="var(--cool)" stroke-width="1"/>
+        <text x="173.4" y="278.7" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">about −14 min, mid-February</text>
+        <text x="700.0" y="162.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="end">mean time</text>
+        <text x="110.0" y="64.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">Sun ahead of the clock</text>
+        <text x="700.0" y="284.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">Sun behind the clock</text>
+        <text x="400.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">equation of time = apparent solar time − mean solar time</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The real Sun is an irregular clock.</b> Because the Earth’s orbit is an <b>ellipse</b> and its axis is <b>tilted</b>, the apparent Sun runs fast at some times of year and slow at others. Clocks therefore follow an imaginary <b>mean Sun</b> moving at a constant rate, giving the 24-hour mean solar day. The difference between <b>apparent solar time and mean solar time</b> is the <b>equation of time</b>. It is zero four times a year (mid-April, mid-June, early September and late December) and reaches about <b>+16 minutes in early November</b> (Sun ahead of the clock) and about <b>−14 minutes in mid-February</b> (Sun behind).</p>
+  </section>
+
+  <footer>
+    General Navigation — The Earth, Direction & Time: 26 original figures.
+  </footer>
+</div>
+</body></html>

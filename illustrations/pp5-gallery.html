@@ -1,0 +1,1413 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Powerplant Gallery 5</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>Powerplant — Gas Turbine Systems & Performance</h1>
+    <p class="lede">Original figures for lubrication, thrust, reverse thrust, gearboxes, ignition, APU and starting, fuel control and bleed air.</p>
+    <div class="prog"><span class="pct">32 / 32 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ ACOUSTIC LINING (NOISE SUPPRESSION) -->
+  <section class="card">
+    <h2>Acoustic Lining (Noise Suppression)</h2>
+    <div class="meta"><span class="tag">fig_18_08</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Section through an acoustic lining panel: perforated facesheet over a honeycomb core on a solid backing sheet, and where the panels line the intake and bypass duct">
+        <rect x="60.0" y="100.0" width="300.0" height="10.0" rx="0" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <circle cx="72.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="93.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="114.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="135.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="156.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="177.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="198.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="219.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="240.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="261.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="282.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="303.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="324.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="345.0" cy="105.0" r="2.4" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <path d="M60,110 L75,130 L60,150 M75,130 L90,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M90,110 L105,130 L90,150 M105,130 L120,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M120,110 L135,130 L120,150 M135,130 L150,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M150,110 L165,130 L150,150 M165,130 L180,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M180,110 L195,130 L180,150 M195,130 L210,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M210,110 L225,130 L210,150 M225,130 L240,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M240,110 L255,130 L240,150 M255,130 L270,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M270,110 L285,130 L270,150 M285,130 L300,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M300,110 L315,130 L300,150 M315,130 L330,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <path d="M330,110 L345,130 L330,150 M345,130 L360,130" stroke="var(--gold-deep)" stroke-width="1.6" fill="none"/>
+        <rect x="60.0" y="150.0" width="300.0" height="10.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="370.0" y="108.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" font-weight="700">Perforated facesheet</text>
+        <text x="370.0" y="134.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Honeycomb core</text>
+        <text x="370.0" y="160.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Solid backing sheet</text>
+        <line x1="100.0" y1="60.0" x2="110.0" y2="96.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="170.0" y1="60.0" x2="180.0" y2="96.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="240.0" y1="60.0" x2="250.0" y2="96.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="310.0" y1="60.0" x2="320.0" y2="96.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <text x="100.0" y="52.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">sound waves</text>
+        <path d="M80.0,320.0 L300.0,322.0 L480.0,316.0" stroke="var(--chart-ink)" stroke-width="2" fill="none"/>
+        <path d="M80.0,200.0 L300.0,198.0 L480.0,204.0" stroke="var(--chart-ink)" stroke-width="2" fill="none"/>
+        <path d="M260.0,290.0 L500.0,286.0 L600.0,274.0" stroke="var(--chart-ink)" stroke-width="1.6" fill="none"/>
+        <path d="M260.0,230.0 L500.0,234.0 L600.0,246.0" stroke="var(--chart-ink)" stroke-width="1.6" fill="none"/>
+        <line x1="90.0" y1="316.0" x2="240.0" y2="318.0" stroke="var(--green)" stroke-width="5"/>
+        <line x1="300.0" y1="318.0" x2="470.0" y2="314.0" stroke="var(--green)" stroke-width="5"/>
+        <line x1="90.0" y1="204.0" x2="240.0" y2="202.0" stroke="var(--green)" stroke-width="5"/>
+        <line x1="300.0" y1="202.0" x2="470.0" y2="206.0" stroke="var(--green)" stroke-width="5"/>
+        <text x="165.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">intake lining</text>
+        <text x="390.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">bypass duct lining</text>
+        <text x="600.0" y="140.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">Facesheet: aluminium, titanium</text>
+        <text x="600.0" y="154.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">or composite; stainless</text>
+        <text x="600.0" y="168.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">steel in hot areas</text>
+      </svg>
+    </div>
+    <p class="cap">Acoustic linings absorb fan and turbine noise. Sound passes through the perforated facesheet into the honeycomb cells, which act as tuned resonators and dissipate it. Panels line the intake, the fan case and the bypass duct; materials vary from aluminium and composites cool areas to stainless steel near the hot exhaust.</p>
+  </section>
+
+  <!-- 2 ─ SCHEMATIC GAS TURBINE OIL SYSTEM -->
+  <section class="card">
+    <h2>Schematic Gas Turbine Oil System</h2>
+    <div class="meta"><span class="tag">fig_19_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 400" role="img" aria-label="Oil tank, pressure pump, filter and relief valve feeding bearing chambers on the rotating shaft, with scavenge pumps returning oil through a chip detector, filter and fuel-cooled oil cooler to the tank">
+        <rect x="30.0" y="250.0" width="110.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="85.0" y="288.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil tank</text>
+        <rect x="30.0" y="140.0" width="110.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="85.0" y="168.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure pump</text>
+        <rect x="180.0" y="70.0" width="130.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="245.0" y="93.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure filter</text>
+        <rect x="180.0" y="140.0" width="130.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="245.0" y="161.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure relief</text>
+        <text x="245.0" y="174.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">valve (if fitted)</text>
+        <rect x="380.0" y="110.0" width="340.0" height="40.0" rx="6" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="550.0" y="134.0" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">ROTATING SHAFT — bearing chambers</text>
+        <rect x="400.0" y="96.0" width="40.0" height="68.0" rx="4" fill="none" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="420.0" y1="70.0" x2="420.0" y2="96.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <circle cx="420.0" cy="210.0" r="12" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="420.0" y1="164.0" x2="420.0" y2="198.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <rect x="530.0" y="96.0" width="40.0" height="68.0" rx="4" fill="none" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="550.0" y1="70.0" x2="550.0" y2="96.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <circle cx="550.0" cy="210.0" r="12" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="550.0" y1="164.0" x2="550.0" y2="198.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <rect x="660.0" y="96.0" width="40.0" height="68.0" rx="4" fill="none" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="680.0" y1="70.0" x2="680.0" y2="96.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <circle cx="680.0" cy="210.0" r="12" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="680.0" y1="164.0" x2="680.0" y2="198.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <path d="M310,90 L360,90 L360,70 L680,70" stroke="var(--hot)" stroke-width="2" fill="none"/>
+        <text x="520.0" y="62.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)" text-anchor="middle">pressure feed line</text>
+        <text x="700.0" y="236.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="end">scavenge pumps</text>
+        <rect x="560.0" y="280.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="640.0" y="303.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Magnetic chip detector</text>
+        <rect x="380.0" y="280.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="450.0" y="303.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Scavenge filter</text>
+        <rect x="190.0" y="280.0" width="150.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="265.0" y="301.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Fuel-cooled</text>
+        <text x="265.0" y="314.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">oil cooler</text>
+        <path d="M420,222 L420,250 L680,250 L680,280" stroke="var(--cool)" stroke-width="2" fill="none"/>
+        <line x1="550.0" y1="222.0" x2="550.0" y2="250.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="85.0" y1="250.0" x2="85.0" y2="190.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="138.3" y1="140.0" x2="202.3" y2="110.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="140.0" y1="165.0" x2="180.0" y2="165.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-dim)"/>
+        <line x1="560.0" y1="300.0" x2="520.0" y2="300.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="380.0" y1="301.9" x2="340.0" y2="303.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="190.0" y1="296.7" x2="140.0" y2="291.1" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <circle cx="60.0" cy="40.0" r="18" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="86.0" y="44.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">oil temp</text>
+        <circle cx="200.0" cy="30.0" r="18" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="226.0" y="34.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">oil press</text>
+        <line x1="200.0" y1="48.0" x2="220.0" y2="68.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+      </svg>
+    </div>
+    <p class="cap">A pressure pump feeds filtered oil to the bearing chambers. Scavenge pumps (of greater capacity than the pressure pump, as the returning oil is aerated) return it through a magnetic chip detector, scavenge filter and the fuel-cooled oil cooler to the tank.</p>
+  </section>
+
+  <!-- 3 ─ PRESSURE RELIEF VALVE TYPE OIL SYSTEM -->
+  <section class="card">
+    <h2>Pressure Relief Valve Type Oil System</h2>
+    <div class="meta"><span class="tag">fig_19_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Oil system with a relief valve that spills excess pump output back to the inlet to hold a constant feed pressure">
+        <rect x="30.0" y="140.0" width="140.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="166.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil tank</text>
+        <text x="100.0" y="180.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">de-aerator tray</text>
+        <rect x="220.0" y="140.0" width="130.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="285.0" y="166.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil pump pack</text>
+        <text x="285.0" y="179.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">(pressure + scavenge)</text>
+        <rect x="220.0" y="40.0" width="130.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="285.0" y="61.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure relief</text>
+        <text x="285.0" y="75.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">valve</text>
+        <rect x="400.0" y="140.0" width="120.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="460.0" y="173.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure filter</text>
+        <rect x="570.0" y="140.0" width="160.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="650.0" y="166.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Bearings &amp;</text>
+        <text x="650.0" y="180.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">gearboxes</text>
+        <rect x="400.0" y="250.0" width="120.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="460.0" y="271.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Air-cooled</text>
+        <text x="460.0" y="284.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">oil cooler</text>
+        <rect x="570.0" y="40.0" width="160.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="650.0" y="61.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Centrifugal breather</text>
+        <text x="650.0" y="74.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">→ atmosphere</text>
+        <line x1="170.0" y1="170.0" x2="220.0" y2="170.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="350.0" y1="170.0" x2="400.0" y2="170.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="520.0" y1="170.0" x2="570.0" y2="170.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="285.0" y1="140.0" x2="285.0" y2="90.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <path d="M220,65 L195,65 L195,170 L220,170" stroke="var(--gold)" stroke-width="1.6" fill="none" stroke-dasharray="4 3"/>
+        <text x="186.0" y="112.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="end">spill</text>
+        <path d="M650,200 L650,275 L520,275" stroke="var(--cool)" stroke-width="1.8" fill="none" marker-end="url(#m-cool)"/>
+        <path d="M400,275 L100,275 L100,200" stroke="var(--cool)" stroke-width="1.8" fill="none" marker-end="url(#m-cool)"/>
+        <text x="250.0" y="292.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">scavenge (return) oil</text>
+        <line x1="650.0" y1="140.0" x2="650.0" y2="90.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-dim)"/>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Feed pressure held constant by the relief valve</text>
+      </svg>
+    </div>
+    <p class="cap">The relief valve opens at a set pressure and returns surplus oil to the pump inlet, so feed pressure stays constant once the valve has opened. The flow to the bearings therefore varies with engine speed only up to that point. Centrifugal breathers separate oil from the vented air and de-aerator trays in the tank release entrained air.</p>
+  </section>
+
+  <!-- 4 ─ FULL FLOW TYPE LUBRICATING SYSTEM -->
+  <section class="card">
+    <h2>Full Flow Type Lubricating System</h2>
+    <div class="meta"><span class="tag">fig_19_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Full flow oil system with no relief valve, all pump output going to the bearings, with a pressure transmitter, low pressure warning switch and filter differential pressure switch">
+        <rect x="30.0" y="140.0" width="130.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="95.0" y="173.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil tank</text>
+        <rect x="210.0" y="140.0" width="130.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="275.0" y="173.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil pump pack</text>
+        <rect x="390.0" y="140.0" width="130.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="455.0" y="166.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure filter</text>
+        <text x="455.0" y="180.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">+ bypass</text>
+        <rect x="570.0" y="140.0" width="160.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="650.0" y="166.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Bearings &amp;</text>
+        <text x="650.0" y="180.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">gearboxes</text>
+        <rect x="390.0" y="40.0" width="130.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="455.0" y="61.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil differential</text>
+        <text x="455.0" y="74.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">pressure switch</text>
+        <rect x="570.0" y="40.0" width="160.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="650.0" y="61.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure transmitter</text>
+        <text x="650.0" y="74.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">+ low-P warning</text>
+        <rect x="300.0" y="250.0" width="160.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="380.0" y="278.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil coolers</text>
+        <line x1="160.0" y1="170.0" x2="210.0" y2="170.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="340.0" y1="170.0" x2="390.0" y2="170.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="520.0" y1="170.0" x2="570.0" y2="170.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="455.0" y1="140.0" x2="455.0" y2="90.0" stroke="var(--gold)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-gold)"/>
+        <line x1="650.0" y1="140.0" x2="650.0" y2="90.0" stroke="var(--gold)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-gold)"/>
+        <path d="M650,200 L650,275 L460,275" stroke="var(--cool)" stroke-width="1.8" fill="none" marker-end="url(#m-cool)"/>
+        <path d="M300,275 L95,275 L95,200" stroke="var(--cool)" stroke-width="1.8" fill="none" marker-end="url(#m-cool)"/>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">No relief valve: pressure and flow rise with engine speed</text>
+      </svg>
+    </div>
+    <p class="cap">With no relief valve, the whole pump output goes to the bearings, so oil pressure and flow increase with engine speed — this gives the best flow at high power. A pressure transmitter and low-pressure warning switch monitor it; a differential pressure switch warns of a blocked filter (whose bypass then opens).</p>
+  </section>
+
+  <!-- 5 ─ A TYPICAL OIL TANK -->
+  <section class="card">
+    <h2>A Typical Oil Tank</h2>
+    <div class="meta"><span class="tag">fig_19_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Oil tank with sight glass and float, filler cap and dipstick, pressurising relief valve, overflow drain, pressure fill fitting, tank drain and oil pump mounting">
+        <path d="M200,80 L560,80 Q620,80 620,140 L620,300 Q620,330 590,330 L230,330 Q200,330 200,300 Z" stroke="var(--chart-ink)" stroke-width="2" fill="var(--chart-ground-3)"/>
+        <rect x="204.0" y="160.0" width="412.0" height="166.0" rx="0" fill="var(--fluid)" stroke="none" stroke-width="0" opacity="0.7"/>
+        <line x1="204.0" y1="160.0" x2="616.0" y2="160.0" stroke="var(--cool)" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <text x="612.0" y="154.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="end">oil level</text>
+        <rect x="120.0" y="120.0" width="40.0" height="200.0" rx="18" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="132.0" y="160.0" width="16.0" height="150.0" rx="6" fill="var(--fluid)" stroke="none" stroke-width="0"/>
+        <circle cx="140.0" cy="160.0" r="7" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <line x1="160.0" y1="220.0" x2="200.0" y2="220.0" stroke="var(--chart-ink-dim)" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="140.0" y="350.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Sight glass (float shows level)</text>
+        <rect x="470.0" y="50.0" width="30.0" height="30.0" rx="3" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="485.0" y="40.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Filler cap &amp; dipstick</text>
+        <rect x="300.0" y="60.0" width="24.0" height="20.0" rx="3" fill="var(--gold-deep)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="312.0" y="40.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">Pressurising relief valve</text>
+        <rect x="240.0" y="66.0" width="20.0" height="14.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="236.0" y="112.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" font-weight="700">Quantity transmitter</text>
+        <line x1="620.0" y1="200.0" x2="680.0" y2="200.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <text x="686.0" y="196.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Overflow</text>
+        <text x="686.0" y="210.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">drain</text>
+        <line x1="620.0" y1="270.0" x2="680.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <text x="686.0" y="266.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Pressure</text>
+        <text x="686.0" y="280.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">fill fitting</text>
+        <line x1="400.0" y1="330.0" x2="400.0" y2="360.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <text x="412.0" y="362.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Tank drain</text>
+        <rect x="260.0" y="290.0" width="90.0" height="30.0" rx="4" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="305.0" y="309.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="700">oil pump mount</text>
+      </svg>
+    </div>
+    <p class="cap">The tank is lightly pressurised (by the pressurising valve) to help prevent oil foaming and pump cavitation at altitude. Space is left above the oil for expansion and de-aeration. Contents are shown by a sight glass and a quantity transmitter; it can be gravity-filled or pressure-filled.</p>
+  </section>
+
+  <!-- 6 ─ FUEL-COOLED OIL COOLER -->
+  <section class="card">
+    <h2>Fuel-Cooled Oil Cooler</h2>
+    <div class="meta"><span class="tag">fig_19_06</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Heat exchanger with fuel flowing through a tube matrix and hot oil flowing around the tubes between baffles">
+        <rect x="140.0" y="80.0" width="460.0" height="180.0" rx="8" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="150.0" y1="100.0" x2="590.0" y2="100.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="150.0" y1="120.0" x2="590.0" y2="120.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="150.0" y1="140.0" x2="590.0" y2="140.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="150.0" y1="160.0" x2="590.0" y2="160.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="150.0" y1="180.0" x2="590.0" y2="180.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="150.0" y1="200.0" x2="590.0" y2="200.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="150.0" y1="220.0" x2="590.0" y2="220.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="150.0" y1="240.0" x2="590.0" y2="240.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="240.0" y1="82.0" x2="240.0" y2="220.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <line x1="340.0" y1="120.0" x2="340.0" y2="258.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <line x1="440.0" y1="82.0" x2="440.0" y2="220.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <line x1="540.0" y1="120.0" x2="540.0" y2="258.0" stroke="var(--chart-ink)" stroke-width="3"/>
+        <line x1="60.0" y1="110.0" x2="140.0" y2="110.0" stroke="var(--gold)" stroke-width="3" marker-end="url(#m-gold)"/>
+        <line x1="600.0" y1="240.0" x2="690.0" y2="240.0" stroke="var(--gold)" stroke-width="3" marker-end="url(#m-gold)"/>
+        <text x="60.0" y="100.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Fuel in (cold)</text>
+        <text x="690.0" y="230.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="end" font-weight="700">Fuel out (warmed)</text>
+        <line x1="190.0" y1="30.0" x2="190.0" y2="80.0" stroke="var(--hot)" stroke-width="3" marker-end="url(#m-hot)"/>
+        <line x1="570.0" y1="260.0" x2="570.0" y2="310.0" stroke="var(--cool)" stroke-width="3" marker-end="url(#m-cool)"/>
+        <text x="200.0" y="40.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Hot oil in</text>
+        <text x="580.0" y="306.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">Cooled oil out</text>
+        <path d="M210,140 L290,140 L290,160 L390,160" stroke="var(--hot)" stroke-width="1.4" fill="none" stroke-dasharray="4 3" marker-end="url(#m-hot)"/>
+        <text x="370.0" y="290.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">baffles route the oil back and forth across the fuel tubes</text>
+      </svg>
+    </div>
+    <p class="cap">Fuel passes through the tubes and hot oil flows round them, guided back and forth by baffles. The oil is cooled and the fuel is usefully warmed (helping to prevent ice in the fuel filter). A thermostatic valve can bypass oil round the matrix when cold, and a pressure relief valve opens if the matrix becomes blocked.</p>
+  </section>
+
+  <!-- 7 ─ CENTRIFUGAL BREATHER -->
+  <section class="card">
+    <h2>Centrifugal Breather</h2>
+    <div class="meta"><span class="tag">fig_19_08</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Air/oil mist from the gearbox entering a rotating breather drum, oil flung outward back to the gearbox and clean air vented to atmosphere">
+        <rect x="240.0" y="110.0" width="300.0" height="100.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <rect x="260.0" y="130.0" width="260.0" height="60.0" rx="4" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <circle cx="276.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="305.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="334.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="363.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="392.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="421.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="450.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="479.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="508.0" cy="160.0" r="4" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="560.0" y="60.0" width="70.0" height="220.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="595.0" y="300.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Gearbox</text>
+        <line x1="540.0" y1="160.0" x2="560.0" y2="160.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <rect x="120.0" y="40.0" width="60.0" height="140.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="180.0" y1="160.0" x2="240.0" y2="160.0" stroke="var(--chart-ink)" stroke-width="0"/>
+        <path d="M240,150 L180,150" stroke="var(--gold)" stroke-width="2.4" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M300,140 Q290,120 270,150" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M380,140 Q370,120 350,150" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <path d="M460,140 Q450,120 430,150" stroke="var(--gold)" stroke-width="1.6" fill="none" marker-end="url(#m-gold)"/>
+        <line x1="150.0" y1="60.0" x2="150.0" y2="20.0" stroke="var(--gold)" stroke-width="2.6" marker-end="url(#m-gold)"/>
+        <text x="170.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Air to atmosphere</text>
+        <line x1="320.0" y1="210.0" x2="320.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="2" marker-end="url(#m-ink)"/>
+        <line x1="420.0" y1="210.0" x2="420.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="2" marker-end="url(#m-ink)"/>
+        <path d="M300,240 L620,240" stroke="var(--chart-ink)" stroke-width="2" fill="none" marker-end="url(#m-ink)"/>
+        <text x="420.0" y="262.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil returned to gearbox</text>
+        <path d="M600,120 Q560,100 540,130" stroke="var(--hot)" stroke-width="2" fill="none" marker-end="url(#m-hot)"/>
+        <text x="640.0" y="110.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Air/oil mist in</text>
+        <text x="390.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">rotating breather drum</text>
+      </svg>
+    </div>
+    <p class="cap">Air leaking into the bearing chambers past the seals must be vented, but it carries oil mist. The rotating breather (impeller or perforated drum, driven from the gearbox) flings the heavier oil droplets outward and back to the gearbox, while the air passes through the centre and out to atmosphere.</p>
+  </section>
+
+  <!-- 8 ─ ENERGY CONVERSION IN THE GAS TURBINE -->
+  <section class="card">
+    <h2>Energy Conversion in the Gas Turbine</h2>
+    <div class="meta"><span class="tag">fig_20_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 260" role="img" aria-label="An engine section shaded from potential energy at the front to kinetic energy at the exhaust">
+        <defs><linearGradient id="ek" x1="0" x2="1"><stop offset="0" stop-color="#5aa6c0"/><stop offset="0.55" stop-color="#d94fa0"/><stop offset="1" stop-color="#e0864e"/></linearGradient></defs>
+        <path d="M60,70 L300,82 L420,70 L520,82 L700,96 L700,164 L520,178 L420,190 L300,178 L60,190 Z" stroke="var(--chart-ink)" stroke-width="1.6" fill="url(#ek)"/>
+        <text x="230.0" y="136.0" font-family="Overpass,sans-serif" font-size="14" fill="#0b0f11" text-anchor="middle" font-weight="700">POTENTIAL ENERGY</text>
+        <text x="590.0" y="136.0" font-family="Overpass,sans-serif" font-size="14" fill="#0b0f11" text-anchor="middle" font-weight="700">KINETIC ENERGY</text>
+        <text x="60.0" y="220.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">pressure + heat energy added</text>
+        <text x="700.0" y="220.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">converted to jet velocity</text>
+        <text x="380.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">Thrust = mass flow × change of velocity (+ pressure thrust)</text>
+      </svg>
+    </div>
+    <p class="cap">The compressor and combustion raise the potential (pressure and heat) energy of the air; the turbine extracts enough to drive the compressor, and the nozzle converts the rest into kinetic energy of the jet. Thrust is the reaction to accelerating that mass of air rearward.</p>
+  </section>
+
+  <!-- 9 ─ THRUST FROM COLD AND HOT STREAMS -->
+  <section class="card">
+    <h2>Thrust from Cold and Hot Streams</h2>
+    <div class="meta"><span class="tag">fig_20_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Turbofan with a large cold fan stream at lower velocity and a smaller hot core stream at higher velocity">
+        <path d="M60.0,300.0 L300.0,296.0 L420.0,274.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M60.0,40.0 L300.0,44.0 L420.0,66.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M180.0,236.0 L480.0,224.0 L560.0,206.0" stroke="var(--chart-ink)" stroke-width="2" fill="none"/>
+        <path d="M180.0,104.0 L480.0,116.0 L560.0,134.0" stroke="var(--chart-ink)" stroke-width="2" fill="none"/>
+        <line x1="120.0" y1="184.0" x2="120.0" y2="294.0" stroke="var(--cool)" stroke-width="6"/>
+        <line x1="120.0" y1="156.0" x2="120.0" y2="46.0" stroke="var(--cool)" stroke-width="6"/>
+        <line x1="160.0" y1="270.0" x2="640.0" y2="266.0" stroke="var(--cool)" stroke-width="3" marker-end="url(#m-cool)"/>
+        <line x1="520.0" y1="188.0" x2="700.0" y2="188.0" stroke="var(--hot)" stroke-width="3" marker-end="url(#m-hot)"/>
+        <line x1="160.0" y1="70.0" x2="640.0" y2="74.0" stroke="var(--cool)" stroke-width="3" marker-end="url(#m-cool)"/>
+        <line x1="520.0" y1="152.0" x2="700.0" y2="152.0" stroke="var(--hot)" stroke-width="3" marker-end="url(#m-hot)"/>
+        <rect x="520.0" y="20.0" width="230.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="635.0" y="41.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Fan (cold stream)</text>
+        <text x="635.0" y="55.7" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1200 lb/s at 800 ft/s</text>
+        <rect x="560.0" y="270.0" width="190.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="655.0" y="291.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Core (hot stream)</text>
+        <text x="655.0" y="305.7" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">300 lb/s at 1000 ft/s</text>
+        <text x="250.0" y="330.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">bypass ratio = 1200 ÷ 300 = 4 : 1</text>
+      </svg>
+    </div>
+    <p class="cap">A turbofan produces thrust by giving a large mass of air a modest acceleration. Here the fan moves 1200 lb/s at 800 ft/s and the core 300 lb/s at 1000 ft/s: a bypass ratio of 4:1. Most of the thrust comes from the cold stream, and the lower average jet velocity improves propulsive efficiency and reduces noise.</p>
+  </section>
+
+  <!-- 10 ─ THRUST AGAINST ENGINE SPEED -->
+  <section class="card">
+    <h2>Thrust against Engine Speed</h2>
+    <div class="meta"><span class="tag">fig_20_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Thrust rising steeply with engine rpm, the last ten per cent of rpm giving about thirty per cent of the thrust">
+        <line x1="110.0" y1="300.0" x2="640.0" y2="300.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <line x1="110.0" y1="300.0" x2="110.0" y2="40.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="375.0" y="334.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ENGINE SPEED (% rpm)</text>
+        <text x="66.0" y="170.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700" transform="rotate(-90 66 170.0)">THRUST (lb)</text>
+        <text x="158.2" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">50</text>
+        <line x1="158.2" y1="40.0" x2="158.2" y2="300.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="254.5" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">60</text>
+        <line x1="254.5" y1="40.0" x2="254.5" y2="300.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="350.9" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">70</text>
+        <line x1="350.9" y1="40.0" x2="350.9" y2="300.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="447.3" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">80</text>
+        <line x1="447.3" y1="40.0" x2="447.3" y2="300.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="543.6" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">90</text>
+        <line x1="543.6" y1="40.0" x2="543.6" y2="300.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="640.0" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">100</text>
+        <line x1="640.0" y1="40.0" x2="640.0" y2="300.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="304.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">2000</text>
+        <line x1="110.0" y1="300.0" x2="640.0" y2="300.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="246.2" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">3000</text>
+        <line x1="110.0" y1="242.2" x2="640.0" y2="242.2" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="188.4" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">4000</text>
+        <line x1="110.0" y1="184.4" x2="640.0" y2="184.4" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="130.7" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">5000</text>
+        <line x1="110.0" y1="126.7" x2="640.0" y2="126.7" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="72.9" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">6000</text>
+        <line x1="110.0" y1="68.9" x2="640.0" y2="68.9" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <path d="M129.3,276.9 C135.7,276.8 155.0,276.7 167.8,276.2 C180.7,275.6 193.5,274.8 206.4,273.6 C219.2,272.4 232.1,270.9 244.9,269.0 C257.8,267.0 270.6,264.7 283.5,262.0 C296.3,259.2 309.2,256.1 322.0,252.5 C334.8,248.9 347.7,244.9 360.5,240.5 C373.4,236.0 386.2,231.1 399.1,225.8 C411.9,220.4 424.8,214.6 437.6,208.3 C450.5,202.1 463.3,195.3 476.2,188.1 C489.0,180.8 501.9,173.1 514.7,164.9 C527.6,156.7 540.4,148.0 553.3,138.8 C566.1,129.6 579.0,119.9 591.8,109.6 C604.7,99.4 622.3,84.2 630.4,77.4 C638.4,70.6 638.4,70.3 640.0,68.9" stroke="var(--hot)" stroke-width="3" fill="none"/>
+        <line x1="543.6" y1="145.6" x2="640.0" y2="145.6" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <line x1="640.0" y1="145.6" x2="640.0" y2="68.9" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="591.8" y="58.9" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">10% rpm</text>
+        <text x="650.0" y="107.2" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">≈ 30% thrust</text>
+      </svg>
+    </div>
+    <p class="cap">Thrust does not vary in proportion to rpm: it rises steeply at the top of the range. The last 10% of rpm produces roughly 30% of the thrust, so small rpm changes near maximum have a large effect.</p>
+  </section>
+
+  <!-- 11 ─ EFFECT OF ALTITUDE ON THRUST, FUEL FLOW AND SFC -->
+  <section class="card">
+    <h2>Effect of Altitude on Thrust, Fuel Flow and SFC</h2>
+    <div class="meta"><span class="tag">fig_20_05</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 420" role="img" aria-label="Three stacked charts against altitude: net thrust falling, fuel consumption falling and specific fuel consumption falling slightly to the tropopause">
+        <rect x="120.0" y="30.0" width="440.0" height="96.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="106.8" x2="560.0" y2="106.8" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="110.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">4000</text>
+        <line x1="120.0" y1="68.4" x2="560.0" y2="68.4" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="72.4" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">6000</text>
+        <line x1="120.0" y1="30.0" x2="560.0" y2="30.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="34.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">8000</text>
+        <path d="M120.0,33.8 C141.0,37.7 203.8,48.9 245.7,56.9 C287.6,64.9 329.5,74.2 371.4,81.8 C413.3,89.5 465.7,97.5 497.1,103.0 C528.6,108.4 549.5,112.6 560.0,114.5" stroke="var(--hot)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="82.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Net thrust (lb)</text>
+        <rect x="120.0" y="144.0" width="440.0" height="96.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="240.0" x2="560.0" y2="240.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="244.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">3000</text>
+        <line x1="120.0" y1="192.0" x2="560.0" y2="192.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="196.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">5000</text>
+        <line x1="120.0" y1="144.0" x2="560.0" y2="144.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="148.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">7000</text>
+        <path d="M120.0,148.8 C141.0,152.8 203.8,164.8 245.7,172.8 C287.6,180.8 329.5,188.8 371.4,196.8 C413.3,204.8 465.7,214.4 497.1,220.8 C528.6,227.2 549.5,232.8 560.0,235.2" stroke="var(--gold)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="196.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Fuel flow (lb/hr)</text>
+        <rect x="120.0" y="258.0" width="440.0" height="96.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="354.0" x2="560.0" y2="354.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="358.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.8</text>
+        <line x1="120.0" y1="306.0" x2="560.0" y2="306.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="310.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.85</text>
+        <line x1="120.0" y1="258.0" x2="560.0" y2="258.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="262.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.9</text>
+        <path d="M120.0,286.8 C141.0,288.4 203.8,293.2 245.7,296.4 C287.6,299.6 329.5,302.8 371.4,306.0 C413.3,309.2 465.7,314.0 497.1,315.6 C528.6,317.2 549.5,315.6 560.0,315.6" stroke="var(--cool)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="310.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">SFC (lb/hr/lb)</text>
+        <text x="120.0" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0</text>
+        <text x="182.9" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">5</text>
+        <text x="245.7" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">10</text>
+        <text x="308.6" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">15</text>
+        <text x="371.4" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">20</text>
+        <text x="434.3" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">25</text>
+        <text x="497.1" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">30</text>
+        <text x="560.0" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">35</text>
+        <text x="340.0" y="388.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ALTITUDE (thousands of feet)</text>
+      </svg>
+    </div>
+    <p class="cap">With altitude the air density falls, so mass flow, thrust and fuel flow all fall. The colder air improves thermal efficiency, so SFC improves slightly up to the tropopause (about 36,000 ft), then stays roughly constant. Sea level ISA, constant rpm.</p>
+  </section>
+
+  <!-- 12 ─ THRUST LAPSE WITH OAT — FLAT RATING -->
+  <section class="card">
+    <h2>Thrust Lapse with OAT — Flat Rating</h2>
+    <div class="meta"><span class="tag">fig_20_06</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Net thrust constant (power limited) up to 15 degrees Celsius, then falling (EGT limited) as outside air temperature increases">
+        <line x1="120.0" y1="280.0" x2="680.0" y2="280.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <line x1="120.0" y1="280.0" x2="120.0" y2="40.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="400.0" y="314.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">OAT →</text>
+        <text x="76.0" y="160.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700" transform="rotate(-90 76 160.0)">NET THRUST</text>
+        <line x1="120.0" y1="80.0" x2="420.0" y2="80.0" stroke="var(--hot)" stroke-width="3"/>
+        <line x1="420.0" y1="80.0" x2="660.0" y2="220.0" stroke="var(--hot)" stroke-width="3"/>
+        <line x1="420.0" y1="40.0" x2="420.0" y2="280.0" stroke="var(--chart-ink-dim)" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <text x="420.0" y="298.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">15°C</text>
+        <text x="112.0" y="84.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="end" font-weight="700">100%</text>
+        <text x="270.0" y="70.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">POWER LIMITED</text>
+        <text x="560.0" y="130.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">EGT LIMITED</text>
+        <text x="180.0" y="298.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">decrease</text>
+        <text x="600.0" y="298.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">increase</text>
+      </svg>
+    </div>
+    <p class="cap">A flat-rated engine gives constant rated thrust up to a set temperature (here ISA +0, 15°C) by limiting fuel to a power (N1/EPR) limit. Above that, the turbine temperature limit is reached first, so thrust must reduce as OAT rises.</p>
+  </section>
+
+  <!-- 13 ─ EFFECT OF LOW AIRSPEED ON THRUST, FUEL FLOW AND SFC -->
+  <section class="card">
+    <h2>Effect of Low Airspeed on Thrust, Fuel Flow and SFC</h2>
+    <div class="meta"><span class="tag">fig_20_07</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 420" role="img" aria-label="Three stacked charts against airspeed from 0 to 30 knots: net thrust falling, fuel flow rising slightly and SFC rising">
+        <rect x="120.0" y="30.0" width="440.0" height="96.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="126.0" x2="560.0" y2="126.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="130.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">6500</text>
+        <line x1="120.0" y1="94.0" x2="560.0" y2="94.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="98.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">8000</text>
+        <line x1="120.0" y1="62.0" x2="560.0" y2="62.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="66.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">9500</text>
+        <line x1="120.0" y1="30.0" x2="560.0" y2="30.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="34.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">11000</text>
+        <path d="M120.0,38.5 C144.4,43.2 217.8,57.0 266.7,66.3 C315.6,75.5 364.4,85.8 413.3,94.0 C462.2,102.2 535.6,111.8 560.0,115.3" stroke="var(--hot)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="82.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Net thrust (lb)</text>
+        <rect x="120.0" y="144.0" width="440.0" height="96.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="240.0" x2="560.0" y2="240.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="244.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">6500</text>
+        <line x1="120.0" y1="192.0" x2="560.0" y2="192.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="196.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">6600</text>
+        <line x1="120.0" y1="144.0" x2="560.0" y2="144.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="148.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">6700</text>
+        <path d="M120.0,211.2 C144.4,208.0 217.8,198.4 266.7,192.0 C315.6,185.6 364.4,180.0 413.3,172.8 C462.2,165.6 535.6,152.8 560.0,148.8" stroke="var(--gold)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="196.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Fuel flow (lb/hr)</text>
+        <rect x="120.0" y="258.0" width="440.0" height="96.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="354.0" x2="560.0" y2="354.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="358.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.5</text>
+        <line x1="120.0" y1="306.0" x2="560.0" y2="306.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="310.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.7</text>
+        <line x1="120.0" y1="258.0" x2="560.0" y2="258.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="262.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.9</text>
+        <path d="M120.0,330.0 C144.4,326.0 217.8,314.0 266.7,306.0 C315.6,298.0 364.4,290.0 413.3,282.0 C462.2,274.0 535.6,262.0 560.0,258.0" stroke="var(--cool)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="310.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">SFC (lb/hr/lb)</text>
+        <text x="120.0" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0</text>
+        <text x="193.3" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">5</text>
+        <text x="266.7" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">10</text>
+        <text x="340.0" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">15</text>
+        <text x="413.3" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">20</text>
+        <text x="486.7" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">25</text>
+        <text x="560.0" y="370.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">30</text>
+        <text x="340.0" y="388.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">AIRSPEED (knots)</text>
+      </svg>
+    </div>
+    <p class="cap">As the aircraft accelerates, ram drag (the momentum of the air taken in) increases, so net thrust falls, while ram pressure slightly increases mass flow and fuel flow. SFC (fuel flow per pound of thrust) therefore increases.</p>
+  </section>
+
+  <!-- 14 ─ NET THRUST AND RAM EFFECT WITH FORWARD SPEED -->
+  <section class="card">
+    <h2>Net Thrust and Ram Effect with Forward Speed</h2>
+    <div class="meta"><span class="tag">fig_20_08</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Thrust against airspeed: thrust excluding ram pressure falling steeply, thrust including the ram pressure rise falling much less">
+        <line x1="110.0" y1="320.0" x2="640.0" y2="320.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <line x1="110.0" y1="320.0" x2="110.0" y2="40.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="375.0" y="354.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">AIRSPEED (knots)</text>
+        <text x="66.0" y="180.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700" transform="rotate(-90 66 180.0)">THRUST (lb)</text>
+        <text x="110.0" y="336.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">0</text>
+        <line x1="110.0" y1="40.0" x2="110.0" y2="320.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="198.3" y="336.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">100</text>
+        <line x1="198.3" y1="40.0" x2="198.3" y2="320.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="286.7" y="336.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">200</text>
+        <line x1="286.7" y1="40.0" x2="286.7" y2="320.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="375.0" y="336.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">300</text>
+        <line x1="375.0" y1="40.0" x2="375.0" y2="320.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="463.3" y="336.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">400</text>
+        <line x1="463.3" y1="40.0" x2="463.3" y2="320.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="551.7" y="336.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">500</text>
+        <line x1="551.7" y1="40.0" x2="551.7" y2="320.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="640.0" y="336.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">600</text>
+        <line x1="640.0" y1="40.0" x2="640.0" y2="320.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="324.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">2000</text>
+        <line x1="110.0" y1="320.0" x2="640.0" y2="320.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="284.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">3000</text>
+        <line x1="110.0" y1="280.0" x2="640.0" y2="280.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="244.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">4000</text>
+        <line x1="110.0" y1="240.0" x2="640.0" y2="240.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="204.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">5000</text>
+        <line x1="110.0" y1="200.0" x2="640.0" y2="200.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">6000</text>
+        <line x1="110.0" y1="160.0" x2="640.0" y2="160.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="124.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">7000</text>
+        <line x1="110.0" y1="120.0" x2="640.0" y2="120.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">8000</text>
+        <line x1="110.0" y1="80.0" x2="640.0" y2="80.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="102.0" y="44.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">9000</text>
+        <line x1="110.0" y1="40.0" x2="640.0" y2="40.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <path d="M110.0,48.0 C132.1,56.0 198.3,82.0 242.5,96.0 C286.7,110.0 330.8,122.7 375.0,132.0 C419.2,141.3 463.3,148.0 507.5,152.0 C551.7,156.0 617.9,155.3 640.0,156.0" stroke="var(--cool)" stroke-width="3" fill="none"/>
+        <path d="M110.0,48.0 C132.1,60.0 198.3,96.0 242.5,120.0 C286.7,144.0 330.8,168.7 375.0,192.0 C419.2,215.3 475.1,240.0 507.5,260.0 C539.9,280.0 559.0,303.3 569.3,312.0" stroke="var(--hot)" stroke-width="3" fill="none"/>
+        <text x="401.5" y="120.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">including ram pressure rise (net thrust)</text>
+        <text x="136.5" y="264.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">excluding ram pressure rise</text>
+        <text x="640.0" y="30.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="end">sea level ISA</text>
+      </svg>
+    </div>
+    <p class="cap">Net thrust = gross thrust − ram drag. If the intake gave no pressure recovery, net thrust would fall steeply with speed. In practice the ram pressure rise increases mass flow and gross thrust, so the net thrust curve falls far less and recovers at high speed.</p>
+  </section>
+
+  <!-- 15 ─ TURBOPROP PERFORMANCE WITH ALTITUDE -->
+  <section class="card">
+    <h2>Turboprop Performance with Altitude</h2>
+    <div class="meta"><span class="tag">fig_20_09</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 460" role="img" aria-label="Four stacked charts against altitude for a turboprop: shaft horsepower, net jet thrust and fuel flow falling, and SFC falling to about 20,000 ft then rising">
+        <rect x="120.0" y="24.0" width="440.0" height="80.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="104.0" x2="560.0" y2="104.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="108.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">2000</text>
+        <line x1="120.0" y1="72.0" x2="560.0" y2="72.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="76.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">3500</text>
+        <line x1="120.0" y1="40.0" x2="560.0" y2="40.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="44.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">5000</text>
+        <path d="M120.0,35.7 C141.0,38.2 203.8,45.3 245.7,50.7 C287.6,56.0 329.5,61.7 371.4,67.7 C413.3,73.8 465.7,82.0 497.1,86.9 C528.6,91.9 549.5,95.8 560.0,97.6" stroke="var(--hot)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="68.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Shaft horsepower</text>
+        <rect x="120.0" y="118.0" width="440.0" height="80.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="198.0" x2="560.0" y2="198.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="202.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">200</text>
+        <line x1="120.0" y1="158.0" x2="560.0" y2="158.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="162.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">300</text>
+        <line x1="120.0" y1="118.0" x2="560.0" y2="118.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="122.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">400</text>
+        <path d="M120.0,126.0 C141.0,127.3 203.8,130.0 245.7,134.0 C287.6,138.0 329.5,142.7 371.4,150.0 C413.3,157.3 465.7,171.3 497.1,178.0 C528.6,184.7 549.5,188.0 560.0,190.0" stroke="var(--gold)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="162.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Net jet thrust (lb)</text>
+        <rect x="120.0" y="212.0" width="440.0" height="80.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="292.0" x2="560.0" y2="292.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="296.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">1000</text>
+        <line x1="120.0" y1="252.0" x2="560.0" y2="252.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="256.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">1750</text>
+        <line x1="120.0" y1="212.0" x2="560.0" y2="212.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="216.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">2500</text>
+        <path d="M120.0,220.0 C141.0,223.6 203.8,234.7 245.7,241.3 C287.6,248.0 329.5,253.8 371.4,260.0 C413.3,266.2 465.7,273.8 497.1,278.7 C528.6,283.6 549.5,287.6 560.0,289.3" stroke="var(--green)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="256.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" font-weight="700">Fuel flow (lb/hr)</text>
+        <rect x="120.0" y="306.0" width="440.0" height="80.0" rx="0" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1"/>
+        <line x1="120.0" y1="386.0" x2="560.0" y2="386.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="390.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.4</text>
+        <line x1="120.0" y1="346.0" x2="560.0" y2="346.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="350.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.43</text>
+        <line x1="120.0" y1="306.0" x2="560.0" y2="306.0" stroke="var(--chart-line-2)" stroke-width="0.6"/>
+        <text x="114.0" y="310.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0.46</text>
+        <path d="M120.0,316.7 C141.0,319.3 203.8,327.8 245.7,332.7 C287.6,337.6 333.7,345.3 371.4,346.0 C409.1,346.7 440.6,340.7 472.0,336.7 C503.4,332.7 545.3,324.4 560.0,322.0" stroke="var(--cool)" stroke-width="2.6" fill="none"/>
+        <text x="570.0" y="350.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">SFC (lb/hr/shp)</text>
+        <text x="120.0" y="402.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0</text>
+        <text x="182.9" y="402.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">5</text>
+        <text x="245.7" y="402.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">10</text>
+        <text x="308.6" y="402.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">15</text>
+        <text x="371.4" y="402.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">20</text>
+        <text x="434.3" y="402.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">25</text>
+        <text x="497.1" y="402.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">30</text>
+        <text x="560.0" y="402.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">35</text>
+        <text x="340.0" y="420.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ALTITUDE (thousands of feet)</text>
+      </svg>
+    </div>
+    <p class="cap">Shaft horsepower, residual jet thrust and fuel flow all fall with altitude as density falls. Specific fuel consumption improves with the colder air up to around 20,000 ft and then worsens as the engine moves away from its design point.</p>
+  </section>
+
+  <!-- 16 ─ REVERSE THRUST SYSTEMS -->
+  <section class="card">
+    <h2>Reverse Thrust Systems</h2>
+    <div class="meta"><span class="tag">fig_21_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 460" role="img" aria-label="Clamshell door, bucket (target) and cold-stream blocker-door thrust reversers shown in forward and reverse positions">
+        <text x="380.0" y="18.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">CLAMSHELL DOORS</text>
+        <text x="200.0" y="130.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">FORWARD THRUST</text>
+        <path d="M60.0,100.0 L260.0,98.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M60.0,40.0 L260.0,42.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <line x1="80.0" y1="70.0" x2="330.0" y2="70.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <text x="560.0" y="130.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">REVERSE THRUST</text>
+        <path d="M420.0,100.0 L620.0,98.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M420.0,40.0 L620.0,42.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <line x1="550.0" y1="98.0" x2="590.0" y2="70.0" stroke="var(--hot)" stroke-width="4"/>
+        <line x1="550.0" y1="96.0" x2="520.0" y2="126.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <line x1="550.0" y1="42.0" x2="590.0" y2="70.0" stroke="var(--hot)" stroke-width="4"/>
+        <line x1="550.0" y1="44.0" x2="520.0" y2="14.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <text x="380.0" y="158.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">BUCKET / TARGET</text>
+        <text x="200.0" y="270.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">FORWARD THRUST</text>
+        <path d="M60.0,240.0 L260.0,238.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M60.0,180.0 L260.0,182.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <line x1="80.0" y1="210.0" x2="330.0" y2="210.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <text x="560.0" y="270.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">REVERSE THRUST</text>
+        <path d="M420.0,240.0 L620.0,238.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M420.0,180.0 L620.0,182.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M650,174 Q680,210 650,246" stroke="var(--chart-ink)" stroke-width="4" fill="none"/>
+        <line x1="640.0" y1="224.0" x2="600.0" y2="264.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <line x1="640.0" y1="196.0" x2="600.0" y2="156.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <text x="380.0" y="298.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">COLD STREAM (blocker doors + cascades)</text>
+        <text x="200.0" y="410.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">FORWARD THRUST</text>
+        <path d="M60.0,380.0 L260.0,378.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M60.0,320.0 L260.0,322.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M60.0,364.0 L330.0,362.0" stroke="var(--chart-ink-dim)" stroke-width="1.4" fill="none"/>
+        <path d="M60.0,336.0 L330.0,338.0" stroke="var(--chart-ink-dim)" stroke-width="1.4" fill="none"/>
+        <line x1="80.0" y1="350.0" x2="340.0" y2="350.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <line x1="80.0" y1="371.0" x2="330.0" y2="371.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <line x1="80.0" y1="329.0" x2="330.0" y2="329.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <text x="560.0" y="410.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">REVERSE THRUST</text>
+        <path d="M420.0,380.0 L620.0,378.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M420.0,320.0 L620.0,322.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M420.0,364.0 L690.0,362.0" stroke="var(--chart-ink-dim)" stroke-width="1.4" fill="none"/>
+        <path d="M420.0,336.0 L690.0,338.0" stroke="var(--chart-ink-dim)" stroke-width="1.4" fill="none"/>
+        <line x1="440.0" y1="350.0" x2="700.0" y2="350.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <line x1="570.0" y1="364.0" x2="580.0" y2="378.0" stroke="var(--cool)" stroke-width="3"/>
+        <line x1="560.0" y1="372.0" x2="520.0" y2="402.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="570.0" y1="336.0" x2="580.0" y2="322.0" stroke="var(--cool)" stroke-width="3"/>
+        <line x1="560.0" y1="328.0" x2="520.0" y2="298.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <text x="630.0" y="314.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">cascade</text>
+      </svg>
+    </div>
+    <p class="cap">Clamshell doors (inside the jet pipe) and bucket or target doors (behind the nozzle) deflect the hot jet forward. On high-bypass engines a translating cowl and blocker doors turn the cold fan stream out through cascade vanes; the core usually stays in forward thrust. The reversed flow is directed outward and forward to avoid re-ingestion.</p>
+  </section>
+
+  <!-- 17 ─ EXTERNAL GEARBOX AND RADIAL DRIVESHAFT -->
+  <section class="card">
+    <h2>External Gearbox and Radial Driveshaft</h2>
+    <div class="meta"><span class="tag">fig_22_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Turbofan section with a radial driveshaft taken from the HP shaft down to an external gearbox mounted under the fan case">
+        <path d="M60.0,270.0 L300.0,266.0 L420.0,246.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M60.0,30.0 L300.0,34.0 L420.0,54.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M180.0,210.0 L500.0,200.0 L600.0,180.0" stroke="var(--chart-ink)" stroke-width="2" fill="none"/>
+        <path d="M180.0,90.0 L500.0,100.0 L600.0,120.0" stroke="var(--chart-ink)" stroke-width="2" fill="none"/>
+        <line x1="120.0" y1="164.0" x2="120.0" y2="264.0" stroke="var(--cool)" stroke-width="6"/>
+        <line x1="120.0" y1="136.0" x2="120.0" y2="36.0" stroke="var(--cool)" stroke-width="6"/>
+        <rect x="120.0" y="147.0" width="430.0" height="6.0" rx="6" fill="var(--cool)" stroke="none" stroke-width="0"/>
+        <rect x="220.0" y="141.0" width="240.0" height="4.0" rx="6" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="220.0" y="155.0" width="240.0" height="4.0" rx="6" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <circle cx="240.0" cy="160.0" r="8" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="240.0" y1="168.0" x2="240.0" y2="290.0" stroke="var(--hot)" stroke-width="4"/>
+        <rect x="180.0" y="290.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="260.0" y="315.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">External gearbox</text>
+        <text x="250.0" y="240.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Radial driveshaft</text>
+        <text x="380.0" y="170.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">HP shaft</text>
+        <text x="560.0" y="168.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">LP shaft</text>
+        <text x="500.0" y="300.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">drives fuel &amp; oil pumps, generators,</text>
+        <text x="500.0" y="314.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">hydraulic pumps; starter drives in</text>
+      </svg>
+    </div>
+    <p class="cap">Accessories are driven from the HP shaft through an internal gearbox, a radial driveshaft and the external (accessory) gearbox, usually mounted on the fan case or core where it is cooler and accessible. Driving from the HP spool lets the starter turn the HP rotor for starting.</p>
+  </section>
+
+  <!-- 18 ─ SPREADING ACCESSORY LOAD — TWO EXTERNAL GEARBOXES -->
+  <section class="card">
+    <h2>Spreading Accessory Load — Two External Gearboxes</h2>
+    <div class="meta"><span class="tag">fig_22_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Engine with a low-speed external gearbox driven from the LP shaft and a high-speed external gearbox driven from the HP shaft">
+        <path d="M60.0,260.0 L520.0,250.0 L700.0,220.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <path d="M60.0,80.0 L520.0,90.0 L700.0,120.0" stroke="var(--chart-ink)" stroke-width="2.4" fill="none"/>
+        <rect x="80.0" y="167.0" width="560.0" height="6.0" rx="6" fill="var(--cool)" stroke="none" stroke-width="0"/>
+        <rect x="220.0" y="161.0" width="260.0" height="4.0" rx="6" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="220.0" y="175.0" width="260.0" height="4.0" rx="6" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <line x1="140.0" y1="167.0" x2="140.0" y2="40.0" stroke="var(--cool)" stroke-width="4"/>
+        <rect x="80.0" y="20.0" width="160.0" height="36.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="160.0" y="43.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Low-speed gearbox</text>
+        <line x1="280.0" y1="179.0" x2="280.0" y2="290.0" stroke="var(--gold)" stroke-width="4"/>
+        <rect x="200.0" y="290.0" width="170.0" height="36.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="285.0" y="313.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">High-speed gearbox</text>
+        <text x="150.0" y="110.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)">driven by LP shaft</text>
+        <text x="290.0" y="250.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">driven by HP shaft (+ starter)</text>
+      </svg>
+    </div>
+    <p class="cap">Some engines spread the accessory load between two gearboxes: a low-speed gearbox driven from the LP spool and a high-speed gearbox driven from the HP spool (which also carries the starter).</p>
+  </section>
+
+  <!-- 19 ─ SURFACE DISCHARGE IGNITER PLUG -->
+  <section class="card">
+    <h2>Surface Discharge Igniter Plug</h2>
+    <div class="meta"><span class="tag">fig_23_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Section of a surface discharge igniter plug with a central electrode, insulator, semiconductor pellet at the tip and nickel-chromium outer shell">
+        <rect x="120.0" y="90.0" width="480.0" height="120.0" rx="6" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <rect x="120.0" y="110.0" width="480.0" height="80.0" rx="0" fill="var(--warm)" stroke="none" stroke-width="0"/>
+        <rect x="120.0" y="140.0" width="520.0" height="20.0" rx="2" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="100.0" y="136.0" width="20.0" height="28.0" rx="2" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="380.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="402.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="424.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="446.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="468.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="490.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="512.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="534.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="556.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="578.0" y="80.0" width="16.0" height="140.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="110.0" y="70.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Semiconductor pellet</text>
+        <line x1="110.0" y1="76.0" x2="110.0" y2="134.0" stroke="var(--gold)" stroke-width="1"/>
+        <text x="250.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Central (hot) electrode</text>
+        <line x1="300.0" y1="66.0" x2="300.0" y2="138.0" stroke="var(--hot)" stroke-width="1"/>
+        <text x="250.0" y="250.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--warm)" font-weight="700">Insulator</text>
+        <line x1="250.0" y1="238.0" x2="250.0" y2="192.0" stroke="var(--warm)" stroke-width="1"/>
+        <text x="480.0" y="250.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Nickel-chromium shell (earthed)</text>
+        <line x1="480.0" y1="238.0" x2="480.0" y2="222.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="110.0" y="230.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">tip in the flame tube</text>
+      </svg>
+    </div>
+    <p class="cap">The high-energy ignition unit discharges across the semiconductor pellet at the tip, from the central (hot) electrode to the earthed outer shell. The semiconductor lets the spark form at lower voltage and is not affected by fuel wetting. Typical output 4 to 20 joules.</p>
+  </section>
+
+  <!-- 20 ─ FREE TURBINE TURBOSHAFT APU -->
+  <section class="card">
+    <h2>Free Turbine Turboshaft APU</h2>
+    <div class="meta"><span class="tag">fig_24_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="APU gas generator with compressor, combustion and turbine, and a free power turbine driving a gearbox, generator and load compressor">
+        <rect x="20.0" y="130.0" width="100.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="70.0" y="158.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Air intake</text>
+        <rect x="160.0" y="130.0" width="110.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="215.0" y="158.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Compressor</text>
+        <rect x="300.0" y="130.0" width="100.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--warm)" stroke-width="1.6"/>
+        <text x="350.0" y="158.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Combustion</text>
+        <rect x="430.0" y="130.0" width="110.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--warm)" stroke-width="1.6"/>
+        <text x="485.0" y="151.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Gas generator</text>
+        <text x="485.0" y="164.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">turbine</text>
+        <rect x="570.0" y="130.0" width="160.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="650.0" y="151.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Free power</text>
+        <text x="650.0" y="165.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">turbine</text>
+        <rect x="570.0" y="230.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="650.0" y="253.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Gearbox</text>
+        <rect x="360.0" y="240.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="440.0" y="263.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">AC generator</text>
+        <rect x="570.0" y="30.0" width="160.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="650.0" y="51.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Load compressor</text>
+        <text x="650.0" y="65.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">→ bleed air</text>
+        <line x1="120.0" y1="155.0" x2="160.0" y2="155.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="270.0" y1="155.0" x2="300.0" y2="155.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="400.0" y1="155.0" x2="430.0" y2="155.0" stroke="var(--warm)" stroke-width="1.6" marker-end="url(#m-warm)"/>
+        <line x1="540.0" y1="155.0" x2="570.0" y2="155.0" stroke="var(--warm)" stroke-width="1.6" marker-end="url(#m-warm)"/>
+        <line x1="650.0" y1="180.0" x2="650.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="570.0" y1="253.8" x2="520.0" y2="256.2" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <path d="M730,250 L748,250 L748,55 L732,55" stroke="var(--cool)" stroke-width="1.6" fill="none" marker-end="url(#m-cool)"/>
+        <path d="M485,180 L485,205 L215,205 L215,180" stroke="var(--chart-ink)" stroke-width="1.6" fill="none" stroke-dasharray="4 3"/>
+        <text x="350.0" y="222.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">gas generator shaft</text>
+      </svg>
+    </div>
+    <p class="cap">The gas generator (compressor, combustor and its turbine) produces hot gas that drives a separate free power turbine. The power turbine drives the gearbox carrying the AC generator and a load compressor that supplies bleed air for engine starting and air conditioning.</p>
+  </section>
+
+  <!-- 21 ─ APU INDICATIONS -->
+  <section class="card">
+    <h2>APU Indications</h2>
+    <div class="meta"><span class="tag">fig_24_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="APU panel with rpm and EGT gauges, fault lights for overspeed, low oil pressure, high oil temperature and over temperature, and status lights">
+        <rect x="150.0" y="20.0" width="460.0" height="340.0" rx="10" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="280.0" cy="110.0" r="60" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="250.3" y1="139.7" x2="243.2" y2="146.8" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="236.6" y1="128.0" x2="232.0" y2="129.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="233.0" y1="110.0" x2="228.0" y2="110.0" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="236.6" y1="92.0" x2="232.0" y2="90.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="246.8" y1="76.8" x2="243.2" y2="73.2" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="262.0" y1="66.6" x2="260.1" y2="62.0" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="280.0" y1="68.0" x2="280.0" y2="58.0" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="298.0" y1="66.6" x2="299.9" y2="62.0" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="313.2" y1="76.8" x2="316.8" y2="73.2" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="323.4" y1="92.0" x2="328.0" y2="90.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="327.0" y1="110.0" x2="332.0" y2="110.0" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="323.4" y1="128.0" x2="328.0" y2="129.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="309.7" y1="139.7" x2="316.8" y2="146.8" stroke="#ffffff" stroke-width="1.8"/>
+        <text x="258.8" y="134.8" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">0</text>
+        <text x="280.0" y="83.6" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">60</text>
+        <text x="301.2" y="134.8" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">120</text>
+        <line x1="280.0" y1="110.0" x2="326.0" y2="111.4" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="280.0" cy="110.0" r="5" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="280.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">% RPM</text>
+        <circle cx="480.0" cy="110.0" r="60" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="450.3" y1="139.7" x2="443.2" y2="146.8" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="435.3" y1="124.5" x2="430.5" y2="126.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="433.6" y1="102.6" x2="428.6" y2="101.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="442.0" y1="82.4" x2="437.9" y2="79.4" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="458.7" y1="68.1" x2="456.4" y2="63.7" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="480.0" y1="68.0" x2="480.0" y2="58.0" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="501.3" y1="68.1" x2="503.6" y2="63.7" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="518.0" y1="82.4" x2="522.1" y2="79.4" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="526.4" y1="102.6" x2="531.4" y2="101.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="524.7" y1="124.5" x2="529.5" y2="126.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="509.7" y1="139.7" x2="516.8" y2="146.8" stroke="#ffffff" stroke-width="1.8"/>
+        <text x="458.8" y="134.8" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">0</text>
+        <text x="480.0" y="83.6" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">5</text>
+        <text x="501.2" y="134.8" font-family="Overpass,sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="700">10</text>
+        <line x1="480.0" y1="110.0" x2="475.7" y2="64.2" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="480.0" cy="110.0" r="5" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="480.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">EGT ×100 °C</text>
+        <rect x="180.0" y="214.0" width="90.0" height="40.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="225.0" y="238.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="700">OVER SPEED</text>
+        <rect x="284.0" y="214.0" width="90.0" height="40.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="329.0" y="238.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="700">LOW OIL P</text>
+        <rect x="388.0" y="214.0" width="90.0" height="40.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="433.0" y="238.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="700">HIGH OIL T</text>
+        <rect x="492.0" y="214.0" width="90.0" height="40.0" rx="4" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="537.0" y="238.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="700">OVER TEMP</text>
+        <rect x="180.0" y="280.0" width="90.0" height="40.0" rx="4" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="225.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#f0a830" text-anchor="middle" font-weight="700">DOOR</text>
+        <rect x="284.0" y="280.0" width="90.0" height="40.0" rx="4" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="329.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#f0a830" text-anchor="middle" font-weight="700">INLET FLOW</text>
+        <rect x="388.0" y="280.0" width="90.0" height="40.0" rx="4" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="433.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#f0a830" text-anchor="middle" font-weight="700">LOW OIL QTY</text>
+        <rect x="492.0" y="280.0" width="90.0" height="40.0" rx="4" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="537.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#f0a830" text-anchor="middle" font-weight="700">FUEL FILTER</text>
+        <text x="640.0" y="238.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)">fault: auto</text>
+        <text x="640.0" y="252.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)">shutdown</text>
+        <text x="640.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="#f0a830">status</text>
+      </svg>
+    </div>
+    <p class="cap">Typical APU indications: rpm (%) and EGT gauges; fault lights that also trigger an automatic shutdown (overspeed, low oil pressure, high oil temperature, over-temperature); and status/advisory lights.</p>
+  </section>
+
+  <!-- 22 ─ AN AIR STARTER MOTOR -->
+  <section class="card">
+    <h2>An Air Starter Motor</h2>
+    <div class="meta"><span class="tag">fig_24_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Air starter with air inlet, turbine rotor, reduction gear, clutch and output drive to the engine gearbox, and air outlet">
+        <rect x="20.0" y="130.0" width="120.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="80.0" y="158.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Air inlet</text>
+        <rect x="180.0" y="130.0" width="120.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="240.0" y="158.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Turbine rotor</text>
+        <rect x="340.0" y="130.0" width="120.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="400.0" y="158.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Reduction gear</text>
+        <rect x="500.0" y="130.0" width="100.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="550.0" y="158.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Clutch</text>
+        <rect x="630.0" y="130.0" width="110.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="685.0" y="151.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Engine drive</text>
+        <text x="685.0" y="165.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">(gearbox)</text>
+        <rect x="180.0" y="40.0" width="120.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="240.0" y="63.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Air outlet</text>
+        <line x1="140.0" y1="155.0" x2="180.0" y2="155.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="300.0" y1="155.0" x2="340.0" y2="155.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="460.0" y1="155.0" x2="500.0" y2="155.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="600.0" y1="155.0" x2="630.0" y2="155.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="240.0" y1="130.0" x2="240.0" y2="80.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="380.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Clutch overruns and disengages when the engine is self-sustaining;</text>
+        <text x="380.0" y="266.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">starter air valve then closes.</text>
+      </svg>
+    </div>
+    <p class="cap">Compressed air (from the APU, a ground cart or another engine) spins a small turbine at high speed. A reduction gear increases torque and a clutch drives the engine HP rotor through the gearbox; the clutch overruns and disengages once the engine is self-sustaining.</p>
+  </section>
+
+  <!-- 23 ─ TWO-ENGINE AIR STARTING LAYOUT -->
+  <section class="card">
+    <h2>Two-Engine Air Starting Layout</h2>
+    <div class="meta"><span class="tag">fig_24_05</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 400" role="img" aria-label="Air manifold connecting the APU, a ground connector and engine cross-bleed valves to the start air valves and starters of two engines">
+        <rect x="20.0" y="40.0" width="160.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="100.0" y="66.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Engine 1</text>
+        <text x="100.0" y="80.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">starter</text>
+        <rect x="580.0" y="40.0" width="160.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="660.0" y="66.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Engine 2</text>
+        <text x="660.0" y="80.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">starter</text>
+        <rect x="20.0" y="150.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="100.0" y="173.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Start air valve 1</text>
+        <rect x="580.0" y="150.0" width="160.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="660.0" y="173.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Start air valve 2</text>
+        <rect x="220.0" y="150.0" width="130.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="285.0" y="173.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Cross-bleed 1</text>
+        <rect x="410.0" y="150.0" width="130.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="475.0" y="173.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Cross-bleed 2</text>
+        <rect x="290.0" y="240.0" width="180.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="263.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">APU (bleed valve)</text>
+        <rect x="290.0" y="320.0" width="180.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="380.0" y="343.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Ground connector</text>
+        <line x1="100.0" y1="216.0" x2="660.0" y2="216.0" stroke="var(--cool)" stroke-width="4"/>
+        <text x="380.0" y="208.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle">air manifold</text>
+        <line x1="100.0" y1="150.0" x2="100.0" y2="100.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="660.0" y1="150.0" x2="660.0" y2="100.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="100.0" y1="190.0" x2="100.0" y2="216.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="660.0" y1="190.0" x2="660.0" y2="216.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="285.0" y1="190.0" x2="285.0" y2="216.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="475.0" y1="190.0" x2="475.0" y2="216.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="380.0" y1="216.0" x2="380.0" y2="240.0" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="380.0" y1="280.0" x2="380.0" y2="320.0" stroke="var(--chart-ink-dim)" stroke-width="2"/>
+        <text x="30.0" y="260.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">Engine bleed via cross-bleed</text>
+        <text x="30.0" y="274.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">valves (cross-start)</text>
+        <circle cx="640.0" cy="300.0" r="38" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.2"/>
+        <line x1="625.9" y1="314.1" x2="618.8" y2="321.2" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="615.5" y1="304.9" x2="610.6" y2="305.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="616.9" y1="290.4" x2="612.3" y2="288.5" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="626.1" y1="279.2" x2="623.3" y2="275.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="640.0" y1="280.0" x2="640.0" y2="270.0" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="653.9" y1="279.2" x2="656.7" y2="275.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="663.1" y1="290.4" x2="667.7" y2="288.5" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="664.5" y1="304.9" x2="669.4" y2="305.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="654.1" y1="314.1" x2="661.2" y2="321.2" stroke="#ffffff" stroke-width="1.8"/>
+        <text x="634.3" y="308.5" font-family="Overpass,sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="700">0</text>
+        <text x="640.0" y="294.9" font-family="Overpass,sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="700">40</text>
+        <text x="645.7" y="308.5" font-family="Overpass,sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="700">80</text>
+        <line x1="640.0" y1="300.0" x2="634.4" y2="276.7" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="640.0" cy="300.0" r="5" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="640.0" y="360.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">manifold pressure (psi)</text>
+      </svg>
+    </div>
+    <p class="cap">Start air can come from the APU, a ground start unit or the other running engine (via the cross-bleed valves). Opening the start air valve sends it to the starter; a cockpit light shows the valve open. Manifold pressure is shown in the cockpit.</p>
+  </section>
+
+  <!-- 24 ─ ENGINE FUEL SYSTEM — SCHEMATIC -->
+  <section class="card">
+    <h2>Engine Fuel System — Schematic</h2>
+    <div class="meta"><span class="tag">fig_26_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Fuel flow from tank booster pumps through LP shut-off valve, LP pump, fuel-cooled oil cooler, heater and filter to the HP pump, fuel control unit, flowmeter and spray nozzles">
+        <rect x="20.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="52.0" y="171.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Booster</text>
+        <text x="52.0" y="184.4" font-family="Overpass,sans-serif" font-size="8" fill="var(--chart-ink-dim)" text-anchor="middle">pumps</text>
+        <rect x="94.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="126.0" y="171.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LP shut-off</text>
+        <text x="126.0" y="184.4" font-family="Overpass,sans-serif" font-size="8" fill="var(--chart-ink-dim)" text-anchor="middle">fire handle</text>
+        <line x1="84.0" y1="175.0" x2="92.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <rect x="168.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="200.0" y="178.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LP pump</text>
+        <line x1="158.0" y1="175.0" x2="166.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <rect x="242.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="274.0" y="171.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Fuel-cooled</text>
+        <text x="274.0" y="184.4" font-family="Overpass,sans-serif" font-size="8" fill="var(--chart-ink-dim)" text-anchor="middle">oil cooler</text>
+        <line x1="232.0" y1="175.0" x2="240.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <rect x="316.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--warm)" stroke-width="1.6"/>
+        <text x="348.0" y="171.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Fuel</text>
+        <text x="348.0" y="184.4" font-family="Overpass,sans-serif" font-size="8" fill="var(--chart-ink-dim)" text-anchor="middle">heater</text>
+        <line x1="306.0" y1="175.0" x2="314.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <rect x="390.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="422.0" y="178.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LP filter</text>
+        <line x1="380.0" y1="175.0" x2="388.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <rect x="464.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="496.0" y="178.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">HP pump</text>
+        <line x1="454.0" y1="175.0" x2="462.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <rect x="538.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="570.0" y="171.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">FCU</text>
+        <text x="570.0" y="184.4" font-family="Overpass,sans-serif" font-size="8" fill="var(--chart-ink-dim)" text-anchor="middle">+ HP cock</text>
+        <line x1="528.0" y1="175.0" x2="536.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <rect x="612.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="644.0" y="171.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Flow-</text>
+        <text x="644.0" y="184.4" font-family="Overpass,sans-serif" font-size="8" fill="var(--chart-ink-dim)" text-anchor="middle">meter</text>
+        <line x1="602.0" y1="175.0" x2="610.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <rect x="686.0" y="150.0" width="64.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="718.0" y="171.9" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Spray</text>
+        <text x="718.0" y="184.4" font-family="Overpass,sans-serif" font-size="8" fill="var(--chart-ink-dim)" text-anchor="middle">nozzles</text>
+        <line x1="676.0" y1="175.0" x2="684.0" y2="175.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="400.0" y="120.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">low pressure ← | → high pressure</text>
+        <line x1="480.0" y1="128.0" x2="480.0" y2="240.0" stroke="var(--chart-line-2)" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <text x="560.0" y="40.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">throttle</text>
+        <text x="560.0" y="56.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">N1, N2</text>
+        <text x="560.0" y="72.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">P1 intake</text>
+        <text x="560.0" y="88.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">P3 compressor</text>
+        <line x1="574.0" y1="100.0" x2="574.0" y2="148.0" stroke="var(--gold)" stroke-width="1.4" marker-end="url(#m-gold)"/>
+        <text x="560.0" y="26.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">FCU inputs:</text>
+        <text x="380.0" y="260.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">Drains tank collects fuel from the manifold on shutdown</text>
+      </svg>
+    </div>
+    <p class="cap">Booster pumps feed the engine-driven LP pump, which supplies the fuel-cooled oil cooler, fuel heater and LP filter, preventing ice and cavitation. The HP pump feeds the fuel control unit (FCU), which meters fuel according to throttle position and engine parameters (N1, N2, intake pressure, compressor delivery pressure). The HP shut-off cock stops the engine; the LP valve (fire handle) isolates the engine.</p>
+  </section>
+
+  <!-- 25 ─ AXIAL PISTON (SWASH PLATE) FUEL PUMP -->
+  <section class="card">
+    <h2>Axial Piston (Swash Plate) Fuel Pump</h2>
+    <div class="meta"><span class="tag">fig_26_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Rotor carrying plungers bearing on a swash plate whose angle is set by a servo piston, varying pump stroke and delivery">
+        <rect x="260.0" y="100.0" width="220.0" height="140.0" rx="8" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <text x="370.0" y="262.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Rotor</text>
+        <rect x="240.0" y="113.0" width="140.0" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="217.6" y="143.0" width="162.4" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="223.8" y="173.0" width="156.2" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <rect x="250.6" y="203.0" width="129.4" height="14.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <path d="M180,80 L230,80 L200,260 L150,260 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="var(--steel)"/>
+        <text x="150.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Swash plate</text>
+        <rect x="80.0" y="40.0" width="80.0" height="30.0" rx="4" fill="#d94fa0" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="160.0" y1="55.0" x2="200.0" y2="80.0" stroke="#d94fa0" stroke-width="3"/>
+        <text x="120.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="#d94fa0" text-anchor="middle" font-weight="700">Servo piston</text>
+        <line x1="480.0" y1="170.0" x2="560.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="6"/>
+        <text x="570.0" y="174.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" font-weight="700">Pump drive</text>
+        <line x1="600.0" y1="110.0" x2="490.0" y2="110.0" stroke="var(--gold)" stroke-width="3" marker-end="url(#m-gold)"/>
+        <text x="610.0" y="114.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">Fuel inlet (LP)</text>
+        <line x1="490.0" y1="230.0" x2="600.0" y2="230.0" stroke="var(--hot)" stroke-width="3" marker-end="url(#m-hot)"/>
+        <text x="610.0" y="234.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">Delivery (HP)</text>
+        <text x="380.0" y="320.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Greater swash plate angle → longer plunger stroke → more fuel</text>
+      </svg>
+    </div>
+    <p class="cap">The rotor turns, and each plunger rides on the inclined swash plate, so it reciprocates once per revolution, drawing fuel in and delivering it at high pressure. The servo piston changes the swash plate angle: a greater angle gives a longer stroke and more delivery. The FCU controls the servo pressure.</p>
+  </section>
+
+  <!-- 26 ─ HYDRO-MECHANICAL FUEL CONTROL -->
+  <section class="card">
+    <h2>Hydro-Mechanical Fuel Control</h2>
+    <div class="meta"><span class="tag">fig_26_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Block diagram of a hydro-mechanical fuel control: pump, rpm governor, throttle valve, barometric pressure control, servo, HP cock and back-pressure valve">
+        <rect x="20.0" y="290.0" width="130.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="85.0" y="318.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Main filter</text>
+        <rect x="20.0" y="160.0" width="130.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="85.0" y="186.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pump + servo</text>
+        <text x="85.0" y="200.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">piston</text>
+        <rect x="210.0" y="60.0" width="160.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="290.0" y="88.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">RPM governor</text>
+        <rect x="210.0" y="160.0" width="160.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="290.0" y="188.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Throttle valve</text>
+        <rect x="430.0" y="60.0" width="140.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="500.0" y="81.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">BPC</text>
+        <text x="500.0" y="95.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">senses intake P</text>
+        <rect x="430.0" y="160.0" width="140.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="500.0" y="188.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">HP cock</text>
+        <rect x="430.0" y="270.0" width="140.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="500.0" y="291.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Back-pressure</text>
+        <text x="500.0" y="305.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">valve</text>
+        <rect x="620.0" y="160.0" width="120.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="680.0" y="188.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Burners</text>
+        <line x1="85.0" y1="290.0" x2="85.0" y2="220.0" stroke="var(--cool)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-cool)"/>
+        <line x1="150.0" y1="188.4" x2="210.0" y2="187.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="370.0" y1="185.0" x2="430.0" y2="185.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="570.0" y1="185.0" x2="620.0" y2="185.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="241.2" y1="110.0" x2="143.6" y2="160.0" stroke="var(--gold)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-gold)"/>
+        <line x1="430.0" y1="102.7" x2="150.0" y2="173.6" stroke="var(--cool)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-cool)"/>
+        <line x1="337.7" y1="210.0" x2="452.3" y2="270.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <text x="140.0" y="50.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">servo signals</text>
+      </svg>
+    </div>
+    <p class="cap">The pump delivery is controlled by the servo piston. The rpm governor and the throttle set the fuel flow for the selected rpm; the barometric pressure control (BPC) reduces fuel as intake pressure falls with altitude or speed changes so that the rpm for a given throttle setting is maintained. Excess fuel is spilled back; the HP cock shuts off fuel to the burners.</p>
+  </section>
+
+  <!-- 27 ─ SUPERVISORY ENGINE ELECTRONIC CONTROL -->
+  <section class="card">
+    <h2>Supervisory Engine Electronic Control</h2>
+    <div class="meta"><span class="tag">fig_26_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Throttle mechanically linked to a hydro-mechanical control which is trimmed by a supervisory EEC using Mach number, inlet temperature, inlet pressure and EPR">
+        <rect x="20.0" y="40.0" width="170.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="105.0" y="68.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Throttle lever angle</text>
+        <rect x="20.0" y="230.0" width="170.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="105.0" y="256.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Hydro-mechanical</text>
+        <text x="105.0" y="270.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">fuel control</text>
+        <rect x="290.0" y="130.0" width="180.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="161.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Supervisory EEC</text>
+        <text x="380.0" y="175.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">trims fuel flow</text>
+        <rect x="560.0" y="230.0" width="180.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="650.0" y="263.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Engine</text>
+        <rect x="560.0" y="40.0" width="180.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="650.0" y="68.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Mach no. (ADC)</text>
+        <line x1="105.0" y1="90.0" x2="105.0" y2="230.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="109.0" y="156.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">mechanical linkage</text>
+        <line x1="173.8" y1="90.0" x2="290.0" y2="132.3" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="582.5" y1="90.0" x2="470.0" y2="131.7" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="290.0" y1="196.1" x2="190.0" y2="230.6" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <text x="244.0" y="209.4" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)">trim</text>
+        <line x1="190.0" y1="260.0" x2="560.0" y2="260.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="564.7" y1="230.0" x2="470.0" y2="196.7" stroke="var(--cool)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-cool)"/>
+        <text x="521.4" y="209.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)">T1, P1, EPR</text>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">EEC failure: hydro-mechanical control carries on</text>
+      </svg>
+    </div>
+    <p class="cap">The throttle still moves the hydro-mechanical fuel control directly. The supervisory EEC uses throttle lever angle, Mach number, inlet temperature and pressure and EPR to trim fuel flow and hold the thrust set constant regardless of temperature or pressure change. If the EEC fails, the hydro-mechanical unit continues to control the engine.</p>
+  </section>
+
+  <!-- 28 ─ FADEC — FULL AUTHORITY DIGITAL ENGINE CONTROL -->
+  <section class="card">
+    <h2>FADEC — Full Authority Digital Engine Control</h2>
+    <div class="meta"><span class="tag">fig_26_05</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="A dual-channel FADEC receiving throttle angle, air data, FMS and engine sensor inputs and commanding fuel metering, bleed valves and variable stators">
+        <rect x="20.0" y="30.0" width="160.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="49.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Throttle lever angle</text>
+        <line x1="180.0" y1="46.0" x2="270.0" y2="190.0" stroke="var(--cool)" stroke-width="1.2"/>
+        <rect x="20.0" y="74.0" width="160.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="93.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Mach no.</text>
+        <line x1="180.0" y1="90.0" x2="270.0" y2="190.0" stroke="var(--cool)" stroke-width="1.2"/>
+        <rect x="20.0" y="118.0" width="160.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="137.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Altitude</text>
+        <line x1="180.0" y1="134.0" x2="270.0" y2="190.0" stroke="var(--cool)" stroke-width="1.2"/>
+        <rect x="20.0" y="162.0" width="160.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="181.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Ambient temp</text>
+        <line x1="180.0" y1="178.0" x2="270.0" y2="190.0" stroke="var(--cool)" stroke-width="1.2"/>
+        <rect x="20.0" y="206.0" width="160.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="225.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Inlet temp</text>
+        <line x1="180.0" y1="222.0" x2="270.0" y2="190.0" stroke="var(--cool)" stroke-width="1.2"/>
+        <rect x="20.0" y="250.0" width="160.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="269.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Air density</text>
+        <line x1="180.0" y1="266.0" x2="270.0" y2="190.0" stroke="var(--cool)" stroke-width="1.2"/>
+        <rect x="20.0" y="294.0" width="160.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="313.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">FMS</text>
+        <line x1="180.0" y1="310.0" x2="270.0" y2="190.0" stroke="var(--cool)" stroke-width="1.2"/>
+        <rect x="270.0" y="130.0" width="200.0" height="120.0" rx="8" fill="var(--chart-ground-3)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="370.0" y="180.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--gold)" text-anchor="middle" font-weight="700">FADEC</text>
+        <text x="370.0" y="200.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">channel A + channel B</text>
+        <rect x="560.0" y="60.0" width="180.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="650.0" y="79.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">N1, N2</text>
+        <line x1="560.0" y1="76.0" x2="470.0" y2="160.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <rect x="560.0" y="104.0" width="180.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="650.0" y="123.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">P and T sensors</text>
+        <line x1="560.0" y1="120.0" x2="470.0" y2="160.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <rect x="560.0" y="148.0" width="180.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="650.0" y="167.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil temp</text>
+        <line x1="560.0" y1="164.0" x2="470.0" y2="160.0" stroke="var(--hot)" stroke-width="1.2"/>
+        <rect x="560.0" y="230.0" width="180.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="650.0" y="249.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Fuel metering valve</text>
+        <line x1="470.0" y1="220.0" x2="560.0" y2="246.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <rect x="560.0" y="274.0" width="180.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="650.0" y="293.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Bleed valves, VSVs</text>
+        <line x1="470.0" y1="220.0" x2="560.0" y2="290.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <rect x="560.0" y="318.0" width="180.0" height="32.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="650.0" y="337.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Clearance control</text>
+        <line x1="470.0" y1="220.0" x2="560.0" y2="334.0" stroke="var(--gold)" stroke-width="1.2" marker-end="url(#m-gold)"/>
+        <text x="370.0" y="360.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">no mechanical back-up: full authority</text>
+      </svg>
+    </div>
+    <p class="cap">FADEC has full authority over the engine: there is no mechanical back-up. It takes throttle lever angle, air data (Mach, altitude, ambient and inlet temperature) and FMS data, plus engine sensors (N1, N2, pressures, temperatures, oil temperature), and commands fuel metering, compressor bleeds, variable stator vanes and turbine clearance control. Two independent channels give redundancy.</p>
+  </section>
+
+  <!-- 29 ─ BLEED AIR SYSTEM -->
+  <section class="card">
+    <h2>Bleed Air System</h2>
+    <div class="meta"><span class="tag">fig_27_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 420" role="img" aria-label="Engine bleed air from LP and HP compressor stages through valves and pre-coolers to a manifold supplying air conditioning packs, wing anti-ice, engine start and pressurisation, with APU and ground connections">
+        <rect x="30.0" y="330.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="353.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LP stage bleed</text>
+        <rect x="30.0" y="270.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="100.0" y="293.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">HP valve (low power)</text>
+        <rect x="30.0" y="200.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="100.0" y="223.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure reg. valve</text>
+        <rect x="30.0" y="130.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="100.0" y="153.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pre-cooler</text>
+        <line x1="100.0" y1="330.0" x2="100.0" y2="310.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="100.0" y1="270.0" x2="100.0" y2="240.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="100.0" y1="200.0" x2="100.0" y2="170.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <rect x="590.0" y="330.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="660.0" y="353.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LP stage bleed</text>
+        <rect x="590.0" y="270.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="660.0" y="293.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">HP valve (low power)</text>
+        <rect x="590.0" y="200.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="660.0" y="223.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure reg. valve</text>
+        <rect x="590.0" y="130.0" width="140.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="660.0" y="153.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pre-cooler</text>
+        <line x1="660.0" y1="330.0" x2="660.0" y2="310.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="660.0" y1="270.0" x2="660.0" y2="240.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="660.0" y1="200.0" x2="660.0" y2="170.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="100.0" y1="110.0" x2="660.0" y2="110.0" stroke="var(--hot)" stroke-width="4"/>
+        <line x1="100.0" y1="130.0" x2="100.0" y2="110.0" stroke="var(--hot)" stroke-width="3"/>
+        <line x1="660.0" y1="130.0" x2="660.0" y2="110.0" stroke="var(--hot)" stroke-width="3"/>
+        <text x="220.0" y="102.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">bleed air manifold</text>
+        <rect x="368.0" y="100.0" width="24.0" height="20.0" rx="3" fill="var(--gold-deep)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="380.0" y="140.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">isolation valve</text>
+        <rect x="220.0" y="20.0" width="140.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="290.0" y="48.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Air-con packs</text>
+        <rect x="400.0" y="20.0" width="140.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="470.0" y="48.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Wing anti-ice</text>
+        <line x1="290.0" y1="110.0" x2="290.0" y2="72.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <line x1="470.0" y1="110.0" x2="470.0" y2="72.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <rect x="250.0" y="220.0" width="120.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="310.0" y="243.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">APU bleed</text>
+        <rect x="400.0" y="220.0" width="120.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="460.0" y="243.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Ground connector</text>
+        <line x1="310.0" y1="220.0" x2="310.0" y2="114.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <line x1="460.0" y1="220.0" x2="460.0" y2="114.0" stroke="var(--chart-ink-dim)" stroke-width="2" marker-end="url(#m-dim)"/>
+        <text x="380.0" y="300.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">Also supplies engine start,</text>
+        <text x="380.0" y="314.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">hydraulic reservoir pressurisation</text>
+      </svg>
+    </div>
+    <p class="cap">Air is bled from a low-pressure stage, or from a high-pressure stage (via the HP valve) at low engine power. It passes through the pressure-regulating valve and the pre-cooler into the bleed manifold, which supplies the air-conditioning packs, wing and engine anti-ice, engine starting and hydraulic reservoir pressurisation. An isolation valve divides left and right; the APU and a ground connector can supply the manifold.</p>
+  </section>
+
+  <!-- 30 ─ NOZZLE GUIDE VANE AND BLADE COOLING -->
+  <section class="card">
+    <h2>Nozzle Guide Vane and Blade Cooling</h2>
+    <div class="meta"><span class="tag">fig_27_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Three cooled aerofoils: single-pass internal cooling, single-pass multi-feed with film cooling, and multi-pass multi-feed with extensive film cooling">
+        <path d="M90,60 Q180,60 174,180 Q170,260 140,260 L100,260 Q80,160 90,60 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="#a9bac1"/>
+        <line x1="112.0" y1="250.0" x2="112.0" y2="76.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="120.0" y1="300.0" x2="120.0" y2="266.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="160.0" y1="50.0" x2="180.0" y2="24.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <text x="130.0" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Single pass,</text>
+        <text x="130.0" y="330.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">internal cooling</text>
+        <path d="M340,60 Q430,60 424,180 Q420,260 390,260 L350,260 Q330,160 340,60 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="#a9bac1"/>
+        <line x1="362.0" y1="250.0" x2="362.0" y2="76.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="392.0" y1="250.0" x2="392.0" y2="76.0" stroke="var(--cool)" stroke-width="2"/>
+        <circle cx="360.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="360.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="360.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="360.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="360.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="370.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="370.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="370.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="370.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="370.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="380.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="380.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="380.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="380.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="380.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <line x1="370.0" y1="300.0" x2="370.0" y2="266.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="410.0" y1="50.0" x2="430.0" y2="24.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <text x="380.0" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Single pass, multi-feed,</text>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">film cooling</text>
+        <path d="M590,60 Q680,60 674,180 Q670,260 640,260 L600,260 Q580,160 590,60 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="#a9bac1"/>
+        <line x1="612.0" y1="250.0" x2="612.0" y2="76.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="624.0" y1="250.0" x2="624.0" y2="76.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="636.0" y1="250.0" x2="636.0" y2="76.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="648.0" y1="250.0" x2="648.0" y2="76.0" stroke="var(--cool)" stroke-width="2"/>
+        <line x1="660.0" y1="250.0" x2="660.0" y2="76.0" stroke="var(--cool)" stroke-width="2"/>
+        <circle cx="610.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="610.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="610.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="610.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="610.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="620.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="620.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="620.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="620.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="620.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="630.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="630.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="630.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="630.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="630.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="640.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="640.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="640.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="640.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="640.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="650.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="650.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="650.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="650.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="650.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="660.0" cy="90.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="660.0" cy="122.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="660.0" cy="154.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="660.0" cy="186.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <circle cx="660.0" cy="218.0" r="2" fill="#0b0f11" stroke="#0b0f11" stroke-width="0"/>
+        <line x1="620.0" y1="300.0" x2="620.0" y2="266.0" stroke="var(--cool)" stroke-width="2.4" marker-end="url(#m-cool)"/>
+        <line x1="660.0" y1="50.0" x2="680.0" y2="24.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <text x="630.0" y="316.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Multi-pass, multi-feed,</text>
+        <text x="630.0" y="330.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">extensive film cooling</text>
+        <text x="40.0" y="290.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)">cooling air in</text>
+      </svg>
+    </div>
+    <p class="cap">Cooling air from the HP compressor flows through internal passages in the vanes and blades. Later designs added film cooling — air bled through rows of small holes forms a cool film over the surface — and multi-pass passages, allowing turbine entry temperatures far above the melting point of the metal.</p>
+  </section>
+
+  <!-- 31 ─ COOLING AND SEALING IN THE TURBINE -->
+  <section class="card">
+    <h2>Cooling and Sealing in the Turbine</h2>
+    <div class="meta"><span class="tag">fig_27_03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Turbine section with high-pressure air flowing to the nozzle guide vanes and blades and through interstage seals, and low-pressure air vented overboard">
+        <rect x="60.0" y="60.0" width="640.0" height="60.0" rx="0" fill="var(--warm)" stroke="var(--chart-ink)" stroke-width="1.6" opacity="0.55"/>
+        <text x="380.0" y="52.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--warm)" text-anchor="middle" font-weight="700">hot gas path</text>
+        <rect x="190.0" y="64.0" width="20.0" height="52.0" rx="3" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="200.0" y="140.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">NGV</text>
+        <rect x="270.0" y="64.0" width="20.0" height="52.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="280.0" y="140.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">HP blade</text>
+        <rect x="390.0" y="64.0" width="20.0" height="52.0" rx="3" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="400.0" y="140.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">NGV</text>
+        <rect x="470.0" y="64.0" width="20.0" height="52.0" rx="3" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="480.0" y="140.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LP blade</text>
+        <rect x="250.0" y="150.0" width="60.0" height="110.0" rx="6" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <rect x="450.0" y="150.0" width="60.0" height="110.0" rx="6" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <line x1="60.0" y1="290.0" x2="640.0" y2="290.0" stroke="var(--chart-ink)" stroke-width="6"/>
+        <line x1="232.0" y1="260.0" x2="232.0" y2="276.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="238.0" y1="260.0" x2="238.0" y2="276.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="244.0" y1="260.0" x2="244.0" y2="276.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="250.0" y1="260.0" x2="250.0" y2="276.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="432.0" y1="260.0" x2="432.0" y2="276.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="438.0" y1="260.0" x2="438.0" y2="276.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="444.0" y1="260.0" x2="444.0" y2="276.0" stroke="var(--gold)" stroke-width="2"/>
+        <line x1="450.0" y1="260.0" x2="450.0" y2="276.0" stroke="var(--gold)" stroke-width="2"/>
+        <text x="340.0" y="312.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">interstage seals</text>
+        <line x1="300.0" y1="304.0" x2="244.0" y2="278.0" stroke="var(--gold)" stroke-width="1"/>
+        <path d="M60,200 L180,200 L200,120" stroke="var(--hot)" stroke-width="2.2" fill="none" marker-end="url(#m-hot)"/>
+        <path d="M180,200 L260,200 L280,150" stroke="var(--hot)" stroke-width="2" fill="none" marker-end="url(#m-hot)"/>
+        <path d="M260,200 L380,200 L400,120" stroke="var(--hot)" stroke-width="2" fill="none" marker-end="url(#m-hot)"/>
+        <text x="60.0" y="190.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">HP cooling air</text>
+        <path d="M520,200 L720,200 L720,150" stroke="var(--cool)" stroke-width="2" fill="none" marker-end="url(#m-cool)"/>
+        <text x="560.0" y="190.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">LP air overboard</text>
+      </svg>
+    </div>
+    <p class="cap">HP compressor air is ducted inward of the combustion chamber to cool the NGVs, turbine discs and blades, and to pressurise the interstage seals so that hot gas cannot leak inward. Lower-pressure air cools the rear stages and is vented overboard.</p>
+  </section>
+
+  <!-- 32 ─ INTERSTAGE AND INTERSHAFT SEALS -->
+  <section class="card">
+    <h2>Interstage and Intershaft Seals</h2>
+    <div class="meta"><span class="tag">fig_27_04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A labyrinth air seal with rotating fins close to a static land and sealing air, and a hydraulic seal using an oil-filled rotating annulus">
+        <rect x="40.0" y="90.0" width="300.0" height="20.0" rx="0" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="190.0" y="80.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">static land</text>
+        <rect x="40.0" y="150.0" width="300.0" height="30.0" rx="0" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="190.0" y="200.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">rotor</text>
+        <path d="M60,150 L66,114 L72,150 Z" stroke="var(--chart-ink)" stroke-width="1.2" fill="#a9bac1"/>
+        <path d="M96,150 L102,114 L108,150 Z" stroke="var(--chart-ink)" stroke-width="1.2" fill="#a9bac1"/>
+        <path d="M132,150 L138,114 L144,150 Z" stroke="var(--chart-ink)" stroke-width="1.2" fill="#a9bac1"/>
+        <path d="M168,150 L174,114 L180,150 Z" stroke="var(--chart-ink)" stroke-width="1.2" fill="#a9bac1"/>
+        <path d="M204,150 L210,114 L216,150 Z" stroke="var(--chart-ink)" stroke-width="1.2" fill="#a9bac1"/>
+        <path d="M240,150 L246,114 L252,150 Z" stroke="var(--chart-ink)" stroke-width="1.2" fill="#a9bac1"/>
+        <path d="M276,150 L282,114 L288,150 Z" stroke="var(--chart-ink)" stroke-width="1.2" fill="#a9bac1"/>
+        <path d="M312,150 L318,114 L324,150 Z" stroke="var(--chart-ink)" stroke-width="1.2" fill="#a9bac1"/>
+        <path d="M60,132 Q78,124 96,132 Q114,140 132,132 Q150,124 168,132 Q186,140 204,132 Q222,124 240,132 Q258,140 276,132 Q294,124 312,132" stroke="var(--hot)" stroke-width="1.6" fill="none" marker-end="url(#m-hot)"/>
+        <text x="190.0" y="232.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">INTERSTAGE (LABYRINTH) AIR SEAL</text>
+        <text x="190.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">sealing air leaks across each fin</text>
+        <rect x="440.0" y="80.0" width="280.0" height="30.0" rx="4" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="440.0" y="160.0" width="280.0" height="30.0" rx="4" fill="#a9bac1" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M520,110 L520,150 L640,150 L640,110" stroke="var(--chart-ink)" stroke-width="2" fill="none"/>
+        <rect x="522.0" y="128.0" width="116.0" height="20.0" rx="2" fill="var(--gold)" stroke="none" stroke-width="0"/>
+        <rect x="570.0" y="110.0" width="20.0" height="30.0" rx="2" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="580.0" y="232.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">INTERSHAFT HYDRAULIC SEAL</text>
+        <text x="580.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">oil held in a rotating annulus</text>
+        <text x="580.0" y="70.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">outer shaft</text>
+        <text x="580.0" y="210.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">inner shaft</text>
+      </svg>
+    </div>
+    <p class="cap">Labyrinth seal: rows of fins on the rotor run very close to a static land; the pressure drops across each restriction, so leakage is small, and sealing air flows inward to block oil or hot gas. Hydraulic seal: a rotating oil-filled annulus forms a liquid seal between two shafts rotating at different speeds.</p>
+  </section>
+
+  <footer>
+    Powerplant — Gas Turbine Systems & Performance: 32 original figures.
+  </footer>
+</div>
+</body></html>

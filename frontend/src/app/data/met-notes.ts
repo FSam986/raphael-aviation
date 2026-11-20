@@ -438,7 +438,7 @@ export const MET_NOTES: SectionNote[] = [
       {
         heading: "1. The lapse rates",
         points: [
-          "DALR = 3°C/100 m (unsaturated rising parcel). SALR ≈ 1.5°C/100 m (saturated — less, because condensation releases latent heat).",
+          "DALR = 3°C/1000 ft ≈ 1°C/100 m (unsaturated rising parcel). SALR ≈ 1.5°C/1000 ft (saturated — less, because condensation releases latent heat).",
           "ELR = the actual temperature profile of the surrounding air (a measured value, not a parcel rate).",
           "Adiabatic = no heat exchange; rising air cools by expansion, sinking air warms by compression.",
         ],
@@ -454,10 +454,10 @@ export const MET_NOTES: SectionNote[] = [
       },
     ],
     mustKnow: [
-      "DALR 3°C/100 m; SALR ≈1.5°C/100 m; SALR < DALR due to latent heat.",
+      "DALR 3°C/1000 ft (1°C/100 m); SALR ≈1.5°C/1000 ft; SALR < DALR due to latent heat.",
       "ELR<SALR stable; ELR>DALR unstable; between = conditionally unstable.",
       "Stable → stratus, poor vis, smooth. Unstable → cumulus, showers, good vis, turbulent.",
-      "0.65°C/100 m (and 1°C/100 m) = conditionally unstable.",
+      "An ELR between SALR and DALR (e.g. 2°C/1000 ft = 0.65°C/100 m) = conditionally unstable.",
       "Subsidence/inversions increase stability.",
     ],
     traps: [
