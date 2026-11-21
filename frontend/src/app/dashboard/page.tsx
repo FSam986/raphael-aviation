@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -48,9 +49,7 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
-        <div className="text-chart-ink-faint text-sm mono tracking-widest">PLOTTING ROUTE…</div>
-      </div>
+      <LoadingScreen />
     );
   }
 

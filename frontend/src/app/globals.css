@@ -167,3 +167,14 @@ html.night img { filter: brightness(.9); }
 h1 { font-weight: 700 !important; line-height: 1 !important; }
 h1.text-3xl { font-size: 2.6rem; }
 h1.text-2xl { font-size: 2.1rem; }
+
+/* Loading screen: light aircraft over drifting clouds */
+.ls-clouds { animation: ls-drift 9s linear infinite; }
+@keyframes ls-drift { to { transform: translateX(-280px); } }
+.ls-plane { animation: ls-bob 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes ls-bob { 0%,100% { transform: translateY(-3px) rotate(-1.5deg); } 50% { transform: translateY(4px) rotate(1.5deg); } }
+.ls-prop { animation: ls-prop .12s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes ls-prop { 50% { transform: scaleY(.25); } }
+.ls-lines { animation: ls-lines 1.1s linear infinite; }
+@keyframes ls-lines { from { transform: translateX(20px); opacity: .9; } to { transform: translateX(-30px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ls-clouds, .ls-plane, .ls-prop, .ls-lines { animation: none; } }

@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -238,7 +239,7 @@ export default function CoachSessionReel() {
     try { if (notifyPermission() === "granted") scheduleDailyStreak(18, 0); } catch { /* ignore */ }
   }
 
-  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+  if (loading) return <LoadingScreen />;
 
   // Resume prompt — shown when an unfinished session for today was found.
   if (pendingResume) {
@@ -265,7 +266,7 @@ export default function CoachSessionReel() {
     );
   }
 
-  if (!hydrated) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+  if (!hydrated) return <LoadingScreen />;
 
   const topics = plan!.days[dayIdx].units;
   const remaining = Math.max(0, slides.length - active - 1);

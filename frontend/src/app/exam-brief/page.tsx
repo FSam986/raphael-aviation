@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useMemo, useState } from "react";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
@@ -49,9 +50,7 @@ export default function ExamBrief() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
-        <div className="text-zinc-600 text-sm">Loading...</div>
-      </div>
+      <LoadingScreen />
     );
 
   return (

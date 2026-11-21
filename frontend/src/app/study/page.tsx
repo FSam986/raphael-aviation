@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useCourse } from "@/app/hooks/useCourse";
@@ -41,7 +42,7 @@ export default function StudyPage() {
   }, [query, syllabus]);
 
   if (loading) {
-    return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+    return <LoadingScreen />;
   }
 
   return (

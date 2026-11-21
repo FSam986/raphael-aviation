@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { Sidebar } from "@/app/components/Sidebar";
@@ -58,7 +59,7 @@ export default function CoachPage() {
   async function disableReminders() { await cancelDailyStreak(); setRemindersOn(false); }
 
   if (loading || !hydrated)
-    return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+    return <LoadingScreen />;
 
   function generate() {
     if (!examDate || selected.length === 0) return;

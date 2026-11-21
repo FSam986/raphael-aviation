@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
@@ -213,9 +214,7 @@ export function MockExam({
 
   if (loading || !accessReady)
     return (
-      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
-        <div className="text-zinc-600 text-sm">Loading...</div>
-      </div>
+      <LoadingScreen />
     );
 
   if (locked) return <LockedCourse course={course} />;

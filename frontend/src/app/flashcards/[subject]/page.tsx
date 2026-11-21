@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -36,7 +37,7 @@ export default function SubjectFlashcards() {
 
   useEffect(() => { scroller.current?.scrollTo({ top: 0 }); setActive(0); }, [sectionFilter]);
 
-  if (loading || !accessReady) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+  if (loading || !accessReady) return <LoadingScreen />;
 
   if (locked) return <LockedCourse course={course} />;
 

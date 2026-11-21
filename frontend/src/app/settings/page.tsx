@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -66,7 +67,7 @@ export default function Settings() {
   }, []);
 
   if (loading || !hydrated)
-    return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading…</div></div>;
+    return <LoadingScreen />;
 
   const flash = (m: string) => { setSaved(m); setTimeout(() => setSaved(""), 2000); };
 
