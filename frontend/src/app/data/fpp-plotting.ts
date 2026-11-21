@@ -226,7 +226,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     sectionId: "A.4.10",
     graphRef: "CAP 697 · MEP1 · Figure 3.2 — Range at standard temperatures",
     diagram: "cruise",
-    given: ["Usable fuel: 123 gal (4 750 lb)", "Cruise altitude: 16 500 ft", "Climb at max continuous power; descent 1 000 fpm / 145 kt IAS, no wind", "4.2 gal for start/taxi/take-off; range includes climb & descent"],
+    given: ["Usable fuel: 123 gal (4 750 lb)", "Cruise altitude: 16 500 ft", "Power: 45% (long-range cruise), mixture leaned, ISA", "Climb at max continuous power; descent 1 000 fpm / 145 kt IAS, no wind", "4.2 gal for start/taxi/take-off; range includes climb & descent"],
     ask: "Find the still-air range, with and without reserve.",
     steps: [
       "Enter Figure 3.2 at the left axis with the cruise pressure altitude (16 500 ft).",
@@ -501,7 +501,8 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     graphRef: "CAP 698 · MEP1 · §2.2 — Field-length-limited take-off mass",
     diagram: "takeoff",
     given: [
-      "Max-effort short field; TORA 2 400 ft, ASDA 2 500 ft, TODA 2 600 ft",
+      "Max-effort short field (flaps 25°): pressure altitude 2 000 ft, OAT +30 °C, 5 kt tailwind",
+      "Runway 2% uphill, dry grass; TORA 2 400 ft, ASDA 2 500 ft, TODA 2 600 ft",
       "Slope factor ×1.1, surface/condition ×1.2 (grass/dry)",
       "Regulation: TORA ×1.0, ASDA ×1.3, TODA ×1.15",
     ],
@@ -1515,6 +1516,13 @@ import { FPP_GUIDE_PLOTTING } from "@/app/data/fpp-plotting-guide";
 // Hand-built plotting exercises plus the generated ones from the guide's Q1–86.
 export const FPP_ALL_PLOTTING: PlottingQuestion[] = [...FPP_PLOTTING, ...FPP_GUIDE_PLOTTING];
 
+// PPL Flight Planning reuses the single-engine (SEP1) exercises only — MEP and
+// MRJT performance is outside the PPL syllabus.
+const PPL_PLOT_SOURCE: Record<string, string> = { "7.4": "A.4.9", "7.1": "A.4.12" };
+const isSEP = (p: PlottingQuestion) => /SEP1/.test(p.graphRef) || /SEP1/.test(p.given.join(" "));
+
 export function getFPPPlottingBySection(sectionId: string): PlottingQuestion[] {
+  const src = PPL_PLOT_SOURCE[sectionId];
+  if (src) return FPP_ALL_PLOTTING.filter((p) => p.sectionId === src && isSEP(p));
   return FPP_ALL_PLOTTING.filter((p) => p.sectionId === sectionId);
 }
