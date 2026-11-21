@@ -42,6 +42,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Accident vs incident (high-yield)",
+        figureTopics: ["Accidents & incidents"],
         points: [
           "Accident: an occurrence associated with the operation of an aircraft, between the time persons board with the intention of flight and the time all have disembarked, in which a person is fatally or seriously injured, the aircraft sustains damage/structural failure, or the aircraft is missing or completely inaccessible.",
           "Serious injury: injury requiring hospitalisation, involving fractures (except simple fingers/toes/nose), severe haemorrhage/nerve/muscle/tendon damage, internal organ injury, second/third-degree burns, or confirmed exposure to infectious substances/harmful radiation.",
@@ -220,6 +221,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Rules of the air — right of way",
+        figureTopics: ["Right of way"],
         points: [
           "An aircraft that has the right of way maintains heading and speed; the other gives way and does not pass over, under or ahead unless well clear.",
           "Converging at similar height: the aircraft on the OTHER's RIGHT has right of way. Power gives way to balloons, gliders and airships (least manoeuvrable has priority).",
@@ -230,7 +232,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "3. Minimum heights & cruising levels",
-        figureTopics: ["Cruising levels"],
+        figureTopics: ["Cruising levels", "Minimum heights"],
         points: [
           "Except for take-off/landing, do not fly below 500 ft above the ground or water, or closer than 500 ft to any person, vessel, vehicle or structure.",
           "Over a congested area (city/town/settlement) or an open-air assembly of people, do not fly below 1000 ft above the highest obstacle within a specified radius, and always high enough to glide clear in the event of engine failure.",
@@ -239,6 +241,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "4. VFR minima, fuel & radio failure",
+        figureTopics: ["Signals & radio failure"],
         points: [
           "VFR requires flight in VMC — minimum visibility and distance from cloud that vary with airspace class and altitude (e.g. clear of cloud with surface in sight at low level; greater separation at higher levels). Learn the table for each airspace.",
           "Fuel: carry enough for the flight to destination plus the prescribed reserve (and to an alternate where required) — never plan to land with less than the minimum reserve.",
@@ -303,6 +306,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Airspace classification & services",
+        figureTopics: ["Airspace"],
         points: [
           "Airspace is classified A–G; each class sets whether IFR/VFR are allowed, whether a clearance is required, what separation/traffic service ATC provides, and the radio and equipment requirements.",
           "Class A is the most restrictive (IFR only, clearance required, ATC separation); Class G is uncontrolled (flight information only, no clearance to enter).",
@@ -414,6 +418,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Carriage rules",
+        figureTopics: ["Dangerous goods"],
         points: [
           "Dangerous goods may only be transported in accordance with the ICAO Technical Instructions for the Safe Transport of Dangerous Goods by Air (Doc 9284).",
           "DG must be correctly classified, packed, marked, labelled and documented; the operator must accept and load them according to the rules and segregation requirements.",
@@ -551,6 +556,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "1. Airspace classes & service",
+        figureTopics: ["Airspace"],
         points: [
           "Airspace is classified A–G. Classes A–E are CONTROLLED (a clearance is required to operate under IFR, and often VFR); classes F–G are UNCONTROLLED.",
           "Class A: IFR only, all flights separated by ATC. Class C: IFR and VFR allowed, all get a clearance, IFR separated from IFR and VFR. Class G: uncontrolled, flight information/alerting only, no clearance needed.",
@@ -627,6 +633,7 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
       },
       {
         heading: "2. Minimum altitudes",
+        figureTopics: ["Enroute minimum altitudes"],
         points: [
           "MEA (Minimum Enroute Altitude): guarantees navaid reception AND obstacle clearance along the airway.",
           "MOCA (Minimum Obstacle Clearance Altitude): guarantees obstacle clearance, and navaid reception only within a limited distance of the navaid.",

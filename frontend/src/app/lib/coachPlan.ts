@@ -6,6 +6,7 @@
 // when that lands). ponytail: single source of truth for plan + streak maths.
 
 import { COURSES, type CourseId } from "@/app/lib/course";
+import { hasFullAccess } from "@/app/lib/entitlement";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { starOfSubject } from "@/app/data/exam-priority";
 
@@ -370,8 +371,9 @@ export const clearPlan = () => { if (typeof window !== "undefined") { localStora
 export const loadProgress = () => read<CoachProgress>(PROG_KEY) ?? freshProgress();
 export const saveProgress = (p: CoachProgress) => write(PROG_KEY, p);
 
-// Premium gate (placeholder until real billing is wired).
-export const isPremium = () => read<boolean>(PREMIUM_KEY) === true;
+// Premium gate (placeholder until real billing is wired). Full-access accounts
+// (preview/admin allowlist) always count as premium.
+export const isPremium = () => hasFullAccess() || read<boolean>(PREMIUM_KEY) === true;
 export const setPremium = (v: boolean) => write(PREMIUM_KEY, v);
 
 // Rough guarantee heuristic: how many topics/day this plan demands.

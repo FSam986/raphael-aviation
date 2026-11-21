@@ -8,7 +8,7 @@ import { Icon } from "@/app/components/Icon";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const [mode, setMode] = useState<"signin" | "signup" | "reset">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -28,7 +28,11 @@ export default function LoginPage() {
       return;
     }
 
-    if (mode === "signup") {
+    if (mode === "reset") {
+      // Always show the same message so we never reveal whether the email exists.
+      await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/reset-password` });
+      setMessage("If an account exists for that email, a reset link is on its way. Check your inbox.");
+    } else if (mode === "signup") {
       const { error } = await supabase.auth.signUp({
         email,
         password,
@@ -97,12 +101,14 @@ export default function LoginPage() {
           </div>
 
           <h1 className="font-display text-3xl text-white mb-2">
-            {mode === "signin" ? "Welcome back" : "Create your account"}
+            {mode === "signin" ? "Welcome back" : mode === "signup" ? "Create your account" : "Reset your password"}
           </h1>
           <p className="text-zinc-500 mb-8 text-sm">
             {mode === "signin"
-              ? "Sign in to continue your CPL training."
-              : "Start your journey to passing SACAA."}
+              ? "Sign in to continue your training."
+              : mode === "signup"
+              ? "Start your journey to passing SACAA."
+              : "Enter your email and we'll send you a link to choose a new password."}
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -115,7 +121,7 @@ export default function LoginPage() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Fathima Samreen"
+                  placeholder="Your full name"
                   required
                   className="w-full bg-zinc-900 border border-zinc-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-yellow-400 transition-colors placeholder:text-zinc-700"
                 />
@@ -136,10 +142,15 @@ export default function LoginPage() {
               />
             </div>
 
-            <div>
-              <label className="text-xs text-zinc-500 uppercase tracking-wider block mb-2">
-                Password
-              </label>
+            {mode !== "reset" && <div>
+              <div className="flex items-baseline justify-between mb-2">
+                <label className="text-xs text-zinc-500 uppercase tracking-wider block">Password</label>
+                {mode === "signin" && (
+                  <button type="button" onClick={() => { setMode("reset"); setError(""); setMessage(""); }} className="text-xs text-yellow-400 hover:text-yellow-300">
+                    Forgot password?
+                  </button>
+                )}
+              </div>
               <input
                 type="password"
                 value={password}
@@ -149,7 +160,15 @@ export default function LoginPage() {
                 minLength={6}
                 className="w-full bg-zinc-900 border border-zinc-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-yellow-400 transition-colors placeholder:text-zinc-700"
               />
-            </div>
+            </div>}
+
+            {mode === "signup" && (
+              <p className="text-xs text-zinc-500 leading-relaxed">
+                By creating an account you agree to our{" "}
+                <Link href="/terms" className="text-yellow-400 hover:text-yellow-300">Terms of Use</Link> and{" "}
+                <Link href="/privacy" className="text-yellow-400 hover:text-yellow-300">Privacy Policy</Link>.
+              </p>
+            )}
 
             {error && (
               <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm px-4 py-3 rounded-xl">
@@ -172,12 +191,18 @@ export default function LoginPage() {
                 ? "Please wait..."
                 : mode === "signin"
                 ? "Sign In"
-                : "Create Account"}
+                : mode === "signup"
+                ? "Create Account"
+                : "Send reset link"}
             </button>
           </form>
 
           <p className="text-center text-zinc-600 text-sm mt-6">
-            {mode === "signin" ? (
+            {mode === "reset" ? (
+              <button onClick={() => { setMode("signin"); setError(""); setMessage(""); }} className="text-yellow-400 hover:text-yellow-300 font-medium">
+                ← Back to sign in
+              </button>
+            ) : mode === "signin" ? (
               <>
                 Don&apos;t have an account?{" "}
                 <button
@@ -201,12 +226,11 @@ export default function LoginPage() {
           </p>
 
           <div className="mt-8 pt-8 border-t border-zinc-900">
-            <Link
-              href="/"
-              className="text-zinc-700 text-xs hover:text-zinc-500 transition-colors"
-            >
-              ← Back to home
-            </Link>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+              <Link href="/" className="text-zinc-600 hover:text-zinc-400 transition-colors">← Back to home</Link>
+              <Link href="/terms" className="text-zinc-600 hover:text-zinc-400 transition-colors">Terms</Link>
+              <Link href="/privacy" className="text-zinc-600 hover:text-zinc-400 transition-colors">Privacy</Link>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { MockExam } from "@/app/components/MockExam";
+import { examBank } from "@/app/lib/examBank";
 import { HUMAN_PERFORMANCE_QUESTIONS } from "@/app/data/human-performance-questions";
 import { findSubject } from "@/app/lib/course";
 
@@ -12,7 +13,7 @@ export default function HumanPerformanceExamPage() {
       subjectId="human-performance"
       code={S.code}
       title={S.title}
-      questions={HUMAN_PERFORMANCE_QUESTIONS}
+      questions={examBank("human-performance")}
       examSize={Math.min(S.examQuestions, HUMAN_PERFORMANCE_QUESTIONS.length)}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}

@@ -6,8 +6,11 @@
 import type { PlottingQuestion, PlotDiagram } from "@/app/data/fpp-plotting";
 import { FPP_GUIDE_GRAPH_QUESTIONS } from "@/app/data/fpp-questions-guide";
 
+// Landing figures: CAP 698 SEP1 Fig 2.4, MEP1 Figs 3.9 / 3.10 — even when the
+// question asks for "runway length required".
+const LANDING_FIG = /SEP1 Fig 2\.4|MEP1 Fig 3\.(9|10)\b/;
 function diagramFor(text: string): PlotDiagram {
-  if (/landing/i.test(text)) return "landing";
+  if (/landing/i.test(text) || LANDING_FIG.test(text)) return "landing";
   if (/rate of climb|to climb|\bclimb\b|gradient/i.test(text)) return "climb";
   if (/range|endurance|descent|\bTAS\b|fuel flow|cruise|GPH/i.test(text)) return "cruise";
   return "takeoff"; // take-off / accelerate-stop / ground roll
@@ -17,6 +20,14 @@ function graphRefOf(question: string): string {
   const m = question.match(/\(([^)]*Fig[^)]*)\)/i);
   return m ? m[1] : "CAP 697/698";
 }
+
+// CAP 696 questions are mass-and-balance loading calculations, not graph reads.
+const MASS_BALANCE_STEPS = [
+  "Open CAP 696 for the aeroplane named (SEP1 or MEP1) and note the arms of each station and the CG limits.",
+  "List each item's mass and arm; moment = mass × arm (or use the tabulated moment ÷ 100).",
+  "Add the masses and moments; CG = total moment ÷ total mass. Remove fuel used (mass and moment) for landing.",
+  "Check the masses against the structural limits and plot the CG on the envelope.",
+];
 
 function stepsFor(d: PlotDiagram): string[] {
   switch (d) {
@@ -57,6 +68,7 @@ const LETTER: Record<string, "optionA" | "optionB" | "optionC" | "optionD"> = {
 
 export const FPP_GUIDE_PLOTTING: PlottingQuestion[] = FPP_GUIDE_GRAPH_QUESTIONS.map((q) => {
   const diagram = diagramFor(q.question);
+  const massBalance = /CAP 696/.test(q.question);
   const answer = q[LETTER[q.correctAnswer]] as string;
   return {
     id: `PLOT-${q.id}`,
@@ -65,7 +77,7 @@ export const FPP_GUIDE_PLOTTING: PlottingQuestion[] = FPP_GUIDE_GRAPH_QUESTIONS.
     diagram,
     given: [q.question.replace(/^\([^)]*\)\s*/, "")],
     ask: "Plot this on your CAP manual and read the value.",
-    steps: stepsFor(diagram),
+    steps: massBalance ? MASS_BALANCE_STEPS : stepsFor(diagram),
     answer: `${answer} (Flight Planning Examination Guide answer).`,
     difficulty: "hard" as const,
   };

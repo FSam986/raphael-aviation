@@ -49,3 +49,15 @@ export function findSubject(id: string): SyllabusSubject | undefined {
   }
   return undefined;
 }
+
+/** Which course a subject belongs to (by syllabus membership, not id prefix —
+ *  GR subjects aren't prefixed). Drives per-course access gating. */
+export function courseOfSubject(id: string): CourseId | undefined {
+  for (const c of Object.values(COURSES)) {
+    if (c.syllabus.some((sub) => sub.id === id)) return c.id;
+  }
+  // Composite ids that aren't a single syllabus subject (e.g. "ir-combined").
+  if (id.startsWith("ppl-")) return "ppl";
+  if (id.startsWith("ir-")) return "ir";
+  return undefined;
+}

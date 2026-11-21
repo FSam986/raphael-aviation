@@ -44,8 +44,8 @@ import { HP_FIGURES } from "@/app/data/human-performance-figures";
 import { INSTRUMENTS_FIGURES } from "@/app/data/instruments-figures";
 import { FPP_FIGURES } from "@/app/data/fpp-figures";
 import { NAV_FIGURES } from "@/app/data/nav-figures";
-import { RADIONAV_FIGURES } from "@/app/data/radionav-figures";
 import { AIRLAW_FIGURES } from "@/app/data/airlaw-figures";
+import { RADIONAV_FIGURES } from "@/app/data/radionav-figures";
 import { PPL_MET_FIGURE_KEY } from "@/app/data/ppl-met-content";
 import { PPL_NAV_FIGURE_KEY } from "@/app/data/ppl-nav-content";
 import { PPL_FPP_FIGURE_KEY } from "@/app/data/ppl-fpp-content";
@@ -56,10 +56,11 @@ import { IR_FPP_FIGURE_KEY } from "@/app/data/ir-fpp-content";
 import { IR_RNV_FIGURE_KEY, IR_INS_FIGURE_KEY, IR_HPL_FIGURE_KEY } from "@/app/data/ir-delegated-notes";
 import { PPL_POF_FIGURE_KEY } from "@/app/data/ppl-principles-of-flight-content";
 import { ApproachSegments, ApproachLightingPAPI, StraightDeparture } from "@/app/components/figures/awoFigures";
+import { ColdTempAltimetry, MinimumAltitudes, HoldingEntry, TransitionLayer, Microburst, Hydroplaning, StabilisedApproach, TurningDeparture, DeclaredDistances, ApproachMinima, DeIcing, VSpeeds, STARArrival, CirclingApproach, DMEArc, MissedApproach, HoldingSpeeds, VerticalProfile, RNPContainment } from "@/app/components/figures/irProcFigures";
 import { RunwayLighting, RunwayMarkings } from "@/app/components/figures/runwayFigures";
 import { PitotStaticLogic, AltimeterSettings, ASIColourCode, GyroProperties, CompassErrors } from "@/app/components/figures/instrumentsFigures";
 import { EarthGCRL, WindTriangle, OneInSixty, ChartProjections } from "@/app/components/figures/navFigures";
-import { ADFQCodes, ILSGeometry, SSRModes, GPSFix, DMEPrinciple, WeatherRadarModes, RadioAltimeter, ELTCard, RNAVWaypoint } from "@/app/components/figures/radionavFigures";
+import { ADFQCodes, ILSGeometry, SSRModes, GPSFix, DMEPrinciple, WeatherRadarModes, RadioAltimeter, ELTCard, RNAVWaypoint, VORPrinciple } from "@/app/components/figures/radionavFigures";
 import { FrequencyBands, RadioFormulas, VSpeedTable, DragCurve, VnDiagram } from "@/app/components/figures/referenceFigures";
 import { VSIFigure, TurnRateFigure, TemperatureFigure, EngineInstruments, NorthVariation, DistanceConversions, TimeConversions, FlightPlanSAR, EmergencyPhraseology, MetKeyNumbers, EFISFlightDirector, AutopilotModes, StallWarning, RelativeVelocity, RadioSpectrum, RadioOperation, AirspaceClasses, Part91Card } from "@/app/components/figures/gapFigures";
 import { MessagePriority, RCFFlow, PhraseologyCard } from "@/app/components/figures/grFigures";
@@ -94,6 +95,18 @@ export interface FigureDef {
   title: string;
   caption: string;
   render: () => ReactNode;
+  /** "folder/file" for raster figures; absent for inline-SVG figures. */
+  src?: string;
+}
+
+// Which figure files actually exist on disk (generated: scripts/gen-figure-manifest.mjs).
+import FIGURE_MANIFEST from "@/app/data/figure-manifest.json";
+const MANIFEST = FIGURE_MANIFEST as Record<string, 1>;
+
+/** False for a raster figure whose file hasn't been produced yet, so callers can
+ *  drop it and show text only (no empty white figure box). */
+export function figurePresent(f: FigureDef): boolean {
+  return !f.src || f.src in MANIFEST;
 }
 
 // Image-based illustration helper. Files live in /public/figures/<folder>/.
@@ -104,9 +117,10 @@ export function imageFigure(id: string, title: string, caption: string, file: st
     id,
     title,
     caption,
+    src: `${folder}/${file}`,
     render: () => (
       // eslint-disable-next-line @next/next/no-img-element
-      <img src={`/figures/${folder}/${file}`} alt={title} loading="lazy" className="w-full rounded-lg border border-zinc-800 bg-white" />
+      <img src={`/figures/${folder}/${file}`} alt={title} loading="lazy" className="w-full rounded-lg border border-zinc-800 bg-[#10171b]" />
     ),
   };
 }
@@ -144,18 +158,48 @@ const FIGURES: Record<string, FigureDef[]> = {
   "A.3.17": [{ id: "al-jepp", title: "Jeppesen Enroute Charts", caption: "Airway structure and minimum altitudes (MEA/MOCA/MORA).", render: () => <JeppesenCharts /> }],
   "A.3.18": [{ id: "al-annex14", title: "ICAO Annex 14 — Aerodromes", caption: "Declared distances and visual aids.", render: () => <Annex14 /> }],
   // ── IR All-Weather-Operations flight procedures (C.3) — original schematics ──
-  "C.3.4": [{ id: "awo-dep", title: "Straight Departure & Climb Gradient", caption: "±15° splay off the centre line and the minimum climb gradient.", render: () => <StraightDeparture /> }],
-  "C.3.6": [{ id: "awo-approach", title: "Instrument Approach Segments", caption: "Initial → intermediate → final → missed approach, and the 3° path.", render: () => <ApproachSegments /> }],
+  "C.3.2": [
+    { id: "awo-hold", title: "Holding Pattern & Entry Sectors", caption: "Racetrack hold, right turns, and the direct / parallel / teardrop entry sectors.", render: () => <HoldingEntry /> },
+    { id: "awo-holdspd", title: "Holding — Max Speeds & Timing", caption: "Max holding IAS by level and the 1 / 1½ min inbound-leg timing.", render: () => <HoldingSpeeds /> },
+  ],
+  "C.3.3": [
+    { id: "awo-coldalt", title: "Cold-Temperature Altimetry", caption: "In air colder than ISA the altimeter over-reads — true height is lower than indicated.", render: () => <ColdTempAltimetry /> },
+    { id: "awo-translayer", title: "Transition Altitude, Level & Layer", caption: "QNH below the TA, flight levels on 1013 above the TL, and which setting to use.", render: () => <TransitionLayer /> },
+  ],
+  "C.3.4": [
+    { id: "awo-dep", title: "Straight Departure & Climb Gradient", caption: "±15° splay off the centre line and the minimum climb gradient.", render: () => <StraightDeparture /> },
+    { id: "awo-turndep", title: "Turning Departure", caption: "A turn > 15°, not commenced before the obstacle-clearance height (≈ >500 ft AGL).", render: () => <TurningDeparture /> },
+    { id: "awo-vprofile", title: "Crossing Restrictions (Vertical Profile)", caption: "At/above, at/below, mandatory and window altitude constraints on the profile.", render: () => <VerticalProfile /> },
+  ],
+  "C.3.5": [
+    { id: "awo-minalt", title: "En-route Minimum Altitudes", caption: "MOCA, MEA, MORA/Grid MORA and the 25 NM MSA over a terrain profile.", render: () => <MinimumAltitudes /> },
+    { id: "awo-rnp", title: "PBN / RNP Lateral Containment", caption: "The ±1×RNP (95%) corridor and ±2×RNP containment with on-board alerting.", render: () => <RNPContainment /> },
+  ],
+  "C.3.6": [
+    { id: "awo-star", title: "STAR — Arrival Routing", caption: "En-route airway → STAR waypoints with speed/altitude windows → the IAF.", render: () => <STARArrival /> },
+    { id: "awo-approach", title: "Instrument Approach Segments", caption: "Initial → intermediate → final → missed approach, and the 3° path.", render: () => <ApproachSegments /> },
+    { id: "awo-minima", title: "Precision vs Non-Precision Minima", caption: "Continuous path to DA/DH vs levelling at MDA/MDH, and the MAPt.", render: () => <ApproachMinima /> },
+    { id: "awo-circle", title: "Circling Approach Area", caption: "Manoeuvre within the circling area at/above circling OCH; prohibited sectors.", render: () => <CirclingApproach /> },
+    { id: "awo-dmearc", title: "DME Arc & Radial Intercept", caption: "Lead the turn onto the arc, hold constant DME, intercept the final radial.", render: () => <DMEArc /> },
+    { id: "awo-missed", title: "Missed Approach — Three Phases", caption: "Initial (go-around, config, climb), intermediate (climb established), final (to a fix/hold).", render: () => <MissedApproach /> },
+  ],
   "C.3.7": [
     { id: "awo-lights", title: "Approach Lighting & PAPI", caption: "CAT I centre-line row, crossbar and PAPI on-slope indication.", render: () => <ApproachLightingPAPI /> },
     { id: "awo-rwylights", title: "Runway Lighting (Night)", caption: "Edge (white/amber), centreline (white/red), threshold green, TDZ, PAPI.", render: () => <RunwayLighting /> },
     { id: "awo-rwymarks", title: "Runway Markings", caption: "Designator, piano keys, aiming point, TDZ bars, displaced threshold.", render: () => <RunwayMarkings /> },
+    { id: "awo-decldist", title: "Declared Distances", caption: "TORA, TODA (+clearway), ASDA (+stopway) and LDA.", render: () => <DeclaredDistances /> },
   ],
+  // ── IR Special Operational Procedures & Hazards (C.5) — original schematics ──
+  "C.5.1": [{ id: "sop-deice", title: "De-icing / Anti-icing & Holdover", caption: "Type I de-ice then Type II/III/IV anti-ice; the holdover clock and what shortens it.", render: () => <DeIcing /> }],
+  "C.5.4": [{ id: "sop-microburst", title: "Microburst Windshear", caption: "Performance-increasing then -decreasing shear through a microburst on approach.", render: () => <Microburst /> }],
+  "C.5.6": [{ id: "sop-hydroplane", title: "Dynamic Hydroplaning", caption: "The water wedge under the tyre and the Vp ≈ 9√(tyre psi) speed.", render: () => <Hydroplaning /> }],
+  "C.5.8": [{ id: "sop-stable", title: "Stabilised-Approach Gate", caption: "The 1000 ft (IMC) / 500 ft (VMC) gate and the stable-or-go-around criteria.", render: () => <StabilisedApproach /> }],
   // ── CPL Flight Instruments (A.7) — condensed cheat-code infographics ──
   "A.7.1": [
     { id: "ins-pitot", title: "Pitot-Static & Blockages", caption: "Who reads what, and the over/under-read cheat table.", render: () => <PitotStaticLogic /> },
     { id: "ins-alt", title: "Altimeter Settings", caption: "QNH/QFE/QNE and the 'High-to-Low, look out below' rule.", render: () => <AltimeterSettings /> },
     { id: "ins-asi", title: "ASI Colour Code", caption: "White/green/yellow arcs, VNE/VYSE and the IAS→TAS chain.", render: () => <ASIColourCode /> },
+    { id: "ins-vspeeds", title: "V-speeds (pictorial)", caption: "Vs0/Vs1/Vfe/Vno/Vne on the ASI arcs, plus Vx/Vy/Va/Vyse/V1-Vr-V2 off the dial.", render: () => <VSpeeds /> },
     { id: "ins-vspeeds", title: "V-speeds Reference", caption: "Every V-speed, its ASI marking and a typical value.", render: () => <VSpeedTable /> },
     { id: "ins-vsi", title: "Vertical Speed Indicator", caption: "Capsule + metered leak, inherent lag, IVSI, blockage behaviour.", render: () => <VSIFigure /> },
   ],
@@ -184,13 +228,24 @@ const FIGURES: Record<string, FigureDef[]> = {
     { id: "rn-formulas", title: "Radio-nav Formulas", caption: "λ, line-of-sight range, DME/radar range, ROD, 1-in-60.", render: () => <RadioFormulas /> },
   ],
   "A.10.2": [{ id: "rn-adf", title: "ADF / NDB — Bearings & Q-codes", caption: "QDM/QDR/QTE/QUJ, the QDM = HDG + RB rule, loop vs sense aerial.", render: () => <ADFQCodes /> }],
-  "A.10.3": [{ id: "rn-ils", title: "ILS Geometry & Sectors", caption: "Localiser 90/150 Hz sectors, glide path, markers (75 MHz), ROD.", render: () => <ILSGeometry /> }],
-  "A.10.4": [{ id: "rn-dme", title: "DME — Distance Measuring Equipment", caption: "Secondary radar, 63 MHz offset, slant range and the range formula.", render: () => <DMEPrinciple /> }],
+  "A.10.3": [
+    { id: "rn-vor", title: "VOR — Phase Comparison & CDI", caption: "Reference 30 Hz FM vs variable 30 Hz AM, radial = phase difference, OBS/CDI with TO/FROM.", render: () => <VORPrinciple /> },
+    { id: "rn-ils", title: "ILS Geometry & Sectors", caption: "Localiser 90/150 Hz sectors, glide path, markers (75 MHz), ROD.", render: () => <ILSGeometry /> },
+  ],
+  "A.10.4": [
+    { id: "rn-dme", title: "DME — Distance Measuring Equipment", caption: "Secondary radar, 63 MHz offset, slant range and the range formula.", render: () => <DMEPrinciple /> },
+    { id: "rn-dmearc", title: "DME Arc & Radial Intercept", caption: "Lead the turn onto the arc, hold constant DME, intercept the final radial.", render: () => <DMEArc /> },
+  ],
   "A.10.5": [{ id: "rn-ssr", title: "SSR — Modes, Pulses & Squawks", caption: "A/B/C pulse spacing, 1030/1090 MHz, 7500/7600/7700.", render: () => <SSRModes /> }],
   "A.10.6": [{ id: "rn-wxradar", title: "Airborne Weather Radar", caption: "Pencil vs cosecant beam, colour intensity scale and contour.", render: () => <WeatherRadarModes /> }],
+  "A.10.7": [{ id: "rn-ssr7", title: "SSR — Modes, Pulses & Squawks", caption: "A/B/C pulse spacing, 1030/1090 MHz, 7500/7600/7700, Mode S.", render: () => <SSRModes /> }],
+  "A.10.8": [{ id: "rn-wxradar8", title: "Airborne Weather Radar", caption: "Pencil vs cosecant beam, colour intensity scale and contour.", render: () => <WeatherRadarModes /> }],
   "A.10.9": [{ id: "rn-radalt", title: "Radio Altimeter (FM-CW)", caption: "Frequency sweep, height from Δf, 4200–4400 MHz, 0–2500 ft.", render: () => <RadioAltimeter /> }],
   "A.10.10": [{ id: "rn-elt", title: "Emergency Locator Transmitter", caption: "121.5/243/406 MHz, downsweep tone and test rules.", render: () => <ELTCard /> }],
-  "A.10.11": [{ id: "rn-rnav", title: "Area Navigation (RNAV)", caption: "Rho-Theta waypoint, B/P-RNAV accuracy, NM-based CDI.", render: () => <RNAVWaypoint /> }],
+  "A.10.11": [
+    { id: "rn-rnav", title: "Area Navigation (RNAV)", caption: "Rho-Theta waypoint, B/P-RNAV accuracy, NM-based CDI.", render: () => <RNAVWaypoint /> },
+    { id: "rn-rnp", title: "PBN / RNP Lateral Containment", caption: "The ±1×RNP (95%) corridor, ±2×RNP containment and on-board alerting.", render: () => <RNPContainment /> },
+  ],
   "A.10.12": [{ id: "rn-gps", title: "GNSS / GPS — Ranging & Segments", caption: "Constellation, 4-satellite 3D fix, errors, RAIM, GDOP.", render: () => <GPSFix /> }],
   // ── General Radiotelephony (GR) — illustrated cheat-code infographics ──
   "GR5": [
@@ -292,6 +347,30 @@ const FIGURES: Record<string, FigureDef[]> = {
   ],
 };
 
+// Additional original Meteorology figures (illustrations/gen_met2.py), appended per section.
+const MET_EXTRA: [string, string, string][] = [
+  ["A.8.1", "mx_layers", "Layers of the Atmosphere"],
+  ["A.8.3", "mx_isobars", "Pressure Systems on a Synoptic Chart"],
+  ["A.8.8", "mx_bb", "Geostrophic Wind and Buys Ballot’s Law (Southern Hemisphere)"],
+  ["A.8.8", "mx_friction", "Surface Friction — Surface Wind Veers and Slows (SH)"],
+  ["A.8.8", "mx_breeze", "Sea Breeze and Land Breeze"],
+  ["A.8.8", "mx_katabatic", "Katabatic and Anabatic Winds"],
+  ["A.8.9", "mx_lapse", "Lapse Rates and Stability"],
+  ["A.8.10", "mx_lifting", "How Air Is Lifted to Form Cloud"],
+  ["A.8.12", "mx_cbstages", "Thunderstorm Life Cycle"],
+  ["A.8.13", "mx_icetypes", "Airframe Ice Types and Temperatures"],
+  ["A.8.15", "mx_fogs", "Radiation Fog and Advection Fog"],
+  ["A.8.17", "mx_coldfront", "Cold Front — Cross-Section"],
+  ["A.8.17", "mx_warmfront", "Warm Front — Cross-Section"],
+  ["A.8.18", "mx_trs", "Tropical Revolving Storm — Structure"],
+  ["A.8.19", "mx_cells", "General Circulation — Cells and Pressure Belts"],
+  ["A.8.20", "mx_shlow", "Frontal Depression in the Southern Hemisphere"],
+  ["A.8.21", "mx_metar", "Decoding a METAR"],
+  ["A.8.7", "mx_altim", "Altimeter Errors — High to Low, Look Out Below"],
+];
+for (const [sec, tag, title] of MET_EXTRA) FIGURES[sec] = [...(FIGURES[sec] ?? []), imageFigure(tag, title, title, `${tag}.png`, "met")];
+
+
 // The 206 recreated Airframes & Systems illustrations (textbook-numbered) are
 // shown INLINE in the study notes next to the relevant topic, not in the
 // Illustrations gallery — so these helpers resolve image FigureDefs on demand.
@@ -304,25 +383,52 @@ const ATG_IMAGE_FIGURES: { section: string; topic: string; title: string; captio
   ...INSTRUMENTS_FIGURES,
   ...FPP_FIGURES,
   ...NAV_FIGURES,
-  ...RADIONAV_FIGURES,
   ...AIRLAW_FIGURES,
+  ...RADIONAV_FIGURES,
 ];
 
+// Radio Nav figures are ORIGINAL inline SVGs (the old rn_*.png scans were mostly
+// missing files and are copyrighted anyway). Resolve note figureTopics to the
+// in-house components so each topic shows art in the study slides.
+const RN_TOPIC_FIGS: Record<string, FigureDef[]> = {
+  "Radio waves & propagation": [{ id: "rn-spectrum", title: "Radio Spectrum & Propagation", caption: "Band ranges, ground/sky/space-wave behaviour and line-of-sight.", render: () => <RadioSpectrum /> }],
+  "Frequency bands": [{ id: "rn-bands", title: "Frequency Bands", caption: "VLF…EHF, wavelength and how each band travels.", render: () => <FrequencyBands /> }],
+  "ADF / NDB": FIGURES["A.10.2"] ?? [],
+  "VOR": [{ id: "rn-vor-t", title: "VOR — Phase & CDI", caption: "Reference vs variable phase, radial, OBS/CDI with TO/FROM.", render: () => <VORPrinciple /> }],
+  "ILS": [{ id: "rn-ils-t", title: "ILS Geometry", caption: "Localiser 90/150 Hz sectors, glide path, markers.", render: () => <ILSGeometry /> }],
+  "DME": FIGURES["A.10.4"] ?? [],
+  "SSR": [{ id: "rn-ssr-t", title: "SSR Modes & Squawks", caption: "A/B/C/S, 1030/1090 MHz, emergency codes.", render: () => <SSRModes /> }],
+  "Primary radar & SSR": [{ id: "rn-ssr-p", title: "Radar & SSR", caption: "Primary echo vs secondary interrogation.", render: () => <SSRModes /> }],
+  "Weather radar": [{ id: "rn-wx-t", title: "Weather Radar", caption: "Pencil/cosecant beam, colour contour.", render: () => <WeatherRadarModes /> }],
+  "Radio altimeter": FIGURES["A.10.9"] ?? [],
+  "ELT": FIGURES["A.10.10"] ?? [],
+  "RNAV": FIGURES["A.10.11"] ?? [],
+  "GNSS / GPS": FIGURES["A.10.12"] ?? [],
+};
+
 export function atgFiguresByTopic(topics: string[]): FigureDef[] {
-  return ATG_IMAGE_FIGURES
+  const raster = ATG_IMAGE_FIGURES
     .filter((f) => topics.includes(f.topic))
     .map((f) => imageFigure(f.id, f.title, f.caption, f.file, f.folder));
+  const inline = topics.flatMap((t) => RN_TOPIC_FIGS[t] ?? []);
+  return [...inline, ...raster].filter(figurePresent);
 }
 
 export function atgFiguresForSection(sectionId: string): FigureDef[] {
   return ATG_IMAGE_FIGURES
     .filter((f) => f.section === sectionId)
-    .map((f) => imageFigure(f.id, `${f.topic} — ${f.title}`, f.caption, f.file, f.folder));
+    .map((f) => imageFigure(f.id, `${f.topic} — ${f.title}`, f.caption, f.file, f.folder))
+    .filter(figurePresent);
+}
+
+/** The CPL section a PPL / IR section borrows its figures from (if any). */
+export function mappedSection(sectionId: string): string | undefined {
+  return PPL_MET_FIGURE_KEY[sectionId] ?? PPL_NAV_FIGURE_KEY[sectionId] ?? PPL_FPP_FIGURE_KEY[sectionId] ?? PPL_AGK_FIGURE_KEY[sectionId] ?? IR_MET_FIGURE_KEY[sectionId] ?? IR_AWO_FIGURE_KEY[sectionId] ?? IR_FPP_FIGURE_KEY[sectionId] ?? IR_RNV_FIGURE_KEY[sectionId] ?? IR_INS_FIGURE_KEY[sectionId] ?? IR_HPL_FIGURE_KEY[sectionId] ?? PPL_POF_FIGURE_KEY[sectionId];
 }
 
 export function figuresForSection(sectionId: string): FigureDef[] {
-  if (FIGURES[sectionId]) return FIGURES[sectionId];
+  if (FIGURES[sectionId]) return FIGURES[sectionId].filter(figurePresent);
   // PPL / IR subjects reuse the CPL figures via a mapping.
   const mapped = PPL_MET_FIGURE_KEY[sectionId] ?? PPL_NAV_FIGURE_KEY[sectionId] ?? PPL_FPP_FIGURE_KEY[sectionId] ?? PPL_AGK_FIGURE_KEY[sectionId] ?? IR_MET_FIGURE_KEY[sectionId] ?? IR_AWO_FIGURE_KEY[sectionId] ?? IR_FPP_FIGURE_KEY[sectionId] ?? IR_RNV_FIGURE_KEY[sectionId] ?? IR_INS_FIGURE_KEY[sectionId] ?? IR_HPL_FIGURE_KEY[sectionId] ?? PPL_POF_FIGURE_KEY[sectionId];
-  return mapped ? FIGURES[mapped] ?? [] : [];
+  return mapped ? (FIGURES[mapped] ?? []).filter(figurePresent) : [];
 }

@@ -421,11 +421,82 @@ export const BRIEF_REFERENCE: Record<string, BriefRef[]> = {
       ["Bonding → radio", "poor bonding causes precipitation static"],
     ]},
   ],
+  pof: [
+    { heading: "Lift, drag & formulas", items: [
+      ["Lift", "L = CL × ½ρV² × S · dynamic pressure q = ½ρV²"],
+      ["Drag", "D = CD × ½ρV² × S · total = parasite (∝ V²) + induced (∝ 1/V²)"],
+      ["Minimum drag (VMD)", "parasite = induced · best L/D · best glide range"],
+      ["Bernoulli", "static + dynamic pressure = constant (total)"],
+      ["Critical angle of attack", "≈ 15–16° · stall occurs at the SAME AoA at any weight"],
+      ["Aspect ratio", "span² ÷ area · high AR → less induced drag"],
+    ]},
+    { heading: "Stall, turns & load factor", items: [
+      ["Load factor in a level turn", "n = 1 ÷ cos(bank) · 30° = 1.15 g · 45° = 1.41 g · 60° = 2 g"],
+      ["Stall speed in a turn", "Vs × √n · 60° bank → Vs × 1.41"],
+      ["Stall speed vs weight", "Vs ∝ √weight · heavier → higher Vs"],
+      ["Rate-1 turn", "3°/s · 2 min for 360° · bank ≈ TAS/10 + 7"],
+      ["Spin recovery (PARE)", "Power idle · Ailerons neutral · Rudder opposite · Elevator forward"],
+      ["Flaps", "↑ CLmax · ↓ stall speed · ↑ drag · nose-down pitch (most types)"],
+    ]},
+    { heading: "Stability & control", items: [
+      ["Longitudinal stability", "CG ahead of neutral point · forward CG = stable, heavy controls"],
+      ["Aft CG", "less stable · lighter controls · lower stall speed · less elevator authority to recover"],
+      ["Lateral stability", "dihedral, high wing, sweepback"],
+      ["Directional stability", "fin area aft of CG · sweepback"],
+      ["Adverse yaw", "down-going aileron has more drag · fixed by differential/Frise ailerons"],
+      ["Ground effect", "within ~1 wingspan · ↓ induced drag · floats on landing"],
+    ]},
+    { heading: "Propeller & glide", items: [
+      ["Blade angle vs AoA", "AoA = blade angle − helix angle · fixed pitch: AoA ↓ as speed ↑"],
+      ["Slipstream / torque", "single-engine (clockwise prop) swings LEFT on take-off"],
+      ["P-factor", "down-going blade has more AoA at high aircraft AoA"],
+      ["Glide range", "set by L/D only · weight changes the speed, not the range"],
+      ["Headwind glide", "less range · fly slightly faster than best-glide"],
+    ]},
+  ],
+  // ══════════════════════════ IR SPECIAL PROCEDURES ══════════════════════════
+  sp: [
+    { heading: "Contaminated runways", items: [
+      ["Dynamic hydroplaning speed", "≈ 9 × √(tyre pressure psi) kt · 34 × √(kg/cm²)"],
+      ["Viscous hydroplaning", "thin film on smooth / rubber-coated surface (touchdown zones)"],
+      ["Reverted-rubber", "locked wheel · steam forms under the tyre"],
+      ["Contaminated runway", "> 25% of the area covered (water > 3 mm, slush, snow)"],
+      ["Technique", "firm touchdown · max braking/reverse early · no reliance on nosewheel steering"],
+    ]},
+    { heading: "Windshear & microburst", items: [
+      ["Microburst", "< 4 km diameter · lasts ~1–5 min · winds up to 6000 ft/min down"],
+      ["Total shear", "headwind on entry + tailwind on exit (e.g. 30 kt → 60 kt shear)"],
+      ["First sign", "IAS changes first (performance-increasing shear on entry)"],
+      ["Recovery", "max thrust · pitch to stick-shaker/PLI · do not change config · don't chase IAS"],
+      ["Avoid", "delay take-off/approach when microbursts are reported"],
+    ]},
+    { heading: "Wake turbulence", items: [
+      ["Strongest when", "HEAVY · CLEAN · SLOW"],
+      ["Vortex behaviour", "sink 500–1000 ft · drift outward · rotate up and out around the tips"],
+      ["Worst wind", "light crosswind ~5 kt holds the upwind vortex on the runway"],
+      ["Avoid", "stay above the leader's path · land beyond its touchdown point · take off before its rotation point"],
+      ["Separation (light behind medium/heavy)", "3 min departure · HEAVY = MTOM ≥ 136 000 kg"],
+    ]},
+    { heading: "Icing & de-icing", items: [
+      ["Fluids", "Types I (thin, de-icing) · II / IV (thickened, anti-icing) · III"],
+      ["Two-step", "holdover time starts at the START of the 2nd (anti-icing) step"],
+      ["Holdover exceeded", "de-ice again before take-off"],
+      ["Clean aircraft concept", "no ice/frost/snow on critical surfaces · thin hoar frost on the fuselage OK"],
+    ]},
+    { heading: "Stabilised approach & CFIT", items: [
+      ["Stabilisation height", "1000 ft AAL in IMC · 500 ft AAL in VMC"],
+      ["Not stabilised", "GO AROUND — never duck under"],
+      ["GPWS 'PULL UP'", "immediate max-performance climb · ignore the urge to look outside"],
+      ["Primary CFIT defence", "respect MSA/MSA sectors · cross-check altimeter setting"],
+    ]},
+  ],
 };
 
 export function briefFamily(subjectId: string): string | null {
   const id = subjectId;
   if (id.includes("air-law") || id.includes("awo")) return "airlaw";
+  if (id.includes("principles-of-flight")) return "pof";
+  if (id.includes("special-procedures")) return "sp";
   if (id.includes("radiotelephony")) return "gr";
   if (id.includes("radio-nav")) return "radionav";
   if (id.includes("nav")) return "nav";

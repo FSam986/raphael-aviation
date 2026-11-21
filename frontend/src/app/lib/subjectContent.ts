@@ -54,6 +54,7 @@ import { getIRAwoQuestionsBySection, getIRAwoNoteBySection, getIRAwoFlashcardsBy
 import { getIRFppQuestionsBySection, getIRFppNoteBySection, getIRFppFlashcardsBySection } from "@/app/data/ir-fpp-content";
 import { getIRRadioNavNoteBySection, getIRInstrumentsNoteBySection, getIRHumanPerfNoteBySection } from "@/app/data/ir-delegated-notes";
 import { getIRSpecProcNoteBySection } from "@/app/data/ir-special-procedures-notes";
+import { gapQuestions } from "@/app/data/gap-questions";
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -192,7 +193,7 @@ export function subjectContent(subjectId: string): SubjectGetters | undefined {
   const g = REGISTRY[subjectId];
   if (!g) return undefined;
   return {
-    questions: g.questions,
+    questions: (sectionId: string) => [...g.questions(sectionId), ...gapQuestions(subjectId, sectionId)],
     note: g.note,
     // Authored + note-derived cards, de-duplicated within the deck (same front+back).
     flashcards: (sectionId: string) => {

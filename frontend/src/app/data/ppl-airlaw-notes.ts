@@ -158,7 +158,7 @@ export const PPL_AIRLAW_NOTES: AirLawSectionNote[] = [
       {
         heading: "4. Time, light & aerodrome terms",
         points: [
-          "Night: the hours between the end of evening civil twilight and the beginning of morning civil twilight (civil twilight ends when the centre of the sun's disc is 6° below the horizon). Day is the opposite period.",
+          "Night (SA CAR Part 1): the period from 15 minutes after sunset to 15 minutes before sunrise, using the SA Astronomical Observatory times. Day is the opposite period.",
           "Aerodrome: a defined area (on land or water, including buildings, installations and equipment) intended to be used wholly or in part for the arrival, departure and surface movement of aircraft.",
           "Movement area: the manoeuvring area plus the apron(s). Manoeuvring area: the part of an aerodrome used for take-off, landing and taxiing, EXCLUDING aprons. Apron: the area for loading/unloading, refuelling, parking and maintenance.",
           "Runway: a defined rectangular area prepared for the landing and take-off of aircraft. Threshold: the beginning of the runway usable for landing. Clearway: a defined rectangular area beyond the runway, clear of obstacles, over which an aeroplane may make its initial climb. Stopway: a defined rectangular area beyond the runway able to support an aeroplane during an aborted take-off.",
@@ -195,7 +195,7 @@ export const PPL_AIRLAW_NOTES: AirLawSectionNote[] = [
     mustKnow: [
       "Accident = fatal/serious injury, aircraft damage/structural failure, or aircraft missing (boarding→disembarking); Incident = affects/could affect safety; Serious incident = an accident nearly occurred.",
       "Serious injury = >48 h hospitalisation (within 7 days), any fracture except fingers/toes/nose, burns >5% body, internal-organ injury; Fatal = death within 30 days.",
-      "Night = end of evening to start of morning civil twilight (sun 6° below horizon). Flight time = block to block.",
+      "Night = 15 min after sunset to 15 min before sunrise (SA CAR). Flight time = block to block.",
       "Empty mass EXCLUDES usable fuel and payload but includes unusable fuel, total oil, coolant and hydraulic fluid.",
       "Manoeuvring area = take-off/landing/taxi EXCLUDING aprons; Movement area = manoeuvring area + aprons.",
       "Altitude = AMSL (QNH); Height = above a datum (QFE); Flight level = 1013.2 hPa standard.",
@@ -204,7 +204,7 @@ export const PPL_AIRLAW_NOTES: AirLawSectionNote[] = [
     ],
     traps: [
       "Simple fractures of fingers, toes or the nose are NOT 'serious injury'.",
-      "'Night' is defined by civil twilight (sun 6° below horizon), not sunset to sunrise.",
+      "SA 'night' is 15 min after sunset to 15 min before sunrise — not civil twilight (that is the ICAO/EASA wording).",
       "A fatality counts only if death occurs within 30 days of the accident.",
       "Empty mass INCLUDES unusable fuel, total oil, coolant and hydraulic fluid — but NOT usable fuel.",
       "The manoeuvring area EXCLUDES the apron; the movement area INCLUDES it.",
@@ -388,7 +388,7 @@ export const PPL_AIRLAW_NOTES: AirLawSectionNote[] = [
           "Emergency Locator Transmitter (ELT): required unless exempt (exemptions include flights within 50 NM of departure, single-seat aircraft, and a 90-day allowance with an 'ELT not installed/carried' placard while it is away for repair). ELTs transmit on 121.5 MHz and 406 MHz.",
           "Life jackets are required when flying over water beyond gliding distance of land (for a landplane that could not reach shore with the critical engine inoperative).",
           "Navigation lights are displayed from sunset to sunrise (and when otherwise required): RED on the left wingtip, GREEN on the right, WHITE at the tail, plus an anti-collision light.",
-          "Fuel: carry enough to reach the destination plus a final reserve — for a piston aeroplane, fuel for 30 minutes at normal cruising (turbine: 30 minutes holding at 1500 ft). Night/IFR flights add fuel to a suitable alternate plus contingency. No person may act as a crew member while impaired by a psychoactive substance.",
+          "Fuel: carry enough to reach the destination plus a final reserve — for a piston aeroplane, fuel for 45 minutes at normal cruising (turbine: 30 minutes holding at 1500 ft). Night/IFR flights add fuel to a suitable alternate plus contingency. No person may act as a crew member while impaired by a psychoactive substance.",
         ],
       },
     ],
@@ -402,7 +402,7 @@ export const PPL_AIRLAW_NOTES: AirLawSectionNote[] = [
       "Special VFR (CTR): DAY only, ceiling ≥600 ft, visibility ≥1500 m, on ATC clearance, two-way radio.",
       "Semi-circular (magnetic track): 000–179° odd thousands, 180–359° even thousands; VFR +500 ft. Below 1500 ft AGL VFR is exempt; FL200+ must be IFR.",
       "RCF: squawk 7600; VFR — continue in VMC, join overhead at 1000 ft above circuit, land, log it.",
-      "Fuel: destination + 30 min final reserve (piston); flight folio kept by PIC, retained 5 years; ELT on 121.5 & 406 MHz.",
+      "Fuel: destination + 45 min final reserve (piston); flight folio kept by PIC, retained 5 years; ELT on 121.5 & 406 MHz.",
     ],
     traps: [
       "Overtaking and head-on: turn RIGHT.",
@@ -410,7 +410,7 @@ export const PPL_AIRLAW_NOTES: AirLawSectionNote[] = [
       "Congested-area minimum is 1000 ft above the highest obstacle within 600 m — know both numbers.",
       "In a CTR/ATZ the distance from cloud is 600 m / 500 ft (Table 1) — NOT the 1500 m / 1000 ft of the open-airspace table.",
       "Special VFR is DAY only, ceiling ≥600 ft and visibility ≥1500 m.",
-      "Final reserve is 30 minutes (piston) — don't confuse with other states' 45-minute figures.",
+      "Final reserve is 45 minutes at normal cruise (piston) — 30 minutes is the turbine holding figure.",
     ],
   },
   {

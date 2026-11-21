@@ -1,0 +1,1190 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human Performance Gallery 2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>Human Performance — Sleep, Stress, Cognition & CRM</h1>
+    <p class="lede">Original figures for sleep and circadian rhythm, stress, information processing, error models, personality and crew resource management.</p>
+    <div class="prog"><span class="pct">28 / 28 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ SLEEP CREDIT & DEFICIT — THE SLEEP/WAKE CYCLE -->
+  <section class="card">
+    <h2>Sleep Credit &amp; Deficit — The Sleep/Wake Cycle</h2>
+    <div class="meta"><span class="tag">hp-40</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A sawtooth graph of sleep credit rising during eight hours of sleep and falling during sixteen hours awake">
+        <line x1="80.0" y1="50.0" x2="80.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="80.0" y1="270.0" x2="700.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="390.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">time of day (two days)</text>
+        <text x="36.0" y="160.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle" transform="rotate(-90 36 160.0)">sleep credit (points)</text>
+        <polyline points="80.0,70.0 280.0,270.0 380.0,70.0 580.0,270.0 680.0,70.0" fill="none" stroke="var(--cool)" stroke-width="2.8"/>
+        <rect x="280.0" y="56.0" width="100.0" height="214.0" rx="0" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.14"/>
+        <text x="330.0" y="72.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle" font-weight="700">ASLEEP</text>
+        <rect x="580.0" y="56.0" width="100.0" height="214.0" rx="0" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.14"/>
+        <text x="630.0" y="72.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle" font-weight="700">ASLEEP</text>
+        <line x1="80.0" y1="270.0" x2="80.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0700</text>
+        <line x1="280.0" y1="270.0" x2="280.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="280.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">2300</text>
+        <line x1="380.0" y1="270.0" x2="380.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="380.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0700</text>
+        <line x1="580.0" y1="270.0" x2="580.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="580.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">2300</text>
+        <line x1="680.0" y1="270.0" x2="680.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="680.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0700</text>
+        <line x1="74.0" y1="270.0" x2="80.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="70.0" y="274.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">0</text>
+        <line x1="74.0" y1="170.0" x2="80.0" y2="170.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="70.0" y="174.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">8</text>
+        <line x1="74.0" y1="70.0" x2="80.0" y2="70.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="70.0" y="74.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">16</text>
+        <text x="142.5" y="95.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">awake: −1 point per hour</text>
+        <text x="492.5" y="107.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">awake</text>
+        <text x="334.0" y="174.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" font-weight="700">+2 per</text>
+        <text x="334.0" y="187.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" font-weight="700">hour</text>
+        <text x="380.0" y="326.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">1 hour of sleep = 2 hours awake. Maximum credit: 16 points.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Sleep works like a bank account.</b> Each hour of sleep earns about <b>two hours of wakefulness</b>: eight hours asleep builds a credit of <b>16 points</b>, which is then spent at one point per hour through a 16-hour day. The credit cannot be stored beyond about 16 points, so “sleeping in advance” does not work, and a shortened night leaves a <b>sleep deficit</b> that carries into the next duty. Performance falls as the credit runs out, worst when a low credit coincides with the <b>circadian low</b> between about 0200 and 0600. A deficit is repaid with slightly longer, deeper sleep, not hour for hour.</p>
+  </section>
+
+  <!-- 2 ─ CIRCADIAN RHYTHM — BODY TEMPERATURE -->
+  <section class="card">
+    <h2>Circadian Rhythm — Body Temperature</h2>
+    <div class="meta"><span class="tag">hp-41</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A graph of body temperature over 24 hours with a minimum in the early morning and a maximum in the early evening">
+        <line x1="80.0" y1="50.0" x2="80.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="80.0" y1="270.0" x2="710.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="395.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">time of day</text>
+        <text x="36.0" y="160.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle" transform="rotate(-90 36 160.0)">body temperature (°C)</text>
+        <polyline points="80.0,189.6 86.4,194.1 92.8,198.6 99.1,202.8 105.5,207.0 111.9,211.0 118.2,214.8 124.6,218.5 131.0,221.9 137.4,225.1 143.8,228.1 150.1,230.9 156.5,233.4 162.9,235.6 169.2,237.5 175.6,239.2 182.0,240.5 188.4,241.6 194.8,242.4 201.1,242.8 207.5,243.0 213.9,242.8 220.2,242.4 226.6,241.6 233.0,240.5 239.4,239.2 245.8,237.5 252.1,235.6 258.5,233.4 264.9,230.9 271.2,228.1 277.6,225.1 284.0,221.9 290.4,218.5 296.8,214.8 303.1,211.0 309.5,207.0 315.9,202.8 322.2,198.6 328.6,194.1 335.0,189.6 341.4,185.0 347.8,180.4 354.1,175.7 360.5,171.0 366.9,166.3 373.2,161.6 379.6,157.0 386.0,152.4 392.4,147.9 398.8,143.4 405.1,139.2 411.5,135.0 417.9,131.0 424.2,127.2 430.6,123.5 437.0,120.1 443.4,116.9 449.8,113.9 456.1,111.1 462.5,108.6 468.9,106.4 475.2,104.5 481.6,102.8 488.0,101.5 494.4,100.4 500.8,99.6 507.1,99.2 513.5,99.0 519.9,99.2 526.2,99.6 532.6,100.4 539.0,101.5 545.4,102.8 551.8,104.5 558.1,106.4 564.5,108.6 570.9,111.1 577.2,113.9 583.6,116.9 590.0,120.1 596.4,123.5 602.8,127.2 609.1,131.0 615.5,135.0 621.9,139.2 628.2,143.4 634.6,147.9 641.0,152.4 647.4,157.0 653.8,161.6 660.1,166.3 666.5,171.0 672.9,175.7 679.2,180.4 685.6,185.0 692.0,189.6" fill="none" stroke="var(--hot)" stroke-width="2.8"/>
+        <rect x="131.0" y="56.0" width="102.0" height="214.0" rx="0" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.16"/>
+        <text x="182.0" y="72.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)" text-anchor="middle" font-weight="700">circadian low</text>
+        <line x1="80.0" y1="270.0" x2="80.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="80.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0000</text>
+        <line x1="182.0" y1="270.0" x2="182.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="182.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0400</text>
+        <line x1="284.0" y1="270.0" x2="284.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="284.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0800</text>
+        <line x1="386.0" y1="270.0" x2="386.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="386.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1200</text>
+        <line x1="488.0" y1="270.0" x2="488.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="488.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1600</text>
+        <line x1="590.0" y1="270.0" x2="590.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="590.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">2000</text>
+        <line x1="692.0" y1="270.0" x2="692.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="692.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">2400</text>
+        <line x1="74.0" y1="234.0" x2="80.0" y2="234.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="70.0" y="238.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">36.2</text>
+        <line x1="74.0" y1="162.0" x2="80.0" y2="162.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="70.0" y="166.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">36.6</text>
+        <line x1="74.0" y1="90.0" x2="80.0" y2="90.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="70.0" y="94.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">37.0</text>
+        <circle cx="207.5" cy="243.0" r="4.5" fill="var(--cool)" stroke="var(--cool)" stroke-width="1"/>
+        <text x="217.5" y="259.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">minimum about 0500</text>
+        <circle cx="513.5" cy="99.0" r="4.5" fill="var(--hot)" stroke="var(--hot)" stroke-width="1"/>
+        <text x="513.5" y="87.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" text-anchor="middle" font-weight="700">maximum about 1700</text>
+        <text x="380.0" y="326.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Free-running period about 25 hours; reset daily by zeitgebers (light, meals, activity).</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The body runs on a daily clock.</b> Body temperature, alertness, hormone levels and performance all follow a <b>circadian rhythm</b>. Temperature is lowest at about <b>0500</b> and highest at about <b>1700</b>; alertness and performance follow it, so the hours between about <b>0200 and 0600</b> — the “window of circadian low” — are when errors are most likely and staying awake is hardest. Left without time cues the clock runs slow, with a period of about <b>25 hours</b>; it is reset each day by <b>zeitgebers</b> (“time givers”): light and dark above all, plus meals, activity and social routine.</p>
+  </section>
+
+  <!-- 3 ─ SLEEP STAGES & REM CYCLES -->
+  <section class="card">
+    <h2>Sleep Stages &amp; REM Cycles</h2>
+    <div class="meta"><span class="tag">hp-42</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A hypnogram of one night showing repeated ninety-minute cycles through four stages of sleep and REM periods that lengthen towards morning">
+        <line x1="110.0" y1="60.0" x2="710.0" y2="60.0" stroke="var(--chart-line-2)" stroke-width="0.8" stroke-dasharray="2 4"/>
+        <text x="100.0" y="64.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">awake</text>
+        <line x1="110.0" y1="92.0" x2="710.0" y2="92.0" stroke="var(--chart-line-2)" stroke-width="0.8" stroke-dasharray="2 4"/>
+        <text x="100.0" y="96.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)" text-anchor="end" font-weight="700">REM</text>
+        <line x1="110.0" y1="124.0" x2="710.0" y2="124.0" stroke="var(--chart-line-2)" stroke-width="0.8" stroke-dasharray="2 4"/>
+        <text x="100.0" y="128.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">stage 1</text>
+        <line x1="110.0" y1="156.0" x2="710.0" y2="156.0" stroke="var(--chart-line-2)" stroke-width="0.8" stroke-dasharray="2 4"/>
+        <text x="100.0" y="160.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">stage 2</text>
+        <line x1="110.0" y1="188.0" x2="710.0" y2="188.0" stroke="var(--chart-line-2)" stroke-width="0.8" stroke-dasharray="2 4"/>
+        <text x="100.0" y="192.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">stage 3</text>
+        <line x1="110.0" y1="220.0" x2="710.0" y2="220.0" stroke="var(--chart-line-2)" stroke-width="0.8" stroke-dasharray="2 4"/>
+        <text x="100.0" y="224.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">stage 4</text>
+        <line x1="110.0" y1="46.0" x2="110.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="110.0" y1="240.0" x2="716.0" y2="240.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <path d="M110,60 L121.1,60 L121.1,124 L132.2,124 L132.2,156 L147.0,156 L147.0,188 L161.8,188 L161.8,220 L198.8,220 L198.8,220 L206.2,220 L206.2,156 L213.6,156 L213.6,92 L224.7,92 L224.7,92 L228.4,92 L228.4,156 L250.6,156 L250.6,188 L265.4,188 L265.4,220 L302.4,220 L302.4,220 L309.8,220 L309.8,156 L320.9,156 L320.9,92 L339.4,92 L339.4,92 L343.1,92 L343.1,156 L369.0,156 L369.0,188 L406.0,188 L406.0,188 L413.4,188 L413.4,156 L428.2,156 L428.2,92 L457.8,92 L457.8,92 L461.5,92 L461.5,156 L509.6,156 L509.6,156 L524.4,156 L524.4,92 L568.8,92 L568.8,92 L572.5,92 L572.5,156 L620.6,156 L620.6,156 L635.4,156 L635.4,92 L679.8,92 L679.8,92 L687.2,92 L687.2,124 L702.0,124 L702.0,60" stroke="var(--cool)" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+        <line x1="213.6" y1="92.0" x2="224.7" y2="92.0" stroke="var(--hot)" stroke-width="6"/>
+        <line x1="320.9" y1="92.0" x2="339.4" y2="92.0" stroke="var(--hot)" stroke-width="6"/>
+        <line x1="428.2" y1="92.0" x2="457.8" y2="92.0" stroke="var(--hot)" stroke-width="6"/>
+        <line x1="524.4" y1="92.0" x2="568.8" y2="92.0" stroke="var(--hot)" stroke-width="6"/>
+        <line x1="635.4" y1="92.0" x2="679.8" y2="92.0" stroke="var(--hot)" stroke-width="6"/>
+        <line x1="110.0" y1="240.0" x2="110.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="110.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">0</text>
+        <line x1="184.0" y1="240.0" x2="184.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="184.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1</text>
+        <line x1="258.0" y1="240.0" x2="258.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="258.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">2</text>
+        <line x1="332.0" y1="240.0" x2="332.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="332.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">3</text>
+        <line x1="406.0" y1="240.0" x2="406.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="406.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">4</text>
+        <line x1="480.0" y1="240.0" x2="480.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="480.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">5</text>
+        <line x1="554.0" y1="240.0" x2="554.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="554.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">6</text>
+        <line x1="628.0" y1="240.0" x2="628.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="628.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">7</text>
+        <line x1="702.0" y1="240.0" x2="702.0" y2="245.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="702.0" y="258.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">8</text>
+        <text x="410.0" y="278.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">hours asleep</text>
+        <line x1="110.0" y1="290.0" x2="221.0" y2="290.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)" marker-start="url(#m-gold)"/>
+        <text x="165.5" y="306.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle" font-weight="700">one cycle: about 90 min</text>
+        <text x="598.4" y="80.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)" text-anchor="middle" font-weight="700">REM periods lengthen</text>
+        <text x="540.0" y="316.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Slow-wave sleep restores the body; REM restores the mind.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>A night’s sleep is a series of cycles</b>, each about <b>90 minutes</b>. Sleep deepens from stage 1 (drowsy) through stage 2 to stages 3 and 4, the deep <b>slow-wave sleep</b> that restores the <b>body</b>, then lightens into <b>REM</b> (rapid eye movement) sleep, when dreaming occurs and which restores the <b>mind</b> and consolidates learning. Slow-wave sleep dominates the <b>early</b> cycles and REM the <b>later</b> ones, so cutting sleep short loses mostly REM. After deprivation the body takes slow-wave sleep first. Waking from deep sleep causes <b>sleep inertia</b> — grogginess for several minutes — so in-flight naps are best kept short (about 20–30 minutes).</p>
+  </section>
+
+  <!-- 4 ─ JET LAG — WESTBOUND VS EASTBOUND -->
+  <section class="card">
+    <h2>Jet Lag — Westbound vs Eastbound</h2>
+    <div class="meta"><span class="tag">hp-43</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="Two bars comparing the body clock with local time after flying west, which lengthens the day, and east, which shortens it">
+        <text x="40.0" y="58.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" font-weight="700">WESTBOUND: the day is lengthened</text>
+        <rect x="160.0" y="70.0" width="380.0" height="22.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="84.0" y="85.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">local time</text>
+        <rect x="100.0" y="104.0" width="380.0" height="22.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.4"/>
+        <text x="84.0" y="119.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">body clock</text>
+        <rect x="410.0" y="70.0" width="130.0" height="22.0" rx="4" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.35"/>
+        <text x="475.0" y="85.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle">night</text>
+        <rect x="350.0" y="104.0" width="130.0" height="22.0" rx="4" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.35"/>
+        <text x="415.0" y="119.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle">night</text>
+        <text x="624.0" y="86.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">easier</text>
+        <text x="624.0" y="102.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">about 1.5 h per day</text>
+        <text x="40.0" y="178.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" font-weight="700">EASTBOUND: the day is shortened</text>
+        <rect x="160.0" y="190.0" width="380.0" height="22.0" rx="4" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <text x="84.0" y="205.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">local time</text>
+        <rect x="220.0" y="224.0" width="380.0" height="22.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.4"/>
+        <text x="84.0" y="239.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="end">body clock</text>
+        <rect x="410.0" y="190.0" width="130.0" height="22.0" rx="4" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.35"/>
+        <text x="475.0" y="205.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle">night</text>
+        <rect x="470.0" y="224.0" width="130.0" height="22.0" rx="4" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.35"/>
+        <text x="535.0" y="239.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink)" text-anchor="middle">night</text>
+        <text x="624.0" y="206.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">harder</text>
+        <text x="624.0" y="222.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">about 1 h per day</text>
+        <text x="380.0" y="290.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">The body clock naturally runs slow (about 25 h), so delaying it is easier than advancing it.</text>
+        <text x="380.0" y="310.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">Short stopover: stay on home time.  Long stopover: adopt local time, get daylight.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Crossing time zones leaves the body clock behind.</b> Flying <b>west</b> lengthens the day: the body must <b>delay</b> its clock, which is the direction it drifts naturally (its free-running period is about 25 hours), so adjustment is easier — roughly <b>1.5 hours per day</b>. Flying <b>east</b> shortens the day and the clock must be <b>advanced</b>, which is harder — roughly <b>1 hour per day</b>. Until the clock resynchronises the result is <b>circadian dysrhythmia</b>: poor sleep, daytime fatigue, reduced performance and digestive upset. On a short stopover (under about 24 hours) stay on home time; on a long one, adopt local time and seek daylight.</p>
+  </section>
+
+  <!-- 5 ─ THE STRESS MODEL — PERCEIVED DEMAND VS PERCEIVED ABILITY -->
+  <section class="card">
+    <h2>The Stress Model — Perceived Demand vs Perceived Ability</h2>
+    <div class="meta"><span class="tag">hp-19</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="A balance with perceived demand on one side and perceived ability on the other, tipping towards stress when demand is greater">
+        <path d="M380,250 L360,290 L400,290 Z" stroke="var(--chart-ink)" stroke-width="1.6" fill="var(--steel)"/>
+        <line x1="160.0" y1="176.0" x2="600.0" y2="216.0" stroke="var(--chart-ink)" stroke-width="4"/>
+        <rect x="100.0" y="116.0" width="170.0" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="185.0" y="140.4" font-family="Overpass,sans-serif" font-size="12" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">PERCEIVED</text>
+        <text x="185.0" y="155.9" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink-dim)" text-anchor="middle">DEMAND</text>
+        <rect x="500.0" y="158.0" width="170.0" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.6"/>
+        <text x="585.0" y="182.4" font-family="Overpass,sans-serif" font-size="12" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">PERCEIVED</text>
+        <text x="585.0" y="197.9" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink-dim)" text-anchor="middle">ABILITY</text>
+        <line x1="185.0" y1="60.0" x2="185.0" y2="110.0" stroke="var(--hot)" stroke-width="2.4" marker-end="url(#m-hot)"/>
+        <text x="196.0" y="80.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)">actual demand, as the person sees it</text>
+        <line x1="585.0" y1="102.0" x2="585.0" y2="152.0" stroke="var(--green)" stroke-width="2.4" marker-end="url(#m-green)"/>
+        <text x="574.0" y="122.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" text-anchor="end">actual ability, as the person sees it</text>
+        <text x="380.0" y="320.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Demand seen as greater than ability = STRESS.  Balanced = comfortable.  Feedback from the outcome adjusts both.</text>
+        <text x="380.0" y="244.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-faint)" text-anchor="middle">the balance</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Stress comes from the mismatch a person perceives, not from the task itself.</b> The mind weighs the <b>perceived demand</b> of a situation against its <b>perceived ability</b> to cope. If the two balance, the person is comfortable and performs well. If demand appears to <b>exceed</b> ability, stress results — and it is the <b>perception</b> that counts: an experienced pilot and a novice face the same crosswind but feel very different stress. Feedback matters too: coping successfully raises perceived ability for next time, while failure lowers it. Training, preparation and experience all work by raising perceived ability.</p>
+  </section>
+
+  <!-- 6 ─ AROUSAL & PERFORMANCE — THE INVERTED U -->
+  <section class="card">
+    <h2>Arousal &amp; Performance — The Inverted U</h2>
+    <div class="meta"><span class="tag">hp-20</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="An inverted U curve of performance against arousal, low at both ends and best in the middle">
+        <line x1="100.0" y1="50.0" x2="100.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="100.0" y1="270.0" x2="690.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="395.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">arousal (stress level)</text>
+        <text x="56.0" y="160.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle" transform="rotate(-90 56 160.0)">performance</text>
+        <polyline points="100.0,267.5 105.7,267.1 111.4,266.5 117.1,265.9 122.8,265.2 128.5,264.4 134.2,263.4 139.9,262.3 145.6,261.1 151.3,259.7 157.0,258.2 162.7,256.4 168.4,254.5 174.1,252.4 179.8,250.0 185.5,247.3 191.2,244.5 196.9,241.3 202.6,237.9 208.3,234.2 214.0,230.2 219.7,225.9 225.4,221.3 231.1,216.4 236.8,211.2 242.5,205.8 248.2,200.1 253.9,194.2 259.6,188.0 265.3,181.6 271.0,175.1 276.7,168.5 282.4,161.7 288.1,155.0 293.8,148.2 299.5,141.4 305.2,134.8 310.9,128.3 316.6,122.0 322.3,116.0 328.0,110.3 333.7,104.9 339.4,100.0 345.1,95.5 350.8,91.5 356.5,88.1 362.2,85.2 367.9,82.9 373.6,81.3 379.3,80.3 385.0,80.0 390.7,80.3 396.4,81.3 402.1,82.9 407.8,85.2 413.5,88.1 419.2,91.5 424.9,95.5 430.6,100.0 436.3,104.9 442.0,110.3 447.7,116.0 453.4,122.0 459.1,128.3 464.8,134.8 470.5,141.4 476.2,148.2 481.9,155.0 487.6,161.7 493.3,168.5 499.0,175.1 504.7,181.6 510.4,188.0 516.1,194.2 521.8,200.1 527.5,205.8 533.2,211.2 538.9,216.4 544.6,221.3 550.3,225.9 556.0,230.2 561.7,234.2 567.4,237.9 573.1,241.3 578.8,244.5 584.5,247.3 590.2,250.0 595.9,252.4 601.6,254.5 607.3,256.4 613.0,258.2 618.7,259.7 624.4,261.1 630.1,262.3 635.8,263.4 641.5,264.4 647.2,265.2 652.9,265.9 658.6,266.5 664.3,267.1 670.0,267.5" fill="none" stroke="var(--gold)" stroke-width="3"/>
+        <circle cx="385.0" cy="80.0" r="5" fill="var(--green)" stroke="var(--green)" stroke-width="1"/>
+        <text x="385.0" y="66.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" text-anchor="middle" font-weight="700">optimum</text>
+        <rect x="100.0" y="56.0" width="150.0" height="214.0" rx="0" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.12"/>
+        <rect x="540.0" y="56.0" width="150.0" height="214.0" rx="0" fill="var(--hot)" stroke="none" stroke-width="0" opacity="0.12"/>
+        <text x="112.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">UNDER-AROUSED</text>
+        <text x="112.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">boredom, fatigue,</text>
+        <text x="112.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">missed events</text>
+        <text x="552.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">OVER-AROUSED</text>
+        <text x="552.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">fixation, overload,</text>
+        <text x="552.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">panic</text>
+        <text x="380.0" y="326.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">The optimum is lower for complex or unfamiliar tasks than for simple, practised ones.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Performance is best at a moderate level of arousal</b> (the Yerkes–Dodson law). When arousal is <b>too low</b> — boredom, a long quiet cruise, fatigue — attention wanders and events are missed. As arousal rises performance improves to an <b>optimum</b>. Beyond that, <b>over-arousal</b> degrades it: attention narrows onto one item (<b>tunnelling</b> or fixation), other information is shed, and in the extreme the pilot freezes or panics. The optimum is <b>lower for complex or unfamiliar tasks</b> than for simple, well-practised ones, which is why emergencies are trained until the response is automatic.</p>
+  </section>
+
+  <!-- 7 ─ SOURCES OF STRESS — STRESSORS -->
+  <section class="card">
+    <h2>Sources of Stress — Stressors</h2>
+    <div class="meta"><span class="tag">hp-21</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Four groups of stressors feeding into a central total stress load">
+        <rect x="290.0" y="140.0" width="180.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="166.4" font-family="Overpass,sans-serif" font-size="12" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">TOTAL STRESS</text>
+        <text x="380.0" y="181.9" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink-dim)" text-anchor="middle">the effects add up</text>
+        <rect x="30.0" y="30.0" width="220.0" height="76.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.8"/>
+        <text x="140.0" y="54.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">ENVIRONMENTAL</text>
+        <text x="140.0" y="74.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">heat or cold, noise,</text>
+        <text x="140.0" y="88.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">vibration, low humidity</text>
+        <line x1="250.0" y1="68.0" x2="300.0" y2="148.0" stroke="var(--cool)" stroke-width="2" marker-end="url(#m-cool)"/>
+        <rect x="510.0" y="30.0" width="220.0" height="76.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.8"/>
+        <text x="620.0" y="54.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="middle" font-weight="700">PHYSIOLOGICAL</text>
+        <text x="620.0" y="74.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">fatigue, lack of sleep,</text>
+        <text x="620.0" y="88.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">hunger, illness</text>
+        <line x1="510.0" y1="68.0" x2="460.0" y2="148.0" stroke="var(--green)" stroke-width="2" marker-end="url(#m-green)"/>
+        <rect x="30.0" y="240.0" width="220.0" height="76.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.8"/>
+        <text x="140.0" y="264.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">PSYCHOLOGICAL</text>
+        <text x="140.0" y="284.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">fear, workload,</text>
+        <text x="140.0" y="298.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">time pressure</text>
+        <line x1="250.0" y1="278.0" x2="300.0" y2="192.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)"/>
+        <rect x="510.0" y="240.0" width="220.0" height="76.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--warm)" stroke-width="1.8"/>
+        <text x="620.0" y="264.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--warm)" text-anchor="middle" font-weight="700">LIFE STRESS</text>
+        <text x="620.0" y="284.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">bereavement, divorce,</text>
+        <text x="620.0" y="298.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">money, family</text>
+        <line x1="510.0" y1="278.0" x2="460.0" y2="192.0" stroke="var(--warm)" stroke-width="2" marker-end="url(#m-warm)"/>
+        <text x="380.0" y="108.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-faint)" text-anchor="middle">stressors</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Stress is cumulative.</b> A <b>stressor</b> is anything that produces stress, and the effects of different stressors <b>add together</b>: a pilot already loaded by a domestic problem and a poor night’s sleep has less capacity left for a technical failure. <b>Environmental (physical)</b> stressors include heat, noise, vibration and low humidity. <b>Physiological</b> ones include fatigue, hunger and illness. <b>Psychological</b> stressors include fear, workload and time pressure. <b>Life stress</b> — bereavement, divorce, money, moving house — is carried into the cockpit. The comfortable cockpit is about 21°C with 40–60% relative humidity.</p>
+  </section>
+
+  <!-- 8 ─ THE DIGESTIVE SYSTEM -->
+  <section class="card">
+    <h2>The Digestive System</h2>
+    <div class="meta"><span class="tag">hp-18</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="A schematic of the digestive tract from mouth through oesophagus, stomach and intestines, with the liver and pancreas">
+        <ellipse cx="140.0" cy="50.0" rx="26" ry="18" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.8"/>
+        <text x="176.0" y="54.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">mouth</text>
+        <path d="M140,68 L140,130" stroke="var(--warm)" stroke-width="9" fill="none"/>
+        <text x="152.0" y="104.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">oesophagus</text>
+        <path d="M130,130 C190,120 230,150 216,196 C200,226 150,220 132,196 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="var(--warm)"/>
+        <text x="232.0" y="168.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">stomach: acid and enzymes</text>
+        <path d="M40,130 C40,110 110,112 124,134 C116,160 60,164 40,150 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="#7a4a3a"/>
+        <text x="30.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">liver: bile,</text>
+        <text x="30.0" y="197.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">stores glycogen</text>
+        <ellipse cx="170.0" cy="228.0" rx="44" ry="9" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4"/>
+        <text x="224.0" y="232.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">pancreas: enzymes, insulin</text>
+        <path d="M150,216 C120,236 96,240 96,256 C96,270 190,262 190,276 C190,290 96,284 96,298 C96,312 190,306 190,318" stroke="var(--gold)" stroke-width="7" fill="none"/>
+        <text x="204.0" y="284.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">small intestine: absorbs nutrients</text>
+        <path d="M72,318 L72,246 Q72,236 82,236 M72,318 Q72,332 90,332 L206,332 Q222,332 222,318 L222,300" stroke="var(--cool)" stroke-width="9" fill="none"/>
+        <text x="236.0" y="326.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)">large intestine: recovers water</text>
+        <text x="480.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Fuel</text>
+        <text x="480.0" y="74.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">carbohydrate becomes glucose,</text>
+        <text x="480.0" y="88.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">the brain’s only fuel</text>
+        <text x="480.0" y="130.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Missed meals</text>
+        <text x="480.0" y="144.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">low blood sugar: headache,</text>
+        <text x="480.0" y="158.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">shakiness, poor concentration</text>
+        <text x="480.0" y="200.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">Altitude</text>
+        <text x="480.0" y="214.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">gas in the gut expands:</text>
+        <text x="480.0" y="228.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">avoid fizzy drinks before flight</text>
+        <text x="480.0" y="270.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Food poisoning</text>
+        <text x="480.0" y="284.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">a leading cause of in-flight</text>
+        <text x="480.0" y="298.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">incapacitation</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Digestion turns food into fuel.</b> Food passes from the <b>mouth</b> down the <b>oesophagus</b> to the <b>stomach</b>, where acid and enzymes begin to break it down. Most nutrients are absorbed in the <b>small intestine</b>, helped by bile from the <b>liver</b> and enzymes from the <b>pancreas</b>; the <b>large intestine</b> recovers water. Carbohydrate becomes <b>glucose</b>, the brain’s only fuel: a missed meal can cause <b>hypoglycaemia</b> (low blood sugar) — headache, shakiness, poor concentration. For flight: gas in the gut <b>expands with altitude</b> (avoid fizzy drinks and gas-forming food), and <b>food poisoning</b> is a leading cause of in-flight incapacitation, which is why the two pilots eat different meals.</p>
+  </section>
+
+  <!-- 9 ─ THE INFORMATION-PROCESSING MODEL -->
+  <section class="card">
+    <h2>The Information-Processing Model</h2>
+    <div class="meta"><span class="tag">hp-24</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="Boxes showing stimuli passing through the senses, sensory memory, perception, decision making and response, with attention, working memory, long-term memory and feedback">
+        <rect x="30.0" y="120.0" width="101.7" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="80.8" y="151.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">STIMULI</text>
+        <line x1="133.7" y1="148.0" x2="147.7" y2="148.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="149.7" y="120.0" width="101.7" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="200.5" y="144.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">SENSES</text>
+        <text x="200.5" y="158.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">receptors</text>
+        <line x1="253.3" y1="148.0" x2="267.3" y2="148.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="269.3" y="120.0" width="101.7" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="320.2" y="144.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">SENSORY</text>
+        <text x="320.2" y="158.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">MEMORY</text>
+        <line x1="373.0" y1="148.0" x2="387.0" y2="148.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="389.0" y="120.0" width="101.7" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="439.8" y="151.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">PERCEPTION</text>
+        <line x1="492.7" y1="148.0" x2="506.7" y2="148.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="508.7" y="120.0" width="101.7" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="559.5" y="144.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">DECISION</text>
+        <text x="559.5" y="158.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">one at a time</text>
+        <line x1="612.3" y1="148.0" x2="626.3" y2="148.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="628.3" y="120.0" width="101.7" height="56.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="679.2" y="151.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">RESPONSE</text>
+        <rect x="250.0" y="30.0" width="260.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="53.7" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ATTENTION: the limiting resource</text>
+        <line x1="380.0" y1="70.0" x2="380.0" y2="118.0" stroke="var(--hot)" stroke-width="1.8" marker-end="url(#m-hot)"/>
+        <rect x="330.0" y="226.0" width="170.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="415.0" y="247.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">WORKING MEMORY</text>
+        <text x="415.0" y="261.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">7 ± 2 items, 10–20 s</text>
+        <rect x="520.0" y="226.0" width="150.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="595.0" y="247.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LONG-TERM MEMORY</text>
+        <text x="595.0" y="261.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">knowledge and skills</text>
+        <line x1="520.0" y1="226.0" x2="546.0" y2="178.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)" marker-start="url(#m-cool)"/>
+        <line x1="610.0" y1="226.0" x2="580.0" y2="178.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)" marker-start="url(#m-cool)"/>
+        <line x1="502.0" y1="251.0" x2="518.0" y2="251.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)" marker-start="url(#m-cool)"/>
+        <path d="M700,176 L700,312 L84,312 L84,178" stroke="var(--green)" stroke-width="1.8" fill="none" stroke-dasharray="7 4" marker-end="url(#m-green)" stroke-linejoin="round"/>
+        <text x="200.0" y="304.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">FEEDBACK</text>
+        <text x="380.0" y="338.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">Perception is shaped by expectation: we tend to see what we expect to see.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>How a pilot turns a stimulus into an action.</b> The <b>senses</b> detect a stimulus and hold it briefly in <b>sensory memory</b> (about 1 second for sight, up to 8 for sound). <b>Perception</b> gives it meaning, coloured by experience and expectation. The <b>central decision-maker</b> then chooses a response — it is a <b>single channel</b>, handling one conscious decision at a time, so <b>attention</b> is the limiting resource. It draws on <b>working (short-term) memory</b>, which holds about <b>7 ± 2 items</b> for 10–20 seconds unless rehearsed, and on <b>long-term memory</b>. The <b>response</b> is carried out and <b>feedback</b> confirms the result, closing the loop.</p>
+  </section>
+
+  <!-- 10 ─ GEOMETRIC OPTICAL ILLUSIONS -->
+  <section class="card">
+    <h2>Geometric Optical Illusions</h2>
+    <div class="meta"><span class="tag">hp-28</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="Three classic illusions: two equal lines with arrow heads that look unequal, two equal bars between converging lines, and equal vertical and horizontal lines">
+        <text x="130.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Müller-Lyer</text>
+        <line x1="60.0" y1="110.0" x2="200.0" y2="110.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="60.0" y1="110.0" x2="40.0" y2="92.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="60.0" y1="110.0" x2="40.0" y2="128.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="200.0" y1="110.0" x2="220.0" y2="92.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="200.0" y1="110.0" x2="220.0" y2="128.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="60.0" y1="190.0" x2="200.0" y2="190.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="60.0" y1="190.0" x2="80.0" y2="172.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="60.0" y1="190.0" x2="80.0" y2="208.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="200.0" y1="190.0" x2="180.0" y2="172.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="200.0" y1="190.0" x2="180.0" y2="208.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <text x="130.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">the gold lines are equal</text>
+        <text x="380.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Ponzo</text>
+        <line x1="300.0" y1="230.0" x2="360.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="460.0" y1="230.0" x2="400.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="345.0" y1="100.0" x2="415.0" y2="100.0" stroke="var(--gold)" stroke-width="4"/>
+        <line x1="345.0" y1="200.0" x2="415.0" y2="200.0" stroke="var(--gold)" stroke-width="4"/>
+        <text x="380.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">the gold bars are equal</text>
+        <text x="630.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Vertical–horizontal</text>
+        <line x1="560.0" y1="220.0" x2="700.0" y2="220.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="630.0" y1="220.0" x2="630.0" y2="80.0" stroke="var(--gold)" stroke-width="3"/>
+        <text x="630.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">the two lines are equal</text>
+        <line x1="250.0" y1="30.0" x2="250.0" y2="260.0" stroke="var(--chart-line-2)" stroke-width="1" stroke-dasharray="3 5"/>
+        <line x1="510.0" y1="30.0" x2="510.0" y2="260.0" stroke="var(--chart-line-2)" stroke-width="1" stroke-dasharray="3 5"/>
+        <text x="380.0" y="296.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Size and distance judged by eye depend on the surroundings.</text>
+        <text x="380.0" y="314.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">The Ponzo effect is the same cue that makes an unusually narrow or sloping runway misleading.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The eye measures by comparison, and context fools it.</b> In the <b>Müller-Lyer</b> figure the two shafts are the same length, but the one with outward-pointing fins looks longer. In the <b>Ponzo</b> figure two identical bars lie between converging lines; the upper one looks longer because the brain reads the converging lines as depth — exactly the cue used to judge a runway on approach. In the <b>vertical–horizontal</b> illusion a vertical line looks longer than an equal horizontal one. The lesson for flying: judgements of size, distance and slope made by eye are unreliable when the surroundings are unfamiliar, so cross-check with instruments.</p>
+  </section>
+
+  <!-- 11 ─ IMPOSSIBLE FIGURES -->
+  <section class="card">
+    <h2>Impossible Figures</h2>
+    <div class="meta"><span class="tag">hp-29</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="A Penrose triangle, which appears to be a solid three-dimensional object but could not exist">
+        <polygon points="160.0,262.0 340.0,262.0 325.0,236.0 265.0,132.1 250.0,158.1 295.0,236.0 145.0,236.0" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.8" opacity="0.85"/>
+        <polygon points="355.0,236.0 265.0,80.1 250.0,106.1 190.0,210.0 220.0,210.0 265.0,132.1 340.0,262.0" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.8" opacity="0.85"/>
+        <polygon points="235.0,80.1 145.0,236.0 175.0,236.0 295.0,236.0 280.0,210.0 190.0,210.0 265.0,80.1" fill="var(--warm)" stroke="var(--chart-ink)" stroke-width="1.8" opacity="0.85"/>
+        <text x="250.0" y="296.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">the Penrose triangle</text>
+        <text x="440.0" y="70.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">Each corner looks like a normal</text>
+        <text x="440.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">solid right-angled joint.</text>
+        <text x="440.0" y="130.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Together they cannot exist:</text>
+        <text x="440.0" y="144.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">the three bars would have to</text>
+        <text x="440.0" y="158.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">meet at right angles and still</text>
+        <text x="440.0" y="172.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">close into a triangle.</text>
+        <text x="440.0" y="226.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Perception is a construction.</text>
+        <text x="440.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">The brain will supply a confident</text>
+        <text x="440.0" y="254.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">picture from incomplete cues,</text>
+        <text x="440.0" y="268.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">even when it is wrong.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The brain insists on building a 3-D object from a 2-D picture.</b> An impossible figure such as the <b>Penrose triangle</b> is drawn so that each corner, taken alone, is a perfectly reasonable solid joint — yet the three corners cannot belong to the same object. The eye accepts each part and only notices the contradiction when it tries to follow the whole shape round. It shows that perception is an active <b>construction</b> based on assumptions, not a recording, and that the brain will happily supply a confident interpretation that is wrong. In flight the equivalent is building a convincing mental picture from incomplete cues and failing to test it.</p>
+  </section>
+
+  <!-- 12 ─ EXPECTATION — SEEING WHAT WE EXPECT -->
+  <section class="card">
+    <h2>Expectation — Seeing What We Expect</h2>
+    <div class="meta"><span class="tag">hp-25</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A triangle containing the words a bird in the the hand, with the word the repeated on two lines">
+        <path d="M200,270 L380,40 L560,270 Z" stroke="var(--gold)" stroke-width="2.4" fill="var(--chart-ground-3)"/>
+        <text x="380.0" y="140.0" font-family="Overpass,sans-serif" font-size="20" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">A</text>
+        <text x="380.0" y="176.0" font-family="Overpass,sans-serif" font-size="20" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">BIRD</text>
+        <text x="380.0" y="212.0" font-family="Overpass,sans-serif" font-size="20" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">IN THE</text>
+        <text x="380.0" y="248.0" font-family="Overpass,sans-serif" font-size="20" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">THE HAND</text>
+        <text x="40.0" y="70.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">What do you read?</text>
+        <text x="40.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">Most people see the</text>
+        <text x="40.0" y="98.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">familiar saying and</text>
+        <text x="40.0" y="112.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">miss the extra word.</text>
+        <text x="590.0" y="70.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">In the cockpit:</text>
+        <text x="590.0" y="84.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">hearing the clearance</text>
+        <text x="590.0" y="98.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">you expected; seeing</text>
+        <text x="590.0" y="112.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">what is usually there.</text>
+        <text x="380.0" y="304.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">We tend to perceive what we expect, not what is there. Read it; do not assume it.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Read the phrase in the triangle, then read it again word by word.</b> Most people read “a bird in the hand” and miss the repeated word, because the brain recognises a familiar pattern and <b>fills in what it expects</b> instead of processing what is actually there. This is <b>expectancy</b> (or “mental set”), and it is strongest when we are busy, tired or doing something routine. In the cockpit it produces the classic errors: hearing the clearance you expected, not the one given; seeing three greens because the gear is always down by now; reading back a frequency or level incorrectly without noticing. Defence: read the instrument, do not assume it — and cross-check with the other pilot.</p>
+  </section>
+
+  <!-- 13 ─ THE BASIC-T INSTRUMENT LAYOUT & SCAN -->
+  <section class="card">
+    <h2>The Basic-T Instrument Layout &amp; Scan</h2>
+    <div class="meta"><span class="tag">hp-49</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="Six flight instruments in two rows with the four forming a T highlighted and scan arrows radiating from the attitude indicator">
+        <path d="M150,30 L610,30 L610,166 L450,166 L450,318 L310,318 L310,166 L150,166 Z" stroke="var(--gold)" stroke-width="1.6" fill="var(--gold)" opacity="0.12"/>
+        <path d="M150,30 L610,30 L610,166 L450,166 L450,318 L310,318 L310,166 L150,166 Z" stroke="var(--gold)" stroke-width="1.8" fill="none" stroke-dasharray="7 4"/>
+        <circle cx="220.0" cy="90.0" r="44" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="220.0" y1="90.0" x2="195.6" y2="119.1" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="220.0" cy="90.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="220.0" y="150.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">airspeed</text>
+        <circle cx="380.0" cy="90.0" r="44" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <circle cx="380.0" cy="90.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="392.0" y="150.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">attitude</text>
+        <circle cx="540.0" cy="90.0" r="44" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="540.0" y1="90.0" x2="564.4" y2="60.9" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="540.0" cy="90.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="540.0" y="150.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">altimeter</text>
+        <circle cx="220.0" cy="246.0" r="44" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="220.0" y1="246.0" x2="220.0" y2="208.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="220.0" cy="246.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="220.0" y="306.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">turn co-ordinator</text>
+        <circle cx="380.0" cy="246.0" r="44" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="380.0" y1="246.0" x2="380.0" y2="208.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="380.0" cy="246.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="380.0" y="306.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">heading</text>
+        <circle cx="540.0" cy="246.0" r="44" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="540.0" y1="246.0" x2="502.0" y2="246.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="540.0" cy="246.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="540.0" y="306.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">vertical speed</text>
+        <defs><clipPath id="t49"><circle cx="380" cy="90" r="42"/></clipPath></defs><g clip-path="url(#t49)"><rect x="336" y="46" width="88" height="44" fill="#2f6f93"/><rect x="336" y="90" width="88" height="44" fill="#7a5a34"/></g>
+        <line x1="358.0" y1="90.0" x2="402.0" y2="90.0" stroke="var(--gold)" stroke-width="3"/>
+        <line x1="330.0" y1="90.0" x2="270.0" y2="90.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)" marker-start="url(#m-hot)"/>
+        <line x1="430.0" y1="90.0" x2="490.0" y2="90.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)" marker-start="url(#m-hot)"/>
+        <line x1="380.0" y1="140.0" x2="380.0" y2="196.0" stroke="var(--hot)" stroke-width="2" marker-end="url(#m-hot)" marker-start="url(#m-hot)"/>
+        <text x="660.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" text-anchor="middle" font-weight="700">the basic T</text>
+        <text x="660.0" y="76.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--gold)" text-anchor="middle">(shaded)</text>
+        <text x="30.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">Selective radial scan:</text>
+        <text x="30.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">attitude, out to one</text>
+        <text x="30.0" y="278.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">instrument, back to</text>
+        <text x="30.0" y="292.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">attitude, then the next.</text>
+        <text x="380.0" y="342.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">The attitude indicator is the centre of the scan.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The standard layout puts the key instruments where the eye needs them.</b> The <b>attitude indicator</b> is top centre — it is the master instrument and the hub of the scan. The <b>airspeed indicator</b> is to its left, the <b>altimeter</b> to its right and the <b>heading indicator</b> directly below: together they form the <b>basic T</b>, the same in every aircraft so that a pilot’s scan transfers between types. The turn co-ordinator and vertical speed indicator fill the lower corners. The usual scan is <b>selective radial</b>: start at the attitude indicator, glance out to one instrument, return to the attitude indicator, then out to the next.</p>
+  </section>
+
+  <!-- 14 ─ THREE-POINTER ALTIMETER — THE 10 000 FT MISREADING -->
+  <section class="card">
+    <h2>Three-Pointer Altimeter — The 10 000 ft Misreading</h2>
+    <div class="meta"><span class="tag">hp-50</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A three pointer altimeter face reading thirteen thousand four hundred and sixty feet, with a small pointer for tens of thousands that is easily missed">
+        <circle cx="210.0" cy="170.0" r="124" fill="#0b0f11" stroke="var(--chart-ink)" stroke-width="2.4"/>
+        <line x1="210.0" y1="66.0" x2="210.0" y2="48.0" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="224.0" y1="58.9" x2="225.3" y2="49.0" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="237.9" y1="61.5" x2="240.3" y2="51.8" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="251.2" y1="65.9" x2="254.9" y2="56.6" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="264.0" y1="71.9" x2="268.8" y2="63.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="271.1" y1="85.9" x2="281.7" y2="71.3" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="286.7" y1="88.4" x2="293.5" y2="81.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="296.3" y1="98.6" x2="304.0" y2="92.2" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="304.6" y1="110.0" x2="313.0" y2="104.6" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="311.3" y1="122.3" x2="320.4" y2="118.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="308.9" y1="137.9" x2="326.0" y2="132.3" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="320.0" y1="149.0" x2="329.8" y2="147.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="321.8" y1="163.0" x2="331.8" y2="162.3" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="321.8" y1="177.0" x2="331.8" y2="177.7" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="320.0" y1="191.0" x2="329.8" y2="192.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="308.9" y1="202.1" x2="326.0" y2="207.7" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="311.3" y1="217.7" x2="320.4" y2="221.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="304.6" y1="230.0" x2="313.0" y2="235.4" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="296.3" y1="241.4" x2="304.0" y2="247.8" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="286.7" y1="251.6" x2="293.5" y2="258.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="271.1" y1="254.1" x2="281.7" y2="268.7" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="264.0" y1="268.1" x2="268.8" y2="276.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="251.2" y1="274.1" x2="254.9" y2="283.4" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="237.9" y1="278.5" x2="240.3" y2="288.2" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="224.0" y1="281.1" x2="225.3" y2="291.0" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="210.0" y1="274.0" x2="210.0" y2="292.0" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="196.0" y1="281.1" x2="194.7" y2="291.0" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="182.1" y1="278.5" x2="179.7" y2="288.2" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="168.8" y1="274.1" x2="165.1" y2="283.4" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="156.0" y1="268.1" x2="151.2" y2="276.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="148.9" y1="254.1" x2="138.3" y2="268.7" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="133.3" y1="251.6" x2="126.5" y2="258.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="123.7" y1="241.4" x2="116.0" y2="247.8" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="115.4" y1="230.0" x2="107.0" y2="235.4" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="108.7" y1="217.7" x2="99.6" y2="221.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="111.1" y1="202.1" x2="94.0" y2="207.7" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="100.0" y1="191.0" x2="90.2" y2="192.9" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="98.2" y1="177.0" x2="88.2" y2="177.7" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="98.2" y1="163.0" x2="88.2" y2="162.3" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="100.0" y1="149.0" x2="90.2" y2="147.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="111.1" y1="137.9" x2="94.0" y2="132.3" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="108.7" y1="122.3" x2="99.6" y2="118.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="115.4" y1="110.0" x2="107.0" y2="104.6" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="123.7" y1="98.6" x2="116.0" y2="92.2" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="133.3" y1="88.4" x2="126.5" y2="81.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="148.9" y1="85.9" x2="138.3" y2="71.3" stroke="#ffffff" stroke-width="1.8"/>
+        <line x1="156.0" y1="71.9" x2="151.2" y2="63.1" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="168.8" y1="65.9" x2="165.1" y2="56.6" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="182.1" y1="61.5" x2="179.7" y2="51.8" stroke="#ffffff" stroke-width="0.9"/>
+        <line x1="196.0" y1="58.9" x2="194.7" y2="49.0" stroke="#ffffff" stroke-width="0.9"/>
+        <text x="210.0" y="87.0" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">0</text>
+        <text x="261.7" y="103.8" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">1</text>
+        <text x="293.7" y="147.8" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">2</text>
+        <text x="293.7" y="202.2" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">3</text>
+        <text x="261.7" y="246.2" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">4</text>
+        <text x="210.0" y="263.0" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">5</text>
+        <text x="158.3" y="246.2" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">6</text>
+        <text x="126.3" y="202.2" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">7</text>
+        <text x="126.3" y="147.8" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">8</text>
+        <text x="158.3" y="103.8" font-family="Overpass,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700">9</text>
+        <line x1="210.0" y1="170.0" x2="234.9" y2="266.9" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+        <line x1="210.0" y1="170.0" x2="262.7" y2="206.3" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+        <line x1="210.0" y1="170.0" x2="242.9" y2="140.8" stroke="var(--hot)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M242.9,133.8 L249.9,145.8 L235.9,145.8 Z" stroke="var(--hot)" stroke-width="1" fill="var(--hot)"/>
+        <circle cx="210.0" cy="170.0" r="7" fill="var(--steel)" stroke="var(--chart-ink)" stroke-width="1.2"/>
+        <circle cx="390.0" cy="70.0" r="9" fill="var(--gold)"/>
+        <text x="390.0" y="73.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">1</text>
+        <circle cx="390.0" cy="130.0" r="9" fill="var(--gold)"/>
+        <text x="390.0" y="133.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">2</text>
+        <circle cx="390.0" cy="190.0" r="9" fill="var(--gold)"/>
+        <text x="390.0" y="193.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">3</text>
+        <text x="408.0" y="69.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Long pointer: hundreds of feet</text>
+        <text x="408.0" y="83.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">reads 460</text>
+        <text x="408.0" y="129.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Short, broad pointer: thousands</text>
+        <text x="408.0" y="143.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">reads 3 (thousand)</text>
+        <text x="408.0" y="189.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" font-weight="700">Smallest pointer: tens of thousands</text>
+        <text x="408.0" y="203.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">reads 1 (ten thousand): easily missed</text>
+        <rect x="396.0" y="230.0" width="340.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="566.0" y="254.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--green)" text-anchor="middle" font-weight="700">correct reading: 13 460 ft</text>
+        <text x="566.0" y="274.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--hot)" text-anchor="middle" font-weight="700">misread as: 3 460 ft</text>
+        <text x="566.0" y="291.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">an error of exactly 10 000 ft</text>
+      </svg>
+    </div>
+    <p class="cap"><b>A notorious design-induced error.</b> The three-pointer altimeter uses a <b>long</b> pointer for hundreds of feet, a <b>short</b> pointer for thousands and a <b>third, very small</b> pointer for <b>tens of thousands</b>. The small pointer is easily overlooked or hidden by the others, so the instrument can be misread by exactly <b>10 000 ft</b> — and it has caused fatal accidents, with crews descending into terrain believing they were 10 000 ft higher. The reading here is <b>13 460 ft</b>; a hurried glance gives 3 460 ft. Modern altimeters fix it with a <b>counter-pointer</b> display (digits for thousands, one pointer for hundreds) and a striped low-altitude flag below 10 000 ft.</p>
+  </section>
+
+  <!-- 15 ─ GLASS-COCKPIT PRIMARY FLIGHT DISPLAY -->
+  <section class="card">
+    <h2>Glass-Cockpit Primary Flight Display</h2>
+    <div class="meta"><span class="tag">hp-51</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="An electronic primary flight display with the attitude display in the centre, a speed tape on the left, an altitude tape on the right and a heading scale below">
+        <rect x="40.0" y="20.0" width="380.0" height="310.0" rx="12" fill="#0b0f11" stroke="var(--chart-line-2)" stroke-width="2"/>
+        <rect x="60.0" y="34.0" width="340.0" height="22.0" rx="2" fill="#232b30" stroke="#3b474d" stroke-width="1"/>
+        <text x="117.0" y="50.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#7ccf6a" text-anchor="middle" font-weight="700">SPD</text>
+        <text x="230.0" y="50.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#7ccf6a" text-anchor="middle" font-weight="700">ALT</text>
+        <text x="343.0" y="50.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#7ccf6a" text-anchor="middle" font-weight="700">HDG</text>
+        <rect x="60.0" y="70.0" width="56.0" height="200.0" rx="2" fill="#232b30" stroke="#3b474d" stroke-width="1"/>
+        <rect x="344.0" y="70.0" width="56.0" height="200.0" rx="2" fill="#232b30" stroke="#3b474d" stroke-width="1"/>
+        <text x="88.0" y="100.0" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#ffffff" text-anchor="middle">160</text>
+        <text x="88.0" y="148.0" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#ffffff" text-anchor="middle">140</text>
+        <text x="88.0" y="196.0" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#ffffff" text-anchor="middle">120</text>
+        <text x="88.0" y="244.0" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#ffffff" text-anchor="middle">100</text>
+        <text x="372.0" y="100.0" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#ffffff" text-anchor="middle">60</text>
+        <text x="372.0" y="148.0" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#ffffff" text-anchor="middle">50</text>
+        <text x="372.0" y="196.0" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#ffffff" text-anchor="middle">40</text>
+        <text x="372.0" y="244.0" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#ffffff" text-anchor="middle">30</text>
+        <rect x="56.0" y="158.0" width="64.0" height="24.0" rx="2" fill="#0b0f11" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="88.0" y="175.0" font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">132</text>
+        <rect x="340.0" y="158.0" width="64.0" height="24.0" rx="2" fill="#0b0f11" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="372.0" y="175.0" font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">4500</text>
+        <defs><clipPath id="p51"><rect x="130" y="76" width="200" height="188" rx="46"/></clipPath></defs><g clip-path="url(#p51)"><rect x="130" y="76" width="200" height="94" fill="#2f6f93"/><rect x="130" y="170" width="200" height="94" fill="#7a5a34"/><line x1="130" y1="170" x2="330" y2="170" stroke="#fff" stroke-width="2"/></g>
+        <line x1="206.0" y1="136.0" x2="254.0" y2="136.0" stroke="#ffffff" stroke-width="1.4"/>
+        <line x1="206.0" y1="204.0" x2="254.0" y2="204.0" stroke="#ffffff" stroke-width="1.4"/>
+        <line x1="160.0" y1="170.0" x2="206.0" y2="170.0" stroke="var(--gold)" stroke-width="4"/>
+        <line x1="254.0" y1="170.0" x2="300.0" y2="170.0" stroke="var(--gold)" stroke-width="4"/>
+        <rect x="225.0" y="165.0" width="10.0" height="10.0" rx="0" fill="#0b0f11" stroke="var(--gold)" stroke-width="1.6"/>
+        <rect x="130.0" y="284.0" width="200.0" height="28.0" rx="2" fill="#232b30" stroke="#3b474d" stroke-width="1"/>
+        <text x="180.0" y="303.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#ffffff" text-anchor="middle">08</text>
+        <text x="230.0" y="303.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#ffffff" text-anchor="middle">09</text>
+        <text x="280.0" y="303.0" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#ffffff" text-anchor="middle">10</text>
+        <path d="M230,284 L224,274 L236,274 Z" stroke="var(--gold)" stroke-width="1" fill="var(--gold)"/>
+        <circle cx="26.0" cy="45.0" r="9" fill="var(--gold)"/>
+        <text x="26.0" y="48.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">1</text>
+        <circle cx="26.0" cy="170.0" r="9" fill="var(--gold)"/>
+        <text x="26.0" y="173.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">2</text>
+        <circle cx="230.0" cy="110.0" r="9" fill="var(--gold)"/>
+        <text x="230.0" y="113.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">3</text>
+        <circle cx="434.0" cy="170.0" r="9" fill="var(--gold)"/>
+        <text x="434.0" y="173.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">4</text>
+        <circle cx="434.0" cy="298.0" r="9" fill="var(--gold)"/>
+        <text x="434.0" y="301.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">5</text>
+        <line x1="36.0" y1="45.0" x2="58.0" y2="45.0" stroke="var(--gold)" stroke-width="1"/>
+        <line x1="36.0" y1="170.0" x2="54.0" y2="170.0" stroke="var(--gold)" stroke-width="1"/>
+        <line x1="424.0" y1="170.0" x2="406.0" y2="170.0" stroke="var(--gold)" stroke-width="1"/>
+        <line x1="424.0" y1="298.0" x2="332.0" y2="298.0" stroke="var(--gold)" stroke-width="1"/>
+        <circle cx="476.0" cy="60.0" r="9" fill="var(--gold)"/>
+        <text x="476.0" y="63.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">1</text>
+        <text x="494.0" y="59.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Flight-mode annunciator</text>
+        <text x="494.0" y="72.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">what the automation is doing</text>
+        <circle cx="476.0" cy="108.0" r="9" fill="var(--gold)"/>
+        <text x="476.0" y="111.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">2</text>
+        <text x="494.0" y="107.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Speed tape</text>
+        <text x="494.0" y="120.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">current speed in the window</text>
+        <circle cx="476.0" cy="156.0" r="9" fill="var(--gold)"/>
+        <text x="476.0" y="159.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">3</text>
+        <text x="494.0" y="155.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Attitude display</text>
+        <text x="494.0" y="168.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">pitch and roll: centre of the scan</text>
+        <circle cx="476.0" cy="204.0" r="9" fill="var(--gold)"/>
+        <text x="476.0" y="207.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">4</text>
+        <text x="494.0" y="203.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Altitude tape</text>
+        <text x="494.0" y="216.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">current altitude in the window</text>
+        <circle cx="476.0" cy="252.0" r="9" fill="var(--gold)"/>
+        <text x="476.0" y="255.7" text-anchor="middle" font-family="Overpass,sans-serif" font-size="10.5" font-weight="700" fill="#10171b">5</text>
+        <text x="494.0" y="251.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" font-weight="700">Heading scale</text>
+        <text x="494.0" y="264.5" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">heading under the pointer</text>
+        <text x="600.0" y="318.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">Tapes show trend less intuitively than pointers.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The basic T, rebuilt on one screen.</b> The <b>attitude display</b> stays in the centre. The round airspeed dial becomes a vertical <b>speed tape</b> on the left and the altimeter an <b>altitude tape</b> on the right, each with a fixed window showing the current value in digits; heading runs along the bottom and vertical speed down the right edge. The advantages are a compact scan and extra cues (trend arrows, speed limits, flight-mode annunciations). The cost is that a <b>moving tape gives rate and trend information less intuitively than a pointer</b> sweeping round a dial, and that the flight-mode annunciator must be read deliberately — mode confusion is the characteristic error of the glass cockpit.</p>
+  </section>
+
+  <!-- 16 ─ PATTERN SCANNING — SPOTTING THE ODD GAUGE -->
+  <section class="card">
+    <h2>Pattern Scanning — Spotting the Odd Gauge</h2>
+    <div class="meta"><span class="tag">hp-52</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="Two panels of eight gauges: one with all needles pointing the same way except one, and one with needles in random positions">
+        <rect x="30.0" y="50.0" width="330.0" height="200.0" rx="8" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1.4"/>
+        <text x="195.0" y="36.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">needles aligned when normal</text>
+        <text x="195.0" y="274.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">the odd one is seen at a glance</text>
+        <circle cx="78.0" cy="100.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="78.0" y1="100.0" x2="78.0" y2="76.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="78.0" cy="100.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="156.0" cy="100.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="156.0" y1="100.0" x2="156.0" y2="76.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="156.0" cy="100.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="234.0" cy="100.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="234.0" y1="100.0" x2="234.0" y2="76.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="234.0" cy="100.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="312.0" cy="100.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="312.0" y1="100.0" x2="312.0" y2="76.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="312.0" cy="100.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="78.0" cy="196.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="78.0" y1="196.0" x2="78.0" y2="172.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="78.0" cy="196.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="156.0" cy="196.0" r="30" fill="var(--chart-ground-3)" stroke="var(--hot)" stroke-width="2"/>
+        <line x1="156.0" y1="196.0" x2="176.8" y2="184.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="156.0" cy="196.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="234.0" cy="196.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="234.0" y1="196.0" x2="234.0" y2="172.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="234.0" cy="196.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="312.0" cy="196.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="312.0" y1="196.0" x2="312.0" y2="172.0" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="312.0" cy="196.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <rect x="400.0" y="50.0" width="330.0" height="200.0" rx="8" fill="var(--chart-ground-2)" stroke="var(--chart-line-2)" stroke-width="1.4"/>
+        <text x="565.0" y="36.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">normal positions all different</text>
+        <text x="565.0" y="274.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">each gauge must be read individually</text>
+        <circle cx="448.0" cy="100.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="448.0" y1="100.0" x2="456.2" y2="77.4" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="448.0" cy="100.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="526.0" cy="100.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="526.0" y1="100.0" x2="503.4" y2="108.2" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="526.0" cy="100.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="604.0" cy="100.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="604.0" y1="100.0" x2="622.4" y2="115.4" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="604.0" cy="100.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="682.0" cy="100.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="682.0" y1="100.0" x2="666.6" y2="81.6" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="682.0" cy="100.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="448.0" cy="196.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="448.0" y1="196.0" x2="471.6" y2="191.8" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="448.0" cy="196.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="526.0" cy="196.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="526.0" y1="196.0" x2="517.8" y2="218.6" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="526.0" cy="196.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="604.0" cy="196.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="604.0" y1="196.0" x2="581.4" y2="187.8" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="604.0" cy="196.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <circle cx="682.0" cy="196.0" r="30" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="2"/>
+        <line x1="682.0" y1="196.0" x2="690.2" y2="218.6" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="682.0" cy="196.0" r="3" fill="#ffffff" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="380.0" y="308.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Arrange instruments so that “normal” makes a pattern: abnormal then breaks it.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The eye is very good at spotting the one that does not fit.</b> If a bank of gauges is arranged so that every needle points the <b>same way</b> when things are normal — typically 9 o’clock or 12 o’clock — then an abnormal reading stands out instantly as a break in the pattern, and the whole panel can be checked at a glance without reading a single number. If each gauge’s normal position is different, every one must be read and compared with a remembered value, which is slow and error-prone. This is why engine instruments are aligned on multi-engine aircraft and why pilots cross-check “all needles matched”.</p>
+  </section>
+
+  <!-- 17 ─ AIRLINE ACCIDENT RATE OVER TIME -->
+  <section class="card">
+    <h2>Airline Accident Rate Over Time</h2>
+    <div class="meta"><span class="tag">hp-01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A graph of the airline accident rate falling steeply from the nineteen fifties and then levelling off">
+        <line x1="100.0" y1="50.0" x2="100.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <line x1="100.0" y1="270.0" x2="700.0" y2="270.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="400.0" y="304.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">year</text>
+        <text x="56.0" y="160.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle" transform="rotate(-90 56 160.0)">accidents per million departures</text>
+        <polyline points="100.0,56.0 105.8,69.8 111.6,82.6 117.4,94.6 123.2,105.7 129.0,116.1 134.8,125.7 140.6,134.7 146.4,143.1 152.2,150.8 158.0,158.1 163.8,164.8 169.6,171.1 175.4,177.0 181.2,182.4 187.0,187.5 192.8,192.2 198.6,196.6 204.4,200.7 210.2,204.5 216.0,208.1 221.8,211.4 227.6,214.5 233.4,217.3 239.2,220.0 245.0,222.5 250.8,224.8 256.6,226.9 262.4,228.9 268.2,230.8 274.0,232.5 279.8,234.2 285.6,235.7 291.4,237.1 297.2,238.4 303.0,239.6 308.8,240.7 314.6,241.8 320.4,242.7 326.2,243.7 332.0,244.5 337.8,245.3 343.6,246.0 349.4,246.7 355.2,247.4 361.0,248.0 366.8,248.5 372.6,249.0 378.4,249.5 384.2,250.0 390.0,250.4 395.8,250.8 401.6,251.1 407.4,251.5 413.2,251.8 419.0,252.1 424.8,252.3 430.6,252.6 436.4,252.8 442.2,253.0 448.0,253.2 453.8,253.4 459.6,253.6 465.4,253.8 471.2,253.9 477.0,254.1 482.8,254.2 488.6,254.3 494.4,254.4 500.2,254.6 506.0,254.7 511.8,254.7 517.6,254.8 523.4,254.9 529.2,255.0 535.0,255.1 540.8,255.1 546.6,255.2 552.4,255.2 558.2,255.3 564.0,255.3 569.8,255.4 575.6,255.4 581.4,255.5 587.2,255.5 593.0,255.5 598.8,255.6 604.6,255.6 610.4,255.6 616.2,255.7 622.0,255.7 627.8,255.7 633.6,255.7 639.4,255.7 645.2,255.8 651.0,255.8 656.8,255.8 662.6,255.8 668.4,255.8 674.2,255.8 680.0,255.8" fill="none" stroke="var(--hot)" stroke-width="2.8"/>
+        <line x1="100.0" y1="270.0" x2="100.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="100.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1950</text>
+        <line x1="182.8" y1="270.0" x2="182.8" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="182.8" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1960</text>
+        <line x1="265.6" y1="270.0" x2="265.6" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="265.6" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1970</text>
+        <line x1="348.4" y1="270.0" x2="348.4" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="348.4" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1980</text>
+        <line x1="431.2" y1="270.0" x2="431.2" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="431.2" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">1990</text>
+        <line x1="514.0" y1="270.0" x2="514.0" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="514.0" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">2000</text>
+        <line x1="596.8" y1="270.0" x2="596.8" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="596.8" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">2010</text>
+        <line x1="679.6" y1="270.0" x2="679.6" y2="275.0" stroke="var(--chart-ink)" stroke-width="1"/>
+        <text x="679.6" y="288.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">2020</text>
+        <rect x="100.0" y="56.0" width="170.0" height="214.0" rx="0" fill="var(--cool)" stroke="none" stroke-width="0" opacity="0.12"/>
+        <rect x="270.0" y="56.0" width="420.0" height="214.0" rx="0" fill="var(--gold)" stroke="none" stroke-width="0" opacity="0.08"/>
+        <text x="286.0" y="90.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">Technical improvements</text>
+        <text x="286.0" y="104.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">jets, radar, navigation aids,</text>
+        <text x="286.0" y="118.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">reliability</text>
+        <text x="470.0" y="170.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Rate levels off</text>
+        <text x="470.0" y="184.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">the remaining accidents are</text>
+        <text x="470.0" y="198.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">mainly human factors</text>
+        <text x="380.0" y="326.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-faint)" text-anchor="middle">Shape of the trend only; not to scale.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Flying became dramatically safer, then the improvement slowed.</b> The accident rate per million departures fell steeply through the 1950s and 1960s as jet engines, pressurisation, radar and better navigation aids removed many <b>technical</b> causes. From about the 1970s the curve <b>flattened</b>: the aircraft had become so reliable that the remaining accidents were mostly due to <b>people</b> — the crew, and the organisation behind them. Because traffic keeps growing, a flat <b>rate</b> would mean a rising <b>number</b> of accidents, so further gains have to come from human factors: crew resource management, better procedures, error-tolerant design and safety management.</p>
+  </section>
+
+  <!-- 18 ─ CAUSES OF ACCIDENTS — THE HUMAN FACTOR -->
+  <section class="card">
+    <h2>Causes of Accidents — The Human Factor</h2>
+    <div class="meta"><span class="tag">hp-03</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A horizontal bar divided to show that about seventy percent of accidents involve human factors, with the rest technical or environmental">
+        <rect x="60.0" y="90.0" width="448.0" height="60.0" rx="6" fill="var(--hot)" stroke="var(--hot)" stroke-width="1.4" opacity="0.8"/>
+        <rect x="508.0" y="90.0" width="112.0" height="60.0" rx="0" fill="var(--cool)" stroke="var(--cool)" stroke-width="1.4" opacity="0.8"/>
+        <rect x="620.0" y="90.0" width="80.0" height="60.0" rx="6" fill="var(--gold)" stroke="var(--gold)" stroke-width="1.4" opacity="0.8"/>
+        <text x="284.0" y="118.0" font-family="Overpass,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">HUMAN FACTORS</text>
+        <text x="284.0" y="136.0" font-family="Overpass,sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">about 70%</text>
+        <text x="564.0" y="174.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">technical</text>
+        <text x="660.0" y="174.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" text-anchor="middle" font-weight="700">environment</text>
+        <text x="380.0" y="60.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">share of accidents by main cause (approximate)</text>
+        <rect x="30.0" y="226.0" width="128.8" height="36.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="94.4" y="247.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">flight crew</text>
+        <line x1="160.8" y1="244.0" x2="170.8" y2="244.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="172.8" y="226.0" width="128.8" height="36.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="237.2" y="247.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">maintenance</text>
+        <line x1="303.6" y1="244.0" x2="313.6" y2="244.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="315.6" y="226.0" width="128.8" height="36.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="247.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">air traffic control</text>
+        <line x1="446.4" y1="244.0" x2="456.4" y2="244.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="458.4" y="226.0" width="128.8" height="36.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="522.8" y="247.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">design</text>
+        <line x1="589.2" y1="244.0" x2="599.2" y2="244.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="601.2" y="226.0" width="128.8" height="36.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="665.6" y="247.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">management</text>
+        <text x="380.0" y="212.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">“human factors” covers everyone in the system:</text>
+        <text x="380.0" y="296.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Accidents usually have several causes in a chain; breaking one link prevents them.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>About 70% of aircraft accidents are attributed to human factors</b> — the proportion usually quoted is 70–75%. The remainder are mainly <b>technical</b> failures and <b>environmental</b> causes such as weather. The human share is so large not because pilots have become worse but because the machine has become so reliable. And “human factors” is wider than pilot error: it includes maintenance, air traffic control, design, training and management. Most accidents have <b>several contributing causes</b> in a chain, and breaking any one link would have prevented them — which is the whole purpose of studying human performance.</p>
+  </section>
+
+  <!-- 19 ─ THE SWISS-CHEESE MODEL (REASON) -->
+  <section class="card">
+    <h2>The Swiss-Cheese Model (Reason)</h2>
+    <div class="meta"><span class="tag">hp-04</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Four slices with holes representing layers of defence, and a line passing through holes that happen to line up, ending in an accident">
+        <g transform="translate(140 150) skewY(-12)"><rect x="-34" y="-84" width="68" height="168" rx="8" fill="var(--gold)" opacity=".75" stroke="var(--chart-ink)" stroke-width="1.4"/><ellipse cx="0" cy="0" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="-14" cy="-52" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="14" cy="48" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/></g>
+        <text x="140.0" y="262.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Organisation</text>
+        <text x="140.0" y="277.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">latent failures</text>
+        <g transform="translate(280 150) skewY(-12)"><rect x="-34" y="-84" width="68" height="168" rx="8" fill="var(--gold)" opacity=".75" stroke="var(--chart-ink)" stroke-width="1.4"/><ellipse cx="0" cy="-13" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="-16" cy="42" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="14" cy="-58" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/></g>
+        <text x="280.0" y="262.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Supervision</text>
+        <text x="280.0" y="277.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">latent failures</text>
+        <g transform="translate(420 150) skewY(-12)"><rect x="-34" y="-84" width="68" height="168" rx="8" fill="var(--gold)" opacity=".75" stroke="var(--chart-ink)" stroke-width="1.4"/><ellipse cx="0" cy="-27" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="14" cy="32" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="-14" cy="58" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/></g>
+        <text x="420.0" y="262.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Preconditions</text>
+        <text x="420.0" y="277.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">fatigue, weather</text>
+        <g transform="translate(560 150) skewY(-12)"><rect x="-34" y="-84" width="68" height="168" rx="8" fill="var(--gold)" opacity=".75" stroke="var(--chart-ink)" stroke-width="1.4"/><ellipse cx="0" cy="-40" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="-14" cy="22" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/><ellipse cx="12" cy="60" rx="9" ry="11" fill="var(--chart-ground)" stroke="var(--chart-ink)" stroke-width="1"/></g>
+        <text x="560.0" y="262.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Unsafe acts</text>
+        <text x="560.0" y="277.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">active failures</text>
+        <line x1="40.0" y1="160.0" x2="656.0" y2="100.0" stroke="var(--hot)" stroke-width="2.6" marker-end="url(#m-hot)"/>
+        <text x="40.0" y="182.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">hazard</text>
+        <path d="M668,88 L688,108 M688,88 L668,108" stroke="var(--hot)" stroke-width="3.4" fill="none"/>
+        <text x="700.0" y="132.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">ACCIDENT</text>
+        <text x="380.0" y="306.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">A hazard is normally stopped by the next layer. An accident needs a hole in every layer at once.</text>
+        <text x="380.0" y="326.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">Latent failures: created earlier, lie dormant.  Active failures: errors at the sharp end.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Accidents happen when the holes line up.</b> James Reason pictured an organisation’s defences as slices of Swiss cheese. Each layer — <b>organisational decisions</b>, <b>supervision</b>, the <b>preconditions</b> of the day (fatigue, weather, pressure) and the <b>acts of the crew</b> — has weaknesses, the holes. Usually a hazard that passes one layer is stopped by the next. An accident needs holes in <b>every</b> layer to align at once. <b>Latent failures</b> are holes created long before, by designers and managers, lying dormant; <b>active failures</b> are the errors and violations of front-line people, with immediate effect. Blaming the last person in the chain leaves the latent holes in place.</p>
+  </section>
+
+  <!-- 20 ─ ERROR-TOLERANT VS VULNERABLE SYSTEMS -->
+  <section class="card">
+    <h2>Error-Tolerant vs Vulnerable Systems</h2>
+    <div class="meta"><span class="tag">hp-54</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="Two flow diagrams: in a vulnerable system an error leads straight to an accident, in an error-tolerant system the error is detected and corrected">
+        <text x="40.0" y="46.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" font-weight="700">VULNERABLE SYSTEM</text>
+        <rect x="40.0" y="60.0" width="200.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="140.0" y="85.8" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">error</text>
+        <line x1="242.0" y1="82.0" x2="278.0" y2="82.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="280.0" y="60.0" width="200.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="380.0" y="85.8" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">no defence</text>
+        <line x1="482.0" y1="82.0" x2="518.0" y2="82.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="520.0" y="60.0" width="200.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="620.0" y="85.8" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ACCIDENT</text>
+        <text x="40.0" y="166.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" font-weight="700">ERROR-TOLERANT SYSTEM</text>
+        <rect x="40.0" y="180.0" width="200.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="140.0" y="208.8" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">error</text>
+        <line x1="242.0" y1="205.0" x2="278.0" y2="205.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="280.0" y="180.0" width="200.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="201.6" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">DETECTED</text>
+        <text x="380.0" y="216.1" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">warning, cross-check</text>
+        <line x1="482.0" y1="205.0" x2="518.0" y2="205.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="520.0" y="180.0" width="200.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.6"/>
+        <text x="620.0" y="201.6" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">CORRECTED</text>
+        <text x="620.0" y="216.1" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">safe outcome</text>
+        <path d="M380,232 L380,256 L140,256 L140,234" stroke="var(--green)" stroke-width="1.6" fill="none" stroke-dasharray="6 4" marker-end="url(#m-green)" stroke-linejoin="round"/>
+        <text x="260.0" y="272.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" text-anchor="middle">time and margin to recover</text>
+        <text x="380.0" y="306.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Design for error: make it hard to commit, easy to detect and possible to recover from.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>People will always make errors; a good system survives them.</b> In a <b>vulnerable</b> system a single error leads straight to an unsafe outcome — nothing stands between the slip and the accident. An <b>error-tolerant</b> system is designed on the assumption that errors will occur: it makes them <b>hard to commit</b> (guards, interlocks, clear design), <b>easy to detect</b> (warnings, cross-checks by a second pilot, checklists) and <b>recoverable</b> before harm is done (margins, time to correct). Examples: the gear lever that cannot be raised on the ground, the altitude alerter, the read-back of a clearance, the two-pilot challenge-and-response checklist.</p>
+  </section>
+
+  <!-- 21 ─ DESIGN-INDUCED ERROR — CONTROL/DISPLAY COMPATIBILITY -->
+  <section class="card">
+    <h2>Design-Induced Error — Control/Display Compatibility</h2>
+    <div class="meta"><span class="tag">hp-55</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="Two layouts of four displays and four controls: one where the controls do not match the layout of the displays and one where they do">
+        <text x="170.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">POOR: controls do not match the displays</text>
+        <rect x="86.0" y="62.0" width="68.0" height="56.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="120.0" y="95.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">A</text>
+        <rect x="186.0" y="62.0" width="68.0" height="56.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="220.0" y="95.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">B</text>
+        <rect x="86.0" y="142.0" width="68.0" height="56.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="120.0" y="175.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">C</text>
+        <rect x="186.0" y="142.0" width="68.0" height="56.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="220.0" y="175.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">D</text>
+        <circle cx="80.0" cy="270.0" r="16" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="80.0" y="274.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">C</text>
+        <circle cx="140.0" cy="270.0" r="16" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="140.0" y="274.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">A</text>
+        <circle cx="200.0" cy="270.0" r="16" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="200.0" y="274.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">D</text>
+        <circle cx="260.0" cy="270.0" r="16" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="260.0" y="274.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">B</text>
+        <text x="300.0" y="96.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">displays</text>
+        <text x="300.0" y="276.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">controls</text>
+        <text x="540.0" y="40.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="middle" font-weight="700">GOOD: controls mirror the displays</text>
+        <rect x="456.0" y="62.0" width="68.0" height="56.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="490.0" y="95.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">A</text>
+        <rect x="556.0" y="62.0" width="68.0" height="56.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="590.0" y="95.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">B</text>
+        <rect x="456.0" y="142.0" width="68.0" height="56.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="490.0" y="175.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">C</text>
+        <rect x="556.0" y="142.0" width="68.0" height="56.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="590.0" y="175.0" font-family="Overpass,sans-serif" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">D</text>
+        <circle cx="490.0" cy="250.0" r="16" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="490.0" y="254.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">A</text>
+        <circle cx="590.0" cy="250.0" r="16" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="590.0" y="254.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">B</text>
+        <circle cx="490.0" cy="296.0" r="16" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="490.0" y="300.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">C</text>
+        <circle cx="590.0" cy="296.0" r="16" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2"/>
+        <text x="590.0" y="300.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--gold)" text-anchor="middle" font-weight="700">D</text>
+        <text x="670.0" y="96.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">displays</text>
+        <text x="670.0" y="276.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">controls</text>
+        <line x1="380.0" y1="30.0" x2="380.0" y2="320.0" stroke="var(--chart-line-2)" stroke-width="1" stroke-dasharray="3 5"/>
+        <text x="190.0" y="326.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--hot)" text-anchor="middle">which knob works display C? it must be remembered</text>
+        <text x="560.0" y="326.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" text-anchor="middle">each control sits where its display is</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Good design makes the right action the natural one.</b> When the arrangement of the <b>controls</b> matches the arrangement of the <b>displays</b> they affect (<b>spatial compatibility</b>), the pilot reaches for the correct one without thinking. When it does not — four displays in a square but their knobs in a row — the pilot has to remember an arbitrary mapping, and under stress will sooner or later operate the wrong one. Controls should also move in the <b>expected direction</b> (forward or up for “more”), and controls that must not be confused should <b>feel different</b> — hence the wheel-shaped gear lever and the flap-shaped flap lever. Errors invited by the equipment are <b>design-induced</b>.</p>
+  </section>
+
+  <!-- 22 ─ MASLOW'S HIERARCHY OF NEEDS -->
+  <section class="card">
+    <h2>Maslow&#x27;s Hierarchy of Needs</h2>
+    <div class="meta"><span class="tag">hp-26</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A pyramid of five levels of human need from physiological at the base to self-fulfilment at the top">
+        <polygon points="250.0,40.0 310.0,40.0 360.0,90.0 200.0,90.0" fill="var(--gold)" stroke="var(--chart-ink)" stroke-width="1.4" opacity="0.75"/>
+        <line x1="341.0" y1="65.0" x2="560.0" y2="65.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="566.0" y="63.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">SELF-FULFILMENT</text>
+        <text x="566.0" y="77.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">achieving potential</text>
+        <polygon points="200.0,90.0 360.0,90.0 410.0,140.0 150.0,140.0" fill="var(--warm)" stroke="var(--chart-ink)" stroke-width="1.4" opacity="0.75"/>
+        <line x1="391.0" y1="115.0" x2="560.0" y2="115.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="566.0" y="113.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--warm)" font-weight="700">ESTEEM</text>
+        <text x="566.0" y="127.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">respect, recognition</text>
+        <polygon points="150.0,140.0 410.0,140.0 460.0,190.0 100.0,190.0" fill="var(--green)" stroke="var(--chart-ink)" stroke-width="1.4" opacity="0.75"/>
+        <line x1="441.0" y1="165.0" x2="560.0" y2="165.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="566.0" y="163.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" font-weight="700">BELONGING</text>
+        <text x="566.0" y="177.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">love, acceptance</text>
+        <polygon points="100.0,190.0 460.0,190.0 510.0,240.0 50.0,240.0" fill="var(--cool)" stroke="var(--chart-ink)" stroke-width="1.4" opacity="0.75"/>
+        <line x1="491.0" y1="215.0" x2="560.0" y2="215.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="566.0" y="213.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" font-weight="700">SAFETY</text>
+        <text x="566.0" y="227.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">security, stability</text>
+        <polygon points="50.0,240.0 510.0,240.0 560.0,290.0 0.0,290.0" fill="var(--hot)" stroke="var(--chart-ink)" stroke-width="1.4" opacity="0.75"/>
+        <line x1="541.0" y1="265.0" x2="560.0" y2="265.0" stroke="var(--chart-ink-dim)" stroke-width="1"/>
+        <text x="566.0" y="263.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" font-weight="700">PHYSIOLOGICAL</text>
+        <text x="566.0" y="277.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)">air, food, water, sleep</text>
+        <line x1="40.0" y1="280.0" x2="40.0" y2="60.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <text x="28.0" y="170.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle" transform="rotate(-90 28 170)">satisfied in this order</text>
+        <text x="380.0" y="318.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">A lower need must be met before the next becomes a motivator.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Needs are satisfied from the bottom up.</b> Maslow arranged human motivation as a hierarchy: a person is driven first by <b>physiological</b> needs (air, food, water, sleep), then <b>safety and security</b>, then <b>belonging</b> (love, acceptance by the group), then <b>esteem</b> (respect, recognition, self-respect) and finally <b>self-fulfilment</b> (achieving one’s potential — “self-actualisation”). A lower need must be reasonably satisfied before the next one becomes a motivator, and if a lower need is threatened attention drops back to it. A crew member who is exhausted, frightened or feels excluded is not going to be motivated by pride in the job.</p>
+  </section>
+
+  <!-- 23 ─ MOTIVATION — EFFORT, PERFORMANCE & REWARD -->
+  <section class="card">
+    <h2>Motivation — Effort, Performance &amp; Reward</h2>
+    <div class="meta"><span class="tag">hp-27</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A loop from effort to performance to reward to satisfaction, feeding back into effort">
+        <rect x="30.0" y="110.0" width="149.5" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="104.8" y="144.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">EFFORT</text>
+        <line x1="181.5" y1="140.0" x2="211.5" y2="140.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="213.5" y="110.0" width="149.5" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="288.2" y="144.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">PERFORMANCE</text>
+        <line x1="365.0" y1="140.0" x2="395.0" y2="140.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="397.0" y="110.0" width="149.5" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.6"/>
+        <text x="471.8" y="136.5" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">REWARD</text>
+        <text x="471.8" y="151.5" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink-dim)" text-anchor="middle">extrinsic or intrinsic</text>
+        <line x1="548.5" y1="140.0" x2="578.5" y2="140.0" stroke="var(--chart-ink-dim)" stroke-width="1.8" marker-end="url(#m-dim)"/>
+        <rect x="580.5" y="110.0" width="149.5" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="655.2" y="144.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">SATISFACTION</text>
+        <rect x="214.0" y="30.0" width="150.0" height="40.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.6"/>
+        <text x="289.0" y="53.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ability + task clarity</text>
+        <line x1="289.0" y1="70.0" x2="289.0" y2="108.0" stroke="var(--chart-ink-dim)" stroke-width="1.6" marker-end="url(#m-dim)"/>
+        <path d="M651,172 L651,230 L109,230 L109,172" stroke="var(--cool)" stroke-width="1.8" fill="none" stroke-dasharray="7 4" marker-end="url(#m-cool)" stroke-linejoin="round"/>
+        <text x="380.0" y="222.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle">satisfaction strengthens the will to make the effort again</text>
+        <text x="380.0" y="268.0" font-family="Overpass,sans-serif" font-size="12" fill="var(--gold)" text-anchor="middle" font-weight="700">performance = ability × motivation</text>
+        <text x="380.0" y="296.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">Too little motivation: complacency.  Too much: “press-on-itis”, taking risks to finish the job.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>People put in effort when they expect it to pay off.</b> In this model <b>effort</b> leads to <b>performance</b> only if the person also has the <b>ability</b> and understands the task. Performance leads to a <b>reward</b> — <b>extrinsic</b> (pay, promotion, praise) or <b>intrinsic</b> (the satisfaction of a job well done). If the reward is seen as fair and worth having it produces <b>satisfaction</b>, which feeds back and strengthens the willingness to make the effort next time. Break any link — no ability, no recognition, a reward that is not valued — and motivation falls. Performance is roughly ability multiplied by motivation; too much motivation (“press-on-itis”) is as dangerous as too little.</p>
+  </section>
+
+  <!-- 24 ─ SOMATOTYPES — BODY TYPES -->
+  <section class="card">
+    <h2>Somatotypes — Body Types</h2>
+    <div class="meta"><span class="tag">hp-44</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="Three simple body outlines: round endomorph, muscular mesomorph and thin ectomorph">
+        <circle cx="140.0" cy="70.0" r="18" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M100,96 Q140,90 180,96 L198,180 Q198,196 180.6,250 L99.4,250 Q82,196 82,180 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="var(--gold)" opacity="0.8"/>
+        <text x="140.0" y="278.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ENDOMORPH</text>
+        <text x="140.0" y="294.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">round, soft, stores fat</text>
+        <circle cx="380.0" cy="70.0" r="18" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M318,96 Q380,90 442,96 L410,180 Q414,196 403.8,250 L356.2,250 Q346,196 350,180 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="var(--hot)" opacity="0.8"/>
+        <text x="380.0" y="278.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">MESOMORPH</text>
+        <text x="380.0" y="294.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">muscular, broad shoulders</text>
+        <circle cx="620.0" cy="70.0" r="18" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <path d="M592,96 Q620,90 648,96 L640,180 Q642,196 635.4,250 L604.6,250 Q598,196 600,180 Z" stroke="var(--chart-ink)" stroke-width="1.8" fill="var(--cool)" opacity="0.8"/>
+        <text x="620.0" y="278.0" font-family="Overpass,sans-serif" font-size="11.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ECTOMORPH</text>
+        <text x="620.0" y="294.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">thin, lightly built</text>
+        <text x="380.0" y="320.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">The supposed link between body type and personality is not supported by evidence.</text>
+        <text x="380.0" y="34.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">Cockpits are sized for the 5th to 95th percentile of body dimensions.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Sheldon’s three body types.</b> The <b>endomorph</b> is round and soft with a tendency to store fat; the <b>mesomorph</b> is muscular and broad-shouldered; the <b>ectomorph</b> is thin and lightly built. Sheldon believed each type went with a temperament — easy-going, assertive and reserved respectively — but that link is <b>not supported by evidence</b> and is no longer accepted. What does matter in aviation is body <b>size</b>: cockpits are designed by <b>anthropometry</b> to fit the range from the 5th to the 95th percentile, and the seat is adjusted to bring every pilot’s eyes to the <b>design eye position</b>. Body mass index (weight ÷ height²) over 30 is classed as obese, a risk factor for heart disease and diabetes.</p>
+  </section>
+
+  <!-- 25 ─ EYSENCK'S PERSONALITY DIMENSIONS -->
+  <section class="card">
+    <h2>Eysenck&#x27;s Personality Dimensions</h2>
+    <div class="meta"><span class="tag">hp-45</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="Two crossed axes, extravert to introvert and stable to unstable, giving four quadrants">
+        <line x1="380.0" y1="40.0" x2="380.0" y2="310.0" stroke="var(--chart-ink)" stroke-width="1.8" marker-end="url(#m-ink)" marker-start="url(#m-ink)"/>
+        <line x1="120.0" y1="175.0" x2="640.0" y2="175.0" stroke="var(--chart-ink)" stroke-width="1.8" marker-end="url(#m-ink)" marker-start="url(#m-ink)"/>
+        <text x="380.0" y="30.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--hot)" text-anchor="middle" font-weight="700">UNSTABLE (anxious)</text>
+        <text x="380.0" y="330.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--green)" text-anchor="middle" font-weight="700">STABLE (calm)</text>
+        <text x="112.0" y="179.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--cool)" text-anchor="end" font-weight="700">INTROVERT</text>
+        <text x="648.0" y="179.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--gold)" font-weight="700">EXTRAVERT</text>
+        <text x="510.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">touchy, restless, aggressive,</text>
+        <text x="510.0" y="115.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">excitable, impulsive</text>
+        <text x="250.0" y="100.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">moody, anxious, rigid,</text>
+        <text x="250.0" y="115.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">pessimistic, reserved</text>
+        <text x="250.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle">calm, reliable, controlled,</text>
+        <text x="250.0" y="255.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">thoughtful, careful</text>
+        <text x="510.0" y="240.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle" font-weight="700">sociable, easy-going, lively,</text>
+        <text x="510.0" y="255.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" text-anchor="middle">responsive, leadership</text>
+        <rect x="396.0" y="196.0" width="228.0" height="96.0" rx="8" fill="none" stroke="var(--green)" stroke-width="1.4" stroke-dasharray="6 4"/>
+        <text x="510.0" y="284.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--green)" text-anchor="middle">the “ideal pilot” quadrant</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Two independent scales describe personality.</b> Eysenck measured it along an <b>extravert–introvert</b> axis (outgoing and sociable, or quiet and reserved) and a <b>stable–unstable</b> axis (calm and even-tempered, or anxious and moody; the unstable end is also called neurotic). The four quadrants correspond to the classical temperaments. The <b>stable extravert</b> — sociable, easy-going, responsive — is the type most often associated with a good pilot and crew member, though a stable introvert is equally safe. Personality is largely fixed by early adulthood and changes little; <b>attitudes</b> and <b>behaviour</b>, by contrast, can be changed by training.</p>
+  </section>
+
+  <!-- 26 ─ LEADERSHIP STYLES — GOAL VS PERSON ORIENTATION -->
+  <section class="card">
+    <h2>Leadership Styles — Goal vs Person Orientation</h2>
+    <div class="meta"><span class="tag">hp-46</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="A two by two grid of leadership styles with concern for the goal on one axis and concern for people on the other">
+        <line x1="250.0" y1="290.0" x2="250.0" y2="34.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <line x1="250.0" y1="290.0" x2="530.0" y2="290.0" stroke="var(--chart-ink)" stroke-width="1.6" marker-end="url(#m-ink)"/>
+        <rect x="258.0" y="42.0" width="122.0" height="112.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.8"/>
+        <text x="319.0" y="76.0" font-family="ui-monospace,Menlo,monospace" font-size="14" fill="var(--cool)" text-anchor="middle" font-weight="700">P+ G−</text>
+        <text x="319.0" y="100.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">democratic</text>
+        <text x="319.0" y="120.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">too friendly,</text>
+        <text x="319.0" y="133.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">no direction</text>
+        <rect x="388.0" y="42.0" width="122.0" height="112.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="1.8"/>
+        <text x="449.0" y="76.0" font-family="ui-monospace,Menlo,monospace" font-size="14" fill="var(--green)" text-anchor="middle" font-weight="700">P+ G+</text>
+        <text x="449.0" y="100.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">IDEAL</text>
+        <text x="449.0" y="120.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">task done,</text>
+        <text x="449.0" y="133.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">crew involved</text>
+        <rect x="258.0" y="162.0" width="122.0" height="112.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink-dim)" stroke-width="1.8"/>
+        <text x="319.0" y="196.0" font-family="ui-monospace,Menlo,monospace" font-size="14" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">P− G−</text>
+        <text x="319.0" y="220.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">laissez-faire</text>
+        <text x="319.0" y="240.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">leader has opted out</text>
+        <text x="319.0" y="253.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle"></text>
+        <rect x="388.0" y="162.0" width="122.0" height="112.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.8"/>
+        <text x="449.0" y="196.0" font-family="ui-monospace,Menlo,monospace" font-size="14" fill="var(--hot)" text-anchor="middle" font-weight="700">P− G+</text>
+        <text x="449.0" y="220.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">autocratic</text>
+        <text x="449.0" y="240.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">efficient but overbearing</text>
+        <text x="449.0" y="253.0" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle"></text>
+        <text x="390.0" y="320.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">concern for the GOAL (G) →</text>
+        <text x="226.0" y="160.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700" transform="rotate(-90 226 160)">concern for PEOPLE (P) →</text>
+        <text x="560.0" y="80.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">Ideal: P+ G+</text>
+        <text x="560.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">adapts to the situation:</text>
+        <text x="560.0" y="108.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">directive in an emergency,</text>
+        <text x="560.0" y="122.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">consultative when there</text>
+        <text x="560.0" y="136.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">is time.</text>
+        <text x="30.0" y="80.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">G = goal-directed</text>
+        <text x="30.0" y="94.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">(the task)</text>
+        <text x="30.0" y="130.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" font-weight="700">P = person-directed</text>
+        <text x="30.0" y="144.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">(the crew)</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Two things a commander must care about.</b> <b>Goal-directed (G)</b> behaviour is concern for getting the task done; <b>person-directed (P)</b> behaviour is concern for the people doing it. A leader high on both, <b>P+ G+</b>, is the ideal: the job is done and the crew are involved and willing to speak up. <b>P− G+</b> is the <b>autocrat</b>: efficient but overbearing, the crew stop offering information. <b>P+ G−</b> is too <b>democratic</b>: a pleasant atmosphere but no direction and decisions drift. <b>P− G−</b> is <b>laissez-faire</b>: the leader has opted out. A good commander shifts style with the situation — more directive in an emergency, more consultative when time allows.</p>
+  </section>
+
+  <!-- 27 ─ COCKPIT AUTHORITY GRADIENT -->
+  <section class="card">
+    <h2>Cockpit Authority Gradient</h2>
+    <div class="meta"><span class="tag">hp-47</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 330" role="img" aria-label="Three pairs of captain and first officer with a line between them that is too steep, about right and too flat">
+        <line x1="70.0" y1="100.0" x2="190.0" y2="200.0" stroke="var(--hot)" stroke-width="3"/>
+        <circle cx="70.0" cy="86.0" r="12" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="56.0" y="100.0" width="28.0" height="30.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="70.0" y="150.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">Captain</text>
+        <circle cx="190.0" cy="186.0" r="12" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="176.0" y="200.0" width="28.0" height="30.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="190.0" y="250.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">F/O</text>
+        <text x="130.0" y="44.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--hot)" text-anchor="middle" font-weight="700">TOO STEEP</text>
+        <text x="130.0" y="266.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">F/O will not challenge</text>
+        <text x="130.0" y="282.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">autocratic captain</text>
+        <line x1="320.0" y1="132.0" x2="440.0" y2="168.0" stroke="var(--green)" stroke-width="3"/>
+        <circle cx="320.0" cy="118.0" r="12" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="306.0" y="132.0" width="28.0" height="30.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="320.0" y="182.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">Captain</text>
+        <circle cx="440.0" cy="154.0" r="12" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="426.0" y="168.0" width="28.0" height="30.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="440.0" y="218.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">F/O</text>
+        <text x="380.0" y="44.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--green)" text-anchor="middle" font-weight="700">OPTIMUM</text>
+        <text x="380.0" y="266.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">clear command, open input</text>
+        <text x="380.0" y="282.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">F/O speaks up</text>
+        <line x1="570.0" y1="150.0" x2="690.0" y2="150.0" stroke="var(--cool)" stroke-width="3"/>
+        <circle cx="570.0" cy="136.0" r="12" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="556.0" y="150.0" width="28.0" height="30.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="570.0" y="200.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">Captain</text>
+        <circle cx="690.0" cy="136.0" r="12" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <rect x="676.0" y="150.0" width="28.0" height="30.0" rx="6" fill="var(--chart-ground-3)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="690.0" y="200.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">F/O</text>
+        <text x="630.0" y="44.0" font-family="Overpass,sans-serif" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="700">TOO FLAT</text>
+        <text x="630.0" y="266.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">nobody decides</text>
+        <text x="630.0" y="282.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink-dim)" text-anchor="middle">no clear leader</text>
+        <text x="380.0" y="314.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">The captain sets the gradient; the first officer maintains it by speaking up clearly.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>The “slope” of authority between the two pilots.</b> A gradient that is <b>too steep</b> — a domineering captain and a timid or very junior first officer — stops the first officer questioning a mistake; many accidents show a co-pilot who saw the error and said nothing, or said it too gently. A gradient that is <b>too flat</b> — two captains together, or a captain who will not lead — means nobody takes the decision, or both act at once. The <b>optimum</b> is a moderate slope: the captain is clearly in command but the first officer feels free, and is expected, to speak up. Captains set it by inviting input; first officers keep it by stating concerns clearly.</p>
+  </section>
+
+  <!-- 28 ─ THE SHELL MODEL -->
+  <section class="card">
+    <h2>The SHELL Model</h2>
+    <div class="meta"><span class="tag">hp-48</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 350" role="img" aria-label="A central block labelled liveware surrounded by four blocks: software, hardware, environment and liveware">
+        <rect x="332.0" y="130.0" width="96.0" height="80.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="2.2" stroke-dasharray="10 3 3 3"/>
+        <text x="380.0" y="166.0" font-family="Overpass,sans-serif" font-size="26" fill="var(--gold)" text-anchor="middle" font-weight="700">L</text>
+        <text x="380.0" y="188.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LIVEWARE</text>
+        <rect x="332.0" y="36.0" width="96.0" height="80.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="2.2" stroke-dasharray="10 3 3 3"/>
+        <text x="380.0" y="72.0" font-family="Overpass,sans-serif" font-size="26" fill="var(--cool)" text-anchor="middle" font-weight="700">H</text>
+        <text x="380.0" y="94.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">HARDWARE</text>
+        <rect x="332.0" y="224.0" width="96.0" height="80.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--green)" stroke-width="2.2" stroke-dasharray="10 3 3 3"/>
+        <text x="380.0" y="260.0" font-family="Overpass,sans-serif" font-size="26" fill="var(--green)" text-anchor="middle" font-weight="700">E</text>
+        <text x="380.0" y="282.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">ENVIRONMENT</text>
+        <rect x="230.0" y="130.0" width="96.0" height="80.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--warm)" stroke-width="2.2" stroke-dasharray="10 3 3 3"/>
+        <text x="278.0" y="166.0" font-family="Overpass,sans-serif" font-size="26" fill="var(--warm)" text-anchor="middle" font-weight="700">S</text>
+        <text x="278.0" y="188.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">SOFTWARE</text>
+        <rect x="434.0" y="130.0" width="96.0" height="80.0" rx="4" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="2.2" stroke-dasharray="10 3 3 3"/>
+        <text x="482.0" y="166.0" font-family="Overpass,sans-serif" font-size="26" fill="var(--hot)" text-anchor="middle" font-weight="700">L</text>
+        <text x="482.0" y="188.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">LIVEWARE</text>
+        <text x="550.0" y="60.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" font-weight="700">L–H  Hardware</text>
+        <text x="550.0" y="74.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">the machine: controls,</text>
+        <text x="550.0" y="88.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">displays, seats</text>
+        <text x="550.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--hot)" font-weight="700">L–L  Liveware</text>
+        <text x="550.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">other people: crew,</text>
+        <text x="550.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">ATC, ground staff</text>
+        <text x="550.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--green)" font-weight="700">L–E  Environment</text>
+        <text x="550.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">noise, heat, weather,</text>
+        <text x="550.0" y="278.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">time, company culture</text>
+        <text x="40.0" y="150.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--warm)" font-weight="700">L–S  Software</text>
+        <text x="40.0" y="164.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">procedures, checklists,</text>
+        <text x="40.0" y="178.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">manuals, symbols</text>
+        <text x="40.0" y="250.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--gold)" font-weight="700">Centre L: the operator</text>
+        <text x="40.0" y="264.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">everything else must be</text>
+        <text x="40.0" y="278.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)">matched to the human</text>
+        <text x="380.0" y="336.0" font-family="Overpass,sans-serif" font-size="10.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Error arises at a mismatched interface between the human and one of the other elements.</text>
+      </svg>
+    </div>
+    <p class="cap"><b>Human factors is about interfaces.</b> In the SHELL model the human operator — <b>Liveware</b> — is at the centre, and must fit with four surrounding elements. <b>L–S, Software</b>: procedures, checklists, manuals, symbology. <b>L–H, Hardware</b>: the machine — seats, controls, displays. <b>L–E, Environment</b>: noise, temperature, weather, time of day, the organisation’s climate. <b>L–L, Liveware</b>: other people — crew, ATC, ground staff. The edges of the blocks are drawn <b>ragged</b> because people vary; the other elements must be matched to the human, not the other way round. A mismatch at any interface is where human error arises. (Hawkins’ model, developed from Edwards.)</p>
+  </section>
+
+  <footer>
+    Human Performance — Sleep, Stress, Cognition & CRM: 28 original figures.
+  </footer>
+</div>
+</body></html>

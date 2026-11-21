@@ -46,5 +46,23 @@ export const FPP_FIGURES: FppFigureMeta[] = [
   F("A.4.7", "Cruise & range", "pf_5_10", "CAS, TAS & Mach with altitude"),
   // Performance — Class A (A.4.1)
   F("A.4.1", "Class A performance", "pf_14_1", "Ideal V1 (balanced field length)"),
+  // Added original figures (A.4)
+  F("A.4.2", "Load factors & V-n", "x_vn", "The V-n (manoeuvring) diagram"),
+  F("A.4.2", "Load factors & V-n", "x_lf", "Limit load factors by category"),
+  F("A.4.4", "Airspeeds", "x_as", "The airspeed chain — IAS to TAS and Mach"),
+  F("A.4.4", "Take-off speeds", "x_vs", "Take-off speeds — VMCG, V1, VR, VLOF, V2"),
+  F("A.4.5", "Altitudes", "x_alt", "Pressure altitude and density altitude"),
+  F("A.4.5", "Take-off & landing distances", "x_todr", "Take-off distance and screen height"),
+  F("A.4.7", "Climb & descent", "x_vxvy", "Best angle (VX) and best rate (VY) of climb"),
+  F("A.4.7", "Cruise & range", "x_rng", "Range and endurance speeds"),
+  F("A.4.8", "Performance factors", "x_fac", "Factors affecting take-off and landing distance"),
+  F("A.4.8", "Performance factors", "x_wc", "Headwind and crosswind components"),
+  F("A.4.10", "Critical engine & Vmc", "x_vmc", "The critical engine and VMC"),
+  F("A.4.10", "Engine-inoperative", "x_dd", "Engine-inoperative drift-down"),
+  F("A.4.1", "Take-off flight path", "x_tofp", "Take-off flight path segments (Class A)"),
+  F("A.4.12", "Mass & balance", "x_mass", "The mass ladder — BEM to landing mass"),
+  F("A.4.12", "Mass & balance", "x_mac", "Centre of gravity as % MAC"),
+  F("A.4.11", "Optimum altitude", "x_opt", "Optimum altitude and step climbs"),
+  F("A.4.13", "Fuel plan", "x_fuel", "Fuel plan components"),
 ];
 void F;

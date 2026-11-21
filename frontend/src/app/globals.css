@@ -6,19 +6,20 @@
    ============================================================ */
 
 :root {
-  --chart-ground: #10171b;   /* deep ink-teal chart paper */
-  --chart-ground-2: #141e23; /* raised panels / rows */
-  --chart-line: #243640;     /* cartographic grid + hairlines */
-  --chart-line-2: #2f4651;   /* stronger rule */
-  --chart-ink: #dfeef2;      /* primary text */
-  --chart-ink-dim: #9fc0cb;  /* secondary text (tinted from ground) */
-  --chart-ink-faint: #6f909b;/* captions / chart labels */
-  --gold: #e8c877;           /* brand + active route + cleared */
+  --chart-ground: #0a1014;   /* deep ink-teal chart paper */
+  --chart-ground-2: #0f1a20; /* raised panels / rows */
+  --chart-line: #1d2a31;     /* cartographic grid + hairlines */
+  --chart-line-2: #2a3b44;   /* stronger rule */
+  --chart-ink: #dfe7ea;      /* primary text */
+  --chart-ink-dim: #8ea0a8;  /* secondary text (tinted from ground) */
+  --chart-ink-faint: #64767e;/* captions / chart labels */
+  --gold: #e2b65a;           /* brand + active route + cleared */
   --gold-deep: #c8a44d;      /* codes, quieter gold */
   --gold-ink: #3a2e12;       /* text on gold fills */
   --danger: #e8775a;
   --danger-dim: #b05640;
-  --success: #7fd6a2;
+  --success: #3ccf8e;
+  --data: #62d0e8;           /* PFD-style cyan for data labels */
 }
 
 @theme inline {
@@ -34,22 +35,23 @@
   --color-gold-ink: var(--gold-ink);
   --color-danger: var(--danger);
   --color-success: var(--success);
+  --color-data: var(--data);
 
   --font-sans: var(--font-overpass), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-overpass-mono), ui-monospace, monospace;
-  --font-display: var(--font-spectral), ui-serif, Georgia, serif;
+  --font-display: var(--font-barlow), var(--font-spectral), ui-sans-serif, sans-serif;
 
   /* ---- Rebrand remap: the app's existing zinc/yellow/slate utilities are
      retargeted to the Aeronautical Chart palette so every page inherits the
      world without per-file rewrites. New work should use the chart-* tokens. */
-  --color-zinc-950: #0e161a;
-  --color-zinc-900: #172329;
-  --color-zinc-800: #243640;
-  --color-zinc-700: #2f4651;
-  --color-zinc-600: #6f909b;
-  --color-zinc-500: #8fb0bb;
-  --color-zinc-400: #a9c6cf;
-  --color-zinc-300: #c6dde4;
+  --color-zinc-950: #0d151a;
+  --color-zinc-900: #13222a;
+  --color-zinc-800: #1d2a31;
+  --color-zinc-700: #2a3b44;
+  --color-zinc-600: #64767e;
+  --color-zinc-500: #8ea0a8;
+  --color-zinc-400: #a8b8bf;
+  --color-zinc-300: #c8d4d9;
   --color-zinc-200: #dfeef2;
   --color-zinc-100: #eef6f8;
 
@@ -62,14 +64,14 @@
 
   --color-yellow-200: #f3e2ad;
   --color-yellow-300: #f0d78f;
-  --color-yellow-400: #e8c877;
+  --color-yellow-400: #e2b65a;
   --color-yellow-500: #d8b35a;
   --color-yellow-600: #c8a44d;
 
   /* Semantic status colours retargeted to the chart palette (keep the
      red/green split for meaning + accessibility, change only the hue). */
   --color-green-300: #9ee0b8;
-  --color-green-400: #7fd6a2;
+  --color-green-400: #3ccf8e;
   --color-green-500: #5cc189;
   --color-red-300: #f09480;
   --color-red-400: #e8775a;
@@ -81,14 +83,14 @@
   --color-orange-400: #e8a657;
 
   /* Off-world categorical hues folded into the monochrome world. */
-  --color-blue-300: #9fc0cb;
-  --color-blue-400: #9fc0cb;
+  --color-blue-300: #8fdcee;
+  --color-blue-400: #62d0e8;
   --color-indigo-300: #9fc0cb;
   --color-purple-300: #c8a44d;
   --color-purple-400: #c8a44d;
-  --color-cyan-400: #9fc0cb;
+  --color-cyan-400: #62d0e8;
   --color-pink-400: #c8a44d;
-  --color-teal-400: #9fc0cb;
+  --color-teal-400: #62d0e8;
 }
 
 html { color-scheme: dark; }
@@ -100,8 +102,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Display headings in the Spectral serif, echoing the wordmark. */
-.font-display { font-family: var(--font-spectral), ui-serif, Georgia, serif; }
+/* Direction A (Glass Cockpit): condensed PFD-style display headings. */
+.font-display { font-family: var(--font-barlow), ui-sans-serif, sans-serif; letter-spacing: .02em; }
+h1, h2 { font-family: var(--font-barlow), ui-sans-serif, sans-serif; letter-spacing: .015em; }
 .font-mono, .mono { font-family: var(--font-overpass-mono), ui-monospace, monospace; }
 
 /* Browser surfaces themed from the palette (craft floor). */
@@ -151,3 +154,27 @@ a { color: inherit; }
 }
 /* Discourage copy/drag of the cram content (deterrent only — not a hard control). */
 .no-copy { user-select: none; -webkit-user-select: none; }
+
+/* Red-letter study notes: words that are exam answers */
+.exam-term { color: #ff6b6b; font-weight: 600; }
+
+/* Night mode: dimmed, warm cockpit-night lighting for low-light study.
+   One filter on the root keeps every page (and figure) consistent. */
+html.night { filter: brightness(.78) sepia(.45) saturate(1.15) hue-rotate(-12deg); background: #050807; }
+html.night img { filter: brightness(.9); }
+
+/* Glass Cockpit headings on every page: condensed display face, no faux-black weight. */
+h1 { font-weight: 700 !important; line-height: 1 !important; }
+h1.text-3xl { font-size: 2.6rem; }
+h1.text-2xl { font-size: 2.1rem; }
+
+/* Loading screen: light aircraft over drifting clouds */
+.ls-clouds { animation: ls-drift 9s linear infinite; }
+@keyframes ls-drift { to { transform: translateX(-280px); } }
+.ls-plane { animation: ls-bob 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes ls-bob { 0%,100% { transform: translateY(-3px) rotate(-1.5deg); } 50% { transform: translateY(4px) rotate(1.5deg); } }
+.ls-prop { animation: ls-prop .12s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes ls-prop { 50% { transform: scaleY(.25); } }
+.ls-lines { animation: ls-lines 1.1s linear infinite; }
+@keyframes ls-lines { from { transform: translateX(20px); opacity: .9; } to { transform: translateX(-30px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ls-clouds, .ls-plane, .ls-prop, .ls-lines { animation: none; } }

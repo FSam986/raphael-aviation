@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Powerplant Gallery 6</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&display=swap');
+  :root{
+    --chart-ground:#10171b; --chart-ground-2:#141e23; --chart-ground-3:#18252b;
+    --chart-line:#24343c; --chart-line-2:#2f4651; --chart-ink:#dfeef2; --chart-ink-dim:#9fc0cb;
+    --chart-ink-faint:#6f909b; --gold:#e8c877; --gold-deep:#c8a44d; --warm:#e0864e;
+    --hot:#d9533a; --cool:#5aa6c0; --fluid:#3f7f95; --steel:#33454e; --green:#6fae63;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--chart-ground); color:var(--chart-ink); font-family:Overpass,system-ui,sans-serif; line-height:1.5}
+  .wrap{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+  header h1{font-size:26px; margin:0 0 6px} .lede{color:var(--chart-ink-dim); font-size:14px; margin:0 0 18px}
+  .prog{display:flex; align-items:center; gap:10px; margin:14px 0 24px}
+  .pct{font-size:12px; color:var(--chart-ink-faint); white-space:nowrap}
+  .bar{flex:1; height:7px; background:var(--chart-ground-3); border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; width:100%; background:var(--gold); border-radius:999px}
+  .card{background:var(--chart-ground-2); border:1px solid var(--chart-line); border-radius:14px; padding:18px; margin:0 0 20px}
+  .card h2{font-size:17px; margin:0 0 8px}
+  .meta{display:flex; gap:8px; margin:0 0 12px; flex-wrap:wrap}
+  .tag{font-family:ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--chart-ink-dim); background:var(--chart-ground-3); border:1px solid var(--chart-line-2); border-radius:6px; padding:3px 8px}
+  .tag.ok{color:var(--gold); border-color:var(--gold-deep)}
+  .stage{background:var(--chart-ground); border:1px solid var(--chart-line); border-radius:10px; padding:10px; margin:0 0 12px}
+  svg{display:block; width:100%; height:auto}
+  .cap{font-size:13.5px; color:var(--chart-ink-dim); margin:0}
+  .cap b{color:var(--chart-ink)}
+  footer{color:var(--chart-ink-faint); font-size:12.5px; margin-top:8px; padding-top:16px; border-top:1px solid var(--chart-line)}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink)"/></marker><marker id="m-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--chart-ink-dim)"/></marker><marker id="m-hot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--hot)"/></marker><marker id="m-cool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--cool)"/></marker><marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--gold)"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--green)"/></marker><marker id="m-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.8 L10,5 L0,9.2 Z" fill="var(--warm)"/></marker></defs></svg><div class="wrap">
+  <header>
+    <h1>Powerplant — Piston Lubrication</h1>
+    <p class="lede">Original figures for wet- and dry-sump lubrication.</p>
+    <div class="prog"><span class="pct">2 / 2 drawn</span><div class="bar"><i></i></div><span class="pct">complete</span></div>
+  </header>
+
+  <!-- 1 ─ WET-SUMP LUBRICATION SYSTEM -->
+  <section class="card">
+    <h2>Wet-Sump Lubrication System</h2>
+    <div class="meta"><span class="tag">fig_03_01</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Oil carried in the sump under the engine, drawn through a suction screen by the pressure pump, through a relief valve and filter to the bearings, draining back to the sump">
+        <rect x="40.0" y="290.0" width="240.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="160.0" y="323.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Sump (oil under crankcase)</text>
+        <rect x="40.0" y="170.0" width="180.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="130.0" y="191.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure pump</text>
+        <text x="130.0" y="204.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">(engine driven)</text>
+        <rect x="290.0" y="170.0" width="170.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="375.0" y="191.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil filter</text>
+        <text x="375.0" y="204.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">+ bypass valve</text>
+        <rect x="530.0" y="160.0" width="200.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="630.0" y="191.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Bearings &amp; galleries</text>
+        <text x="630.0" y="204.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">crankshaft, cam, rockers</text>
+        <rect x="40.0" y="50.0" width="180.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="130.0" y="78.3" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure relief valve</text>
+        <rect x="290.0" y="50.0" width="170.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="375.0" y="71.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil cooler</text>
+        <text x="375.0" y="84.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">(thermostatic bypass)</text>
+        <line x1="152.8" y1="290.0" x2="136.0" y2="220.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <text x="148.4" y="251.0" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--cool)">suction screen</text>
+        <line x1="220.0" y1="195.0" x2="290.0" y2="195.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="460.0" y1="195.0" x2="530.0" y2="195.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="130.0" y1="170.0" x2="130.0" y2="100.0" stroke="var(--gold)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-gold)"/>
+        <line x1="375.0" y1="170.0" x2="375.0" y2="100.0" stroke="var(--cool)" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-cool)"/>
+        <path d="M630,230 L630,320 L282,320" stroke="var(--cool)" stroke-width="2" fill="none" marker-end="url(#m-cool)"/>
+        <text x="456.0" y="340.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--cool)" text-anchor="middle" font-weight="700">drains back by gravity</text>
+        <rect x="530.0" y="40.0" width="200.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="630.0" y="71.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Gauges</text>
+        <text x="630.0" y="84.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">oil pressure + temperature</text>
+      </svg>
+    </div>
+    <p class="cap">In a wet-sump system the oil is carried in the sump under the crankcase. The engine-driven pressure pump draws it through a suction screen and sends it through the filter (with bypass) to the bearings and galleries; a relief valve limits the pressure. The oil drains back to the sump by gravity. Simple and light — used on most light aircraft.</p>
+  </section>
+
+  <!-- 2 ─ DRY-SUMP LUBRICATION SYSTEM -->
+  <section class="card">
+    <h2>Dry-Sump Lubrication System</h2>
+    <div class="meta"><span class="tag">fig_03_02</span><span class="tag ok">Original redraw</span></div>
+    <div class="stage">
+      <svg viewBox="0 0 760 400" role="img" aria-label="Oil tank feeding a pressure pump through a suction filter to the engine, with a larger scavenge pump returning oil through a filter and thermostatically bypassed cooler to the tank">
+        <rect x="40.0" y="40.0" width="190.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="135.0" y="66.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil tank</text>
+        <text x="135.0" y="80.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">+ de-aerator</text>
+        <rect x="40.0" y="150.0" width="190.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="135.0" y="175.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Suction filter</text>
+        <rect x="40.0" y="240.0" width="190.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="135.0" y="268.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure pump</text>
+        <rect x="290.0" y="240.0" width="180.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--hot)" stroke-width="1.6"/>
+        <text x="380.0" y="261.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Pressure filter</text>
+        <text x="380.0" y="274.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">+ relief valve</text>
+        <rect x="530.0" y="230.0" width="200.0" height="70.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--chart-ink)" stroke-width="1.6"/>
+        <text x="630.0" y="261.8" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Engine bearings</text>
+        <text x="630.0" y="275.2" font-family="Overpass,sans-serif" font-size="9" fill="var(--chart-ink-dim)" text-anchor="middle">&amp; galleries</text>
+        <rect x="530.0" y="330.0" width="200.0" height="50.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="630.0" y="351.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Scavenge pump</text>
+        <text x="630.0" y="364.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">(larger capacity)</text>
+        <rect x="290.0" y="140.0" width="180.0" height="44.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="380.0" y="165.5" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Scavenge filter</text>
+        <rect x="290.0" y="40.0" width="180.0" height="60.0" rx="6" fill="var(--chart-ground-2)" stroke="var(--cool)" stroke-width="1.6"/>
+        <text x="380.0" y="66.8" font-family="Overpass,sans-serif" font-size="9.5" fill="var(--chart-ink)" text-anchor="middle" font-weight="700">Oil cooler</text>
+        <text x="380.0" y="79.8" font-family="Overpass,sans-serif" font-size="8.5" fill="var(--chart-ink-dim)" text-anchor="middle">thermostatic bypass</text>
+        <line x1="135.0" y1="100.0" x2="135.0" y2="150.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="135.0" y1="194.0" x2="135.0" y2="240.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <line x1="230.0" y1="265.0" x2="290.0" y2="265.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="470.0" y1="265.0" x2="530.0" y2="265.0" stroke="var(--hot)" stroke-width="1.6" marker-end="url(#m-hot)"/>
+        <line x1="630.0" y1="300.0" x2="630.0" y2="330.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <path d="M732,355 L748,355 L748,162 L472,162" stroke="var(--gold)" stroke-width="2" fill="none" marker-end="url(#m-gold)"/>
+        <line x1="380.0" y1="140.0" x2="380.0" y2="100.0" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#m-gold)"/>
+        <line x1="290.0" y1="70.0" x2="230.0" y2="70.0" stroke="var(--cool)" stroke-width="1.6" marker-end="url(#m-cool)"/>
+        <text x="380.0" y="384.0" font-family="Overpass,sans-serif" font-size="10" fill="var(--chart-ink-dim)" text-anchor="middle">scavenge pump &gt; pressure pump: return oil is frothy</text>
+      </svg>
+    </div>
+    <p class="cap">In a dry-sump system the oil is held in a separate tank. The pressure pump feeds the engine through the pressure filter (relief valve limits pressure). A scavenge pump — larger than the pressure pump because the returning oil is frothy — draws the oil from the crankcase through a scavenge filter and the oil cooler (with an anti-surge / thermostatic bypass) back to the tank, where a de-aerator removes the air. Needed for aerobatic and large engines.</p>
+  </section>
+
+  <footer>
+    Powerplant — Piston Lubrication: 2 original figures.
+  </footer>
+</div>
+</body></html>

@@ -73,7 +73,7 @@ export const FPP_FLASHCARDS: AirLawFlashcard[] = [
   { id: "FPPFC-412-05", sectionId: "A.4.12", front: "Weight-shift & added-weight formulas?", back: "CG shift = (weight moved × distance moved) ÷ total mass. Added weight: new CG = (old moment + added mass×arm) ÷ (old mass + added mass).", difficulty: "hard" },
   { id: "FPPFC-412-06", sectionId: "A.4.12", front: "%MAC formula?", back: "%MAC = ((CG station − LEMAC) ÷ MAC length) × 100. Convert a %MAC limit back to a station: station = LEMAC + (%/100 × MAC).", difficulty: "hard" },
   { id: "FPPFC-413-05", sectionId: "A.4.13", front: "PET & PNR formulas?", back: "PET distance = (D × H) ÷ (O + H). PNR time = (E × H) ÷ (O + H). O = GS out, H = GS home, D = total distance, E = safe endurance.", difficulty: "hard" },
-  { id: "FPPFC-413-06", sectionId: "A.4.13", front: "Final reserve figures?", back: "Piston: 30 min at normal cruise. Turbine: 30 min holding at 1500 ft above the alternate. Contingency ≈ 5% of trip fuel. Never plan to land below final reserve.", difficulty: "medium" },
+  { id: "FPPFC-413-06", sectionId: "A.4.13", front: "Final reserve figures?", back: "Piston: 45 min at normal cruise (SA). Turbine: 30 min holding at 1500 ft above the alternate. Contingency ≈ 5% of trip fuel. Never plan to land below final reserve.", difficulty: "medium" },
 ];
 
 export function getFPPFlashcardsBySection(sectionId: string): AirLawFlashcard[] {

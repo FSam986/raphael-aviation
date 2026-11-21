@@ -333,3 +333,61 @@ export function RNAVWaypoint() {
     </Frame>
   );
 }
+
+// A.10.3 — VOR phase principle + CDI/OBS. In-house vector art.
+export function VORPrinciple() {
+  const cx = 104, cy = 110, R = 72;
+  return (
+    <Frame>
+      <svg viewBox="0 0 539 210" className="w-full">
+        <defs>
+          <radialGradient id="rn-vor-dial" cx="40%" cy="35%" r="75%">
+            <stop offset="0%" stopColor="#0c4a6e" /><stop offset="100%" stopColor="#082f49" />
+          </radialGradient>
+        </defs>
+        <SkyDuskScene />
+        <text x={12} y={18} fontSize="11" fontWeight="bold" fill="#0f172a">VOR — phase comparison gives the radial</text>
+        {/* compass rose of radials */}
+        <circle cx={cx} cy={cy} r={R} fill="url(#rn-vor-dial)" />
+        <circle cx={cx} cy={cy} r={R} fill="none" stroke="#38bdf8" strokeWidth="1.5" />
+        {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((a) => {
+          const r = (a - 90) * Math.PI / 180;
+          return <line key={a} x1={cx + (R - 10) * Math.cos(r)} y1={cy + (R - 10) * Math.sin(r)} x2={cx + R * Math.cos(r)} y2={cy + R * Math.sin(r)} stroke="#7dd3fc" strokeWidth="1.3" />;
+        })}
+        {/* station + one highlighted radial (045 = QDR FROM) */}
+        <circle cx={cx} cy={cy} r={4} fill="#fbbf24" />
+        <line x1={cx} y1={cy} x2={cx + R * Math.cos((-45) * Math.PI / 180)} y2={cy + R * Math.sin((-45) * Math.PI / 180)} stroke="#f87171" strokeWidth="2.6" />
+        <text x={cx + 54} y={cy - 44} fontSize="8" fill="#fca5a5">radial 045</text>
+        <text x={cx} y={cy - R - 4} fontSize="9" fill="#e0f2fe" textAnchor="middle">N</text>
+        <text x={12} y={198} fontSize="8" fill="#334155">Reference 30 Hz is FM (same everywhere); variable 30 Hz is AM (rotates). Phase difference = radial = QDR (FROM).</text>
+        {/* CDI / OBS instrument */}
+        <g>
+          <circle cx={360} cy={104} r={66} fill="#0f172a" />
+          <circle cx={360} cy={104} r={66} fill="none" stroke="#5eead4" strokeWidth="1.5" />
+          {/* dots */}
+          {[-2, -1, 1, 2].map((d) => <circle key={d} cx={360 + d * 16} cy={104} r={2.4} fill="#94a3b8" />)}
+          {/* deviation bar (slightly left) */}
+          <line x1={360 - 10} y1={70} x2={360 - 10} y2={138} stroke="#fbbf24" strokeWidth="3" />
+          {/* TO flag */}
+          <polygon points="360,78 354,70 366,70" fill="#4ade80" />
+          <text x={360} y={64} fontSize="8" fill="#bbf7d0" textAnchor="middle">TO</text>
+          {/* OBS selected course */}
+          <text x={360} y={150} fontSize="8" fill="#5eead4" textAnchor="middle">OBS 045</text>
+          <circle cx={360} cy={176} r={12} fill="#1e293b" stroke="#5eead4" strokeWidth="1.3" />
+          <text x={360} y={179} fontSize="7" fill="#94a3b8" textAnchor="middle">OBS</text>
+        </g>
+        {/* facts card */}
+        <rect x={440} y={40} width={92} height={130} rx={6} fill="#ffffff" opacity={0.95} stroke="#93c5fd" />
+        <text x={446} y={54} fontSize="7.4" fontWeight="bold" fill="#1d4ed8">VOR facts</text>
+        <text x={446} y={70} fontSize="7.2" fill="#0f172a">VHF 108–117.95</text>
+        <text x={446} y={83} fontSize="7.2" fill="#0f172a">LOC share 108–112</text>
+        <text x={446} y={96} fontSize="7.2" fill="#0f172a">(odd .x5 = ILS)</text>
+        <text x={446} y={112} fontSize="7.2" fill="#0f172a">CDI ±10° full</text>
+        <text x={446} y={125} fontSize="7.2" fill="#0f172a">dot ≈ 2°</text>
+        <text x={446} y={141} fontSize="7.2" fill="#0f172a">cone of confusion</text>
+        <text x={446} y={154} fontSize="7.2" fill="#0f172a">overhead</text>
+        <text x={446} y={167} fontSize="7.2" fill="#0f172a">Doppler VOR=±</text>
+      </svg>
+    </Frame>
+  );
+}

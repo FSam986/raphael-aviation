@@ -1,10 +1,13 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
+import { useCourseGuard } from "@/app/hooks/useCourseGuard";
+import { LockedCourse } from "@/app/components/LockedCourse";
 import { findSubject } from "@/app/lib/course";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { getFPPPlottingBySection } from "@/app/data/fpp-plotting";
@@ -19,9 +22,10 @@ import { FIGURE_NOTES } from "@/app/data/aircraft-technical-figure-notes";
 import { recordQuiz, recordStudyOpen } from "@/app/lib/progress";
 import { SUBJECT_BANKS, loadMastery } from "@/app/lib/readiness";
 import { recordResults } from "@/app/lib/examSelect";
-import { countByAspect, filterByAspect } from "@/app/lib/aspects";
+import { countByItem, filterByItem } from "@/app/lib/aspects";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
 import { Icon } from "@/app/components/Icon";
+import { buildExamTerms, ExamText } from "@/app/lib/examTerms";
 
 type Tab = "learn" | "quiz" | "flashcards" | "illustrations" | "examples";
 
@@ -33,6 +37,7 @@ export default function SectionPage() {
   const focusItemId = searchParams.get("item");
 
   const { userName, loading } = useAuthGuard();
+  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<Tab>(
     tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" ? tabParam : "learn"
@@ -53,12 +58,13 @@ export default function SectionPage() {
     () => content?.questions(sectionId) ?? [],
     [content, sectionId]
   );
+  const sectionItems = useMemo(() => findSubject(subjectId)?.sections.find((x) => x.id === sectionId)?.items ?? [], [subjectId, sectionId]);
   // Per-sub-topic (syllabus aspect) question counts, and an optional drill filter.
   const [drillAspect, setDrillAspect] = useState<string | null>(null);
-  const aspectCounts = useMemo(() => countByAspect(sectionQuestions), [sectionQuestions]);
+  const aspectCounts = useMemo(() => countByItem(sectionQuestions, sectionItems), [sectionQuestions, sectionItems]);
   const quizQuestions = useMemo(
-    () => (drillAspect ? filterByAspect(sectionQuestions, drillAspect) : sectionQuestions),
-    [sectionQuestions, drillAspect]
+    () => (drillAspect ? filterByItem(sectionQuestions, sectionItems, drillAspect) : sectionQuestions),
+    [sectionQuestions, sectionItems, drillAspect]
   );
   const QUIZ_PER_PAGE = 10;
   const quizPageCount = Math.max(1, Math.ceil(quizQuestions.length / QUIZ_PER_PAGE));
@@ -77,6 +83,12 @@ export default function SectionPage() {
     [content, sectionId]
   );
   const sectionNote = useMemo(() => content?.note(sectionId), [content, sectionId]);
+  // Red-letter mode: exam-answer words highlighted in the notes.
+  const [redWords, setRedWords] = useState(true);
+  useEffect(() => { try { setRedWords(localStorage.getItem("redWords") !== "0"); } catch {} }, []);
+  const toggleRed = () => setRedWords((v) => { try { localStorage.setItem("redWords", v ? "0" : "1"); } catch {} return !v; });
+  const examRe = useMemo(() => (redWords ? buildExamTerms(sectionQuestions) : null), [redWords, sectionQuestions]);
+  const X = (t: string) => <ExamText text={t} re={examRe} />;
   // Learn tab shows ONE topic (note block) at a time. `pickedTopic` is the user's
   // chip override; it resets whenever the sub-topic in the sidebar changes.
   const [pickedTopic, setPickedTopic] = useState<string | null>(null);
@@ -99,7 +111,9 @@ export default function SectionPage() {
   const subject = findSubject(subjectId);
   const section = subject?.sections.find((s) => s.id === sectionId);
 
-  if (loading) return <div className="min-h-screen bg-chart-ground flex items-center justify-center"><div className="text-zinc-600 text-sm">Loading...</div></div>;
+  if (loading || !accessReady) return <LoadingScreen />;
+
+  if (locked) return <LockedCourse course={course} />;
 
   if (!subject || !section) {
     return (
@@ -238,7 +252,9 @@ export default function SectionPage() {
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-gold"><Icon name="book" size={22} /></span>
                   <h2 className="font-bold text-white text-lg">Study Notes</h2>
-                  <span className="text-xs text-zinc-600 ml-auto">Exam-focused</span>
+                  <button onClick={toggleRed} aria-pressed={redWords} className={`ml-auto flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs transition-colors ${redWords ? "bg-red-500/10 text-red-400 border border-red-500/30" : "bg-zinc-900 text-zinc-500 border border-zinc-800 hover:text-zinc-300"}`} title="Show words that appear as exam answers in red">
+                    <span className={`w-2 h-2 rounded-full ${redWords ? "bg-red-400" : "bg-zinc-600"}`} />Exam words in red
+                  </button>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-yellow-400/5 border border-yellow-400/20 rounded-xl p-4">
@@ -249,7 +265,7 @@ export default function SectionPage() {
 
                   {sectionNote ? (
                     <div className="space-y-6">
-                      <p className="text-zinc-300 text-sm leading-relaxed">{sectionNote.intro}</p>
+                      <p className="text-zinc-300 text-sm leading-relaxed">{X(sectionNote.intro)}</p>
 
                       {/* Topic selector — one topic at a time, no full dump */}
                       <div className="flex flex-wrap gap-2 border-b border-zinc-900 pb-4">
@@ -276,7 +292,7 @@ export default function SectionPage() {
                           <div className="text-green-400 text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5"><Icon name="check" size={13} className="shrink-0" />Must know for the exam</div>
                           <ul className="space-y-1.5">
                             {sectionNote.mustKnow.map((p, i) => (
-                              <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-green-400/70 mt-0.5">•</span><span>{p}</span></li>
+                              <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-green-400/70 mt-0.5">•</span><span>{X(p)}</span></li>
                             ))}
                           </ul>
                         </div>
@@ -285,7 +301,7 @@ export default function SectionPage() {
                           <div className="text-red-400 text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5"><Icon name="warn" size={13} className="shrink-0" />Common exam traps</div>
                           <ul className="space-y-1.5">
                             {sectionNote.traps.map((p, i) => (
-                              <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-red-400/70 mt-0.5">•</span><span>{p}</span></li>
+                              <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-red-400/70 mt-0.5">•</span><span>{X(p)}</span></li>
                             ))}
                           </ul>
                         </div>
@@ -295,7 +311,7 @@ export default function SectionPage() {
                           <h3 className="text-white font-bold text-base mb-3">{curSlide.heading}</h3>
                           <ul className="space-y-2">
                             {curSlide.text.map((p, i) => (
-                              <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{p}</span></li>
+                              <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
                             ))}
                           </ul>
                         </div>
@@ -305,7 +321,7 @@ export default function SectionPage() {
                           <h3 className="text-white font-bold text-base mb-4">{curSlide.heading}</h3>
                           <div className="bg-zinc-950/60 border border-zinc-800 rounded-2xl overflow-hidden">
                             {curSlide.fig && (
-                              <div className="bg-white flex items-center justify-center p-4">
+                              <div className={`${curSlide.fig.src ? "bg-[#10171b]" : "bg-white"} flex items-center justify-center p-4`}>
                                 <div className="max-h-[52vh] overflow-hidden flex items-center justify-center [&_img]:max-h-[52vh] [&_img]:w-auto [&_img]:object-contain">
                                   {curSlide.fig.render()}
                                 </div>
@@ -316,13 +332,13 @@ export default function SectionPage() {
                               {curSlide.fig && FIGURE_NOTES[curSlide.fig.id] ? (
                                 <div className="space-y-3">
                                   {FIGURE_NOTES[curSlide.fig.id].map((para, i) => (
-                                    <p key={i} className="text-zinc-200 text-sm leading-relaxed">{para}</p>
+                                    <p key={i} className="text-zinc-200 text-sm leading-relaxed">{X(para)}</p>
                                   ))}
                                 </div>
                               ) : (
                                 <ul className="space-y-2">
                                   {curSlide.text.map((p, i) => (
-                                    <li key={i} className="text-zinc-200 text-sm leading-relaxed flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{p}</span></li>
+                                    <li key={i} className="text-zinc-200 text-sm leading-relaxed flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
                                   ))}
                                 </ul>
                               )}

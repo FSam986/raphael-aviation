@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingScreen } from "@/app/components/LoadingScreen";
 import Link from "next/link";
 import { useCourse } from "@/app/hooks/useCourse";
 import { Sidebar } from "@/app/components/Sidebar";
@@ -52,9 +53,7 @@ export default function Exams() {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-chart-ground flex items-center justify-center">
-        <div className="text-zinc-600 text-sm">Loading...</div>
-      </div>
+      <LoadingScreen />
     );
 
   return (
