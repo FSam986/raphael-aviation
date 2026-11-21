@@ -60,8 +60,10 @@ export function Sidebar({
       <button onClick={() => setOpen(true)} aria-label="Open navigation" className="text-chart-ink-dim hover:text-chart-ink p-1 -ml-1">
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
       </button>
-      <img src="/logo-emblem.png" alt="" className="h-7 w-auto" />
-      <span className="font-display text-gold text-lg tracking-[0.18em]">RAPHAEL</span>
+      <Link href="/dashboard" aria-label="Raphael Aviation home" className="flex items-center gap-3">
+        <img src="/logo-emblem.png" alt="" className="h-7 w-auto" />
+        <span className="font-display text-gold text-lg tracking-[0.18em]">RAPHAEL</span>
+      </Link>
     </div>
     {/* Backdrop */}
     {open && <div className="md:hidden fixed inset-0 z-50 bg-black/60" onClick={() => setOpen(false)} aria-hidden="true" />}
@@ -70,13 +72,13 @@ export function Sidebar({
       className={`w-64 bg-chart-ground-2 border-r border-chart-line flex flex-col fixed h-full z-50 transition-transform duration-200 ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
       onClick={() => setOpen(false)}
     >
-      <div className="p-5 border-b border-chart-line flex items-center gap-3">
+      <Link href="/dashboard" aria-label="Raphael Aviation home" className="p-5 border-b border-chart-line flex items-center gap-3 hover:bg-chart-ground/60 transition-colors">
         <img src="/logo-emblem.png" alt="Raphael Aviation" className="h-9 w-auto flex-shrink-0" />
         <div className="leading-tight">
           <div className="font-display text-gold text-xl tracking-[0.16em]">RAPHAEL</div>
           <div className="mono text-chart-ink-faint text-[10px] tracking-[0.34em] uppercase mt-0.5">Aviation</div>
         </div>
-      </div>
+      </Link>
 
       {/* Course switcher — grouped into Licences and Ratings */}
       <div className="px-4 pt-4 space-y-2">
