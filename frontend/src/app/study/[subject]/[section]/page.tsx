@@ -21,7 +21,7 @@ import { FIGURE_NOTES } from "@/app/data/aircraft-technical-figure-notes";
 import { recordQuiz, recordStudyOpen } from "@/app/lib/progress";
 import { SUBJECT_BANKS, loadMastery } from "@/app/lib/readiness";
 import { recordResults } from "@/app/lib/examSelect";
-import { countByAspect, filterByAspect } from "@/app/lib/aspects";
+import { countByItem, filterByItem } from "@/app/lib/aspects";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
 import { Icon } from "@/app/components/Icon";
 import { buildExamTerms, ExamText } from "@/app/lib/examTerms";
@@ -57,12 +57,13 @@ export default function SectionPage() {
     () => content?.questions(sectionId) ?? [],
     [content, sectionId]
   );
+  const sectionItems = useMemo(() => findSubject(subjectId)?.sections.find((x) => x.id === sectionId)?.items ?? [], [subjectId, sectionId]);
   // Per-sub-topic (syllabus aspect) question counts, and an optional drill filter.
   const [drillAspect, setDrillAspect] = useState<string | null>(null);
-  const aspectCounts = useMemo(() => countByAspect(sectionQuestions), [sectionQuestions]);
+  const aspectCounts = useMemo(() => countByItem(sectionQuestions, sectionItems), [sectionQuestions, sectionItems]);
   const quizQuestions = useMemo(
-    () => (drillAspect ? filterByAspect(sectionQuestions, drillAspect) : sectionQuestions),
-    [sectionQuestions, drillAspect]
+    () => (drillAspect ? filterByItem(sectionQuestions, sectionItems, drillAspect) : sectionQuestions),
+    [sectionQuestions, sectionItems, drillAspect]
   );
   const QUIZ_PER_PAGE = 10;
   const quizPageCount = Math.max(1, Math.ceil(quizQuestions.length / QUIZ_PER_PAGE));
