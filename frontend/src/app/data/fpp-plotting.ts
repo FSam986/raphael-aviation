@@ -81,7 +81,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       "At the wind reference, follow the TAILWIND guide (tailwind LENGTHENS the distance, heavily penalised) for 10 kt.",
       "Follow the obstacle guides to 50 ft and read across to the DISTANCE axis.",
     ],
-    answer: "≈ 2 600 ft — markedly longer than the same case with a headwind. Calibrated read; confirm on your CAP 698.",
+    answer: "≈ 3 010 ft over a 50 ft obstacle (ground roll ≈ 1 670 ft). Read from CAP 698 SEP1 Fig 2.1.",
     difficulty: "hard",
     carpet: {
       variant: "takeoff",
@@ -89,11 +89,11 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       oatC: 30,
       massLb: 3650,
       windKt: -10, // 10 kt TAILWIND
-      paLevelFt: 1850, // OAT 30 °C up to the sea-level PA curve
-      afterMassFt: 1850, // 3 650 lb on the mass reference line
-      groundRollFt: 2000, // tailwind LENGTHENS the ground roll
-      totalFt: 2600, // parallel the obstacle grid to 50 ft
-      readout: "≈ 2 600 ft",
+      paLevelFt: 1330, // OAT 30 °C up to the sea-level PA curve
+      afterMassFt: 1330, // 3 650 lb on the mass reference line
+      groundRollFt: 1670, // tailwind LENGTHENS the ground roll
+      totalFt: 3010, // parallel the obstacle grid to 50 ft
+      readout: "≈ 3 010 ft",
     },
   },
   {
@@ -109,7 +109,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       "At the wind reference, apply the 8 kt HEADWIND guide (shortens the landing).",
       "Follow the obstacle guides to 50 ft and read across to the DISTANCE axis.",
     ],
-    answer: "≈ 1 500 ft from 50 ft. Calibrated read; confirm on your CAP 698 Fig 2.4.",
+    answer: "≈ 1 390 ft from 50 ft (ground roll ≈ 890 ft). Read from CAP 698 SEP1 Fig 2.4.",
     difficulty: "medium",
     carpet: {
       variant: "landing",
@@ -117,11 +117,11 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       oatC: 20,
       massLb: 3400,
       windKt: 8, // 8 kt headwind
-      paLevelFt: 1500, // OAT 20 °C up to the 2 000 ft PA curve
-      afterMassFt: 1200, // 3 400 lb is lighter than max → parallel the grid down
-      groundRollFt: 1050, // 8 kt headwind shortens the landing
-      totalFt: 1500, // parallel the obstacle grid to 50 ft
-      readout: "≈ 1 500 ft",
+      paLevelFt: 1000, // OAT 20 °C up to the 2 000 ft PA curve
+      afterMassFt: 990, // 3 400 lb is lighter than max → parallel the grid down
+      groundRollFt: 890, // 8 kt headwind shortens the landing
+      totalFt: 1390, // parallel the obstacle grid to 50 ft
+      readout: "≈ 1 390 ft",
     },
   },
   {
@@ -129,28 +129,24 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     sectionId: "A.4.9",
     graphRef: "CAP 698 · SEP1 · Figure 2.3 — Climb",
     diagram: "climb",
-    given: ["Pressure altitude: 4 000 ft", "OAT: +10 °C", "Mass: 3 400 lb", "Speed: best rate of climb (Vy)"],
+    given: ["Pressure altitude: 4 000 ft", "OAT: +10 °C", "Mass: 3 400 lb", "Climb speed 100 KIAS (all masses)"],
     ask: "Find the rate of climb available.",
     steps: [
-      "Enter the climb graph at the mass on the bottom axis (3 400 lb).",
-      "Go UP to the 4 000 ft pressure-altitude curve.",
-      "Read ACROSS to the rate-of-climb axis.",
+      "Enter the graph at the OAT (+10 °C) and go UP to the 4 000 ft pressure-altitude line.",
+      "Go RIGHT to the mass reference line, then parallel the mass guide lines to 3 400 lb.",
+      "Continue RIGHT to the rate-of-climb axis and read the value.",
     ],
-    answer: "≈ 650 ft/min. Calibrated read; confirm on your CAP 698 Fig 2.3.",
+    answer: "≈ 1 090 ft/min. Read from CAP 698 SEP1 Fig 2.3.",
     difficulty: "medium",
     graph: {
       x: { label: "Mass (lb)", min: 2800, max: 3650, step: 200 },
-      y: { label: "Rate of climb (ft/min)", min: 300, max: 1000, step: 100 },
-      curves: [
-        { label: "SL", pts: [[2800, 960], [3200, 870], [3400, 820], [3650, 760]] },
-        { label: "4 000 ft", pts: [[2800, 800], [3200, 710], [3400, 650], [3650, 590]] },
-        { label: "8 000 ft", pts: [[2800, 640], [3200, 540], [3400, 490], [3650, 440]] },
-      ],
-      // 3 400 lb up to the 4 000 ft curve, then left to the RoC axis
-      red: [[3400, 300], [3400, 650], [2800, 650]],
-      readout: "≈ 650 ft/min",
+      y: { label: "Rate of climb (ft/min) at OAT +10 °C", min: 600, max: 1900, step: 200 },
+      curves: [{ label: "SL", pts: [[2800, 1820], [3000, 1680], [3200, 1540], [3400, 1400], [3650, 1240]] }, { label: "4 000 ft", pts: [[2800, 1460], [3000, 1330], [3200, 1200], [3400, 1090], [3650, 960]] }, { label: "8 000 ft", pts: [[2800, 1140], [3000, 1010], [3200, 900], [3400, 800], [3650, 690]] }],
+      red: [[3400, 600], [3400, 1090], [2800, 1090]],
+      readout: "≈ 1 090 ft/min",
     },
   },
+
   {
     id: "PLOT-49-005",
     sectionId: "A.4.9",
@@ -204,29 +200,27 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
   // ===== A.4.10 — MEP1 (CAP 697) =====
   {
     id: "PLOT-410-001",
-    sectionId: "A.4.10",
-    graphRef: "CAP 698 · MEP1 · Figure 3.1 — Climb (rate of climb & gradient)",
+    sectionId: "A.4.9",
+    graphRef: "CAP 698 · SEP1 · Figure 2.3 — Climb (rate of climb & gradient)",
     diagram: "climb",
-    given: ["Pressure altitude: 11 500 ft", "Weight: 3 600 lb", "TAS 120 kt (from the nav computer)", "Both engines operating"],
-    ask: "Find the rate of climb (and the climb gradient).",
+    given: ["Pressure altitude: 11 500 ft", "OAT: −5 °C", "Mass: 3 600 lb", "TAS 120 kt (from the nav computer)"],
+    ask: "Find the rate of climb and the climb gradient.",
     steps: [
       "Calculate the TAS on the nav computer (120 kt).",
-      "Enter Figure 3.1 at the pressure altitude (11 500 ft), across to the 3 600 lb mass, and read the rate of climb.",
-      "Parallel the grid to the TAS to read the climb gradient on the right axis.",
+      "Enter at the OAT (−5 °C), go UP to 11 500 ft, then RIGHT to the mass reference line and parallel the guides to 3 600 lb.",
+      "Read the rate of climb, continue to the TAS reference line, parallel the grid to 120 kt and read the gradient on the right axis.",
     ],
-    answer: "Graphical ROC = 515 fpm; TAS 120 kt; climb gradient 4.2% — CAP 698 Fig 3.1 worked example (verified against the manual).",
+    answer: "Graphical ROC = 515 fpm; TAS 120 kt; climb gradient 4.2% — CAP 698 SEP1 Fig 2.3 worked example (verified against the manual).",
     difficulty: "hard",
     graph: {
-      x: { label: "Pressure altitude — ft", min: 0, max: 16000, step: 2000 },
-      y: { label: "Rate of climb — fpm", min: 0, max: 2000, step: 400 },
-      curves: [
-        { label: "3 600 lb", pts: [[0, 1200], [6000, 850], [11500, 515], [16000, 250]] },
-        { label: "light", pts: [[0, 1450], [6000, 1080], [11500, 720], [16000, 430]] },
-      ],
+      x: { label: "Pressure altitude — ft (OAT −5 °C)", min: 0, max: 16000, step: 2000 },
+      y: { label: "Rate of climb — fpm", min: 0, max: 1800, step: 400 },
+      curves: [{ label: "3 600 lb", pts: [[0, 1330], [4000, 1040], [8000, 770], [11500, 520], [14000, 360], [16000, 220]] }, { label: "3 000 lb", pts: [[0, 1770], [4000, 1390], [8000, 1080], [11500, 800], [14000, 610], [16000, 460]] }],
       red: [[11500, 0], [11500, 515], [0, 515]],
-      readout: "515 fpm",
+      readout: "515 fpm · 4.2%",
     },
   },
+
   {
     id: "PLOT-410-002",
     sectionId: "A.4.10",
@@ -1247,9 +1241,9 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     given: ["OAT +35 °C", "Pressure altitude 2 200 ft", "Take-off mass 3 400 lb", "Wind 5 kt headwind", "50 ft obstacle"],
     ask: "Find the take-off distance over a 50 ft obstacle.",
     steps: ["Enter OAT +35 °C up to the 2 200 ft PA curve.", "Parallel the mass guides to 3 400 lb, then the headwind guides to 5 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 3 100 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).",
+    answer: "≈ 2 470 ft over a 50 ft obstacle (ground roll ≈ 1 380 ft). Read from CAP 698 SEP1 Fig 2.1.",
     difficulty: "medium",
-    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 35, massLb: 3400, windKt: 5, paLevelFt: 2200, afterMassFt: 1900, groundRollFt: 1800, totalFt: 3100, readout: "≈ 3 100 ft" },
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 35, massLb: 3400, windKt: 5, paLevelFt: 1710, afterMassFt: 1450, groundRollFt: 1380, totalFt: 2470, readout: "≈ 2 470 ft" },
   },
   {
     id: "PLOT-TL-002", sectionId: "A.4.9",
@@ -1258,9 +1252,9 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     given: ["OAT 0 °C", "Pressure altitude 1 400 ft", "Take-off mass 3 200 lb", "Wind 15 kt headwind", "50 ft obstacle"],
     ask: "Find the take-off distance over a 50 ft obstacle.",
     steps: ["Enter OAT 0 °C up to the 1 400 ft PA curve.", "Parallel the mass guides to 3 200 lb, then the headwind guides to 15 kt (a strong headwind shortens it).", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 1 900 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).",
+    answer: "≈ 1 250 ft over a 50 ft obstacle (ground roll ≈ 740 ft). Read from CAP 698 SEP1 Fig 2.1.",
     difficulty: "medium",
-    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 0, massLb: 3200, windKt: 15, paLevelFt: 1400, afterMassFt: 1050, groundRollFt: 850, totalFt: 1900, readout: "≈ 1 900 ft" },
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 0, massLb: 3200, windKt: 15, paLevelFt: 1200, afterMassFt: 890, groundRollFt: 740, totalFt: 1250, readout: "≈ 1 250 ft" },
   },
   {
     id: "PLOT-TL-003", sectionId: "A.4.9",
@@ -1269,9 +1263,9 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     given: ["OAT +20 °C", "Pressure altitude 1 300 ft", "Landing mass 3 200 lb", "Wind 10 kt headwind", "50 ft screen"],
     ask: "Find the landing distance from 50 ft.",
     steps: ["Enter OAT +20 °C up to the 1 300 ft PA curve.", "Parallel the mass guides to 3 200 lb, then the headwind guides to 10 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 1 350 ft from 50 ft (representative — confirm on your CAP 698 Fig 2.4).",
+    answer: "≈ 1 320 ft from 50 ft (ground roll ≈ 840 ft). Read from CAP 698 SEP1 Fig 2.4.",
     difficulty: "medium",
-    carpet: { variant: "landing", distanceMax: 6000, oatC: 20, massLb: 3200, windKt: 10, paLevelFt: 1300, afterMassFt: 1050, groundRollFt: 900, totalFt: 1350, readout: "≈ 1 350 ft" },
+    carpet: { variant: "landing", distanceMax: 6000, oatC: 20, massLb: 3200, windKt: 10, paLevelFt: 970, afterMassFt: 960, groundRollFt: 840, totalFt: 1320, readout: "≈ 1 320 ft" },
   },
   {
     id: "PLOT-TL-004", sectionId: "A.4.9",
@@ -1280,9 +1274,9 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
     given: ["OAT +25 °C", "Pressure altitude 1 900 ft", "Take-off mass 3 650 lb (max)", "Wind 5 kt tailwind", "50 ft obstacle"],
     ask: "Find the take-off distance over a 50 ft obstacle (note the tailwind penalty).",
     steps: ["Enter OAT +25 °C up to the 1 900 ft PA curve.", "3 650 lb sits on the mass reference; parallel the TAILWIND guides to 5 kt (lengthens the distance).", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 2 900 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).",
+    answer: "≈ 3 110 ft over a 50 ft obstacle (ground roll ≈ 1 720 ft). Read from CAP 698 SEP1 Fig 2.1.",
     difficulty: "medium",
-    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 25, massLb: 3650, windKt: -5, paLevelFt: 1900, afterMassFt: 1900, groundRollFt: 2050, totalFt: 2900, readout: "≈ 2 900 ft" },
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 25, massLb: 3650, windKt: -5, paLevelFt: 1530, afterMassFt: 1530, groundRollFt: 1720, totalFt: 3110, readout: "≈ 3 110 ft" },
   },
 
   // ----- Mass & balance (expanded) — exact computed answers -----
@@ -1381,43 +1375,43 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
   { id: "PLOT-TL-005", sectionId: "A.4.9", graphRef: "CAP 698 · SEP1 · Figure 2.1 — Take-off distance (flaps up)", diagram: "takeoff",
     given: ["OAT +15 °C", "Pressure altitude 3 000 ft", "Take-off mass 3 500 lb", "Wind 10 kt headwind", "50 ft obstacle"], ask: "Find the take-off distance over a 50 ft obstacle.",
     steps: ["Enter OAT +15 °C up to the 3 000 ft PA curve.", "Parallel the mass guides to 3 500 lb, then the headwind guides to 10 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 3 300 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).", difficulty: "medium",
-    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 15, massLb: 3500, windKt: 10, paLevelFt: 2300, afterMassFt: 2050, groundRollFt: 1900, totalFt: 3300, readout: "≈ 3 300 ft" } },
+    answer: "≈ 2 300 ft over a 50 ft obstacle (ground roll ≈ 1 290 ft). Read from CAP 698 SEP1 Fig 2.1.", difficulty: "medium",
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 15, massLb: 3500, windKt: 10, paLevelFt: 1580, afterMassFt: 1430, groundRollFt: 1290, totalFt: 2300, readout: "≈ 2 300 ft" } },
   { id: "PLOT-TL-006", sectionId: "A.4.9", graphRef: "CAP 698 · SEP1 · Figure 2.1 — Take-off distance (flaps up)", diagram: "takeoff",
     given: ["OAT +40 °C", "Pressure altitude 5 000 ft", "Take-off mass 3 650 lb (max)", "Wind 5 kt headwind", "50 ft obstacle"], ask: "Find the take-off distance (hot & high, heavy).",
     steps: ["Enter OAT +40 °C up to the 5 000 ft PA curve (high density altitude).", "3 650 lb on the mass reference; parallel the headwind guides to 5 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 4 600 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).", difficulty: "hard",
-    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 40, massLb: 3650, windKt: 5, paLevelFt: 3000, afterMassFt: 3000, groundRollFt: 2850, totalFt: 4600, readout: "≈ 4 600 ft" } },
+    answer: "≈ 4 230 ft over a 50 ft obstacle (ground roll ≈ 2 300 ft). Read from CAP 698 SEP1 Fig 2.1.", difficulty: "hard",
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 40, massLb: 3650, windKt: 5, paLevelFt: 2400, afterMassFt: 2400, groundRollFt: 2300, totalFt: 4230, readout: "≈ 4 230 ft" } },
   { id: "PLOT-TL-007", sectionId: "A.4.9", graphRef: "CAP 698 · SEP1 · Figure 2.4 — Landing distance", diagram: "landing",
     given: ["OAT +10 °C", "Pressure altitude 2 000 ft", "Landing mass 3 400 lb", "Wind 12 kt headwind", "50 ft screen"], ask: "Find the landing distance from 50 ft.",
     steps: ["Enter OAT +10 °C up to the 2 000 ft PA curve.", "Parallel the mass guides to 3 400 lb, then the headwind guides to 12 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 1 400 ft from 50 ft (representative — confirm on your CAP 698 Fig 2.4).", difficulty: "medium",
-    carpet: { variant: "landing", distanceMax: 6000, oatC: 10, massLb: 3400, windKt: 12, paLevelFt: 1300, afterMassFt: 1150, groundRollFt: 950, totalFt: 1400, readout: "≈ 1 400 ft" } },
+    answer: "≈ 1 290 ft from 50 ft (ground roll ≈ 810 ft). Read from CAP 698 SEP1 Fig 2.4.", difficulty: "medium",
+    carpet: { variant: "landing", distanceMax: 6000, oatC: 10, massLb: 3400, windKt: 12, paLevelFt: 960, afterMassFt: 960, groundRollFt: 810, totalFt: 1290, readout: "≈ 1 290 ft" } },
   { id: "PLOT-TL-008", sectionId: "A.4.9", graphRef: "CAP 698 · SEP1 · Figure 2.1 — Take-off distance (flaps up)", diagram: "takeoff",
     given: ["OAT +20 °C", "Pressure altitude sea level", "Take-off mass 3 000 lb", "Wind 8 kt headwind", "50 ft obstacle"], ask: "Find the take-off distance (light, sea level).",
     steps: ["Enter OAT +20 °C up to the sea-level PA curve.", "Parallel the mass guides to 3 000 lb (light → short), then headwind to 8 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 1 600 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).", difficulty: "medium",
-    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 20, massLb: 3000, windKt: 8, paLevelFt: 1200, afterMassFt: 850, groundRollFt: 700, totalFt: 1600, readout: "≈ 1 600 ft" } },
+    answer: "≈ 1 210 ft over a 50 ft obstacle (ground roll ≈ 720 ft). Read from CAP 698 SEP1 Fig 2.1.", difficulty: "medium",
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 20, massLb: 3000, windKt: 8, paLevelFt: 1230, afterMassFt: 790, groundRollFt: 720, totalFt: 1210, readout: "≈ 1 210 ft" } },
   { id: "PLOT-TL-009", sectionId: "A.4.9", graphRef: "CAP 698 · SEP1 · Figure 2.4 — Landing distance", diagram: "landing",
     given: ["OAT +30 °C", "Pressure altitude 4 000 ft", "Landing mass 3 650 lb (max)", "Wind 5 kt tailwind", "50 ft screen"], ask: "Find the landing distance (max mass, tailwind).",
     steps: ["Enter OAT +30 °C up to the 4 000 ft PA curve.", "3 650 lb on the mass reference; parallel the TAILWIND guides to 5 kt (lengthens).", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 2 500 ft from 50 ft (representative — confirm on your CAP 698 Fig 2.4).", difficulty: "hard",
-    carpet: { variant: "landing", distanceMax: 6000, oatC: 30, massLb: 3650, windKt: -5, paLevelFt: 1800, afterMassFt: 1800, groundRollFt: 1950, totalFt: 2500, readout: "≈ 2 500 ft" } },
+    answer: "≈ 2 000 ft from 50 ft (ground roll ≈ 1 340 ft). Read from CAP 698 SEP1 Fig 2.4.", difficulty: "hard",
+    carpet: { variant: "landing", distanceMax: 6000, oatC: 30, massLb: 3650, windKt: -5, paLevelFt: 1110, afterMassFt: 1110, groundRollFt: 1340, totalFt: 2000, readout: "≈ 2 000 ft" } },
   { id: "PLOT-TL-010", sectionId: "A.4.9", graphRef: "CAP 698 · SEP1 · Figure 2.1 — Take-off distance (flaps up)", diagram: "takeoff",
     given: ["OAT −20 °C", "Pressure altitude 1 000 ft", "Take-off mass 3 200 lb", "Wind 20 kt headwind", "50 ft obstacle"], ask: "Find the take-off distance (cold, strong headwind).",
     steps: ["Enter OAT −20 °C up to the 1 000 ft PA curve.", "Parallel the mass guides to 3 200 lb, then the headwind guides to 20 kt (strong headwind shortens it).", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 1 300 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).", difficulty: "medium",
-    carpet: { variant: "takeoff", distanceMax: 8000, oatC: -20, massLb: 3200, windKt: 20, paLevelFt: 900, afterMassFt: 650, groundRollFt: 500, totalFt: 1300, readout: "≈ 1 300 ft" } },
+    answer: "≈ 920 ft over a 50 ft obstacle (ground roll ≈ 550 ft). Read from CAP 698 SEP1 Fig 2.1.", difficulty: "medium",
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: -20, massLb: 3200, windKt: 20, paLevelFt: 970, afterMassFt: 720, groundRollFt: 550, totalFt: 920, readout: "≈ 920 ft" } },
   { id: "PLOT-TL-011", sectionId: "A.4.9", graphRef: "CAP 698 · SEP1 · Figure 2.4 — Landing distance", diagram: "landing",
     given: ["OAT +15 °C", "Pressure altitude 1 500 ft", "Landing mass 3 000 lb", "Wind 5 kt headwind", "50 ft screen"], ask: "Find the landing distance (light).",
     steps: ["Enter OAT +15 °C up to the 1 500 ft PA curve.", "Parallel the mass guides to 3 000 lb, then the headwind guides to 5 kt.", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 1 100 ft from 50 ft (representative — confirm on your CAP 698 Fig 2.4).", difficulty: "medium",
-    carpet: { variant: "landing", distanceMax: 6000, oatC: 15, massLb: 3000, windKt: 5, paLevelFt: 1000, afterMassFt: 800, groundRollFt: 720, totalFt: 1100, readout: "≈ 1 100 ft" } },
+    answer: "≈ 1 330 ft from 50 ft (ground roll ≈ 850 ft). Read from CAP 698 SEP1 Fig 2.4.", difficulty: "medium",
+    carpet: { variant: "landing", distanceMax: 6000, oatC: 15, massLb: 3000, windKt: 5, paLevelFt: 960, afterMassFt: 910, groundRollFt: 850, totalFt: 1330, readout: "≈ 1 330 ft" } },
   { id: "PLOT-TL-012", sectionId: "A.4.9", graphRef: "CAP 698 · SEP1 · Figure 2.1 — Take-off distance (flaps up)", diagram: "takeoff",
     given: ["OAT +35 °C", "Pressure altitude 6 000 ft", "Take-off mass 3 400 lb", "Wind calm (nil)", "50 ft obstacle"], ask: "Find the take-off distance (nil wind, high elevation).",
     steps: ["Enter OAT +35 °C up to the 6 000 ft PA curve.", "Parallel the mass guides to 3 400 lb; nil wind → stay on the wind reference.", "Parallel the obstacle guides to 50 ft and read the distance."],
-    answer: "≈ 4 800 ft over 50 ft (representative — confirm on your CAP 698 Fig 2.1).", difficulty: "hard",
-    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 35, massLb: 3400, windKt: 0, paLevelFt: 3200, afterMassFt: 2900, groundRollFt: 2900, totalFt: 4800, readout: "≈ 4 800 ft" } },
+    answer: "≈ 3 930 ft over a 50 ft obstacle (ground roll ≈ 2 140 ft). Read from CAP 698 SEP1 Fig 2.1.", difficulty: "hard",
+    carpet: { variant: "takeoff", distanceMax: 8000, oatC: 35, massLb: 3400, windKt: 0, paLevelFt: 2550, afterMassFt: 2140, groundRollFt: 2140, totalFt: 3930, readout: "≈ 3 930 ft" } },
 ];
 
 import { FPP_GUIDE_PLOTTING } from "@/app/data/fpp-plotting-guide";
