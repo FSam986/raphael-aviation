@@ -1,5 +1,6 @@
 "use client";
 
+import { signOutWithSync } from "@/app/lib/progressSync";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -77,12 +78,12 @@ export default function Settings() {
   }
   async function resetPassword() {
     if (!email) return;
-    if (supabaseConfigured) await supabase.auth.resetPasswordForEmail(email);
+    if (supabaseConfigured) await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/reset-password` });
     flash("Password reset email sent");
   }
   async function signOut() {
     try { sessionStorage.removeItem("ra_session_token"); } catch { /* ignore */ }
-    await supabase.auth.signOut();
+    await signOutWithSync();
     router.push("/login");
   }
   function resetStudyProgress() {

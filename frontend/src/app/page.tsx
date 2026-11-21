@@ -70,7 +70,11 @@ export default function LandingPage() {
       </section>
 
       <footer className="border-t border-zinc-900 px-5 sm:px-10 py-6 text-center text-zinc-700 text-xs">
-        © 2025 Raphael Aviation · SACAA theoretical-knowledge study
+        <div>© 2026 Raphael Aviation · SACAA theoretical-knowledge study · Not affiliated with or endorsed by SACAA</div>
+        <div className="mt-2 flex justify-center gap-5">
+          <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms of Use</Link>
+          <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy Policy</Link>
+        </div>
       </footer>
     </main>
   );

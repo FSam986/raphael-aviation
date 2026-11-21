@@ -1,5 +1,6 @@
 "use client";
 
+import { signOutWithSync, startProgressSync } from "@/app/lib/progressSync";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -30,6 +31,7 @@ export default function Dashboard() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { router.push("/login"); return; }
       const name = session.user.user_metadata?.full_name?.split(" ")[0] || "Student";
+      void startProgressSync(session.user.id);
       setUserName(name);
       setLoading(false);
     });
@@ -43,7 +45,7 @@ export default function Dashboard() {
   }, []);
 
   async function handleSignOut() {
-    await supabase.auth.signOut();
+    await signOutWithSync();
     router.push("/login");
   }
 

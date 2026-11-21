@@ -1,5 +1,6 @@
 "use client";
 
+import { clearLocalProgress } from "@/app/lib/progressSync";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
@@ -37,6 +38,7 @@ export default function ContentShield() {
         .maybeSingle();
       if (!cancelled && data && data.active_device !== me) {
         await supabase.auth.signOut(); // another screen took over
+        clearLocalProgress();
       }
     }
 
