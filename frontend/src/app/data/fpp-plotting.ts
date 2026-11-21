@@ -1047,7 +1047,7 @@ export const FPP_PLOTTING: PlottingQuestion[] = [
       "Apply the mass correction: at or below 45 350 kg subtract ½ unit; at or above 61 250 kg add ½ unit — 60 000 kg needs no correction.",
       "The setting must lie between 1 and 5¾ units.",
     ],
-    answer: "Stabiliser trim ≈ 3¼ units (flaps 5°, CG 18% MAC, 60 000 kg). Confirm on CAP 698 Fig 4.8.",
+    answer: "Stabiliser trim = 3¾ units (flaps 5°, CG 18% MAC; 60 000 kg needs no mass adjustment). Confirm on CAP 698 Fig 4.8.",
     difficulty: "hard",
   },
 
