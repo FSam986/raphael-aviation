@@ -1,6 +1,7 @@
 "use client";
 
 import { MockExam } from "@/app/components/MockExam";
+import { examBank } from "@/app/lib/examBank";
 import { ALL_INSTRUMENTS_QUESTIONS } from "@/app/data/instruments-questions";
 import { findSubject } from "@/app/lib/course";
 
@@ -12,7 +13,7 @@ export default function FlightInstrumentsExamPage() {
       subjectId="flight-instruments"
       code={S.code}
       title={S.title}
-      questions={ALL_INSTRUMENTS_QUESTIONS}
+      questions={examBank("flight-instruments")}
       examSize={Math.min(S.examQuestions, ALL_INSTRUMENTS_QUESTIONS.length)}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}

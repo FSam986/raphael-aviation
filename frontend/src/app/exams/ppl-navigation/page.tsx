@@ -1,6 +1,7 @@
 "use client";
 
 import { MockExam } from "@/app/components/MockExam";
+import { examBank } from "@/app/lib/examBank";
 import { PPL_NAV_QUESTIONS } from "@/app/data/ppl-nav-content";
 import { getPPLSubject } from "@/app/data/ppl-syllabus";
 
@@ -12,7 +13,7 @@ export default function PPLExamPage() {
       subjectId="ppl-navigation"
       code={S.code}
       title={`PPL ${S.title}`}
-      questions={PPL_NAV_QUESTIONS}
+      questions={examBank("ppl-navigation")}
       examSize={Math.min(S.examQuestions, PPL_NAV_QUESTIONS.length)}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}

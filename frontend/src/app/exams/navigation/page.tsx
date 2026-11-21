@@ -1,6 +1,7 @@
 "use client";
 
 import { MockExam } from "@/app/components/MockExam";
+import { examBank } from "@/app/lib/examBank";
 import { NAV_QUESTIONS } from "@/app/data/nav-questions";
 import { findSubject } from "@/app/lib/course";
 
@@ -12,7 +13,7 @@ export default function NavigationExamPage() {
       subjectId="navigation"
       code={S.code}
       title={S.title}
-      questions={NAV_QUESTIONS}
+      questions={examBank("navigation")}
       examSize={Math.min(S.examQuestions, NAV_QUESTIONS.length)}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}

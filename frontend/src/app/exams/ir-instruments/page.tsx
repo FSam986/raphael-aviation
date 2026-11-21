@@ -1,6 +1,7 @@
 "use client";
 
 import { MockExam } from "@/app/components/MockExam";
+import { examBank } from "@/app/lib/examBank";
 import { IR_INSTRUMENTS_QUESTIONS } from "@/app/data/ir-instruments-questions";
 import { getIRSubject } from "@/app/data/ir-syllabus";
 
@@ -12,7 +13,7 @@ export default function IRExamPage() {
       subjectId="ir-instruments"
       code={S.code}
       title={`IR ${S.title}`}
-      questions={IR_INSTRUMENTS_QUESTIONS}
+      questions={examBank("ir-instruments")}
       examSize={Math.min(S.examQuestions, IR_INSTRUMENTS_QUESTIONS.length)}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}

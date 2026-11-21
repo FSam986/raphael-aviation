@@ -1,6 +1,7 @@
 "use client";
 
 import { MockExam } from "@/app/components/MockExam";
+import { examBank } from "@/app/lib/examBank";
 import { GR_QUESTIONS } from "@/app/data/gr-questions";
 import { findSubject } from "@/app/lib/course";
 
@@ -12,7 +13,7 @@ export default function GeneralRadiotelephonyExamPage() {
       subjectId="general-radiotelephony"
       code={S.code}
       title={S.title}
-      questions={GR_QUESTIONS}
+      questions={examBank("general-radiotelephony")}
       examSize={Math.min(S.examQuestions, GR_QUESTIONS.length)}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}

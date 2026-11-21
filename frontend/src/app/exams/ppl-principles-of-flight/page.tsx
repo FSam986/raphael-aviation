@@ -1,6 +1,7 @@
 "use client";
 
 import { MockExam } from "@/app/components/MockExam";
+import { examBank } from "@/app/lib/examBank";
 import { PPL_POF_QUESTIONS } from "@/app/data/ppl-principles-of-flight-questions";
 import { findSubject } from "@/app/lib/course";
 
@@ -12,7 +13,7 @@ export default function PPLPofExamPage() {
       subjectId="ppl-principles-of-flight"
       code={S.code}
       title={S.title}
-      questions={PPL_POF_QUESTIONS}
+      questions={examBank("ppl-principles-of-flight")}
       examSize={Math.min(S.examQuestions, PPL_POF_QUESTIONS.length)}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}

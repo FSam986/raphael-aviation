@@ -1,6 +1,7 @@
 "use client";
 
 import { MockExam } from "@/app/components/MockExam";
+import { examBank } from "@/app/lib/examBank";
 import { RADIONAV_QUESTIONS } from "@/app/data/radionav-questions";
 import { findSubject } from "@/app/lib/course";
 
@@ -12,7 +13,7 @@ export default function RadioNavigationExamPage() {
       subjectId="radio-navigation"
       code={S.code}
       title={S.title}
-      questions={RADIONAV_QUESTIONS}
+      questions={examBank("radio-navigation")}
       examSize={Math.min(S.examQuestions, RADIONAV_QUESTIONS.length)}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}
