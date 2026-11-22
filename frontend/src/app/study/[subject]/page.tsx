@@ -13,6 +13,7 @@ import { useCourseGuard } from "@/app/hooks/useCourseGuard";
 import { LockedCourse } from "@/app/components/LockedCourse";
 import { Icon } from "@/app/components/Icon";
 import { StoryFlight } from "@/app/components/StoryFlight";
+import { SyllabusOverlay } from "@/app/components/SyllabusOverlay";
 
 export default function SubjectPage() {
   const params = useParams();
@@ -21,6 +22,7 @@ export default function SubjectPage() {
   const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [view, setView] = useState<"story" | "list">("story");
+  const [showSyllabus, setShowSyllabus] = useState(false);
   useEffect(() => { try { if (localStorage.getItem("subjectView") === "list") setView("list"); } catch {} }, []);
   const pickView = (v: "story" | "list") => { setView(v); try { localStorage.setItem("subjectView", v); } catch {} };
 
@@ -80,6 +82,9 @@ export default function SubjectPage() {
               </div>
             </div>
             <div className="flex gap-3 flex-shrink-0">
+              <button onClick={() => setShowSyllabus(true)} className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm rounded-xl transition-colors border border-zinc-800">
+                Syllabus
+              </button>
               <Link href={`/flashcards/${subjectId}`} className="flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm rounded-xl transition-colors border border-zinc-800">
                 <Icon name="flashcards" size={16} /> Flashcards
               </Link>
@@ -192,6 +197,7 @@ export default function SubjectPage() {
           })}
         </div>
       </main>
+      {showSyllabus && <SyllabusOverlay subjectId={subjectId} onClose={() => setShowSyllabus(false)} />}
     </div>
   );
 }

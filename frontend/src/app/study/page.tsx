@@ -8,6 +8,8 @@ import { subjectContent } from "@/app/lib/subjectContent";
 import { subjectReadiness } from "@/app/lib/readiness";
 import { Sidebar } from "@/app/components/Sidebar";
 import { Icon, SUBJECT_ICON } from "@/app/components/Icon";
+import { searchSyllabus } from "@/app/lib/search";
+import { SearchResults } from "@/app/components/SearchResults";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 
 export default function StudyPage() {
@@ -23,23 +25,8 @@ export default function StudyPage() {
     setPctBySubject(m);
   }, [syllabus]);
 
-  // Quick search across the whole syllabus — subject, section and aspect wording.
-  const results = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (q.length < 2) return [];
-    const out: { subjectId: string; subjectTitle: string; sectionId: string; sectionTitle: string; topic: string; href: string }[] = [];
-    for (const subject of syllabus) {
-      for (const section of subject.sections) {
-        const sectionHit = section.title.toLowerCase().includes(q) || section.id.toLowerCase().includes(q) || subject.title.toLowerCase().includes(q);
-        for (const item of section.items) {
-          if (sectionHit || item.topic.toLowerCase().includes(q) || item.id.toLowerCase().includes(q)) {
-            out.push({ subjectId: subject.id, subjectTitle: subject.title, sectionId: section.id, sectionTitle: section.title, topic: item.topic, href: `/study/${subject.id}/${section.id}?item=${item.id}` });
-          }
-        }
-      }
-    }
-    return out.slice(0, 40);
-  }, [query, syllabus]);
+  // Smart search across the syllabus, notes, flashcards and questions (lib/search).
+  const results = useMemo(() => searchSyllabus(syllabus, query, 20), [query, syllabus]);
 
   if (loading) {
     return <LoadingScreen />;
@@ -58,7 +45,7 @@ export default function StudyPage() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search the syllabus — topics, sections, aspects…"
+              placeholder="Search any topic, term or question — e.g. density altitude, QNH, wind shear…"
               className="w-full bg-zinc-950 border border-zinc-800 focus:border-yellow-400/60 outline-none rounded-xl pl-11 pr-10 py-2.5 text-sm text-zinc-200 placeholder:text-zinc-600 transition-colors"
             />
             {query && (
@@ -70,23 +57,8 @@ export default function StudyPage() {
         {/* Search results replace the subject grid while searching */}
         {query.trim().length >= 2 ? (
           <div className="px-5 sm:px-10 py-8">
-            <div className="text-xs text-zinc-600 mb-3">{results.length} result{results.length === 1 ? "" : "s"} for “{query.trim()}”</div>
-            <div className="flex flex-col gap-1.5">
-              {results.map((r, i) => (
-                <Link key={i} href={r.href} className="bg-zinc-950 border border-zinc-900 hover:border-zinc-700 rounded-xl px-4 py-3 flex items-center gap-3 group hover:bg-zinc-900/50 transition-all">
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm text-zinc-300 group-hover:text-white transition-colors truncate">{r.topic}</div>
-                    <div className="text-xs text-zinc-600 mt-0.5">
-                      <span className="text-yellow-400/60">{r.subjectTitle}</span>
-                      <span className="mx-1.5">·</span>
-                      <span className="font-mono text-zinc-500">{r.sectionId}</span> {r.sectionTitle}
-                    </div>
-                  </div>
-                  <span className="text-zinc-700 group-hover:text-yellow-400 transition-colors shrink-0">→</span>
-                </Link>
-              ))}
-              {results.length === 0 && <div className="text-zinc-600 text-sm py-8 text-center">No syllabus topics match that search.</div>}
-            </div>
+            <div className="text-xs text-zinc-600 mb-3">{results.length} best match{results.length === 1 ? "" : "es"} for “{query.trim()}”</div>
+            <SearchResults hits={results} query={query} />
           </div>
         ) : (
         <div className="px-5 sm:px-10 py-8">

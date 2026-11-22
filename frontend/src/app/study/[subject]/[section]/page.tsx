@@ -25,6 +25,7 @@ import { recordResults } from "@/app/lib/examSelect";
 import { countByItem, filterByItem } from "@/app/lib/aspects";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
 import { Icon } from "@/app/components/Icon";
+import { SyllabusOverlay } from "@/app/components/SyllabusOverlay";
 import { buildExamTerms, ExamText } from "@/app/lib/examTerms";
 
 type Tab = "learn" | "quiz" | "flashcards" | "illustrations" | "examples";
@@ -731,43 +732,7 @@ export default function SectionPage() {
       </main>
 
       {/* Check-Syllabus overlay */}
-      {showSyllabus && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/70 backdrop-blur-sm p-6 overflow-auto" onClick={() => setShowSyllabus(false)}>
-          <div className="w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-2xl my-6" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-900 sticky top-0 bg-zinc-950 rounded-t-2xl">
-              <div>
-                <div className="text-yellow-400 text-xs font-mono">{subject.code ?? subjectId}</div>
-                <h2 className="text-white font-black text-lg">{subject.title} — Syllabus</h2>
-                <p className="text-zinc-600 text-xs mt-0.5">{subject.sections.length} sections · SACAA Appendix aspects</p>
-              </div>
-              <button onClick={() => setShowSyllabus(false)} className="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white text-lg leading-none">×</button>
-            </div>
-            <div className="p-4 space-y-2">
-              {subject.sections.map((s) => (
-                <Link
-                  key={s.id}
-                  href={`/study/${subjectId}/${s.id}`}
-                  onClick={() => setShowSyllabus(false)}
-                  className={`block rounded-xl border p-4 transition-colors ${s.id === sectionId ? "border-yellow-400/40 bg-yellow-400/5" : "border-zinc-900 hover:border-zinc-700 bg-zinc-900/30"}`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs text-yellow-400/80">{s.id}</span>
-                    <span className="text-white font-bold text-sm">{s.title}</span>
-                    {s.id === sectionId && <span className="ml-auto text-[10px] text-yellow-400 uppercase tracking-wider">you are here</span>}
-                  </div>
-                  {s.items?.length > 0 && (
-                    <ul className="mt-2 space-y-1">
-                      {s.items.map((it) => (
-                        <li key={it.id} className="text-zinc-500 text-xs flex gap-2"><span className="text-zinc-700">•</span><span>{it.topic}</span></li>
-                      ))}
-                    </ul>
-                  )}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      {showSyllabus && <SyllabusOverlay subjectId={subjectId} currentSectionId={sectionId} onClose={() => setShowSyllabus(false)} />}
     </div>
   );
 }
