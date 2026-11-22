@@ -4,7 +4,8 @@ import Link from "next/link";
 import { SearchPalette } from "@/app/components/SearchPalette";
 import { SyllabusOverlay } from "@/app/components/SyllabusOverlay";
 import { useEffect, useState, type ReactNode } from "react";
-import { COURSES, type CourseId } from "@/app/lib/course";
+import { COURSES, pathForCourse, type CourseId } from "@/app/lib/course";
+import { usePathname, useRouter } from "next/navigation";
 import { useCourse } from "@/app/hooks/useCourse";
 import { ownsCourse } from "@/app/lib/entitlement";
 
@@ -54,6 +55,8 @@ export function Sidebar({
   onSignOut?: () => void;
 }) {
   const { course, setCourse } = useCourse();
+  const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -96,7 +99,7 @@ export function Sidebar({
                   return (
                     <button
                       key={c.id}
-                      onClick={() => setCourse(c.id)}
+                      onClick={() => { setCourse(c.id); const to = pathForCourse(pathname, c.id); if (to) router.push(to); }}
                       disabled={!owned}
                       title={owned ? undefined : `${COURSES[c.id].name} — locked (manage in Settings)`}
                       className={`flex-1 py-1.5 rounded-md text-xs font-semibold transition-colors inline-flex items-center justify-center gap-1 ${

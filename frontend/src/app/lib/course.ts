@@ -61,3 +61,24 @@ export function courseOfSubject(id: string): CourseId | undefined {
   if (id.startsWith("ir-")) return "ir";
   return undefined;
 }
+
+// Equivalent subject in another course (CPL "meteorology" ↔ PPL "ppl-meteorology"
+// ↔ IR "ir-meteorology"), so switching course keeps the student on the same topic.
+const BASE_ALIAS: Record<string, string> = { "air-law-awo": "air-law", "flight-performance": "flight-planning", "instruments": "flight-instruments" };
+const baseOf = (id: string) => { const b = id.replace(/^(ppl|ir)-/, ""); return BASE_ALIAS[b] ?? b; };
+export function equivalentSubject(id: string, course: CourseId): string | undefined {
+  const b = baseOf(id);
+  return COURSES[course].syllabus.find((s) => baseOf(s.id) === b)?.id;
+}
+
+/** Where to go after switching to `course` from `path` (null = stay on this page). */
+export function pathForCourse(path: string, course: CourseId): string | null {
+  const m = path.match(/^\/(study|exams|flashcards)\/([^/?#]+)/);
+  if (!m) return null;                        // dashboard, progress, coach… re-render in place
+  const [, area, subjectId] = m;
+  if (courseOfSubject(subjectId) === course) return null;
+  const eq = equivalentSubject(subjectId, course);
+  if (eq) return `/${area}/${eq}`;
+  if (area === "exams" && course === "ir") return "/exams/ir-combined";
+  return `/${area}`;
+}
