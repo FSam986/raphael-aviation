@@ -6,6 +6,8 @@
 // snippet explaining why it matched.
 import type { SyllabusSubject } from "@/app/data/sacaa-syllabus";
 import { subjectContent } from "@/app/lib/subjectContent";
+import { REG_MAP } from "@/app/data/sa-car-map";
+import CAR_INDEX from "@/app/data/sa-car-index.json";
 
 export interface SearchHit {
   subjectId: string; subjectTitle: string;
@@ -88,6 +90,9 @@ function build(syllabus: SyllabusSubject[]) {
         for (const p of note.mustKnow) fields.push({ text: p, w: W.mustKnow, kind: "note" });
         for (const p of note.traps) fields.push({ text: p, w: W.trap, kind: "note" });
       }
+      for (const r of REG_MAP[sec.id] ?? []) for (const [no, title, lead] of (CAR_INDEX as Record<string, string[][]>)[String(r.part)] ?? []) {
+        fields.push({ text: `Regulation ${no} ${title}`, w: W.heading, kind: "law" }, { text: lead, w: W.point, kind: "law" });
+      }
       for (const c of ct?.flashcards(sec.id) ?? []) fields.push({ text: `${c.front} — ${c.back}`, w: W.card, kind: "flashcard" });
       for (const q of (ct?.questions(sec.id) ?? []).slice(0, 400)) {
         const k = q.correctAnswer.toUpperCase() as "A" | "B" | "C" | "D";
@@ -160,7 +165,7 @@ export function searchSyllabus(syllabus: SyllabusSubject[], query: string, limit
     for (const f of d.fields) {
       if (f.kind === "section" || f.kind === "subject") continue;
       const sc = toks(f.text).filter((t) => flat.has(t)).length * (f.kind === "question" ? 0.6 : 1);
-      if (sc > snipScore) { snipScore = sc; snippet = (f.kind === "question" ? "Exam question: " : f.kind === "flashcard" ? "Flashcard: " : "") + f.text; }
+      if (sc > snipScore) { snipScore = sc; snippet = (f.kind === "question" ? "Exam question: " : f.kind === "flashcard" ? "Flashcard: " : f.kind === "law" ? "CAR: " : "") + f.text; }
     }
     return {
       subjectId: d.subject.id, subjectTitle: d.subject.title, sectionId: d.sectionId, sectionTitle: d.sectionTitle,

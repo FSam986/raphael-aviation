@@ -26,9 +26,11 @@ import { countByItem, filterByItem } from "@/app/lib/aspects";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
 import { Icon } from "@/app/components/Icon";
 import { SyllabusOverlay } from "@/app/components/SyllabusOverlay";
+import { REG_MAP, REG_MISSING } from "@/app/data/sa-car-map";
+const RegulationText = dynamic(() => import("@/app/components/RegulationText").then((m) => m.RegulationText), { ssr: false });
 import { buildExamTerms, ExamText } from "@/app/lib/examTerms";
 
-type Tab = "learn" | "quiz" | "flashcards" | "illustrations" | "examples";
+type Tab = "learn" | "law" | "quiz" | "flashcards" | "illustrations" | "examples";
 
 export default function SectionPage() {
   const params = useParams();
@@ -41,7 +43,7 @@ export default function SectionPage() {
   const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<Tab>(
-    tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" ? tabParam : "learn"
+    tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" || tabParam === "law" ? tabParam : "learn"
   );
 
   // Quiz state (uses the Meteorology question bank, filtered by this section)
@@ -172,6 +174,7 @@ export default function SectionPage() {
 
   const tabs: { id: Tab; label: string; icon: string }[] = [
     { id: "learn",     label: "Learn",      icon: "book" },
+    ...(REG_MAP[sectionId] || REG_MISSING[sectionId] ? [{ id: "law" as Tab, label: "The Regulations", icon: "book" }] : []),
     ...(sectionExamples.length > 0 ? [{ id: "examples" as Tab, label: "Examples", icon: "formula" }] : []),
     ...(sectionFigures.length > 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "image" }] : []),
     { id: "quiz",      label: "Quiz",       icon: "quiz" },
@@ -411,6 +414,16 @@ export default function SectionPage() {
                   </Link>
                 )}
               </div>
+            </div>
+          )}
+
+          {activeTab === "law" && (
+            <div className="max-w-4xl">
+              {REG_MAP[sectionId] ? <RegulationText refs={REG_MAP[sectionId]} /> : (
+                <div className="rounded-xl border border-chart-line bg-chart-ground-2 p-6 text-sm text-chart-ink-dim">
+                  The full text of {REG_MISSING[sectionId]} is not in the regulation source supplied yet, so it can&apos;t be shown word for word here. Study notes for this section are on the Learn tab.
+                </div>
+              )}
             </div>
           )}
 
