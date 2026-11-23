@@ -14,6 +14,7 @@ import {
 } from "@/app/lib/coachPlan";
 import { notifySupported, notifyPermission, requestNotifyPermission, scheduleDailyStreak, cancelDailyStreak, notifyNow, pick, PILOT_STREAK } from "@/lib/notify";
 import { Icon } from "@/app/components/Icon";
+import { PassModeRoute } from "@/app/components/PassModeRoute";
 
 export default function CoachPage() {
   const { userName, loading } = useAuthGuard();
@@ -278,6 +279,8 @@ export default function CoachPage() {
             )}
           </div>
         )}
+
+        <PassModeRoute plan={plan} progress={progress} todayIdx={todayIdx} allDone={allDone} />
 
         {/* roster */}
         <div className="mt-8">
