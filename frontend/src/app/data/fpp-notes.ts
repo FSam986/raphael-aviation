@@ -8,6 +8,8 @@
 // ============================================================================
 
 import type { AirLawSectionNote } from "./airlaw-notes";
+import { FPP_NOTES_FULL } from "./fpp-notes-full";
+import { FPP_NOTES_FULL_B } from "./fpp-notes-full-b";
 
 export const FPP_NOTES: AirLawSectionNote[] = [
   {
@@ -484,5 +486,7 @@ export const FPP_NOTES: AirLawSectionNote[] = [
 ];
 
 export function getFPPNoteBySection(sectionId: string): AirLawSectionNote | undefined {
-  return FPP_NOTES.find((n) => n.sectionId === sectionId);
+  // Full textbook-depth notes first; the original short notes are the fallback.
+  return [...FPP_NOTES_FULL, ...FPP_NOTES_FULL_B].find((n) => n.sectionId === sectionId)
+    ?? FPP_NOTES.find((n) => n.sectionId === sectionId);
 }

@@ -287,6 +287,8 @@ const FIGURES: Record<string, FigureDef[]> = {
   "A.4.4": [{ id: "fpp-airspeed", title: "Stages of Flight & Airspeed", caption: "The V-speeds and the IAS→TAS chain.", render: () => <StagesAirspeed /> }],
   "A.4.5": [
     { id: "fpp-terms", title: "Met & Aerodrome Terminology", caption: "ISA, altitudes and declared distances.", render: () => <MetAerodromeTerminology /> },
+  ],
+  "A.4.6": [
     { id: "fpp-accel-stop-go", title: "Accelerate-Stop & Accelerate-Go", caption: "Textbook Figs 3-10/3-11 — the V₁ decision, reject vs continue to 35 ft.", render: () => <AccelerateStopGo /> },
   ],
   "A.4.7": [
@@ -408,7 +410,8 @@ const RN_TOPIC_FIGS: Record<string, FigureDef[]> = {
 
 export function atgFiguresByTopic(topics: string[]): FigureDef[] {
   const raster = ATG_IMAGE_FIGURES
-    .filter((f) => topics.includes(f.topic))
+    // A tag may name a whole topic or one figure by its title.
+    .filter((f) => topics.includes(f.topic) || topics.includes(f.title))
     .map((f) => imageFigure(f.id, f.title, f.caption, f.file, f.folder));
   const inline = topics.flatMap((t) => RN_TOPIC_FIGS[t] ?? []);
   return [...inline, ...raster].filter(figurePresent);

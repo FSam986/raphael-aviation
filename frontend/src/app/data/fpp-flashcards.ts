@@ -6,10 +6,11 @@
 // ============================================================================
 
 import type { AirLawFlashcard } from "./airlaw-flashcards";
+import { FPP_FLASHCARDS_EXTRA } from "./fpp-flashcards-extra";
 
 export const FPP_FLASHCARDS: AirLawFlashcard[] = [
   // A.4.1
-  { id: "FPPFC-41-01", sectionId: "A.4.1", front: "Performance classes A/B/C?", back: "A = multi-engine turbine transport; B = light props (≤9 pax/≤5700 kg); C = large piston.", difficulty: "medium" },
+  { id: "FPPFC-41-01", sectionId: "A.4.1", front: "SA performance classes (CAR 91.08.4)?", back: "A = multi-engine turboprop > 5 700 kg and all multi-engine jets; B = multi-engine propeller ≤ 5 700 kg; C = multi-engine piston > 5 700 kg; D = all single-engine aeroplanes.", difficulty: "medium" },
   { id: "FPPFC-41-02", sectionId: "A.4.1", front: "Gross vs net flight path?", back: "Net = gross minus a safety margin; obstacles are cleared on the NET path.", difficulty: "medium" },
   { id: "FPPFC-41-03", sectionId: "A.4.1", front: "What limits take-off mass?", back: "The most restrictive of field-length, climb (WAT), obstacle and en-route limits.", difficulty: "medium" },
   // A.4.2
@@ -21,10 +22,10 @@ export const FPP_FLASHCARDS: AirLawFlashcard[] = [
   { id: "FPPFC-44-03", sectionId: "A.4.4", front: "VA (manoeuvring speed)?", back: "Max speed for full/abrupt control inputs — above it you can overstress the airframe.", difficulty: "medium" },
   { id: "FPPFC-44-04", sectionId: "A.4.4", front: "V1, VR, V2?", back: "V1 = take-off decision speed; VR = rotate; V2 = take-off safety speed.", difficulty: "medium" },
   // A.4.5
-  { id: "FPPFC-45-01", sectionId: "A.4.5", front: "Declared distances?", back: "TODA = TORA + clearway; ASDA = TORA + stopway; LDA = landing length available.", difficulty: "medium" },
+  { id: "FPPFC-45-01", sectionId: "A.4.6", front: "Declared distances?", back: "TODA = TORA + clearway; ASDA = TORA + stopway; LDA = landing length available.", difficulty: "medium" },
   { id: "FPPFC-45-02", sectionId: "A.4.5", front: "Density altitude rule of thumb?", back: "≈ pressure altitude + 120 ft × (OAT − ISA temp in °C). High/hot/humid = high DA.", difficulty: "hard" },
-  { id: "FPPFC-45-03", sectionId: "A.4.5", front: "Balanced field length?", back: "Where accelerate-go distance = accelerate-stop distance (optimum V1).", difficulty: "hard" },
-  { id: "FPPFC-45-04", sectionId: "A.4.5", front: "ACN vs PCN?", back: "The aircraft's ACN must not exceed the pavement's PCN.", difficulty: "medium" },
+  { id: "FPPFC-45-03", sectionId: "A.4.6", front: "Balanced field length?", back: "Where accelerate-go distance = accelerate-stop distance (optimum V1).", difficulty: "hard" },
+  { id: "FPPFC-45-04", sectionId: "A.4.6", front: "ACN vs PCN?", back: "The aircraft's ACN must not exceed the pavement's PCN.", difficulty: "medium" },
   // A.4.7
   { id: "FPPFC-47-01", sectionId: "A.4.7", front: "Rate vs angle of climb?", back: "Rate ← excess POWER; angle ← excess THRUST.", difficulty: "medium" },
   { id: "FPPFC-47-02", sectionId: "A.4.7", front: "Best glide speed?", back: "Speed for max L/D. Distance is unaffected by weight (heavier = same distance, higher speed).", difficulty: "hard" },
@@ -75,6 +76,8 @@ export const FPP_FLASHCARDS: AirLawFlashcard[] = [
   { id: "FPPFC-413-05", sectionId: "A.4.13", front: "PET & PNR formulas?", back: "PET distance = (D × H) ÷ (O + H). PNR time = (E × H) ÷ (O + H). O = GS out, H = GS home, D = total distance, E = safe endurance.", difficulty: "hard" },
   { id: "FPPFC-413-06", sectionId: "A.4.13", front: "Final reserve figures?", back: "Piston: 45 min at normal cruise (SA). Turbine: 30 min holding at 1500 ft above the alternate. Contingency ≈ 5% of trip fuel. Never plan to land below final reserve.", difficulty: "medium" },
 ];
+
+FPP_FLASHCARDS.push(...FPP_FLASHCARDS_EXTRA);
 
 export function getFPPFlashcardsBySection(sectionId: string): AirLawFlashcard[] {
   return FPP_FLASHCARDS.filter((c) => c.sectionId === sectionId);

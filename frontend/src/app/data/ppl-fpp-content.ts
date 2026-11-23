@@ -12,7 +12,7 @@ import { mergePplNotes, pplQuestionDepth, pplFlashcardDepth } from "@/app/data/p
 const MAP: Record<string, string[]> = {
   "7.1": ["A.4.12"],                       // Mass & Balance
   "7.2": ["A.4.4"],                        // Abbreviations, Definitions & Symbols (V-speeds/airspeeds)
-  "7.3": ["A.4.5"],                        // Runways (declared distances)
+  "7.3": ["A.4.6"],                        // Runways (declared distances)
   "7.4": ["A.4.9", "A.4.7"],               // Aeroplane Performance Graphs
   "7.6": ["A.4.13"],                       // Fuel Weight & Planning (A.4.11 Cruise Control is CPL-only)
   "7.7": ["A.4.7", "A.4.8"],               // Aircraft Performance (A.4.1 Perf Classification & A.4.10 MEP/multi-engine are CPL-only — PPL is single-engine)

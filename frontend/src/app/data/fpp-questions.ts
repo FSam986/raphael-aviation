@@ -64,6 +64,7 @@ export const FPP_QUESTIONS: AirLawQuestion[] = [
 // Questions transcribed from the Flight Planning Examination Guide (CPL section).
 import { FPP_GUIDE_QUESTIONS, FPP_GUIDE_GRAPH_QUESTIONS } from "@/app/data/fpp-questions-guide";
 import { FPP_EXTRA_QUESTIONS } from "@/app/data/fpp-questions-extra";
+import { FPP_STAGES_QUESTIONS } from "@/app/data/fpp-questions-stages";
 import { FPP_FUELWEIGHT_QUESTIONS } from "@/app/data/fpp-questions-fuelweight";
 import { FPP_GUIDE_CPL_QUESTIONS } from "@/app/data/fpp-questions-guide-cpl";
 import { FPP_AVEX_QUESTIONS } from "@/app/data/fpp-questions-avex";
@@ -94,10 +95,20 @@ import { FPP_OXFORD_QUESTIONS } from "@/app/data/fpp-questions-oxford";
 import { FPP_TOPUP_QUESTIONS } from "@/app/data/fpp-questions-topup";
 import { FPP_INTERP_QUESTIONS } from "@/app/data/fpp-questions-interp";
 
-export const FPP_ALL_QUESTIONS: AirLawQuestion[] = [...FPP_QUESTIONS, ...FPP_GUIDE_QUESTIONS, ...FPP_GUIDE_GRAPH_QUESTIONS, ...FPP_EXTRA_QUESTIONS, ...FPP_FUELWEIGHT_QUESTIONS, ...FPP_GUIDE_CPL_QUESTIONS, ...FPP_AVEX_QUESTIONS, ...FPP_A411_413_QUESTIONS, ...FPP_BOOST_QUESTIONS, ...FPP_GAPFILL_QUESTIONS, ...FPP_OXFORD_QUESTIONS, ...FPP_TOPUP_QUESTIONS, ...FPP_INTERP_QUESTIONS];
+export const FPP_ALL_QUESTIONS: AirLawQuestion[] = [...FPP_QUESTIONS, ...FPP_GUIDE_QUESTIONS, ...FPP_GUIDE_GRAPH_QUESTIONS, ...FPP_EXTRA_QUESTIONS, ...FPP_FUELWEIGHT_QUESTIONS, ...FPP_GUIDE_CPL_QUESTIONS, ...FPP_AVEX_QUESTIONS, ...FPP_A411_413_QUESTIONS, ...FPP_BOOST_QUESTIONS, ...FPP_GAPFILL_QUESTIONS, ...FPP_OXFORD_QUESTIONS, ...FPP_TOPUP_QUESTIONS, ...FPP_INTERP_QUESTIONS, ...FPP_STAGES_QUESTIONS];
+
+// The appendix lists Stages of Flight (A.4.3) and Aerodrome Terminology (A.4.6)
+// as their own aspects; older banks filed them under A.4.4 / A.4.5. Re-home by topic.
+const AERODROME = /\b(TORA|TODA|ASDA|LDA|TORR|TODR|ASDR|LDR|PCN|ACN)\b|clearway|stopway|displaced threshold|balanced field|accelerate[- ](stop|go)|runway slope|WAT limit/i;
+const STAGES = /stages? of flight|phase of flight|flight phase|climb segment|second segment/i;
+function homeSection(q: AirLawQuestion): string {
+  if (q.sectionId === "A.4.5" && AERODROME.test(q.question)) return "A.4.6";
+  if (q.sectionId === "A.4.4" && STAGES.test(q.question)) return "A.4.3";
+  return q.sectionId;
+}
 
 export function getFPPQuestionsBySection(sectionId: string): AirLawQuestion[] {
-  return FPP_ALL_QUESTIONS.filter((q) => q.sectionId === sectionId);
+  return FPP_ALL_QUESTIONS.filter((q) => homeSection(q) === sectionId);
 }
 
 export const FPP_QUESTION_COUNT = FPP_ALL_QUESTIONS.length;
