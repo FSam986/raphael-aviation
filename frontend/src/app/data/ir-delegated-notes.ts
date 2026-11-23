@@ -1,3 +1,5 @@
+import { pickPplNote } from "@/app/data/ppl-pick";
+import { IR_NOTES_NEW } from "@/app/data/ir-notes-new";
 // IR study-note delegation. The IR Radio Navigation, Instruments and Human
 // Performance syllabi re-group the same material as the CPL subjects, so rather
 // than duplicate content we MAP each IR section to the CPL section(s) that cover
@@ -8,6 +10,38 @@ import { getRadioNavNoteBySection } from "@/app/data/radionav-notes";
 import { getInstrumentsNoteBySection } from "@/app/data/instruments-notes";
 import { getHumanPerformanceNote } from "@/app/data/human-performance-notes";
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
+
+// Full IR notes (new) and per-section picks of CPL topic blocks per the IR
+// syllabus; these take priority over the older whole-section maps below.
+const IR_PICK: Record<string, [string, string[]]> = {
+  "C.2.1": ["VHF Direction Finder (VDF)", ["A.9.2#Radio bearings", "A.10.1#The electromagnetic|Frequency bands|Wave propagation"]],
+  "C.2.2": ["NDB / ADF", ["A.10.2"]],
+  "C.2.3": ["VOR & Doppler VOR", ["A.10.3"]],
+  "C.2.4": ["DME", ["A.10.4"]],
+  "C.2.6": ["Airborne Weather Radar", ["A.10.8"]],
+  "C.2.7": ["Secondary Radar & Transponder", ["A.10.7"]],
+  "C.2.8": ["Global Navigation Satellite System", ["A.10.12"]],
+  "I.1": ["Air Data Instruments", ["A.7.1"]],
+  "I.2": ["Gyroscopic Instruments", ["A.7.2#Gyroscopic fundamentals|Gyro types|Apparent|The directional|Remote indicating|The artificial|Artificial|Turn and slip"]],
+  "I.3": ["Horizontal Situation Indicator (HSI)", ["A.7.2#Horizontal Situation", "A.7.4#Operation of the horizontal"]],
+  "I.4": ["Electronic Flight Instrument System (EFIS)", ["A.7.3"]],
+  "I.5": ["Flight Director System (FD)", ["A.7.4"]],
+  "I.6": ["Autopilot", ["A.7.6"]],
+  "I.7": ["Radio Altimeter", ["A.10.9"]],
+  "I.9": ["Air Temperature Indicators", ["A.7.5"]],
+  "I.10": ["Magnetism", ["A.7.7"]],
+  "H.1": ["Man & the Sensory System", ["A.6.1#Integration of sensory", "A.6.3#The nervous system"]],
+  "H.2": ["Nervous System", ["A.6.3#The nervous system|Human information processing"]],
+  "H.3": ["Vision", ["A.6.1#Vision|Monocular|Night vision|Optical illusions"]],
+  "H.4": ["Hearing", ["A.6.1#Hearing|Equilibrium|Motion sickness"]],
+  "H.5": ["Integration of Sensory Input", ["A.6.1#Integration of sensory|Acceleration"]],
+};
+export function irPicked(s: string): AirLawSectionNote | undefined {
+  const own = IR_NOTES_NEW.find((n) => n.sectionId === s);
+  if (own) return own;
+  const e = IR_PICK[s];
+  return e ? pickPplNote(s, e[0], e[1]) : undefined;
+}
 
 type NoteGetter = (id: string) => AirLawSectionNote | undefined;
 
@@ -113,13 +147,13 @@ const RNV_MAP: Record<string, string[]> = {
   "C.2.2": ["A.10.2"],            // NDB / ADF
   "C.2.3": ["A.10.3"],            // VOR
   "C.2.4": ["A.10.4"],            // DME
-  "C.2.5": ["A.10.3"],            // ILS (with VOR geometry in CPL A.10.3)
+  "C.2.5": [],                     // ILS — own full note (ir-notes-new.ts)
   "C.2.6": ["A.10.8"],            // Airborne Weather Radar
   "C.2.7": ["A.10.7"],            // Secondary Radar / Transponder
   "C.2.8": ["A.10.12"],           // GNSS / GPS
 };
 export function getIRRadioNavNoteBySection(s: string): AirLawSectionNote | undefined {
-  return AUTHORED[s] ?? mergeNotes(RNV_MAP[s] ?? [], getRadioNavNoteBySection);
+  return irPicked(s) ?? AUTHORED[s] ?? mergeNotes(RNV_MAP[s] ?? [], getRadioNavNoteBySection);
 }
 
 // ---- IR Instruments (I.x) → CPL Flight Instruments (A.7.x) ----
@@ -134,7 +168,7 @@ const INS_MAP: Record<string, string[]> = {
   "I.10": ["A.7.7"],              // Magnetism / compass
 };
 export function getIRInstrumentsNoteBySection(s: string): AirLawSectionNote | undefined {
-  return AUTHORED[s] ?? mergeNotes(INS_MAP[s] ?? [], getInstrumentsNoteBySection);
+  return irPicked(s) ?? AUTHORED[s] ?? mergeNotes(INS_MAP[s] ?? [], getInstrumentsNoteBySection);
 }
 
 // ---- IR Human Performance (H.x) → CPL Human Performance (A.6.x) ----
@@ -146,7 +180,7 @@ const HPL_MAP: Record<string, string[]> = {
   "H.5": ["A.6.3"],               // Integration / disorientation (psychology)
 };
 export function getIRHumanPerfNoteBySection(s: string): AirLawSectionNote | undefined {
-  return mergeNotes(HPL_MAP[s] ?? [], getHumanPerformanceNote);
+  return irPicked(s) ?? mergeNotes(HPL_MAP[s] ?? [], getHumanPerformanceNote);
 }
 
 // Illustration-gallery keys: map each IR section to the CPL figure section whose

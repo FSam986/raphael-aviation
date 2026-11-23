@@ -1,3 +1,4 @@
+import { IR_FPP_EXTRA } from "@/app/data/ir-fpp-extra";
 // IR Flight Performance & Planning (C.4) reuses the CPL FPP material — the
 // syllabus overlaps almost entirely. Maps each IR section to the CPL FPP
 // section(s) that cover it.
@@ -89,6 +90,11 @@ const AUTHORED: Record<string, AirLawSectionNote> = {
 };
 
 export function getIRFppNoteBySection(s: string): AirLawSectionNote | undefined {
+  const base = irFppBase(s);
+  const extra = IR_FPP_EXTRA[s];
+  return base && extra ? { ...base, blocks: [...base.blocks, ...extra] } : base;
+}
+function irFppBase(s: string): AirLawSectionNote | undefined {
   if (s === "C.4.1") return getAircraftTechnicalNote("A.1.8"); // basic aerodynamics
   if (AUTHORED[s]) return AUTHORED[s];
   const notes = (MAP[s] ?? []).map(getFPPNoteBySection).filter((n): n is AirLawSectionNote => !!n);
