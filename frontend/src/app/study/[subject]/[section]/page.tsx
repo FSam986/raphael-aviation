@@ -27,6 +27,7 @@ import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
 import { Icon } from "@/app/components/Icon";
 import { SyllabusOverlay } from "@/app/components/SyllabusOverlay";
 import { REG_MAP, REG_MISSING } from "@/app/data/sa-car-map";
+const RegulationExcerpt = dynamic(() => import("@/app/components/RegulationExcerpt").then((m) => m.RegulationExcerpt), { ssr: false });
 const RegulationText = dynamic(() => import("@/app/components/RegulationText").then((m) => m.RegulationText), { ssr: false });
 import { buildExamTerms, ExamText } from "@/app/lib/examTerms";
 
@@ -376,6 +377,9 @@ export default function SectionPage() {
                           <div className="text-center text-zinc-600 text-xs mt-2">Slide {Math.min(slideIdx, slides.length - 1) + 1} of {slides.length}</div>
                         </div>
                       )}
+
+                      {/* Law topics: the regulation wording itself, under the explanation. */}
+                      {(activeBlock as { regs?: string[] } | undefined)?.regs?.length ? <RegulationExcerpt nos={(activeBlock as { regs?: string[] }).regs!} /> : null}
 
                       <div className="flex gap-3 pt-1">
                         <button onClick={() => setActiveTab("quiz")} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors">
