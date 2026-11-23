@@ -33,6 +33,7 @@ import { RADIONAV_WORKED_EXAMPLES } from "@/app/data/radionav-worked-examples";
 import { INSTRUMENTS_WORKED_EXAMPLES } from "@/app/data/instruments-worked-examples";
 import { HP_WORKED_EXAMPLES } from "@/app/data/hp-worked-examples";
 import { ATG_WORKED_EXAMPLES } from "@/app/data/atg-worked-examples";
+import { MET_AIRLAW_WORKED_EXAMPLES } from "@/app/data/met-airlaw-worked-examples";
 
 export const WORKED_EXAMPLES: WorkedExample[] = [
   ...FPP_WORKED_EXAMPLES,
@@ -41,22 +42,14 @@ export const WORKED_EXAMPLES: WorkedExample[] = [
   ...INSTRUMENTS_WORKED_EXAMPLES,
   ...HP_WORKED_EXAMPLES,
   ...ATG_WORKED_EXAMPLES,
+  ...MET_AIRLAW_WORKED_EXAMPLES,
   // ── Flight Instruments (A.7.x) ──
   // ── Meteorology (A.8.x) ──
-  E("WEX-A82", "A.8.2", "ISA temperature at altitude", "Using the ISA, what is the temperature at 20 000 ft?",
-    ["ISA MSL = +15°C; lapse rate = 2°C per 1000 ft up to the tropopause.", "Drop = 2 × 20 = 40°C.", "Temperature = 15 − 40 = −25°C."], "−25°C"),
-  E("WEX-A87", "A.8.7", "Pressure altitude from QNH", "An aerodrome has elevation 1000 ft and QNH 1030 hPa. What pressure altitude will the altimeter show when you set 1013? (1 hPa ≈ 30 ft.)",
-    ["Pressure altitude = elevation + (1013 − QNH) × 30.", "= 1000 + (1013 − 1030) × 30.", "= 1000 + (−17 × 30) = 1000 − 510 = 490 ft."], "Pressure altitude ≈ 490 ft"),
-  E("WEX-A810", "A.8.10", "Convective cloud base", "Surface temperature 20°C, surface dew point 10°C. Estimate the base of convective (cumulus) cloud.",
-    ["Temperature/dew-point spread = 20 − 10 = 10°C.", "Cloud base (ft AGL) = spread ÷ 2.5 × 1000.", "= 10 ÷ 2.5 × 1000 = 4000 ft AGL."], "≈ 4000 ft AGL"),
-
   // ── General Radiotelephony (GR) ──
   E("WEX-GR1", "GR1", "VHF line-of-sight range", "An aircraft at 3600 ft talks to a tower antenna at 100 ft. What is the maximum VHF range?",
     ["Formula: range(NM) ≈ 1.25 (√h₁ + √h₂), feet.", "√3600 = 60, √100 = 10.", "Range = 1.25 × (60 + 10) = 1.25 × 70 = 87.5 NM."], "≈ 87.5 NM"),
 
   // ── ISA deviation (Met + Flight Planning) ──
-  E("WEX-ISADEV-82", "A.8.2", "ISA deviation", "At FL180 the outside air temperature is −10°C. What is the ISA deviation?",
-    ["ISA temperature at a level = 15 − (2 × altitude in thousands of ft), to the tropopause.", "ISA temp at 18 000 ft = 15 − (2 × 18) = 15 − 36 = −21°C.", "ISA deviation = actual OAT − ISA temp = −10 − (−21) = +11°C.", "Report it as ISA +11 (the air is warmer than standard)."], "ISA +11°C"),
   // ── Direction: True / Magnetic / Compass ──
   E("WEX-TMC", "A.9.2", "True → Magnetic → Compass", "True track 090°, variation 10°W, deviation 2°E. Find the compass heading to steer.",
     ["Variation West → Magnetic Best (add West variation): Magnetic = 090 + 10 = 100°.", "Deviation East → Compass Least (subtract East deviation): Compass = 100 − 2 = 098°.", "(Memory: 'Variation West, Magnetic best; Deviation East, Compass least.')"], "Compass 098°"),
