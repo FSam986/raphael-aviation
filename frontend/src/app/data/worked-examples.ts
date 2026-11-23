@@ -31,12 +31,14 @@ import { FPP_WORKED_EXAMPLES } from "@/app/data/fpp-worked-examples";
 import { NAV_WORKED_EXAMPLES } from "@/app/data/nav-worked-examples";
 import { RADIONAV_WORKED_EXAMPLES } from "@/app/data/radionav-worked-examples";
 import { INSTRUMENTS_WORKED_EXAMPLES } from "@/app/data/instruments-worked-examples";
+import { HP_WORKED_EXAMPLES } from "@/app/data/hp-worked-examples";
 
 export const WORKED_EXAMPLES: WorkedExample[] = [
   ...FPP_WORKED_EXAMPLES,
   ...NAV_WORKED_EXAMPLES,
   ...RADIONAV_WORKED_EXAMPLES,
   ...INSTRUMENTS_WORKED_EXAMPLES,
+  ...HP_WORKED_EXAMPLES,
   // ── Flight Instruments (A.7.x) ──
   // ── Meteorology (A.8.x) ──
   E("WEX-A82", "A.8.2", "ISA temperature at altitude", "Using the ISA, what is the temperature at 20 000 ft?",
