@@ -13,7 +13,7 @@ export interface SearchHit {
   subjectId: string; subjectTitle: string;
   sectionId: string; sectionTitle: string;
   itemId?: string; topic?: string;
-  href: string; snippet: string; score: number;
+  href: string; snippet: string; score: number; where?: string;
 }
 
 const STOP = new Set("a an the of to in on at for and or is are be what how why when where which who does do did can i me my it its about with from by as that this these those vs versus explain define definition meaning find calculate work out decode interpret read reading use using about tell".split(" "));
@@ -64,7 +64,7 @@ function lev(a: string, b: string, max: number): number {
   return prev[b.length];
 }
 
-type Field = { text: string; w: number; kind: string };
+type Field = { text: string; w: number; kind: string; block?: string };
 interface Doc { subject: SyllabusSubject; sectionId: string; sectionTitle: string; items: { id: string; topic: string }[]; fields: Field[]; tf: Map<string, number> }
 
 // Field weights: what a match in each place says about relevance.
@@ -86,7 +86,7 @@ function build(syllabus: SyllabusSubject[]) {
       const note = ct?.note(sec.id);
       if (note) {
         fields.push({ text: note.intro, w: W.intro, kind: "note" });
-        for (const b of note.blocks ?? []) { fields.push({ text: b.heading, w: W.heading, kind: "note" }); for (const p of b.points ?? []) fields.push({ text: p, w: W.point, kind: "note" }); }
+        for (const b of note.blocks ?? []) { fields.push({ text: b.heading, w: W.heading, kind: "note", block: b.heading }); for (const p of b.points ?? []) fields.push({ text: p, w: W.point, kind: "note", block: b.heading }); }
         for (const p of note.mustKnow) fields.push({ text: p, w: W.mustKnow, kind: "note" });
         for (const p of note.traps) fields.push({ text: p, w: W.trap, kind: "note" });
       }
@@ -121,6 +121,15 @@ function expand(w: string, last: boolean, vocab: string[], df: Map<string, numbe
   }
   if (last && w.length >= 3) for (const v of vocab) if (v.startsWith(w) && v !== w) out.set(v, Math.max(out.get(v) ?? 0, 0.75));
   return out;
+}
+
+/** ~160 chars of text centred on the first matched word, so the snippet shows why it matched. */
+function window(text: string, flat: Set<string>): string {
+  if (text.length <= 170) return text;
+  const lower = text.toLowerCase(); let at = -1;
+  for (const t of flat) { const i = lower.indexOf(t); if (i >= 0 && (at < 0 || i < at)) at = i; }
+  const start = Math.max(0, at - 60); const end = Math.min(text.length, start + 170);
+  return (start ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : "");
 }
 
 export function searchSyllabus(syllabus: SyllabusSubject[], query: string, limit = 12): SearchHit[] {
@@ -161,17 +170,23 @@ export function searchSyllabus(syllabus: SyllabusSubject[], query: string, limit
     // Best topic inside the section, and the field that explains the match.
     let item = d.items[0], itemScore = -1;
     for (const it of d.items) { const sc = toks(it.topic).filter((t) => flat.has(t)).length; if (sc > itemScore) { itemScore = sc; item = it; } }
-    let snippet = "", snipScore = 0;
+    let snippet = "", snipScore = 0, best: Field | null = null;
     for (const f of d.fields) {
-      if (f.kind === "section" || f.kind === "subject") continue;
-      const sc = toks(f.text).filter((t) => flat.has(t)).length * (f.kind === "question" ? 0.6 : 1);
-      if (sc > snipScore) { snipScore = sc; snippet = (f.kind === "question" ? "Exam question: " : f.kind === "flashcard" ? "Flashcard: " : f.kind === "law" ? "CAR: " : "") + f.text; }
+      if (f.kind === "section" || f.kind === "subject" || f.kind === "topic") continue;
+      // Study material first: notes and the law lead straight to the passage.
+      const sc = toks(f.text).filter((t) => flat.has(t)).length * (f.kind === "question" ? 0.6 : f.kind === "note" || f.kind === "law" ? 1.25 : 1);
+      if (sc > snipScore) { snipScore = sc; best = f; snippet = (f.kind === "question" ? "Exam question: " : f.kind === "flashcard" ? "Flashcard: " : f.kind === "law" ? "CAR: " : "") + window(f.text, flat); }
     }
+    const qs = new URLSearchParams();
+    if (item) qs.set("item", item.id);
+    if (best?.kind === "note" && best.block) qs.set("topic", best.block);
+    else if (best?.kind === "law") { qs.set("tab", "law"); qs.set("find", raw); }
+    else if (best?.kind === "flashcard") qs.set("tab", "flashcards");
     return {
       subjectId: d.subject.id, subjectTitle: d.subject.title, sectionId: d.sectionId, sectionTitle: d.sectionTitle,
       itemId: item?.id, topic: item?.topic, score: Math.round(s * 10) / 10,
-      href: `/study/${d.subject.id}/${d.sectionId}${item ? `?item=${item.id}` : ""}`,
-      snippet: snippet.length > 160 ? snippet.slice(0, 157) + "…" : snippet,
+      href: `/study/${d.subject.id}/${d.sectionId}${qs.size ? `?${qs}` : ""}`,
+      snippet, where: best?.kind === "note" ? best.block : best?.kind === "law" ? "The Regulations" : undefined,
     };
   });
 }

@@ -5,6 +5,11 @@
 // facts, the numbers they test, and the traps that catch people out.
 // ============================================================================
 
+import { MET_NOTES_A } from "./met-notes-a";
+import { MET_NOTES_B } from "./met-notes-b";
+import { MET_NOTES_C } from "./met-notes-c";
+import { MET_NOTES_D } from "./met-notes-d";
+
 export interface NoteBlock {
   heading: string;
   points: string[]; // each point is exam-relevant
@@ -926,6 +931,10 @@ export const MET_NOTES: SectionNote[] = [
   },
 ];
 
+// Full textbook-depth notes (aligned to the appendix A.8.x numbering) replace
+// the older short notes section by section as they are written.
+const FULL: SectionNote[] = [...MET_NOTES_A, ...MET_NOTES_B, ...MET_NOTES_C, ...MET_NOTES_D];
+
 export function getNoteBySection(sectionId: string): SectionNote | undefined {
-  return MET_NOTES.find((n) => n.sectionId === sectionId);
+  return FULL.find((n) => n.sectionId === sectionId) ?? MET_NOTES.find((n) => n.sectionId === sectionId);
 }

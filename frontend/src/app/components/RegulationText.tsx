@@ -16,9 +16,9 @@ function level(line: string): number {
   return 1;
 }
 
-export function RegulationText({ refs }: { refs: RegRef[] }) {
+export function RegulationText({ refs, initialFind = "" }: { refs: RegRef[]; initialFind?: string }) {
   const [parts, setParts] = useState<Part[] | null>(null);
-  const [find, setFind] = useState("");
+  const [find, setFind] = useState(initialFind);
   const [open, setOpen] = useState<Record<string, boolean>>({});
   useEffect(() => { import("@/app/data/sa-car.json").then((m) => setParts(m.default as Part[])); }, []);
 

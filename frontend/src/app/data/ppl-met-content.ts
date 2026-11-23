@@ -9,12 +9,12 @@ import { getNoteBySection, type SectionNote } from "@/app/data/met-notes";
 import { mergePplNotes, pplQuestionDepth, pplFlashcardDepth } from "@/app/data/ppl-depth";
 
 // PPL section id → the CPL met content section(s) that cover it.
-// (Content keys follow met-notes numbering: A.8.1 = Atmosphere, A.8.2 = ISA …)
+// (Content keys follow the appendix numbering: A.8.2 = Atmosphere + ISA, A.8.20 = SA weather.)
 const MAP: Record<string, string[]> = {
   "9.1": ["A.8.1", "A.8.2"], // The Atmosphere (+ ISA)
   "9.2": ["A.8.3", "A.8.4", "A.8.6"], // Pressure, Density & Temperature
   "9.3": ["A.8.5", "A.8.11"], // Humidity & Precipitation
-  "9.4": ["A.8.8"], // Pressure & Wind
+  "9.4": ["A.8.3", "A.8.8"], // Pressure systems & Wind
   "9.5": ["A.8.10"], // Cloud Formation
   "9.6": ["A.8.15"], // Fog, Mist & Haze
   "9.7": ["A.8.16"], // Air Masses
@@ -22,7 +22,7 @@ const MAP: Record<string, string[]> = {
   "9.9": ["A.8.13"], // Ice Accretion
   "9.10": ["A.8.12"], // Thunderstorms
   "9.11": ["A.8.14"], // Flight over mountainous areas (turbulence)
-  "9.12": ["A.8.19"], // Climatology (A.8.20 Tropical Revolving Storms is CPL-only — not in PPL syllabus)
+  "9.12": ["A.8.19", "A.8.20"], // Climatology + SA weather (A.8.18 tropical revolving storms is CPL-only)
   "9.13": ["A.8.7"], // Altimetry
   "9.14": ["A.8.21"], // Weather analysis & forecasting
   "9.15": ["A.8.21"], // Weather information for flight planning

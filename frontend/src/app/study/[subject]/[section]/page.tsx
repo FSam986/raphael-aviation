@@ -96,7 +96,7 @@ export default function SectionPage() {
   // chip override; it resets whenever the sub-topic in the sidebar changes.
   const [pickedTopic, setPickedTopic] = useState<string | null>(null);
   // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => { setPickedTopic(null); }, [focusItemId]);
+  useEffect(() => { setPickedTopic(null); }, [focusItemId, searchParams]);
   // Slide index within the active topic's study deck.
   const [slideIdx, setSlideIdx] = useState(0);
   // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -144,7 +144,10 @@ export default function SectionPage() {
     });
     return (hit ?? noteBlocks[0]).heading;
   })();
-  const activeTopic = pickedTopic ?? matchedTopic;
+  // A search result can open a specific note block (?topic=heading).
+  const topicParam = searchParams.get("topic");
+  const linkedTopic = topicParam && noteBlocks.some((b) => b.heading === topicParam) ? topicParam : null;
+  const activeTopic = pickedTopic ?? linkedTopic ?? matchedTopic;
 
   // Build a slide deck for the active topic: pair each illustration with a
   // plain-language point so text and image sit together on one slide.
@@ -313,9 +316,12 @@ export default function SectionPage() {
                         // Text-only topic (no illustrations): show the points.
                         <div>
                           <h3 className="text-white font-bold text-base mb-3">{curSlide.heading}</h3>
-                          <ul className="space-y-2">
-                            {curSlide.text.map((p, i) => (
-                              <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
+                          <ul className="space-y-2.5">
+                            {curSlide.text.map((p, i) => p.startsWith("§ ") ? (
+                              // "§ " marks a sub-heading inside a long topic.
+                              <li key={i} className="text-gold font-semibold text-[15px] pt-3 first:pt-0">{p.slice(2)}</li>
+                            ) : (
+                              <li key={i} className="text-zinc-300 text-[15px] leading-7 flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
                             ))}
                           </ul>
                         </div>
@@ -419,7 +425,7 @@ export default function SectionPage() {
 
           {activeTab === "law" && (
             <div className="max-w-4xl">
-              {REG_MAP[sectionId] ? <RegulationText refs={REG_MAP[sectionId]} /> : (
+              {REG_MAP[sectionId] ? <RegulationText refs={REG_MAP[sectionId]} initialFind={searchParams.get("find") ?? ""} /> : (
                 <div className="rounded-xl border border-chart-line bg-chart-ground-2 p-6 text-sm text-chart-ink-dim">
                   The full text of {REG_MISSING[sectionId]} is not in the regulation source supplied yet, so it can&apos;t be shown word for word here. Study notes for this section are on the Learn tab.
                 </div>

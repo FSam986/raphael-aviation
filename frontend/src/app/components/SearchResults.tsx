@@ -23,7 +23,7 @@ export function SearchResults({ hits, query, active = -1, onPick }: { hits: Sear
               <span className="mono text-[11px] text-chart-ink-faint shrink-0">{h.sectionId}</span>
               <span className="ml-auto mono text-[10px] uppercase tracking-wider text-data shrink-0">{h.subjectTitle}</span>
             </div>
-            {h.topic && <div className="text-[13px] text-chart-ink-dim mt-0.5 truncate">→ <Highlight text={h.topic} terms={terms} /></div>}
+            {h.topic && <div className="text-[13px] text-chart-ink-dim mt-0.5 truncate">→ <Highlight text={h.topic} terms={terms} />{h.where && <span className="text-gold/80"> · opens at “{h.where}”</span>}</div>}
             {h.snippet && <div className="text-[12px] text-chart-ink-faint mt-1 line-clamp-2"><Highlight text={h.snippet} terms={terms} /></div>}
           </Link>
         </li>
