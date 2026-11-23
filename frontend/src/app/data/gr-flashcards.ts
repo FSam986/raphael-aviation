@@ -2,6 +2,7 @@
 
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
 import { GR_FLASHCARDS_BOOST } from "@/app/data/gr-flashcards-boost";
+import { GR_FLASHCARDS_EXTRA } from "@/app/data/gr-flashcards-extra";
 
 const GR_FLASHCARDS_BASE: AirLawFlashcard[] = [
   { id: "GFC-GR1-01", sectionId: "GR1", front: "Ground vs sky vs space wave?", back: "Ground = follows earth's curvature (LF best). Sky = refracted by ionosphere (LF/MF/HF, night). Space = line-of-sight (VHF+).", difficulty: "medium" },
@@ -26,7 +27,7 @@ const GR_FLASHCARDS_BASE: AirLawFlashcard[] = [
   { id: "GFC-GR9-02", sectionId: "GR9", front: "Radio failure — IFR in IMC?", back: "Continue per the current flight plan to the destination navaid; commence the approach at/near the flight-plan ETA (or last acknowledged EAT); land within ~30 min.", difficulty: "hard" },
 ];
 
-export const GR_FLASHCARDS: AirLawFlashcard[] = [...GR_FLASHCARDS_BASE, ...GR_FLASHCARDS_BOOST];
+export const GR_FLASHCARDS: AirLawFlashcard[] = [...GR_FLASHCARDS_BASE, ...GR_FLASHCARDS_BOOST, ...GR_FLASHCARDS_EXTRA];
 
 export function getGRFlashcardsBySection(sectionId: string): AirLawFlashcard[] {
   return GR_FLASHCARDS.filter((f) => f.sectionId === sectionId);
