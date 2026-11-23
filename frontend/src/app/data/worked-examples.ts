@@ -28,23 +28,11 @@ export interface WorkedExample {
 const E = (id: string, sectionId: string, title: string, problem: string, steps: string[], answer: string): WorkedExample => ({ id, sectionId, title, problem, steps, answer });
 
 import { FPP_WORKED_EXAMPLES } from "@/app/data/fpp-worked-examples";
+import { NAV_WORKED_EXAMPLES } from "@/app/data/nav-worked-examples";
 
 export const WORKED_EXAMPLES: WorkedExample[] = [
   ...FPP_WORKED_EXAMPLES,
-  // ── Navigation (A.9.x) ──
-  E("WEX-A91", "A.9.1", "Convergency", "Two positions lie on 30°N, at 010°E and 040°E. Find the convergency between them.",
-    ["Formula: Convergency = ch.long × sin(mean latitude).", "Change of longitude = 040° − 010° = 30°.", "Mean latitude = 30°N, so sin 30° = 0.5.", "Convergency = 30° × 0.5 = 15°."], "Convergency = 15°"),
-  E("WEX-A93", "A.9.3", "Distance, time & Air/Ground nautical miles", "You must cover 50 NM over the ground. TAS is 120 kt and groundspeed is 100 kt. Find the time, and the air distance flown (ANM).",
-    ["Ground distance to run (GNM) = 50 NM.", "Time = GNM ÷ GS = 50 ÷ 100 = 0.5 h = 30 min.", "Air Nautical Miles = the still-air distance = TAS × time = 120 × 0.5 = 60 ANM.", "(GNM uses groundspeed; ANM uses TAS — the aircraft flies 60 NM through the air to make good 50 NM over the ground into a headwind.)"], "Time 30 min · 60 ANM to make good 50 GNM"),
-  E("WEX-A94", "A.9.4", "Arc-to-time (Local Mean Time)", "An aircraft is over longitude 075°W. What is the Local Mean Time offset from UTC?",
-    ["Earth turns 360° in 24 h → 15° per hour (1° = 4 min).", "Offset = 075 ÷ 15 = 5 hours.", "Longitude is WEST → LMT is BEHIND UTC.", "LMT = UTC − 05:00."], "LMT = UTC − 5 h"),
-  E("WEX-A96", "A.9.6", "Relative velocity — time to meet", "Two aircraft are 180 NM apart on reciprocal tracks, closing head-on at groundspeeds of 240 kt and 200 kt. How long until they meet?",
-    ["Head-on ⇒ closing speed = sum of groundspeeds = 240 + 200 = 440 kt.", "Time = distance ÷ closing speed = 180 ÷ 440 h.", "= 0.409 h × 60 ≈ 24.5 min."], "≈ 24.5 minutes"),
-  E("WEX-A97", "A.9.7", "Triangle of velocities (drift & GS)", "TAS 120 kt, heading 090°(T). Wind is 360°/30 kt (from the north). Find approximate drift, track and groundspeed.",
-    ["The wind is 90° to the heading → it is pure crosswind (30 kt), no head/tail component.", "Drift (1-in-60): drift° ≈ 60 × crosswind ÷ TAS = 60 × 30 ÷ 120 = 15°.", "A north wind pushes an eastbound aircraft south → drift is to the right → Track = 090 + 15 = 105°(T).", "GS ≈ √(TAS² − Xw²) = √(120² − 30²) = √13500 ≈ 116 kt."], "Drift 15°R · Track 105° · GS ≈ 116 kt"),
-  E("WEX-A98", "A.9.8", "1-in-60 rule — regaining track", "After flying 80 NM you find you are 6 NM right of the required track, with 40 NM still to run. What single heading alteration will regain track at the destination?",
-    ["Track error° = (off-track ÷ distance gone) × 60 = (6 ÷ 80) × 60 = 4.5°.", "Closing angle° = (off-track ÷ distance to go) × 60 = (6 ÷ 40) × 60 = 9°.", "Total alteration = track error + closing angle = 4.5 + 9 = 13.5°.", "You are RIGHT of track → alter LEFT."], "Alter 13.5° LEFT"),
-
+  ...NAV_WORKED_EXAMPLES,
   // ── Radio Navigation (A.10.x) ──
   E("WEX-A101a", "A.10.1", "Wavelength from frequency", "A transmitter operates on 125 MHz. Find the wavelength.",
     ["Formula: λ(m) = 300 ÷ f(MHz).", "λ = 300 ÷ 125 = 2.4 m."], "λ = 2.4 m"),
