@@ -4,6 +4,8 @@
 // AirLawSectionNote so they plug into the subject content registry.
 
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
+import { INSTRUMENTS_NOTES_FULL } from "./instruments-notes-full";
+import { INSTRUMENTS_NOTES_FULL_B } from "./instruments-notes-full-b";
 
 export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
   {
@@ -428,5 +430,7 @@ export const INSTRUMENTS_NOTES: AirLawSectionNote[] = [
 ];
 
 export function getInstrumentsNoteBySection(sectionId: string): AirLawSectionNote | undefined {
+  const full = [...INSTRUMENTS_NOTES_FULL, ...INSTRUMENTS_NOTES_FULL_B].find((n) => n.sectionId === sectionId);
+  if (full) return full;
   return INSTRUMENTS_NOTES.find((n) => n.sectionId === sectionId);
 }

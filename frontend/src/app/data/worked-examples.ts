@@ -30,19 +30,14 @@ const E = (id: string, sectionId: string, title: string, problem: string, steps:
 import { FPP_WORKED_EXAMPLES } from "@/app/data/fpp-worked-examples";
 import { NAV_WORKED_EXAMPLES } from "@/app/data/nav-worked-examples";
 import { RADIONAV_WORKED_EXAMPLES } from "@/app/data/radionav-worked-examples";
+import { INSTRUMENTS_WORKED_EXAMPLES } from "@/app/data/instruments-worked-examples";
 
 export const WORKED_EXAMPLES: WorkedExample[] = [
   ...FPP_WORKED_EXAMPLES,
   ...NAV_WORKED_EXAMPLES,
   ...RADIONAV_WORKED_EXAMPLES,
+  ...INSTRUMENTS_WORKED_EXAMPLES,
   // ── Flight Instruments (A.7.x) ──
-  E("WEX-A71", "A.7.1", "Altimeter pressure error", "The subscale is set to 1013 hPa and reads 3000 ft. The actual QNH is 1003 hPa. What is your true altitude? (1 hPa ≈ 30 ft.)",
-    ["Difference = 1013 − 1003 = 10 hPa; the set value is HIGHER than the actual pressure.", "Error = 10 hPa × 30 ft = 300 ft.", "Flying from higher to lower pressure with a fixed setting, the altimeter OVER-reads.", "True altitude = 3000 − 300 = 2700 ft ('High to Low, look out below')."], "True altitude = 2700 ft"),
-  E("WEX-A72", "A.7.2", "Bank angle for a rate-1 turn", "You are cruising at TAS 150 kt. What bank angle gives a rate-1 turn?",
-    ["Rule of thumb: bank for rate 1 ≈ (TAS ÷ 10) + 7.", "= (150 ÷ 10) + 7 = 15 + 7 = 22°.", "(Rate 1 = 3°/sec = 360° in 2 minutes.)"], "≈ 22° of bank"),
-  E("WEX-A75", "A.7.5", "Ram rise / Total Air Temperature", "TAS 300 kt, static air temperature (SAT) −40°C. Estimate the TAT.",
-    ["Ram rise ≈ (TAS ÷ 100)² °C = (300 ÷ 100)² = 3² = 9°C.", "TAT = SAT + ram rise = −40 + 9 = −31°C.", "(The probe reads warmer than the true air because of adiabatic compression.)"], "TAT ≈ −31°C"),
-
   // ── Meteorology (A.8.x) ──
   E("WEX-A82", "A.8.2", "ISA temperature at altitude", "Using the ISA, what is the temperature at 20 000 ft?",
     ["ISA MSL = +15°C; lapse rate = 2°C per 1000 ft up to the tropopause.", "Drop = 2 × 20 = 40°C.", "Temperature = 15 − 40 = −25°C."], "−25°C"),

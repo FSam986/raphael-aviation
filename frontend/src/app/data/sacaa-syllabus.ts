@@ -510,14 +510,22 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
           { id: "A.7.2.c", topic: "Remote indicating compass — construction, components, modes" },
           { id: "A.7.2.d", topic: "Artificial Horizon — construction, turn/acceleration errors" },
           { id: "A.7.2.e", topic: "Turn & slip indicator — construction, errors, turn coordinator, rate of turn" },
-          { id: "A.7.2.f", topic: "HSI / EFIS — PFD, ND, MCP, FMS, display types and colours" },
+          { id: "A.7.2.f", topic: "Horizontal Situation Indicator (HSI) — construction, information displayed" },
         ],
       },
       {
         id: "A.7.3",
         title: "Electronic Flight Instrument System (EFIS)",
         items: [
-          { id: "A.7.3.a", topic: "Flight director — principle, input sources, ADI, HSI operation" },
+          { id: "A.7.3.a", topic: "Design and operation, FMS, PFD, ND/MFD, MCP" },
+          { id: "A.7.3.b", topic: "Display types and colours, data input, installation, propulsion and crew alerting displays" },
+        ],
+      },
+      {
+        id: "A.7.4",
+        title: "Flight Director System",
+        items: [
+          { id: "A.7.4.a", topic: "Principle of operation, input sources, ADI and HSI operation" },
         ],
       },
       {

@@ -2,6 +2,7 @@
 // instrument theory. Shape matches AirLawFlashcard.
 
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
+import { INSTRUMENTS_FLASHCARDS_EXTRA } from "./instruments-flashcards-extra";
 
 export const INSTRUMENTS_FLASHCARDS: AirLawFlashcard[] = [
   // ── Ch1 Temperature Measurement → A.7.5 ──
@@ -75,5 +76,5 @@ export const INSTRUMENTS_FLASHCARDS: AirLawFlashcard[] = [
 ];
 
 export function getInstrumentsFlashcardsBySection(sectionId: string): AirLawFlashcard[] {
-  return INSTRUMENTS_FLASHCARDS.filter((f) => f.sectionId === sectionId);
+  return [...INSTRUMENTS_FLASHCARDS, ...INSTRUMENTS_FLASHCARDS_EXTRA].filter((f) => f.sectionId === sectionId);
 }
