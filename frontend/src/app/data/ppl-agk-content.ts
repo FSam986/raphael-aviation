@@ -1,3 +1,4 @@
+import { pickPplNote } from "@/app/data/ppl-pick";
 // PPL Aircraft Technical & General (AGK) study content — reuses the CPL material.
 // The PPL AGK syllabus (6.1–6.6) is a subset of the CPL Aircraft Technical topics
 // (airframe/powerplant/propellers/systems → A.1.x) plus the CPL Flight Instruments
@@ -40,8 +41,17 @@ const cplFlashcards = (id: string): AirLawFlashcard[] =>
 // CPL bank is ~1600; a PPL student needs variety, not the whole thing).
 export function getPPLAgkQuestionsBySection(s: string): AirLawQuestion[] { return pplQuestionDepth((MAP[s] ?? []).flatMap(cplQuestions), 60); }
 export function getPPLAgkFlashcardsBySection(s: string): AirLawFlashcard[] { return pplFlashcardDepth((MAP[s] ?? []).flatMap(cplFlashcards)); }
+const PICK: Record<string, [string, string[]]> = {
+  "6.1": ["Airframe", ["A.1.2#Loads & strength|Fuselage & wing|Fatigue|Flight controls|Landing gear"]],
+  "6.2": ["Powerplant", ["A.1.4#Four-stroke|Definitions|Construction|Cylinder construction|Engine power|Detonation|Cooling|Lubrication|Ignition|Fuel|Carburettor|Supercharging|Engine handling", "A.7.9#Pressure sensors|Temperature sensors|RPM|Fuel gauges"]],
+  "6.3": ["Propellers", ["A.1.4#Propellers"]], // the full propeller block plus the original short one
+  "6.4": ["Systems", ["A.1.3#Basic DC|Ohm|Batteries|Generation|Distribution|Monitoring", "A.1.2#Vacuum|Hydraulics|Fuel system|Ice/rain", "A.1.1#Valves|Pumps|Filters"]],
+  "6.5": ["Instruments", ["A.7.1#The pitot|Malfunctions|The altimeter|Altimeter errors|Settings|The airspeed|ASI errors|The vertical", "A.7.2#Gyroscopic fundamentals|Gyro types|Apparent|The directional|The artificial|Artificial|Turn and slip", "A.7.7#Terrestrial|Turning and acceleration|The direct-reading", "A.7.9#Pressure sensors|Temperature sensors|RPM|Fuel gauges"]],
+  "6.6": ["Airworthiness & Emergency Procedures", ["A.3.3", "A.1.6#Smoke|Fire detection|Fire fighting", "A.1.7#Fire classes|Carburettor fire|Fire in the cabin"]],
+};
 export function getPPLAgkNoteBySection(s: string): AirLawSectionNote | undefined {
-  return mergePplNotes(s, (MAP[s] ?? []).map(cplNote).filter((n): n is AirLawSectionNote => !!n));
+  const e = PICK[s];
+  return e ? pickPplNote(s, e[0], e[1]) : undefined;
 }
 const SECS = [...new Set(Object.values(MAP).flat())];
 export const PPL_AGK_QUESTIONS: AirLawQuestion[] = ALL_INSTRUMENTS_QUESTIONS.filter((x) => SECS.includes(x.sectionId) && x.difficulty !== "hard");

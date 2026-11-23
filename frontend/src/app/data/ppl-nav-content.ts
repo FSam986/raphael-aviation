@@ -1,3 +1,4 @@
+import { pickPplNote } from "@/app/data/ppl-pick";
 // PPL Navigation content — reuses the CPL Navigation (A.9.x) material, plus the
 // CPL Instruments compass/magnetism topic (A.7.7) for "Aircraft Magnetism". The
 // PPL syllabus (10.1–10.7) is a re-grouping of the CPL topics at PPL depth, so we
@@ -36,8 +37,19 @@ const nt = (id: string) => (rad(id) ? getRadioNavNoteBySection(id) : ins(id) ? g
 // PPL depth filter: exclude the hardest CPL questions (beyond PPL syllabus depth).
 export function getPPLNavQuestionsBySection(s: string): AirLawQuestion[] { return pplQuestionDepth((MAP[s] ?? []).flatMap(q)); }
 export function getPPLNavFlashcardsBySection(s: string): AirLawFlashcard[] { return pplFlashcardDepth((MAP[s] ?? []).flatMap(f)); }
+const PICK: Record<string, [string, string[]]> = {
+  "10.1": ["Form of the Earth", ["A.9.1#Form of the Earth|Great circles|Meridians|Latitude|Co-ordinates|Convergency", "A.9.3"]],
+  "10.2": ["Time", ["A.9.4#Local mean time|Zone time|Sunrise"]],
+  "10.3": ["Mapping — General", ["A.9.5#Projection|Orthomorphic|Scale|Lambert", "A.9.3#Conversions"]],
+  "10.4": ["Direction", ["A.9.2#True north|Magnetic north"]],
+  "10.5": ["Aircraft Magnetism", ["A.9.2#Compass north", "A.7.7#Aircraft magnetism|Turning and acceleration|The direct-reading"]],
+  "10.6": ["The Navigation Computer", ["A.9.7", "A.4.5#Pressure altitude"]],
+  "10.7": ["Practical Navigation", ["A.9.8"]],
+  "10.8": ["Radio Navigation", ["A.9.2#Radio bearings", "A.10.2", "A.10.3#Principles|Presentation|Coverage|Errors", "A.10.4", "A.10.12#System components|Principle of operation|Errors"]],
+};
 export function getPPLNavNoteBySection(s: string): AirLawSectionNote | undefined {
-  return mergePplNotes(s, (MAP[s] ?? []).map(nt).filter((n): n is AirLawSectionNote => !!n));
+  const e = PICK[s];
+  return e ? pickPplNote(s, e[0], e[1]) : undefined;
 }
 const SECS = [...new Set(Object.values(MAP).flat())];
 export const PPL_NAV_QUESTIONS: AirLawQuestion[] = pplQuestionDepth([

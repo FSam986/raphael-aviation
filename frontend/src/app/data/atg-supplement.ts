@@ -10,6 +10,20 @@ import type { AirLawNoteBlock } from "./airlaw-notes";
 export const ATG_SUPPLEMENT: Record<string, AirLawNoteBlock[]> = {
   "A.1.2": [
     {
+      heading: "Vacuum (suction) system — components, malfunctions and procedures",
+      points: [
+        "Light aircraft drive the attitude indicator and heading indicator (and sometimes the turn coordinator's backup) with air: the gyro rotors are spun by jets of air drawn through the instruments by suction.",
+        "§ Components",
+        "Engine-driven VACUUM PUMP (dry, rotary-vane pump with carbon vanes — or older wet oil-lubricated pumps; very old aircraft used an external venturi); central AIR FILTER (cleans the air entering the instruments — a blocked filter reduces suction); SUCTION/VACUUM REGULATOR (relief valve) that admits extra air to hold the suction constant (typically 4.5–5.5 in Hg) regardless of engine RPM; SUCTION GAUGE (in Hg) to monitor it; lines to the gyro instruments; on some aircraft a low-vacuum warning light, and a standby vacuum source (second pump, or a manifold-vacuum backup).",
+        "Pressure (positive-pressure) systems use a pump to blow air through the instruments instead — the principle is the same.",
+        "§ Recognition of malfunction",
+        "LOW suction (gauge below the green arc / warning light): gyros spin down slowly — the attitude indicator and heading indicator become sluggish, drift, then topple or give FALSE indications (dangerous in IMC — the failure is gradual and subtle). Causes: pump failure (dry pumps can fail suddenly without warning), leaking/broken line, clogged filter, regulator fault. HIGH suction: regulator stuck — gyros overspeed, wear.",
+        "Cross-check: the electric turn coordinator (or electric AI) and the magnetic compass are unaffected — a vacuum failure shows as a disagreement between them and the vacuum instruments.",
+        "§ Procedures in the event of malfunction",
+        "Check the suction gauge; cover or disregard the failed attitude and heading indicators (partial-panel flying): use the turn coordinator, ASI, altimeter, VSI and compass; if VMC, stay VMC; if IMC, inform ATC and request assistance (no-gyro vectors), plan to land at the nearest suitable aerodrome. Pre-flight: check suction in the green during the run-up (at the specified RPM) and the gyros erect and stable before take-off.",
+      ],
+    },
+    {
       heading: "Landing gear — locking and accidental-retraction prevention",
       points: [
         "§ Locking",
@@ -111,6 +125,37 @@ export const ATG_SUPPLEMENT: Record<string, AirLawNoteBlock[]> = {
     },
   ],
   "A.1.4": [
+    {
+      heading: "Propellers — nomenclature, thrust, fixed and variable pitch, CSU, windmilling",
+      points: [
+        "§ Nomenclature",
+        "Hub/boss (centre, attached to the crankshaft flange), blades (each a twisted aerofoil), blade root and tip, leading and trailing edges, blade face (flat, rear 'pressure' side facing the pilot) and blade back (cambered front side), blade stations (measured from the hub centre), spinner. Diameter = tip-circle diameter; tip clearance must be kept from the ground.",
+        "BLADE ANGLE (pitch angle): the angle between the blade chord and the plane of rotation. GEOMETRIC PITCH: the distance the propeller would advance in one revolution if it moved like a screw in a solid (no slip). EFFECTIVE PITCH: the distance it actually advances. SLIP = geometric – effective pitch.",
+        "Blade TWIST: blade angle decreases from root to tip because the tip travels much faster than the root; twisting gives each section roughly the same angle of attack along the blade.",
+        "§ Conversion of engine power to thrust",
+        "Each blade section is an aerofoil whose relative airflow combines the rotational velocity (2πrN) and the aircraft's forward velocity. The blade's angle of attack = blade angle – helix (advance) angle. The aerodynamic force on the blade resolves into THRUST (forward, along the axis) and propeller TORQUE (resisting rotation — balanced by engine torque). Thrust horsepower = thrust × TAS; propeller efficiency = THP ÷ BHP (≈ 80 % at best).",
+        "§ Forces acting on a propeller blade",
+        "Thrust bending force (bends the blades forward), centrifugal force (pulls blades outward — the largest force — and also creates centrifugal twisting moment tending to reduce the blade angle toward fine pitch), torque bending force (bends blades opposite to rotation), aerodynamic twisting moment (tends to increase blade angle — toward coarse), and vibration. Nicks and damage concentrate stress — dress them out per maintenance rules; a damaged blade can fail.",
+        "§ Fixed-pitch propeller",
+        "One blade angle, chosen as a compromise: a FINE-pitch ('climb') propeller gives good take-off and climb thrust but over-speeds at high cruise speed; a COARSE ('cruise') propeller gives efficient cruise but poor take-off/climb. Made of wood, metal (aluminium alloy forging) or composite.",
+        "§ Variation of RPM with airspeed (fixed pitch)",
+        "With the throttle fixed, RPM INCREASES as airspeed increases (the blades' angle of attack falls, so less torque is needed to turn them — the engine speeds up) and DECREASES when airspeed falls (e.g. in a climb). So RPM indicates power only together with airspeed, and a dive can overspeed the engine — reduce throttle. Static RPM (full throttle, stationary) is a check of engine power.",
+        "§ Thrust efficiency with speed",
+        "A fixed-pitch propeller is efficient only near one speed: at low speed (take-off) the blades' angle of attack is high (possibly stalled near the root) → inefficient; at high speed it is low → little thrust and overspeed. Efficiency peaks at the design speed.",
+        "§ Variable-pitch propeller",
+        "The blade angle can be changed in flight. Two-position (fine/coarse), controllable-pitch (pilot selects the angle), and CONSTANT-SPEED (the commonest) propellers. Fine pitch (small angle, high RPM) for take-off, climb and landing; coarse pitch (large angle, low RPM) for cruise.",
+        "§ Constant-speed unit (CSU) operation",
+        "The pilot selects an RPM with the propeller (pitch/RPM) lever; the CSU — an engine-driven governor with flyweights, a speeder spring and a pilot valve — automatically varies the blade angle to keep that RPM regardless of airspeed or throttle (within limits). If RPM rises above the set value (overspeed), the flyweights move out, the pilot valve directs oil to coarsen the pitch (more load) → RPM falls back; if RPM falls (underspeed), oil is released/directed to fine the pitch → RPM rises. Typical single-engine light aircraft: oil pressure moves the blades toward FINE (high RPM); counterweights/springs toward coarse — so oil-pressure loss → (usually) fine pitch/high RPM on singles. Twins: oil pressure to COARSE with nitrogen/springs toward FEATHER — loss of oil feathers the propeller.",
+        "Power is then set with the THROTTLE (manifold pressure) and the propeller lever (RPM). Increase power: RPM up first, then MAP; decrease: MAP down first, then RPM.",
+        "Advantages: optimum blade angle at all speeds → better take-off and climb performance and efficient cruise; overspeed protection. Feathering (blades edge-on to the airflow) on twins stops a failed engine windmilling and minimises drag.",
+        "§ Effect of blade pitch changes",
+        "Finer pitch → higher RPM, more thrust at low speed, more noise and fuel; coarser pitch → lower RPM, efficient at high speed, risk of excessive manifold pressure at low RPM (detonation). The propeller lever full forward (fine) is used for take-off, go-around and landing (so full power is available).",
+        "§ Windmilling effect",
+        "If the engine fails, the airflow turns the propeller (windmilling) — it then DRIVES the engine and produces a large DRAG (much more than a stopped propeller and far more than a feathered one), steepening the glide. On a constant-speed propeller the CSU drives the blades toward fine pitch to hold RPM (if oil pressure remains), increasing drag further — pull the propeller lever fully back (coarse) to reduce windmilling drag. A windmilling propeller can help a restart; on twins, feather the dead engine.",
+        "§ Other propeller effects",
+        "Torque reaction (rolls the aircraft opposite to the propeller rotation), spiralling slipstream (strikes the left side of the fin on a clockwise propeller → yaw left), asymmetric blade effect / P-factor (at high angle of attack the down-going blade produces more thrust → yaw left for clockwise propellers), and gyroscopic precession (when the propeller disc is pitched or yawed — e.g. raising the tail of a taildragger yaws it left). All cause a swing on take-off — corrected with rudder.",
+      ],
+    },
     {
       heading: "Definitions and cylinder numbering",
       points: [

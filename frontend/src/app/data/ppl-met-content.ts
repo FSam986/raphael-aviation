@@ -1,3 +1,4 @@
+import { pickPplNote } from "@/app/data/ppl-pick";
 // PPL Meteorology content — reuses the CPL Meteorology material (notes,
 // questions, flashcards). The PPL syllabus (9.1–9.15) is essentially a
 // re-grouping of the CPL topics (A.8.x) at PPL depth, so rather than duplicate
@@ -49,8 +50,28 @@ export function getPPLMetFlashcardsBySection(pplSection: string): MetFlashcard[]
 
 // Merge the mapped CPL notes into one PPL note (intro from the first; blocks,
 // mustKnow and traps concatenated).
+// Each PPL section picks the CPL topic blocks that cover its PPL-syllabus items.
+const PICK: Record<string, [string, string[]]> = {
+  "9.1": ["The Atmosphere", ["A.8.2"]],
+  "9.2": ["Pressure, Density & Temperature", ["A.8.3#Definition|Pressure variation", "A.8.6#Factors", "A.8.4#Heating|Diurnal", "A.8.9#Adiabatic|Stability"]],
+  "9.3": ["Humidity & Precipitation", ["A.8.5", "A.8.11#Types"]],
+  "9.4": ["Pressure & Wind", ["A.8.3#Low pressure|High pressure", "A.8.8#Definitions|Formation|Gradient wind|Local winds", "A.8.14#Windshear|Turbulence"]],
+  "9.5": ["Cloud Formation", ["A.8.10#Cloud formation|Cloud classification"]],
+  "9.6": ["Fog, Mist & Haze", ["A.8.15"]],
+  "9.7": ["Air Masses", ["A.8.16", "A.8.3#Low pressure|High pressure"]],
+  "9.8": ["Frontology", ["A.8.17"]],
+  "9.9": ["Ice Accretion", ["A.8.13"]],
+  "9.10": ["Thunderstorms", ["A.8.12"]],
+  "9.11": ["Flight Over Mountainous Areas", ["A.8.14#Turbulence|Windshear", "A.8.8#Local winds"]],
+  "9.12": ["Climatology", ["A.8.20"]],
+  "9.13": ["Altimetry", ["A.8.3#QNH", "A.8.7", "A.8.6#Density altitude"]],
+  "9.14": ["Weather Analysis & Forecasting", ["A.8.21#Synoptic", "A.8.3#Synoptic charts"]],
+  "9.15": ["Weather Information for Flight Planning", ["A.8.21#METAR|TAF|SPECI|SAWS"]],
+};
+
 export function getPPLMetNoteBySection(pplSection: string): SectionNote | undefined {
-  return mergePplNotes(pplSection, (MAP[pplSection] ?? []).map(getNoteBySection).filter((n): n is SectionNote => !!n));
+  const e = PICK[pplSection];
+  return e ? (pickPplNote(pplSection, e[0], e[1]) as unknown as SectionNote | undefined) : undefined;
 }
 
 // PPL section id → the figures.tsx key whose illustration covers it.

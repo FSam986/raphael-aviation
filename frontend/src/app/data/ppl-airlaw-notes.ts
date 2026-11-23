@@ -1,3 +1,5 @@
+import { PPL_AIRLAW_EXTRA } from "@/app/data/ppl-airlaw-extra";
+import { pickPplNote } from "@/app/data/ppl-pick";
 // ============================================================================
 // SACAA PPL — AIR LAW STUDY NOTES
 // Original study material for the PPL (Aeroplane) Air Law syllabus
@@ -494,6 +496,30 @@ export const PPL_AIRLAW_NOTES: AirLawSectionNote[] = [
   },
 ];
 
+// The CPL Air Law blocks for the same Parts, which show the regulation wording.
+// (The CPL-licence block of A.3.4 is left out — PPL has its own licence block.)
+const CPL_BLOCKS: Record<string, string[]> = {
+  "4": ["A.3.18"],
+  "5.1": ["A.3.1"],
+  "5.2": ["A.3.2"],
+  "5.3": ["A.3.4#Pilot licences|Medical, language|Class and type"],
+  "5.4": ["A.3.5"],
+  "5.5": ["A.3.6"],
+  "5.6": ["A.3.13"],
+};
+
 export function getPPLAirLawNoteBySection(sectionId: string): AirLawSectionNote | undefined {
-  return PPL_AIRLAW_NOTES.find((n) => n.sectionId === sectionId);
+  const base = PPL_AIRLAW_NOTES.find((n) => n.sectionId === sectionId);
+  const extra = PPL_AIRLAW_EXTRA[sectionId];
+  const own = base && extra ? { ...base, blocks: [...base.blocks, ...extra] } : base;
+  const specs = CPL_BLOCKS[sectionId];
+  const cpl = specs ? pickPplNote(sectionId, own?.title ?? "", specs) : undefined;
+  if (!own) return cpl;
+  if (!cpl) return own;
+  return {
+    ...own,
+    blocks: [...own.blocks, ...cpl.blocks],
+    mustKnow: [...own.mustKnow, ...cpl.mustKnow.filter((m) => !own.mustKnow.includes(m))],
+    traps: [...own.traps, ...cpl.traps.filter((t) => !own.traps.includes(t))],
+  };
 }
