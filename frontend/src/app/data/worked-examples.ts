@@ -16,13 +16,21 @@ export interface WorkedExample {
   sectionId: string;
   title: string;
   problem: string;
-  steps: string[];   // ordered solution steps
+  steps: string[];   // ordered solution steps; "§ " starts a stage heading
   answer: string;
+  given?: string[];  // the data, listed
+  find?: string;     // what is asked
+  concept?: string;  // the principle / formula and why it works
+  check?: string;    // sense check of the answer
+  trap?: string;     // the usual mistake
 }
 
 const E = (id: string, sectionId: string, title: string, problem: string, steps: string[], answer: string): WorkedExample => ({ id, sectionId, title, problem, steps, answer });
 
+import { FPP_WORKED_EXAMPLES } from "@/app/data/fpp-worked-examples";
+
 export const WORKED_EXAMPLES: WorkedExample[] = [
+  ...FPP_WORKED_EXAMPLES,
   // ── Navigation (A.9.x) ──
   E("WEX-A91", "A.9.1", "Convergency", "Two positions lie on 30°N, at 010°E and 040°E. Find the convergency between them.",
     ["Formula: Convergency = ch.long × sin(mean latitude).", "Change of longitude = 040° − 010° = 30°.", "Mean latitude = 30°N, so sin 30° = 0.5.", "Convergency = 30° × 0.5 = 15°."], "Convergency = 15°"),
@@ -49,20 +57,6 @@ export const WORKED_EXAMPLES: WorkedExample[] = [
   E("WEX-A104", "A.10.4", "DME slant range from timing", "The DME reply arrives 1000 µs after interrogation. The transponder's fixed delay is 50 µs. Find the slant range.",
     ["Formula: R(NM) = 0.162 × (T − 50) ÷ 2, T in µs.", "= 0.162 × (1000 − 50) ÷ 2.", "= 0.162 × 950 ÷ 2 = 0.162 × 475 ≈ 77 NM."], "≈ 77 NM (slant)"),
 
-  // ── Flight Planning & Performance (A.4.x) ──
-  E("WEX-A45", "A.4.5", "Density altitude", "Pressure altitude is 5000 ft and the OAT is +25°C. Find the density altitude.",
-    ["ISA temperature at 5000 ft = 15 − (2 × 5) = +5°C.", "ISA deviation = OAT − ISA temp = 25 − 5 = +20°C.", "DA = pressure altitude + 120 ft × ISA deviation = 5000 + 120 × 20.", "= 5000 + 2400 = 7400 ft."], "Density altitude = 7400 ft"),
-  E("WEX-A47", "A.4.7", "Best-glide distance", "With the engine failed you have 5000 ft AGL and a best glide ratio (L/D) of 10:1 in still air. How far can you glide?",
-    ["Glide distance = L/D × height. Keep the units consistent.", "= 10 × 5000 ft = 50 000 ft.", "Convert to NM: 50 000 ÷ 6076 ≈ 8.2 NM."], "≈ 8.2 NM"),
-  E("WEX-A49", "A.4.9", "Reading a performance graph (plot → factor)", "From the SEP take-off graph you enter with pressure altitude 3000 ft, OAT +20°C and mass 1000 kg, and read a take-off distance of 620 m. The runway is dry grass (factor 1.15) with a 1.0 safety factor. Find the take-off distance required.",
-    ["Step 1 — read the graph: enter the carpet plot at 3000 ft / +20°C, carry across to the 1000 kg reference line and read off = 620 m (this is the value you derive from the plot).", "Step 2 — apply the surface/condition factor: dry grass ×1.15.", "TODR = 620 × 1.15 = 713 m.", "(Always compare TODR against TODA — the runway's declared take-off distance available.)"], "TODR ≈ 713 m"),
-  E("WEX-A411", "A.4.11", "Specific range — air vs ground", "TAS 100 kt into a 20 kt headwind (GS 80 kt). Fuel flow is 20 L/h. Find the air and ground specific range.",
-    ["Ground specific range = GS ÷ fuel flow = 80 ÷ 20 = 4 NM per litre (over the ground).", "Air specific range = TAS ÷ fuel flow = 100 ÷ 20 = 5 ANM per litre.", "Wind changes the GROUND figure, never the air figure — plan fuel on ground miles."], "4 GNM/L · 5 ANM/L"),
-  E("WEX-A412", "A.4.12", "Mass & balance — finding the CG", "Empty aircraft 700 kg at arm 2.0 m. Add a pilot 80 kg at 2.5 m and fuel 100 kg at 3.0 m. Find the loaded CG.",
-    ["Moment = mass × arm for each item:", "Empty 700 × 2.0 = 1400 · Pilot 80 × 2.5 = 200 · Fuel 100 × 3.0 = 300.", "Total mass = 700 + 80 + 100 = 880 kg.", "Total moment = 1400 + 200 + 300 = 1900 kg·m.", "CG = total moment ÷ total mass = 1900 ÷ 880 = 2.16 m.", "Check 2.16 m lies inside the fore/aft CG limits."], "CG = 2.16 m aft of datum"),
-  E("WEX-A413", "A.4.13", "Point of Equal Time (PET)", "The leg A→B is 400 NM. Groundspeed out (O) is 100 kt, groundspeed home (H) is 140 kt. Find the distance from A to the PET.",
-    ["Formula: distance to PET = D × H ÷ (O + H).", "= 400 × 140 ÷ (100 + 140).", "= 56000 ÷ 240 ≈ 233 NM from A.", "(A headwind out / tailwind home moves the PET downwind — past the half-way point.)"], "≈ 233 NM from A"),
-
   // ── Flight Instruments (A.7.x) ──
   E("WEX-A71", "A.7.1", "Altimeter pressure error", "The subscale is set to 1013 hPa and reads 3000 ft. The actual QNH is 1003 hPa. What is your true altitude? (1 hPa ≈ 30 ft.)",
     ["Difference = 1013 − 1003 = 10 hPa; the set value is HIGHER than the actual pressure.", "Error = 10 hPa × 30 ft = 300 ft.", "Flying from higher to lower pressure with a fixed setting, the altimeter OVER-reads.", "True altitude = 3000 − 300 = 2700 ft ('High to Low, look out below')."], "True altitude = 2700 ft"),
@@ -86,9 +80,6 @@ export const WORKED_EXAMPLES: WorkedExample[] = [
   // ── ISA deviation (Met + Flight Planning) ──
   E("WEX-ISADEV-82", "A.8.2", "ISA deviation", "At FL180 the outside air temperature is −10°C. What is the ISA deviation?",
     ["ISA temperature at a level = 15 − (2 × altitude in thousands of ft), to the tropopause.", "ISA temp at 18 000 ft = 15 − (2 × 18) = 15 − 36 = −21°C.", "ISA deviation = actual OAT − ISA temp = −10 − (−21) = +11°C.", "Report it as ISA +11 (the air is warmer than standard)."], "ISA +11°C"),
-  E("WEX-ISADEV-45", "A.4.5", "ISA deviation (for performance)", "Pressure altitude 5000 ft, OAT +25°C. Find the ISA deviation used in performance/density-altitude work.",
-    ["ISA temp at 5000 ft = 15 − (2 × 5) = +5°C.", "ISA deviation = OAT − ISA temp = 25 − 5 = +20°C → ISA +20.", "This feeds density altitude: DA = pressure alt + 120 × ISA deviation."], "ISA +20°C"),
-
   // ── Direction: True / Magnetic / Compass ──
   E("WEX-TMC", "A.9.2", "True → Magnetic → Compass", "True track 090°, variation 10°W, deviation 2°E. Find the compass heading to steer.",
     ["Variation West → Magnetic Best (add West variation): Magnetic = 090 + 10 = 100°.", "Deviation East → Compass Least (subtract East deviation): Compass = 100 − 2 = 098°.", "(Memory: 'Variation West, Magnetic best; Deviation East, Compass least.')"], "Compass 098°"),

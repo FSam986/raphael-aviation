@@ -497,22 +497,42 @@ export default function SectionPage() {
                   <div className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-4">
                     <div className="text-blue-300 text-xs font-bold uppercase tracking-wider mb-1">Problem</div>
                     <p className="text-zinc-200 text-sm leading-relaxed">{ex.problem}</p>
+                    {ex.given && (
+                      <ul className="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1">
+                        {ex.given.map((g, i) => <li key={i} className="text-zinc-300 text-sm flex gap-2"><span className="text-blue-300/60">•</span><span>{g}</span></li>)}
+                      </ul>
+                    )}
+                    {ex.find && <p className="mt-3 text-sm"><span className="text-blue-300 font-semibold">Find: </span><span className="text-zinc-200">{ex.find}</span></p>}
                   </div>
+                  {ex.concept && (
+                    <div className="mt-4 border-l-2 border-gold/50 pl-4">
+                      <div className="text-gold text-xs font-bold uppercase tracking-wider mb-1">The principle</div>
+                      <p className="text-zinc-300 text-sm leading-relaxed">{ex.concept}</p>
+                    </div>
+                  )}
                   <div className="mt-4">
                     <div className="text-zinc-400 text-xs font-bold uppercase tracking-wider mb-2">Step-by-step method</div>
                     <ol className="space-y-2">
-                      {ex.steps.map((s, i) => (
+                      {(() => { let k = 0; return ex.steps.map((s, i) => s.startsWith("§ ") ? (
+                        <li key={i} className="text-gold font-semibold text-sm pt-2 first:pt-0">{s.slice(2)}</li>
+                      ) : (
                         <li key={i} className="flex gap-3 text-sm">
-                          <span className="w-5 h-5 rounded-full bg-yellow-400/15 text-yellow-400 text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+                          <span className="w-5 h-5 rounded-full bg-yellow-400/15 text-yellow-400 text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{++k}</span>
                           <span className="text-zinc-300 leading-relaxed">{s}</span>
                         </li>
-                      ))}
+                      )); })()}
                     </ol>
                   </div>
                   <div className="mt-4 bg-green-500/5 border border-green-500/25 rounded-xl p-4 flex items-center gap-3">
                     <span className="text-green-400 text-xs font-bold uppercase tracking-wider">Answer</span>
                     <span className="text-green-200 font-semibold text-sm">{ex.answer}</span>
                   </div>
+                  {ex.check && (
+                    <div className="mt-3 text-sm"><span className="text-zinc-400 font-semibold">Sense check: </span><span className="text-zinc-300">{ex.check}</span></div>
+                  )}
+                  {ex.trap && (
+                    <div className="mt-2 bg-red-500/5 border border-red-500/20 rounded-xl p-3 text-sm"><span className="text-red-400 font-semibold">Common mistake: </span><span className="text-zinc-300">{ex.trap}</span></div>
+                  )}
                 </div>
               ))}
               <button onClick={() => setActiveTab("quiz")} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl">Practise these in the quiz →</button>
