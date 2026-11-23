@@ -8,10 +8,15 @@
 // Mirrors the met-notes SectionNote shape so the Learn tab renders it directly.
 // ============================================================================
 
+import { AIRLAW_NOTES_FULL } from "./airlaw-notes-full";
+import { AIRLAW_NOTES_FULL_B } from "./airlaw-notes-full-b";
+
 export interface AirLawNoteBlock {
   heading: string;
   points: string[];
   figureTopics?: string[];
+  /** CAR regulation numbers whose exact wording is shown under this topic. */
+  regs?: string[];
 }
 
 export interface AirLawSectionNote {
@@ -656,5 +661,6 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
 ];
 
 export function getAirLawNoteBySection(sectionId: string): AirLawSectionNote | undefined {
-  return AIRLAW_NOTES.find((n) => n.sectionId === sectionId);
+  // Full textbook-depth notes (with the regulation wording) replace the short notes.
+  return [...AIRLAW_NOTES_FULL, ...AIRLAW_NOTES_FULL_B].find((n) => n.sectionId === sectionId) ?? AIRLAW_NOTES.find((n) => n.sectionId === sectionId);
 }

@@ -25,9 +25,13 @@ import { recordResults } from "@/app/lib/examSelect";
 import { countByItem, filterByItem } from "@/app/lib/aspects";
 import { getWorkedExamplesBySection } from "@/app/data/worked-examples";
 import { Icon } from "@/app/components/Icon";
+import { SyllabusOverlay } from "@/app/components/SyllabusOverlay";
+import { REG_MAP, REG_MISSING } from "@/app/data/sa-car-map";
+const RegulationExcerpt = dynamic(() => import("@/app/components/RegulationExcerpt").then((m) => m.RegulationExcerpt), { ssr: false });
+const RegulationText = dynamic(() => import("@/app/components/RegulationText").then((m) => m.RegulationText), { ssr: false });
 import { buildExamTerms, ExamText } from "@/app/lib/examTerms";
 
-type Tab = "learn" | "quiz" | "flashcards" | "illustrations" | "examples";
+type Tab = "learn" | "law" | "quiz" | "flashcards" | "illustrations" | "examples";
 
 export default function SectionPage() {
   const params = useParams();
@@ -40,7 +44,7 @@ export default function SectionPage() {
   const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<Tab>(
-    tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" ? tabParam : "learn"
+    tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" || tabParam === "law" ? tabParam : "learn"
   );
 
   // Quiz state (uses the Meteorology question bank, filtered by this section)
@@ -93,7 +97,7 @@ export default function SectionPage() {
   // chip override; it resets whenever the sub-topic in the sidebar changes.
   const [pickedTopic, setPickedTopic] = useState<string | null>(null);
   // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => { setPickedTopic(null); }, [focusItemId]);
+  useEffect(() => { setPickedTopic(null); }, [focusItemId, searchParams]);
   // Slide index within the active topic's study deck.
   const [slideIdx, setSlideIdx] = useState(0);
   // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -141,14 +145,40 @@ export default function SectionPage() {
     });
     return (hit ?? noteBlocks[0]).heading;
   })();
-  const activeTopic = pickedTopic ?? matchedTopic;
+  // A search result can open a specific note block (?topic=heading).
+  const topicParam = searchParams.get("topic");
+  const linkedTopic = topicParam && noteBlocks.some((b) => b.heading === topicParam) ? topicParam : null;
+  const activeTopic = pickedTopic ?? linkedTopic ?? matchedTopic;
 
   // Build a slide deck for the active topic: pair each illustration with a
   // plain-language point so text and image sit together on one slide.
   const activeBlock = noteBlocks.find((x) => x.heading === activeTopic);
-  const activeFigs = activeBlock && (activeBlock as { figureTopics?: string[] }).figureTopics
-    ? atgFiguresByTopic((activeBlock as { figureTopics?: string[] }).figureTopics!)
-    : [];
+  // Every section illustration is placed with the topic it best matches
+  // (by words shared between the figure title/caption and the topic text),
+  // so images sit with the study instead of on a separate tab.
+  const figHome = (() => {
+    const home: Record<string, string> = {};
+    if (!noteBlocks.length) return home;
+    const words = (t: string) => t.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 3);
+    const blk = noteBlocks.map((b) => ({ h: new Set(words(b.heading)), p: new Set(words(b.points.join(" "))) }));
+    for (const f of sectionFigures) {
+      const fw = words(`${f.title} ${f.title} ${f.caption}`);
+      let best = 0, bestScore = -1;
+      blk.forEach((b, i) => {
+        const sc = fw.reduce((n, w) => n + (b.h.has(w) ? 3 : 0) + (b.p.has(w) ? 1 : 0), 0);
+        if (sc > bestScore) { bestScore = sc; best = i; }
+      });
+      home[f.id] = noteBlocks[best].heading;
+    }
+    return home;
+  })();
+  const activeFigs = (() => {
+    if (!activeBlock) return [];
+    const tagged = (activeBlock as { figureTopics?: string[] }).figureTopics;
+    const own = tagged ? atgFiguresByTopic(tagged) : [];
+    const placed = sectionFigures.filter((f) => figHome[f.id] === activeBlock.heading && !own.some((o) => o.id === f.id));
+    return [...own, ...placed];
+  })();
   type Slide = { heading: string; text: string[]; fig: ReturnType<typeof atgFiguresByTopic>[number] | null };
   const slides: Slide[] = (() => {
     if (!activeBlock) return [];
@@ -171,8 +201,9 @@ export default function SectionPage() {
 
   const tabs: { id: Tab; label: string; icon: string }[] = [
     { id: "learn",     label: "Learn",      icon: "book" },
+    ...(REG_MAP[sectionId] || REG_MISSING[sectionId] ? [{ id: "law" as Tab, label: "The Regulations", icon: "book" }] : []),
     ...(sectionExamples.length > 0 ? [{ id: "examples" as Tab, label: "Examples", icon: "formula" }] : []),
-    ...(sectionFigures.length > 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "image" }] : []),
+    ...(sectionFigures.length > 0 && noteBlocks.length === 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "image" }] : []),
     { id: "quiz",      label: "Quiz",       icon: "quiz" },
     { id: "flashcards",label: "Flashcards", icon: "flashcards" },
   ];
@@ -309,9 +340,12 @@ export default function SectionPage() {
                         // Text-only topic (no illustrations): show the points.
                         <div>
                           <h3 className="text-white font-bold text-base mb-3">{curSlide.heading}</h3>
-                          <ul className="space-y-2">
-                            {curSlide.text.map((p, i) => (
-                              <li key={i} className="text-zinc-300 text-sm leading-relaxed flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
+                          <ul className="space-y-2.5">
+                            {curSlide.text.map((p, i) => p.startsWith("§ ") ? (
+                              // "§ " marks a sub-heading inside a long topic.
+                              <li key={i} className="text-gold font-semibold text-[15px] pt-3 first:pt-0">{p.slice(2)}</li>
+                            ) : (
+                              <li key={i} className="text-zinc-300 text-[15px] leading-7 flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
                             ))}
                           </ul>
                         </div>
@@ -336,9 +370,11 @@ export default function SectionPage() {
                                   ))}
                                 </div>
                               ) : (
-                                <ul className="space-y-2">
-                                  {curSlide.text.map((p, i) => (
-                                    <li key={i} className="text-zinc-200 text-sm leading-relaxed flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
+                                <ul className="space-y-2.5">
+                                  {curSlide.text.map((p, i) => p.startsWith("§ ") ? (
+                                    <li key={i} className="text-gold font-semibold text-[15px] pt-3 first:pt-0">{p.slice(2)}</li>
+                                  ) : (
+                                    <li key={i} className="text-zinc-200 text-[15px] leading-7 flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
                                   ))}
                                 </ul>
                               )}
@@ -366,6 +402,9 @@ export default function SectionPage() {
                           <div className="text-center text-zinc-600 text-xs mt-2">Slide {Math.min(slideIdx, slides.length - 1) + 1} of {slides.length}</div>
                         </div>
                       )}
+
+                      {/* Law topics: the regulation wording itself, under the explanation. */}
+                      {(activeBlock as { regs?: string[] } | undefined)?.regs?.length ? <RegulationExcerpt nos={(activeBlock as { regs?: string[] }).regs!} /> : null}
 
                       <div className="flex gap-3 pt-1">
                         <button onClick={() => setActiveTab("quiz")} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl transition-colors">
@@ -413,6 +452,16 @@ export default function SectionPage() {
             </div>
           )}
 
+          {activeTab === "law" && (
+            <div className="max-w-4xl">
+              {REG_MAP[sectionId] ? <RegulationText refs={REG_MAP[sectionId]} initialFind={searchParams.get("find") ?? ""} /> : (
+                <div className="rounded-xl border border-chart-line bg-chart-ground-2 p-6 text-sm text-chart-ink-dim">
+                  The full text of {REG_MISSING[sectionId]} is not in the regulation source supplied yet, so it can&apos;t be shown word for word here. Study notes for this section are on the Learn tab.
+                </div>
+              )}
+            </div>
+          )}
+
           {activeTab === "illustrations" && (
             <div className="max-w-3xl space-y-8">
               {sectionFigures.length === 0 ? (
@@ -448,22 +497,42 @@ export default function SectionPage() {
                   <div className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-4">
                     <div className="text-blue-300 text-xs font-bold uppercase tracking-wider mb-1">Problem</div>
                     <p className="text-zinc-200 text-sm leading-relaxed">{ex.problem}</p>
+                    {ex.given && (
+                      <ul className="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1">
+                        {ex.given.map((g, i) => <li key={i} className="text-zinc-300 text-sm flex gap-2"><span className="text-blue-300/60">•</span><span>{g}</span></li>)}
+                      </ul>
+                    )}
+                    {ex.find && <p className="mt-3 text-sm"><span className="text-blue-300 font-semibold">Find: </span><span className="text-zinc-200">{ex.find}</span></p>}
                   </div>
+                  {ex.concept && (
+                    <div className="mt-4 border-l-2 border-gold/50 pl-4">
+                      <div className="text-gold text-xs font-bold uppercase tracking-wider mb-1">The principle</div>
+                      <p className="text-zinc-300 text-sm leading-relaxed">{ex.concept}</p>
+                    </div>
+                  )}
                   <div className="mt-4">
                     <div className="text-zinc-400 text-xs font-bold uppercase tracking-wider mb-2">Step-by-step method</div>
                     <ol className="space-y-2">
-                      {ex.steps.map((s, i) => (
+                      {(() => { let k = 0; return ex.steps.map((s, i) => s.startsWith("§ ") ? (
+                        <li key={i} className="text-gold font-semibold text-sm pt-2 first:pt-0">{s.slice(2)}</li>
+                      ) : (
                         <li key={i} className="flex gap-3 text-sm">
-                          <span className="w-5 h-5 rounded-full bg-yellow-400/15 text-yellow-400 text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+                          <span className="w-5 h-5 rounded-full bg-yellow-400/15 text-yellow-400 text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{++k}</span>
                           <span className="text-zinc-300 leading-relaxed">{s}</span>
                         </li>
-                      ))}
+                      )); })()}
                     </ol>
                   </div>
                   <div className="mt-4 bg-green-500/5 border border-green-500/25 rounded-xl p-4 flex items-center gap-3">
                     <span className="text-green-400 text-xs font-bold uppercase tracking-wider">Answer</span>
                     <span className="text-green-200 font-semibold text-sm">{ex.answer}</span>
                   </div>
+                  {ex.check && (
+                    <div className="mt-3 text-sm"><span className="text-zinc-400 font-semibold">Sense check: </span><span className="text-zinc-300">{ex.check}</span></div>
+                  )}
+                  {ex.trap && (
+                    <div className="mt-2 bg-red-500/5 border border-red-500/20 rounded-xl p-3 text-sm"><span className="text-red-400 font-semibold">Common mistake: </span><span className="text-zinc-300">{ex.trap}</span></div>
+                  )}
                 </div>
               ))}
               <button onClick={() => setActiveTab("quiz")} className="px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-sm rounded-xl">Practise these in the quiz →</button>
@@ -731,43 +800,7 @@ export default function SectionPage() {
       </main>
 
       {/* Check-Syllabus overlay */}
-      {showSyllabus && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/70 backdrop-blur-sm p-6 overflow-auto" onClick={() => setShowSyllabus(false)}>
-          <div className="w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-2xl my-6" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-900 sticky top-0 bg-zinc-950 rounded-t-2xl">
-              <div>
-                <div className="text-yellow-400 text-xs font-mono">{subject.code ?? subjectId}</div>
-                <h2 className="text-white font-black text-lg">{subject.title} — Syllabus</h2>
-                <p className="text-zinc-600 text-xs mt-0.5">{subject.sections.length} sections · SACAA Appendix aspects</p>
-              </div>
-              <button onClick={() => setShowSyllabus(false)} className="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white text-lg leading-none">×</button>
-            </div>
-            <div className="p-4 space-y-2">
-              {subject.sections.map((s) => (
-                <Link
-                  key={s.id}
-                  href={`/study/${subjectId}/${s.id}`}
-                  onClick={() => setShowSyllabus(false)}
-                  className={`block rounded-xl border p-4 transition-colors ${s.id === sectionId ? "border-yellow-400/40 bg-yellow-400/5" : "border-zinc-900 hover:border-zinc-700 bg-zinc-900/30"}`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs text-yellow-400/80">{s.id}</span>
-                    <span className="text-white font-bold text-sm">{s.title}</span>
-                    {s.id === sectionId && <span className="ml-auto text-[10px] text-yellow-400 uppercase tracking-wider">you are here</span>}
-                  </div>
-                  {s.items?.length > 0 && (
-                    <ul className="mt-2 space-y-1">
-                      {s.items.map((it) => (
-                        <li key={it.id} className="text-zinc-500 text-xs flex gap-2"><span className="text-zinc-700">•</span><span>{it.topic}</span></li>
-                      ))}
-                    </ul>
-                  )}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      {showSyllabus && <SyllabusOverlay subjectId={subjectId} currentSectionId={sectionId} onClose={() => setShowSyllabus(false)} />}
     </div>
   );
 }

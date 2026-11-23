@@ -28,6 +28,8 @@ export const STORY_THUMBS: Record<string, string> = {
   "A.4.2": "fpp/fig_x_vn.png",
   "A.4.4": "fpp/fig_x_vs.png",
   "A.4.5": "fpp/fig_pf_2_4.png",
+  "A.4.6": "fpp/fig_pf_2_4.png",
+  "A.4.3": "fpp/fig_x_vs.png",
   "A.4.7": "fpp/fig_x_vxvy.png",
   "A.4.8": "fpp/fig_x_fac.png",
   "A.4.9": "fpp/fig_x_alt.png",

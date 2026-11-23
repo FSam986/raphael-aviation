@@ -1,3 +1,4 @@
+import { IR_FPP_EXTRA } from "@/app/data/ir-fpp-extra";
 // IR Flight Performance & Planning (C.4) reuses the CPL FPP material — the
 // syllabus overlaps almost entirely. Maps each IR section to the CPL FPP
 // section(s) that cover it.
@@ -20,12 +21,12 @@ const MAP: Record<string, string[]> = {
   "C.4.5": ["A.4.5"], // met terminology
   "C.4.6": ["A.4.8", "A.4.9"], // factors affecting performance + SEP1 performance data
   "C.4.7": ["A.4.1", "A.4.2"], // performance classification + certification/load factors
-  "C.4.9": ["A.4.4"], // stages of flight
+  "C.4.9": ["A.4.3"], // stages of flight
   "C.4.10": ["A.4.13"], // PET & PNR
   "C.4.11": ["A.4.13", "A.4.7", "A.4.11"], // specific performance (incl. MEP1 field performance)
   "C.4.12": ["A.4.13"], // fuel planning
   "C.4.14": ["A.4.5"], // IFR altitudes
-  "C.4.15": ["A.4.5"], // aerodrome terminology
+  "C.4.15": ["A.4.6"], // aerodrome terminology
   "C.4.17": ["A.4.12"], // mass & balance
   // C.4.1 basic aerodynamics, C.4.13 documentation → no direct CPL FPP source.
   // Every CPL FPP section (A.4.1–A.4.13) now maps to an IR code, so the IR
@@ -89,6 +90,11 @@ const AUTHORED: Record<string, AirLawSectionNote> = {
 };
 
 export function getIRFppNoteBySection(s: string): AirLawSectionNote | undefined {
+  const base = irFppBase(s);
+  const extra = IR_FPP_EXTRA[s];
+  return base && extra ? { ...base, blocks: [...base.blocks, ...extra] } : base;
+}
+function irFppBase(s: string): AirLawSectionNote | undefined {
   if (s === "C.4.1") return getAircraftTechnicalNote("A.1.8"); // basic aerodynamics
   if (AUTHORED[s]) return AUTHORED[s];
   const notes = (MAP[s] ?? []).map(getFPPNoteBySection).filter((n): n is AirLawSectionNote => !!n);

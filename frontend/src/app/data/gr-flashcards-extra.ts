@@ -1,0 +1,61 @@
+// GR — extra recall cards so every section has ≥ 16 (written against gr-notes-full.ts).
+import type { AirLawFlashcard } from "./airlaw-flashcards";
+
+const n: Record<string, number> = {};
+const C = (sectionId: string, front: string, back: string, difficulty: AirLawFlashcard["difficulty"] = "medium"): AirLawFlashcard => {
+  n[sectionId] = (n[sectionId] ?? 0) + 1;
+  return { id: `GRX-${sectionId}-${n[sectionId]}`, sectionId, front, back, difficulty };
+};
+
+export const GR_FLASHCARDS_EXTRA: AirLawFlashcard[] = [
+  C("GR1", "Modulation used for aviation VHF voice?", "Amplitude modulation (AM).", "easy"),
+  C("GR1", "Polarisation of VHF COM antennas?", "Vertical (VOR is horizontal; GNSS circular)."),
+  C("GR1", "Advantage of SSB?", "Less power and bandwidth — more channels."),
+  C("GR1", "Wavelength of 120 MHz?", "2.5 m."),
+  C("GR2", "VHF COM band and spacing in SA?", "118.000–136.975 MHz, 25 kHz.", "easy"),
+  C("GR2", "VHF range at 5 000 ft from a ground-level station?", "≈ 1.23 × √5 000 ≈ 87 nm."),
+  C("GR2", "HF voice mode?", "Single sideband (upper sideband)."),
+  C("GR2", "SELCAL?", "Selective calling — chime alerts the crew so HF needn't be monitored aloud."),
+  C("GR4", "Steady green light — in flight / on ground?", "Cleared to land / cleared for take-off.", "easy"),
+  C("GR4", "Steady red — in flight / on ground?", "Give way and continue circling / stop."),
+  C("GR4", "Green flashes — in flight / on ground?", "Return for landing / cleared to taxi."),
+  C("GR4", "Red flashes — in flight / on ground?", "Aerodrome unsafe, don't land / taxi clear of landing area."),
+  C("GR4", "White flashes — in flight / on ground?", "Land here and go to apron / return to starting point."),
+  C("GR4", "Red pyrotechnic?", "Do not land for the time being."),
+  C("GR4", "Red square with yellow cross?", "Landing prohibited."),
+  C("GR6", "Wake categories by MTOM?", "L ≤ 7 000 kg; M 7 000–136 000; H ≥ 136 000; J A380.", "easy"),
+  C("GR6", "Radar separation light behind heavy?", "6 nm."),
+  C("GR6", "Radar separation medium behind heavy?", "5 nm."),
+  C("GR6", "Light behind medium (radar)?", "5 nm."),
+  C("GR6", "Departure behind a heavy — time?", "2 min (3 min from an intermediate point)."),
+  C("GR6", "ATC wake phrase?", "'Caution wake turbulence'."),
+  C("GR6", "Call-sign suffix for heavy/A380?", "HEAVY / SUPER on first contact."),
+  C("GR6", "Landing behind a heavy?", "Stay above its path, land beyond its touchdown."),
+  C("GR6", "Taking off behind a departing heavy?", "Lift off before its rotation point, climb above."),
+  C("GR6", "Worst wind for runway vortices?", "Light crosswind 3–5 kt."),
+  C("GR7", "When is SAR active on a flight plan?", "Only once the flight plan is activated."),
+  C("GR7", "Closing a flight plan at an unmanned aerodrome?", "Pilot must close it (radio/phone) or SAR starts."),
+  C("GR7", "RMK/SARNML?", "Manned destination — SAR if overdue in controlled airspace or non-arrival."),
+  C("GR7", "RMK/SARFACT1230?", "Unmanned destination — SAR at 1230 UTC if not cancelled with Cape Town."),
+  C("GR7", "Item 19 contents?", "Endurance, POB, emergency radio, survival equipment, jackets, dinghies, colour, PIC."),
+  C("GR7", "Signal strips required when?", "Flights more than 20 nm from base — 4 white strips 60 cm × 2.5 m."),
+  C("GR7", "After a forced landing, when transmit on 121.5/ELT?", "At :15 and :45 each hour; continuously when searchers seen/heard."),
+  C("GR8", "Five golden rules?", "Confess, communicate, climb, comply, conserve.", "easy"),
+  C("GR8", "MAYDAY content?", "Station, ident, nature, intention, position, altitude, heading."),
+  C("GR8", "MINIMUM FUEL vs MAYDAY FUEL?", "Min fuel: further delay → below final reserve. Mayday fuel: current clearance → below final reserve."),
+  C("GR8", "Interceptor rocks wings ahead-left then turns?", "Follow me."),
+  C("GR8", "Interceptor abrupt climbing breakaway?", "You may proceed."),
+  C("GR8", "Interceptor lowers gear over runway?", "Land at this aerodrome."),
+  C("GR8", "Intercepted aircraft irregular flashing lights?", "In distress."),
+  C("GR8", "Urgency light signal?", "Repeated switching of landing or nav lights on and off."),
+  C("GR8", "HF emergency frequencies?", "2 182 kHz and 8 364 kHz."),
+  C("GR9", "First fault-finding checks?", "Frequency, range, master/avionics, volume, squelch, audio panel, headset, PTT, CBs."),
+  C("GR9", "Silent busy frequency suggests?", "Receiver fault (volume/audio panel)."),
+  C("GR9", "Transmitting blind — how?", "Prefix 'transmitting blind', send each message twice."),
+  C("GR9", "VFR RCF in controlled airspace?", "Squawk 7600, leave by shortest route, land at an uncontrolled aerodrome."),
+  C("GR9", "Joining a controlled aerodrome with RCF?", "Landing light on, overhead 1 000 ft above circuit, watch light signals."),
+  C("GR9", "After landing following RCF?", "Telephone the ATSU."),
+  C("GR9", "IFR RCF non-radar / radar wait?", "20 min / 7 min at last level, then flight plan."),
+  C("GR9", "IFR RCF — when to land?", "Within 30 min after commencing descent (EAT/ETA)."),
+  C("GR9", "Transmitter-only failure — ATC confirmation?", "Asked to squawk ident / turn / lights."),
+];

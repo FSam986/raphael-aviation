@@ -1,3 +1,5 @@
+import { AWO_FULL } from "@/app/data/awo-notes-full";
+import { pickPplNote } from "@/app/data/ppl-pick";
 // IR Air Law & All-Weather Operations (C.3) — the Air Law parts reuse the CPL
 // Air Law material (definitions, airspace/AIP/charts, Annex 14). The pure
 // flight-procedure sections (general procedures, altimeter setting, departure,
@@ -56,6 +58,15 @@ export function getIRAwoNoteBySection(s: string): AirLawSectionNote | undefined 
   // Dedicated flight-procedure notes (C.3.2/3.4/3.5/3.6/3.7) take priority; other
   // sections fall back to the reused CPL Air Law notes via MAP.
   const awo = getAWONoteBySection(s);
+  const full = AWO_FULL[s];
+  if (full) {
+    const title = awo?.title ?? s;
+    return { sectionId: s, title, intro: full.intro, blocks: [...full.blocks, ...(awo?.blocks ?? [])], mustKnow: [...full.mustKnow, ...(awo?.mustKnow ?? [])], traps: [...full.traps, ...(awo?.traps ?? [])] };
+  }
+  if (s === "C.3.7") {
+    const cpl = pickPplNote(s, awo?.title ?? "ICAO Annex 14 — Aerodromes", ["A.3.18"]);
+    if (awo && cpl) return { ...awo, blocks: [...awo.blocks, ...cpl.blocks], mustKnow: [...awo.mustKnow, ...cpl.mustKnow], traps: [...awo.traps, ...cpl.traps] };
+  }
   if (awo) return awo;
   const notes = (MAP[s] ?? []).map(getAirLawNoteBySection).filter((n): n is AirLawSectionNote => !!n);
   if (notes.length === 0) return undefined;

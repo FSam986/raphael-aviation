@@ -1,6 +1,7 @@
 // CPL Navigation (A.9.x) flashcards. Authored in-house.
 
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
+import { NAV_FLASHCARDS_EXTRA } from "./nav-flashcards-extra";
 
 import { NAV_FLASHCARDS_BOOST } from "@/app/data/nav-flashcards-boost";
 
@@ -41,5 +42,5 @@ export const NAV_FLASHCARDS: AirLawFlashcard[] = [
 ];
 
 export function getNavFlashcardsBySection(sectionId: string): AirLawFlashcard[] {
-  return [...NAV_FLASHCARDS, ...NAV_FLASHCARDS_BOOST].filter((f) => f.sectionId === sectionId);
+  return [...NAV_FLASHCARDS, ...NAV_FLASHCARDS_BOOST, ...NAV_FLASHCARDS_EXTRA].filter((f) => f.sectionId === sectionId);
 }

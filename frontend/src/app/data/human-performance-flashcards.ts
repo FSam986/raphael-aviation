@@ -78,6 +78,8 @@ export const HUMAN_PERFORMANCE_FLASHCARDS: HPFlashcard[] = [
   { id: "HPFC-NUM-07", sectionId: "A.6.3", front: "Memory & reaction numbers", back: "Iconic store ~0.5–1 s, echoic ~2–8 s. Working memory 7±2 items, lost in ~10–20 s without rehearsal. Simple reaction time ~0.2 s. The 5 hazardous attitudes: anti-authority, impulsivity, invulnerability, macho, resignation.", difficulty: "hard" },
 ];
 
+import { HP_FLASHCARDS_EXTRA } from "./hp-flashcards-extra";
+
 export function getHumanPerformanceFlashcardsBySection(sectionId: string): HPFlashcard[] {
-  return HUMAN_PERFORMANCE_FLASHCARDS.filter((x) => x.sectionId === sectionId);
+  return [...HUMAN_PERFORMANCE_FLASHCARDS, ...HP_FLASHCARDS_EXTRA].filter((x) => x.sectionId === sectionId);
 }

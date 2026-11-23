@@ -9,7 +9,7 @@ import { IR_MET_MINED_QUESTIONS, getIRMetMinedQuestionsBySection } from "@/app/d
 // Reverse map: CPL met section (A.8.x) → the IR section(s) that use it, so the
 // mined IR-met questions (tagged with A.8.x) surface under the right IR section.
 
-// IR section id → CPL met content section(s) (met-notes numbering: A.8.1=Atmosphere).
+// IR section id → CPL met content section(s) (appendix numbering: A.8.2 = Atmosphere, A.8.18 = TRS, A.8.20 = SA weather).
 const MAP: Record<string, string[]> = {
   "C.1.1": ["A.8.1", "A.8.2"],
   "C.1.2": ["A.8.3"],
@@ -24,9 +24,9 @@ const MAP: Record<string, string[]> = {
   "C.1.11": ["A.8.13"],
   "C.1.12": ["A.8.14"],
   "C.1.13": ["A.8.15", "A.8.16"],
-  "C.1.14": ["A.8.17", "A.8.18"],
-  "C.1.15": ["A.8.19"],
-  "C.1.16": ["A.8.19", "A.8.20"],
+  "C.1.14": ["A.8.17"],
+  "C.1.15": ["A.8.19", "A.8.18"],
+  "C.1.16": ["A.8.20"],
   "C.1.17": ["A.8.21"],
 };
 

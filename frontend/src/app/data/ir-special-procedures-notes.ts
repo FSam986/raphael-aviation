@@ -1,3 +1,5 @@
+import { pickPplNote } from "@/app/data/ppl-pick";
+import { IR_NOTES_NEW } from "@/app/data/ir-notes-new";
 // SACAA IR — SPECIAL OPERATIONAL PROCEDURES & HAZARDS study notes.
 // Original plain-language notes for the IR "Special Operational Procedures &
 // Hazards" syllabus (C.5.x). Section ids match ir-syllabus.ts. Reuses the Air
@@ -277,6 +279,19 @@ export const IR_SOP_NOTES: AirLawSectionNote[] = [
   },
 ];
 
+const SOP_PICK: Record<string, [string, string[]]> = {
+  "C.5.2": ["Bird Strike Risk & Avoidance", ["A.1.7#Bird strike"]],
+  "C.5.3": ["Fire & Smoke", ["A.1.7#Fire classes|Carburettor fire|Fire in the cabin|Over-heated", "A.1.6#Fire fighting"]],
+  "C.5.4": ["Windshear & Microburst", ["A.1.7#Windshear", "A.8.14#Windshear"]],
+  "C.5.5": ["Wake Turbulence", ["A.1.7#Wake turbulence"]],
+  "C.5.6": ["Contaminated Runways", ["A.1.7#Contaminated|Hydroplaning"]],
+};
 export function getIRSpecProcNoteBySection(sectionId: string): AirLawSectionNote | undefined {
-  return IR_SOP_NOTES.find((n) => n.sectionId === sectionId);
+  const own = IR_NOTES_NEW.find((n) => n.sectionId === sectionId);
+  if (own) return own;
+  const e = SOP_PICK[sectionId];
+  const picked = e ? pickPplNote(sectionId, e[0], e[1]) : undefined;
+  const old = IR_SOP_NOTES.find((n) => n.sectionId === sectionId);
+  if (picked && old) return { ...picked, intro: old.intro, blocks: [...old.blocks, ...picked.blocks], mustKnow: [...old.mustKnow, ...picked.mustKnow], traps: [...old.traps, ...picked.traps] };
+  return picked ?? old;
 }

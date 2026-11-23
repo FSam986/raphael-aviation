@@ -97,6 +97,18 @@ export const AIRLAW_FLASHCARDS: AirLawFlashcard[] = [
   { id: "LFC-NUM-06", sectionId: "A.3.4", front: "Passenger recency & licence ages", back: "Carry passengers: 3 take-offs + 3 landings in last 90 days (3 by night for night pax). PPL age 17 (solo 16), Class 2; CPL age 18, Class 1; ATPL 21.", difficulty: "medium" },
   { id: "LFC-NUM-07", sectionId: "A.3.14", front: "Airspace classes (table)", back: "A: IFR only. B: IFR+VFR, all separated. C: IFR separated from all; VFR separated from IFR + traffic info. D: IFR separated from IFR; traffic info on VFR. E: IFR separated from IFR; VFR free. F: advisory. G: uncontrolled. A–E controlled.", difficulty: "hard" },
   { id: "LFC-NUM-08", sectionId: "A.3.2", front: "Accident-report & injury numbers", back: "Serious injury = >48 h hospitalisation (within 7 days) / any fracture except fingers-toes-nose / burns >5% body. Fatal = death within 30 days. Report accidents/serious incidents to the AIID without delay.", difficulty: "medium" },
+  // A.3.10 / A.3.15 / A.3.8 additions (from the full study text)
+  { id: "LFC-X10-01", sectionId: "A.3.10", front: "Part 121 applies to aeroplanes with what passenger seating?", back: "A maximum certificated passenger seating capacity of 20 or more (initial type certificate).", difficulty: "easy" },
+  { id: "LFC-X10-02", sectionId: "A.3.10", front: "Part 121 threshold for all-cargo aeroplanes?", back: "MCM greater than 8 618 kg.", difficulty: "medium" },
+  { id: "LFC-X10-03", sectionId: "A.3.10", front: "Is a 20-seat commercial aeroplane Part 121 or 135?", back: "Part 121 (Part 135 is 19 seats or fewer).", difficulty: "medium" },
+  { id: "LFC-X10-04", sectionId: "A.3.10", front: "What two authorisations does a commercial air transport operator need?", back: "An air service licence (Air Services Licensing Council) and an air operator certificate (AOC) with operations specifications from the SACAA.", difficulty: "medium" },
+  { id: "LFC-X10-05", sectionId: "A.3.10", front: "Seat count for Part 121/135: installed seats or type certificate?", back: "The maximum certificated passenger seating capacity on the INITIAL type certificate.", difficulty: "hard" },
+  { id: "LFC-X15-01", sectionId: "A.3.15", front: "Is letting another person use your licence an offence?", back: "Yes, under 185.00.1(1)(h).", difficulty: "easy" },
+  { id: "LFC-X15-02", sectionId: "A.3.15", front: "Penalty for contravening Part 5 of the Act or an approved safety plan?", back: "Fine up to R50 000 or imprisonment up to 10 years, or both.", difficulty: "medium" },
+  { id: "LFC-X15-03", sectionId: "A.3.15", front: "Is operating without a valid C of R or C of A an offence?", back: "Yes, 185.00.1(1)(i).", difficulty: "easy" },
+  { id: "LFC-X15-04", sectionId: "A.3.15", front: "Name two offences relating to documents.", back: "False statements to obtain a licence/certificate, false logbook entries, or falsifying/altering a licence or certificate.", difficulty: "medium" },
+  { id: "LFC-X15-05", sectionId: "A.3.15", front: "Is entering a closed area of a licensed aerodrome without permission an offence?", back: "Yes, 185.00.1(1)(k).", difficulty: "easy" },
+  { id: "LFC-X08-01", sectionId: "A.3.8", front: "Corporate twin-engine operations limit without approval?", back: "No point more than 60 minutes (OEI cruise, still air) from an adequate aerodrome.", difficulty: "medium" },
 ];
 
 export function getAirLawFlashcardsBySection(sectionId: string): AirLawFlashcard[] {

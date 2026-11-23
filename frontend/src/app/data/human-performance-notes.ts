@@ -18,6 +18,9 @@ export interface SectionNote {
   traps: string[];
 }
 
+import { HP_NOTES_FULL } from "./hp-notes-full";
+import { HP_NOTES_FULL_B } from "./hp-notes-full-b";
+
 const NOTES: Record<string, SectionNote> = {
   "A.6.1": {
     sectionId: "A.6.1",
@@ -171,5 +174,5 @@ const NOTES: Record<string, SectionNote> = {
 };
 
 export function getHumanPerformanceNote(sectionId: string): SectionNote | undefined {
-  return NOTES[sectionId];
+  return [...HP_NOTES_FULL, ...HP_NOTES_FULL_B].find((n) => n.sectionId === sectionId) ?? NOTES[sectionId];
 }

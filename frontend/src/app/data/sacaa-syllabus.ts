@@ -311,21 +311,39 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
         ],
       },
       {
-        id: "A.4.4",
-        title: "Stages of Flight & Airspeed Terminology",
+        id: "A.4.3",
+        title: "Stages of Flight",
         items: [
-          { id: "A.4.4.a", topic: "Stages — take-off, climb, level flight, descent, approach, landing" },
-          { id: "A.4.4.b", topic: "IAS, CAS, TAS — and VA, VNO, VNE, VX, VY, VS, VSO, VFE, VLO, VLE, VMO" },
-          { id: "A.4.4.c", topic: "VMCG, VMCA, V1, VR, V2, VREF, VLOF" },
+          { id: "A.4.3.a", topic: "Take-off, climb, level flight, descending, approach and landing" },
+        ],
+      },
+      {
+        id: "A.4.4",
+        title: "Airspeed Terminology and Symbols",
+        items: [
+          { id: "A.4.4.a", topic: "IAS, RAS (CAS), TAS" },
+          { id: "A.4.4.b", topic: "VA, VNO, VNE, VX, VY, VS, VSO, VFO, VFE, VLO, VLE, VMO, VS1g, VSR, VSR0, VSR1" },
+          { id: "A.4.4.c", topic: "VMCG, VMCA, VMC, V1, VR, V2, VREF, VLOF, VMBE" },
         ],
       },
       {
         id: "A.4.5",
-        title: "Meteorological & Aerodrome Terminology",
+        title: "Meteorological Terminology",
         items: [
-          { id: "A.4.5.a", topic: "ISA — standard values, OAT, TAT, SAT, ISA deviation" },
-          { id: "A.4.5.b", topic: "Pressure altitude, density altitude, QNH, QFE, QNE" },
-          { id: "A.4.5.c", topic: "TORA, TODA, TORR, TODR, LDA, LDR, clearway, stopway, runway slope, PCN/ACN" },
+          { id: "A.4.5.a", topic: "International Standard Atmosphere (ISA)" },
+          { id: "A.4.5.b", topic: "OAT, IOAT, TAT, SAT, RAT" },
+          { id: "A.4.5.c", topic: "Temperature deviation from ISA" },
+          { id: "A.4.5.d", topic: "Pressure altitude, density altitude" },
+          { id: "A.4.5.e", topic: "QNH, QFE, QNE" },
+        ],
+      },
+      {
+        id: "A.4.6",
+        title: "Aerodrome Terminology",
+        items: [
+          { id: "A.4.6.a", topic: "Runway length, TORA, TORR, TODA, TODR, LDA, LDR, clearway, stopway" },
+          { id: "A.4.6.b", topic: "Displaced thresholds, accelerate-stop and accelerate-go, runway slope" },
+          { id: "A.4.6.c", topic: "Runway strength (ACN/PCN), balanced and unbalanced field lengths, WAT limits" },
         ],
       },
       {
@@ -492,14 +510,22 @@ export const SACAA_SYLLABUS: SyllabusSubject[] = [
           { id: "A.7.2.c", topic: "Remote indicating compass — construction, components, modes" },
           { id: "A.7.2.d", topic: "Artificial Horizon — construction, turn/acceleration errors" },
           { id: "A.7.2.e", topic: "Turn & slip indicator — construction, errors, turn coordinator, rate of turn" },
-          { id: "A.7.2.f", topic: "HSI / EFIS — PFD, ND, MCP, FMS, display types and colours" },
+          { id: "A.7.2.f", topic: "Horizontal Situation Indicator (HSI) — construction, information displayed" },
         ],
       },
       {
         id: "A.7.3",
         title: "Electronic Flight Instrument System (EFIS)",
         items: [
-          { id: "A.7.3.a", topic: "Flight director — principle, input sources, ADI, HSI operation" },
+          { id: "A.7.3.a", topic: "Design and operation, FMS, PFD, ND/MFD, MCP" },
+          { id: "A.7.3.b", topic: "Display types and colours, data input, installation, propulsion and crew alerting displays" },
+        ],
+      },
+      {
+        id: "A.7.4",
+        title: "Flight Director System",
+        items: [
+          { id: "A.7.4.a", topic: "Principle of operation, input sources, ADI and HSI operation" },
         ],
       },
       {

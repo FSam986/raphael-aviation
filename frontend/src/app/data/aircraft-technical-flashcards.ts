@@ -152,6 +152,8 @@ export const AIRCRAFT_TECHNICAL_FLASHCARDS: ATGFlashcard[] = [
   { id: "ATGFC-18-17", sectionId: "A.1.8", front: "Where is induced vs parasite drag greatest?", back: "Induced drag (∝ 1/V²) dominates at LOW speed/high AoA; parasite drag (∝ V²) dominates at HIGH speed. Total drag is minimum where they are equal — that speed gives max L/D (best glide/range).", difficulty: "medium" },
 ];
 
+import { ATG_FLASHCARDS_EXTRA } from "./atg-flashcards-extra";
+
 export function getAircraftTechnicalFlashcardsBySection(sectionId: string): ATGFlashcard[] {
-  return AIRCRAFT_TECHNICAL_FLASHCARDS.filter((x) => x.sectionId === sectionId);
+  return [...AIRCRAFT_TECHNICAL_FLASHCARDS, ...ATG_FLASHCARDS_EXTRA].filter((x) => x.sectionId === sectionId);
 }

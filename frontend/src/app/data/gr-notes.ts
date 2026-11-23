@@ -1,3 +1,5 @@
+import { GR_FULL } from "@/app/data/gr-notes-full";
+import { pickPplNote } from "@/app/data/ppl-pick";
 // General Radiotelephony (GR1–GR9) study notes — TEXTBOOK DEPTH. Teaching prose
 // authored in-house from standard aeronautical radiotelephony and the SACAA
 // Appendix 1.5 A syllabus scope. No textbook text reproduced. Shape matches
@@ -322,5 +324,16 @@ export const GR_NOTES: AirLawSectionNote[] = [
 ];
 
 export function getGRNoteBySection(sectionId: string): AirLawSectionNote | undefined {
-  return GR_NOTES.find((n) => n.sectionId === sectionId);
+  const full = GR_FULL[sectionId];
+  const old = GR_NOTES.find((n) => n.sectionId === sectionId);
+  if (!full) return old;
+  const cpl = full.pick ? pickPplNote(sectionId, full.title, full.pick) : undefined;
+  return {
+    sectionId,
+    title: full.title,
+    intro: full.intro,
+    blocks: [...full.blocks, ...(cpl?.blocks ?? []), ...(full.blocks.length ? [] : old?.blocks ?? [])],
+    mustKnow: [...full.mustKnow, ...(cpl?.mustKnow ?? [])],
+    traps: [...full.traps, ...(cpl?.traps ?? [])],
+  };
 }

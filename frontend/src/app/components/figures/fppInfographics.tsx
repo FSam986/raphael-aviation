@@ -78,14 +78,14 @@ function PETdiagram() {
 
 export function PerformanceClassification() {
   return (
-    <Infographic title="Aeroplane Performance Classification" tagline="Classes A/B/C and gross vs net"
+    <Infographic title="Aeroplane Performance Classification" tagline="SA CAR 91.08.4 — Classes A, B, C and D"
       panels={[
-        { heading: "PERFORMANCE CLASSES", tone: "blue", points: ["Class A — most large multi-engine turbine aeroplanes (>9 pax or >5700 kg).", "Class B — light propeller aeroplanes (≤9 pax and ≤5700 kg) — most CPL trainers.", "Class C — older large piston aeroplanes."] },
+        { heading: "PERFORMANCE CLASSES (CAR 91.08.4)", tone: "blue", points: ["Class A — multi-engine turboprops with MCM over 5 700 kg, and all multi-engine turbojets.", "Class B — propeller-driven aeroplanes, other than single-engine, with MCM of 5 700 kg or less.", "Class C — two or more reciprocating engines with MCM over 5 700 kg.", "Class D — single-engine aeroplanes."] },
         { heading: "GROSS vs NET", tone: "teal", points: ["Gross performance = the average a fleet achieves.", "Net performance = gross reduced by a safety margin — used for OBSTACLE clearance.", "Obstacles are cleared on the NET flight path."] },
-        { heading: "MASS LIMITS", tone: "purple", wide: true, points: ["Dispatch take-off mass is the LOWEST of the field-length, climb (WAT), obstacle and en-route limited masses.", "Class A must continue the take-off and clear obstacles on the net path after an engine failure at/after V1."] },
+        { heading: "CLASS A & C TAKE-OFF RULE", tone: "purple", wide: true, points: ["Critical power-unit fails at any point: either stop within the accelerate-stop distance available / runway available, or continue and clear all obstacles by an adequate margin.", "Adequate margin (SA-CATS 91.08.5): net flight path clears obstacles by 35 ft vertically or 90 m + 0.125D laterally."] },
       ]}
-      keyPoints={["Class B = light props (≤9 pax, ≤5700 kg).", "Net = gross − safety margin (for obstacles).", "TOM = lowest of field/climb/obstacle/en-route limits."]}
-      summary="Know your class, and remember obstacles are cleared on the NET flight path." />
+      keyPoints={["Class D = single-engine (SEP1).", "Class B = light twins ≤ 5 700 kg (MEP1).", "Net = gross − safety margin (for obstacles).", "35 ft or 90 m + 0.125D."]}
+      summary="SA has four classes — the SEP1 is Class D and the MEP1 is Class B. Obstacles are cleared on the NET flight path." />
   );
 }
 export function Certification() {

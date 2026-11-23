@@ -4,6 +4,7 @@
 // resolve to the A.9 inline SVGs. Shape matches AirLawSectionNote.
 
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
+import { NAV_NOTES_FULL } from "./nav-notes-full";
 
 export const NAV_NOTES: AirLawSectionNote[] = [
   {
@@ -318,5 +319,7 @@ export const NAV_NOTES: AirLawSectionNote[] = [
 ];
 
 export function getNavNoteBySection(sectionId: string): AirLawSectionNote | undefined {
+  const full = NAV_NOTES_FULL.find((n) => n.sectionId === sectionId);
+  if (full) return full;
   return NAV_NOTES.find((n) => n.sectionId === sectionId);
 }

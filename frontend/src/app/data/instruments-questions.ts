@@ -246,6 +246,11 @@ export const ALL_INSTRUMENTS_QUESTIONS: AirLawQuestion[] = [
   ...INSTRUMENTS_TOPUP3_QUESTIONS,
 ];
 
+// The appendix lists the Flight Director as its own aspect (A.7.4); older banks
+// filed it under EFIS (A.7.3). Re-home those questions by topic.
+const FD = /flight director|command bar|\bFD\b/i;
+const home = (q: AirLawQuestion) => (q.sectionId === "A.7.3" && FD.test(q.question) ? "A.7.4" : q.sectionId);
+
 export function getInstrumentsQuestionsBySection(sectionId: string): AirLawQuestion[] {
-  return ALL_INSTRUMENTS_QUESTIONS.filter((q) => q.sectionId === sectionId);
+  return ALL_INSTRUMENTS_QUESTIONS.filter((q) => home(q) === sectionId);
 }

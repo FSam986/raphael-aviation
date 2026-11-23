@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { SearchPalette } from "@/app/components/SearchPalette";
+import { SyllabusOverlay } from "@/app/components/SyllabusOverlay";
 import { useEffect, useState, type ReactNode } from "react";
-import { COURSES, type CourseId } from "@/app/lib/course";
+import { COURSES, pathForCourse, type CourseId } from "@/app/lib/course";
+import { usePathname, useRouter } from "next/navigation";
 import { useCourse } from "@/app/hooks/useCourse";
 import { ownsCourse } from "@/app/lib/entitlement";
 
@@ -52,6 +55,8 @@ export function Sidebar({
   onSignOut?: () => void;
 }) {
   const { course, setCourse } = useCourse();
+  const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -94,7 +99,7 @@ export function Sidebar({
                   return (
                     <button
                       key={c.id}
-                      onClick={() => setCourse(c.id)}
+                      onClick={() => { setCourse(c.id); const to = pathForCourse(pathname, c.id); if (to) router.push(to); }}
                       disabled={!owned}
                       title={owned ? undefined : `${COURSES[c.id].name} — locked (manage in Settings)`}
                       className={`flex-1 py-1.5 rounded-md text-xs font-semibold transition-colors inline-flex items-center justify-center gap-1 ${
@@ -114,6 +119,8 @@ export function Sidebar({
         })}
       </div>
 
+      <SearchPalette />
+      <SyllabusButton />
       <nav className="flex-1 p-4 space-y-0.5 overflow-auto">
         {NAV_ITEMS.map((item) => {
           const on = item.href === active;
@@ -173,5 +180,20 @@ function NightToggle() {
       Night mode
       <span className={`ml-auto w-8 h-4 rounded-full relative transition-colors ${on ? "bg-gold" : "bg-chart-line-2"}`}><span className={`absolute top-0.5 w-3 h-3 rounded-full bg-chart-ground transition-all ${on ? "left-[18px]" : "left-0.5"}`} /></span>
     </button>
+  );
+}
+
+// Opens the full syllabus for any subject in the active course (available on every page).
+function SyllabusButton() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button onClick={(e) => { e.stopPropagation(); setOpen(true); }}
+        className="mx-4 mt-2 flex items-center gap-2.5 px-3 py-2 rounded-lg border border-chart-line text-sm text-chart-ink-dim hover:text-chart-ink hover:border-chart-line-2 transition-colors">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden><path d="M4 5h16M4 10h16M4 15h10M4 20h7" /></svg>
+        Check syllabus
+      </button>
+      {open && <SyllabusOverlay onClose={() => setOpen(false)} />}
+    </>
   );
 }
