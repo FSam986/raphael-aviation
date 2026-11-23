@@ -71,6 +71,7 @@ export const AIRLAW_NOTES_FULL: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "Notification of accidents and incidents (12.02.1–12.02.5)",
+        figureTopics: ["Accidents & incidents"],
         points: [
           "§ Who must notify an accident (12.02.1)",
           "The PIC. If the PIC is killed or incapacitated, a flight crew member. If there are no surviving or capable flight crew members, the operator or owner.",
@@ -379,6 +380,7 @@ export const AIRLAW_NOTES_FULL: AirLawSectionNote[] = [
       },
       {
         heading: "Rules of the air: right of way, speeds, lights, minimum heights, semi-circular rule (91.06)",
+        figureTopics: ["Right of way", "Cruising levels", "Minimum heights"],
         points: [
           "§ Right of way (91.06.7)",
           "The aircraft with right of way maintains heading and speed, but must still act to avoid a collision (including following ACAS RAs). An aircraft giving way must not pass over, under or ahead unless well clear, allowing for wake turbulence.",
@@ -405,6 +407,7 @@ export const AIRLAW_NOTES_FULL: AirLawSectionNote[] = [
       },
       {
         heading: "Radio communication: mandatory radio and RCF procedures (91.06.16–91.06.17)",
+        figureTopics: ["Signals & radio failure"],
         points: [
           "§ Controlled airspace (91.06.16)",
           "Before entering controlled airspace, establish two-way radio contact with the responsible ATSU on the designated frequency, and keep a continuous watch until leaving. ATC may allow a non-radio aircraft in if traffic permits. After a radio failure, a flight with an activated flight plan may continue if the RCF procedures are followed.",
@@ -486,6 +489,7 @@ export const AIRLAW_NOTES_FULL: AirLawSectionNote[] = [
     blocks: [
       {
         heading: "Applicability, prohibitions, training, loading and carriage by passengers (Part 92)",
+        figureTopics: ["Dangerous goods"],
         points: [
           "§ Applicability (92.00.1)",
           "Part 92 applies to any aircraft used to carry dangerous goods, to anyone who offers, carries or accepts them, and to passengers and crew. It does not apply to military aircraft, or to dangerous goods carried for medical or veterinary aid in flight, for agricultural, forestry or pollution-control spraying, for game and livestock management, required on board for airworthiness or operations (e.g. fire extinguishers, oxygen), for specialised purposes, or for passengers' and crew's personal use within the limits in SA-CATS 92.",

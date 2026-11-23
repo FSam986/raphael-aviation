@@ -9,6 +9,7 @@
 // ============================================================================
 
 import { AIRLAW_NOTES_FULL } from "./airlaw-notes-full";
+import { AIRLAW_NOTES_FULL_B } from "./airlaw-notes-full-b";
 
 export interface AirLawNoteBlock {
   heading: string;
@@ -661,5 +662,5 @@ export const AIRLAW_NOTES: AirLawSectionNote[] = [
 
 export function getAirLawNoteBySection(sectionId: string): AirLawSectionNote | undefined {
   // Full textbook-depth notes (with the regulation wording) replace the short notes.
-  return AIRLAW_NOTES_FULL.find((n) => n.sectionId === sectionId) ?? AIRLAW_NOTES.find((n) => n.sectionId === sectionId);
+  return [...AIRLAW_NOTES_FULL, ...AIRLAW_NOTES_FULL_B].find((n) => n.sectionId === sectionId) ?? AIRLAW_NOTES.find((n) => n.sectionId === sectionId);
 }

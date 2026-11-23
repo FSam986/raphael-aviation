@@ -347,9 +347,11 @@ export default function SectionPage() {
                                   ))}
                                 </div>
                               ) : (
-                                <ul className="space-y-2">
-                                  {curSlide.text.map((p, i) => (
-                                    <li key={i} className="text-zinc-200 text-sm leading-relaxed flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
+                                <ul className="space-y-2.5">
+                                  {curSlide.text.map((p, i) => p.startsWith("§ ") ? (
+                                    <li key={i} className="text-gold font-semibold text-[15px] pt-3 first:pt-0">{p.slice(2)}</li>
+                                  ) : (
+                                    <li key={i} className="text-zinc-200 text-[15px] leading-7 flex gap-2"><span className="text-yellow-400/60 mt-0.5">•</span><span>{X(p)}</span></li>
                                   ))}
                                 </ul>
                               )}
