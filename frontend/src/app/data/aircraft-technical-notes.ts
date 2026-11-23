@@ -1,3 +1,6 @@
+import { ATG_SUPPLEMENT } from "./atg-supplement";
+import { ATG_NOTES_FULL } from "./atg-notes-full";
+import { ATG_POF_NOTES_FULL } from "./atg-pof-notes-full";
 // Aircraft Technical & General — study notes.
 // Distilled from CAE Oxford ATPL Book 2 "Airframes & Systems" and the SACAA
 // A.1 syllabus. This VOLUME covers A.1.1 structures, A.1.2 airframe/systems,
@@ -635,5 +638,9 @@ const NOTES: Record<string, SectionNote> = {
 };
 
 export function getAircraftTechnicalNote(sectionId: string): SectionNote | undefined {
-  return NOTES[sectionId];
+  const full = [...ATG_NOTES_FULL, ...ATG_POF_NOTES_FULL].find((n) => n.sectionId === sectionId);
+  if (full) return full;
+  const base = NOTES[sectionId];
+  const extra = ATG_SUPPLEMENT[sectionId];
+  return base && extra ? { ...base, blocks: [...base.blocks, ...extra] } : base;
 }
