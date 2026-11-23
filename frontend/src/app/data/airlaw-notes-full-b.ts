@@ -7,6 +7,73 @@ import type { AirLawSectionNote } from "./airlaw-notes";
 export const AIRLAW_NOTES_FULL_B: AirLawSectionNote[] = [
   // ─────────────────────────────────────────────────────────────────────────
   {
+    sectionId: "A.3.3",
+    title: "General Maintenance Rules (CAR Part 43)",
+    intro:
+      "Part 43 governs the maintenance of South African registered type-certificated aircraft and their components, and who may release an aircraft to service. For a pilot the key points are: the logbooks and how entries are made, falsification, the limited maintenance a pilot-owner may do, who may certify release to service, the mass and balance (weighing) rule, and the compass swing requirements.",
+    blocks: [
+      {
+        heading: "Logbooks, entries, falsification (43.01.1–43.01.5)",
+        points: [
+          "§ In plain words",
+          "Part 43 applies to the maintenance and release to service of type-certificated aircraft registered in South Africa, and of components to be fitted to them.",
+          "No one may make a false or fraudulent entry in any maintenance record, and maintenance records may not be reproduced or altered unless justified.",
+          "Three logbooks are kept: an aircraft logbook, an engine logbook for each engine, and a propeller logbook for each propeller. They are kept preferably at base; maintenance done away from base must be transferred into them within 48 HOURS of return to base. Logbooks must be available to an authorised officer, inspector or authorised person at all times.",
+          "Entries are made and signed by an appropriately licensed person (AME), a Part 145 authorised person, or a person approved by the Director. Matters that could not have come to the notice of the licence holder (e.g. a hard landing in flight) are entered and signed by the PIC. Corrections must leave the original entry legible; correction fluid is prohibited.",
+          "Larger aircraft (more than 9 passenger seats, aeroplanes over 5 700 kg, helicopters over 3 175 kg) may use an approved tracking system instead of logbooks for components and major repairs.",
+          "§ The regulations, as written",
+          "43.01.1 Applicability: (1) This Part applies to the maintenance, and the release to service after maintenance, of – (a) type certificated aircraft registered in the Republic; and (b) aircraft components to be fitted to such aircraft.",
+          "43.01.2 Falsification, reproduction or alteration of maintenance documents: (1) A person shall not make or cause to be made any false or fraudulent entry in any record, which is required to be made, kept, or used to show compliance with any requirement prescribed in this Part. (2) Records or reports made in terms of this Part shall be prohibited from reproduction or alterations unless it is justifiable to do so.",
+          "43.01.3 Logbooks: (1) The following logbooks shall be kept in respect of a South African registered aircraft and other specified equipment for the purpose of recording therein the maintenance history of the equipment to which each relates – (a) an approved aircraft logbook for each aircraft; (b) an approved engine logbook for each aircraft engine; and (c) an approved propeller logbook for each propeller. (2)(a) Logbooks should preferably be kept at the aircraft's base of operation. (b) Details in respect of maintenance carried out while away from base shall be transferred to the appropriate logbook(s) within 48 hours after the return of the aircraft to its base of operation or entered within 48 hours of completion of any maintenance performed on the aircraft or other equipment at its base of operation. (3) All logbooks to be kept and maintained in terms of the preceding sub-regulations shall be made available to an authorised officer, an inspector or an authorised person at all times for inspection.",
+          "43.01.5 Entries in logbooks: (1) Entries in logbooks required to be kept in accordance with regulation 43.01.3(1) shall be made and signed by the holder of an appropriate licence, or a person holding a valid authorisation issued in terms of Part 145, or by a person approved for the purpose by the Director. Matters that could not have come to the notice of such licence holder shall be entered and signed by the pilot-in-command. … (4) Whenever corrections are made to entries in a logbook, work packs or any other related documents, the correction shall be made in such a way that the original entry still remains legible. The use of correction fluid or similar correction methods is prohibited.",
+        ],
+      },
+      {
+        heading: "Persons to carry out maintenance, release to service, compass requirements",
+        points: [
+          "§ Maintenance a pilot may do (43.02.2 and SA-CATS 43.02.2)",
+          "A pilot licence holder (not a student pilot) with an appropriate rating may do limited maintenance only if he or she is the OWNER or OPERATOR and the aircraft is used for NON-COMMERCIAL operations, on aeroplanes of 5 700 kg MCM or less (or 9 passenger seats or less) and helicopters of 3 175 kg or less.",
+          "Allowed items (emergency / en route maintenance with approved parts): changing tyres and tubes and repairing punctures; servicing shock struts with air; correcting locking wire and split pins; replenishing hydraulic fluid; small simple repairs to fairings, non-structural cover plates and cowlings; replacing side windows; replacing safety belts; replacing seats or seat parts (no structural work); replacing pre-fabricated fuel and oil lines (with a fuel flow check); replacing bulbs, reflectors, lenses or fuses of navigation and landing lights; replacing or cleaning spark plugs and setting gaps; cleaning fuel and oil strainers; replacing batteries and checking fluid level and specific gravity; replacing tail wheels and tail-wheel springs; changing engine oil; removing and installing easily removable dual controls; and replacing the ASI, altimeter, RPM indicator, oil pressure gauge and fuel contents gauge with the same type (ASI and altimeter need a pitot-static leak check).",
+          "The pilot must notify the AMO or AME normally responsible for the aircraft (for parts, advice and publications) and record the work in the FLIGHT FOLIO with the publications used, parts replaced (with serial numbers), parts repaired and tests done, signed with licence number and date. A pilot may NEVER sign the aircraft logbook in the column for the AME or AMO.",
+          "§ Release to service (43.04.1)",
+          "Only an AME licensed under Part 66 with the appropriate rating and authorised by a Part 145 AMO; a person authorised by an AMO within its approval; a person authorised by the Director; or (abroad) a holder of an acceptable foreign licence may certify release to service. A pilot with the appropriate type rating may certify the maintenance he or she was permitted to do under 43.02.2(2).",
+          "§ Mass and balance (43.02.7)",
+          "Except with the Director's written permission, no SA-registered aircraft may be operated unless its current empty mass has been established by weighing (massmeter) and its centre of gravity computed WITHIN THE PRECEDING FIVE YEARS.",
+          "§ Compass swing (43.02.18 and SA-CATS)",
+          "Compasses must be swung: on installation; every 12 MONTHS (24 months where another independent direction-indicating system is used and the compass is checked against it each flight, with a swing if deviation exceeds 5°); before a newly registered aircraft enters service; after installing, removing or replacing equipment that may affect the compass; after a LIGHTNING STRIKE; after each engine change (unless shown not to affect it, with the Director advised); and, for cargo-only aircraft, when carrying cargo likely to affect it (temporary card). A check swing every six months is recommended.",
+          "The primary compass is swung with common electrical equipment ON; the standby compass with electrical equipment OFF.",
+          "Deviation card: readings at intervals not greater than 45°, whether swung with electrics on or off, signature, licence number and date. After compensation, residual deviation must not exceed 5° on any heading.",
+          "The swing date is entered in the airframe logbook and certified by an appropriately rated AME, or by the holder of a CPL or ATPL. A compass base's magnetic bearings must be checked at least every 4 years.",
+          "§ The regulations, as written",
+          "43.02.7 Mass and balance: (1) Except with the written permission of the Director, no person may operate any South African registered aircraft unless its current empty mass has been established by means of a massmeter and its centre of gravity computed within the preceding five years.",
+          "43.02.18 Aircraft compass requirements: Any compass fitted to an aircraft shall be swung and maintained in accordance with the requirements as prescribed in Document SA-CATS 43.",
+          "43.02.2 Persons to carry out maintenance: (2) A holder of a pilot licence with an appropriate type rating issued in terms of Part 61 or Part 62 may carry out the maintenance as prescribed in Document SA-CATS 43 if – (a) such holder is the owner or operator of the aircraft; and (b) the aircraft is used for non-commercial operations.",
+          "43.04.1 Persons to certify release to service: (2) The holder of a pilot licence with an appropriate type rating issued in terms of Part 61 or Part 62 may certify maintenance which has been carried out in accordance with the conditions referred to in regulation 43.02.2(2).",
+        ],
+      },
+    ],
+    mustKnow: [
+      "Three logbooks: aircraft, engine (each), propeller (each); kept at base.",
+      "Away-from-base maintenance entered within 48 hours of return.",
+      "No correction fluid; original entry must stay legible.",
+      "PIC signs entries for matters the AME could not know about.",
+      "Pilot maintenance: owner/operator, non-commercial, ≤ 5 700 kg; recorded in the flight folio; never sign the AME column.",
+      "Weighing and CG within the preceding 5 years.",
+      "Compass swing every 12 months (24 with another independent system); after lightning, engine change, equipment change.",
+      "Primary compass swung electrics ON; standby electrics OFF.",
+      "Residual deviation ≤ 5°; deviation card intervals ≤ 45°.",
+      "Compass swing certified by an AME or a CPL/ATPL holder.",
+    ],
+    traps: [
+      "Pilot-owner maintenance is NOT allowed on aircraft used commercially.",
+      "Pilot maintenance is recorded in the flight folio, not signed in the AME column of the logbook.",
+      "Weighing is every 5 years, not every year.",
+      "A six-monthly compass check is only RECOMMENDED; the requirement is 12 months.",
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  {
     sectionId: "A.3.14",
     title: "Airspace & Air Traffic Services (SA-CATS 172)",
     intro:
