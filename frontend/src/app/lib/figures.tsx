@@ -413,7 +413,11 @@ export function atgFiguresByTopic(topics: string[]): FigureDef[] {
     // A tag may name a whole topic or one figure by its title.
     .filter((f) => topics.includes(f.topic) || topics.includes(f.title))
     .map((f) => imageFigure(f.id, f.title, f.caption, f.file, f.folder));
-  const inline = topics.flatMap((t) => RN_TOPIC_FIGS[t] ?? []);
+  const inlineAll = Object.values(RN_TOPIC_FIGS).flat();
+  const inline = [
+    ...topics.flatMap((t) => RN_TOPIC_FIGS[t] ?? []),
+    ...inlineAll.filter((f) => topics.includes(f.title)),
+  ].filter((f, i, a) => a.findIndex((g) => g.id === f.id) === i);
   return [...inline, ...raster].filter(figurePresent);
 }
 

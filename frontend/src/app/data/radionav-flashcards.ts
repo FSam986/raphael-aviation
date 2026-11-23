@@ -3,6 +3,7 @@
 // match sacaa-syllabus.ts.
 
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
+import { RADIONAV_FLASHCARDS_EXTRA } from "./radionav-flashcards-extra";
 
 export const RADIONAV_FLASHCARDS: AirLawFlashcard[] = [
   // A.10.1 Basic radio
@@ -61,5 +62,5 @@ export const RADIONAV_FLASHCARDS: AirLawFlashcard[] = [
 ];
 
 export function getRadioNavFlashcardsBySection(sectionId: string): AirLawFlashcard[] {
-  return RADIONAV_FLASHCARDS.filter((c) => c.sectionId === sectionId);
+  return [...RADIONAV_FLASHCARDS, ...RADIONAV_FLASHCARDS_EXTRA].filter((c) => c.sectionId === sectionId);
 }

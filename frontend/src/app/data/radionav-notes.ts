@@ -6,6 +6,8 @@
 // Shape matches AirLawSectionNote so it plugs into the subject content registry.
 
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
+import { RADIONAV_NOTES_FULL } from "./radionav-notes-full";
+import { RADIONAV_NOTES_FULL_B } from "./radionav-notes-full-b";
 
 export const RADIONAV_NOTES: AirLawSectionNote[] = [
   {
@@ -489,5 +491,6 @@ export const RADIONAV_NOTES: AirLawSectionNote[] = [
 ];
 
 export function getRadioNavNoteBySection(sectionId: string): AirLawSectionNote | undefined {
-  return RADIONAV_NOTES.find((n) => n.sectionId === sectionId);
+  return [...RADIONAV_NOTES_FULL, ...RADIONAV_NOTES_FULL_B].find((n) => n.sectionId === sectionId)
+    ?? RADIONAV_NOTES.find((n) => n.sectionId === sectionId);
 }

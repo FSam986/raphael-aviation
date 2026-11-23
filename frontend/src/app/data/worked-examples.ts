@@ -29,22 +29,12 @@ const E = (id: string, sectionId: string, title: string, problem: string, steps:
 
 import { FPP_WORKED_EXAMPLES } from "@/app/data/fpp-worked-examples";
 import { NAV_WORKED_EXAMPLES } from "@/app/data/nav-worked-examples";
+import { RADIONAV_WORKED_EXAMPLES } from "@/app/data/radionav-worked-examples";
 
 export const WORKED_EXAMPLES: WorkedExample[] = [
   ...FPP_WORKED_EXAMPLES,
   ...NAV_WORKED_EXAMPLES,
-  // ── Radio Navigation (A.10.x) ──
-  E("WEX-A101a", "A.10.1", "Wavelength from frequency", "A transmitter operates on 125 MHz. Find the wavelength.",
-    ["Formula: λ(m) = 300 ÷ f(MHz).", "λ = 300 ÷ 125 = 2.4 m."], "λ = 2.4 m"),
-  E("WEX-A101b", "A.10.1", "VHF / line-of-sight range", "An aircraft at FL100 (10 000 ft) works a station at 500 ft AMSL. Find the maximum line-of-sight range.",
-    ["Formula: range(NM) ≈ 1.25 (√h₁ + √h₂), heights in feet.", "√10000 = 100, √500 = 22.4.", "Range = 1.25 × (100 + 22.4) = 1.25 × 122.4 ≈ 153 NM."], "≈ 153 NM"),
-  E("WEX-A102", "A.10.2", "ADF — time & distance to the NDB", "At 1000 an NDB bears 090 relative; at 1005 it bears 100 relative. TAS 150 kt. Find the time and distance to the NDB.",
-    ["Bearing change = 100 − 090 = 10° in 5 minutes.", "Time to station = 60 × minutes ÷ bearing change = 60 × 5 ÷ 10 = 30 min.", "Distance = TAS × minutes ÷ bearing change = 150 × 5 ÷ 10 = 75 NM."], "30 min · 75 NM"),
-  E("WEX-A103", "A.10.3", "ILS rate of descent", "You are flying a 3° glide path at a groundspeed of 140 kt. What rate of descent maintains the path?",
-    ["Formula: ROD (fpm) = GP° × GS × 100 ÷ 60.", "= 3 × 140 × 100 ÷ 60 = 42000 ÷ 60 = 700 fpm.", "(Rule of thumb: ROD ≈ 5 × GS for a 3° path = 5 × 140 = 700.)"], "700 ft/min"),
-  E("WEX-A104", "A.10.4", "DME slant range from timing", "The DME reply arrives 1000 µs after interrogation. The transponder's fixed delay is 50 µs. Find the slant range.",
-    ["Formula: R(NM) = 0.162 × (T − 50) ÷ 2, T in µs.", "= 0.162 × (1000 − 50) ÷ 2.", "= 0.162 × 950 ÷ 2 = 0.162 × 475 ≈ 77 NM."], "≈ 77 NM (slant)"),
-
+  ...RADIONAV_WORKED_EXAMPLES,
   // ── Flight Instruments (A.7.x) ──
   E("WEX-A71", "A.7.1", "Altimeter pressure error", "The subscale is set to 1013 hPa and reads 3000 ft. The actual QNH is 1003 hPa. What is your true altitude? (1 hPa ≈ 30 ft.)",
     ["Difference = 1013 − 1003 = 10 hPa; the set value is HIGHER than the actual pressure.", "Error = 10 hPa × 30 ft = 300 ft.", "Flying from higher to lower pressure with a fixed setting, the altimeter OVER-reads.", "True altitude = 3000 − 300 = 2700 ft ('High to Low, look out below')."], "True altitude = 2700 ft"),
