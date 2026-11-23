@@ -153,9 +153,32 @@ export default function SectionPage() {
   // Build a slide deck for the active topic: pair each illustration with a
   // plain-language point so text and image sit together on one slide.
   const activeBlock = noteBlocks.find((x) => x.heading === activeTopic);
-  const activeFigs = activeBlock && (activeBlock as { figureTopics?: string[] }).figureTopics
-    ? atgFiguresByTopic((activeBlock as { figureTopics?: string[] }).figureTopics!)
-    : [];
+  // Every section illustration is placed with the topic it best matches
+  // (by words shared between the figure title/caption and the topic text),
+  // so images sit with the study instead of on a separate tab.
+  const figHome = (() => {
+    const home: Record<string, string> = {};
+    if (!noteBlocks.length) return home;
+    const words = (t: string) => t.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 3);
+    const blk = noteBlocks.map((b) => ({ h: new Set(words(b.heading)), p: new Set(words(b.points.join(" "))) }));
+    for (const f of sectionFigures) {
+      const fw = words(`${f.title} ${f.title} ${f.caption}`);
+      let best = 0, bestScore = -1;
+      blk.forEach((b, i) => {
+        const sc = fw.reduce((n, w) => n + (b.h.has(w) ? 3 : 0) + (b.p.has(w) ? 1 : 0), 0);
+        if (sc > bestScore) { bestScore = sc; best = i; }
+      });
+      home[f.id] = noteBlocks[best].heading;
+    }
+    return home;
+  })();
+  const activeFigs = (() => {
+    if (!activeBlock) return [];
+    const tagged = (activeBlock as { figureTopics?: string[] }).figureTopics;
+    const own = tagged ? atgFiguresByTopic(tagged) : [];
+    const placed = sectionFigures.filter((f) => figHome[f.id] === activeBlock.heading && !own.some((o) => o.id === f.id));
+    return [...own, ...placed];
+  })();
   type Slide = { heading: string; text: string[]; fig: ReturnType<typeof atgFiguresByTopic>[number] | null };
   const slides: Slide[] = (() => {
     if (!activeBlock) return [];
@@ -180,7 +203,7 @@ export default function SectionPage() {
     { id: "learn",     label: "Learn",      icon: "book" },
     ...(REG_MAP[sectionId] || REG_MISSING[sectionId] ? [{ id: "law" as Tab, label: "The Regulations", icon: "book" }] : []),
     ...(sectionExamples.length > 0 ? [{ id: "examples" as Tab, label: "Examples", icon: "formula" }] : []),
-    ...(sectionFigures.length > 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "image" }] : []),
+    ...(sectionFigures.length > 0 && noteBlocks.length === 0 ? [{ id: "illustrations" as Tab, label: "Illustrations", icon: "image" }] : []),
     { id: "quiz",      label: "Quiz",       icon: "quiz" },
     { id: "flashcards",label: "Flashcards", icon: "flashcards" },
   ];
