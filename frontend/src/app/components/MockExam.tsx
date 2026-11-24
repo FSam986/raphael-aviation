@@ -1,5 +1,6 @@
 "use client";
 
+import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
@@ -150,6 +151,7 @@ export function MockExam({
   );
 
   const finishExam = useCallback(async () => {
+    if (phase !== "running") return; // timer + submit button can both fire
     setElapsedSec(startedAt ? Math.round((Date.now() - startedAt) / 1000) : 0);
     setPhase("results");
     // Log this paper to the attempt history (quizzes + mocks) on the Briefing page.
@@ -198,7 +200,7 @@ export function MockExam({
         /* Supabase optional — rotation still works via localStorage */
       }
     }
-  }, [questions, score, userId, startedAt, answers, subjectId, storeKey, keyMap, title]);
+  }, [phase, questions, score, userId, startedAt, answers, subjectId, storeKey, keyMap, title]);
 
   // Countdown timer
   useEffect(() => {
@@ -208,9 +210,11 @@ export function MockExam({
       finishExam();
       return;
     }
-    const t = setTimeout(() => setSecondsLeft((s) => s - 1), 1000);
+    // Derive from the wall clock, not a 1-s decrement: background tabs throttle
+    // timers, so counting ticks would let the exam run long.
+    const t = setTimeout(() => setSecondsLeft(Math.max(0, examMinutes * 60 - Math.floor((Date.now() - startedAt) / 1000))), 1000);
     return () => clearTimeout(t);
-  }, [phase, secondsLeft, finishExam]);
+  }, [phase, secondsLeft, finishExam, examMinutes, startedAt]);
 
   if (loading || !accessReady)
     return (
@@ -245,9 +249,10 @@ export function MockExam({
 
   return (
     <div className="min-h-screen bg-chart-ground flex">
+      <SubjectBackdrop subjectId={subjectId} />
       <Sidebar active="/exams" userName={userName} />
 
-      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
+      <main className="relative z-[1] flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto">
         {/* INTRO */}
         {phase === "intro" && (
           <div className="max-w-2xl mx-auto px-5 sm:px-10 py-16">

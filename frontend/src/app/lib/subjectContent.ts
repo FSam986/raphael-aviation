@@ -195,11 +195,38 @@ import { deriveNoteFlashcards } from "@/app/data/note-flashcards";
 
 // Append flashcards derived from the section's study note (its mustKnow / traps /
 // key facts) to the authored flashcards, so flashcard coverage tracks the notes.
+// Many banks were authored/imported with the key mostly on "a" (up to 97% in
+// some subjects), so a student could game them. Options are re-ordered by a
+// permutation seeded from the question id: stable across renders, sessions and
+// devices (mastery + answer history stay valid), but spread evenly over a–d.
+// Order-dependent questions ("all of the above", "both a and b", explanations
+// that name a letter) are left untouched.
+const LETTERS = ["a", "b", "c", "d"] as const;
+const ORDER_BOUND = /\b(above|below|all of these|none of these|both|neither|either)\b|\b[a-d]\s*(and|&|or)\s*[a-d]\b|\([a-d]\)/i;
+const LETTER_REF = /\b(option|answer|choice)\s*\(?[a-d]\)?(?![a-z])|\([a-d]\)/i;
+const shuffleCache = new Map<string, unknown>();
+function shuffleOptions<T extends { id: string; optionA: string; optionB: string; optionC: string; optionD: string; correctAnswer: string; explanation?: string }>(q: T): T {
+  const hit = shuffleCache.get(q.id + "|" + q.optionA);
+  if (hit) return hit as T;
+  const opts = [q.optionA, q.optionB, q.optionC, q.optionD];
+  let out: T = q;
+  if (!opts.some((o) => ORDER_BOUND.test(o)) && !LETTER_REF.test(q.explanation ?? "")) {
+    let h = 2166136261;
+    for (let i = 0; i < q.id.length; i++) h = Math.imul(h ^ q.id.charCodeAt(i), 16777619) >>> 0;
+    const perm = [0, 1, 2, 3];
+    for (let i = 3; i > 0; i--) { h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; const j = h % (i + 1); [perm[i], perm[j]] = [perm[j], perm[i]]; }
+    const correctIdx = LETTERS.indexOf(q.correctAnswer as (typeof LETTERS)[number]);
+    out = { ...q, optionA: opts[perm[0]], optionB: opts[perm[1]], optionC: opts[perm[2]], optionD: opts[perm[3]], correctAnswer: LETTERS[perm.indexOf(correctIdx)] };
+  }
+  shuffleCache.set(q.id + "|" + q.optionA, out);
+  return out;
+}
+
 export function subjectContent(subjectId: string): SubjectGetters | undefined {
   const g = REGISTRY[subjectId];
   if (!g) return undefined;
   return {
-    questions: (sectionId: string) => [...g.questions(sectionId), ...gapQuestions(subjectId, sectionId)],
+    questions: (sectionId: string) => [...g.questions(sectionId), ...gapQuestions(subjectId, sectionId)].map(shuffleOptions),
     note: g.note,
     // Authored + note-derived cards, de-duplicated within the deck (same front+back).
     flashcards: (sectionId: string) => {

@@ -6,7 +6,6 @@
 // when that lands). ponytail: single source of truth for plan + streak maths.
 
 import { COURSES, type CourseId } from "@/app/lib/course";
-import { hasFullAccess } from "@/app/lib/entitlement";
 import { subjectContent } from "@/app/lib/subjectContent";
 import { starOfSubject } from "@/app/data/exam-priority";
 
@@ -53,12 +52,13 @@ export interface CoachProgress {
   badges: EarnedBadge[];
 }
 
-const PLAN_KEY = "coach:plan";
-const PROG_KEY = "coach:progress";
-const PREMIUM_KEY = "coach:premium";
+import { PLAN_KEY, PROG_KEY, read, write, loadPlan, isPremium, setPremium } from "@/app/lib/coachStore";
+export { loadPlan, isPremium, setPremium };
 const DAY_MS = 86_400_000;
 
-export const ymd = (d: Date) => d.toISOString().slice(0, 10);
+// Local calendar date (not UTC): in SA (UTC+2) toISOString() would put 00:00–02:00
+// on the previous day and turn local-midnight dates back a day.
+export const ymd = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 const parse = (s: string) => new Date(s + "T00:00:00");
 export function daysBetween(a: string, b: string): number {
   return Math.round((parse(b).getTime() - parse(a).getTime()) / DAY_MS);
@@ -357,24 +357,11 @@ export function checkMilestones(plan: CoachPlan, pr: CoachProgress): [CoachProgr
 }
 
 /* ── persistence ─────────────────────────────────────────────────────────── */
-function read<T>(key: string): T | null {
-  if (typeof window === "undefined") return null;
-  try { const v = localStorage.getItem(key); return v ? (JSON.parse(v) as T) : null; } catch { return null; }
-}
-function write(key: string, val: unknown) {
-  if (typeof window === "undefined") return;
-  try { localStorage.setItem(key, JSON.stringify(val)); } catch { /* ignore */ }
-}
-export const loadPlan = () => read<CoachPlan>(PLAN_KEY);
 export const savePlan = (p: CoachPlan) => write(PLAN_KEY, p);
 export const clearPlan = () => { if (typeof window !== "undefined") { localStorage.removeItem(PLAN_KEY); localStorage.removeItem(PROG_KEY); } };
 export const loadProgress = () => read<CoachProgress>(PROG_KEY) ?? freshProgress();
 export const saveProgress = (p: CoachProgress) => write(PROG_KEY, p);
 
-// Premium gate (placeholder until real billing is wired). Full-access accounts
-// (preview/admin allowlist) always count as premium.
-export const isPremium = () => hasFullAccess() || read<boolean>(PREMIUM_KEY) === true;
-export const setPremium = (v: boolean) => write(PREMIUM_KEY, v);
 
 // Rough guarantee heuristic: how many topics/day this plan demands.
 export function planLoad(plan: CoachPlan): { topicsPerStudyDay: number; studyDays: number; totalTopics: number; tight: boolean } {

@@ -5,49 +5,12 @@ import Link from "next/link";
 import { useCourse } from "@/app/hooks/useCourse";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
-// CPL banks
-import { MET_QUESTIONS } from "@/app/data/met-questions";
-import { AIRLAW_ALL_QUESTIONS } from "@/app/data/airlaw-questions";
-import { FPP_ALL_QUESTIONS } from "@/app/data/fpp-questions";
-import { ATG_QUESTIONS } from "@/app/data/aircraft-technical-questions";
-import { HUMAN_PERFORMANCE_QUESTIONS } from "@/app/data/human-performance-questions";
-import { NAV_QUESTIONS } from "@/app/data/nav-questions";
-import { RADIONAV_QUESTIONS } from "@/app/data/radionav-questions";
-import { GR_QUESTIONS } from "@/app/data/gr-questions";
-import { NR_QUESTION_COUNT } from "@/app/data/nr-content";
-import { ALL_INSTRUMENTS_QUESTIONS } from "@/app/data/instruments-questions";
-// PPL banks
-import { PPL_AIRLAW_QUESTIONS } from "@/app/data/ppl-airlaw-questions";
-import { PPL_MET_QUESTIONS } from "@/app/data/ppl-met-content";
-import { PPL_NAV_QUESTIONS } from "@/app/data/ppl-nav-content";
-import { PPL_AGK_QUESTIONS } from "@/app/data/ppl-agk-content";
-import { PPL_FPP_QUESTIONS } from "@/app/data/ppl-fpp-content";
-import { PPL_POF_QUESTIONS } from "@/app/data/ppl-principles-of-flight-questions";
-import { PPL_HPL_QUESTIONS } from "@/app/data/ppl-human-performance-questions";
+// Bank size per subject, generated from examBank() (scripts/gen-exam-counts.ts) so
+// this list page doesn't download every question bank.
+import EXAM_COUNTS from "@/app/data/exam-counts.json";
 import { Icon, SUBJECT_ICON } from "@/app/components/Icon";
 
-// Subjects with a built mock-exam engine (value = question-bank size).
-const READY: Record<string, number> = {
-  // CPL — all nine subjects
-  meteorology: MET_QUESTIONS.length,
-  "air-law": AIRLAW_ALL_QUESTIONS.length,
-  "flight-planning": FPP_ALL_QUESTIONS.length,
-  "aircraft-technical": ATG_QUESTIONS.length,
-  "human-performance": HUMAN_PERFORMANCE_QUESTIONS.length,
-  navigation: NAV_QUESTIONS.length,
-  "radio-navigation": RADIONAV_QUESTIONS.length,
-  "general-radiotelephony": GR_QUESTIONS.length,
-  "night-rating": NR_QUESTION_COUNT(),
-  "flight-instruments": ALL_INSTRUMENTS_QUESTIONS.length,
-  // PPL
-  "ppl-air-law": PPL_AIRLAW_QUESTIONS.length,
-  "ppl-meteorology": PPL_MET_QUESTIONS.length,
-  "ppl-navigation": PPL_NAV_QUESTIONS.length,
-  "ppl-aircraft-technical": PPL_AGK_QUESTIONS.length,
-  "ppl-flight-planning": PPL_FPP_QUESTIONS.length,
-  "ppl-principles-of-flight": PPL_POF_QUESTIONS.length,
-  "ppl-human-performance": PPL_HPL_QUESTIONS.length,
-};
+const READY = EXAM_COUNTS as Record<string, number>;
 
 export default function Exams() {
   const { userName, loading } = useAuthGuard();

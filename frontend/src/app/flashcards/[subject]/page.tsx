@@ -1,5 +1,6 @@
 "use client";
 
+import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
@@ -46,8 +47,9 @@ export default function SubjectFlashcards() {
 
   return (
     <div className="min-h-screen bg-chart-ground flex">
+      <SubjectBackdrop subjectId={subjectId} />
       <Sidebar active="/flashcards" userName={userName} />
-      <main className="flex-1 md:ml-64 pt-14 md:pt-0 h-screen relative overflow-hidden">
+      <main className="relative z-[1] flex-1 md:ml-64 pt-14 md:pt-0 h-screen overflow-hidden">
         {/* header overlay: title, progress, section filter */}
         <div className="absolute top-0 inset-x-0 z-30 px-6 pt-4 pb-3 bg-gradient-to-b from-black via-black/80 to-transparent">
           <div className="flex items-center gap-3">

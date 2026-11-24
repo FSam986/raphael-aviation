@@ -1,5 +1,6 @@
 "use client";
 
+import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -210,6 +211,7 @@ export default function SectionPage() {
 
   return (
     <div className="min-h-screen bg-chart-ground flex">
+      <SubjectBackdrop subjectId={subjectId} />
       <Sidebar active="/study" userName={userName}>
         {/* Section topic list in sidebar */}
         <div className="border-t border-zinc-900 overflow-auto flex-shrink-0 max-h-64">
@@ -228,7 +230,7 @@ export default function SectionPage() {
         </div>
       </Sidebar>
 
-      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto flex flex-col">
+      <main className="relative z-[1] flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto flex flex-col">
         {/* Breadcrumb + header */}
         <div className="px-5 sm:px-10 pt-8 pb-4 border-b border-zinc-900">
           <div className="flex items-center justify-between mb-4">

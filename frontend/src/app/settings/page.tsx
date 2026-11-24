@@ -10,7 +10,8 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourse } from "@/app/hooks/useCourse";
 import { COURSES, type CourseId } from "@/app/lib/course";
 import { supabase, supabaseConfigured } from "@/lib/supabase";
-import { isPremium, loadPlan, type CoachPlan } from "@/app/lib/coachPlan";
+import { isPremium, loadPlan } from "@/app/lib/coachStore";
+import type { CoachPlan } from "@/app/lib/coachPlan";
 import { ownedCourses, grantCourse, revokeCourse } from "@/app/lib/entitlement";
 
 const pref = {

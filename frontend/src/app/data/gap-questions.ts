@@ -67,6 +67,15 @@ export const GAP_QUESTIONS: Record<string, AirLawQuestion[]> = {
 
   // ── IR Air Law / AWO · C.3.3.b Cold-temperature corrections ──
   "ir-air-law-awo": mk([
+    // C.3.2 PANS-OPS basics — top-up
+    ["GAP-IAW-C32-01", "C.3.2", "C.3.2.b", "An aircraft with a threshold speed (Vat) of 130 kt is in approach category:", "A", "B", "C", "D", "c", "PANS-OPS categories by Vat: A <91, B 91–120, C 121–140, D 141–165 kt.", "easy"],
+    ["GAP-IAW-C32-02", "C.3.2", "C.3.2.a", "The minimum obstacle clearance in the primary area of the initial approach segment is:", "75 m (246 ft)", "150 m (492 ft)", "300 m (984 ft)", "600 m (1 968 ft)", "c", "Initial segment MOC is 300 m; the intermediate segment is 150 m.", "medium"],
+    ["GAP-IAW-C32-03", "C.3.2", "C.3.2.a", "The minimum obstacle clearance in the primary area of the intermediate approach segment is:", "300 m (984 ft)", "150 m (492 ft)", "90 m (295 ft)", "50 m (164 ft)", "b", "Intermediate segment MOC is 150 m, half the initial-segment value.", "medium"],
+    // C.3.4 Departures — top-up
+    ["GAP-IAW-C34-01", "C.3.4", "C.3.4.b", "Unless a higher value is published, the procedure design gradient (PDG) for an instrument departure is:", "2.5%", "3.3%", "5%", "8%", "b", "Standard PDG 3.3% = 2.5% obstacle identification surface + 0.8% obstacle clearance.", "easy"],
+    ["GAP-IAW-C34-02", "C.3.4", "C.3.4.b", "The obstacle identification surface (OIS) for a departure rises at:", "2.5%", "3.3%", "0.8%", "5%", "a", "The OIS slopes at 2.5% from the departure end of the runway; the extra 0.8% gives the required clearance.", "medium"],
+    ["GAP-IAW-C34-03", "C.3.4", "C.3.4.a", "Unless otherwise published, a turn on an instrument departure should not be started until the aircraft is at least:", "50 ft above DER", "120 m (394 ft) above the DER elevation", "1 000 ft AGL", "the MSA", "b", "PANS-OPS: no turn below 120 m (394 ft) above the departure-end-of-runway elevation unless specified.", "medium"],
+    ["GAP-IAW-C34-04", "C.3.4", "C.3.4.a", "A departure is classed as 'straight' when the initial departure track is within:", "5° of the runway alignment", "15° of the runway alignment", "30° of the runway alignment", "45° of the runway alignment", "b", "Straight departures have an initial track within 15° of the runway alignment.", "medium"],
     ["GAP-IRAW-CT-01", "C.3.3", "C.3.3.b", "When the temperature is much colder than ISA, the aircraft's true altitude is:", "Higher than indicated", "Lower than indicated", "The same as indicated", "Only affected above FL100", "b", "Cold air is denser, so the pressure levels are closer together: the aircraft is lower than the altimeter indicates."],
     ["GAP-IRAW-CT-02", "C.3.3", "C.3.3.b", "To keep the required obstacle clearance in very cold conditions, published minimum altitudes should be:", "Reduced", "Increased by a cold-temperature correction", "Left unchanged", "Converted to flight levels", "b", "In cold air a correction is ADDED to published minimum altitudes (including DA/MDA and approach fix altitudes)."],
     ["GAP-IRAW-CT-03", "C.3.3", "C.3.3.b", "A rule of thumb for the cold-temperature correction is to add about:", "4% of the height above the altimeter source for every 10 °C below ISA", "100 ft for every 1 °C below ISA", "10% of the aerodrome elevation", "1 ft per hPa", "a", "Approximately 4% of the height above the aerodrome (altimeter source) for each 10 °C the temperature is below ISA."],
@@ -101,6 +110,9 @@ export const GAP_QUESTIONS: Record<string, AirLawQuestion[]> = {
 
   // ── IR Instruments · I.7.b Radio altimeter presentation & errors ──
   "ir-instruments": mk([
+    // I.3 HSI — top-up
+    ["GAP-IIN-I3-01", "I.3", "I.3.a", "In a slaved HSI the compass card is aligned with magnetic north by a signal from the:", "Pitot-static system", "Remote flux valve (flux detector)", "Vacuum pump", "Radio altimeter", "b", "A remote flux valve senses the Earth's field and slaves the directional gyro driving the card.", "medium"],
+    ["GAP-IIN-I3-02", "I.3", "I.3.b", "With the HSI course pointer set to the published inbound front course, flying a localiser back course gives:", "Reverse sensing", "Normal (correct) sensing", "No indication", "Glideslope only", "b", "Because the HSI rotates the display with heading, setting the front course gives correct sensing on the back course.", "hard"],
     ["GAP-IRIN-RA-01", "I.7", "I.7.b", "A radio altimeter displays:", "Height above mean sea level", "Height above the ground directly below the aircraft", "Pressure altitude", "Density altitude", "b", "The radio altimeter measures height above the terrain beneath the aircraft."],
     ["GAP-IRIN-RA-02", "I.7", "I.7.b", "A typical low-range radio altimeter displays height from 0 to about:", "500 ft", "2500 ft", "10 000 ft", "40 000 ft", "b", "Low-range radio altimeters normally indicate from 0 to about 2500 ft."],
     ["GAP-IRIN-RA-03", "I.7", "I.7.b", "Over trees, buildings or uneven terrain the radio altimeter reading will:", "Stay perfectly steady", "Fluctuate as the ground below changes height", "Show sea-level altitude", "Freeze at the last value", "b", "The RA shows height above whatever is directly below, so it fluctuates over uneven ground and obstacles."],
@@ -134,6 +146,17 @@ export const GAP_QUESTIONS: Record<string, AirLawQuestion[]> = {
     ["GAP-GR-WT-03", "GR6", "GR6.c", "Which phrase does ATC use to warn of possible wake turbulence?", "'CAUTION WAKE TURBULENCE'", "'WAKE ALERT'", "'BREAK BREAK'", "'TRAFFIC HEAVY'", "a", "The standard warning is 'CAUTION WAKE TURBULENCE'."],
     ["GAP-GR-WT-04", "GR6", "GR6.c", "Where is the aircraft's wake turbulence category shown on an ICAO flight plan?", "Item 9, after the aircraft type", "Item 18 only", "Item 15, in the route", "It is not shown", "a", "Item 9 contains the number and type of aircraft followed by the wake turbulence category (L, M, H or J)."],
     ["GAP-GR-WT-05", "GR6", "GR6.c", "A pilot considers the wake turbulence spacing given by ATC to be too short. The pilot may:", "Request additional spacing or time", "Never question the spacing", "Take off without a clearance", "Change the aircraft's wake category", "a", "The pilot may request extra spacing; the pilot is not obliged to accept a departure they judge unsafe."],
+  ]),
+  "ppl-flight-planning": mk([
+    ["GAP-PFP-76-01", "7.6", "7.6.a", "Adding fuel to an aeroplane already near its maximum take-off mass will:", "Shorten the take-off run", "Lengthen the take-off distance and reduce the rate of climb", "Have no effect on performance", "Reduce the stall speed", "b", "More mass needs more speed and distance to lift off and leaves less excess power for climb.", "easy"],
+    ["GAP-PFP-76-02", "7.6", "7.6.a", "Using a specific gravity of 0.72, 100 litres of AVGAS has a mass of about:", "72 kg", "100 kg", "139 kg", "720 kg", "a", "Mass = volume × SG: 100 L × 0.72 = 72 kg.", "easy"],
+    ["GAP-PFP-76-03", "7.6", "7.6.a", "An aeroplane at its maximum take-off mass needs extra fuel for a longer route. To stay within limits the pilot must:", "Accept the extra mass", "Reduce payload by the same mass", "Increase tyre pressure", "Use a shorter runway", "b", "At MTOM, every kilogram of extra fuel must be offset by a kilogram less payload.", "medium"],
+    ["GAP-PFP-76-04", "7.6", "7.6.a", "As fuel is burnt during a flight, the aeroplane's stall speed:", "Increases", "Decreases", "Stays the same", "First increases then decreases", "b", "Stall speed varies with the square root of mass; lower mass gives a lower stall speed.", "medium"],
+  ]),
+  "ppl-principles-of-flight": mk([
+    ["GAP-PPF-1113-01", "11.13", "11.13.a", "The main purpose of an oleo-pneumatic shock strut is to:", "Steer the aircraft", "Absorb and dissipate landing and taxi loads", "Retract the gear", "Brake the wheels", "b", "The oleo absorbs impact energy and damps the rebound, protecting the structure.", "easy"],
+    ["GAP-PPF-1113-02", "11.13", "11.13.a", "A sharp turn while taxiing too fast mainly imposes:", "High side loads on the landing gear", "Negative g on the wings", "Flutter of the elevator", "Propeller overspeed", "a", "Cornering at speed loads the gear sideways, for which it is least designed.", "easy"],
+    ["GAP-PPF-1113-03", "11.13", "11.13.a", "When towing an aircraft with a towbar, the nosewheel must not be turned beyond:", "10°", "The marked turn limits", "90° in either direction", "Any angle — there is no limit", "b", "Exceeding the nose-gear turn limits can damage the steering mechanism and gear structure.", "medium"],
   ]),
 };
 

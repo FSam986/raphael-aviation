@@ -5,7 +5,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { useCourse } from "@/app/hooks/useCourse";
-import { searchSyllabus } from "@/app/lib/search";
+// ponytail: search pulls every subject's content; load it only when the palette opens,
+// so pages that never search don't download the whole content bundle.
+type SearchMod = typeof import("@/app/lib/search");
 import { SearchResults } from "@/app/components/SearchResults";
 
 export function SearchPalette() {
@@ -15,7 +17,9 @@ export function SearchPalette() {
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
   const input = useRef<HTMLInputElement>(null);
-  const hits = useMemo(() => (open ? searchSyllabus(syllabus, q, 10) : []), [open, q, syllabus]);
+  const [mod, setMod] = useState<SearchMod | null>(null);
+  useEffect(() => { if (open && !mod) import("@/app/lib/search").then(setMod); }, [open, mod]);
+  const hits = useMemo(() => (open && mod ? mod.searchSyllabus(syllabus, q, 10) : []), [open, q, syllabus, mod]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
