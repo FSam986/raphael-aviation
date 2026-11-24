@@ -13,13 +13,13 @@
 //    reach the page, so they can't be detected. Printing / Save-as-PDF are
 //    blanked by CSS (globals.css @media print).
 // Every strike goes through the record_screenshot() RPC (migration 004), which
-// blocks the account at 5. Blocked accounts are signed out on every load.
+// blocks the account on the 6th (after five warnings, migration 005). Blocked accounts are signed out on every load.
 
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { clearLocalProgress } from "@/app/lib/progressSync";
 
-const LIMIT = 5;
+const LIMIT = 5; // warnings; the next one after this blocks (enforced server-side, migration 005)
 
 export default function ScreenshotGuard() {
   const [userId, setUserId] = useState<string | null>(null);
@@ -93,20 +93,21 @@ export default function ScreenshotGuard() {
       <div role="alertdialog" aria-modal="true" className="fixed inset-0 z-[10000] bg-black flex items-center justify-center p-6 text-center">
         <div className="max-w-sm">
           <div className="text-red-400 font-black text-xl">Account blocked</div>
-          <p className="text-zinc-300 text-sm mt-3">This account was blocked after {LIMIT} screenshot attempts. Taking screenshots of course content breaks the terms of use.</p>
+          <p className="text-zinc-300 text-sm mt-3">This account was blocked after more than {LIMIT} screenshots or screen recordings. Taking screenshots of course content breaks the terms of use.</p>
           <p className="text-zinc-500 text-xs mt-3">If you think this is a mistake, contact support.</p>
         </div>
       </div>
     );
 
   if (warning === null) return null;
-  const left = warning > 0 ? LIMIT - warning : null;
   return (
     <div role="alert" className="fixed inset-0 z-[10000] bg-black flex items-center justify-center p-6 text-center">
       <div className="max-w-sm">
         <div className="text-red-400 font-black text-xl">Screenshots are not allowed</div>
         <p className="text-zinc-300 text-sm mt-3">
-          {warning > 0 ? <>Strike {warning} of {LIMIT}. {left! > 0 ? `${left} more and your account will be blocked.` : ""}</> : warning === 0 ? "Recording this attempt…" : `After ${LIMIT} attempts the account will be blocked.`}
+          {warning > 0
+            ? <>Warning {warning} of {LIMIT}. {warning < LIMIT ? `${LIMIT - warning} warning${LIMIT - warning === 1 ? "" : "s"} left — after that, the next screenshot or recording blocks your account.` : "This was your last warning — the next screenshot or recording blocks your account."}</>
+            : warning === 0 ? "Recording this attempt…" : `You will be warned ${LIMIT} times; after that your account will be blocked.`}
         </p>
       </div>
     </div>
