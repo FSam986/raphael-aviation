@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { ALL_INSTRUMENTS_QUESTIONS } from "@/app/data/instruments-questions";
+import { bankSize } from "@/app/lib/contentIndex";
 import { findSubject } from "@/app/lib/course";
 
 const S = findSubject("flight-instruments")!;
@@ -14,7 +14,7 @@ export default function FlightInstrumentsExamPage() {
       code={S.code}
       title={S.title}
       questions={examBank("flight-instruments")}
-      examSize={Math.min(S.examQuestions, ALL_INSTRUMENTS_QUESTIONS.length)}
+      examSize={Math.min(S.examQuestions, bankSize("flight-instruments"))}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}
       storeKey="instruments-mastery"

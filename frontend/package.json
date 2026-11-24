@@ -6,7 +6,9 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prebuild": "tsx scripts/gen-content-index.ts",
+    "predev": "tsx scripts/gen-content-index.ts"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.2",
@@ -28,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }

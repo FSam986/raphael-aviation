@@ -36,6 +36,5 @@ export function getPPLFppNoteBySection(s: string): AirLawSectionNote | undefined
 }
 const SECS = [...new Set(Object.values(MAP).flat())];
 export const PPL_FPP_QUESTIONS: AirLawQuestion[] = pplQuestionDepth(FPP_ALL_QUESTIONS.filter((x) => SECS.includes(x.sectionId)), Number.MAX_SAFE_INTEGER);
-export const PPL_FPP_FIGURE_KEY: Record<string, string> = {
-  "7.1": "A.4.2", "7.3": "A.4.5", "7.4": "A.4.7", "7.7": "A.4.7",
-};
+
+export { PPL_FPP_FIGURE_KEY } from "./figure-keys";

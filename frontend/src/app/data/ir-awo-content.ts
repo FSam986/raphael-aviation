@@ -74,9 +74,7 @@ export function getIRAwoNoteBySection(s: string): AirLawSectionNote | undefined 
   return { sectionId: s, title: notes[0].title, intro: notes[0].intro, blocks: notes.flatMap((n) => n.blocks), mustKnow: notes.flatMap((n) => n.mustKnow), traps: notes.flatMap((n) => n.traps) };
 }
 
-export const IR_AWO_FIGURE_KEY: Record<string, string> = {
-  "C.3.1": "A.3.1", "C.3.5": "A.3.16", "C.3.7": "A.3.18",
-};
+
 
 const IR_AWO_SECTIONS = [...new Set(Object.values(MAP).flat())];
 export const IR_AWO_QUESTIONS: AirLawQuestion[] = [
@@ -84,3 +82,5 @@ export const IR_AWO_QUESTIONS: AirLawQuestion[] = [
   ...IR_AWO_MINED_QUESTIONS,
 ];
 export const IR_AWO_QUESTION_COUNT = IR_AWO_QUESTIONS.length;
+
+export { IR_AWO_FIGURE_KEY } from "./figure-keys";

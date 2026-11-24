@@ -76,20 +76,5 @@ export function getPPLMetNoteBySection(pplSection: string): SectionNote | undefi
 
 // PPL section id → the figures.tsx key whose illustration covers it.
 // (Figure keys follow the SACAA syllabus numbering: A.8.2 = Atmosphere image.)
-export const PPL_MET_FIGURE_KEY: Record<string, string> = {
-  "9.1": "A.8.2",
-  "9.2": "A.8.3",
-  "9.3": "A.8.5",
-  "9.4": "A.8.8",
-  "9.5": "A.8.10",
-  "9.6": "A.8.15",
-  "9.7": "A.8.16",
-  "9.8": "A.8.17",
-  "9.9": "A.8.13",
-  "9.10": "A.8.12",
-  "9.11": "A.8.14",
-  "9.12": "A.8.19",
-  "9.13": "A.8.7",
-  "9.14": "A.8.21",
-  "9.15": "A.8.21",
-};
+
+export { PPL_MET_FIGURE_KEY } from "./figure-keys";

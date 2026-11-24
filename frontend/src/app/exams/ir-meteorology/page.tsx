@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { IR_MET_QUESTIONS } from "@/app/data/ir-met-content";
+import { bankSize } from "@/app/lib/contentIndex";
 import { getIRSubject } from "@/app/data/ir-syllabus";
 
 const MET = getIRSubject("ir-meteorology")!;
@@ -14,7 +14,7 @@ export default function IRMeteorologyExamPage() {
       code={MET.code}
       title={`IR ${MET.title}`}
       questions={examBank("ir-meteorology")}
-      examSize={Math.min(MET.examQuestions, IR_MET_QUESTIONS.length)}
+      examSize={Math.min(MET.examQuestions, bankSize("ir-meteorology"))}
       examMinutes={MET.examMinutes ?? 120}
       passPercent={MET.passPercent}
       storeKey="ir-met-mastery"

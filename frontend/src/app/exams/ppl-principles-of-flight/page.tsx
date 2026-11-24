@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { PPL_POF_QUESTIONS } from "@/app/data/ppl-principles-of-flight-questions";
+import { bankSize } from "@/app/lib/contentIndex";
 import { findSubject } from "@/app/lib/course";
 
 const S = findSubject("ppl-principles-of-flight")!;
@@ -14,7 +14,7 @@ export default function PPLPofExamPage() {
       code={S.code}
       title={S.title}
       questions={examBank("ppl-principles-of-flight")}
-      examSize={Math.min(S.examQuestions, PPL_POF_QUESTIONS.length)}
+      examSize={Math.min(S.examQuestions, bankSize("ppl-principles-of-flight"))}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}
       storeKey="ppl-pof-mastery"

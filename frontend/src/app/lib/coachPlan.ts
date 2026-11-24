@@ -6,7 +6,7 @@
 // when that lands). ponytail: single source of truth for plan + streak maths.
 
 import { COURSES, type CourseId } from "@/app/lib/course";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { indexed, sectionQuestionCount } from "@/app/lib/contentIndex";
 import { starOfSubject } from "@/app/data/exam-priority";
 
 export interface StudyUnit {
@@ -70,11 +70,10 @@ export function learnableUnits(courseId: CourseId, subjectIds: string[]): StudyU
   const out: StudyUnit[] = [];
   for (const subj of course.syllabus) {
     if (!subjectIds.includes(subj.id)) continue;
-    const content = subjectContent(subj.id);
-    if (!content) continue;
+    if (!indexed(subj.id)) continue;
     const star = starOfSubject(subj.id);
     for (const sec of subj.sections) {
-      if (content.questions(sec.id).length > 0) {
+      if (sectionQuestionCount(subj.id, sec.id) > 0) {
         out.push({ subjectId: subj.id, subjectTitle: subj.title, sectionId: sec.id, sectionTitle: sec.title, star: star ? star(sec.id) : 2 });
       }
     }
@@ -87,8 +86,7 @@ export function subjectsWithContent(courseId: CourseId): { id: string; title: st
   const course = COURSES[courseId];
   return course.syllabus
     .map((subj) => {
-      const content = subjectContent(subj.id);
-      const sections = content ? subj.sections.filter((s) => content.questions(s.id).length > 0).length : 0;
+      const sections = subj.sections.filter((s) => sectionQuestionCount(subj.id, s.id) > 0).length;
       return { id: subj.id, title: subj.title, sections };
     })
     .filter((s) => s.sections > 0);

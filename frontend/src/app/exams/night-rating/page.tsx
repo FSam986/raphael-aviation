@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { NR_QUESTION_COUNT } from "@/app/data/nr-content";
+import { bankSize } from "@/app/lib/contentIndex";
 import { findSubject } from "@/app/lib/course";
 
 const S = findSubject("night-rating")!;
@@ -14,7 +14,7 @@ export default function NightRatingExamPage() {
       code={S.code}
       title={S.title}
       questions={examBank("night-rating")}
-      examSize={Math.min(S.examQuestions, NR_QUESTION_COUNT())}
+      examSize={Math.min(S.examQuestions, bankSize("night-rating"))}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}
       storeKey="nr-mastery"

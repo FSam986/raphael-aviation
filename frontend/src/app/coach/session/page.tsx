@@ -5,7 +5,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectContent, loadSubjects } from "@/app/lib/subjectContent";
+import { loadPlan as loadPlanForGate } from "@/app/lib/coachStore";
 import { atgFiguresForSection, type FigureDef } from "@/app/lib/figures";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -66,7 +67,18 @@ type Slide =
   | { id: string; kind: "break"; title: string; body: string }
   | { id: string; kind: "done" };
 
-export default function CoachSessionReel() {
+// Download the plan's subjects first (client-only: the plan lives in localStorage).
+export default function CoachSessionGate() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const p = loadPlanForGate();
+    const ids = p ? [...new Set(p.days.flatMap((d) => [...d.units, ...d.reviewUnits].map((u) => u.subjectId)))] : [];
+    loadSubjects(ids).then(() => setReady(true));
+  }, []);
+  return ready ? <CoachSessionReel /> : <LoadingScreen />;
+}
+
+function CoachSessionReel() {
   const { userName, loading } = useAuthGuard();
   const router = useRouter();
   const [plan, setPlan] = useState<CoachPlan | null>(null);

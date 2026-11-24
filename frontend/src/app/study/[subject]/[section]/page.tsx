@@ -10,7 +10,7 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourseGuard } from "@/app/hooks/useCourseGuard";
 import { LockedCourse } from "@/app/components/LockedCourse";
 import { findSubject } from "@/app/lib/course";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectContent, useSubjects } from "@/app/lib/subjectContent";
 import { getFPPPlottingBySection } from "@/app/data/fpp-plotting";
 import dynamic from "next/dynamic";
 // Lazy-load the plotting/graph + cruise-table components: a sizeable tree
@@ -19,7 +19,6 @@ import dynamic from "next/dynamic";
 const PlottingCard = dynamic(() => import("@/app/components/PlottingCard").then((m) => m.PlottingCard), { ssr: false });
 const CruiseTables = dynamic(() => import("@/app/components/CruiseTables").then((m) => m.CruiseTables), { ssr: false });
 import { figuresForSection, atgFiguresByTopic } from "@/app/lib/figures";
-import { FIGURE_NOTES } from "@/app/data/aircraft-technical-figure-notes";
 import { recordQuiz, recordStudyOpen } from "@/app/lib/progress";
 import { SUBJECT_BANKS, loadMastery } from "@/app/lib/readiness";
 import { recordResults } from "@/app/lib/examSelect";
@@ -34,7 +33,13 @@ import { buildExamTerms, ExamText } from "@/app/lib/examTerms";
 
 type Tab = "learn" | "law" | "quiz" | "flashcards" | "illustrations" | "examples";
 
-export default function SectionPage() {
+// Download this subject's content chunk first, then render the page.
+export default function SectionPageGate() {
+  const id = useParams().subject as string;
+  return useSubjects([id]) ? <SectionPage /> : <LoadingScreen />;
+}
+
+function SectionPage() {
   const params = useParams();
   const searchParams = useSearchParams();
   const subjectId = params.subject as string;
@@ -112,6 +117,9 @@ export default function SectionPage() {
   const sectionPlotting = useMemo(() => getFPPPlottingBySection(sectionId), [sectionId]);
   const sectionFigures = useMemo(() => figuresForSection(sectionId), [sectionId]);
   const sectionExamples = useMemo(() => getWorkedExamplesBySection(sectionId), [sectionId]);
+  // Long-form figure captions (~450 KB) — fetched after first paint, not bundled with the page.
+  const [FIGURE_NOTES, setFigureNotes] = useState<Record<string, string[]>>({});
+  useEffect(() => { import("@/app/data/aircraft-technical-figure-notes").then((m) => setFigureNotes(m.FIGURE_NOTES)); }, []);
 
   const subject = findSubject(subjectId);
   const section = subject?.sections.find((s) => s.id === sectionId);

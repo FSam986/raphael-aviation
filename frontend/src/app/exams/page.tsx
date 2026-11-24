@@ -5,12 +5,9 @@ import Link from "next/link";
 import { useCourse } from "@/app/hooks/useCourse";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
-// Bank size per subject, generated from examBank() (scripts/gen-exam-counts.ts) so
-// this list page doesn't download every question bank.
-import EXAM_COUNTS from "@/app/data/exam-counts.json";
+// Bank size per subject from the build-time content index (no question banks downloaded).
+import { bankSize } from "@/app/lib/contentIndex";
 import { Icon, SUBJECT_ICON } from "@/app/components/Icon";
-
-const READY = EXAM_COUNTS as Record<string, number>;
 
 export default function Exams() {
   const { userName, loading } = useAuthGuard();
@@ -61,7 +58,7 @@ export default function Exams() {
         ) : (
         <div className="px-5 sm:px-10 py-8 grid grid-cols-1 gap-3">
           {syllabus.map((subject) => {
-            const count = READY[subject.id];
+            const count = bankSize(subject.id);
             const ready = !!count;
             return ready ? (
               <Link

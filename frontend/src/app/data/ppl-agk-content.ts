@@ -55,4 +55,5 @@ export function getPPLAgkNoteBySection(s: string): AirLawSectionNote | undefined
 }
 const SECS = [...new Set(Object.values(MAP).flat())];
 export const PPL_AGK_QUESTIONS: AirLawQuestion[] = ALL_INSTRUMENTS_QUESTIONS.filter((x) => SECS.includes(x.sectionId) && x.difficulty !== "hard");
-export const PPL_AGK_FIGURE_KEY: Record<string, string> = { "6.5": "A.7.1" };
+
+export { PPL_AGK_FIGURE_KEY } from "./figure-keys";

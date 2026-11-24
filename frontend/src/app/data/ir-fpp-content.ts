@@ -106,11 +106,7 @@ export function getIRFppPlottingBySection(s: string): PlottingQuestion[] {
   return (MAP[s] ?? []).flatMap((c) => getFPPPlottingBySection(c));
 }
 
-export const IR_FPP_FIGURE_KEY: Record<string, string> = {
-  "C.4.2": "A.4.7", "C.4.3": "A.4.7", "C.4.4": "A.4.4", "C.4.5": "A.4.5", "C.4.6": "A.4.8",
-  "C.4.7": "A.4.1", "C.4.9": "A.4.4", "C.4.10": "A.4.13", "C.4.11": "A.4.13", "C.4.12": "A.4.13",
-  "C.4.14": "A.4.5", "C.4.15": "A.4.5", "C.4.17": "A.4.12",
-};
+
 
 const IR_FPP_SECTIONS = [...new Set(Object.values(MAP).flat())];
 export const IR_FPP_QUESTIONS: AirLawQuestion[] = [
@@ -118,3 +114,5 @@ export const IR_FPP_QUESTIONS: AirLawQuestion[] = [
   ...IR_FPP_MINED_QUESTIONS,
 ];
 export const IR_FPP_QUESTION_COUNT = IR_FPP_QUESTIONS.length;
+
+export { IR_FPP_FIGURE_KEY } from "./figure-keys";

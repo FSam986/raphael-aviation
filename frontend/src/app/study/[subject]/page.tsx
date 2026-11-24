@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { findSubject } from "@/app/lib/course";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectContent, useSubjects } from "@/app/lib/subjectContent";
 import { subjectReadiness, type SubjectReadiness } from "@/app/lib/readiness";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
@@ -16,7 +16,13 @@ import { Icon } from "@/app/components/Icon";
 import { StoryFlight } from "@/app/components/StoryFlight";
 import { SyllabusOverlay } from "@/app/components/SyllabusOverlay";
 
-export default function SubjectPage() {
+// Download this subject's content chunk first, then render the page.
+export default function SubjectPageGate() {
+  const id = useParams().subject as string;
+  return useSubjects([id]) ? <SubjectPage /> : <LoadingScreen />;
+}
+
+function SubjectPage() {
   const params = useParams();
   const subjectId = params.subject as string;
   const { userName, loading } = useAuthGuard();

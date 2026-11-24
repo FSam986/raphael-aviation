@@ -10,12 +10,18 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourseGuard } from "@/app/hooks/useCourseGuard";
 import { LockedCourse } from "@/app/components/LockedCourse";
 import { findSubject } from "@/app/lib/course";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectContent, useSubjects } from "@/app/lib/subjectContent";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
 import { FlashcardBackdrop } from "@/app/components/FlashcardBackdrop";
 
 // Reel-style flashcards: one card per full-height slide, swipe up for the next.
-export default function SubjectFlashcards() {
+// Download this subject's content chunk first, then render the page.
+export default function SubjectFlashcardsGate() {
+  const id = useParams().subject as string;
+  return useSubjects([id]) ? <SubjectFlashcards /> : <LoadingScreen />;
+}
+
+function SubjectFlashcards() {
   const { userName, loading } = useAuthGuard();
   const params = useParams();
   const subjectId = params.subject as string;

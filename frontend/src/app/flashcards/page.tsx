@@ -3,7 +3,7 @@
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import Link from "next/link";
 import { useCourse } from "@/app/hooks/useCourse";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { sectionFlashcardCount } from "@/app/lib/contentIndex";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { Icon, SUBJECT_ICON } from "@/app/components/Icon";
@@ -14,9 +14,7 @@ export default function Flashcards() {
 
   // count cards per subject from the shared content registry
   const countFor = (subject: (typeof syllabus)[number]) => {
-    const content = subjectContent(subject.id);
-    if (!content) return 0;
-    return subject.sections.reduce((n, sec) => n + content.flashcards(sec.id).length, 0);
+    return subject.sections.reduce((n, sec) => n + sectionFlashcardCount(subject.id, sec.id), 0);
   };
 
   if (loading)

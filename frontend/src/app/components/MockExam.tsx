@@ -2,6 +2,8 @@
 
 import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
+import { useSubjects } from "@/app/lib/subjectContent";
+import { examBank } from "@/app/lib/examBank";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
@@ -69,7 +71,16 @@ function loadMastery(key: string): MasteryMap {
   }
 }
 
-export function MockExam({
+// Load the subject(s) this paper draws from, then run it. Pages may pass an
+// empty `questions` (computed before load); the bank is then built here.
+export function MockExam(props: MockExamProps) {
+  const ids = props.plan ? props.plan.map((p) => p.subjectId ?? "") : [props.subjectId];
+  const ready = useSubjects(ids);
+  if (!ready) return <LoadingScreen />;
+  return <MockExamInner {...props} questions={props.questions.length || props.plan ? props.questions : examBank(props.subjectId)} />;
+}
+
+function MockExamInner({
   subjectId,
   code,
   title,

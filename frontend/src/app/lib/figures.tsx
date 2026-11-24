@@ -46,15 +46,6 @@ import { FPP_FIGURES } from "@/app/data/fpp-figures";
 import { NAV_FIGURES } from "@/app/data/nav-figures";
 import { AIRLAW_FIGURES } from "@/app/data/airlaw-figures";
 import { RADIONAV_FIGURES } from "@/app/data/radionav-figures";
-import { PPL_MET_FIGURE_KEY } from "@/app/data/ppl-met-content";
-import { PPL_NAV_FIGURE_KEY } from "@/app/data/ppl-nav-content";
-import { PPL_FPP_FIGURE_KEY } from "@/app/data/ppl-fpp-content";
-import { PPL_AGK_FIGURE_KEY } from "@/app/data/ppl-agk-content";
-import { IR_MET_FIGURE_KEY } from "@/app/data/ir-met-content";
-import { IR_AWO_FIGURE_KEY } from "@/app/data/ir-awo-content";
-import { IR_FPP_FIGURE_KEY } from "@/app/data/ir-fpp-content";
-import { IR_RNV_FIGURE_KEY, IR_INS_FIGURE_KEY, IR_HPL_FIGURE_KEY } from "@/app/data/ir-delegated-notes";
-import { PPL_POF_FIGURE_KEY } from "@/app/data/ppl-principles-of-flight-content";
 import { NavLightsSectors, NightVisionDiagram, AerodromeNightLighting } from "@/app/components/figures/nightFigures";
 import { ApproachSegments, ApproachLightingPAPI, StraightDeparture } from "@/app/components/figures/awoFigures";
 import { ColdTempAltimetry, MinimumAltitudes, HoldingEntry, TransitionLayer, Microburst, Hydroplaning, StabilisedApproach, TurningDeparture, DeclaredDistances, ApproachMinima, DeIcing, VSpeeds, STARArrival, CirclingApproach, DMEArc, MissedApproach, HoldingSpeeds, VerticalProfile, RNPContainment } from "@/app/components/figures/irProcFigures";
@@ -101,6 +92,7 @@ export interface FigureDef {
 }
 
 // Which figure files actually exist on disk (generated: scripts/gen-figure-manifest.mjs).
+import { PPL_MET_FIGURE_KEY, PPL_NAV_FIGURE_KEY, PPL_FPP_FIGURE_KEY, PPL_AGK_FIGURE_KEY, IR_MET_FIGURE_KEY, IR_AWO_FIGURE_KEY, IR_FPP_FIGURE_KEY, IR_RNV_FIGURE_KEY, IR_INS_FIGURE_KEY, IR_HPL_FIGURE_KEY, PPL_POF_FIGURE_KEY } from "@/app/data/figure-keys";
 import FIGURE_MANIFEST from "@/app/data/figure-manifest.json";
 const MANIFEST = FIGURE_MANIFEST as Record<string, 1>;
 

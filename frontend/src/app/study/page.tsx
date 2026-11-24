@@ -4,11 +4,12 @@ import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useCourse } from "@/app/hooks/useCourse";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { distinctQuestionCount } from "@/app/lib/contentIndex";
 import { subjectReadiness } from "@/app/lib/readiness";
 import { Sidebar } from "@/app/components/Sidebar";
 import { Icon, SUBJECT_ICON } from "@/app/components/Icon";
 import { searchSyllabus } from "@/app/lib/search";
+import { useSubjects } from "@/app/lib/subjectContent";
 import { SearchResults } from "@/app/components/SearchResults";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 
@@ -26,7 +27,10 @@ export default function StudyPage() {
   }, [syllabus]);
 
   // Smart search across the syllabus, notes, flashcards and questions (lib/search).
-  const results = useMemo(() => searchSyllabus(syllabus, query, 20), [query, syllabus]);
+  // Content search needs the course's subjects — fetched only once the user types.
+  const searchReady = useSubjects(query.trim() ? syllabus.map((s) => s.id) : []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run once content has loaded
+  const results = useMemo(() => searchSyllabus(syllabus, query, 20), [query, syllabus, searchReady]);
 
   if (loading) {
     return <LoadingScreen />;
@@ -65,13 +69,8 @@ export default function StudyPage() {
           <div className="grid grid-cols-1 gap-3">
             {syllabus.map((subject) => {
               const totalItems = subject.sections.reduce((n, s) => n + s.items.length, 0);
-              const content = subjectContent(subject.id);
-              // Count DISTINCT questions: IR subjects re-map several syllabus
-              // codes to the same underlying CPL section, so a plain per-section
-              // sum would count shared questions two or three times.
-              const qIds = new Set<string>();
-              subject.sections.forEach((s) => (content?.questions(s.id) ?? []).forEach((q) => qIds.add(q.id)));
-              const totalQuestions = qIds.size;
+              // DISTINCT questions (IR re-maps several codes onto one CPL section).
+              const totalQuestions = distinctQuestionCount(subject.id);
               return (
                 <Link
                   key={subject.id}
