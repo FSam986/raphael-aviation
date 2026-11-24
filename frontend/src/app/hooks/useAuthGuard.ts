@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { setCurrentEmail } from "@/app/lib/entitlement";
+import { setCurrentEmail, refreshEntitlements } from "@/app/lib/entitlement";
 import { startProgressSync, clearLocalProgress } from "@/app/lib/progressSync";
 import { hasAcceptedTerms } from "@/app/lib/terms";
 
@@ -27,6 +27,7 @@ export function useAuthGuard() {
       if (!(await hasAcceptedTerms(session.user.id))) { if (!cancelled) router.replace("/accept-terms"); return; }
       if (cancelled) return;
       setCurrentEmail(session.user.email);
+      void refreshEntitlements(); // paid access from the server (cached per device)
       setUserId(session.user.id);
       void startProgressSync(session.user.id);
       setUserName(session.user.user_metadata?.full_name?.split(" ")[0] || "Student");

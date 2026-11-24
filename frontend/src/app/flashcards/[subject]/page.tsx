@@ -1,6 +1,8 @@
 "use client";
 
 import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
+import { FREE_SECTIONS } from "@/app/lib/plans";
+import { UpgradePanel } from "@/app/components/UpgradePanel";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
@@ -25,13 +27,14 @@ function SubjectFlashcards() {
   const { userName, loading } = useAuthGuard();
   const params = useParams();
   const subjectId = params.subject as string;
-  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
+  const { locked, ready: accessReady, course, access } = useCourseGuard(subjectId);
   const subject = findSubject(subjectId);
   const content = subjectContent(subjectId);
 
   const sections = useMemo(
-    () => (subject && content ? subject.sections.filter((s) => content.flashcards(s.id).length > 0) : []),
-    [subject, content]
+    // Free mode: only the first FREE_SECTIONS sections' cards.
+    () => (subject && content ? subject.sections.slice(0, access === "free" ? FREE_SECTIONS : undefined).filter((s) => content.flashcards(s.id).length > 0) : []),
+    [subject, content, access]
   );
   const [sectionFilter, setSectionFilter] = useState("all");
   const [active, setActive] = useState(0);
@@ -84,6 +87,11 @@ function SubjectFlashcards() {
                 </div>
               </section>
             ))}
+            {access === "free" && (
+              <section className="h-[100dvh] snap-start flex items-center justify-center px-6">
+                <UpgradePanel course={course} what="The rest of this deck" />
+              </section>
+            )}
           </div>
         )}
       </main>

@@ -52,8 +52,8 @@ export interface CoachProgress {
   badges: EarnedBadge[];
 }
 
-import { PLAN_KEY, PROG_KEY, read, write, loadPlan, isPremium, setPremium } from "@/app/lib/coachStore";
-export { loadPlan, isPremium, setPremium };
+import { PLAN_KEY, PROG_KEY, read, write, loadPlan, isPremium } from "@/app/lib/coachStore";
+export { loadPlan, isPremium };
 const DAY_MS = 86_400_000;
 
 // Local calendar date (not UTC): in SA (UTC+2) toISOString() would put 00:00–02:00

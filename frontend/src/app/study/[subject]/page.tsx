@@ -1,6 +1,8 @@
 "use client";
 
 import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
+import { UpgradePanel } from "@/app/components/UpgradePanel";
+import { FREE_SECTIONS } from "@/app/lib/plans";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -26,7 +28,7 @@ function SubjectPage() {
   const params = useParams();
   const subjectId = params.subject as string;
   const { userName, loading } = useAuthGuard();
-  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
+  const { locked, ready: accessReady, course, access } = useCourseGuard(subjectId);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [view, setView] = useState<"story" | "list">("story");
   const [showSyllabus, setShowSyllabus] = useState(false);
@@ -149,7 +151,7 @@ function SubjectPage() {
                     {idx + 1}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="font-bold text-white">{section.title}</div>
+                    <div className="font-bold text-white flex items-center gap-2 flex-wrap">{section.title}{access === "free" && idx >= FREE_SECTIONS && <UpgradePanel course={course} compact />}{access === "free" && idx < FREE_SECTIONS && <span className="text-[11px] px-2 py-0.5 rounded-full bg-success/10 text-success border border-success/30">Free</span>}</div>
                     <div className="text-xs text-zinc-600 mt-0.5">
                       <span className="font-mono text-yellow-400/60">{section.id}</span>
                       <span className="ml-2">{section.items.length} exam topics</span>

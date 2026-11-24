@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { subjectContent, loadSubjects } from "@/app/lib/subjectContent";
-import { loadPlan as loadPlanForGate } from "@/app/lib/coachStore";
+import { loadPlan as loadPlanForGate, isPremium as isPremiumForGate } from "@/app/lib/coachStore";
 import { atgFiguresForSection, type FigureDef } from "@/app/lib/figures";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -72,6 +72,8 @@ export default function CoachSessionGate() {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     const p = loadPlanForGate();
+    // Pass Mode is Premium: no direct-URL access without it.
+    if (!p || !isPremiumForGate(p.courseId)) { window.location.replace("/coach"); return; }
     const ids = p ? [...new Set(p.days.flatMap((d) => [...d.units, ...d.reviewUnits].map((u) => u.subjectId)))] : [];
     loadSubjects(ids).then(() => setReady(true));
   }, []);

@@ -4,6 +4,8 @@ import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useSubjects } from "@/app/lib/subjectContent";
 import { examBank } from "@/app/lib/examBank";
+import { findSubject } from "@/app/lib/course";
+import { FREE_SECTIONS, FREE_MOCK_QUESTIONS } from "@/app/lib/plans";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
@@ -76,7 +78,16 @@ function loadMastery(key: string): MasteryMap {
 export function MockExam(props: MockExamProps) {
   const ids = props.plan ? props.plan.map((p) => p.subjectId ?? "") : [props.subjectId];
   const ready = useSubjects(ids);
-  if (!ready) return <LoadingScreen />;
+  const { access, ready: accessReady } = useCourseGuard(props.subjectId);
+  if (!ready || !accessReady) return <LoadingScreen />;
+  if (access === "free") {
+    // Free sample: FREE_MOCK_QUESTIONS drawn only from each subject's free sections.
+    const bank = ids.flatMap((id) => {
+      const free = new Set((findSubject(id)?.sections ?? []).slice(0, FREE_SECTIONS).map((s) => s.id));
+      return examBank(id).filter((q) => free.has(q.sectionId));
+    });
+    return <MockExamInner {...props} plan={undefined} title={`${props.title} · free sample`} questions={bank} examSize={Math.min(FREE_MOCK_QUESTIONS, bank.length)} examMinutes={Math.max(5, Math.round((props.examMinutes / Math.max(1, props.examSize)) * FREE_MOCK_QUESTIONS))} />;
+  }
   return <MockExamInner {...props} questions={props.questions.length || props.plan ? props.questions : examBank(props.subjectId)} />;
 }
 

@@ -1,6 +1,8 @@
 "use client";
 
 import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
+import { UpgradePanel } from "@/app/components/UpgradePanel";
+import { FREE_SECTIONS } from "@/app/lib/plans";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -47,7 +49,7 @@ function SectionPage() {
   const focusItemId = searchParams.get("item");
 
   const { userName, loading } = useAuthGuard();
-  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
+  const { locked, ready: accessReady, course, access } = useCourseGuard(subjectId);
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<Tab>(
     tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" || tabParam === "law" ? tabParam : "learn"
@@ -133,6 +135,20 @@ function SectionPage() {
       <div className="min-h-screen bg-chart-ground flex flex-col items-center justify-center gap-4">
         <div className="text-white text-xl font-bold">Section not found</div>
         <Link href={`/study/${subjectId}`} className="text-yellow-400 text-sm hover:underline">← Back to subject</Link>
+      </div>
+    );
+  }
+
+  // Free mode: only the first FREE_SECTIONS sections of each subject are open.
+  if (access === "free" && subject.sections.indexOf(section) >= FREE_SECTIONS) {
+    return (
+      <div className="min-h-screen bg-chart-ground flex">
+        <SubjectBackdrop subjectId={subjectId} />
+        <Sidebar active="/study" userName={userName} />
+        <main className="relative z-[1] flex-1 md:ml-64 pt-14 md:pt-0 px-5">
+          <Link href={`/study/${subjectId}`} className="inline-block mt-8 text-xs text-zinc-500 hover:text-white">← {subject.title}</Link>
+          <UpgradePanel course={course} what={section.title} />
+        </main>
       </div>
     );
   }

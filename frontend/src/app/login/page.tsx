@@ -52,7 +52,9 @@ export default function LoginPage() {
         // Generic message so we never reveal whether the email exists.
         setError("Invalid email or password.");
       } else {
-        router.push("/dashboard");
+        // Return to where sign-in was asked for (same-site paths only).
+        const next = new URLSearchParams(window.location.search).get("next");
+        router.push(next && next.startsWith("/") && !next.startsWith("//") ? next : "/dashboard");
       }
     }
 

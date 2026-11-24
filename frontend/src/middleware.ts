@@ -27,7 +27,8 @@ function securityHeaders(res: NextResponse) {
     "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
     "frame-ancestors 'none'",
     "base-uri 'self'",
-    "form-action 'self'",
+    // PayFast checkout is a signed form POST to their site.
+    "form-action 'self' https://www.payfast.co.za https://sandbox.payfast.co.za",
     "object-src 'none'",
   ].join("; ");
   res.headers.set("Content-Security-Policy", csp);
