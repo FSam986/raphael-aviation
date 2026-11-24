@@ -14,8 +14,8 @@ export function TermsBody() {
   return (
     <>
       <p>
-        These terms apply to your use of the Raphael Aviation study app and website (&ldquo;the app&rdquo;), operated by{" "}
-        <strong>[registered company name and number]</strong>. By creating an account or using the app you agree to them. If you do not
+        These terms apply to your use of the Raphael Aviation study app and website , operated by{" "}
+        <strong>Raphael Business Solution</strong>. By creating an account or using the app you agree to them. If you do not
         agree, do not use the app.
       </p>
 
