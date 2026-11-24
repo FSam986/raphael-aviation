@@ -6,9 +6,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // Black cover shown while the screen is being recorded / mirrored.
+    private var captureCover: UIView?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // iOS can't block screenshots, but reports them right after: forward to
+        // the web app (ScreenshotGuard) so it shows the warning and records a strike.
+        NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: .main) { [weak self] _ in
+            (self?.window?.rootViewController as? CAPBridgeViewController)?.bridge?.triggerWindowJSEvent(eventName: "raScreenshot")
+        }
+        // Screen recording / mirroring: cover the content for as long as it runs.
+        NotificationCenter.default.addObserver(forName: UIScreen.capturedDidChangeNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.updateCaptureCover()
+        }
+        DispatchQueue.main.async { self.updateCaptureCover() }
         return true
+    }
+
+    private func updateCaptureCover() {
+        guard let window = window else { return }
+        if UIScreen.main.isCaptured {
+            guard captureCover == nil else { return }
+            let cover = UIView(frame: window.bounds)
+            cover.backgroundColor = .black
+            cover.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            let label = UILabel()
+            label.text = "Screen recording is not allowed"
+            label.textColor = .white
+            label.font = .boldSystemFont(ofSize: 18)
+            label.textAlignment = .center
+            label.translatesAutoresizingMaskIntoConstraints = false
+            cover.addSubview(label)
+            NSLayoutConstraint.activate([label.centerXAnchor.constraint(equalTo: cover.centerXAnchor), label.centerYAnchor.constraint(equalTo: cover.centerYAnchor)])
+            window.addSubview(cover)
+            captureCover = cover
+        } else {
+            captureCover?.removeFromSuperview()
+            captureCover = nil
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

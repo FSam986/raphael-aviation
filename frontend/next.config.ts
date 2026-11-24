@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["@supabase/supabase-js", "@supabase/ssr"],
   },
+  // Figures aren't content-hashed, so cache for 30 days and revalidate in the
+  // background rather than marking them immutable.
+  async headers() {
+    return [
+      { source: "/figures/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=604800" }] },
+    ];
+  },
 };
 
 export default nextConfig;

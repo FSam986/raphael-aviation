@@ -1,5 +1,6 @@
 import "./globals.css";
 import ContentShield from "./components/ContentShield";
+import ScreenshotGuard from "./components/ScreenshotGuard";
 import { Overpass, Overpass_Mono, Spectral, Barlow_Condensed } from "next/font/google";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-barlow", display: "swap" });
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body className="bg-chart-ground text-chart-ink">
         {children}
         <ContentShield />
+        <ScreenshotGuard />
       </body>
     </html>
   );
