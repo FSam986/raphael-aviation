@@ -1,6 +1,7 @@
 import "./globals.css";
 import ContentShield from "./components/ContentShield";
 import ScreenshotGuard from "./components/ScreenshotGuard";
+import UpdateWatcher from "./components/UpdateWatcher";
 import { Overpass, Overpass_Mono, Spectral, Barlow_Condensed } from "next/font/google";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-barlow", display: "swap" });
@@ -42,6 +43,7 @@ export default function RootLayout({
         {children}
         <ContentShield />
         <ScreenshotGuard />
+        <UpdateWatcher />
       </body>
     </html>
   );

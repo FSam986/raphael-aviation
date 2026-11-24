@@ -87,7 +87,14 @@ export function loadSubjects(ids: string[]): Promise<void> {
     ids.filter((id) => LOADERS[id] && !loaded.has(id)).map((id) => {
       let p = pending.get(id);
       if (!p) {
-        p = LOADERS[id]().then((g) => { loaded.set(id, wrap(id, g)); });
+        p = LOADERS[id]()
+          .then((g) => { loaded.set(id, wrap(id, g)); })
+          .catch((e) => {
+            pending.delete(id); // allow a retry
+            // A deploy replaced the chunk this tab expects: reload once onto the new build.
+            if (typeof window !== "undefined") import("@/app/components/UpdateWatcher").then((m) => m.isChunkError(e) && m.recoverFromChunkError());
+            throw e;
+          });
         pending.set(id, p);
       }
       return p;
@@ -102,7 +109,7 @@ export function useSubjects(ids: string[]): boolean {
   const ready = ids.every((id) => !LOADERS[id] || loaded.has(id));
   useEffect(() => {
     let live = true;
-    loadSubjects(key ? key.split(",") : []).then(() => { if (live) rerender((n) => n + 1); });
+    loadSubjects(key ? key.split(",") : []).then(() => { if (live) rerender((n) => n + 1); }, () => { /* handled in loadSubjects */ });
     return () => { live = false; };
   }, [key]);
   return ready;

@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
+// One id per deploy (Vercel commit SHA, else build time) — see UpdateWatcher.
+const APP_VERSION = process.env.VERCEL_GIT_COMMIT_SHA ?? (process.env.NODE_ENV === "production" ? String(Date.now()) : "dev");
+
 const nextConfig: NextConfig = {
+  env: { NEXT_PUBLIC_APP_VERSION: APP_VERSION },
   // Perf + hygiene
   poweredByHeader: false,            // don't advertise the framework
   compress: true,                    // gzip responses
