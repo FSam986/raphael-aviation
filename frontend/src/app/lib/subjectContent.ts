@@ -40,6 +40,7 @@ import { getIRRadioNavFlashcardsBySection } from "@/app/data/ir-radio-navigation
 import { getGRQuestionsBySection } from "@/app/data/gr-questions";
 import { getGRNoteBySection } from "@/app/data/gr-notes";
 import { getGRFlashcardsBySection } from "@/app/data/gr-flashcards";
+import { getNRQuestionsBySection, getNRNoteBySection, getNRFlashcardsBySection } from "@/app/data/nr-content";
 import { getInstrumentsQuestionsBySection } from "@/app/data/instruments-questions";
 import { getInstrumentsNoteBySection } from "@/app/data/instruments-notes";
 import { getInstrumentsFlashcardsBySection } from "@/app/data/instruments-flashcards";
@@ -137,6 +138,11 @@ const REGISTRY: Record<string, SubjectGetters> = {
     questions: getGRQuestionsBySection,
     note: getGRNoteBySection,
     flashcards: getGRFlashcardsBySection,
+  },
+  "night-rating": {
+    questions: getNRQuestionsBySection,
+    note: getNRNoteBySection,
+    flashcards: getNRFlashcardsBySection,
   },
   "flight-instruments": {
     questions: getInstrumentsQuestionsBySection,

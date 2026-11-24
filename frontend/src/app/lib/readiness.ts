@@ -50,6 +50,7 @@ export const SUBJECT_BANKS: Record<string, { storeKey: string; questions: QRef[]
   "ir-human-performance": { storeKey: "ir-humanperf-mastery", get questions() { return examBank("ir-human-performance"); } },
   "ir-radio-navigation": { storeKey: "ir-radionav-mastery", get questions() { return examBank("ir-radio-navigation"); } },
   "general-radiotelephony": { storeKey: "gr-mastery", get questions() { return examBank("general-radiotelephony"); } },
+  "night-rating": { storeKey: "nr-mastery", get questions() { return examBank("night-rating"); } },
   "flight-instruments": { storeKey: "instruments-mastery", get questions() { return examBank("flight-instruments"); } },
   "ppl-meteorology": { storeKey: "ppl-met-mastery", get questions() { return examBank("ppl-meteorology"); } },
   "ppl-navigation": { storeKey: "ppl-nav-mastery", get questions() { return examBank("ppl-navigation"); } },

@@ -14,6 +14,7 @@ import { HUMAN_PERFORMANCE_QUESTIONS } from "@/app/data/human-performance-questi
 import { NAV_QUESTIONS } from "@/app/data/nav-questions";
 import { RADIONAV_QUESTIONS } from "@/app/data/radionav-questions";
 import { GR_QUESTIONS } from "@/app/data/gr-questions";
+import { NR_QUESTION_COUNT } from "@/app/data/nr-content";
 import { ALL_INSTRUMENTS_QUESTIONS } from "@/app/data/instruments-questions";
 // PPL banks
 import { PPL_AIRLAW_QUESTIONS } from "@/app/data/ppl-airlaw-questions";
@@ -36,6 +37,7 @@ const READY: Record<string, number> = {
   navigation: NAV_QUESTIONS.length,
   "radio-navigation": RADIONAV_QUESTIONS.length,
   "general-radiotelephony": GR_QUESTIONS.length,
+  "night-rating": NR_QUESTION_COUNT(),
   "flight-instruments": ALL_INSTRUMENTS_QUESTIONS.length,
   // PPL
   "ppl-air-law": PPL_AIRLAW_QUESTIONS.length,

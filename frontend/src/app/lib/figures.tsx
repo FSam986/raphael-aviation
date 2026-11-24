@@ -55,6 +55,7 @@ import { IR_AWO_FIGURE_KEY } from "@/app/data/ir-awo-content";
 import { IR_FPP_FIGURE_KEY } from "@/app/data/ir-fpp-content";
 import { IR_RNV_FIGURE_KEY, IR_INS_FIGURE_KEY, IR_HPL_FIGURE_KEY } from "@/app/data/ir-delegated-notes";
 import { PPL_POF_FIGURE_KEY } from "@/app/data/ppl-principles-of-flight-content";
+import { NavLightsSectors, NightVisionDiagram, AerodromeNightLighting } from "@/app/components/figures/nightFigures";
 import { ApproachSegments, ApproachLightingPAPI, StraightDeparture } from "@/app/components/figures/awoFigures";
 import { ColdTempAltimetry, MinimumAltitudes, HoldingEntry, TransitionLayer, Microburst, Hydroplaning, StabilisedApproach, TurningDeparture, DeclaredDistances, ApproachMinima, DeIcing, VSpeeds, STARArrival, CirclingApproach, DMEArc, MissedApproach, HoldingSpeeds, VerticalProfile, RNPContainment } from "@/app/components/figures/irProcFigures";
 import { RunwayLighting, RunwayMarkings } from "@/app/components/figures/runwayFigures";
@@ -408,12 +409,18 @@ const RN_TOPIC_FIGS: Record<string, FigureDef[]> = {
   "GNSS / GPS": FIGURES["A.10.12"] ?? [],
 };
 
+// Night Rating — original night schematics (tagged from the NR notes by title).
+FIGURES["NR1"] = [{ id: "nr-navlights", title: "Navigation & Anti-Collision Lights", caption: "Red left 110°, green right 110°, white tail 140°, and how to read another aircraft's lights.", render: () => <NavLightsSectors /> }];
+FIGURES["NR3"] = [{ id: "nr-nightvision", title: "Night Vision — Rods, Cones & Dark Adaptation", caption: "Rod/cone distribution, the foveal night blind spot and the 30-minute dark-adaptation curve.", render: () => <NightVisionDiagram /> }];
+FIGURES["NR4"] = [{ id: "nr-aerodrome", title: "Aerodrome Night Lighting", caption: "Runway edge/threshold/end, taxiway blue/green, stop bar, beacon and obstacle lights.", render: () => <AerodromeNightLighting /> }];
+
 export function atgFiguresByTopic(topics: string[]): FigureDef[] {
   const raster = ATG_IMAGE_FIGURES
     // A tag may name a whole topic or one figure by its title.
     .filter((f) => topics.includes(f.topic) || topics.includes(f.title))
     .map((f) => imageFigure(f.id, f.title, f.caption, f.file, f.folder));
-  const inlineAll = Object.values(RN_TOPIC_FIGS).flat();
+  // A tag may also name any section figure by its exact title (e.g. Night Rating reusing Met/AWO art).
+  const inlineAll = [...Object.values(RN_TOPIC_FIGS).flat(), ...Object.values(FIGURES).flat()];
   const inline = [
     ...topics.flatMap((t) => RN_TOPIC_FIGS[t] ?? []),
     ...inlineAll.filter((f) => topics.includes(f.title)),

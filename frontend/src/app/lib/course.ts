@@ -7,8 +7,9 @@ import { SACAA_SYLLABUS, type SyllabusSubject } from "@/app/data/sacaa-syllabus"
 import { PPL_SYLLABUS } from "@/app/data/ppl-syllabus";
 import { IR_SYLLABUS } from "@/app/data/ir-syllabus";
 import { GR_SYLLABUS } from "@/app/data/gr-syllabus";
+import { NR_SYLLABUS } from "@/app/data/nr-syllabus";
 
-export type CourseId = "cpl" | "ppl" | "ir" | "gr";
+export type CourseId = "cpl" | "ppl" | "ir" | "gr" | "nr";
 export type CourseKind = "licence" | "rating";
 
 export const COURSES: Record<
@@ -19,6 +20,7 @@ export const COURSES: Record<
   ppl: { id: "ppl", label: "PPL", name: "Private Pilot Licence", kind: "licence", syllabus: PPL_SYLLABUS },
   ir: { id: "ir", label: "IR", name: "Instrument Rating", kind: "rating", syllabus: IR_SYLLABUS },
   gr: { id: "gr", label: "GR", name: "General Radiotelephony", kind: "rating", syllabus: GR_SYLLABUS },
+  nr: { id: "nr", label: "Night", name: "Night Rating", kind: "rating", syllabus: NR_SYLLABUS },
 };
 
 const KEY = "raphael-course";
@@ -27,7 +29,7 @@ export function getActiveCourse(): CourseId {
   if (typeof window === "undefined") return "cpl";
   try {
     const v = localStorage.getItem(KEY);
-    return v === "ppl" || v === "ir" || v === "gr" ? (v as CourseId) : "cpl";
+    return v === "ppl" || v === "ir" || v === "gr" || v === "nr" ? (v as CourseId) : "cpl";
   } catch {
     return "cpl";
   }
