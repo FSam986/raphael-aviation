@@ -178,3 +178,12 @@ h1.text-2xl { font-size: 2.1rem; }
 .ls-lines { animation: ls-lines 1.1s linear infinite; }
 @keyframes ls-lines { from { transform: translateX(20px); opacity: .9; } to { transform: translateX(-30px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .ls-clouds, .ls-plane, .ls-prop, .ls-lines { animation: none; } }
+
+/* Printing / "Save as PDF" of course pages is blanked (see ScreenshotGuard). */
+@media print {
+  body > * { display: none !important; }
+  body::before {
+    content: "Printing or saving Raphael Aviation pages is not allowed.";
+    display: block; padding: 40px; font: 700 18px system-ui, sans-serif; color: #000;
+  }
+}

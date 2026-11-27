@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { IR_SPECPROC_QUESTIONS } from "@/app/data/ir-special-procedures-questions";
+import { bankSize } from "@/app/lib/contentIndex";
 import { getIRSubject } from "@/app/data/ir-syllabus";
 
 const S = getIRSubject("ir-special-procedures")!;
@@ -14,7 +14,7 @@ export default function IRExamPage() {
       code={S.code}
       title={`IR ${S.title}`}
       questions={examBank("ir-special-procedures")}
-      examSize={Math.min(S.examQuestions, IR_SPECPROC_QUESTIONS.length)}
+      examSize={Math.min(S.examQuestions, bankSize("ir-special-procedures"))}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}
       storeKey="ir-specproc-mastery"

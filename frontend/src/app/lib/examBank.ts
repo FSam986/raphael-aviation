@@ -35,6 +35,6 @@ export function examBank(subjectId: string): ExamQuestion[] {
       out.push({ ...q, sectionId: home, aspect: itemOf(q, items) ?? undefined } as ExamQuestion);
     }
   }
-  cache.set(subjectId, out);
+  if (content) cache.set(subjectId, out); // don't cache before the subject has loaded
   return out;
 }

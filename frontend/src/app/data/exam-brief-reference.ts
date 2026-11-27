@@ -307,6 +307,35 @@ export const BRIEF_REFERENCE: Record<string, BriefRef[]> = {
     ]},
   ],
 
+  // ══════════════════════ NIGHT RATING (NR) ══════════════════════
+  nr: [
+    { heading: "Law", items: [
+      ["Night", "15 min after sunset → 15 min before sunrise"],
+      ["Privilege", "PIC by night, VFR only — no IMC"],
+      ["Pax recency", "3 T/O + 3 landings BY NIGHT in 90 days"],
+      ["Equipment", "nav lts · 2 landing lts (or twin-filament) · beacon/strobe · torch each crew · lit chart holder"],
+      ["Min height", "1000 ft / 5 NM (terrain ≤5000 ft) · 2000 ft if >5000 ft"],
+      ["SVFR", "aeroplanes by DAY only"],
+    ]},
+    { heading: "Lights", items: [
+      ["Nav lights", "red L 110° · green R 110° · white tail 140°"],
+      ["Red on your right", "you give way"],
+      ["Taxiway", "edge BLUE · centreline GREEN · stop bar RED"],
+      ["Runway", "edge white (yellow last 600 m) · THR green · end red"],
+      ["PAPI", "2W2R on slope · 4W high · 4R low"],
+      ["Obstacles", "steady red · flashing red · flashing white"],
+      ["Beacon", "white / white-green (land) · ident = Morse green"],
+    ]},
+    { heading: "Met & human factors", items: [
+      ["Radiation fog", "land · clear · light wind 2–8 kt · moist"],
+      ["SH night wind", "decreases & VEERS (day: increases & backs)"],
+      ["Katabatic", "cold air downslope → valley fog, frost"],
+      ["Dark adaptation", "≈30 min · off-centre 10–15°"],
+      ["Black hole", "feel high → fly LOW"],
+      ["Autokinesis", "stared-at light appears to move"],
+    ]},
+  ],
+
   // ══════════════════════ GENERAL RADIO (GR) ══════════════════════
   gr: [
     { heading: "Formulas & codes", items: [
@@ -498,6 +527,7 @@ export function briefFamily(subjectId: string): string | null {
   if (id.includes("principles-of-flight")) return "pof";
   if (id.includes("special-procedures")) return "sp";
   if (id.includes("radiotelephony")) return "gr";
+  if (id.includes("night")) return "nr";
   if (id.includes("radio-nav")) return "radionav";
   if (id.includes("nav")) return "nav";
   if (id.includes("met")) return "met";

@@ -17,10 +17,10 @@ export function LockedCourse({ course }: { course?: CourseId }) {
           material, flashcards and mock exams.
         </p>
         <Link
-          href="/settings"
+          href={`/pricing${course ? `?course=${course}` : ""}`}
           className="mt-5 inline-block w-full px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-colors"
         >
-          Manage subscription
+          See plans
         </Link>
       </div>
     </div>

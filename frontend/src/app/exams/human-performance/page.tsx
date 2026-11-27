@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { HUMAN_PERFORMANCE_QUESTIONS } from "@/app/data/human-performance-questions";
+import { bankSize } from "@/app/lib/contentIndex";
 import { findSubject } from "@/app/lib/course";
 
 const S = findSubject("human-performance")!;
@@ -14,7 +14,7 @@ export default function HumanPerformanceExamPage() {
       code={S.code}
       title={S.title}
       questions={examBank("human-performance")}
-      examSize={Math.min(S.examQuestions, HUMAN_PERFORMANCE_QUESTIONS.length)}
+      examSize={Math.min(S.examQuestions, bankSize("human-performance"))}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}
       storeKey="humanperf-mastery"

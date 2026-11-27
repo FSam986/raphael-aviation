@@ -71,8 +71,9 @@ function save(p: ProgressState) {
   }
 }
 
+const localDay = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 function today(): string {
-  return new Date().toISOString().slice(0, 10);
+  return localDay(new Date());
 }
 
 function pushHistory(p: ProgressState, rec: SessionRecord) {
@@ -135,9 +136,9 @@ function streak(days: Record<string, unknown>): number {
   let n = 0;
   const d = new Date();
   // allow the streak to still count if the user hasn't acted yet today
-  if (!days[d.toISOString().slice(0, 10)]) d.setDate(d.getDate() - 1);
+  if (!days[localDay(d)]) d.setDate(d.getDate() - 1);
   for (;;) {
-    const key = d.toISOString().slice(0, 10);
+    const key = localDay(d);
     if (days[key]) { n += 1; d.setDate(d.getDate() - 1); } else break;
   }
   return n;

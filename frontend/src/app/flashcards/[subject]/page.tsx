@@ -1,5 +1,8 @@
 "use client";
 
+import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
+import { FREE_SECTIONS } from "@/app/lib/plans";
+import { UpgradePanel } from "@/app/components/UpgradePanel";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
@@ -9,22 +12,29 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourseGuard } from "@/app/hooks/useCourseGuard";
 import { LockedCourse } from "@/app/components/LockedCourse";
 import { findSubject } from "@/app/lib/course";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectContent, useSubjects } from "@/app/lib/subjectContent";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
 import { FlashcardBackdrop } from "@/app/components/FlashcardBackdrop";
 
 // Reel-style flashcards: one card per full-height slide, swipe up for the next.
-export default function SubjectFlashcards() {
+// Download this subject's content chunk first, then render the page.
+export default function SubjectFlashcardsGate() {
+  const id = useParams().subject as string;
+  return useSubjects([id]) ? <SubjectFlashcards /> : <LoadingScreen />;
+}
+
+function SubjectFlashcards() {
   const { userName, loading } = useAuthGuard();
   const params = useParams();
   const subjectId = params.subject as string;
-  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
+  const { locked, ready: accessReady, course, access } = useCourseGuard(subjectId);
   const subject = findSubject(subjectId);
   const content = subjectContent(subjectId);
 
   const sections = useMemo(
-    () => (subject && content ? subject.sections.filter((s) => content.flashcards(s.id).length > 0) : []),
-    [subject, content]
+    // Free mode: only the first FREE_SECTIONS sections' cards.
+    () => (subject && content ? subject.sections.slice(0, access === "free" ? FREE_SECTIONS : undefined).filter((s) => content.flashcards(s.id).length > 0) : []),
+    [subject, content, access]
   );
   const [sectionFilter, setSectionFilter] = useState("all");
   const [active, setActive] = useState(0);
@@ -46,8 +56,9 @@ export default function SubjectFlashcards() {
 
   return (
     <div className="min-h-screen bg-chart-ground flex">
+      <SubjectBackdrop subjectId={subjectId} />
       <Sidebar active="/flashcards" userName={userName} />
-      <main className="flex-1 md:ml-64 pt-14 md:pt-0 h-screen relative overflow-hidden">
+      <main className="relative z-[1] flex-1 md:ml-64 pt-14 md:pt-0 h-screen overflow-hidden">
         {/* header overlay: title, progress, section filter */}
         <div className="absolute top-0 inset-x-0 z-30 px-6 pt-4 pb-3 bg-gradient-to-b from-black via-black/80 to-transparent">
           <div className="flex items-center gap-3">
@@ -76,6 +87,11 @@ export default function SubjectFlashcards() {
                 </div>
               </section>
             ))}
+            {access === "free" && (
+              <section className="h-[100dvh] snap-start flex items-center justify-center px-6">
+                <UpgradePanel course={course} what="The rest of this deck" />
+              </section>
+            )}
           </div>
         )}
       </main>

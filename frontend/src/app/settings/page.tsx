@@ -10,8 +10,9 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourse } from "@/app/hooks/useCourse";
 import { COURSES, type CourseId } from "@/app/lib/course";
 import { supabase, supabaseConfigured } from "@/lib/supabase";
-import { isPremium, loadPlan, type CoachPlan } from "@/app/lib/coachPlan";
-import { ownedCourses, grantCourse, revokeCourse } from "@/app/lib/entitlement";
+import { loadPlan } from "@/app/lib/coachStore";
+import type { CoachPlan } from "@/app/lib/coachPlan";
+import { entitlementList, refreshEntitlements } from "@/app/lib/entitlement";
 
 const pref = {
   get: (k: string, d: string) => { try { return localStorage.getItem("pref:" + k) ?? d; } catch { return d; } },
@@ -42,8 +43,7 @@ export default function Settings() {
   const [fullName, setFullName] = useState("");
   const [saved, setSaved] = useState("");
   const [plan, setPlan] = useState<CoachPlan | null>(null);
-  const [premium, setPremium] = useState(false);
-  const [owned, setOwned] = useState<CourseId[]>([]);
+  const [plans, setPlans] = useState<ReturnType<typeof entitlementList>>([]);
   const [hydrated, setHydrated] = useState(false);
 
   // preferences
@@ -58,7 +58,8 @@ export default function Settings() {
       setEmail(session?.user?.email ?? "");
       setFullName((session?.user?.user_metadata?.full_name as string) ?? "");
     });
-    setPlan(loadPlan()); setPremium(isPremium()); setOwned(ownedCourses());
+    setPlan(loadPlan()); setPlans(entitlementList());
+    void refreshEntitlements().then(() => setPlans(entitlementList()));
     setDailyGoal(pref.get("dailyGoal", "20"));
     setUnits(pref.get("units", "kt"));
     setReduceMotion(pref.get("reduceMotion", "0") === "1");
@@ -119,14 +120,20 @@ export default function Settings() {
             <Row label="Session"><button onClick={signOut} className="text-xs px-3 py-1.5 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-300">Sign out</button></Row>
           </Card>
 
-          <Card title="Subscription" desc="Each course is sold separately. Locked courses hide their study material, flashcards and mock exams.">
-            <Row label="Plan"><span className={`text-sm font-bold ${premium ? "text-yellow-400" : "text-zinc-400"}`}>{premium ? "Guaranteed Pass (Premium)" : "Free"}</span></Row>
+          <Card title="Your plans" desc="Courses you haven't bought open in Free mode: the first topic of every subject, plus a sample mock exam.">
             {Object.values(COURSES).map((c) => {
-              const on = owned.includes(c.id);
+              const p = plans.find((x) => x.course === c.id);
               return (
                 <Row key={c.id} label={c.name}>
-                  <span className={`text-xs ${on ? "text-yellow-400" : "text-zinc-600"}`}>{on ? "Owned" : "Locked"}</span>
-                  <Toggle on={on} onClick={() => { on ? revokeCourse(c.id) : grantCourse(c.id); setOwned(ownedCourses()); }} />
+                  {p ? (
+                    <span className="text-xs text-yellow-400 text-right">
+                      {p.tier === "premium" ? "Premium" : "Course"}
+                      {p.expires.getFullYear() < 9999 && <span className="text-zinc-500"> · until {p.expires.toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" })}</span>}
+                    </span>
+                  ) : (
+                    <span className="text-xs text-zinc-500">Free</span>
+                  )}
+                  <Link href={`/pricing?course=${c.id}`} className="text-xs px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-200">{p ? "Extend" : "Upgrade"}</Link>
                 </Row>
               );
             })}
@@ -135,7 +142,7 @@ export default function Settings() {
           <Card title="Exam target" desc="Drives your dashboard countdown and the Guaranteed-Pass plan.">
             <Row label="Default course">
               <select value={course} onChange={(e) => setCourse(e.target.value as CourseId)} className="bg-zinc-900 border border-zinc-800 text-white text-sm rounded-lg px-3 py-1.5 focus:outline-none focus:border-yellow-400">
-                {Object.values(COURSES).filter((c) => owned.includes(c.id)).map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+                {Object.values(COURSES).map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
             </Row>
             <Row label="Exam date">

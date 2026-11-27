@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { IR_INSTRUMENTS_QUESTIONS } from "@/app/data/ir-instruments-questions";
+import { bankSize } from "@/app/lib/contentIndex";
 import { getIRSubject } from "@/app/data/ir-syllabus";
 
 const S = getIRSubject("ir-instruments")!;
@@ -14,7 +14,7 @@ export default function IRExamPage() {
       code={S.code}
       title={`IR ${S.title}`}
       questions={examBank("ir-instruments")}
-      examSize={Math.min(S.examQuestions, IR_INSTRUMENTS_QUESTIONS.length)}
+      examSize={Math.min(S.examQuestions, bankSize("ir-instruments"))}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}
       storeKey="ir-instruments-mastery"

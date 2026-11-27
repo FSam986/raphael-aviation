@@ -5,7 +5,9 @@ import { useMemo, useState } from "react";
 import { Sidebar } from "@/app/components/Sidebar";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourse } from "@/app/hooks/useCourse";
-import { subjectContent } from "@/app/lib/subjectContent";
+import Link from "next/link";
+import { FREE_SECTIONS } from "@/app/lib/plans";
+import { subjectContent, hasSubjectContent, useSubjects } from "@/app/lib/subjectContent";
 import { getBriefReference } from "@/app/data/exam-brief-reference";
 import { Icon } from "@/app/components/Icon";
 import { buildExamTerms, ExamText, examAnswers } from "@/app/lib/examTerms";
@@ -16,22 +18,24 @@ import { buildExamTerms, ExamText, examAnswers } from "@/app/lib/examTerms";
 
 export default function ExamBrief() {
   const { userName, loading } = useAuthGuard();
-  const { syllabus } = useCourse();
+  const { syllabus, access } = useCourse();
+  const open = <T,>(secs: T[]): T[] => (access === "free" ? secs.slice(0, FREE_SECTIONS) : secs); // Free: first topic only
 
   // subjects that actually have content getters
   const readySubjects = useMemo(
-    () => syllabus.filter((s) => subjectContent(s.id)),
+    () => syllabus.filter((s) => hasSubjectContent(s.id)),
     [syllabus]
   );
   const [subjectId, setSubjectId] = useState<string | null>(null);
   const active = subjectId ?? readySubjects[0]?.id ?? null;
   const subject = readySubjects.find((s) => s.id === active);
+  const contentReady = useSubjects(active ? [active] : []);
 
   const brief = useMemo(() => {
     if (!subject) return [];
     const content = subjectContent(subject.id);
     if (!content) return [];
-    return subject.sections
+    return open(subject.sections)
       .map((sec) => {
         const note = content.note(sec.id);
         const qs = content.questions(sec.id);
@@ -40,12 +44,14 @@ export default function ExamBrief() {
           : null;
       })
       .filter((x): x is NonNullable<typeof x> => x !== null);
-  }, [subject]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run once content has loaded
+  }, [subject, contentReady, access]);
 
   const examRe = useMemo(() => {
     const content = subject && subjectContent(subject.id);
-    return content ? buildExamTerms(subject.sections.flatMap((sec) => content.questions(sec.id))) : null;
-  }, [subject]);
+    return content ? buildExamTerms(open(subject.sections).flatMap((sec) => content.questions(sec.id))) : null;
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run once content has loaded
+  }, [subject, contentReady, access]);
   const totalPoints = brief.reduce((n, b) => n + b.mustKnow.length + b.traps.length, 0);
 
   if (loading)
@@ -87,7 +93,7 @@ export default function ExamBrief() {
           <div className="px-5 sm:px-10 py-6 no-copy" onContextMenu={(e) => e.preventDefault()}>
             <div className="flex items-center justify-between mb-5">
               <p className="text-zinc-500 text-xs">
-                {brief.length} topics · {totalPoints} key points. Skim top-to-bottom on the morning of your {subject.title} exam.
+                {brief.length} topics · {totalPoints} key points. Skim top-to-bottom on the morning of your {subject.title} exam.{access === "free" && <> Free mode shows the first topic — <Link href="/pricing" className="text-gold underline">unlock the full brief</Link>.</>}
               </p>
               <span className="text-zinc-700 text-[11px]">For your personal use only</span>
             </div>

@@ -5,7 +5,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuthGuard } from "@/app/hooks/useAuthGuard";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectContent, loadSubjects } from "@/app/lib/subjectContent";
+import { loadPlan as loadPlanForGate, isPremium as isPremiumForGate } from "@/app/lib/coachStore";
 import { atgFiguresForSection, type FigureDef } from "@/app/lib/figures";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -16,6 +17,7 @@ import {
 } from "@/app/lib/coachPlan";
 import { pick as pickMsg, PILOT_BREAK, scheduleDailyStreak, notifyPermission } from "@/lib/notify";
 import { Icon } from "@/app/components/Icon";
+import { Zoomable } from "@/app/components/Zoomable";
 
 const PASS = 90;
 const MAX_ROUNDS = 4;
@@ -66,7 +68,20 @@ type Slide =
   | { id: string; kind: "break"; title: string; body: string }
   | { id: string; kind: "done" };
 
-export default function CoachSessionReel() {
+// Download the plan's subjects first (client-only: the plan lives in localStorage).
+export default function CoachSessionGate() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const p = loadPlanForGate();
+    // Pass Mode is Premium: no direct-URL access without it.
+    if (!p || !isPremiumForGate(p.courseId)) { window.location.replace("/coach"); return; }
+    const ids = p ? [...new Set(p.days.flatMap((d) => [...d.units, ...d.reviewUnits].map((u) => u.subjectId)))] : [];
+    loadSubjects(ids).then(() => setReady(true));
+  }, []);
+  return ready ? <CoachSessionReel /> : <LoadingScreen />;
+}
+
+function CoachSessionReel() {
   const { userName, loading } = useAuthGuard();
   const router = useRouter();
   const [plan, setPlan] = useState<CoachPlan | null>(null);
@@ -370,7 +385,7 @@ export default function CoachSessionReel() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {s.figures.map((f) => (
                           <figure key={f.id}>
-                            <div className="bg-white rounded-lg overflow-hidden border border-zinc-800">{f.render()}</div>
+                            <div className="bg-white rounded-lg overflow-hidden border border-zinc-800"><Zoomable label={f.title}>{f.render()}</Zoomable></div>
                             <figcaption className="text-zinc-500 text-[11px] mt-1 leading-snug">{f.title}</figcaption>
                           </figure>
                         ))}

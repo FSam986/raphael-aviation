@@ -6,8 +6,7 @@
 // when that lands). ponytail: single source of truth for plan + streak maths.
 
 import { COURSES, type CourseId } from "@/app/lib/course";
-import { hasFullAccess } from "@/app/lib/entitlement";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { indexed, sectionQuestionCount } from "@/app/lib/contentIndex";
 import { starOfSubject } from "@/app/data/exam-priority";
 
 export interface StudyUnit {
@@ -53,12 +52,13 @@ export interface CoachProgress {
   badges: EarnedBadge[];
 }
 
-const PLAN_KEY = "coach:plan";
-const PROG_KEY = "coach:progress";
-const PREMIUM_KEY = "coach:premium";
+import { PLAN_KEY, PROG_KEY, read, write, loadPlan, isPremium } from "@/app/lib/coachStore";
+export { loadPlan, isPremium };
 const DAY_MS = 86_400_000;
 
-export const ymd = (d: Date) => d.toISOString().slice(0, 10);
+// Local calendar date (not UTC): in SA (UTC+2) toISOString() would put 00:00–02:00
+// on the previous day and turn local-midnight dates back a day.
+export const ymd = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 const parse = (s: string) => new Date(s + "T00:00:00");
 export function daysBetween(a: string, b: string): number {
   return Math.round((parse(b).getTime() - parse(a).getTime()) / DAY_MS);
@@ -70,11 +70,10 @@ export function learnableUnits(courseId: CourseId, subjectIds: string[]): StudyU
   const out: StudyUnit[] = [];
   for (const subj of course.syllabus) {
     if (!subjectIds.includes(subj.id)) continue;
-    const content = subjectContent(subj.id);
-    if (!content) continue;
+    if (!indexed(subj.id)) continue;
     const star = starOfSubject(subj.id);
     for (const sec of subj.sections) {
-      if (content.questions(sec.id).length > 0) {
+      if (sectionQuestionCount(subj.id, sec.id) > 0) {
         out.push({ subjectId: subj.id, subjectTitle: subj.title, sectionId: sec.id, sectionTitle: sec.title, star: star ? star(sec.id) : 2 });
       }
     }
@@ -87,8 +86,7 @@ export function subjectsWithContent(courseId: CourseId): { id: string; title: st
   const course = COURSES[courseId];
   return course.syllabus
     .map((subj) => {
-      const content = subjectContent(subj.id);
-      const sections = content ? subj.sections.filter((s) => content.questions(s.id).length > 0).length : 0;
+      const sections = subj.sections.filter((s) => sectionQuestionCount(subj.id, s.id) > 0).length;
       return { id: subj.id, title: subj.title, sections };
     })
     .filter((s) => s.sections > 0);
@@ -357,24 +355,11 @@ export function checkMilestones(plan: CoachPlan, pr: CoachProgress): [CoachProgr
 }
 
 /* ── persistence ─────────────────────────────────────────────────────────── */
-function read<T>(key: string): T | null {
-  if (typeof window === "undefined") return null;
-  try { const v = localStorage.getItem(key); return v ? (JSON.parse(v) as T) : null; } catch { return null; }
-}
-function write(key: string, val: unknown) {
-  if (typeof window === "undefined") return;
-  try { localStorage.setItem(key, JSON.stringify(val)); } catch { /* ignore */ }
-}
-export const loadPlan = () => read<CoachPlan>(PLAN_KEY);
 export const savePlan = (p: CoachPlan) => write(PLAN_KEY, p);
 export const clearPlan = () => { if (typeof window !== "undefined") { localStorage.removeItem(PLAN_KEY); localStorage.removeItem(PROG_KEY); } };
 export const loadProgress = () => read<CoachProgress>(PROG_KEY) ?? freshProgress();
 export const saveProgress = (p: CoachProgress) => write(PROG_KEY, p);
 
-// Premium gate (placeholder until real billing is wired). Full-access accounts
-// (preview/admin allowlist) always count as premium.
-export const isPremium = () => hasFullAccess() || read<boolean>(PREMIUM_KEY) === true;
-export const setPremium = (v: boolean) => write(PREMIUM_KEY, v);
 
 // Rough guarantee heuristic: how many topics/day this plan demands.
 export function planLoad(plan: CoachPlan): { topicsPerStudyDay: number; studyDays: number; totalTopics: number; tight: boolean } {

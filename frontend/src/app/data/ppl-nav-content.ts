@@ -57,6 +57,5 @@ export const PPL_NAV_QUESTIONS: AirLawQuestion[] = pplQuestionDepth([
   ...ALL_INSTRUMENTS_QUESTIONS.filter((x) => SECS.includes(x.sectionId)),
   ...SECS.filter((s) => s.startsWith("A.10")).flatMap((s) => getRadioNavQuestionsBySection(s)),
 ], Number.MAX_SAFE_INTEGER);
-export const PPL_NAV_FIGURE_KEY: Record<string, string> = {
-  "10.1": "A.9.1", "10.3": "A.9.5", "10.4": "A.9.2", "10.5": "A.7.7", "10.6": "A.9.7", "10.7": "A.9.8",
-};
+
+export { PPL_NAV_FIGURE_KEY } from "./figure-keys";

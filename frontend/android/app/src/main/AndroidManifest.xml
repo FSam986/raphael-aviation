@@ -38,4 +38,6 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Android 14+: lets MainActivity know when a screenshot is taken (strike counter). -->
+    <uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
 </manifest>

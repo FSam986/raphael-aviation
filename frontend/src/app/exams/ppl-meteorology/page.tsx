@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { PPL_MET_QUESTIONS } from "@/app/data/ppl-met-content";
+import { bankSize } from "@/app/lib/contentIndex";
 import { getPPLSubject } from "@/app/data/ppl-syllabus";
 
 const MET = getPPLSubject("ppl-meteorology")!;
@@ -14,7 +14,7 @@ export default function PPLMeteorologyExamPage() {
       code={MET.code}
       title={`PPL ${MET.title}`}
       questions={examBank("ppl-meteorology")}
-      examSize={Math.min(MET.examQuestions, PPL_MET_QUESTIONS.length)}
+      examSize={Math.min(MET.examQuestions, bankSize("ppl-meteorology"))}
       examMinutes={MET.examMinutes ?? 120}
       passPercent={MET.passPercent}
       storeKey="ppl-met-mastery"

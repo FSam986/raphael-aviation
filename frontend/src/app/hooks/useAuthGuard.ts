@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { setCurrentEmail } from "@/app/lib/entitlement";
+import { setCurrentEmail, refreshEntitlements } from "@/app/lib/entitlement";
 import { startProgressSync, clearLocalProgress } from "@/app/lib/progressSync";
+import { hasAcceptedTerms } from "@/app/lib/terms";
 
 // Redirects to /login only when there is genuinely no stored session. Reads the
 // session from local storage (getSession) rather than hitting the network on
@@ -19,10 +20,14 @@ export function useAuthGuard() {
   useEffect(() => {
     let cancelled = false;
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (cancelled) return;
       if (!session) { setCurrentEmail(null); router.push("/login"); return; }
+      // Terms must be accepted (current version) before using the app.
+      if (!(await hasAcceptedTerms(session.user.id))) { if (!cancelled) router.replace("/accept-terms"); return; }
+      if (cancelled) return;
       setCurrentEmail(session.user.email);
+      void refreshEntitlements(); // paid access from the server (cached per device)
       setUserId(session.user.id);
       void startProgressSync(session.user.id);
       setUserName(session.user.user_metadata?.full_name?.split(" ")[0] || "Student");

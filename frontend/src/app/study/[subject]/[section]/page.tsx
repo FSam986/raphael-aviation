@@ -1,5 +1,9 @@
 "use client";
 
+import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
+import { Zoomable } from "@/app/components/Zoomable";
+import { UpgradePanel } from "@/app/components/UpgradePanel";
+import { FREE_SECTIONS } from "@/app/lib/plans";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -9,7 +13,7 @@ import { useAuthGuard } from "@/app/hooks/useAuthGuard";
 import { useCourseGuard } from "@/app/hooks/useCourseGuard";
 import { LockedCourse } from "@/app/components/LockedCourse";
 import { findSubject } from "@/app/lib/course";
-import { subjectContent } from "@/app/lib/subjectContent";
+import { subjectContent, useSubjects } from "@/app/lib/subjectContent";
 import { getFPPPlottingBySection } from "@/app/data/fpp-plotting";
 import dynamic from "next/dynamic";
 // Lazy-load the plotting/graph + cruise-table components: a sizeable tree
@@ -18,7 +22,6 @@ import dynamic from "next/dynamic";
 const PlottingCard = dynamic(() => import("@/app/components/PlottingCard").then((m) => m.PlottingCard), { ssr: false });
 const CruiseTables = dynamic(() => import("@/app/components/CruiseTables").then((m) => m.CruiseTables), { ssr: false });
 import { figuresForSection, atgFiguresByTopic } from "@/app/lib/figures";
-import { FIGURE_NOTES } from "@/app/data/aircraft-technical-figure-notes";
 import { recordQuiz, recordStudyOpen } from "@/app/lib/progress";
 import { SUBJECT_BANKS, loadMastery } from "@/app/lib/readiness";
 import { recordResults } from "@/app/lib/examSelect";
@@ -33,7 +36,13 @@ import { buildExamTerms, ExamText } from "@/app/lib/examTerms";
 
 type Tab = "learn" | "law" | "quiz" | "flashcards" | "illustrations" | "examples";
 
-export default function SectionPage() {
+// Download this subject's content chunk first, then render the page.
+export default function SectionPageGate() {
+  const id = useParams().subject as string;
+  return useSubjects([id]) ? <SectionPage /> : <LoadingScreen />;
+}
+
+function SectionPage() {
   const params = useParams();
   const searchParams = useSearchParams();
   const subjectId = params.subject as string;
@@ -41,7 +50,7 @@ export default function SectionPage() {
   const focusItemId = searchParams.get("item");
 
   const { userName, loading } = useAuthGuard();
-  const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
+  const { locked, ready: accessReady, course, access } = useCourseGuard(subjectId);
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<Tab>(
     tabParam === "quiz" || tabParam === "flashcards" || tabParam === "illustrations" || tabParam === "examples" || tabParam === "law" ? tabParam : "learn"
@@ -111,6 +120,9 @@ export default function SectionPage() {
   const sectionPlotting = useMemo(() => getFPPPlottingBySection(sectionId), [sectionId]);
   const sectionFigures = useMemo(() => figuresForSection(sectionId), [sectionId]);
   const sectionExamples = useMemo(() => getWorkedExamplesBySection(sectionId), [sectionId]);
+  // Long-form figure captions (~450 KB) — fetched after first paint, not bundled with the page.
+  const [FIGURE_NOTES, setFigureNotes] = useState<Record<string, string[]>>({});
+  useEffect(() => { import("@/app/data/aircraft-technical-figure-notes").then((m) => setFigureNotes(m.FIGURE_NOTES)); }, []);
 
   const subject = findSubject(subjectId);
   const section = subject?.sections.find((s) => s.id === sectionId);
@@ -124,6 +136,20 @@ export default function SectionPage() {
       <div className="min-h-screen bg-chart-ground flex flex-col items-center justify-center gap-4">
         <div className="text-white text-xl font-bold">Section not found</div>
         <Link href={`/study/${subjectId}`} className="text-yellow-400 text-sm hover:underline">← Back to subject</Link>
+      </div>
+    );
+  }
+
+  // Free mode: only the first FREE_SECTIONS sections of each subject are open.
+  if (access === "free" && subject.sections.indexOf(section) >= FREE_SECTIONS) {
+    return (
+      <div className="min-h-screen bg-chart-ground flex">
+        <SubjectBackdrop subjectId={subjectId} />
+        <Sidebar active="/study" userName={userName} />
+        <main className="relative z-[1] flex-1 md:ml-64 pt-14 md:pt-0 px-5">
+          <Link href={`/study/${subjectId}`} className="inline-block mt-8 text-xs text-zinc-500 hover:text-white">← {subject.title}</Link>
+          <UpgradePanel course={course} what={section.title} />
+        </main>
       </div>
     );
   }
@@ -210,6 +236,7 @@ export default function SectionPage() {
 
   return (
     <div className="min-h-screen bg-chart-ground flex">
+      <SubjectBackdrop subjectId={subjectId} />
       <Sidebar active="/study" userName={userName}>
         {/* Section topic list in sidebar */}
         <div className="border-t border-zinc-900 overflow-auto flex-shrink-0 max-h-64">
@@ -228,7 +255,7 @@ export default function SectionPage() {
         </div>
       </Sidebar>
 
-      <main className="flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto flex flex-col">
+      <main className="relative z-[1] flex-1 md:ml-64 pt-14 md:pt-0 overflow-auto flex flex-col">
         {/* Breadcrumb + header */}
         <div className="px-5 sm:px-10 pt-8 pb-4 border-b border-zinc-900">
           <div className="flex items-center justify-between mb-4">
@@ -357,7 +384,7 @@ export default function SectionPage() {
                             {curSlide.fig && (
                               <div className={`${curSlide.fig.src ? "bg-[#10171b]" : "bg-white"} flex items-center justify-center p-4`}>
                                 <div className="max-h-[52vh] overflow-hidden flex items-center justify-center [&_img]:max-h-[52vh] [&_img]:w-auto [&_img]:object-contain">
-                                  {curSlide.fig.render()}
+                                  <Zoomable label={curSlide.fig.title}>{curSlide.fig.render()}</Zoomable>
                                 </div>
                               </div>
                             )}
@@ -477,7 +504,7 @@ export default function SectionPage() {
                       <h3 className="text-white font-bold text-sm">{f.title}</h3>
                       <p className="text-zinc-500 text-xs mt-1 leading-relaxed">{f.caption}</p>
                     </figcaption>
-                    <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">{f.render()}</div>
+                    <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4"><Zoomable label={f.title}>{f.render()}</Zoomable></div>
                   </figure>
                 ))
               )}

@@ -6,7 +6,9 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prebuild": "tsx scripts/gen-content-index.ts || echo \"content-index: generation failed, using the committed copy\"",
+    "predev": "tsx scripts/gen-content-index.ts"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.2",
@@ -18,7 +20,8 @@
     "next": "16.2.9",
     "openai": "^6.45.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -28,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }

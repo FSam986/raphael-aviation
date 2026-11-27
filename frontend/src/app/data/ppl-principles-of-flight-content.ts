@@ -30,6 +30,5 @@ export function getPPLPofNoteBySection(pplSection: string) {
 
 // Reuse the CPL subsonic-aerodynamics illustration on the aerodynamics-heavy
 // PoF sections so the Illustrations tab is populated (A.1.8 figure).
-export const PPL_POF_FIGURE_KEY: Record<string, string> = {
-  "11.2": "A.1.8", "11.3": "A.1.8", "11.8": "A.1.8", "11.9": "A.1.8", "11.12": "A.1.8",
-};
+
+export { PPL_POF_FIGURE_KEY } from "./figure-keys";

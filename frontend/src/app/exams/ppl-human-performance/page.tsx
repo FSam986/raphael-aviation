@@ -2,7 +2,7 @@
 
 import { MockExam } from "@/app/components/MockExam";
 import { examBank } from "@/app/lib/examBank";
-import { PPL_HPL_QUESTIONS } from "@/app/data/ppl-human-performance-questions";
+import { bankSize } from "@/app/lib/contentIndex";
 import { findSubject } from "@/app/lib/course";
 
 const S = findSubject("ppl-human-performance")!;
@@ -14,7 +14,7 @@ export default function PPLHumanPerformanceExamPage() {
       code={S.code}
       title={S.title}
       questions={examBank("ppl-human-performance")}
-      examSize={Math.min(S.examQuestions, PPL_HPL_QUESTIONS.length)}
+      examSize={Math.min(S.examQuestions, bankSize("ppl-human-performance"))}
       examMinutes={S.examMinutes ?? 120}
       passPercent={S.passPercent}
       storeKey="ppl-hpl-mastery"

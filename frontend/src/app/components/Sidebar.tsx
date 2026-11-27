@@ -38,6 +38,7 @@ export const NAV_ITEMS = [
   { href: "/exam-brief", icon: "brief", label: "Exam-Day Brief" },
   { href: "/flashcards", icon: "flashcards", label: "Flashcards" },
   { href: "/progress", icon: "progress", label: "Briefing" },
+  { href: "/pricing", icon: "cap", label: "Plans" },
   { href: "/settings", icon: "settings", label: "Settings" },
 ];
 
@@ -100,10 +101,9 @@ export function Sidebar({
                     <button
                       key={c.id}
                       onClick={() => { setCourse(c.id); const to = pathForCourse(pathname, c.id); if (to) router.push(to); }}
-                      disabled={!owned}
-                      title={owned ? undefined : `${COURSES[c.id].name} — locked (manage in Settings)`}
+                      title={owned ? undefined : `${COURSES[c.id].name} — free preview`}
                       className={`flex-1 py-1.5 rounded-md text-xs font-semibold transition-colors inline-flex items-center justify-center gap-1 ${
-                        course === c.id ? "bg-gold text-gold-ink" : owned ? "text-chart-ink-faint hover:text-chart-ink" : "text-chart-ink-faint/40 cursor-not-allowed"
+                        course === c.id ? "bg-gold text-gold-ink" : "text-chart-ink-faint hover:text-chart-ink"
                       }`}
                     >
                       {c.label}

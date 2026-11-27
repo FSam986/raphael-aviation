@@ -10,15 +10,16 @@ import {
   buildPlan, savePlan, loadPlan, clearPlan, loadProgress, saveProgress, freshProgress,
   subjectsWithContent, currentDayIndex, planLoad, daysBetween, ymd,
   estimateTimeline, feasibility, HF, pace, coachNudge, checkMilestones,
-  isPremium, setPremium, type CoachPlan, type CoachProgress,
+  type CoachPlan, type CoachProgress,
 } from "@/app/lib/coachPlan";
 import { notifySupported, notifyPermission, requestNotifyPermission, scheduleDailyStreak, cancelDailyStreak, notifyNow, pick, PILOT_STREAK } from "@/lib/notify";
 import { Icon } from "@/app/components/Icon";
+import { PassModeRoute } from "@/app/components/PassModeRoute";
 
 export default function CoachPage() {
   const { userName, loading } = useAuthGuard();
-  const { course } = useCourse();
-  const [premium, setPremiumState] = useState(false);
+  const { course, access } = useCourse();
+  const premium = access === "premium"; // Pass Mode is part of Premium for this course
   const [plan, setPlan] = useState<CoachPlan | null>(null);
   const [progress, setProgress] = useState<CoachProgress>(freshProgress());
   const [hydrated, setHydrated] = useState(false);
@@ -32,7 +33,6 @@ export default function CoachPage() {
   const subjects = useMemo(() => (hydrated ? subjectsWithContent(course) : []), [course, hydrated]);
 
   useEffect(() => {
-    setPremiumState(isPremium());
     let p = loadPlan();
     // Discard plans saved by an older schema (missing reviewUnits) so they rebuild.
     // Discard plans from an older schema (missing reviewUnits, or units saved
@@ -94,10 +94,9 @@ export default function CoachPage() {
             <p className="text-zinc-400 mt-3 leading-relaxed">Tell us your exam date. We build a day-by-day plan and walk you through it — flash the memory table, drill each topic to 90%, and re-test your memory daily. Keep the streak, pass first time.</p>
           </div>
           <div className="mt-8 rounded-2xl border border-yellow-400/30 bg-yellow-400/5 p-6 text-center">
-            <div className="text-white font-bold text-lg">Unlock Pass Mode</div>
-            <div className="text-zinc-500 text-xs mt-1">Premium feature · billed separately</div>
-            <button onClick={() => { setPremium(true); setPremiumState(true); }} className="mt-4 w-full px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-colors">Unlock now</button>
-            <p className="text-zinc-600 text-[11px] mt-3">Payment integration is pending — this unlocks the full flow for now.</p>
+            <div className="text-white font-bold text-lg">Pass Mode is part of Premium</div>
+            <div className="text-zinc-500 text-xs mt-1">Your course plus a day-by-day plan to your exam date</div>
+            <Link href={`/pricing?course=${course}&tier=premium`} className="mt-4 block w-full px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-colors">See Premium plans</Link>
           </div>
         </div>
       </Shell>
@@ -278,6 +277,8 @@ export default function CoachPage() {
             )}
           </div>
         )}
+
+        <PassModeRoute plan={plan} progress={progress} todayIdx={todayIdx} allDone={allDone} />
 
         {/* roster */}
         <div className="mt-8">

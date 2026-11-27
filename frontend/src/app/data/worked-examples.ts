@@ -3,13 +3,13 @@
 // PPL/IR study sections resolve through the same figure-key maps used elsewhere,
 // so a PPL/IR topic sees the matching worked example too.
 
-import { PPL_MET_FIGURE_KEY } from "@/app/data/ppl-met-content";
-import { PPL_NAV_FIGURE_KEY } from "@/app/data/ppl-nav-content";
-import { PPL_FPP_FIGURE_KEY } from "@/app/data/ppl-fpp-content";
-import { PPL_AGK_FIGURE_KEY } from "@/app/data/ppl-agk-content";
-import { IR_MET_FIGURE_KEY } from "@/app/data/ir-met-content";
-import { IR_FPP_FIGURE_KEY } from "@/app/data/ir-fpp-content";
-import { IR_AWO_FIGURE_KEY } from "@/app/data/ir-awo-content";
+import { PPL_MET_FIGURE_KEY } from "@/app/data/figure-keys";
+import { PPL_NAV_FIGURE_KEY } from "@/app/data/figure-keys";
+import { PPL_FPP_FIGURE_KEY } from "@/app/data/figure-keys";
+import { PPL_AGK_FIGURE_KEY } from "@/app/data/figure-keys";
+import { IR_MET_FIGURE_KEY } from "@/app/data/figure-keys";
+import { IR_FPP_FIGURE_KEY } from "@/app/data/figure-keys";
+import { IR_AWO_FIGURE_KEY } from "@/app/data/figure-keys";
 
 export interface WorkedExample {
   id: string;

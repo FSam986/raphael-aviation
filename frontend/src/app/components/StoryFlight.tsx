@@ -96,7 +96,7 @@ export function StoryFlight({ subject, pctOf, seenOf }: { subject: SyllabusSubje
               </div>
               <Link href={href(s.sec.id)} className="group grid sm:grid-cols-[220px_1fr] rounded-2xl border border-chart-line bg-chart-ground-2 overflow-hidden hover:border-gold/45 transition-colors">
                 <div className="bg-[#10171b] min-h-[120px] max-h-[170px] flex items-center justify-center overflow-hidden p-2 [&_img]:max-h-[150px] [&_img]:w-auto [&_img]:object-contain [&_svg]:max-h-[150px]">
-                  {s.pic ? <img src={`/figures/${s.pic}`} alt="" loading="lazy" /> : <span className="font-display font-bold text-5xl text-chart-line-2">{String(i + 1).padStart(2, "0")}</span>}
+                  {s.pic ? <picture><source srcSet={`/figures/${s.pic.replace(/\.(png|jpe?g)$/i, ".webp")}`} type="image/webp" /><img src={`/figures/${s.pic}`} alt="" loading="lazy" decoding="async" /></picture> : <span className="font-display font-bold text-5xl text-chart-line-2">{String(i + 1).padStart(2, "0")}</span>}
                 </div>
                 <div className="p-4 sm:p-5 space-y-2 min-w-0">
                   <h3 className="font-display font-bold text-2xl text-chart-ink leading-none group-hover:text-gold transition-colors">{s.sec.title}</h3>

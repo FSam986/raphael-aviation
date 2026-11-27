@@ -50,12 +50,7 @@ export function getIRMetNoteBySection(s: string): SectionNote | undefined {
 }
 
 // IR section → figures.tsx key (syllabus A.8.x numbering: A.8.2=Atmosphere image).
-export const IR_MET_FIGURE_KEY: Record<string, string> = {
-  "C.1.1": "A.8.2", "C.1.2": "A.8.3", "C.1.3": "A.8.4", "C.1.4": "A.8.5", "C.1.5": "A.8.6",
-  "C.1.6": "A.8.7", "C.1.7": "A.8.8", "C.1.8": "A.8.10", "C.1.9": "A.8.11", "C.1.10": "A.8.12",
-  "C.1.11": "A.8.13", "C.1.12": "A.8.14", "C.1.13": "A.8.15", "C.1.14": "A.8.17", "C.1.15": "A.8.19",
-  "C.1.16": "A.8.20", "C.1.17": "A.8.21",
-};
+
 
 const IR_MET_SECTIONS = [...new Set(Object.values(MAP).flat())];
 export const IR_MET_QUESTIONS: MetQuestion[] = [
@@ -63,3 +58,5 @@ export const IR_MET_QUESTIONS: MetQuestion[] = [
   ...IR_MET_MINED_QUESTIONS.filter((q) => IR_MET_SECTIONS.includes(q.sectionId)),
 ];
 export const IR_MET_QUESTION_COUNT = IR_MET_QUESTIONS.length;
+
+export { IR_MET_FIGURE_KEY } from "./figure-keys";

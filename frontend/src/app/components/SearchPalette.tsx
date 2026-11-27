@@ -5,8 +5,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { useCourse } from "@/app/hooks/useCourse";
-import { searchSyllabus } from "@/app/lib/search";
+// ponytail: search pulls every subject's content; load it only when the palette opens,
+// so pages that never search don't download the whole content bundle.
+type SearchMod = typeof import("@/app/lib/search");
 import { SearchResults } from "@/app/components/SearchResults";
+import { useSubjects } from "@/app/lib/subjectContent";
 
 export function SearchPalette() {
   const router = useRouter();
@@ -15,7 +18,12 @@ export function SearchPalette() {
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
   const input = useRef<HTMLInputElement>(null);
-  const hits = useMemo(() => (open ? searchSyllabus(syllabus, q, 10) : []), [open, q, syllabus]);
+  const [mod, setMod] = useState<SearchMod | null>(null);
+  useEffect(() => { if (open && !mod) import("@/app/lib/search").then(setMod); }, [open, mod]);
+  // Searching notes/questions needs the course's subjects; fetch them only once the palette opens.
+  const loaded = useSubjects(open ? syllabus.map((s) => s.id) : []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run once content has loaded
+  const hits = useMemo(() => (open && mod ? mod.searchSyllabus(syllabus, q, 10) : []), [open, q, syllabus, mod, loaded]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
