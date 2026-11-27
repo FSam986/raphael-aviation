@@ -7,7 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "prebuild": "tsx scripts/gen-content-index.ts",
+    "prebuild": "tsx scripts/gen-content-index.ts || echo \"content-index: generation failed, using the committed copy\"",
     "predev": "tsx scripts/gen-content-index.ts"
   },
   "dependencies": {
