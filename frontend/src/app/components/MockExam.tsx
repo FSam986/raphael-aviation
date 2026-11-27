@@ -2,6 +2,7 @@
 
 import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
+import { QuestionFigure } from "@/app/components/figures/ra1Charts";
 import { useSubjects } from "@/app/lib/subjectContent";
 import { examBank } from "@/app/lib/examBank";
 import { findSubject } from "@/app/lib/course";
@@ -31,6 +32,7 @@ export interface ExamQuestion {
   id: string;
   sectionId: string;
   question: string;
+  figure?: string;
   optionA: string;
   optionB: string;
   optionC: string;
@@ -389,6 +391,7 @@ function MockExamInner({
 
             <div className="bg-zinc-950 border border-zinc-900 rounded-2xl p-7 mb-6">
               <div className="text-xs font-mono text-yellow-400/60 mb-3">{q.sectionId}</div>
+              <QuestionFigure id={q.figure} />
               <h2 className="text-lg font-bold text-white leading-relaxed mb-6">{q.question}</h2>
               <div className="space-y-3">
                 {(["a", "b", "c", "d"] as const).map((opt) => {

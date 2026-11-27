@@ -18,6 +18,7 @@ import {
 import { pick as pickMsg, PILOT_BREAK, scheduleDailyStreak, notifyPermission } from "@/lib/notify";
 import { Icon } from "@/app/components/Icon";
 import { Zoomable } from "@/app/components/Zoomable";
+import { QuestionFigure } from "@/app/components/figures/ra1Charts";
 
 const PASS = 90;
 const MAX_ROUNDS = 4;
@@ -463,6 +464,7 @@ function QuestionSlide({ q, label, chosen, onPick, onNext }: { q: AirLawQuestion
     <div>
       <div className="text-yellow-400/90 text-xs font-bold uppercase tracking-wider mb-2">{label}</div>
       <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+        <QuestionFigure id={q.figure} />
         <div className="text-white font-semibold">{q.question}</div>
         <div className="mt-4 space-y-2">
           {(["a", "b", "c", "d"] as const).map((opt) => {

@@ -2,6 +2,7 @@
 
 import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
 import { Zoomable } from "@/app/components/Zoomable";
+import { QuestionFigure } from "@/app/components/figures/ra1Charts";
 import { UpgradePanel } from "@/app/components/UpgradePanel";
 import { FREE_SECTIONS } from "@/app/lib/plans";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
@@ -640,6 +641,7 @@ function SectionPage() {
                       const isCruiseInterp = q.id.startsWith("FPI-");
                       return (
                       <div key={q.id} className="bg-zinc-950 border border-zinc-900 rounded-2xl p-5">
+                        <QuestionFigure id={(q as { figure?: string }).figure} />
                         <div className="text-sm text-white font-medium mb-3">
                           {isInterp && <span className="text-[10px] uppercase tracking-widest mr-2 px-1.5 py-0.5 rounded bg-sky-500/10 text-sky-300 border border-sky-500/20 align-middle">Interpolation</span>}
                           {i + 1}. {q.question}
