@@ -1,5 +1,6 @@
 import { pickPplNote } from "@/app/data/ppl-pick";
 import { PPL_FPP_AVEX_QUESTIONS, getPPLFppAvexBySection } from "@/app/data/ppl-fpp-avex";
+import { RA1_QUESTIONS } from "@/app/data/ppl-fpp-ra1";
 // PPL Flight Performance & Planning content — reuses the CPL Flight Planning
 // (A.4.x) material. PPL syllabus 7.x maps to the CPL A.4 topics at PPL depth.
 
@@ -22,7 +23,7 @@ const MAP: Record<string, string[]> = {
 // PPL depth filter: exclude the hardest CPL questions (e.g. CAP-graph/performance
 // calculations beyond the PPL syllabus).
 // The PPL textbook's own chapter questions come first, then the depth-filtered CPL pool.
-export function getPPLFppQuestionsBySection(s: string): AirLawQuestion[] { return [...getPPLFppAvexBySection(s), ...pplQuestionDepth((MAP[s] ?? []).flatMap(getFPPQuestionsBySection))]; }
+export function getPPLFppQuestionsBySection(s: string): AirLawQuestion[] { return [...getPPLFppAvexBySection(s), ...RA1_QUESTIONS.filter((q) => q.sectionId === s), ...pplQuestionDepth((MAP[s] ?? []).flatMap(getFPPQuestionsBySection))]; }
 export function getPPLFppFlashcardsBySection(s: string): AirLawFlashcard[] { return pplFlashcardDepth((MAP[s] ?? []).flatMap(getFPPFlashcardsBySection)); }
 const PICK: Record<string, [string, string[]]> = {
   "7.1": ["Mass & Balance", ["A.4.12#Centre of gravity|CG limits|The masses|Floor loading|Mass limitations|Calculating the CG|Movement of CG"]],
@@ -69,6 +70,6 @@ export function getPPLFppNoteBySection(s: string): AirLawSectionNote | undefined
   return n && EXTRA[s] ? { ...n, blocks: [...EXTRA[s], ...n.blocks] } : n;
 }
 const SECS = [...new Set(Object.values(MAP).flat())];
-export const PPL_FPP_QUESTIONS: AirLawQuestion[] = [...PPL_FPP_AVEX_QUESTIONS, ...pplQuestionDepth(FPP_ALL_QUESTIONS.filter((x) => SECS.includes(x.sectionId)), Number.MAX_SAFE_INTEGER)];
+export const PPL_FPP_QUESTIONS: AirLawQuestion[] = [...PPL_FPP_AVEX_QUESTIONS, ...RA1_QUESTIONS, ...pplQuestionDepth(FPP_ALL_QUESTIONS.filter((x) => SECS.includes(x.sectionId)), Number.MAX_SAFE_INTEGER)];
 
 export { PPL_FPP_FIGURE_KEY } from "./figure-keys";

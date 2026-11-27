@@ -10,6 +10,8 @@ export interface AirLawQuestion {
   id: string;
   sectionId: string; // e.g. "A.3.1"
   question: string;
+  /** Optional chart shown with the question (see components/figures/ra1Charts). */
+  figure?: string;
   optionA: string;
   optionB: string;
   optionC: string;
