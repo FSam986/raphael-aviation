@@ -538,6 +538,8 @@ const NR_AUTHORED: AirLawQuestion[] = [
     ["NR1-17", "Except in an emergency, a pilot may land by night only at a place that:", "Has an ATC tower", "Is equipped with night-flying facilities", "Has a runway longer than 1 000 m", "Has an ILS", "b", "CAR 91.07.3(2).", "easy"],
     ["NR1-18", "For night operations, which runway lights must at least be on?", "Edge, threshold and runway end lights", "Approach and centreline lights", "PAPI only", "Edge lights only", "a", "CAR 91.07.5(5).", "medium"],
     ["NR1-19", "A VFR aircraft operated at night must have a chart holder that is:", "Fitted to the yoke", "In an easily readable position and can be illuminated", "Fire-resistant", "Removable", "b", "CAR 91.04.4(f).", "easy"],
+    ["NR1-21", "Before a night cross-country, which is a PIC responsibility particular to night flying?", "Checking NOTAMs for aerodrome lighting outages and planning a lit alternate", "Filing an IFR flight plan", "Carrying a second pilot", "Obtaining a Special VFR clearance", "a", "Night pre-flight: lighting NOTAMs, lit alternates, extra fuel for a diversion, and a torch walk-round.", "medium"],
+    ["NR1-22", "During a night walk-round, the PIC should specifically check:", "That every external light works and the wings are free of frost or dew", "The tyre pressures with a gauge only", "The ELT battery date only", "Nothing extra — the day checks are enough", "a", "Use a torch to check all external lights and look for frost/dew on lifting surfaces before a night flight.", "easy"],
     ["NR1-20", "Aircraft moving on the movement area of an aerodrome at night must display:", "Landing lights only", "Navigation lights", "No lights", "Strobe lights only", "b", "CAR 91.06.10(2)(a).", "easy"],
   ]),
   ...q("NR2", [
@@ -558,6 +560,7 @@ const NR_AUTHORED: AirLawQuestion[] = [
     ["NR2-15", "Nocturnal thunderstorms can form or persist at night mainly because:", "The ground heats up after sunset", "Cloud tops cool by radiation, increasing instability, and low-level moisture is still fed in", "The wind always strengthens at night", "Fronts only move at night", "b", "Cloud-top cooling steepens the lapse rate; a low-level jet and organised systems keep storms going.", "medium"],
     ["NR2-16", "The main extra danger of thunderstorms for a night VFR pilot is that:", "They are weaker at night", "The cloud cannot be seen except when lit by lightning", "They only produce rain at night", "They do not cause turbulence at night", "b", "Darkness hides the Cb; lightning is the only warning.", "easy"],
     ["NR2-17", "Radiation fog usually disperses:", "At midnight", "After sunrise as the ground warms or the wind increases", "When the wind drops to calm", "When the temperature falls", "b", "Heating or stronger wind mixes or evaporates the fog; it is often worst just after sunrise.", "easy"],
+    ["NR2-19", "Fog formed when cold air drains into low ground overnight and cools to its dew point is called:", "Valley (radiation) fog", "Advection fog", "Frontal fog", "Steam fog", "a", "Katabatic drainage pools cold air in valleys, where it cools to saturation — valley fog.", "medium"],
     ["NR2-18", "Upslope fog forms when:", "Moist air is forced up rising ground and cools adiabatically", "Cold air drains down a slope", "Warm air moves over cold water", "Rain evaporates below a front", "a", "Orographic lifting cools the air to saturation.", "medium"],
   ]),
   ...q("NR3", [
@@ -596,6 +599,8 @@ const NR_AUTHORED: AirLawQuestion[] = [
     ["NR4-13", "An aerodrome beacon at a land aerodrome shows:", "Flashing red", "White flashes, or alternating white and green", "Steady green", "Alternating white and yellow", "b", "Land aerodrome: white or white/green; water aerodrome: white/yellow.", "medium"],
     ["NR4-14", "An aerodrome identification beacon at a land aerodrome flashes:", "The identifier in Morse in green", "Alternating white and green", "The identifier in Morse in red", "Steady white", "a", "Identification beacon = Morse code identifier, green for land aerodromes.", "medium"],
     ["NR4-15", "The best source for the lighting available at an aerodrome and its pilot-operated lighting procedure is:", "The aircraft's POH", "The AIP aerodrome (AD) entry / aerodrome chart, plus NOTAMs", "The weather forecast", "The flight plan", "b", "AIP AD 2 and aerodrome charts give the facilities; NOTAMs give outages.", "easy"],
+    ["NR4-21", "Temporary unserviceability of an aerodrome's runway lights would be published in:", "A NOTAM", "The aircraft POH", "The TAF", "The flight plan", "a", "Temporary changes and outages of aerodrome facilities, including lighting, are promulgated by NOTAM.", "easy"],
+    ["NR4-22", "The permanent description of an aerodrome's lighting (PAPI angle, approach lights, PCL procedure) is found in:", "The AIP aerodrome (AD 2) entry and aerodrome charts", "SA-CATS 61", "The METAR", "The pilot's logbook", "a", "The AIP AD section and the aerodrome charts list each aerodrome's lighting facilities.", "easy"],
     ["NR4-16", "Pilot-controlled lighting is normally switched on by:", "Phoning the aerodrome", "Keying the VHF transmitter a set number of times on the published frequency", "Squawking 7000", "Flashing the landing light", "b", "Mic clicks on the published frequency activate the lights for a set time.", "easy"],
     ["NR4-17", "A row of red lights across a taxiway at a runway-holding position is a:", "Stop bar — do not cross while lit", "Runway end", "Threshold", "Obstacle", "a", "Stop bars are red; never cross a lit stop bar.", "easy"],
     ["NR4-18", "Before engine start at night you should switch on the:", "Landing lights", "Rotating beacon", "Strobes", "Taxi light", "b", "The beacon warns ground staff the engine is about to start/running.", "easy"],
@@ -603,6 +608,14 @@ const NR_AUTHORED: AirLawQuestion[] = [
     ["NR4-20", "Cockpit lighting at night should be set:", "As bright as possible", "To the minimum needed to read the instruments", "Off, using only a torch", "Red only", "b", "Low lighting preserves dark adaptation and reduces windscreen reflections.", "easy"],
   ]),
 ];
+
+// Exact sub-topic tags where the automatic matcher can't tell (syllabus item ids).
+const NR_ASPECT: Record<string, string> = {
+  "NR1-04": "NR1.c", "NR1-06": "NR1.c", "NR1-21": "NR1.c", "NR1-22": "NR1.c",
+  "NR2-03": "NR2.b", "NR2-04": "NR2.b", "NR2-05": "NR2.b", "NR2-18": "NR2.b", "NR2-19": "NR2.b",
+  "NR4-15": "NR4.h", "NR4-21": "NR4.h", "NR4-22": "NR4.h",
+};
+for (const q of NR_AUTHORED) if (NR_ASPECT[q.id]) (q as AirLawQuestion & { aspect?: string }).aspect = NR_ASPECT[q.id];
 
 // Night-relevant questions already in the CPL / PPL banks (matched on the question text).
 const POOL: [string, () => AirLawQuestion[], RegExp][] = [
