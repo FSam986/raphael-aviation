@@ -17,6 +17,7 @@ import {
 } from "@/app/lib/coachPlan";
 import { pick as pickMsg, PILOT_BREAK, scheduleDailyStreak, notifyPermission } from "@/lib/notify";
 import { Icon } from "@/app/components/Icon";
+import { Zoomable } from "@/app/components/Zoomable";
 
 const PASS = 90;
 const MAX_ROUNDS = 4;
@@ -384,7 +385,7 @@ function CoachSessionReel() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {s.figures.map((f) => (
                           <figure key={f.id}>
-                            <div className="bg-white rounded-lg overflow-hidden border border-zinc-800">{f.render()}</div>
+                            <div className="bg-white rounded-lg overflow-hidden border border-zinc-800"><Zoomable label={f.title}>{f.render()}</Zoomable></div>
                             <figcaption className="text-zinc-500 text-[11px] mt-1 leading-snug">{f.title}</figcaption>
                           </figure>
                         ))}

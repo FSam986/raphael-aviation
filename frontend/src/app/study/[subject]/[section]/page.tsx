@@ -1,6 +1,7 @@
 "use client";
 
 import { SubjectBackdrop } from "@/app/components/SubjectBackdrop";
+import { Zoomable } from "@/app/components/Zoomable";
 import { UpgradePanel } from "@/app/components/UpgradePanel";
 import { FREE_SECTIONS } from "@/app/lib/plans";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
@@ -383,7 +384,7 @@ function SectionPage() {
                             {curSlide.fig && (
                               <div className={`${curSlide.fig.src ? "bg-[#10171b]" : "bg-white"} flex items-center justify-center p-4`}>
                                 <div className="max-h-[52vh] overflow-hidden flex items-center justify-center [&_img]:max-h-[52vh] [&_img]:w-auto [&_img]:object-contain">
-                                  {curSlide.fig.render()}
+                                  <Zoomable label={curSlide.fig.title}>{curSlide.fig.render()}</Zoomable>
                                 </div>
                               </div>
                             )}
@@ -503,7 +504,7 @@ function SectionPage() {
                       <h3 className="text-white font-bold text-sm">{f.title}</h3>
                       <p className="text-zinc-500 text-xs mt-1 leading-relaxed">{f.caption}</p>
                     </figcaption>
-                    <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">{f.render()}</div>
+                    <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4"><Zoomable label={f.title}>{f.render()}</Zoomable></div>
                   </figure>
                 ))
               )}
