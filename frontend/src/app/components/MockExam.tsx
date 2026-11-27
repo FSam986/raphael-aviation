@@ -22,7 +22,8 @@ import {
   STAGES,
   type MasteryMap,
 } from "@/app/lib/examSelect";
-import { aspectOf } from "@/app/lib/aspects";
+import { aspectOf, itemOf } from "@/app/lib/aspects";
+import { debriefPicks, loadDebrief, type Debrief } from "@/app/lib/debrief";
 import { recordExamResult } from "@/app/lib/progress";
 import { starOfSubject } from "@/app/data/exam-priority";
 import { Icon } from "@/app/components/Icon";
@@ -62,6 +63,8 @@ export interface MockExamProps {
   storeKey: string; // localStorage key for this subject's mastery map
   // Combined mode: an ordered list of per-subject slices (SACAA-style paper).
   plan?: ExamPlanEntry[];
+  /** Free-plan sample paper (no debrief targeting). */
+  sample?: boolean;
 }
 
 type Phase = "intro" | "running" | "results";
@@ -88,7 +91,7 @@ export function MockExam(props: MockExamProps) {
       const free = new Set((findSubject(id)?.sections ?? []).slice(0, FREE_SECTIONS).map((s) => s.id));
       return examBank(id).filter((q) => free.has(q.sectionId));
     });
-    return <MockExamInner {...props} plan={undefined} title={`${props.title} · free sample`} questions={bank} examSize={Math.min(FREE_MOCK_QUESTIONS, bank.length)} examMinutes={Math.max(5, Math.round((props.examMinutes / Math.max(1, props.examSize)) * FREE_MOCK_QUESTIONS))} />;
+    return <MockExamInner {...props} plan={undefined} title={`${props.title} · free sample`} sample questions={bank} examSize={Math.min(FREE_MOCK_QUESTIONS, bank.length)} examMinutes={Math.max(5, Math.round((props.examMinutes / Math.max(1, props.examSize)) * FREE_MOCK_QUESTIONS))} />;
   }
   return <MockExamInner {...props} questions={props.questions.length || props.plan ? props.questions : examBank(props.subjectId)} />;
 }
@@ -103,6 +106,7 @@ function MockExamInner({
   passPercent,
   storeKey,
   plan,
+  sample,
 }: MockExamProps) {
   const { userName, userId, loading } = useAuthGuard();
   const { locked, ready: accessReady, course } = useCourseGuard(subjectId);
@@ -118,6 +122,8 @@ function MockExamInner({
   const [elapsedSec, setElapsedSec] = useState(0);
   // Bumped after each paper so the intro's mastery stats refresh.
   const [masteryVersion, setMasteryVersion] = useState(0);
+  // Only rendered client-side (behind the loading gates), so reading storage here is safe.
+  const [debrief] = useState<Debrief | null>(() => loadDebrief(subjectId));
 
   const planTotal = plan ? plan.reduce((n, p) => n + Math.min(p.count, p.questions.length), 0) : examSize;
   const bankTotal = plan ? plan.reduce((n, p) => n + p.questions.length, 0) : bank.length;
@@ -149,7 +155,13 @@ function MockExamInner({
         }
       }
     } else {
-      assembled = pickAdaptiveExam(bank, examSize, loadMastery(storeKey), aspectOf, starOfSubject(subjectId));
+      // Exam Debrief: about half the paper on the weak topics from the student's result sheet.
+      const m = loadMastery(storeKey);
+      const secItems = new Map((findSubject(subjectId)?.sections ?? []).map((s) => [s.id, s.items]));
+      const targeted = sample ? [] : debriefPicks(bank, examSize, loadDebrief(subjectId), m, (q) => itemOf(q, secItems.get(q.sectionId) ?? []));
+      const taken = new Set(targeted.map((q) => q.id));
+      const rest = pickAdaptiveExam(bank.filter((q) => !taken.has(q.id)), examSize - targeted.length, m, aspectOf, starOfSubject(subjectId));
+      assembled = [...targeted, ...rest].sort(() => Math.random() - 0.5);
       for (const q of assembled) km[q.id] = storeKey;
     }
     setQuestions(assembled);
@@ -159,7 +171,7 @@ function MockExamInner({
     setSecondsLeft(examMinutes * 60);
     setStartedAt(Date.now());
     setPhase("running");
-  }, [bank, examSize, examMinutes, storeKey, plan, subjectId]);
+  }, [bank, examSize, examMinutes, storeKey, plan, subjectId, sample]);
 
   // Staged exam-priority progression (classified single-subject only).
   const stageInfo = useMemo(() => {
@@ -284,6 +296,11 @@ function MockExamInner({
               {code} · {title}
             </div>
             <h1 className="text-3xl font-black text-white mb-4">{title} Mock Exam</h1>
+            {!plan && !sample && debrief && (
+              <Link href="/debrief" className="mb-6 block rounded-xl border border-gold/40 bg-gold/10 px-4 py-3 text-sm text-chart-ink">
+                <span className="font-bold text-gold">Debrief active:</span> about half this paper targets your weak topics ({debrief.spots.slice(0, 3).map((s) => s.title.split(" — ")[0]).join(", ")}{debrief.spots.length > 3 ? "…" : ""}).
+              </Link>
+            )}
             <p className="text-zinc-400 text-sm leading-relaxed mb-8">
               A SACAA-style paper drawn from a bank of{" "}
               <strong className="text-white">{bankTotal}</strong> questions across the {title} syllabus.
