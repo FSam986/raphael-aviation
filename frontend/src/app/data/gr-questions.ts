@@ -7,6 +7,7 @@
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import { GR_BOOST_QUESTIONS } from "@/app/data/gr-questions-boost";
 import { GR_BOOST2_QUESTIONS } from "@/app/data/gr-questions-boost2";
+import { GR_CAE_QUESTIONS } from "@/app/data/gr-questions-cae";
 
 const GR_BASE_QUESTIONS: AirLawQuestion[] = [
   // ── GR1 Basic Radio Theory / GR2 Principles of Radio Operation ──
@@ -252,7 +253,7 @@ const GR_BASE_QUESTIONS: AirLawQuestion[] = [
   { id: "GR-605", sectionId: "GR6", question: "A light crosswind on the runway can:", optionA: "always blow the vortices clear of the runway", optionB: "hold a vortex stationary over the runway, prolonging the hazard", optionC: "eliminate wake turbulence", optionD: "have no effect on vortices", correctAnswer: "b", explanation: "A light crosswind can keep the upwind vortex sitting over the runway rather than drifting off. Trap: assuming any crosswind clears the danger.", difficulty: "hard", tag: "trap" },
 ];
 
-export const GR_QUESTIONS: AirLawQuestion[] = [...GR_BASE_QUESTIONS, ...GR_BOOST_QUESTIONS, ...GR_BOOST2_QUESTIONS];
+export const GR_QUESTIONS: AirLawQuestion[] = [...GR_BASE_QUESTIONS, ...GR_BOOST_QUESTIONS, ...GR_BOOST2_QUESTIONS, ...GR_CAE_QUESTIONS];
 
 export function getGRQuestionsBySection(sectionId: string): AirLawQuestion[] {
   return GR_QUESTIONS.filter((q) => q.sectionId === sectionId);

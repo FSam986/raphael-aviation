@@ -1,30 +1,23 @@
 import { pickPplNote } from "@/app/data/ppl-pick";
 import { PPL_FPP_AVEX_QUESTIONS, getPPLFppAvexBySection } from "@/app/data/ppl-fpp-avex";
 import { RA1_QUESTIONS } from "@/app/data/ppl-fpp-ra1";
-// PPL Flight Performance & Planning content — reuses the CPL Flight Planning
-// (A.4.x) material. PPL syllabus 7.x maps to the CPL A.4 topics at PPL depth.
+// PPL Flight Performance & Planning content. Study notes are hand-picked CPL
+// blocks at PPL depth (PICK) plus PPL-only blocks (EXTRA). Questions come only
+// from the PPL textbook + RA-1 charts; flashcards are derived from these notes.
+// Nothing from the CPL question bank or flashcard deck is used here.
 
-import { FPP_ALL_QUESTIONS, getFPPQuestionsBySection } from "@/app/data/fpp-questions";
-import { getFPPNoteBySection } from "@/app/data/fpp-notes";
-import { getFPPFlashcardsBySection } from "@/app/data/fpp-flashcards";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawSectionNote, AirLawNoteBlock } from "@/app/data/airlaw-notes";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
-import { mergePplNotes, pplQuestionDepth, pplFlashcardDepth } from "@/app/data/ppl-depth";
 
-const MAP: Record<string, string[]> = {
-  "7.1": ["A.4.12"],                       // Mass & Balance
-  "7.2": ["A.4.4"],                        // Abbreviations, Definitions & Symbols (V-speeds/airspeeds)
-  "7.3": ["A.4.6"],                        // Runways (declared distances)
-  "7.4": ["A.4.9", "A.4.7"],               // Aeroplane Performance Graphs
-  "7.6": ["A.4.13"],                       // Fuel Weight & Planning (A.4.11 Cruise Control is CPL-only)
-  "7.7": ["A.4.7", "A.4.8"],               // Aircraft Performance (A.4.1 Perf Classification & A.4.10 MEP/multi-engine are CPL-only — PPL is single-engine)
-};
 // PPL depth filter: exclude the hardest CPL questions (e.g. CAP-graph/performance
 // calculations beyond the PPL syllabus).
-// The PPL textbook's own chapter questions come first, then the depth-filtered CPL pool.
-export function getPPLFppQuestionsBySection(s: string): AirLawQuestion[] { return [...getPPLFppAvexBySection(s), ...RA1_QUESTIONS.filter((q) => q.sectionId === s), ...pplQuestionDepth((MAP[s] ?? []).flatMap(getFPPQuestionsBySection))]; }
-export function getPPLFppFlashcardsBySection(s: string): AirLawFlashcard[] { return pplFlashcardDepth((MAP[s] ?? []).flatMap(getFPPFlashcardsBySection)); }
+// PPL questions come ONLY from the PPL textbook's chapters (AVEX PPL Vol 6) and the
+// RA-1 charts that replace its Chapter 3 graphs — never the CPL bank, which is
+// the CPL course's paid content and goes beyond the PPL syllabus.
+export function getPPLFppQuestionsBySection(s: string): AirLawQuestion[] { return [...getPPLFppAvexBySection(s), ...RA1_QUESTIONS.filter((q) => q.sectionId === s)]; }
+// Authored cards: none — subjectContent() derives the deck from the PPL notes.
+export const getPPLFppFlashcardsBySection = (): AirLawFlashcard[] => [];
 const PICK: Record<string, [string, string[]]> = {
   "7.1": ["Mass & Balance", ["A.4.12#Centre of gravity|CG limits|The masses|Floor loading|Mass limitations|Calculating the CG|Movement of CG"]],
   "7.2": ["Abbreviations, Definitions & Symbols", ["A.4.4#IAS|Structural|Climb and endurance|Stall speeds", "A.4.5"]],
@@ -69,7 +62,6 @@ export function getPPLFppNoteBySection(s: string): AirLawSectionNote | undefined
   const n = e ? pickPplNote(s, e[0], e[1]) : undefined;
   return n && EXTRA[s] ? { ...n, blocks: [...EXTRA[s], ...n.blocks] } : n;
 }
-const SECS = [...new Set(Object.values(MAP).flat())];
-export const PPL_FPP_QUESTIONS: AirLawQuestion[] = [...PPL_FPP_AVEX_QUESTIONS, ...RA1_QUESTIONS, ...pplQuestionDepth(FPP_ALL_QUESTIONS.filter((x) => SECS.includes(x.sectionId)), Number.MAX_SAFE_INTEGER)];
+export const PPL_FPP_QUESTIONS: AirLawQuestion[] = [...PPL_FPP_AVEX_QUESTIONS, ...RA1_QUESTIONS];
 
 export { PPL_FPP_FIGURE_KEY } from "./figure-keys";

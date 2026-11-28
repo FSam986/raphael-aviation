@@ -5,7 +5,7 @@ import { pickPplNote } from "@/app/data/ppl-pick";
 // Appendix 1.5 A syllabus scope. No textbook text reproduced. Shape matches
 // AirLawSectionNote.
 
-import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
+import type { AirLawSectionNote, AirLawNoteBlock } from "@/app/data/airlaw-notes";
 
 export const GR_NOTES: AirLawSectionNote[] = [
   {
@@ -323,7 +323,60 @@ export const GR_NOTES: AirLawSectionNote[] = [
   },
 ];
 
+// Topics from the Communications textbook (CAE Oxford ATPL Book 14, ICAO-standard
+// parts only) that the GR notes did not cover; figureTopics place the GR plates.
+const GR_EXTRA: Record<string, AirLawNoteBlock[]> = {
+  GR2: [{ heading: "VHF range: power, attenuation, ducting and scatter", figureTopics: ["VHF line-of-sight range"], points: [
+    "Attenuation is the loss of signal strength with distance: the energy spreads over a larger area and some is absorbed by the earth and atmosphere.",
+    "Range depends on transmitter power, but only as its square root: to DOUBLE the range you need FOUR times the power.",
+    "VHF is essentially line-of-sight. Maximum range (NM) ≈ 1.23 × (√h₁ + √h₂), heights in feet of the ground aerial and the aircraft — more height on either end gives more range.",
+    "§ Abnormal (freak) propagation",
+    "Duct propagation (super-refraction) traps VHF signals under a temperature inversion with humidity falling sharply with height — typical over land on high-pressure nights and early mornings, or warm air over a cold sea. Range can be hundreds of miles beyond the horizon, causing interference between stations sharing a frequency.",
+    "Sporadic-E scatter can occasionally carry VHF well beyond line of sight. It is unpredictable and unreliable, and is a source of interference rather than a usable means of communication.",
+  ] }],
+  GR5: [{ heading: "Time, general calls and key instructions", figureTopics: ["Phonetic alphabet & numbers", "Readability scale", "Transponder (SSR)", "Q-codes for bearings"], points: [
+    "§ Transmission of time",
+    "Times are UTC. Normally only the minutes are given (0920 → “TOO ZE-RO”); give all four figures when there is any risk of confusion (“ZE-RO NIN-ER TOO ZE-RO”). Time checks are given to the nearest half minute.",
+    "§ General calls",
+    "A general call from the ground (ALL STATIONS …) is addressed to everyone on the frequency and is NOT acknowledged.",
+    "§ Clearances & instructions",
+    "Clearance limit — the point to which an aircraft is granted an ATC clearance. RECLEARED — a change to your last clearance; the new one supersedes it.",
+    "ORBIT (left/right) — continue 360° turns until told otherwise. GOING AROUND — the pilot's call for a missed approach / go-around.",
+    "STOP IMMEDIATELY (said twice) — abandon the take-off; the pilot replies STOPPING. MONITOR — listen out on the frequency; CONTACT — establish communication on it.",
+    "RESET (or RECYCLE) SQUAWK — reselect the assigned mode and code. SQUAWK IDENT — press the IDENT button.",
+    "§ VOLMET",
+    "VOLMET is a continuous broadcast of meteorological information (METARs, TAFs, SIGMETs) for aircraft in flight, on its own HF or VHF frequency.",
+  ] }],
+  GR8: [{ heading: "Medical transports, radio silence and ending distress", figureTopics: ["VDF bearing classes"], points: [
+    "PAN PAN MEDICAL identifies an aircraft used for protected medical transport under the 1949 Geneva Conventions (it is not used just because someone on board is ill — that is a normal PAN PAN).",
+    "The aircraft in distress, or the station controlling the distress traffic, may impose silence: “ALL STATIONS, STOP TRANSMITTING, MAYDAY”. Other stations must not transmit on that frequency until silence is lifted.",
+    "When the emergency is over, the controlling station broadcasts DISTRESS TRAFFIC ENDED; normal working then resumes.",
+    "An urgency or distress message contains: station addressed (when time allows), call sign, nature of the condition, intentions of the commander, present position, level and heading.",
+  ] }],
+  GR3: [{ heading: "Reading frequencies and limits off a chart", figureTopics: ["Reading frequencies off a chart"], points: [
+    "Airspace boxes on charts give the name, class, controlling unit and frequency, with the upper / lower limits (e.g. FL195 / 4500 ft).",
+    "Navaid boxes give the identifier, frequency and (for DME) the channel; an NDB frequency is in kHz, a VOR in MHz.",
+    "Listen to ATIS before first contact; check restricted / danger areas and their vertical limits before planning to enter.",
+  ] }],
+  GR4: [{ heading: "Ground signals in the signals area", figureTopics: ["Signals area & ground signals"], points: [
+    "Red square with one yellow diagonal: take special precautions (bad state of the manoeuvring area). With both diagonals: landing prohibited.",
+    "White dumb-bell: land, take off and taxi on runways and taxiways only. Dumb-bell with black bars across each end: runways for landing and take-off only; other movement need not be confined to runways and taxiways.",
+    "White double cross: gliders operating. Landing T: land and take off parallel to the shaft, toward the cross-arm. Two-digit number: take-off direction in tens of degrees magnetic.",
+    "Right-hand arrow: right-hand circuit. Black C on yellow: ATS reporting office. Crosses on runways or taxiways: area unfit for aircraft movement.",
+  ] }],
+  GR7: [{ heading: "Ground-to-air signals used by survivors", figureTopics: ["Ground-to-air signals"], points: [
+    "V — require assistance · X — require medical assistance · N — no / negative · Y — yes / affirmative · arrow — proceeding in this direction.",
+    "Symbols should be at least 2.5 m long and as conspicuous as possible.",
+    "An aircraft shows the message is understood by rocking its wings (day) or flashing its landing lights twice (night).",
+  ] }],
+};
+
 export function getGRNoteBySection(sectionId: string): AirLawSectionNote | undefined {
+  const n = getGRNoteBase(sectionId);
+  return n && GR_EXTRA[sectionId] ? { ...n, blocks: [...n.blocks, ...GR_EXTRA[sectionId]] } : n;
+}
+
+function getGRNoteBase(sectionId: string): AirLawSectionNote | undefined {
   const full = GR_FULL[sectionId];
   const old = GR_NOTES.find((n) => n.sectionId === sectionId);
   if (!full) return old;

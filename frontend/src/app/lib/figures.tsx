@@ -47,6 +47,7 @@ import { NAV_FIGURES } from "@/app/data/nav-figures";
 import { AIRLAW_FIGURES } from "@/app/data/airlaw-figures";
 import { RADIONAV_FIGURES } from "@/app/data/radionav-figures";
 import { NavLightsSectors, NightVisionDiagram, AerodromeNightLighting } from "@/app/components/figures/nightFigures";
+import { PhoneticAlphabetPlate, ReadabilityScalePlate, TransponderPlate, SurvivorSignalsPlate, SignalsAreaPlate, QCodesPlate, VdfClassesPlate, ChartReadingPlate, LineOfSightPlate } from "@/app/components/figures/grPlates";
 import { ApproachSegments, ApproachLightingPAPI, StraightDeparture } from "@/app/components/figures/awoFigures";
 import { ColdTempAltimetry, MinimumAltitudes, HoldingEntry, TransitionLayer, Microburst, Hydroplaning, StabilisedApproach, TurningDeparture, DeclaredDistances, ApproachMinima, DeIcing, VSpeeds, STARArrival, CirclingApproach, DMEArc, MissedApproach, HoldingSpeeds, VerticalProfile, RNPContainment } from "@/app/components/figures/irProcFigures";
 import { RunwayLighting, RunwayMarkings } from "@/app/components/figures/runwayFigures";
@@ -408,6 +409,22 @@ const RN_TOPIC_FIGS: Record<string, FigureDef[]> = {
 FIGURES["NR1"] = [{ id: "nr-navlights", title: "Navigation & Anti-Collision Lights", caption: "Red left 110°, green right 110°, white tail 140°, and how to read another aircraft's lights.", render: () => <NavLightsSectors /> }];
 FIGURES["NR3"] = [{ id: "nr-nightvision", title: "Night Vision — Rods, Cones & Dark Adaptation", caption: "Rod/cone distribution, the foveal night blind spot and the 30-minute dark-adaptation curve.", render: () => <NightVisionDiagram /> }];
 FIGURES["NR4"] = [{ id: "nr-aerodrome", title: "Aerodrome Night Lighting", caption: "Runway edge/threshold/end, taxiway blue/green, stop bar, beacon and obstacle lights.", render: () => <AerodromeNightLighting /> }];
+
+// General Radiotelephony — exam-topic plates (components/figures/grPlates.tsx).
+const GR_PLATES: Record<string, FigureDef[]> = {
+  GR2: [{ id: "gr-los", title: "VHF line-of-sight range", caption: "1.23 × (√h₁ + √h₂), power, terrain, ducting and scatter.", render: () => <LineOfSightPlate /> }],
+  GR3: [{ id: "gr-chart", title: "Reading frequencies off a chart", caption: "Airspace and navaid boxes, limits, ATIS and restricted areas (fictional chart).", render: () => <ChartReadingPlate /> }],
+  GR4: [{ id: "gr-signals", title: "Signals area & ground signals", caption: "The ten aerodrome ground signals and what they mean.", render: () => <SignalsAreaPlate /> }],
+  GR5: [
+    { id: "gr-phonetic", title: "Phonetic alphabet & numbers", caption: "ICAO spelling alphabet and number pronunciation.", render: () => <PhoneticAlphabetPlate /> },
+    { id: "gr-readability", title: "Readability scale", caption: "Readability 1–5 and the radio check.", render: () => <ReadabilityScalePlate /> },
+    { id: "gr-squawk", title: "Transponder (SSR)", caption: "7500 / 7600 / 7700 and transponder instructions.", render: () => <TransponderPlate /> },
+    { id: "gr-qcodes", title: "Q-codes for bearings", caption: "QTE, QDR, QUJ and QDM on one compass, with altimeter Q-codes.", render: () => <QCodesPlate /> },
+  ],
+  GR7: [{ id: "gr-survivor", title: "Ground-to-air signals", caption: "Survivor signals V, X, N, Y and the arrow.", render: () => <SurvivorSignalsPlate /> }],
+  GR8: [{ id: "gr-vdf", title: "VDF bearing classes", caption: "Class A ±2°, B ±5°, C ±10°, D worse than C.", render: () => <VdfClassesPlate /> }],
+};
+for (const [k, v] of Object.entries(GR_PLATES)) FIGURES[k] = [...(FIGURES[k] ?? []), ...v];
 
 export function atgFiguresByTopic(topics: string[]): FigureDef[] {
   const raster = ATG_IMAGE_FIGURES

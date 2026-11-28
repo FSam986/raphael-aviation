@@ -36,6 +36,7 @@ export const NAV_ITEMS = [
   { href: "/study", icon: "study", label: "Study" },
   { href: "/exams", icon: "exams", label: "Mock Exams" },
   { href: "/exam-brief", icon: "brief", label: "Exam-Day Brief" },
+  { href: "/debrief", icon: "target", label: "Exam Debrief" },
   { href: "/flashcards", icon: "flashcards", label: "Flashcards" },
   { href: "/progress", icon: "progress", label: "Briefing" },
   { href: "/pricing", icon: "cap", label: "Plans" },
