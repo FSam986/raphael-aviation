@@ -23,7 +23,7 @@ function Sheet({ title, sub, notes, children }: { title: string; sub: string; no
 function Cal() {
   return (
     <Sheet title="Airspeed calibration" sub="Normal static source · KIAS → KCAS">
-      {([["Flaps 0°", D.cal0], ["Flaps 30°", D.cal30]] as const).map(([label, rows]) => (
+      {([["Flaps 0°", D.cal0], ["Flaps 10°", D.cal10], ["Flaps 30°", D.cal30]] as const).map(([label, rows]) => (
         <table key={label} className="border-collapse mb-2">
           <tbody>
             <tr><th className={th}>{label} KIAS</th>{rows.map(([i]) => <td key={i} className={td}>{i}</td>)}</tr>
@@ -37,10 +37,10 @@ function Cal() {
 
 function Stall() {
   return (
-    <Sheet title="Stall speeds" sub="Maximum weight 2400 lb · power off · KCAS">
+    <Sheet title="Stall speeds" sub="Power off · most forward CG · KCAS">
       <table className="border-collapse">
-        <thead><tr><th className={th}>Flaps</th>{D.banks.map((b) => <th key={b} className={th}>{b}° bank</th>)}</tr></thead>
-        <tbody>{Object.entries(D.stall).map(([f, v]) => <tr key={f}><th className={th}>{f}°</th>{v.map((x, i) => <td key={i} className={td}>{x}</td>)}</tr>)}</tbody>
+        <thead><tr><th className={th}>Weight</th><th className={th}>Flaps</th>{D.banks.map((b) => <th key={b} className={th}>{b}° bank</th>)}</tr></thead>
+        <tbody>{([["2400 lb", D.stall], ["2000 lb", D.stall2000]] as const).flatMap(([w, tab]) => Object.entries(tab).map(([f, v], i) => <tr key={w + f}>{i === 0 && <th className={th} rowSpan={3}>{w}</th>}<th className={th}>{f}°</th>{(v as readonly number[]).map((x: number, k: number) => <td key={k} className={td}>{x}</td>)}</tr>))}</tbody>
       </table>
     </Sheet>
   );
@@ -56,6 +56,7 @@ function Distance({ which }: { which: "to" | "ld" }) {
       notes={[
         "Decrease distances 10% for each 9 kt of headwind.",
         "Increase distances 10% for each 2 kt of tailwind (tailwinds up to 10 kt).",
+        ...(to ? ["Decrease distances 8% for each 100 lb below 2400 lb."] : []),
         to ? "Dry grass runway: increase the ground roll by 15%." : "Dry grass runway: increase the ground roll by 45%.",
       ]}
     >
@@ -118,7 +119,63 @@ function Roc() {
   );
 }
 
+function ToSpeeds() {
+  return (
+    <Sheet title="Take-off speeds" sub="Flaps 10° · short-field technique · KIAS">
+      <table className="border-collapse">
+        <thead><tr>{["Weight lb", "Lift-off", "At 50 ft"].map((h) => <th key={h} className={th}>{h}</th>)}</tr></thead>
+        <tbody>{D.tospd.map(([w, lo, b]) => <tr key={w}><td className={td}>{w}</td><td className={td}>{lo}</td><td className={td}>{b}</td></tr>)}</tbody>
+      </table>
+    </Sheet>
+  );
+}
+
+function Profile() {
+  return (
+    <Sheet title="Range & endurance profile" sub="48 USG usable · includes start, taxi, take-off & climb · zero wind · ISA" notes={["Reserve = 45 minutes at the cruise fuel flow shown."]}>
+      <table className="border-collapse">
+        <thead>
+          <tr><th className={th} rowSpan={2}>Press alt ft</th><th className={th} rowSpan={2}>RPM</th><th className={th} rowSpan={2}>KTAS</th><th className={th} colSpan={2}>Range NM</th><th className={th} colSpan={2}>Endurance h</th></tr>
+          <tr><th className={th}>No reserve</th><th className={th}>45 min reserve</th><th className={th}>No reserve</th><th className={th}>45 min reserve</th></tr>
+        </thead>
+        <tbody>{Object.entries(D.profile).flatMap(([pa, rows]) => rows.map(([rpm, tas, r0, rr, e0, er], i) => (
+          <tr key={pa + rpm}>{i === 0 && <th className={th} rowSpan={rows.length}>{pa}</th>}<td className={td}>{rpm}</td><td className={td}>{tas}</td><td className={td}>{r0}</td><td className={td}>{rr}</td><td className={td}>{e0.toFixed(1)}</td><td className={td}>{er.toFixed(1)}</td></tr>
+        )))}</tbody>
+      </table>
+    </Sheet>
+  );
+}
+
+function Descent() {
+  return (
+    <Sheet title="Time, fuel & distance to descend" sub="To sea level · 500 fpm · 110 KIAS · ISA · zero wind" notes={["Descending to an aerodrome above sea level: subtract the values for its pressure altitude."]}>
+      <table className="border-collapse">
+        <thead><tr>{["Press alt ft", "Time min", "Fuel USG", "Distance NM"].map((h) => <th key={h} className={th}>{h}</th>)}</tr></thead>
+        <tbody>{D.descent.map(([pa, t, f, d]) => <tr key={pa}><td className={td}>{pa}</td><td className={td}>{t}</td><td className={td}>{f.toFixed(1)}</td><td className={td}>{d}</td></tr>)}</tbody>
+      </table>
+    </Sheet>
+  );
+}
+
+function Glide() {
+  const W = 360, H = 220, L = 44, B = 30, T = 12, R = 12;
+  const x = (nm: number) => L + (nm / 20) * (W - L - R);
+  const y = (ft: number) => H - B - (ft / 12000) * (H - B - T);
+  return (
+    <Sheet title="Maximum glide" sub="2400 lb · 70 KIAS · flaps 0° · propeller windmilling · zero wind" notes={[`About ${D.glide} NM per 1000 ft of height lost.`]}>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full max-w-md">
+        {[0, 4, 8, 12, 16, 20].map((nm) => <g key={nm}><line x1={x(nm)} y1={y(0)} x2={x(nm)} y2={y(12000)} stroke="#d4d4d8" /><text x={x(nm)} y={H - 14} fontSize="9" textAnchor="middle" fill="#52525b">{nm}</text></g>)}
+        {[0, 2000, 4000, 6000, 8000, 10000, 12000].map((ft) => <g key={ft}><line x1={L} y1={y(ft)} x2={W - R} y2={y(ft)} stroke="#e4e4e7" /><text x={L - 5} y={y(ft) + 3} fontSize="9" textAnchor="end" fill="#52525b">{ft}</text></g>)}
+        <line x1={x(0)} y1={y(0)} x2={x(12 * D.glide)} y2={y(12000)} stroke="#1d4ed8" strokeWidth="2" />
+        <text x={(L + W - R) / 2} y={H - 2} fontSize="9.5" textAnchor="middle" fill="#3f3f46">Ground distance (NM)</text>
+        <text x={10} y={(T + H - B) / 2} fontSize="9.5" textAnchor="middle" fill="#3f3f46" transform={`rotate(-90 10 ${(T + H - B) / 2})`}>Height above terrain (ft)</text>
+      </svg>
+    </Sheet>
+  );
+}
+
 const CHARTS: Record<string, () => React.ReactNode> = {
+  "ra1-tospd": () => <ToSpeeds />, "ra1-profile": () => <Profile />, "ra1-descent": () => <Descent />, "ra1-glide": () => <Glide />,
   "ra1-cal": () => <Cal />, "ra1-stall": () => <Stall />, "ra1-to": () => <Distance which="to" />,
   "ra1-ld": () => <Distance which="ld" />, "ra1-climb": () => <Climb />, "ra1-cruise": () => <Cruise />, "ra1-roc": () => <Roc />,
 };

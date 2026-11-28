@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // section page and any consumer stay unchanged.
 
 import { gapQuestions } from "@/app/data/gap-questions";
+import { pplQuestionInScope, pplNoteInScope, pplCardInScope } from "@/app/lib/pplScope";
 import type { AirLawSectionNote } from "@/app/data/airlaw-notes";
 import type { AirLawQuestion } from "@/app/data/airlaw-questions";
 import type { AirLawFlashcard } from "@/app/data/airlaw-flashcards";
@@ -120,9 +121,14 @@ export function subjectContent(subjectId: string): SubjectGetters | undefined {
   return loaded.get(subjectId);
 }
 
-function wrap(subjectId: string, g: SubjectGetters): SubjectGetters {
+function wrap(subjectId: string, raw: SubjectGetters): SubjectGetters {
+  // PPL subjects: strictly the PPL syllabus — strip CPL/IR-only material (lib/pplScope).
+  const g: SubjectGetters = subjectId.startsWith("ppl-")
+    ? { questions: (s) => raw.questions(s).filter(pplQuestionInScope), note: (s) => pplNoteInScope(raw.note(s)), flashcards: (s) => raw.flashcards(s).filter(pplCardInScope) }
+    : raw;
+  const scope = subjectId.startsWith("ppl-") ? pplQuestionInScope : () => true;
   return {
-    questions: (sectionId: string) => [...g.questions(sectionId), ...gapQuestions(subjectId, sectionId)].map(shuffleOptions),
+    questions: (sectionId: string) => [...g.questions(sectionId), ...gapQuestions(subjectId, sectionId).filter(scope)].map(shuffleOptions),
     note: g.note,
     // Authored + note-derived cards, de-duplicated within the deck (same front+back).
     flashcards: (sectionId: string) => {

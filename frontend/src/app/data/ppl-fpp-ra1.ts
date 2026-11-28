@@ -6,7 +6,7 @@
 
 import type { AirLawQuestion } from "./airlaw-questions";
 
-export const RA1_DATA = {"cal0": [[50, 56], [60, 63], [70, 71], [80, 80], [90, 89], [100, 98], [110, 107], [120, 116]], "cal30": [[40, 47], [50, 54], [60, 61], [70, 70], [80, 79]], "banks": [0, 30, 45, 60], "stall": {"0": [50, 54, 59, 71], "10": [46, 49, 55, 65], "30": [42, 45, 50, 59]}, "pas": [0, 2000, 4000, 6000], "temps": [0, 10, 20, 30, 40], "to": {"0": [[760, 1390], [850, 1555], [940, 1725], [1035, 1890], [1125, 2055]], "2000": [[895, 1640], [1005, 1835], [1110, 2035], [1220, 2230], [1325, 2425]], "4000": [[1035, 1890], [1160, 2115], [1280, 2345], [1405, 2570], [1530, 2800]], "6000": [[1170, 2140], [1310, 2395], [1450, 2655], [1590, 2910], [1730, 3170]]}, "ld": {"0": [[540, 1270], [570, 1345], [605, 1420], [635, 1500], [670, 1575]], "2000": [[585, 1370], [620, 1455], [655, 1535], [690, 1620], [725, 1700]], "4000": [[625, 1475], [665, 1560], [700, 1650], [740, 1740], [775, 1825]], "6000": [[670, 1575], [710, 1670], [750, 1765], [790, 1860], [830, 1955]]}, "climb": [[0, 0, 0.0, 0], [2000, 3, 0.8, 4], [4000, 6, 1.6, 8], [6000, 10, 2.5, 13], [8000, 14, 3.5, 19], [10000, 19, 4.7, 26]], "cruise": {"4000": [[2500, 77, 112, 8.6], [2400, 69, 107, 7.8], [2300, 62, 101, 7.0], [2200, 55, 95, 6.3]], "8000": [[2500, 70, 115, 7.9], [2400, 63, 109, 7.2], [2300, 57, 103, 6.5], [2200, 51, 96, 5.9]]}, "roc": [[0, 730], [2000, 630], [4000, 530], [6000, 430], [8000, 330], [10000, 230]]} as const;
+export const RA1_DATA = {"cal0": [[50, 56], [60, 63], [70, 71], [80, 80], [90, 89], [100, 98], [110, 107], [120, 116]], "cal10": [[45, 51], [50, 55], [60, 62], [70, 71], [80, 79], [90, 88]], "cal30": [[40, 47], [50, 54], [60, 61], [70, 70], [80, 79]], "stall2000": {"0": [46, 49, 54, 65], "10": [42, 45, 50, 59], "30": [38, 41, 46, 54]}, "tospd": [[2400, 53, 59], [2200, 51, 57], [2000, 49, 54]], "profile": {"4000": [[2500, 112, 598, 514, 5.4, 4.6], [2400, 107, 629, 549, 5.9, 5.2], [2300, 101, 662, 586, 6.6, 5.8], [2200, 95, 691, 620, 7.3, 6.5]], "8000": [[2500, 115, 651, 565, 5.7, 5.0], [2400, 109, 676, 594, 6.3, 5.5], [2300, 103, 707, 629, 6.9, 6.2], [2200, 96, 725, 653, 7.6, 6.8]]}, "descent": [[2000, 4, 0.4, 8], [4000, 8, 0.8, 16], [6000, 12, 1.2, 24], [8000, 16, 1.6, 33], [10000, 20, 2.0, 42]], "glide": 1.6, "banks": [0, 30, 45, 60], "stall": {"0": [50, 54, 59, 71], "10": [46, 49, 55, 65], "30": [42, 45, 50, 59]}, "pas": [0, 2000, 4000, 6000], "temps": [0, 10, 20, 30, 40], "to": {"0": [[760, 1390], [850, 1555], [940, 1725], [1035, 1890], [1125, 2055]], "2000": [[895, 1640], [1005, 1835], [1110, 2035], [1220, 2230], [1325, 2425]], "4000": [[1035, 1890], [1160, 2115], [1280, 2345], [1405, 2570], [1530, 2800]], "6000": [[1170, 2140], [1310, 2395], [1450, 2655], [1590, 2910], [1730, 3170]]}, "ld": {"0": [[540, 1270], [570, 1345], [605, 1420], [635, 1500], [670, 1575]], "2000": [[585, 1370], [620, 1455], [655, 1535], [690, 1620], [725, 1700]], "4000": [[625, 1475], [665, 1560], [700, 1650], [740, 1740], [775, 1825]], "6000": [[670, 1575], [710, 1670], [750, 1765], [790, 1860], [830, 1955]]}, "climb": [[0, 0, 0.0, 0], [2000, 3, 0.8, 4], [4000, 6, 1.6, 8], [6000, 10, 2.5, 13], [8000, 14, 3.5, 19], [10000, 19, 4.7, 26]], "cruise": {"4000": [[2500, 77, 112, 8.6], [2400, 69, 107, 7.8], [2300, 62, 101, 7.0], [2200, 55, 95, 6.3]], "8000": [[2500, 70, 115, 7.9], [2400, 63, 109, 7.2], [2300, 57, 103, 6.5], [2200, 51, 96, 5.9]]}, "roc": [[0, 730], [2000, 630], [4000, 530], [6000, 430], [8000, 330], [10000, 230]]} as const;
 
 export const RA1_QUESTIONS: (AirLawQuestion & { figure: string })[] = [
  {
@@ -333,5 +333,187 @@ export const RA1_QUESTIONS: (AirLawQuestion & { figure: string })[] = [
   "correctAnswer": "a",
   "explanation": "Average of 530 and 430 = 480 fpm; 5000 ÷ 480 ≈ 10 min.",
   "difficulty": "hard"
+ },
+ {
+  "id": "RA1-26",
+  "sectionId": "7.4",
+  "figure": "ra1-cal",
+  "question": "(RA-1 airspeed calibration) With flaps 10°, an IAS of 60 KIAS corresponds to:",
+  "optionA": "63 KCAS",
+  "optionB": "62 KCAS",
+  "optionC": "61 KCAS",
+  "optionD": "60 KCAS",
+  "correctAnswer": "b",
+  "explanation": "Use the flaps-10° row: 60 KIAS → 62 KCAS (63 is flaps 0°, 61 is flaps 30°).",
+  "difficulty": "easy"
+ },
+ {
+  "id": "RA1-27",
+  "sectionId": "7.4",
+  "figure": "ra1-stall",
+  "question": "(RA-1 stall speeds) At 2000 lb, flaps 0°, 45° angle of bank, the stall speed is:",
+  "optionA": "59 KCAS",
+  "optionB": "46 KCAS",
+  "optionC": "54 KCAS",
+  "optionD": "65 KCAS",
+  "correctAnswer": "c",
+  "explanation": "Use the 2000 lb block, flaps 0°, 45°: 54 KCAS (lower than the 59 KCAS at 2400 lb — stall speed falls with weight).",
+  "difficulty": "medium"
+ },
+ {
+  "id": "RA1-28",
+  "sectionId": "7.4",
+  "figure": "ra1-stall",
+  "question": "(RA-1 stall speeds, 2400 lb) Flaps 30°. If the bank angle is reduced from 45° to 30°, the stall speed will:",
+  "optionA": "increase by 5 kt",
+  "optionB": "reduce by 8 kt",
+  "optionC": "not change",
+  "optionD": "reduce by 5 kt",
+  "correctAnswer": "d",
+  "explanation": "50 KCAS at 45° → 45 KCAS at 30°: a reduction of 5 kt (less bank, less load factor).",
+  "difficulty": "medium"
+ },
+ {
+  "id": "RA1-29",
+  "sectionId": "7.4",
+  "figure": "ra1-tospd",
+  "question": "(RA-1 take-off speeds) At a take-off weight of 2200 lb, the lift-off speed and the speed at 50 ft are:",
+  "optionA": "51 and 57 KIAS",
+  "optionB": "53 and 59 KIAS",
+  "optionC": "49 and 54 KIAS",
+  "optionD": "57 and 51 KIAS",
+  "correctAnswer": "a",
+  "explanation": "Read the 2200 lb row of the take-off speed table.",
+  "difficulty": "easy"
+ },
+ {
+  "id": "RA1-30",
+  "sectionId": "7.4",
+  "figure": "ra1-to",
+  "question": "(RA-1 take-off distance) Pressure altitude 2000 ft, +20°C, zero wind, paved dry runway, weight 2200 lb. The total distance over 50 ft is approximately:",
+  "optionA": "2035 ft",
+  "optionB": "1709 ft",
+  "optionC": "1872 ft",
+  "optionD": "1628 ft",
+  "correctAnswer": "b",
+  "explanation": "Table (2400 lb): 2035 ft. Weight note: decrease 8% per 100 lb below 2400 lb → 200 lb lighter = −16% → 2035 × 0.84 = 1709 ft.",
+  "difficulty": "hard"
+ },
+ {
+  "id": "RA1-31",
+  "sectionId": "7.4",
+  "figure": "ra1-to",
+  "question": "(RA-1 take-off distance) Pressure altitude 6000 ft, +30°C, zero wind, paved dry runway with 2445 ft available to a 50 ft obstacle. The maximum take-off weight is:",
+  "optionA": "2400 lb",
+  "optionB": "2300 lb",
+  "optionC": "2200 lb",
+  "optionD": "2100 lb",
+  "correctAnswer": "c",
+  "explanation": "At 2400 lb the table needs 2910 ft — too much. Each 100 lb less saves 8%: 2300 lb → 2677 ft (still over 2445); 2200 lb → 2444 ft (fits). Maximum 2200 lb.",
+  "difficulty": "hard"
+ },
+ {
+  "id": "RA1-32",
+  "sectionId": "7.4",
+  "figure": "ra1-profile",
+  "question": "(RA-1 range & endurance profile) 8000 ft, 2300 RPM, 48 USG usable. The range with a 45-minute reserve is:",
+  "optionA": "707 NM",
+  "optionB": "594 NM",
+  "optionC": "586 NM",
+  "optionD": "629 NM",
+  "correctAnswer": "d",
+  "explanation": "8000 ft block, 2300 RPM row, 'with 45 min reserve' column: 629 NM (707 NM with no reserve).",
+  "difficulty": "medium"
+ },
+ {
+  "id": "RA1-33",
+  "sectionId": "7.4",
+  "figure": "ra1-profile",
+  "question": "(RA-1 range & endurance profile) At 4000 ft and 2500 RPM, the difference between the endurance with no reserve and with a 45-minute reserve is:",
+  "optionA": "45 minutes",
+  "optionB": "63 minutes",
+  "optionC": "30 minutes",
+  "optionD": "324 minutes",
+  "correctAnswer": "a",
+  "explanation": "No reserve 5.4 h, with reserve 4.6 h: difference 0.80 h = 45 min — exactly the reserve fuel at that fuel flow.",
+  "difficulty": "medium"
+ },
+ {
+  "id": "RA1-34",
+  "sectionId": "7.4",
+  "figure": "ra1-profile",
+  "question": "(RA-1 range & endurance profile) At 8000 ft, which power setting gives the greatest range with reserve?",
+  "optionA": "2500 RPM",
+  "optionB": "2200 RPM",
+  "optionC": "2400 RPM",
+  "optionD": "2300 RPM",
+  "correctAnswer": "b",
+  "explanation": "Compare the 'with reserve' column: 2200 RPM gives 653 NM, the most — lower power is more economical.",
+  "difficulty": "medium"
+ },
+ {
+  "id": "RA1-35",
+  "sectionId": "7.6",
+  "figure": "ra1-descent",
+  "question": "(RA-1 descent) Descending from pressure altitude 10 000 ft to 2000 ft, the distance covered is:",
+  "optionA": "42 NM",
+  "optionB": "33 NM",
+  "optionC": "34 NM",
+  "optionD": "50 NM",
+  "correctAnswer": "c",
+  "explanation": "Descent table is to sea level: subtract the end altitude. 42 − 8 = 34 NM.",
+  "difficulty": "medium"
+ },
+ {
+  "id": "RA1-36",
+  "sectionId": "7.6",
+  "figure": "ra1-descent",
+  "question": "(RA-1 descent) The time and fuel to descend from 8000 ft to sea level are:",
+  "optionA": "12 min and 1.2 USG",
+  "optionB": "16 min and 3.2 USG",
+  "optionC": "20 min and 2.0 USG",
+  "optionD": "16 min and 1.6 USG",
+  "correctAnswer": "d",
+  "explanation": "Read the 8000 ft row.",
+  "difficulty": "easy"
+ },
+ {
+  "id": "RA1-37",
+  "sectionId": "7.4",
+  "figure": "ra1-glide",
+  "question": "(RA-1 maximum glide) Gliding from 9500 ft to 1500 ft (zero wind), the distance covered is approximately:",
+  "optionA": "12.8 NM",
+  "optionB": "15.2 NM",
+  "optionC": "9.6 NM",
+  "optionD": "16.0 NM",
+  "correctAnswer": "a",
+  "explanation": "Height lost 8000 ft × 1.6 NM per 1000 ft = 12.8 NM.",
+  "difficulty": "easy"
+ },
+ {
+  "id": "RA1-38",
+  "sectionId": "7.3",
+  "figure": "ra1-ld",
+  "question": "(RA-1 landing distance) Pressure altitude 4000 ft, +20°C, zero wind, paved dry runway 2000 ft long with the threshold displaced 100 ft. Landing over a 50 ft obstacle is:",
+  "optionA": "not possible",
+  "optionB": "possible",
+  "optionC": "possible only with a 9 kt headwind",
+  "optionD": "possible only on grass",
+  "correctAnswer": "b",
+  "explanation": "LDA = 2000 − 100 = 1900 ft. Table total from 50 ft = 1650 ft → fits.",
+  "difficulty": "hard"
+ },
+ {
+  "id": "RA1-39",
+  "sectionId": "7.4",
+  "figure": "ra1-ld",
+  "question": "(RA-1 landing distance) Pressure altitude 2000 ft, +20°C, 2 kt tailwind, paved dry runway. The total landing distance from 50 ft is approximately:",
+  "optionA": "1535 ft",
+  "optionB": "1382 ft",
+  "optionC": "1689 ft",
+  "optionD": "1842 ft",
+  "correctAnswer": "c",
+  "explanation": "Table: 1535 ft. Tailwind: +10% per 2 kt → 1689 ft.",
+  "difficulty": "medium"
  }
 ];
